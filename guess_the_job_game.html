@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guess the Job — Speaking &amp; Listening Lab</title>
+<style>
+  :root{
+    --bg:#0e2233;
+    --bg2:#153449;
+    --panel:#14304a;
+    --card:#1d4763;
+    --accent:#ffc94d;
+    --accent-2:#ff6b6b;
+    --good:#4fd18b;
+    --easy:#4fd18b;
+    --med:#ffc94d;
+    --hard:#ff8787;
+    --text:#eef7ff;
+    --muted:#9db8cf;
+    --line:#255074;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{height:100%;}
+  body{
+    font-family:'Trebuchet MS','Segoe UI',system-ui,sans-serif;
+    background:radial-gradient(circle at 50% 0%,var(--bg2),var(--bg));
+    color:var(--text);height:100vh;display:flex;flex-direction:column;
+    padding:12px 16px;overflow:hidden;
+  }
+  button{font-family:inherit;cursor:pointer;border:none;border-radius:10px;font-weight:bold;transition:transform .08s,filter .15s,background .15s;}
+  button:active{transform:scale(.96);}
+  .btn{background:var(--card);color:var(--text);border:1px solid var(--line);padding:9px 15px;font-size:14px;}
+  .btn:hover{filter:brightness(1.18);}
+  .btn-primary{background:var(--accent);color:#3a2c00;padding:11px 22px;font-size:16px;}
+  .btn-good{background:var(--good);color:#063a24;}
+
+  .topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-shrink:0;margin-bottom:10px;flex-wrap:wrap;}
+  .brand{font-size:clamp(20px,2.4vw,30px);font-weight:bold;letter-spacing:1px;color:var(--accent);}
+  .brand span{color:var(--accent-2);}
+  .settings{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+  .settings label{font-size:13px;color:var(--muted);}
+  .settings input{width:52px;font-size:14px;padding:5px 6px;border-radius:7px;border:1px solid var(--line);background:var(--panel);color:var(--text);text-align:center;}
+  .diff-toggle{display:flex;gap:4px;}
+  .diff-toggle button{padding:6px 12px;font-size:13px;border:1px solid var(--line);border-radius:7px;background:var(--panel);color:var(--muted);}
+  .diff-toggle button.on{background:var(--accent);color:#3a2c00;}
+
+  .stage{flex:1;display:flex;gap:14px;min-height:0;}
+  .main{flex:1;display:flex;flex-direction:column;min-width:0;}
+
+  .card-area{
+    flex:1;display:flex;flex-direction:column;
+    background:linear-gradient(160deg,var(--card),var(--bg2));
+    border:2px solid var(--line);border-radius:20px;padding:24px 32px;overflow-y:auto;position:relative;
+  }
+  .diff-badge{position:absolute;top:16px;right:20px;font-size:13px;font-weight:bold;text-transform:uppercase;letter-spacing:2px;padding:5px 15px;border-radius:20px;display:none;}
+  .diff-badge.show{display:block;}
+  .diff-badge.easy{background:var(--easy);color:#063a24;}
+  .diff-badge.medium{background:var(--med);color:#3a2c00;}
+  .diff-badge.hard{background:var(--hard);color:#4a0d0d;}
+
+  .card-eyebrow{font-size:clamp(13px,1.5vw,18px);text-transform:uppercase;letter-spacing:3px;color:var(--accent);font-weight:bold;margin-bottom:6px;}
+  .card-title{font-size:clamp(26px,3.4vw,42px);font-weight:bold;margin-bottom:22px;}
+  .card-start{font-size:clamp(20px,2.6vw,30px);color:var(--muted);display:flex;flex:1;align-items:center;justify-content:center;text-align:center;}
+
+  .clue-stack{display:flex;flex-direction:column;gap:12px;margin-bottom:20px;}
+  .clue{
+    background:var(--panel);border:2px solid var(--line);border-radius:14px;padding:16px 22px;
+    font-size:clamp(19px,2.4vw,30px);line-height:1.35;display:flex;align-items:center;gap:16px;
+    opacity:0;transform:translateY(8px);transition:opacity .3s,transform .3s;
+  }
+  .clue.show{opacity:1;transform:translateY(0);}
+  .clue .cn{flex-shrink:0;width:40px;height:40px;border-radius:50%;background:var(--accent);color:#3a2c00;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:19px;}
+  .clue.last .cn{background:var(--good);color:#063a24;}
+
+  .reveal-box{margin-top:4px;font-size:clamp(26px,3.6vw,46px);font-weight:bold;color:var(--good);opacity:0;transform:scale(.9);transition:opacity .35s,transform .35s;}
+  .reveal-box.show{opacity:1;transform:scale(1);}
+  .reveal-box .rlabel{display:block;font-size:.4em;color:var(--muted);letter-spacing:3px;text-transform:uppercase;margin-bottom:6px;}
+
+  .discuss-band{
+    margin-top:18px;background:rgba(79,209,139,.12);border-left:4px solid var(--good);border-radius:10px;
+    padding:14px 20px;font-size:clamp(16px,2vw,24px);line-height:1.4;opacity:0;max-height:0;overflow:hidden;transition:opacity .35s;
+  }
+  .discuss-band.show{opacity:1;max-height:400px;}
+  .discuss-band .dlabel{display:block;font-size:.62em;color:var(--good);text-transform:uppercase;letter-spacing:2px;font-weight:bold;margin-bottom:6px;}
+
+  .controls-row{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:12px;flex-shrink:0;flex-wrap:wrap;}
+  .card-count{font-size:13px;color:var(--muted);text-align:center;margin-top:6px;}
+
+  /* Sidebar */
+  .side{width:250px;flex-shrink:0;display:flex;flex-direction:column;gap:12px;}
+  .timer-box{background:var(--panel);border-radius:14px;padding:14px;text-align:center;border:1px solid var(--line);}
+  .timer-display{font-size:50px;font-weight:bold;color:var(--accent);font-variant-numeric:tabular-nums;line-height:1;}
+  .timer-display.warn{color:var(--accent-2);animation:pulse .6s infinite;}
+  @keyframes pulse{50%{opacity:.4;}}
+  .timer-set{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:6px;}
+  .timer-set input{width:56px;font-size:14px;padding:4px;border-radius:6px;border:1px solid var(--line);background:var(--bg);color:var(--text);text-align:center;}
+  .timer-btns{display:flex;gap:5px;justify-content:center;margin-top:8px;}
+  .timer-btns .btn{padding:6px 10px;font-size:12px;}
+
+  .scores-box{background:var(--panel);border-radius:14px;padding:12px;border:1px solid var(--line);flex:1;overflow-y:auto;}
+  .scores-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;}
+  .scores-title{font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);font-weight:bold;}
+  .team{background:var(--bg);border-radius:10px;padding:9px;border:1px solid var(--line);margin-bottom:7px;}
+  .team.active{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent);}
+  .team-name{font-size:14px;font-weight:bold;color:var(--text);background:transparent;border:none;border-bottom:1px dashed var(--line);width:100%;padding:2px 0;margin-bottom:5px;}
+  .team-name:focus{outline:none;border-bottom-color:var(--accent);}
+  .score-row{display:flex;align-items:center;gap:6px;}
+  .score-val{flex:1;font-size:24px;font-weight:bold;color:var(--accent);background:transparent;border:none;text-align:center;font-variant-numeric:tabular-nums;}
+  .score-val:focus{outline:1px solid var(--accent);border-radius:6px;}
+  .mini{padding:2px 9px;font-size:15px;background:var(--card);color:var(--text);border:1px solid var(--line);border-radius:6px;font-weight:bold;}
+  .mini:hover{filter:brightness(1.25);}
+  .turn-label{font-size:12px;color:var(--accent);text-align:center;margin-top:2px;font-weight:bold;min-height:14px;}
+
+  /* Welcome */
+  .welcome{position:fixed;inset:0;z-index:100;background:radial-gradient(circle at 50% 20%,var(--bg2),var(--bg));display:flex;align-items:center;justify-content:center;padding:30px;transition:opacity .4s;}
+  .welcome.hide{opacity:0;pointer-events:none;}
+  .welcome-card{max-width:720px;width:100%;text-align:center;background:linear-gradient(160deg,var(--panel),var(--bg2));border:2px solid var(--accent);border-radius:24px;padding:42px 48px;box-shadow:0 24px 70px rgba(0,0,0,.5);}
+  .welcome-card .big-title{font-size:clamp(30px,4.5vw,50px);font-weight:bold;color:var(--accent);margin-bottom:6px;}
+  .welcome-card .big-title span{color:var(--accent-2);}
+  .welcome-card .sub{font-size:clamp(17px,2.1vw,23px);color:var(--text);margin-bottom:24px;}
+  .rules{text-align:left;background:var(--bg);border:1px solid var(--line);border-radius:16px;padding:22px 28px;margin-bottom:26px;}
+  .rules h3{font-size:15px;color:var(--accent);text-transform:uppercase;letter-spacing:2px;margin-bottom:14px;}
+  .rules ol{list-style:none;counter-reset:step;}
+  .rules li{counter-increment:step;position:relative;padding-left:44px;margin-bottom:12px;font-size:clamp(15px,1.9vw,19px);line-height:1.4;}
+  .rules li::before{counter-increment:none;content:counter(step);position:absolute;left:0;top:0;width:30px;height:30px;border-radius:50%;background:var(--accent);color:#3a2c00;font-weight:bold;display:flex;align-items:center;justify-content:center;}
+  .rules li b{color:var(--accent);}
+</style>
+</head>
+<body>
+
+<div class="welcome" id="welcome">
+  <div class="welcome-card">
+    <div class="big-title">💼 GUESS THE <span>JOB</span></div>
+    <div class="sub">Listen to the clues — can your team guess the job?</div>
+    <div class="rules">
+      <h3>How to play</h3>
+      <ol>
+        <li>The teacher reveals <b>clues one at a time</b> about a secret job.</li>
+        <li>Guess <b>early</b> for more points! Fewer clues = more points.</li>
+        <li>First team to guess the job correctly <b>wins the round.</b></li>
+        <li>After each job, we'll <b>talk about it</b> together — no wrong answers!</li>
+      </ol>
+    </div>
+    <button class="btn-primary" id="startGame" style="font-size:22px;padding:15px 40px;">Let's play! ▶</button>
+  </div>
+</div>
+
+<div class="topbar">
+  <div class="brand">💼 GUESS THE <span>JOB</span></div>
+  <div class="settings">
+    <label>Difficulty</label>
+    <div class="diff-toggle" id="diffToggle">
+      <button data-d="all" class="on">All</button>
+      <button data-d="easy">Easy</button>
+      <button data-d="medium">Medium</button>
+      <button data-d="hard">Hard</button>
+    </div>
+    <label style="margin-left:8px;">Teams</label>
+    <input type="number" id="teamCount" min="2" max="6" value="3">
+    <button class="btn" id="applyTeams">Set</button>
+  </div>
+</div>
+
+<div class="stage">
+  <div class="main">
+    <div class="card-area" id="cardArea">
+      <div class="diff-badge" id="diffBadge"></div>
+      <div class="card-eyebrow" id="cardEyebrow">Ready?</div>
+      <div class="card-start" id="cardStart">Press "New job" to begin!</div>
+      <div id="jobBody" style="display:none;">
+        <div class="card-title">🔍 What's the job?</div>
+        <div class="clue-stack" id="clueStack"></div>
+        <div class="reveal-box" id="revealBox"></div>
+        <div class="discuss-band" id="discussBand"></div>
+      </div>
+    </div>
+    <div class="controls-row">
+      <button class="btn-primary" id="newJob">🎲 New job</button>
+      <button class="btn" id="nextClue">💡 Next clue</button>
+      <button class="btn-good" id="revealJob">✓ Reveal answer</button>
+      <button class="btn" id="showDiscuss">🗣 Discussion</button>
+    </div>
+    <div class="card-count" id="cardCount"></div>
+  </div>
+
+  <div class="side">
+    <div class="timer-box">
+      <div class="timer-display" id="timer">1:00</div>
+      <div class="timer-set">
+        <label style="font-size:12px;color:var(--muted);">Seconds:</label>
+        <input type="number" id="secInput" min="15" max="300" value="60">
+      </div>
+      <div class="timer-btns">
+        <button class="btn" id="tStart">Start</button>
+        <button class="btn" id="tPause">Pause</button>
+        <button class="btn" id="tReset">Reset</button>
+      </div>
+    </div>
+    <div class="scores-box">
+      <div class="scores-head">
+        <div class="scores-title">Scoreboards</div>
+        <button class="btn" id="nextTeam" style="padding:3px 9px;font-size:11px;">Next team →</button>
+      </div>
+      <div id="teams"></div>
+      <div class="turn-label" id="turnLabel"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+const $=id=>document.getElementById(id);
+
+// ---------- Job bank ----------
+// clues ordered HARD (vague) → EASY (obvious). answer + a discussion question.
+const JOBS={
+  easy:[
+    {a:"Teacher",clues:["I work with many people every day, but they are usually younger than me.","I give homework and tests.","I work in a school and stand in front of a class.","I help you learn new things — maybe even English!"],d:"What makes a good teacher? Who was your favourite teacher?"},
+    {a:"Doctor",clues:["People come to me when they have a problem, and they hope I can fix it.","I wear a white coat and sometimes use a stethoscope.","I work in a hospital or a clinic.","I help sick people feel better and get healthy."],d:"Would you like to be a doctor? Why or why not?"},
+    {a:"Chef / Cook",clues:["I use my hands and lots of tools all day, and it can get very hot.","I follow recipes but I also create my own.","I work in a kitchen, in a restaurant.","I cook delicious food for people to eat."],d:"Do you like cooking? What's your best dish?"},
+    {a:"Firefighter",clues:["My job can be dangerous, and I have to be brave and strong.","I wear a helmet and ride in a big red truck.","I use water and a long hose.","I put out fires and rescue people."],d:"Would you be brave enough for this job? Why?"},
+    {a:"Farmer",clues:["I wake up very early and work outside in all weather.","I work with animals and plants.","I grow food like vegetables and wheat.","Without me, the shops would have no fresh food!"],d:"Would you like to work outdoors? Why or why not?"},
+    {a:"Nurse",clues:["I care for people and I'm often very kind and patient.","I work in a hospital, next to doctors.","I give medicine and check how patients feel.","I look after sick people all day and night."],d:"What personal qualities does this job need most?"},
+    {a:"Bus driver",clues:["I sit down all day but I'm always moving.","I follow the same route again and again.","Many people get on and off my vehicle.","I drive a big vehicle full of passengers around the city."],d:"Would you enjoy a job where you drive all day?"},
+    {a:"Hairdresser",clues:["I work with my hands and I need to be careful and creative.","I use scissors and a mirror.","People sit in my chair and I change how they look.","I cut and style people's hair."],d:"Do you prefer a job that is creative? Why?"},
+  ],
+  medium:[
+    {a:"Pilot",clues:["My office moves, and it's never in the same place twice.","I wear a uniform and travel to many countries.","I sit at the front and press many buttons.","I fly a plane full of passengers across the sky."],d:"Would you like a job that involves lots of travel?"},
+    {a:"Architect",clues:["I create things that can last a hundred years.","I use a computer and draw detailed plans.","I need to be good at maths and art.","I design buildings and houses before they are built."],d:"Would you rather design buildings or build them? Why?"},
+    {a:"Journalist",clues:["I ask a lot of questions, and I always want the truth.","I write, but not stories from my imagination.","My work appears in newspapers, on TV, or online.","I report the news and interview people."],d:"Is it important to have honest news? Why?"},
+    {a:"Electrician",clues:["My job can be dangerous if I'm not careful.","I work with wires and tools in homes and buildings.","If your lights don't work, you call me.","I install and fix electricity."],d:"Would you like a hands-on job that fixes problems?"},
+    {a:"Accountant",clues:["I work with something everyone uses but few people fully understand.","I'm very good with numbers and I'm very organised.","I use spreadsheets and a calculator all day.","I manage money, taxes, and budgets for people and companies."],d:"Do you enjoy working with numbers? Why or why not?"},
+    {a:"Veterinarian",clues:["My patients can't tell me what's wrong.","I need to be gentle, calm, and love my work.","I work in a clinic, but not for people.","I'm a doctor for animals."],d:"Would you like to work with animals all day?"},
+    {a:"Photographer",clues:["I capture a single moment so it lasts forever.","I need a good eye and a steady hand.","I use a special camera and lots of light.","I take professional pictures at weddings and events."],d:"Do you like taking photos? What do you photograph?"},
+    {a:"Translator",clues:["I help people understand each other.","I need to know at least two languages very well.","I work with words, spoken or written.","I change one language into another."],d:"How many languages would you like to speak? Which ones?"},
+  ],
+  hard:[
+    {a:"Marine biologist",clues:["My workplace is huge, but most people never see it.","I sometimes wear special equipment to breathe.","I study living things, but not on land.","I research ocean life like fish, whales, and coral."],d:"Would you like to explore the ocean for your job?"},
+    {a:"Air traffic controller",clues:["My job is one of the most stressful in the world.","I can't make a single mistake, ever.","I sit in a tall tower with many screens.","I guide airplanes safely as they take off and land."],d:"Could you handle a very high-pressure job? Why?"},
+    {a:"Sommelier",clues:["I trained for years to use just my nose and mouth.","I work in fancy restaurants.","I can tell you where a drink was made just by tasting it.","I'm an expert in wine, and I recommend it to guests."],d:"Would you like a job that needs a very special skill?"},
+    {a:"Anaesthetist",clues:["I'm a doctor, but my patients are always asleep when I work.","I'm there for the most serious moments, but you won't remember me.","I work in an operating room.","I put patients safely to sleep before surgery."],d:"Which jobs deserve the most respect, in your opinion?"},
+    {a:"Actuary",clues:["I use maths to predict the future — sort of.","I calculate risk and probability all day.","Insurance companies need me the most.","I work out how likely things are to happen, using statistics."],d:"Is it interesting to predict risks? Why or why not?"},
+    {a:"Ethical hacker",clues:["I do something that sounds illegal, but it's actually a real, legal job.","Companies pay me to attack them — on purpose.","I use a computer and think like a criminal.","I break into systems to find weak spots and make them safer."],d:"Do you find technology jobs interesting? Why?"},
+    {a:"Diplomat",clues:["I represent a whole country, not just myself.","I travel and live abroad, often for years.","I need to be very polite and careful with my words.","I work for my government in another country, building good relationships."],d:"Would you like to live and work in another country?"},
+  ],
+};
+
+const POINTS_BY_CLUE=[5,4,3,2,1]; // guess after 1 clue = 5 pts, etc.
+
+// ---------- State ----------
+let diffFilter='all', deck=[], deckPos=-1, current=null, clueShown=0;
+let teams=[], activeTeam=0;
+const DEFAULT_NAMES=['Team 1','Team 2','Team 3','Team 4','Team 5','Team 6'];
+
+function buildDeck(){
+  let pool=[];
+  if(diffFilter==='all'){['easy','medium','hard'].forEach(d=>JOBS[d].forEach(x=>pool.push({...x,d})));}
+  else{JOBS[diffFilter].forEach(x=>pool.push({...x,d:diffFilter}));}
+  for(let i=pool.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[pool[i],pool[j]]=[pool[j],pool[i]];}
+  deck=pool; deckPos=-1;
+}
+
+function newJob(){
+  deckPos++; if(deckPos>=deck.length){buildDeck();deckPos=0;}
+  current=deck[deckPos]; clueShown=0;
+  $('cardStart').style.display='none';
+  $('jobBody').style.display='block';
+  $('cardEyebrow').textContent='Listen carefully…';
+  const badge=$('diffBadge'); badge.className='diff-badge show '+current.d; badge.textContent=current.d;
+  $('clueStack').innerHTML=current.clues.map((c,i)=>`
+    <div class="clue ${i===current.clues.length-1?'last':''}" data-i="${i}">
+      <div class="cn">${i+1}</div><div>${c}</div>
+    </div>`).join('');
+  $('revealBox').className='reveal-box'; $('revealBox').innerHTML=`<span class="rlabel">The job is…</span>${current.a}`;
+  $('discussBand').className='discuss-band'; $('discussBand').innerHTML=`<span class="dlabel">💬 Let's talk about it</span>${current.d}`;
+  $('cardCount').textContent=`Job ${deckPos+1} of ${deck.length} · guess after fewer clues for more points!`;
+  showNextClue(); // reveal first clue automatically
+}
+function showNextClue(){
+  if(!current) return;
+  if(clueShown<current.clues.length){
+    const el=$('clueStack').querySelector(`.clue[data-i="${clueShown}"]`);
+    if(el) el.classList.add('show');
+    clueShown++;
+    const pts=POINTS_BY_CLUE[Math.min(clueShown-1,POINTS_BY_CLUE.length-1)];
+    $('cardEyebrow').textContent=`Clue ${clueShown} of ${current.clues.length} · worth ${pts} point${pts>1?'s':''} if guessed now`;
+  }
+}
+function revealJob(){
+  if(!current) return;
+  $('clueStack').querySelectorAll('.clue').forEach(c=>c.classList.add('show'));
+  clueShown=current.clues.length;
+  $('revealBox').classList.add('show');
+  $('cardEyebrow').textContent='Answer revealed!';
+}
+function showDiscuss(){ if(current) $('discussBand').classList.add('show'); }
+
+// ---------- Teams ----------
+function buildTeams(n){
+  const prev={}; teams.forEach(t=>prev[t.id]=t);
+  teams=[];
+  for(let i=0;i<n;i++) teams.push(prev[i]||{id:i,name:DEFAULT_NAMES[i],score:0});
+  if(activeTeam>=n) activeTeam=0;
+  renderTeams();
+}
+function renderTeams(){
+  const box=$('teams'); box.innerHTML='';
+  teams.forEach(t=>{
+    const d=document.createElement('div');
+    d.className='team'+(t.id===activeTeam?' active':'');
+    d.innerHTML=`
+      <input class="team-name" value="${t.name.replace(/"/g,'&quot;')}" data-id="${t.id}">
+      <div class="score-row">
+        <button class="mini" data-add="${t.id}" data-amt="-1">−</button>
+        <input class="score-val" type="number" value="${t.score}" data-score="${t.id}">
+        <button class="mini" data-add="${t.id}" data-amt="1">+</button>
+      </div>`;
+    box.appendChild(d);
+  });
+  box.querySelectorAll('.team-name').forEach(inp=>inp.addEventListener('input',e=>teams[+e.target.dataset.id].name=e.target.value));
+  box.querySelectorAll('.score-val').forEach(inp=>inp.addEventListener('change',e=>{teams[+e.target.dataset.score].score=parseInt(e.target.value||0,10);}));
+  box.querySelectorAll('[data-add]').forEach(b=>b.addEventListener('click',e=>{
+    const id=+e.currentTarget.dataset.add, amt=+e.currentTarget.dataset.amt;
+    teams[id].score+=amt; renderTeams();
+  }));
+  $('turnLabel').textContent=teams.length?`${teams[activeTeam].name}'s turn`:'';
+}
+function nextTeam(){ activeTeam=(activeTeam+1)%teams.length; renderTeams(); }
+
+// ---------- Timer ----------
+let remaining=60, ticker=null, running=false;
+function fmt(s){const m=Math.floor(s/60);const ss=s%60;return m+':'+(ss<10?'0':'')+ss;}
+function getSecs(){return parseInt($('secInput').value||60,10);}
+function updateTimer(){$('timer').textContent=fmt(Math.max(0,remaining));$('timer').classList.toggle('warn',remaining<=10&&remaining>0);}
+function startTimer(){if(running)return;running=true;ticker=setInterval(()=>{remaining--;updateTimer();if(remaining<=0){stopTimer();ringBell();}},1000);}
+function stopTimer(){running=false;if(ticker){clearInterval(ticker);ticker=null;}}
+function resetTimer(){stopTimer();remaining=getSecs();$('timer').classList.remove('warn');updateTimer();}
+function ringBell(){
+  try{
+    const ctx=new (window.AudioContext||window.webkitAudioContext)();
+    [0,0.22,0.44].forEach(delay=>{
+      const o=ctx.createOscillator(),g=ctx.createGain();
+      o.type='sine';o.frequency.value=880;o.connect(g);g.connect(ctx.destination);
+      const t=ctx.currentTime+delay;
+      g.gain.setValueAtTime(0.001,t);
+      g.gain.exponentialRampToValueAtTime(0.5,t+0.02);
+      g.gain.exponentialRampToValueAtTime(0.001,t+0.6);
+      o.start(t);o.stop(t+0.65);
+    });
+  }catch(e){}
+}
+
+// ---------- Wire up ----------
+$('startGame').addEventListener('click',()=>{ const w=$('welcome'); w.classList.add('hide'); setTimeout(()=>{w.style.display='none';},400); });
+$('newJob').addEventListener('click',()=>{ newJob(); resetTimer(); startTimer(); });
+$('nextClue').addEventListener('click',showNextClue);
+$('revealJob').addEventListener('click',revealJob);
+$('showDiscuss').addEventListener('click',showDiscuss);
+$('tStart').addEventListener('click',startTimer);
+$('tPause').addEventListener('click',stopTimer);
+$('tReset').addEventListener('click',resetTimer);
+$('nextTeam').addEventListener('click',nextTeam);
+$('applyTeams').addEventListener('click',()=>{buildTeams(Math.min(6,Math.max(2,parseInt($('teamCount').value||3,10))));});
+$('secInput').addEventListener('change',()=>{if(!running){remaining=getSecs();updateTimer();}});
+$('diffToggle').querySelectorAll('button').forEach(b=>b.addEventListener('click',e=>{
+  $('diffToggle').querySelectorAll('button').forEach(x=>x.classList.remove('on'));
+  e.target.classList.add('on'); diffFilter=e.target.dataset.d; buildDeck();
+}));
+
+// ---------- Init ----------
+buildDeck();
+buildTeams(3);
+resetTimer();
+</script>
+</body>
+</html>
