@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Week 1 Vocabulary Cards</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0f2340; --blue:#143865; --blue-2:#1c4f8f; --gold:#8c7535; --gold-2:#d39f10; --gold-3:#e2c27a;
+    --cream:#f6f2e7; --warm:#efe9d9; --sky:#c1cddd; --muted:#9fb0c8; --ink:#14213a;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0; height:100%}
+  body{background:radial-gradient(ellipse at top, #1b3560 0%, var(--navy) 55%, #081428 100%); color:var(--cream);
+       font-family:Inter, system-ui, sans-serif; display:flex; flex-direction:column; min-height:100vh}
+  button{font-family:inherit; cursor:pointer}
+
+  header{display:flex; align-items:center; justify-content:space-between; gap:12px; padding:14px clamp(16px,3vw,40px); border-bottom:1px solid rgba(211,159,16,.25)}
+  .brand b{display:block; font-family:Lora, serif; font-size:clamp(18px,1.8vw,26px); color:var(--gold-3)}
+  .brand span{font-size:clamp(11px,1vw,14px); color:var(--muted); letter-spacing:.08em; text-transform:uppercase}
+  .tools{display:flex; gap:8px; flex-wrap:wrap}
+  .hbtn{background:rgba(255,255,255,.06); color:var(--cream); border:1px solid rgba(255,255,255,.18); border-radius:10px; padding:9px 14px; font-size:14px; font-weight:600}
+  .hbtn:hover, .hbtn.on{border-color:var(--gold-2); color:var(--gold-3)}
+
+  main{flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:clamp(14px,2.5vw,36px)}
+  .stage{width:100%; max-width:1400px; display:grid; grid-template-columns:auto 1fr auto; gap:clamp(10px,2vw,28px); align-items:center}
+  .arrow{width:clamp(52px,5vw,76px); height:clamp(52px,5vw,76px); border-radius:50%; background:rgba(255,255,255,.07); border:2px solid rgba(255,255,255,.2); color:var(--cream); font-size:clamp(22px,2.4vw,34px)}
+  .arrow:hover{border-color:var(--gold-2); color:var(--gold-3)}
+  .arrow:disabled{opacity:.25; cursor:default}
+
+  .card{background:linear-gradient(160deg, var(--cream) 0%, var(--warm) 100%); color:var(--ink); border-radius:28px;
+        padding:clamp(24px,3.4vw,54px); box-shadow:0 30px 60px rgba(0,0,0,.35); min-height:66vh;
+        display:grid; grid-template-columns:1fr 1.15fr; gap:clamp(20px,3vw,52px); animation:in .35s ease}
+  @keyframes in{from{opacity:0; transform:translateY(10px)}}
+  .left{display:flex; flex-direction:column; gap:clamp(12px,1.6vw,22px); border-right:2px solid rgba(20,56,101,.12); padding-right:clamp(16px,2.6vw,44px)}
+  .count{font-weight:800; font-size:clamp(13px,1.2vw,17px); letter-spacing:.12em; text-transform:uppercase; color:var(--gold)}
+  .word{font-family:Lora, serif; font-weight:700; font-size:clamp(44px,5.6vw,92px); line-height:1.02; color:var(--blue); word-break:break-word}
+  .pos{align-self:flex-start; background:var(--blue); color:var(--gold-3); border-radius:999px; padding:7px 18px; font-weight:700; font-style:italic; font-size:clamp(15px,1.5vw,21px)}
+  .sound{display:flex; gap:10px; flex-wrap:wrap}
+  .play{display:inline-flex; align-items:center; gap:8px; background:var(--gold-2); color:var(--ink); border:none; border-radius:14px; padding:12px 18px; font-weight:800; font-size:clamp(15px,1.4vw,19px)}
+  .play.ghost{background:#fff; border:2px solid var(--sky)}
+  .play.playing{outline:4px solid rgba(211,159,16,.35)}
+
+  .stress-box small, .label{display:block; font-weight:800; font-size:clamp(12px,1.05vw,15px); letter-spacing:.12em; text-transform:uppercase; color:var(--gold); margin-bottom:8px}
+  .syl{display:flex; flex-wrap:wrap; align-items:flex-end; gap:8px}
+  .syl span{font-weight:600; font-size:clamp(22px,2.4vw,36px); color:#6b7a90; padding:4px 10px; border-radius:10px; background:rgba(20,56,101,.06)}
+  .syl span.s{font-weight:800; font-size:clamp(30px,3.4vw,52px); color:#fff; background:var(--blue-2)}
+  .syl span.gap{background:none; padding:0 4px}
+  .ipa{margin-top:10px; font-size:clamp(17px,1.7vw,24px); color:var(--ink); font-family:"Lucida Sans Unicode","Arial Unicode MS",sans-serif}
+
+  .right{display:flex; flex-direction:column; gap:clamp(14px,1.8vw,26px)}
+  .def{font-size:clamp(24px,2.6vw,40px); line-height:1.25; font-weight:600; color:var(--ink); transition:filter .25s}
+  .hide .def, .hide .ex p{filter:blur(12px); user-select:none}
+  .ex{display:flex; flex-direction:column; gap:12px}
+  .ex div{display:flex; gap:12px; align-items:flex-start; background:#fff; border-left:6px solid var(--gold-2); border-radius:12px; padding:14px 16px}
+  .ex p{margin:0; flex:1; font-size:clamp(18px,1.85vw,27px); line-height:1.35}
+  .ex b{color:var(--blue-2)}
+  .mini{flex:none; width:40px; height:40px; border-radius:50%; border:2px solid var(--sky); background:var(--sky-3, #edf2f9); font-size:17px}
+  .mini.playing{background:var(--gold-2); border-color:var(--gold-2)}
+  .talk{margin-top:auto; background:rgba(20,56,101,.07); border-radius:12px; padding:12px 16px; font-size:clamp(15px,1.4vw,19px); color:#3f4b5e}
+  .talk em{font-style:normal; font-weight:700; color:var(--blue-2)}
+  .talk .t{display:inline-block; font-weight:800; font-size:.85em; background:var(--blue); color:var(--gold-3); border-radius:6px; padding:0 7px; margin-right:6px}
+  .talk[hidden]{display:none}
+
+  .nav{display:flex; align-items:center; justify-content:center; gap:10px; flex-wrap:wrap; margin-top:clamp(14px,2vw,26px)}
+  .dot{width:14px; height:14px; border-radius:50%; border:none; padding:0; background:rgba(255,255,255,.2)}
+  .dot.on{background:var(--gold-2); transform:scale(1.35)}
+  .dot.seen{background:rgba(211,159,16,.5)}
+  .keys{font-size:13px; color:var(--muted); text-align:center; margin-top:10px}
+  kbd{background:#081428; border:1px solid rgba(255,255,255,.25); border-radius:5px; padding:1px 6px; color:var(--cream); font-family:inherit}
+
+  @media (max-width:900px){
+    .card{grid-template-columns:1fr; min-height:auto}
+    .left{border-right:none; border-bottom:2px solid rgba(20,56,101,.12); padding-right:0; padding-bottom:18px}
+    .stage{grid-template-columns:1fr}
+    .stage .arrow{display:none}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <b>TED Talks: Ideas Worth Sharing</b>
+    <span>Week 1 · Words from the Talk · Teacher cards</span>
+  </div>
+  <div class="tools">
+    <button class="hbtn" id="hideBtn" title="Hide meaning and examples (H)">🙈 Hide meaning</button>
+    <button class="hbtn" id="talkBtn" title="Show the line from the talk (T)">🎬 Line from the talk</button>
+    <button class="hbtn" id="fsBtn" title="Fullscreen (F)">⛶ Fullscreen</button>
+  </div>
+</header>
+
+<main>
+  <div class="stage">
+    <button class="arrow" id="prev" aria-label="Previous word">◂</button>
+    <article class="card" id="card"></article>
+    <button class="arrow" id="next" aria-label="Next word">▸</button>
+  </div>
+  <div class="nav" id="dots"></div>
+  <div class="keys"><kbd>←</kbd> <kbd>→</kbd> move · <kbd>Space</kbd> say the word · <kbd>H</kbd> hide meaning · <kbd>T</kbd> line from the talk · <kbd>F</kbd> fullscreen</div>
+</main>
+
+<script>
+/* syl: syllables; "|" marks a space between words; stressed syllable starts with "*" */
+const W = [
+  { w:"provocative", say:"provocative", pos:"adjective",
+    syl:["pro","*VOC","a","tive"], ipa:"/prəˈvɑːkətɪv/",
+    def:"intended to make people think hard or react strongly",
+    ex:["She opened her talk with a <b>provocative</b> question: “What if school is making us less creative?”",
+        "His <b>provocative</b> comments started a long debate in class."],
+    t:"5:24", line:"Use intriguing, <em>provocative</em> questions…" },
+  { w:"intriguing", say:"intriguing", pos:"adjective",
+    syl:["in","*TRI","guing"], ipa:"/ɪnˈtriːɡɪŋ/",
+    def:"very interesting because it is unusual or mysterious",
+    ex:["The title of the talk was so <b>intriguing</b> that I had to watch it.",
+        "That's an <b>intriguing</b> idea, but I need more evidence."],
+    t:"5:24", line:"Use <em>intriguing</em>, provocative questions…" },
+  { w:"divulge", say:"divulge", pos:"verb",
+    syl:["di","*VULGE"], ipa:"/daɪˈvʌldʒ/",
+    def:"to tell someone information that was secret or private",
+    ex:["In her talk, she <b>divulged</b> a secret she had never told anyone.",
+        "Doctors cannot <b>divulge</b> their patients' personal information."],
+    t:"0:10", line:"“<em>Divulge</em> a personal secret.”" },
+  { w:"slash (back)", say:"slash back", pos:"phrasal verb",
+    syl:["*SLASH","|","back"], ipa:"/slæʃ bæk/",
+    def:"to cut or reduce something a lot",
+    ex:["My first draft was 12 minutes, so I <b>slashed</b> it <b>back</b> to five.",
+        "The store <b>slashed</b> its prices by half for the holidays."],
+    t:"4:56", line:"…you need to <em>slash back</em> your content…" },
+  { w:"weave (together)", say:"weave together", pos:"verb",
+    syl:["*WEAVE","|","to","ge","ther"], ipa:"/wiːv təˈɡeðər/",
+    def:"to combine different ideas or parts into one whole",
+    ex:["A good speaker <b>weaves together</b> personal stories and facts.",
+        "The film <b>weaves together</b> three different families' lives."],
+    t:"6:01", line:"…<em>weave together</em> concepts that already exist in your listeners' minds…" },
+  { w:"bridge (the gap)", say:"bridge the gap", pos:"verb",
+    syl:["*BRIDGE","|","the","|","gap"], ipa:"/brɪdʒ ðə ɡæp/",
+    def:"to connect two things, or make the difference between them smaller",
+    ex:["A simple example can <b>bridge the gap</b> between an expert and a beginner.",
+        "This program helps <b>bridge the gap</b> between college and work."],
+    t:"5:24", line:"…they'll feel the need to <em>bridge</em> that knowledge gap." },
+  { w:"sync (with)", say:"sync", pos:"verb",
+    syl:["*SYNC"], ipa:"/sɪŋk/  (sounds like “sink”)",
+    def:"to happen or move at the same time and in the same way",
+    ex:["My phone <b>syncs</b> with my laptop, so I can see my notes on both.",
+        "The dancers' movements were perfectly in <b>sync</b>."],
+    t:"1:22", line:"…their brains are starting to <em>sync</em> with Haley's brain…" },
+  { w:"startling", say:"startling", pos:"adjective",
+    syl:["*START","ling"], ipa:"/ˈstɑːrtlɪŋ/",
+    def:"very surprising, sometimes in a slightly shocking way",
+    ex:["She began with a <b>startling</b> fact that made everyone sit up.",
+        "The results of the survey were <b>startling</b>."],
+    t:"1:22", line:"There's something even more <em>startling</em> happening." },
+  { w:"teeming (with)", say:"teeming with", pos:"adjective",
+    syl:["*TEEM","ing","|","with"], ipa:"/ˈtiːmɪŋ wɪð/",
+    def:"full of a very large number of people, animals or things",
+    ex:["On Saturday, the market was <b>teeming with</b> tourists.",
+        "After the workshop, my head was <b>teeming with</b> ideas for my talk."],
+    t:"3:11", line:"Your mind is <em>teeming with</em> ideas…" },
+  { w:"snap into place", say:"snap into place", pos:"idiom",
+    syl:["*SNAP","|","in","to","|","*PLACE"], ipa:"/snæp ˈɪntə pleɪs/",
+    def:"to suddenly fit together or make sense",
+    ex:["When she showed the diagram, everything <b>snapped into place</b>.",
+        "After the third example, the grammar rule finally <b>snapped into place</b>."],
+    t:"6:37", line:"…as it <em>snaps into place</em> in our minds." },
+  { w:"through-line", say:"through line", pos:"noun",
+    syl:["*THROUGH","line"], ipa:"/ˈθruː laɪn/",
+    def:"the main idea that connects every part of a talk or story",
+    ex:["The <b>through-line</b> of my talk is: small habits can change a life.",
+        "Every story in her talk connected back to the <b>through-line</b>."],
+    t:"4:56", line:"…make it the <em>through-line</em> running through your entire talk…" },
+  { w:"come across as", say:"come across as", pos:"phrasal verb",
+    syl:["come","|","a","*CROSS","|","as"], ipa:"/kʌm əˈkrɔːs æz/",
+    def:"to seem to have a particular quality to other people",
+    ex:["If you read from your notes, you may <b>come across as</b> nervous.",
+        "In the interview, he <b>came across as</b> friendly and confident."],
+    t:"0:14", line:"…you're just going to <em>come across as</em> clichéd…" }
+];
+
+const $ = id => document.getElementById(id);
+let i = 0, hidden = false, showTalk = false;
+const seen = new Set();
+
+/* ---------- audio ---------- */
+const canSpeak = "speechSynthesis" in window;
+let voice = null;
+function pickVoice(){
+  const vs = canSpeak ? speechSynthesis.getVoices() : [];
+  voice = vs.find(v => v.lang === "en-US" && /Google|Samantha|Aria|Jenny|Natural/i.test(v.name))
+       || vs.find(v => v.lang === "en-US") || vs.find(v => v.lang && v.lang.startsWith("en")) || null;
+}
+if(canSpeak){ pickVoice(); speechSynthesis.onvoiceschanged = pickVoice; }
+function speak(text, rate, btn){
+  if(!canSpeak) return;
+  speechSynthesis.cancel();
+  document.querySelectorAll(".playing").forEach(b => b.classList.remove("playing"));
+  const u = new SpeechSynthesisUtterance(text.replace(/<[^>]+>/g,"").replace(/[“”]/g,""));
+  u.lang = "en-US"; u.rate = rate; if(voice) u.voice = voice;
+  if(btn){ btn.classList.add("playing"); u.onend = u.onerror = () => btn.classList.remove("playing"); }
+  speechSynthesis.speak(u);
+}
+
+/* ---------- render ---------- */
+function sylHTML(s){
+  return s.map(x => x === "|" ? '<span class="gap"></span>'
+    : x.startsWith("*") ? `<span class="s">${x.slice(1)}</span>` : `<span>${x}</span>`).join("");
+}
+function render(){
+  const c = W[i]; seen.add(i);
+  $("card").className = "card" + (hidden ? " hide" : "");
+  $("card").innerHTML = `
+    <div class="left">
+      <span class="count">Word ${i+1} of ${W.length}</span>
+      <div class="word">${c.w}</div>
+      <span class="pos">${c.pos}</span>
+      <div class="sound">
+        ${canSpeak ? `<button class="play" id="sayN">🔊 Listen</button><button class="play ghost" id="sayS">🐢 Slowly</button>` : ""}
+      </div>
+      <div class="stress-box">
+        <small>Stressed syllable</small>
+        <div class="syl">${sylHTML(c.syl)}</div>
+        <div class="ipa">${c.ipa}</div>
+      </div>
+    </div>
+    <div class="right">
+      <div><span class="label">Meaning</span><div class="def">${c.def}</div></div>
+      <div class="ex">
+        <span class="label">Examples</span>
+        ${c.ex.map((e,k) => `<div>${canSpeak ? `<button class="mini" data-k="${k}" aria-label="Listen to example">🔊</button>` : ""}<p>${e}</p></div>`).join("")}
+      </div>
+      <div class="talk" ${showTalk ? "" : "hidden"}><span class="t">${c.t}</span>${c.line}</div>
+    </div>`;
+  if(canSpeak){
+    $("sayN").onclick = e => speak(c.say, .85, e.currentTarget);
+    $("sayS").onclick = e => speak(c.say, .5, e.currentTarget);
+    document.querySelectorAll(".mini").forEach(b => b.onclick = () => speak(c.ex[+b.dataset.k], .9, b));
+  }
+  $("prev").disabled = i === 0;
+  $("next").disabled = i === W.length - 1;
+  [...$("dots").children].forEach((d, k) => { d.classList.toggle("on", k === i); d.classList.toggle("seen", seen.has(k) && k !== i); });
+}
+function go(n){ if(n < 0 || n >= W.length) return; i = n; if(canSpeak) speechSynthesis.cancel(); render(); }
+
+$("dots").innerHTML = W.map((c, k) => `<button class="dot" title="${c.w}" aria-label="Go to ${c.w}"></button>`).join("");
+[...$("dots").children].forEach((d, k) => d.onclick = () => go(k));
+$("prev").onclick = () => go(i-1);
+$("next").onclick = () => go(i+1);
+
+function toggleHide(){ hidden = !hidden; $("hideBtn").classList.toggle("on", hidden); $("hideBtn").textContent = hidden ? "👀 Show meaning" : "🙈 Hide meaning"; render(); }
+function toggleTalk(){ showTalk = !showTalk; $("talkBtn").classList.toggle("on", showTalk); render(); }
+function toggleFS(){ if(!document.fullscreenElement) document.documentElement.requestFullscreen?.(); else document.exitFullscreen?.(); }
+$("hideBtn").onclick = toggleHide;
+$("talkBtn").onclick = toggleTalk;
+$("fsBtn").onclick = toggleFS;
+
+document.addEventListener("keydown", e => {
+  const k = e.key.toLowerCase();
+  if(k === "arrowright") go(i+1);
+  else if(k === "arrowleft") go(i-1);
+  else if(k === " "){ e.preventDefault(); speak(W[i].say, .85, document.getElementById("sayN")); }
+  else if(k === "h") toggleHide();
+  else if(k === "t") toggleTalk();
+  else if(k === "f") toggleFS();
+});
+
+render();
+</script>
+</body>
+</html>
