@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Week 1 Vocabulary</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blue:#143865; --blue-2:#1c4f8f; --gold:#8c7535; --gold-2:#d39f10;
+    --sky:#c1cddd; --sky-2:#e1e8f2; --sky-3:#edf2f9; --warm:#efe9d9;
+    --ink:#14213a; --muted:#5b6b82; --ok:#1f8a5b; --ok-bg:#e3f4ec; --no:#c0392b; --no-bg:#fbe7e4;
+  }
+  *{box-sizing:border-box}
+  body{margin:0; background:var(--sky-3); color:var(--ink); font-family:Inter, system-ui, sans-serif; font-size:16px; line-height:1.5}
+  .page{max-width:980px; margin:0 auto; padding:24px 16px 48px}
+
+  .top{background:var(--blue); color:#fff; border-radius:18px; padding:22px 26px; position:relative; overflow:hidden}
+  .top::after{content:""; position:absolute; right:-40px; top:-40px; width:180px; height:180px; border:14px solid var(--gold-2); border-radius:50%; opacity:.25}
+  .school{font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--gold-2); font-weight:700}
+  h1{font-family:Lora, serif; font-size:clamp(26px,4vw,36px); margin:4px 0 2px}
+  .top p{margin:0; color:var(--sky)}
+
+  .info{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:16px 0}
+  .info label{display:flex; align-items:center; gap:8px; background:#fff; border:1px solid var(--sky); border-radius:12px; padding:8px 12px; font-weight:600; color:var(--muted)}
+  .info input{flex:1; border:none; border-bottom:1px solid var(--sky); font:inherit; color:var(--ink); padding:4px; min-width:0; background:transparent}
+
+  .card{background:#fff; border:1px solid var(--sky); border-radius:18px; padding:22px; margin-bottom:18px}
+  .card h2{font-family:Lora, serif; color:var(--blue); margin:0 0 4px; font-size:22px}
+  .instr{color:var(--muted); margin:0 0 16px}
+
+  .grid{display:grid; grid-template-columns:1.25fr 1fr; gap:22px}
+  .word-row{display:grid; grid-template-columns:28px 1fr 74px; align-items:center; gap:10px; padding:10px 8px; border-bottom:1px solid var(--sky-2); border-radius:10px}
+  .num{font-weight:700; color:var(--gold)}
+  .word{font-weight:700; font-size:18px; color:var(--blue)}
+  .meta{display:flex; flex-wrap:wrap; gap:6px 10px; align-items:center; margin-top:2px; font-size:14px}
+  .pos{background:var(--warm); color:var(--gold); border-radius:999px; padding:1px 10px; font-weight:700; font-size:12px; font-style:italic}
+  .ipa{font-family:"Lucida Sans Unicode","Arial Unicode MS",sans-serif; color:var(--ink)}
+  .stress{color:var(--muted)}
+  .stress b{color:var(--blue-2)}
+  select{font:inherit; font-weight:700; font-size:18px; padding:6px 8px; border-radius:10px; border:2px solid var(--sky); background:var(--sky-3); color:var(--blue); width:100%; text-align:center}
+  .word-row.ok{background:var(--ok-bg)} .word-row.ok select{border-color:var(--ok)}
+  .word-row.no{background:var(--no-bg)} .word-row.no select{border-color:var(--no)}
+  .print-box{display:none}
+
+  .defs{background:var(--sky-3); border-radius:14px; padding:14px 16px}
+  .defs h3{margin:0 0 8px; font-size:14px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted)}
+  .def{display:flex; gap:10px; padding:7px 0; border-bottom:1px dashed var(--sky)}
+  .def:last-child{border-bottom:none}
+  .def b{color:var(--gold); min-width:16px}
+
+  .bar{display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin-top:18px}
+  .btn{font:inherit; font-weight:700; border-radius:12px; padding:11px 20px; border:2px solid var(--blue); background:var(--blue); color:#fff; cursor:pointer}
+  .btn:hover{background:var(--blue-2); border-color:var(--blue-2)}
+  .btn.ghost{background:#fff; color:var(--blue)}
+  .btn.gold{background:var(--gold-2); border-color:var(--gold-2); color:var(--ink)}
+  .score{font-weight:700; color:var(--blue); margin-left:auto}
+
+  footer{text-align:center; color:var(--muted); font-size:12px; margin-top:20px}
+
+  @media (max-width:720px){
+    .grid{grid-template-columns:1fr}
+    .defs{order:-1}
+    .info{grid-template-columns:1fr}
+  }
+
+  @media print{
+    @page{size:auto; margin:12mm}
+    body{background:#fff; font-size:12.5px}
+    .page{padding:0; max-width:none}
+    .top{background:#fff; color:var(--ink); border:2px solid var(--blue); padding:12px 16px}
+    .top::after{display:none}
+    .top p{color:var(--muted)}
+    .card{border:1px solid #999; padding:14px; break-inside:avoid}
+    .bar, .no-print{display:none !important}
+    select{display:none}
+    .print-box{display:block; width:46px; height:30px; border:1.5px solid var(--ink); border-radius:6px; margin:0 auto}
+    .word-row{padding:6px 4px; grid-template-columns:22px 1fr 56px}
+    .word-row.ok, .word-row.no{background:none}
+    .defs{background:none; border:1px solid #bbb}
+    .info label{border:none; padding:0}
+    .info input{border-bottom:1px solid #333}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="top">
+    <div class="school">Approach International Student Center</div>
+    <h1>Week 1 · Key Vocabulary</h1>
+    <p>TED Talks: Ideas Worth Sharing · B2 · B2+ · Why Talks Matter</p>
+  </header>
+
+  <div class="info">
+    <label>Name <input type="text" aria-label="Name"></label>
+    <label>Date <input type="text" aria-label="Date"></label>
+  </div>
+
+  <section class="card">
+    <h2>Part A — Match the words</h2>
+    <p class="instr">Match each word (1–8) to its definition (a–h). Choose or write the letter.</p>
+
+    <div class="grid">
+      <div id="words"></div>
+      <aside class="defs">
+        <h3>Definitions</h3>
+        <div id="defs"></div>
+      </aside>
+    </div>
+
+    <div class="bar">
+      <button class="btn" id="check">Check answers</button>
+      <button class="btn ghost" id="reset">Reset</button>
+      <button class="btn gold" onclick="window.print()">🖨 Print</button>
+      <span class="score" id="score"></span>
+    </div>
+  </section>
+
+  <footer>Pronunciation is in American English. Stressed syllables are in <b>BOLD CAPITALS</b>.</footer>
+</div>
+
+<script>
+const words = [
+  {w:"stakes",        pos:"noun (plural)", ipa:"/steɪks/",               stress:"<b>STAKES</b>",            ans:"c"},
+  {w:"anxiety",       pos:"noun",          ipa:"/æŋˈzaɪəti/",            stress:"anx·<b>I</b>·e·ty",         ans:"g"},
+  {w:"asset",         pos:"noun",          ipa:"/ˈæset/",                stress:"<b>AS</b>·set",             ans:"e"},
+  {w:"humiliated",    pos:"adjective",     ipa:"/hjuˈmɪlieɪtɪd/",        stress:"hu·<b>MIL</b>·i·at·ed",     ans:"a"},
+  {w:"reputation",    pos:"noun",          ipa:"/ˌrepjəˈteɪʃən/",        stress:"rep·u·<b>TA</b>·tion",      ans:"h"},
+  {w:"turning point", pos:"noun",          ipa:"/ˈtɜrnɪŋ ˌpɔɪnt/",       stress:"<b>TURN</b>·ing point",     ans:"f"},
+  {w:"despair",       pos:"noun",          ipa:"/dɪˈsper/",              stress:"de·<b>SPAIR</b>",           ans:"b"},
+  {w:"determination", pos:"noun",          ipa:"/dɪˌtɜrmɪˈneɪʃən/",      stress:"de·ter·mi·<b>NA</b>·tion",  ans:"d"}
+];
+const defs = [
+  ["a","made to feel ashamed in front of other people"],
+  ["b","the feeling that there is no hope"],
+  ["c","what you can win or lose in a situation"],
+  ["d","a strong decision to keep going when it is hard"],
+  ["e","something useful that gives you an advantage"],
+  ["f","a moment when things start to change"],
+  ["g","a feeling of worry or nervousness"],
+  ["h","what people think and say about you"]
+];
+
+const wBox = document.getElementById("words");
+words.forEach((x, i) => {
+  const row = document.createElement("div");
+  row.className = "word-row";
+  row.innerHTML = `
+    <span class="num">${i+1}</span>
+    <div>
+      <div class="word">${x.w}</div>
+      <div class="meta"><span class="pos">${x.pos}</span><span class="ipa">${x.ipa}</span><span class="stress">${x.stress}</span></div>
+    </div>
+    <div>
+      <select aria-label="Letter for ${x.w}">
+        <option value="">–</option>${defs.map(d => `<option value="${d[0]}">${d[0]}</option>`).join("")}
+      </select>
+      <div class="print-box"></div>
+    </div>`;
+  wBox.appendChild(row);
+});
+document.getElementById("defs").innerHTML =
+  defs.map(d => `<div class="def"><b>${d[0]}</b><span>${d[1]}</span></div>`).join("");
+
+const rows = [...document.querySelectorAll(".word-row")];
+document.getElementById("check").onclick = () => {
+  let n = 0;
+  rows.forEach((r, i) => {
+    const v = r.querySelector("select").value;
+    r.classList.remove("ok","no");
+    if(!v) return;
+    if(v === words[i].ans){ r.classList.add("ok"); n++; } else r.classList.add("no");
+  });
+  document.getElementById("score").textContent = `Score: ${n} / ${words.length}`;
+};
+document.getElementById("reset").onclick = () => {
+  rows.forEach(r => { r.classList.remove("ok","no"); r.querySelector("select").value = ""; });
+  document.getElementById("score").textContent = "";
+};
+rows.forEach(r => r.querySelector("select").addEventListener("change", () => r.classList.remove("ok","no")));
+</script>
+</body>
+</html>
