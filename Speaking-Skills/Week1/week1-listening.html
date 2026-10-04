@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Week 1 Listening</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blue:#143865; --blue-2:#1c4f8f; --gold:#8c7535; --gold-2:#d39f10;
+    --sky:#c1cddd; --sky-2:#e1e8f2; --sky-3:#edf2f9; --warm:#efe9d9;
+    --ink:#14213a; --muted:#5b6b82; --ok:#1f8a5b; --ok-bg:#e3f4ec; --no:#c0392b; --no-bg:#fbe7e4;
+  }
+  *{box-sizing:border-box}
+  body{margin:0; background:var(--sky-3); color:var(--ink); font-family:Inter, system-ui, sans-serif; font-size:16px; line-height:1.55}
+  .page{max-width:980px; margin:0 auto; padding:24px 16px 48px}
+
+  .top{background:var(--blue); color:#fff; border-radius:18px; padding:22px 26px; position:relative; overflow:hidden}
+  .top::after{content:""; position:absolute; right:-40px; top:-40px; width:180px; height:180px; border:14px solid var(--gold-2); border-radius:50%; opacity:.25}
+  .school{font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--gold-2); font-weight:700}
+  h1{font-family:Lora, serif; font-size:clamp(26px,4vw,36px); margin:4px 0 2px}
+  .top p{margin:0; color:var(--sky)}
+  .talk{margin-top:10px; display:inline-block; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.25); border-radius:999px; padding:4px 14px; font-size:14px}
+
+  .info{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:16px 0}
+  .info label{display:flex; align-items:center; gap:8px; background:#fff; border:1px solid var(--sky); border-radius:12px; padding:8px 12px; font-weight:600; color:var(--muted)}
+  .info input{flex:1; border:none; border-bottom:1px solid var(--sky); font:inherit; color:var(--ink); padding:4px; min-width:0; background:transparent}
+
+  .card{background:#fff; border:1px solid var(--sky); border-radius:18px; padding:22px; margin-bottom:18px}
+  .card h2{font-family:Lora, serif; color:var(--blue); margin:0 0 4px; font-size:22px}
+  .instr{color:var(--muted); margin:0 0 14px}
+
+  .item{display:grid; grid-template-columns:30px 1fr; gap:8px; padding:12px 8px; border-bottom:1px solid var(--sky-2); border-radius:10px}
+  .item:last-child{border-bottom:none}
+  .num{font-weight:700; color:var(--gold)}
+  .time{display:inline-block; font-size:12px; font-weight:700; color:var(--blue-2); background:var(--sky-2); border-radius:6px; padding:0 6px; margin-right:6px; font-variant-numeric:tabular-nums}
+  .gap{font:inherit; font-weight:600; color:var(--blue); border:none; border-bottom:2px solid var(--blue-2); background:var(--sky-3); border-radius:4px 4px 0 0; padding:1px 6px; width:9.5em; max-width:100%}
+  .gap:focus{outline:2px solid var(--gold-2)}
+  .gap.ok{border-color:var(--ok); background:var(--ok-bg)}
+  .gap.no{border-color:var(--no); background:var(--no-bg)}
+
+  .tf{display:grid; grid-template-columns:30px 1fr auto; gap:10px; align-items:start}
+  .choices{display:flex; gap:6px}
+  .choices label{position:relative}
+  .choices input{position:absolute; opacity:0}
+  .choices span{display:inline-flex; align-items:center; justify-content:center; width:42px; height:38px; border:2px solid var(--sky); border-radius:10px; font-weight:700; color:var(--blue); cursor:pointer; background:#fff}
+  .choices input:checked + span{background:var(--blue); border-color:var(--blue); color:#fff}
+  .choices input:focus-visible + span{outline:2px solid var(--gold-2)}
+  .fix{grid-column:2 / 4; display:flex; gap:8px; align-items:center; font-size:14px; color:var(--muted)}
+  .fix input{flex:1; font:inherit; font-size:15px; border:none; border-bottom:1px dashed var(--sky); padding:3px 4px; color:var(--ink); background:transparent; min-width:0}
+  .item.ok{background:var(--ok-bg)} .item.no{background:var(--no-bg)}
+  .print-tf{display:none}
+
+  .bar{display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin-top:16px}
+  .btn{font:inherit; font-weight:700; border-radius:12px; padding:11px 20px; border:2px solid var(--blue); background:var(--blue); color:#fff; cursor:pointer}
+  .btn:hover{background:var(--blue-2); border-color:var(--blue-2)}
+  .btn.ghost{background:#fff; color:var(--blue)}
+  .btn.gold{background:var(--gold-2); border-color:var(--gold-2); color:var(--ink)}
+  .score{font-weight:700; color:var(--blue); margin-left:auto}
+  .sticky-print{display:flex; justify-content:flex-end; margin:-4px 0 14px}
+
+  @media (max-width:640px){
+    .tf{grid-template-columns:30px 1fr}
+    .choices{grid-column:2}
+    .fix{grid-column:2}
+    .info{grid-template-columns:1fr}
+  }
+
+  @media print{
+    @page{size:auto; margin:12mm}
+    body{background:#fff; font-size:12.5px; line-height:1.5}
+    .page{padding:0; max-width:none}
+    .top{background:#fff; color:var(--ink); border:2px solid var(--blue); padding:12px 16px}
+    .top::after{display:none}
+    .top p{color:var(--muted)}
+    .talk{background:none; border:1px solid #999; color:var(--ink)}
+    .card{border:1px solid #999; padding:14px}
+    .item{padding:6px 4px; break-inside:avoid}
+    .item.ok, .item.no{background:none}
+    .bar, .sticky-print, .no-print{display:none !important}
+    .gap{background:none; border-bottom:1.5px solid #222; border-radius:0; width:8.5em; color:var(--ink)}
+    .gap.ok, .gap.no{background:none; border-color:#222}
+    .choices{display:none}
+    .print-tf{display:inline-block; font-weight:700; letter-spacing:.3em; white-space:nowrap}
+    .fix input{border-bottom:1px solid #555}
+    .info label{border:none; padding:0}
+    .info input{border-bottom:1px solid #333}
+    .card + .card{break-before:page}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="top">
+    <div class="school">Approach International Student Center</div>
+    <h1>Week 1 · Watch and Listen</h1>
+    <p>TED Talks: Ideas Worth Sharing · B2 · B2+ · Why Talks Matter</p>
+    <span class="talk">▶ Chris Anderson · "TED's secret to great public speaking" · about 8 min</span>
+  </header>
+
+  <div class="info">
+    <label>Name <input type="text" aria-label="Name"></label>
+    <label>Date <input type="text" aria-label="Date"></label>
+  </div>
+
+  <div class="sticky-print"><button class="btn gold" onclick="window.print()">🖨 Print worksheet</button></div>
+
+  <!-- PART 1: GAP FILL -->
+  <section class="card" id="gapCard">
+    <h2>Part 1 — Fill in the blanks</h2>
+    <p class="instr">Listen to the talk. Write <b>one word</b> in each blank. The times show where to listen.</p>
+    <div id="gaps"></div>
+    <div class="bar">
+      <button class="btn" id="checkGaps">Check answers</button>
+      <button class="btn ghost" id="resetGaps">Reset</button>
+      <span class="score" id="gapScore"></span>
+    </div>
+  </section>
+
+  <!-- PART 2: TRUE / FALSE -->
+  <section class="card" id="tfCard">
+    <h2>Part 2 — True or false?</h2>
+    <p class="instr">Listen again. Choose <b>T</b> (true) or <b>F</b> (false). If a sentence is false, correct it.</p>
+    <div id="tfs"></div>
+    <div class="bar">
+      <button class="btn" id="checkTF">Check answers</button>
+      <button class="btn ghost" id="resetTF">Reset</button>
+      <span class="score" id="tfScore"></span>
+    </div>
+  </section>
+</div>
+
+<script>
+/* ---------- Part 1: gap fill (lines from the talk) ---------- */
+const gaps = [
+  {t:"0:14", s:"If you overuse those devices, you're just going to come across as clichéd or emotionally ___.", a:["manipulative"]},
+  {t:"0:31", s:"Over the past 12 years, I've had a ringside ___, listening to many hundreds of amazing TED speakers.", a:["seat"]},
+  {t:"0:44", s:"Your number one task as a speaker is to transfer into your listeners' minds an extraordinary ___.", a:["gift"]},
+  {t:"1:07", s:"Here's Haley. She is about to give a TED Talk and frankly, she's ___.", a:["terrified"]},
+  {t:"1:22", s:"1,200 people … are finding that their brains are starting to ___ with Haley's brain.", a:["sync","synch"]},
+  {t:"2:16", s:"You can think of it as a pattern of information that helps you understand and ___ the world.", a:["navigate"]},
+  {t:"3:11", s:"It's your brain's operating ___.", a:["system"]},
+  {t:"4:25", s:"Ideas are the most powerful ___ shaping human culture.", a:["force"]},
+  {t:"4:56", s:"Pick one idea, and make it the ___ running through your entire talk.", a:["through-line","throughline","through line"]},
+  {t:"5:24", s:"And the main tool to achieve that? ___. Stir your audience's curiosity.", a:["curiosity"]},
+  {t:"6:37", s:"It's as if, for the first time, you had a word ___ to edit DNA.", a:["processor"]},
+  {t:"7:06", s:"If the idea only serves you or your organization, … it's probably not worth ___.", a:["sharing"]}
+];
+
+const gBox = document.getElementById("gaps");
+gaps.forEach((g, i) => {
+  const [before, after] = g.s.split("___");
+  const div = document.createElement("div");
+  div.className = "item";
+  div.innerHTML = `<span class="num">${i+1}</span>
+    <div><span class="time">${g.t}</span>${before}<input class="gap" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Blank ${i+1}">${after}</div>`;
+  gBox.appendChild(div);
+});
+const gapInputs = [...document.querySelectorAll(".gap")];
+const norm = s => s.toLowerCase().trim().replace(/[.,!?;:"'’]/g,"").replace(/\s+/g," ");
+
+document.getElementById("checkGaps").onclick = () => {
+  let n = 0;
+  gapInputs.forEach((inp, i) => {
+    inp.classList.remove("ok","no");
+    const v = norm(inp.value);
+    if(!v) return;
+    if(gaps[i].a.includes(v)){ inp.classList.add("ok"); n++; } else inp.classList.add("no");
+  });
+  document.getElementById("gapScore").textContent = `Score: ${n} / ${gaps.length}`;
+};
+document.getElementById("resetGaps").onclick = () => {
+  gapInputs.forEach(inp => { inp.value = ""; inp.classList.remove("ok","no"); });
+  document.getElementById("gapScore").textContent = "";
+};
+gapInputs.forEach(inp => inp.addEventListener("input", () => inp.classList.remove("ok","no")));
+
+/* ---------- Part 2: true / false ---------- */
+const tfs = [
+  {s:"Anderson says all great TED Talks follow the same simple formula.", a:"F"},
+  {s:"Anderson has helped TED speakers prepare their talks for about 20 years.", a:"F"},
+  {s:"Haley felt calm and confident just before her talk.", a:"F"},
+  {s:"According to Anderson, the listeners' brains start to show the same patterns as the speaker's brain.", a:"T"},
+  {s:"Anderson says ideas can be complex and analytical, or simple and aesthetic.", a:"T"},
+  {s:"Anderson says people usually react to the same image in the same way.", a:"F"},
+  {s:"Guideline 1: A good talk should include several big ideas to keep the audience interested.", a:"F"},
+  {s:"Guideline 2: Curiosity is the main tool for getting the audience interested.", a:"T"},
+  {s:"Guideline 3: Speakers should use their own technical language so the audience trusts them.", a:"F"},
+  {s:"Anderson suggests testing your talk on trusted friends.", a:"T"}
+];
+
+const tBox = document.getElementById("tfs");
+tfs.forEach((x, i) => {
+  const div = document.createElement("div");
+  div.className = "item tf";
+  div.innerHTML = `<span class="num">${i+1}</span>
+    <div>${x.s}</div>
+    <div>
+      <div class="choices" role="radiogroup" aria-label="Statement ${i+1}">
+        <label><input type="radio" name="tf${i}" value="T"><span>T</span></label>
+        <label><input type="radio" name="tf${i}" value="F"><span>F</span></label>
+      </div>
+      <span class="print-tf">T / F</span>
+    </div>
+    <div class="fix">Correction: <input type="text" aria-label="Correction for statement ${i+1}"></div>`;
+  tBox.appendChild(div);
+});
+const tfItems = [...document.querySelectorAll(".item.tf")];
+
+document.getElementById("checkTF").onclick = () => {
+  let n = 0;
+  tfItems.forEach((el, i) => {
+    el.classList.remove("ok","no");
+    const v = el.querySelector("input[type=radio]:checked");
+    if(!v) return;
+    if(v.value === tfs[i].a){ el.classList.add("ok"); n++; } else el.classList.add("no");
+  });
+  document.getElementById("tfScore").textContent = `Score: ${n} / ${tfs.length}`;
+};
+document.getElementById("resetTF").onclick = () => {
+  tfItems.forEach(el => {
+    el.classList.remove("ok","no");
+    el.querySelectorAll("input").forEach(inp => { if(inp.type === "radio") inp.checked = false; else inp.value = ""; });
+  });
+  document.getElementById("tfScore").textContent = "";
+};
+tfItems.forEach(el => el.querySelectorAll("input[type=radio]").forEach(r => r.addEventListener("change", () => el.classList.remove("ok","no"))));
+</script>
+</body>
+</html>
