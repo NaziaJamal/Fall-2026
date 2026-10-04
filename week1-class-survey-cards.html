@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Breaking News Class Survey</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#143865; --blue:#1c4f8f; --gold:#8c7535; --gold-bright:#d39f10;
+    --sky-dark:#c1cddd; --sky-med:#e1e8f2; --sky-light:#edf2f9; --warm:#efe9d9;
+    --ink:#1b2433; --muted:#5a6578;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#d9dee6;font-family:"Source Sans 3",Arial,sans-serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .toolbar{position:sticky;top:0;z-index:5;background:var(--navy);color:#fff;padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+  .toolbar p{font-size:14px;opacity:.9}
+  .toolbar button{background:var(--gold-bright);color:var(--navy);border:0;border-radius:6px;padding:8px 16px;font-weight:700;font-size:14px;cursor:pointer}
+
+  .sheet{width:8.5in;min-height:11in;margin:20px auto;background:#fff;padding:.45in .5in;box-shadow:0 2px 10px rgba(0,0,0,.15);display:flex;flex-direction:column;gap:.13in}
+
+  .brand{display:flex;justify-content:space-between;align-items:center;background:#0c2340;color:#fff;border-radius:6px;padding:4px 14px 4px 6px}
+  .brand img{height:44px;width:auto;display:block;margin:3px 2px}
+  .brand .left{display:flex;align-items:center;gap:6px}
+  .brand .logo{font-family:"Source Serif 4",Georgia,serif;color:var(--gold-bright);font-weight:700;font-size:20px;letter-spacing:.06em;line-height:1}
+  .brand .logo small{display:block;font-family:"Source Sans 3",Arial,sans-serif;font-size:9.5px;letter-spacing:.04em;color:#e9d9a8;font-weight:400;margin-top:2px}
+  .brand .course{font-size:12px;text-align:right;line-height:1.3}
+
+  .title-row{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:3px solid var(--gold-bright);padding-bottom:6px}
+  .title-row h1{font-family:"Source Serif 4",Georgia,serif;font-size:26px;color:var(--navy);line-height:1}
+  .title-row h1 span{color:#b3261e}
+  .card-tag{background:var(--gold-bright);color:var(--navy);font-weight:700;font-size:13px;padding:5px 12px;border-radius:20px;white-space:nowrap}
+
+  .steps{display:flex;gap:6px}
+  .steps div{flex:1;background:var(--sky-light);border:1px solid var(--sky-dark);border-radius:6px;padding:5px 8px;font-size:12.5px}
+  .steps b{color:var(--navy);margin-right:4px}
+
+  .questions{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .q{border:2px solid var(--navy);border-radius:8px;padding:9px 12px;background:#fff}
+  .q .label{display:inline-block;background:var(--navy);color:#fff;font-weight:700;font-size:11px;padding:2px 8px;border-radius:10px;margin-bottom:5px}
+  .q .ask{font-family:"Source Serif 4",Georgia,serif;font-size:19px;color:var(--navy);line-height:1.2;margin-bottom:6px}
+  .q .answer{font-size:12.5px;color:var(--muted)}
+  .q .answer b{color:var(--ink)}
+  .q .follow{margin-top:5px;font-size:12.5px;background:var(--warm);border-radius:5px;padding:3px 7px}
+
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th{background:var(--navy);color:#fff;font-weight:600;padding:5px 6px;text-align:left}
+  th.c{text-align:center}
+  td{border:1px solid var(--sky-dark);height:.27in;padding:0 6px}
+  td.n{width:.32in;text-align:center;color:var(--muted);font-size:11px}
+  td.yn{width:1.15in;text-align:center;font-size:12px;color:var(--muted);letter-spacing:.05em}
+  tr:nth-child(even) td{background:var(--sky-light)}
+  tr.total td{background:var(--warm);font-weight:700;color:var(--navy);height:.32in}
+
+  .report{border:2px dashed var(--gold);border-radius:8px;padding:9px 12px;background:#fffdf7}
+  .report h2{font-family:"Source Serif 4",Georgia,serif;color:#b3261e;font-size:17px;margin-bottom:5px}
+  .report .line{font-size:14.5px;margin:5px 0;line-height:1.4}
+  .blank{display:inline-block;min-width:.55in;border-bottom:1.5px solid var(--ink);text-align:center}
+  .grammar{display:flex;gap:8px;margin-top:7px}
+  .grammar div{flex:1;background:var(--sky-med);border-radius:5px;padding:5px 8px;font-size:11.5px;line-height:1.35}
+  .grammar b{color:var(--navy)}
+  .grammar .s{color:#b3261e;font-weight:700}
+
+  .foot{margin-top:auto;display:flex;justify-content:space-between;font-size:10px;color:var(--muted);border-top:1px solid var(--sky-dark);padding-top:5px}
+
+  /* Teacher page */
+  .teacher h2{font-family:"Source Serif 4",Georgia,serif;color:var(--navy);font-size:17px;margin:2px 0 3px}
+  .teacher p,.teacher li{font-size:12.5px;line-height:1.4}
+  .teacher{gap:.09in}
+  .teacher ol,.teacher ul{padding-left:20px}
+  .teacher li{margin-bottom:3px}
+  .model{background:var(--navy);color:#fff;border-radius:8px;padding:12px 16px;font-family:"Source Serif 4",Georgia,serif;font-size:17px;line-height:1.5}
+  .model em{color:var(--gold-bright);font-style:normal}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .box{background:var(--sky-light);border:1px solid var(--sky-dark);border-radius:8px;padding:9px 12px}
+  .list td{height:auto;padding:2px 6px;font-size:11px}
+
+  @media print{
+    @page{size:letter;margin:0}
+    body{background:#fff}
+    .toolbar{display:none}
+    .sheet{margin:0;box-shadow:none;page-break-after:always;break-after:page;height:11in}
+  }
+  @media screen and (max-width:8.6in){
+    .sheet{width:100%;min-height:auto;padding:16px}
+    .questions,.grid2{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <p>14 reporter cards (1 per student) + 1 teacher page at the end. Print on Letter paper, "Background graphics" ON.</p>
+  <button onclick="window.print()">Print</button>
+</div>
+
+<div id="sheets"></div>
+
+<script>
+const cards = [
+  {theme:"News Desk", q:[
+    {ask:"Do you watch the news every day?", type:"do", report:"watch the news every day.", follow:"What news do you watch?"},
+    {ask:"Do you read the news on your phone?", type:"do", report:"read the news on their phone.", follow:"What app do you use?"}]},
+  {theme:"World News", q:[
+    {ask:"Do you watch the news in your language?", type:"do", report:"watch the news in their language.", follow:"What channel do you watch?"},
+    {ask:"Do you listen to the radio?", type:"do", report:"listen to the radio.", follow:"When do you listen?"}]},
+  {theme:"Morning Report", q:[
+    {ask:"Do you drink coffee every morning?", type:"do", report:"drink coffee every morning.", follow:"How many cups do you drink?"},
+    {ask:"Do you eat breakfast every day?", type:"do", report:"eat breakfast every day.", follow:"What do you eat?"}]},
+  {theme:"Food Desk", q:[
+    {ask:"Do you cook dinner at home?", type:"do", report:"cook dinner at home.", follow:"What do you cook?"},
+    {ask:"Do you like spicy food?", type:"do", report:"like spicy food.", follow:"What is your favorite spicy food?"}]},
+  {theme:"Transportation", q:[
+    {ask:"Do you take the bus or the train?", type:"do", report:"take the bus or the train.", follow:"Which bus or train do you take?"},
+    {ask:"Do you ride a bike?", type:"do", report:"ride a bike.", follow:"Where do you ride?"}]},
+  {theme:"My Community", q:[
+    {ask:"Is there a park near your home?", type:"is", report:"There is a park near my home.", follow:"What is the name of the park?"},
+    {ask:"Do you know your neighbors?", type:"do", report:"know their neighbors.", follow:"Are your neighbors friendly?"}]},
+  {theme:"Sleep Report", q:[
+    {ask:"Do you get up before 7 a.m.?", type:"do", report:"get up before 7 a.m.", follow:"What time do you get up?"},
+    {ask:"Do you go to bed after midnight?", type:"do", report:"go to bed after midnight.", follow:"Why do you go to bed late / early?"}]},
+  {theme:"Languages", q:[
+    {ask:"Do you speak three languages or more?", type:"do", report:"speak three languages or more.", follow:"Which languages do you speak?"},
+    {ask:"Do you speak English at home?", type:"do", report:"speak English at home.", follow:"Who do you speak English with?"}]},
+  {theme:"Home Life", q:[
+    {ask:"Do you live near the school?", type:"do", report:"live near the school.", follow:"How do you come to school?"},
+    {ask:"Do you have a pet?", type:"do", report:"have a pet.", follow:"What is your pet's name?"}]},
+  {theme:"Sports & Health", q:[
+    {ask:"Do you exercise every week?", type:"do", report:"exercise every week.", follow:"What exercise do you do?"},
+    {ask:"Do you watch soccer?", type:"do", report:"watch soccer.", follow:"What is your favorite team?"}]},
+  {theme:"Taste of Home", q:[
+    {ask:"Do you cook food from your country?", type:"do", report:"cook food from their country.", follow:"What food do you cook?"},
+    {ask:"Is there a restaurant from your country near here?", type:"is", report:"There is a restaurant from my country near here.", follow:"What is the name of the restaurant?"}]},
+  {theme:"Shopping", q:[
+    {ask:"Do you shop online?", type:"do", report:"shop online.", follow:"What do you buy online?"},
+    {ask:"Do you go to the supermarket every week?", type:"do", report:"go to the supermarket every week.", follow:"Which supermarket do you like?"}]},
+  {theme:"Technology", q:[
+    {ask:"Do you use social media every day?", type:"do", report:"use social media every day.", follow:"Which app do you use most?"},
+    {ask:"Do you watch videos in English?", type:"do", report:"watch videos in English.", follow:"What videos do you watch?"}]},
+  {theme:"Weather Watch", q:[
+    {ask:"Do you like cold weather?", type:"do", report:"like cold weather.", follow:"Why or why not?"},
+    {ask:"Is there snow in your country?", type:"is", report:"There is snow in my country.", follow:"When is there snow?"}]}
+];
+
+const answer = t => t==="do"
+  ? 'Answer: <b>Yes, I do.</b> / <b>No, I don\'t.</b>'
+  : 'Answer: <b>Yes, there is.</b> / <b>No, there isn\'t.</b>';
+
+const reportLine = q => q.type==="do"
+  ? `<span class="blank">&nbsp;</span> students ${q.report}`
+  : `<span class="blank">&nbsp;</span> students say, “${q.report}”`;
+
+const rows = Array.from({length:13},(_,i)=>`<tr><td class="n">${i+1}</td><td></td><td></td><td class="yn">YES &nbsp;/&nbsp; NO</td><td class="yn">YES &nbsp;/&nbsp; NO</td></tr>`).join("");
+
+const head = `<div class="brand"><div class="left"><img src="data:image/png;base64,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" alt="Approach logo"><div class="logo">APPROACH<small>International Student Center®</small></div></div><div class="course">Current Issues · Basic Level<br>Week 1 · Getting to Know You</div></div>`;
+const foot = n => `<div class="foot"><span>Current Issues · Basic Level · Week 1</span><span>Reporter Card ${n} of 14</span></div>`;
+
+let html = "";
+cards.forEach((c,i)=>{
+  const n=i+1;
+  html += `<section class="sheet">
+    ${head}
+    <div class="title-row"><h1><span>Breaking News:</span> Class Survey</h1><div class="card-tag">Card ${n} · ${c.theme}</div></div>
+    <div class="steps">
+      <div><b>1</b>Ask every classmate.</div>
+      <div><b>2</b>Write their name and country.</div>
+      <div><b>3</b>Circle YES or NO.</div>
+      <div><b>4</b>Count and report!</div>
+    </div>
+    <div class="questions">
+      ${c.q.map((q,k)=>`<div class="q"><span class="label">QUESTION ${k+1}</span><div class="ask">${q.ask}</div><div class="answer">${answer(q.type)}</div><div class="follow">★ Ask more: <i>${q.follow}</i></div></div>`).join("")}
+    </div>
+    <table>
+      <thead><tr><th class="c">#</th><th>Name</th><th>Country</th><th class="c">Question 1</th><th class="c">Question 2</th></tr></thead>
+      <tbody>${rows}<tr class="total"><td></td><td colspan="2">TOTAL “YES”</td><td class="yn">_____ / 13</td><td class="yn">_____ / 13</td></tr></tbody>
+    </table>
+    <div class="report">
+      <h2>📢 Breaking news!</h2>
+      ${c.q.map(q=>`<div class="line">${reportLine(q)}</div>`).join("")}
+      <div class="grammar">
+        <div><b>1 student</b> drink<span class="s">s</span> · like<span class="s">s</span><br><b>2+ students</b> drink · like<br><b>No students</b> drink · like</div>
+        <div><b>Report words:</b><br>All the students… · Most students…<br>Half of the students… · Only one student…</div>
+        <div><b>★ Challenge:</b> Add one more fact from your follow-up question.<br><i>“Ana watches the news on TV.”</i></div>
+      </div>
+    </div>
+    ${foot(n)}
+  </section>`;
+});
+
+/* Teacher page */
+html += `<section class="sheet teacher">
+  ${head}
+  <div class="title-row"><h1>Teacher Page</h1><div class="card-tag">Not for students</div></div>
+  <div class="grid2">
+    <div class="box">
+      <h2>How to run it (≈20 min)</h2>
+      <ol>
+        <li><b>Model (2 min).</b> Ask 2–3 students one question. Show <i>Yes, I do / No, I don't</i>.</li>
+        <li><b>Mingle (10 min).</b> Everyone stands, asks every classmate both questions, and writes names + countries.</li>
+        <li><b>Count (2 min).</b> Students total the YES answers and fill in the report.</li>
+        <li><b>Report (6 min).</b> Each student stands and gives one or two “Breaking news!” lines.</li>
+      </ol>
+    </div>
+    <div class="box">
+      <h2>Differentiation</h2>
+      <ul>
+        <li><b>A1:</b> Read the question, circle YES/NO, fill in the number.</li>
+        <li><b>A2:</b> Ask the ★ follow-up question to 3+ classmates.</li>
+        <li><b>A2+:</b> Do the ★ Challenge and use <i>most / half / only one</i>.</li>
+        <li>Fewer than 14 students? Remove cards from the end and change “/ 13” on the board.</li>
+      </ul>
+    </div>
+  </div>
+  <h2>Board model for the report</h2>
+  <div class="model">📢 Breaking news! <em>Eight</em> students drink coffee every morning.<br>
+  Only <em>one</em> student drink<em>s</em> tea. &nbsp;·&nbsp; <em>Five</em> students say, “There is a park near my home.”</div>
+  <h2>Listen for (quick feedback after reports)</h2>
+  <div class="grid2">
+    <div class="box"><p><b>Third-person -s:</b> “one student drink<b>s</b>” vs. “two students drink”.<br><b>Question form:</b> “<b>Do you</b> like…?” not “You like…?”</p></div>
+    <div class="box"><p><b>There is:</b> “Is there a park…? Yes, there is.”<br><b>Link to the article:</b> real headlines use the present simple too — “Students Drink Coffee Every Morning.”</p></div>
+  </div>
+  <h2>Card list</h2>
+  <table class="list"><tbody>
+    ${cards.map((c,i)=>`<tr><td class="n">${i+1}</td><td><b>${c.theme}</b></td><td>${c.q[0].ask}</td><td>${c.q[1].ask}</td></tr>`).join("")}
+  </tbody></table>
+  <div class="foot"><span>Current Issues · Basic Level · Week 1</span><span>Teacher page</span></div>
+</section>`;
+
+document.getElementById("sheets").innerHTML = html;
+</script>
+</body>
+</html>
