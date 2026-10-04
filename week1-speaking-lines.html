@@ -1,0 +1,495 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Speaking Lines · Week 1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0d1f3a; --navy-2:#13294b; --navy-3:#1b3560; --ink:#081428;
+    --gold:#c9a14a; --gold-2:#e2c27a; --cream:#f6f0e2; --muted:#9fb0c8;
+    --red:#e05a4f; --green:#4fbf8f;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%}
+  body{
+    background:radial-gradient(ellipse at top, var(--navy-3) 0%, var(--navy) 45%, var(--ink) 100%);
+    color:var(--cream); font-family:Inter, system-ui, sans-serif;
+    display:flex; flex-direction:column; min-height:100vh; overflow-x:hidden;
+  }
+  button{font-family:inherit; cursor:pointer}
+
+  /* ---------- top bar ---------- */
+  header{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:14px clamp(16px,3vw,40px); gap:12px;
+    border-bottom:1px solid rgba(201,161,74,.25);
+  }
+  .brand{display:flex; flex-direction:column; line-height:1.15}
+  .brand b{font-family:"DM Serif Display",serif; font-weight:400; font-size:clamp(18px,1.8vw,26px); color:var(--gold-2)}
+  .brand span{font-size:clamp(11px,1vw,14px); color:var(--muted); letter-spacing:.08em; text-transform:uppercase}
+  .tools{display:flex; gap:8px}
+  .icon-btn{
+    background:rgba(255,255,255,.06); color:var(--cream); border:1px solid rgba(255,255,255,.15);
+    border-radius:10px; padding:9px 14px; font-size:14px; font-weight:600;
+  }
+  .icon-btn:hover{border-color:var(--gold); color:var(--gold-2)}
+
+  main{flex:1; display:flex; align-items:center; justify-content:center; padding:clamp(16px,3vw,40px)}
+  .screen{display:none; width:100%; max-width:1400px}
+  .screen.active{display:block}
+
+  /* ---------- intro ---------- */
+  .intro{text-align:center}
+  .intro h1{font-family:"DM Serif Display",serif; font-weight:400; font-size:clamp(40px,6vw,92px); margin:0 0 6px; color:var(--cream)}
+  .intro h1 em{color:var(--gold); font-style:normal}
+  .intro .sub{font-size:clamp(18px,2vw,28px); color:var(--muted); margin:0 0 36px}
+  .lines-demo{
+    display:grid; grid-template-columns:1fr 1fr; gap:clamp(16px,3vw,48px);
+    max-width:900px; margin:0 auto 36px;
+  }
+  .line-col{background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.12); border-radius:20px; padding:22px}
+  .line-col h3{margin:0 0 12px; font-size:clamp(18px,1.8vw,26px)}
+  .line-col.a h3{color:var(--gold-2)} .line-col.b h3{color:#8fd3ff}
+  .people{display:flex; justify-content:center; gap:10px; margin-bottom:12px; font-size:clamp(22px,2.6vw,36px)}
+  .line-col p{margin:0; font-size:clamp(15px,1.4vw,20px); color:var(--cream); opacity:.9}
+  .rules{display:flex; flex-wrap:wrap; justify-content:center; gap:12px; margin:0 auto 36px; max-width:1000px}
+  .rule{background:rgba(201,161,74,.12); border:1px solid rgba(201,161,74,.4); border-radius:999px; padding:10px 18px; font-size:clamp(14px,1.3vw,19px)}
+  .big-btn{
+    background:var(--gold); color:var(--ink); border:none; border-radius:16px;
+    padding:18px 40px; font-size:clamp(18px,1.8vw,24px); font-weight:800; letter-spacing:.02em;
+    box-shadow:0 10px 30px rgba(201,161,74,.25);
+  }
+  .big-btn:hover{background:var(--gold-2)}
+
+  /* ---------- card ---------- */
+  .card-wrap{display:grid; grid-template-columns:1fr auto; gap:clamp(20px,3vw,48px); align-items:center}
+  .card{
+    background:linear-gradient(160deg, var(--cream) 0%, #efe5cc 100%);
+    color:var(--ink); border-radius:28px; padding:clamp(26px,3.5vw,56px);
+    box-shadow:0 30px 60px rgba(0,0,0,.35); position:relative; min-height:56vh;
+    display:flex; flex-direction:column;
+  }
+  .card-top{display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:clamp(16px,2vw,28px); flex-wrap:wrap}
+  .tag{background:var(--navy); color:var(--gold-2); border-radius:999px; padding:8px 18px; font-weight:700; font-size:clamp(13px,1.2vw,18px); letter-spacing:.06em; text-transform:uppercase}
+  .count{font-weight:700; color:#6b7a90; font-size:clamp(14px,1.3vw,20px)}
+  .q{font-family:"DM Serif Display",serif; font-weight:400; font-size:clamp(30px,3.9vw,64px); line-height:1.12; margin:0 0 auto}
+  .extras{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:clamp(20px,2.5vw,36px)}
+  .extra{background:rgba(13,31,58,.07); border-left:5px solid var(--gold); border-radius:12px; padding:14px 18px}
+  .extra small{display:block; font-weight:800; font-size:clamp(11px,1vw,14px); letter-spacing:.1em; text-transform:uppercase; color:#8a6a24; margin-bottom:4px}
+  .extra div{font-size:clamp(16px,1.6vw,24px); font-weight:500; line-height:1.3}
+  .first{
+    position:absolute; top:-18px; right:32px; background:var(--navy); color:var(--cream);
+    border:2px solid var(--gold); border-radius:999px; padding:8px 18px; font-weight:700; font-size:clamp(13px,1.2vw,18px)
+  }
+
+  /* ---------- timer ---------- */
+  .timer-col{display:flex; flex-direction:column; align-items:center; gap:14px; min-width:clamp(220px,20vw,300px)}
+  .ring{position:relative; width:clamp(200px,19vw,280px); aspect-ratio:1}
+  .ring svg{width:100%; height:100%; transform:rotate(-90deg)}
+  .ring .track{stroke:rgba(255,255,255,.12)}
+  .ring .bar{stroke:var(--gold); transition:stroke-dashoffset .25s linear, stroke .3s}
+  .ring.warn .bar{stroke:var(--red)}
+  .time{position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center}
+  .time b{font-size:clamp(46px,4.8vw,74px); font-weight:800; font-variant-numeric:tabular-nums; letter-spacing:-.02em}
+  .time span{font-size:clamp(12px,1vw,15px); color:var(--muted); text-transform:uppercase; letter-spacing:.12em}
+  .ring.warn .time b{color:#ff9c93}
+  .t-controls{display:flex; gap:8px; flex-wrap:wrap; justify-content:center}
+  .t-btn{
+    background:rgba(255,255,255,.08); color:var(--cream); border:1px solid rgba(255,255,255,.18);
+    border-radius:12px; padding:10px 14px; font-weight:700; font-size:16px; min-width:56px
+  }
+  .t-btn:hover{border-color:var(--gold)}
+  .t-btn.primary{background:var(--gold); color:var(--ink); border-color:var(--gold); min-width:120px}
+  .t-btn.primary:hover{background:var(--gold-2)}
+  .swap-cue{
+    background:#8fd3ff; color:var(--ink); border-radius:12px; padding:10px 16px; font-weight:800;
+    font-size:clamp(15px,1.4vw,20px); text-align:center; visibility:hidden
+  }
+  .swap-cue.show{visibility:visible; animation:pulse 1s ease-in-out 3}
+  @keyframes pulse{50%{transform:scale(1.07)}}
+
+  /* ---------- nav ---------- */
+  .nav{display:flex; align-items:center; justify-content:center; gap:16px; margin-top:clamp(18px,2.5vw,30px)}
+  .dots{display:flex; gap:8px; flex-wrap:wrap; justify-content:center}
+  .dot{width:14px; height:14px; border-radius:50%; background:rgba(255,255,255,.2); border:none; padding:0}
+  .dot.done{background:rgba(201,161,74,.55)}
+  .dot.on{background:var(--gold); transform:scale(1.3)}
+
+  /* ---------- overlay ---------- */
+  .overlay{
+    position:fixed; inset:0; background:rgba(8,20,40,.94); display:none;
+    align-items:center; justify-content:center; text-align:center; z-index:20; padding:24px
+  }
+  .overlay.show{display:flex}
+  .switch-box h2{font-family:"DM Serif Display",serif; font-weight:400; font-size:clamp(56px,9vw,140px); margin:0; color:var(--gold)}
+  .switch-box p{font-size:clamp(22px,3vw,44px); margin:10px 0}
+  .switch-box .arrow{font-size:clamp(60px,9vw,130px); color:#8fd3ff; animation:slide 1.2s ease-in-out infinite}
+  @keyframes slide{50%{transform:translateX(30px)}}
+  .switch-box .auto{color:var(--muted); font-size:clamp(16px,1.6vw,22px); margin:16px 0 26px}
+
+  /* ---------- settings ---------- */
+  .modal{position:fixed; inset:0; background:rgba(0,0,0,.6); display:none; align-items:center; justify-content:center; z-index:30; padding:16px}
+  .modal.show{display:flex}
+  .panel{background:var(--navy-2); border:1px solid rgba(201,161,74,.4); border-radius:20px; padding:28px; width:min(560px,100%); max-height:90vh; overflow:auto}
+  .panel h2{margin:0 0 18px; font-family:"DM Serif Display",serif; font-weight:400; color:var(--gold-2); font-size:30px}
+  .panel h4{margin:18px 0 10px; font-size:14px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted)}
+  .presets{display:flex; flex-wrap:wrap; gap:8px}
+  .preset{background:rgba(255,255,255,.07); color:var(--cream); border:1px solid rgba(255,255,255,.2); border-radius:10px; padding:10px 14px; font-weight:700}
+  .preset.on{background:var(--gold); color:var(--ink); border-color:var(--gold)}
+  .row{display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px 0; border-bottom:1px solid rgba(255,255,255,.08)}
+  .row label{font-size:16px}
+  .row input[type=number]{width:90px; padding:8px; border-radius:8px; border:1px solid rgba(255,255,255,.25); background:var(--ink); color:var(--cream); font-size:16px}
+  .row input[type=checkbox]{width:22px; height:22px; accent-color:var(--gold)}
+  .keys{font-size:13px; color:var(--muted); line-height:1.7; margin-top:16px}
+  kbd{background:var(--ink); border:1px solid rgba(255,255,255,.25); border-radius:5px; padding:1px 6px; font-family:inherit; color:var(--cream)}
+
+  /* ---------- end ---------- */
+  .end{text-align:center; max-width:1000px; margin:0 auto}
+  .end h1{font-family:"DM Serif Display",serif; font-weight:400; font-size:clamp(40px,5.5vw,84px); margin:0 0 20px; color:var(--gold)}
+  .end ol{text-align:left; display:inline-block; font-size:clamp(20px,2.3vw,34px); line-height:1.5; margin:0 0 34px}
+
+  @media (max-width:900px){
+    .card-wrap{grid-template-columns:1fr}
+    .extras{grid-template-columns:1fr}
+    .lines-demo{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <b>TED Talks: Ideas Worth Sharing</b>
+    <span>Week 1 · Why Talks Matter · Speaking Lines</span>
+  </div>
+  <div class="tools">
+    <button class="icon-btn" id="settingsBtn" title="Settings (S)">⚙ Timer settings</button>
+    <button class="icon-btn" id="fsBtn" title="Fullscreen (F)">⛶ Fullscreen</button>
+  </div>
+</header>
+
+<main>
+  <!-- INTRO -->
+  <section class="screen intro active" id="intro">
+    <h1>Talk <em>Lines</em></h1>
+    <p class="sub">One question · one partner · then move on</p>
+    <div class="lines-demo">
+      <div class="line-col a">
+        <h3>Line A</h3>
+        <div class="people">🧍🧍🧍🧍🧍</div>
+        <p>You <b>stay</b> where you are.</p>
+      </div>
+      <div class="line-col b">
+        <h3>Line B</h3>
+        <div class="people">🧍🧍🧍🧍🧍</div>
+        <p>When time is up, <b>move one step to the right</b> →</p>
+      </div>
+    </div>
+    <div class="rules">
+      <div class="rule">🗣 Both partners speak</div>
+      <div class="rule">🔁 Swap speaker halfway</div>
+      <div class="rule">❓ Ask a follow-up question</div>
+      <div class="rule">🙌 Say "thanks" before you move</div>
+    </div>
+    <button class="big-btn" id="startBtn">Start the first question ▸</button>
+  </section>
+
+  <!-- CARD -->
+  <section class="screen" id="cardScreen">
+    <div class="card-wrap">
+      <article class="card">
+        <div class="first" id="first">Line A speaks first</div>
+        <div class="card-top">
+          <span class="tag" id="tag">Tag</span>
+          <span class="count" id="count">1 / 10</span>
+        </div>
+        <h2 class="q" id="q">Question</h2>
+        <div class="extras">
+          <div class="extra"><small>Dig deeper</small><div id="dig"></div></div>
+          <div class="extra"><small>Try saying</small><div id="starter"></div></div>
+        </div>
+      </article>
+
+      <aside class="timer-col">
+        <div class="ring" id="ring">
+          <svg viewBox="0 0 120 120">
+            <circle class="track" cx="60" cy="60" r="54" fill="none" stroke-width="9"/>
+            <circle class="bar" id="bar" cx="60" cy="60" r="54" fill="none" stroke-width="9" stroke-linecap="round"/>
+          </svg>
+          <div class="time"><b id="time">1:30</b><span id="tstate">ready</span></div>
+        </div>
+        <div class="swap-cue" id="swapCue">↔ Switch speaker!</div>
+        <div class="t-controls">
+          <button class="t-btn" id="minus" title="−15 seconds">−15</button>
+          <button class="t-btn primary" id="playBtn" title="Start / pause (Space)">▶ Start</button>
+          <button class="t-btn" id="plus" title="+15 seconds">+15</button>
+        </div>
+        <div class="t-controls">
+          <button class="t-btn" id="resetBtn" title="Reset (R)">↺ Reset</button>
+          <button class="t-btn" id="timeUpBtn" title="Skip to switch">⏭ Switch now</button>
+        </div>
+      </aside>
+    </div>
+
+    <div class="nav">
+      <button class="t-btn" id="prevBtn" title="Previous (←)">◂ Back</button>
+      <div class="dots" id="dots"></div>
+      <button class="t-btn" id="nextBtn" title="Next (→)">Next ▸</button>
+    </div>
+  </section>
+
+  <!-- END -->
+  <section class="screen end" id="endScreen">
+    <h1>Back to your seats!</h1>
+    <ol>
+      <li>Which question gave you the <b>most interesting</b> answer?</li>
+      <li>Share <b>one idea</b> you heard from a partner, not your own.</li>
+      <li>Did anyone say an idea you'd love to hear as a full talk?</li>
+    </ol>
+    <div><button class="big-btn" id="restartBtn">↺ Start again</button></div>
+  </section>
+</main>
+
+<!-- SWITCH OVERLAY -->
+<div class="overlay" id="overlay">
+  <div class="switch-box">
+    <h2>Time's up!</h2>
+    <p>Thank your partner. 🙌</p>
+    <div class="arrow">→</div>
+    <p><b>Line B:</b> move one step to the right</p>
+    <div class="auto" id="autoMsg"></div>
+    <button class="big-btn" id="overlayNext">Next question ▸</button>
+  </div>
+</div>
+
+<!-- SETTINGS -->
+<div class="modal" id="modal">
+  <div class="panel">
+    <h2>Timer settings</h2>
+    <h4>Time per question</h4>
+    <div class="presets" id="presets"></div>
+    <div class="row">
+      <label for="custom">Custom (seconds)</label>
+      <input type="number" id="custom" min="15" max="900" step="5">
+    </div>
+    <h4>Options</h4>
+    <div class="row"><label for="optSwap">Show "switch speaker" cue at halfway</label><input type="checkbox" id="optSwap" checked></div>
+    <div class="row"><label for="optSound">Sound (bell)</label><input type="checkbox" id="optSound" checked></div>
+    <div class="row"><label for="optAuto">Auto-continue to next question</label><input type="checkbox" id="optAuto"></div>
+    <div class="row"><label for="moveTime">Moving time before auto-continue (seconds)</label><input type="number" id="moveTime" min="3" max="60" value="10"></div>
+    <div class="keys">
+      <kbd>Space</kbd> start/pause · <kbd>→</kbd> next · <kbd>←</kbd> back · <kbd>R</kbd> reset · <kbd>F</kbd> fullscreen · <kbd>S</kbd> settings · <kbd>Esc</kbd> close
+    </div>
+    <div style="text-align:right; margin-top:20px"><button class="big-btn" id="closeSettings" style="padding:12px 28px; font-size:18px">Done</button></div>
+  </div>
+</div>
+
+<script>
+const cards = [
+  { tag:"Warm up", q:"What's the best talk, class, or speech you've ever heard?",
+    dig:"What made it memorable: the speaker, the idea, or the way it was told?",
+    starter:"It stuck with me because…" },
+  { tag:"Myth or fact?", q:"“Great speakers are born, not made.”",
+    dig:"Do you know someone who became a good speaker through practice?",
+    starter:"I'd say that's partly true, but…" },
+  { tag:"Myth or fact?", q:"“A great TED Talk needs a childhood story, a personal secret, and an inspiring ending.”",
+    dig:"When does a personal story help a talk, and when does it feel manipulative?",
+    starter:"I'm not convinced, because…" },
+  { tag:"Audience view", q:"You start watching a talk online. How many seconds do you give it before you decide to stay or click away?",
+    dig:"What makes you keep watching? What makes you leave?",
+    starter:"If the first 30 seconds are…, I usually…" },
+  { tag:"Speaker view", q:"What's the biggest presentation mistake you've ever seen? (No names!)",
+    dig:"What should the speaker have done instead?",
+    starter:"The problem was that… They should have…" },
+  { tag:"Quick rank", q:"What makes you trust a speaker most? Rank: confidence · evidence · personal experience · humor · expertise",
+    dig:"Does your ranking change for a doctor? A politician? A friend?",
+    starter:"For me, ___ comes first, because…" },
+  { tag:"Big question", q:"Can one talk really change the way someone sees the world?",
+    dig:"Has a talk, book, or conversation ever changed your mind? What changed?",
+    starter:"Before, I used to think… Now I…" },
+  { tag:"Think about it", q:"Some people say a great talk is a gift to the audience. What do you think that means?",
+    dig:"What does the audience take home from a really good talk?",
+    starter:"I think it means that…" },
+  { tag:"Explain it", q:"What's something you know a lot about that most people don't?",
+    dig:"How would you explain it in one sentence to someone who knows nothing about it?",
+    starter:"Basically, it's a bit like…" },
+  { tag:"Your idea", q:"If you had 5 minutes on a world stage, what one idea would you want everyone to hear?",
+    dig:"Who would that idea help, and why should they care?",
+    starter:"I'd want people to understand that…" }
+];
+
+const PRESETS = [45, 60, 90, 120, 150, 180];
+const CIRC = 2 * Math.PI * 54;
+const $ = id => document.getElementById(id);
+
+let idx = -1, duration = 90, remaining = 90, running = false, endAt = 0, tickId = null;
+let halfShown = false, autoId = null;
+
+/* ---------- audio ---------- */
+let actx = null;
+function audio(){ if(!actx){ try{ actx = new (window.AudioContext||window.webkitAudioContext)(); }catch(e){} } return actx; }
+function tone(freq, start, dur, vol=.22){
+  const c = audio(); if(!c || !$("optSound").checked) return;
+  const o = c.createOscillator(), g = c.createGain();
+  o.type = "sine"; o.frequency.value = freq;
+  g.gain.setValueAtTime(0, c.currentTime + start);
+  g.gain.linearRampToValueAtTime(vol, c.currentTime + start + .02);
+  g.gain.exponentialRampToValueAtTime(.0001, c.currentTime + start + dur);
+  o.connect(g).connect(c.destination); o.start(c.currentTime + start); o.stop(c.currentTime + start + dur + .05);
+}
+const bellEnd = () => { tone(660,0,.9); tone(880,.18,.9); tone(1100,.36,1.2); };
+const bellHalf = () => { tone(520,0,.5,.18); tone(520,.25,.5,.18); };
+
+/* ---------- screens ---------- */
+function show(id){ document.querySelectorAll(".screen").forEach(s => s.classList.toggle("active", s.id === id)); }
+
+function buildDots(){
+  const d = $("dots"); d.innerHTML = "";
+  cards.forEach((_, i) => {
+    const b = document.createElement("button");
+    b.className = "dot"; b.title = "Question " + (i+1);
+    b.onclick = () => goTo(i);
+    d.appendChild(b);
+  });
+}
+function updateDots(){
+  [...$("dots").children].forEach((b, i) => {
+    b.classList.toggle("on", i === idx);
+    b.classList.toggle("done", i < idx);
+  });
+}
+
+function goTo(i, autostart=false){
+  clearAuto(); $("overlay").classList.remove("show");
+  if(i < 0){ idx = -1; stop(); show("intro"); return; }
+  if(i >= cards.length){ idx = cards.length; stop(); show("endScreen"); return; }
+  idx = i;
+  const c = cards[i];
+  $("tag").textContent = c.tag;
+  $("count").textContent = (i+1) + " / " + cards.length;
+  $("q").textContent = c.q;
+  $("dig").textContent = c.dig;
+  $("starter").textContent = c.starter;
+  $("first").textContent = (i % 2 === 0 ? "Line A" : "Line B") + " speaks first";
+  show("cardScreen"); updateDots();
+  resetTimer();
+  if(autostart) start();
+}
+
+/* ---------- timer ---------- */
+function fmt(s){ s = Math.max(0, Math.ceil(s)); return Math.floor(s/60) + ":" + String(s%60).padStart(2,"0"); }
+function render(){
+  $("time").textContent = fmt(remaining);
+  const frac = duration ? Math.max(0, remaining) / duration : 0;
+  $("bar").style.strokeDasharray = CIRC;
+  $("bar").style.strokeDashoffset = CIRC * (1 - frac);
+  $("ring").classList.toggle("warn", remaining <= 10 && remaining > 0);
+  $("tstate").textContent = running ? "talking" : (remaining === duration ? "ready" : "paused");
+  $("playBtn").textContent = running ? "❚❚ Pause" : "▶ Start";
+}
+function start(){
+  if(running || remaining <= 0) return;
+  audio(); running = true; endAt = Date.now() + remaining*1000;
+  tickId = setInterval(tick, 200); render();
+}
+function stop(){ running = false; clearInterval(tickId); render(); }
+function tick(){
+  remaining = (endAt - Date.now()) / 1000;
+  if($("optSwap").checked && !halfShown && remaining <= duration/2){
+    halfShown = true; $("swapCue").classList.add("show"); bellHalf();
+  }
+  if(remaining <= 0){ remaining = 0; stop(); timeUp(); return; }
+  render();
+}
+function resetTimer(){
+  stop(); remaining = duration; halfShown = false;
+  $("swapCue").classList.remove("show"); render();
+}
+function adjust(sec){
+  remaining = Math.max(5, remaining + sec);
+  if(remaining > duration) duration = remaining;
+  if(running) endAt = Date.now() + remaining*1000;
+  render();
+}
+function timeUp(){
+  bellEnd();
+  const last = idx >= cards.length - 1;
+  $("overlayNext").textContent = last ? "Finish ▸" : "Next question ▸";
+  $("overlay").classList.add("show");
+  if($("optAuto").checked){
+    let n = Math.max(3, parseInt($("moveTime").value) || 10);
+    $("autoMsg").textContent = "Next question in " + n + "…";
+    autoId = setInterval(() => {
+      n--;
+      if(n <= 0){ clearAuto(); goTo(idx + 1, true); }
+      else $("autoMsg").textContent = "Next question in " + n + "…";
+    }, 1000);
+  } else $("autoMsg").textContent = "";
+}
+function clearAuto(){ clearInterval(autoId); autoId = null; }
+
+/* ---------- settings ---------- */
+function buildPresets(){
+  const p = $("presets"); p.innerHTML = "";
+  PRESETS.forEach(s => {
+    const b = document.createElement("button");
+    b.className = "preset" + (s === duration ? " on" : "");
+    b.textContent = s < 60 ? s + " sec" : fmt(s) + " min";
+    b.onclick = () => setDuration(s);
+    p.appendChild(b);
+  });
+  $("custom").value = duration;
+}
+function setDuration(s){
+  s = Math.min(900, Math.max(15, Math.round(s)));
+  duration = s; buildPresets();
+  if(!running) resetTimer();
+}
+
+/* ---------- fullscreen ---------- */
+function toggleFS(){
+  if(!document.fullscreenElement) document.documentElement.requestFullscreen?.();
+  else document.exitFullscreen?.();
+}
+
+/* ---------- wiring ---------- */
+$("startBtn").onclick = () => goTo(0);
+$("restartBtn").onclick = () => goTo(-1);
+$("playBtn").onclick = () => running ? stop() : start();
+$("resetBtn").onclick = resetTimer;
+$("minus").onclick = () => adjust(-15);
+$("plus").onclick = () => adjust(15);
+$("timeUpBtn").onclick = () => { stop(); remaining = 0; render(); timeUp(); };
+$("prevBtn").onclick = () => goTo(idx - 1);
+$("nextBtn").onclick = () => goTo(idx + 1);
+$("overlayNext").onclick = () => goTo(idx + 1, $("optAuto").checked);
+$("settingsBtn").onclick = () => { buildPresets(); $("modal").classList.add("show"); };
+$("closeSettings").onclick = () => $("modal").classList.remove("show");
+$("modal").onclick = e => { if(e.target.id === "modal") $("modal").classList.remove("show"); };
+$("custom").onchange = e => setDuration(parseInt(e.target.value) || 90);
+$("fsBtn").onclick = toggleFS;
+
+document.addEventListener("keydown", e => {
+  if(e.target.tagName === "INPUT") return;
+  const k = e.key.toLowerCase();
+  if(k === "escape"){ $("modal").classList.remove("show"); return; }
+  if(k === "s"){ buildPresets(); $("modal").classList.toggle("show"); return; }
+  if(k === "f"){ toggleFS(); return; }
+  if($("overlay").classList.contains("show") && (k === " " || k === "arrowright" || k === "enter")){
+    e.preventDefault(); goTo(idx + 1, $("optAuto").checked); return;
+  }
+  if(k === "arrowright"){ goTo(idx + 1); }
+  else if(k === "arrowleft"){ goTo(idx - 1); }
+  else if(idx >= 0 && idx < cards.length){
+    if(k === " "){ e.preventDefault(); running ? stop() : start(); }
+    else if(k === "r"){ resetTimer(); }
+  }
+});
+
+buildDots(); render();
+</script>
+</body>
+</html>
