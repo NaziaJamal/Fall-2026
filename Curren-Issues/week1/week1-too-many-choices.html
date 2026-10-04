@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Too Many Choices · Week 1</title>
+<link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIgAAAB0CAIAAADRiO1nAAAglUlEQVR4nO19aXAc55ne837dPTMY3AcBECBAkOAp3jd4iqRFSZQsWaetw7a0u9Z6k012N1tJudap/EnlR6qc2iR2VHG89q7P9S1LtixKFGVRIkXxJsX7BAkQBwlicANzdPf35sfXAEGgu2eAmSFpl55ilYriTPc3/fR7fO/1UV79ZnyKew/ibi/gU7hDv9sLmCSYwaP+SgAIdLdWkwX8MREjGVJCMogQ0BHQYWjO/7clYgkkbGgC2p+EFrjXiWHAlpASmkBhGJVFmD2VaqegOJeK85CfAwCmhWgCN/tw+TofusRNN6EJ0B+5+NA9a/wlw7Kha6gpxaLptKCGaspQkoeADgDMkAxmAA4HQoCAgRjePMxvHGQlWH+8uBclxrIhGaX5WFRLa+dhfjXlhRwmpETCGvcFBgBbAkDIwPMbKWjgXz9kTbvDC88k7i1iTBuCUF+JDfNp9SyaUggCbFcyPCAZpoWHl9GBi3ypHfofLTf3CjGKkoU1eHCpWDoDuUHYEpY9mUtJRjiIpXV0oY2Tf/pexd0nxpIAY8E0PLJCLJuJoA7TnoCIuEIyasogPrUxk4OUsCRqy/DYKlo/j0JGEkoEOfZcmRM/MMJBIvpUYiaOhIXSPDy0lLYtocLcJJTomuNx9UchBMrywXBcMi8kJ+/exl0gxpZgoGEOPb+Baspg+VJiaJCMi+3Ye5ZPNnHPIED4zCJ6bj0R4EkNoT/K/szd47jTxCQslOXj2XW0eQFpWhLFpQmca8WOo/JwI2KJ4W0j4/WDPKeKVs+C6eEdEBDph/yUmFSgAidrZuPFjWJaGUzbz+kydPQN4vWDvPMTjiZgaM6+EgAIpoWzLdwwh+BxBWZc78n0D7izuEPEWDbCQTzVQI8sJ91XUIhgaDh9Dd9/X16+Dn00JSNgRON+V4iZaOviT72yJEhYmFaCr2wTi6cnERRNgBlvHOJffcxDcTdKAABECBieFxGE/ig6eiH+mKOZWScmYWH5TLyyTVQUJtmd6Br6o/jhbt59mjXhRI5dQUBpvqdXJgitXRiMZTELICVs9lth+sgiMcywJB5YTC9toZxAElYMDZEBvLpDHr+CgJHkmRKhqpi8iCHC1Q6OW54ClyYsG9WlqK+gPWd5ZGuVcWSLGGbYjKcb6Nl1RJQkuGLouNaJ/7NDXmxH0FtHjVw5HERFkafESInzbdl6XlIiN4S/3CYW1KCqBL/cx5ydMHZWiJEMAl7YQE+sISkhffd6AR3n2/DN38vr3QimsBybUZqP0nzYbsQIQm8ULZ1ZsfwqlfDlzWJBDUwbTzcQM37+EWcj/ZN5YiRDI3xpM21fRpZMsj8P6DjZhG++JbsGYKS2FmbUlFJu0H0TIwTau9DZn/k8pkrZPbeeti6CaYEBS+KpBrIlfr2fBTLMTYaXLxmC8PJW8chysuzkrJxowv96U3YPTsCQMmN2lWeAUhAutLOZXgzUFaaFR1fQk2vIsp2Ig0oRPbuOFD2Z3c5mkhhmMOP5jfTQUued8kFAx6lmfPP3sncIesqrYEbIQH0FueoxAJbEhbYMPyMACQsPLsEX7yfcHqNT3Hx+HT264hZhGUEmibFsPL6aHltJZrIlGjoutuObb8mewYnlsiSjJB9Vpe52SxAGomi6yZnVYwkLWxfRy1uEcIucqtfxxU10/wJKM1sxGhn7BQkLWxbhC+tIJrMrhobWCL71loz0TzjDaEvMrEB+yP0WQqAlgu6BTGZiEha2LMRXPkP6sAkcb0skQxP4sy20qBaZ0qKZISZhYekMvLxFCJEkdKgJ9Azh1R2yNTLJDdqcqaQJd4kUhMYOjpmZscPMSFjYupC+8oDQNRAh0o9v7+SeQRfPwpbIDeGvHhRTiyeZeB2DDBBj2Zg+BV99UISDSTxjIpg2vreLz7Wm6oONQVDH7Cry4l4yLrRmZsPPDNPG9mV4ZRsFNBBhIIpv75TvHOcff8BSunBv2agqwZ99hgJGEp2RCtIlRiXYVcQl6ZuiC7y2n/edZ59Ilw9sibICVBS5J8GUgbnWyemHyCRDMp5cQy9vFZoACAkL/+9defwKckPYe47fOMSuSjhhYcVMemI1WWmn6dImRuKZtbRgWvIsfUDHnrN44yAb2iRfasmoLUOBl4EhdPThZn+6BkZKCMIX76cXNxLgsPKdnbz/PIIGCNAEXtvPxxrdQz6Wjc+uJLUDTQdpEZOwsHIWPbyMEskWYWi4dB0/2C3TqcNjxpwq8hIIIdDUwfH0DIxlIxTAX24Tj68iW0IQLBv/tEt+cIZHaBCEhIUffSC7BlwC2JKRY+CFjSI3kJZCmzwxSrF8cRPpWpIVCMJADN/bJXsGJr8hZ0bQwMwKz9glgMs30noWpo0pBfj7x4Xa25NAwsJ33uX3T40VDl3D1Q786mN2/TWmjXnV2L6c0hGayRPDjKcbqKY0uWnRBH5zkM+3TdLgj9yuIAdVJe4GhgixBK6lESKLm5hVia89JZbWIWFBEzAtfOddufsUu0bwAjr+cJKPXGF3hSbxyAqaUT55D22SxJg2FtTi/gUpKDEdx67g7aOcZvbCZlSXIj/H3VEmoD+G9u7JJMdUkfSm+/C1J8X0MoeVmIlvv8MfnPZL1lk2fraHe4fcFJpEYRjPrPVUvEkxme8xI6DjqQYRTOYXCkLfEP51j0xY6e4tmFFdQgHd/Y6awPVuDMUn7FaYNoIGXtpC/267KAzDtKFrGIjh1R1yz1l3aRiBruFKB9484h5oSFhYNYuW1E1SoU2GGNNGwxykssvVNPz2EKvUfZogwvQpfv/a2jWxrSUDCRN15fjaE+KxlQSCLRHQ0d6Nb7wu919IKc+ma9h5nK92uP9ATcNjKz1fJn9MmBjJKMjB4yuTf1HX0Hgdu05wOqZFgQFDQ02Z59aSgZbIBC5oS7DEA4vpPz8tFtQgYTlq4GwL/vtr8kxLqtlPVV/w+yPsqmFNC/dNw9JJCc2EibFsrJ9HdSmYNSnx2n7uj2YgcsWMwjCKcz3jPbaNlginKC4JC0W5+DcP01cfIqW+iGDo2HMW33hdtndPLCdtaPj4PF/w6CzQBB5YMpng08ReZmbkhrB1sZ/PqmBoOHKZD1/OgLgAkBIFYeTngD1csoEYIinELlXWZM1sPL9R1JY5uQlNwJb45T5+bT/bcsJalwjRBN79hGdPdbm9ZWNhDc2p4jMtMDTYErYEEQQ5KQNB7nec2GMzbayZgxlT4B9yUJVdrx9kS2amlISBsnwEDXcxVS5G75AfMSr2VVGEZ9bSpvtIE06owtDQO4QfvM8fnuVJ92/qGg5d4isdNLNi7AoZCBq4fwGdaWFNYFopzZuGaSUozqNonDv7cLiRL7VDGxcNmQAxzDA0bF4gkmoMJd3nWzNW4MOMiiLyuq8gRAYQjbs/VkVJKID7F9BTDVRZ5NS2ERAwcL4V33tPXmxPq6RGWZoPTvOsSnehWT6TKgp5KI7SfAR1TCmgZTMhiIiwfQX9ah+Pd+0msBxbYnYV5k9LLi7RBN4+luGS7vJCT1eYCDd6WDLGvwamDV1g1Sx8brWYV+1E8gGHwp3H+Sd7uD+agUInQ8PBi/z4KhpvCCWjOA9LZtDbR/nIZT54Ca8f4M+vp2fWki0RMvDCRmru5E+u3qbTJiC6krFqFoWThYAMDceu8MXMtdkxoGsoyfeUUyLc6Bm7KsuGZWNeNf7+cfqPj4v51bBsJ2oQ0NEfxXfe5X96lwdjmRFrIdDZh4MX3aPOYKyqJ0OHriGoA4SjjU5Yz5YwdNy/YOyvS/VVYUZeCMtnkOXLCgFxC+8ed39/JwlGQEeJr0sWGbj1V6Xl6yvxyApaPYtyAjBtJ9arOgiONOInH8irN2HoGU2tEw5c5AcWkxDj3hKJ2VMxtRhtXU4ZcEURgoaTvpKMmjIKBdgctQ1PlRhLYm45qkpg+3rJuoYTTTjbmsmuVAYCOoo8iCFCwkbvIANO5HF6ObYvo7VzKDd0qx+KAENHbxS/2c/vHGczC3WaukDjDTR3or5ynAvAyM/Bwlq61um4GOvmCSEcCWZGTgCqWHVEcCYgMQtrKWAgYSb55EfnOJHRn82MvBzkBNz7lAhIWOjoRUDHolrcv4CWzqC80G39UMqiHL6Mn30kG6/D0LLSzUyEoTiONbr7zQAW1GDncSQsrKzHshmwRsVNbDnWcqf0/FTR0Pxp5LqNGIEQuNmH41c99OxkIRlFYeiaZ+WNZWPDfFpRT/UVMG7vrRUEQ0NrF369nz86x5adrYLmkdudbOYn1rh0u9kSM8spN8hC4IWNwtBuSZUgRPoxFLvN3U+NGCA/B9UeIfdb1xI40cSRvrTC+y53ZxSGKaC7FxRIRl4Iz28kAPYoSpTuGozjraP8u8Mc6c+WoIyGEGjuxI0el/SEZBTlYWYFNt5HdeW3JXyJcOYam7e/NCk9QikxpRA5Ab9qMRUGP3SJs9H9UBiGriHu/VqM0emGBtPGvvP43SF5oR0aZVdQRqBSghfbuaaMxhDDDE3gy5tFVcltrKivHLo0tlQhNWIYlUVOu7fPmtq7caEtY0XDDGfWUsJCYTjVAK1Kp55qxhuH5CdXnU3xnQQzLl/H1kXu/1RTNlaSdA1Hz6O5c+xzS4kYAqpLkkTUNYELbdwfnaS6UPPHmCEleLjhb0oBqkpQX0ENc5LUnRBB12DbONeKd4/LAxcRNzOsUVOEIFyLcNx0cZoxrsldbcZ3HJU8TtGktHYhUFOaJHBpMw5f5rgJBmi4XHH0zUa+ra7DAIbJUI2WyicuL0R5IVWVoG4KVRShMOwEGX3Mmy4Qt3CsEe+dlCebEDNhaHeHFQCCcL0b/VEU5SYvZTY07DjqvhlPvnyVqCj2bq0DQIBpob6SAjr6YzwYRcyCbWOkzpoAIaAJx00KGsjLQV6ICsMoyUNxHhWFoeaPBY1b4+GkTEIJAE3gbCv/+AO+fAO27dFMewehnOZIP0ryIf3btTQ03sDrB93rFFIgBsgLIS/kx7968Z9co4rhyZaIm7BsjPTHEDmsCAFDg6GByPkjlDlhJwwOTl6iNhqawCdXcfoacoJ3TUpuAyFuITKAub6aXxCiJn6wW/YOuVvBlCQmFEAo4FeUTEAscWvWCwGhwLAeU/8Z/q76ryIgI+DheXP3SO84AZZEZx/De0VO1eBePtnkKd+pEWMgZPg9SskI6Le8gxH7MfyXSULJGSFJVWP69agZBiPS7/e7DR27TuB3h/0qh5L7tipUpXsU2GP4HYlmosZeeQ26cAaRRhM414K955JMhfGvZL/DUA76zErPN9LQ8MkV/HC39O+qTUkrJ+0kBhDUJyMcigmlAwXBlIgl0NGLS9f5XAsu3+DWLsyZinVzx+7XRuPemRnDDFviC+tpwzz3AgxNoK0b394ph+JJ9hUpEZNkz0iIm8gNwtVzH/mM4oCGpyMrU2/ZGIyhdwhtXdx0Ey0RtHdzpB+DcWerLCWKcpOI4j0yZYkBy8YTa+ipBs9qHrUNj6RQKpxqENMHKr7bH0VOALp26/Uf+a7avQ/GMBDHYAyDce4ZRKQfnf3cO4jBGHqGEEs4L/6IS60gJcJBHzvq/Np7AaaFR1fguQ3E7PfEAhp0kXycWkrE+F/F0HCiib//PocMp+bD0KAL52laEgnTSbNb0kksKvVKdEuVeck1A6FkgzLu+swYBkwLDy2lL20m8lWtrMYQp/AmJSeGgJiZZBPTM4Ch+HAkcVzx2+j57jTxeGLS3cndHU2uij0eWoqXt5BIweCl+Bql9JBMC5bt5ERdV6aq+hyVkvEZEZrvNe9U5NgVajLL51bTCxuIKCU3hFJ7QsnpI0LURCzheTkGhsws7u904c9LSoNOsgHlpr+wgb64iZAyK3HTfdjKGKRETCyBaMJPM2ZjEsXoBfgjI82oE4VlI2DgKw8I5YOluAAiDCXYspP/qBSIAQaiGIh5XksFRbInMklHZOUE7vQYf9NGYRh/+yhtWwLTGssK+c7K6o+m1M2UksSYEpF+9qy3S36XtOD/LqoSE6/O/2wgYaGuHF97UqyaRYlxk1k0AdP2mwzZM5jSa5SSi8ASrV3el1Pbjqw9GH9nnRnhIOkiiwsYgWSYNtbPw9efFrOrXKLghoaeQfzLe6zmQ7teobM/pXulWozR1uWnRrPqsNq+k2kYyA1C0yCzaeegjIqOZ9fS46tJFy5mNaDjSgde3SFNG0V57nlFybjZm1KjaKoZzJYIDyXcm6MIyPNojcwIErafNDCjKBcB/bZqucyCgYSFmlK8vEUsnwnTdskQ6xoOXsR3d8m2Hjy0hMIBl4g4EQZj6BrI0AYTgCDc6EX3AKYWu7h6RCgKZ5EY/wlbkpETQEEO+qNZMXe2BBgb59MXN1G527xVXYNp4Rf7+Y2DbNoIaKivdH/0GqF3CD2DKcWQUi3GGIjhSgemlbpofAKKcrN1PKCKO/gjoKMkD9cimauWBjAcaKkoxOfX08b5RDSWFVUxcr0H339fHrwIXYMQCOiYM9U9iEmE9i4kjSsrJCFGnQ+WE4Rt4lwrb5jvwrVkFOdRQM/O6VOEaJzZ0yV0ShKKcimzo/wtG4KwaQF9YR1NLYZpj8366BqkxO7T/POPuKPHiT5YNmrLPCu81XCoFJMUnsSo96W6BOvnUWc/9pzhcy08FKfAuFJVdWxVwEAskdItJ4ohb9dTQRCK8zJ2O1tCMmZV4sk1YtUsAO6C0hLBz/bygYuMUdE8yVhYS+Ggi8YjIGHjaof3K3Y73IlRVV6PrqCnG2jPWX79IDPQ1o1rnZhT5VLKXpCD3CCG4tAyLTFKlZnekToMNwKmL6zqGK3yQjyynD6zmPJC7g5x3MQ7x/i3h7izH4Z+y64p2V1a5+6PEaEviuZOpHhymgcxwHPr6Zl11BrBL/exLaEJxE0cv8Lzqsc+AAZCAZQV4EZvhrU8hts5Ywm/Mh1mlBaklZVREeKiMDYtp4eXUWWRy+EpyjCcvoZf7JOnmx1zMho2o64M9ZXuGy9N4GoHugZSdVBciDFt3DcNj64gpzdgOIwvBI5d4cdXk3H7VB9VrVFdQqeaM++aqVrFmIn8HE+nmYHiXNLFZIycyqLmhbB1EW1fTjWlTlpvNDQBIXC1A28d5X3nOOZR4yklls90lzP1Q860TKAvx+VTzFhQS6EA4iaqivHlLfTjD7l3EIaG5pu41I5FtS5OupePmCYIiCb8IhwY7nbLC6E3OgGHWR3EVRhGwxzatoRmlIPHleMoSlojeOc4f3iG+6NOUZzrGnKDaJjjPt5W/YqTTROYQeRO38i8XVvigcVUV05vHeVjjXyzDx+e4YW1Yy8vGbVTKKiz7TaTMB0QIW5iIAbheViM04mRm4OeoeRbGVUvIRll+Vg3j7YuoppSF0pUjvxaBLs+4b1nuXswSY2nJbFkGtWWuftjmoamTrREUjUwcCWGCJfab1n4hIWZFfj326m1i45f4bZu7h1yTgwdgZSoKERZAdq7M2//mREZ8FNSzMgJoiiMlk6/6ygRCeiYW411c2nVLJpSCClvo0QVT0nGlRt4/xTvO889yShR0AS2LoLX0TiCcOwKRxMTyOm5fFAXONXMZ1poUa1zG0XS1GJMKyXTJnvcAF/JyM/BrKnUEsnwzGN18Zt9SSRBI1QU0YkmFz2iTnoCUF6ApTNo7VyaPRU5AdjyVrxrpLQ6msCJJuw+JY9fxWAs1Upoy8acKngNWiLCUAKHx3XA+MNdYmImfrRbfv1pUZBzq85xpL7bVVEKwqJafHh6AvdOHZ19ST5AhMqi25wDtVpByA9jdiWtnYvF00mdOmPJ29ozNQFLorULhy7xoYt8pQOmffvhWylg2xLPo1h0gdPX0HRzYrrEw8ZouHwdr+6Q/3a7KM5Nqcrblpg9lfJzeDCe4XoiInT2ccIiIr8Id3khCWLTdvo6ygsxeyotno651VReCNXz6HQwk2NCLBvXe3DmGh9txLlWVkNPtAlSYtmYWYHVsz1HLDHwwekJNwx7ftbQcbQR/+2X8sVNYmkdkOwMGMmoKMLsKhy5DJHR7YwgdPYhZiLs3Wuo7l6aj4pCzJtGC2uodgoKwxDkRJUSFoSAIZw2ieZunGnhE018uR29QwAmzMcIiPD4asp12+0D0AVaIjjaOOGGYb+1GDqabuIbb8j182j7Mqorhyaco8PHQ+17G2bTkUsZ3s0QoWcIvYPIDXpuZdQw6v/6nCjKRchwilekBNOwsrLRNYCmDpxp4bMt3BrBYNwpWk+neSNhYdkMrKr3FBch8P6pyUxFSfJxFar7w0k+eJEX1tLG+bivhlRHpHI6R8OSWDydygq4a9BPn/JweeZIUxON+ieM6zdTuNGDaaWeHjMAXaC8EILAcAQlaqJ7ANciaL7Jl9r5WgTdA47h0cbt2ycB1aDyVIMI6O79CJpAezf2nuXUj/u49XOSfkKV6MVNHLjAhy6hqoSX1tGSOqqdguJcp4VVQUqU5mPZDNr5CWveFy4MIzeEkA5Ddwi2pWqMZyGcqsxwAOEg5YVQlIuiXOTn0MyK5MOFuvrR1o1IP7d1obWL27vRNYChuDMiTIlOBp1G08a2JTR/mmeXiCbwh1Mc6Z/MS5DqN9QMPABtXbjWyTuOcnEe6srx5c2i8vaZ7pvuow/P+O00B2MQhJCO3BAKckhN68jPQTgodA1FYeSGkBNAyHCOirVtxCwkrCRZfV3DiSb+1g7W6FYZ9AgfGYclUVOKJ9d4tqbqAs2deO/EJMdRTJjKkd/ZPYD2bgR0+bePihF/ybJRPxVzqnCy2bOP25boGkBnv/qKE4kjgiYYBH34vRbDdX4q6Ftdgv/yrPApIWOJ2ikUDrBlQ89y5Y7Sls9tEKX53i4r4c3D3DM4SZ05+XdJCOQEcOAiPj5/iwMGgjq2LPQc+uZ8l6APN2MaOtS8KKcI3UbcxGAc/VH0RdEXxUAMcRMtEXT0+TniklFeiCkFd6JdxrSwdSGtme3JiqHjk6vYc3by06bTEnIlKD/dK6/33FIXpo1Vs2jWuAlEya823Mek6v9v+yMQNdF4wy+soCJmMyoo2w1mpo36SnxhA3ndRxCG4vj5R9JMY9p0utpXE7jeg598eCvkzoxwENuXUWZLI5hxtiX5/O350zJ50/FQ9P/5VlEU9mwx1DW8eZgvtKU1uiYDZjGg4+Pz/PYxDgyvw7SxejbNr073qI7R0AQuX+eBmJ82syXmVlFeTra0mepIem6Dnydm6DjZhN8dTncEVWb8FSHwi3186ppjbFTq7Mk1wkh2UMYEbkG40eMyc2U0JKOyGHVTkvdrTQ6mhYeX0oNLPLeTmkDvIH6wW6rm+nSQIWIIQ3F8d5eMDDjya9pYUocG7wjSRKFCq6eambyXzIygjkXTk4+FngQSFtbMoec3eXbyEYGBn3woG29kYP5Wxjx8Q0PTTXx3F8dN52Uh4Om1VJKXsXZvQTh+hWO+JyvYjJX1Y9NF6SNhYdF0fPVBCuqeejKg4+2j/P6pzAzoyOTWK6Dj4EX+yYesPCtLoqYMj63y6wSfEDQNTTfRdNMvD2jbmFaKedWUkaP1FBIWFtTgbx4RBTmeSjKg48hl/tlHLHzbrFJHhvfEho63j/FvDjj+u2njwSW0wK1GYBJQpUwHLiWZ4a9p2LpwAklcf8RNLKzF331WFOd5xoTUOd7/9x1O37SMIMPEqCkpv9zHO4+zqkAPGfjS/SIvlBlPSRM4cpn7fKfFWzaWzKBZU9N9G9T07IY59B8eE8V5ntuygI6mm/jWW7J7IAOmZQSZjyKpXef33+ddJxDQYdmYPRXPrCX/ucApQhNo7cLhy37OqAr6PraC0gmRqRMXP7uS/uZRKsjxY6W5E//zTdneneGBm1mpBRcClsQ/vyffO8mGDsvGQ0tp7dwMHUXMeO8Ex3x7Qi0LK2fRyvpJ3tG0ETLw55+hlzaTOsLCFQEdjTfwP96Q1zozP+AxWx1HajDMd3fx28ega9A1vLSFassycNytruFiO440+j0LFWR8cRNVTvCAXWbETcwoxz88JbYvIzku5zSCoIGTzfjG67K1KytjN7PYCqYRbIl/eV/+9hADKC/EK9tEXigDuz/J2HFU+jdS2xLVxXjlAREOpnRHZVGEwMPL6B+eFvOqMb6/UkElqPac4X/8rbzZl61hqNkdKqGOr/nRB/yzvWxaWDwdL20h4VtTkQp0DefbkPQYsYSNZTPw19udWfJeUDWxRFhRj68/LV7Z5hzD5Aplt371Mb+6gwdiWRzknPXZBSrX++v93DPIL20WDyymjl78Yl9apy8qOXn9oFxSJwq8g4kAEhZWz6bCMP1gt7zQ5kx0Uu6JSm8ToSgXi2pp80K6rwaG8KPQ0NE3hB/ulrtPQdey23lKefWbs3j5Yahum8XT8co2UVOKb70l3zuZbtY9YWH7cvqLraQOuPKBoWEwjmNX+OPzuNrBcROhAEryUFVC86sxbxqpw2mscYWMIyDA0HGhLQOnAKWIO0SMQsJCRRH+YqtYUof//Xv+6BynMqLOC8wA4a8fpvsXUDxZO6DqNrJsDMQhpVOMETKcE1ySjsaXwB9O8k/3cF/0Dk3YvqPEALAkdIEnVtNDy+h7u3jf+SSHgPrDligM42tPillTUxqbQqMGoIwuwfH8PMHQ0N6Nn+7lj88z3cERXHeaGAx3CS2fiacaxDvHeO+5tOyNaaO2DP/pc2Nn5qcJAnQdcRMfnObfHOCO3tuax+4A7gIxCgkLJXl4cCldaufjV9MKMSUs1Ffi7z4rqjPEja5BMk4347UD8nSzU2pzh3HXiMHwzLUZ5RiK42aysnF/mDaqivHKNrFkOkyPWtGkUD0YzLh0Hb8/wgcvccK602c23FrMXSRGQZ1wLJN5Vklh2cgJ4HOrafsyZ+OS+m5JCOgCCQsX2rHzOB9t5KG4M079buHuE5NBqFaYuVV4Yg0trKHc4HAF8+12fmQUpCr8VHVu51p592k+e805s+EuUuIs8k+JGAXLhhCom4KGObRoOlUUIWQMD1JnhzzTRtzEjV5cbOMzLXzpOrr6wWqa4N2mROFPkBgF1ZUQDqIkD+UFKMojdeZPwkLcRO8Qdw2gb8iZXKhmCt9TuBfOj8gKnJoQC+3daI1AjtJlo2ej390zTXzw/wFU4+6ip9Wk0AAAAABJRU5ErkJggg==">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#143865; --deep:#0c2340; --blue:#1c4f8f; --gold:#8c7535; --gold-bright:#d39f10;
+    --sky-dark:#c1cddd; --sky-med:#e1e8f2; --sky-light:#edf2f9; --warm:#efe9d9;
+    --ink:#1b2433; --muted:#5a6578; --ok:#1e7a46; --ok-bg:#e3f4ea; --no:#b3261e; --no-bg:#fbe7e5;
+    --card:#ffffff; --bg:#f4f6fa;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;scroll-padding-top:70px}
+  body{background:var(--bg);font-family:"Source Sans 3",Arial,sans-serif;color:var(--ink);font-size:17px;line-height:1.5}
+  h1,h2,h3{font-family:"Source Serif 4",Georgia,serif;color:var(--navy);line-height:1.2}
+
+  /* Header */
+  header{background:var(--deep);color:#fff}
+  .hwrap{max-width:900px;margin:0 auto;padding:14px 16px;display:flex;align-items:center;gap:10px}
+  .hwrap img{height:46px}
+  .brandtxt{font-family:"Source Serif 4",Georgia,serif;color:var(--gold-bright);font-weight:700;font-size:20px;letter-spacing:.05em;line-height:1}
+  .brandtxt small{display:block;font-family:"Source Sans 3",Arial,sans-serif;font-size:11px;color:#e9d9a8;font-weight:400;letter-spacing:.03em;margin-top:3px}
+  .hright{margin-left:auto;text-align:right;font-size:13px;opacity:.9}
+
+  .hero{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff}
+  .hero .in{max-width:900px;margin:0 auto;padding:22px 16px 26px}
+  .hero h1{color:#fff;font-size:30px}
+  .hero p{opacity:.92;margin-top:4px}
+  .namebox{margin-top:14px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+  .namebox label{font-weight:700}
+  .namebox input{flex:1;min-width:200px;max-width:340px;border:0;border-radius:8px;padding:10px 12px;font-size:17px}
+
+  /* Nav */
+  nav{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--sky-dark);box-shadow:0 2px 6px rgba(12,35,64,.06)}
+  nav .in{max-width:900px;margin:0 auto;display:flex;gap:6px;overflow-x:auto;padding:8px 16px;scrollbar-width:none}
+  nav a{flex:none;text-decoration:none;color:var(--navy);font-weight:600;font-size:14px;padding:6px 12px;border-radius:20px;background:var(--sky-light);border:1px solid var(--sky-dark);white-space:nowrap}
+  nav a:hover{background:var(--sky-med)}
+
+  main{max-width:900px;margin:0 auto;padding:18px 16px 60px}
+  .classbar{display:flex;align-items:center;gap:10px;margin:26px 0 12px;font-family:"Source Serif 4",Georgia,serif;font-weight:700;color:var(--gold);font-size:18px}
+  .classbar::after{content:"";flex:1;height:2px;background:var(--gold-bright);opacity:.6}
+  .breakbar{text-align:center;margin:30px 0;padding:12px;border:2px dashed var(--gold);border-radius:10px;color:var(--gold);font-weight:700;background:#fffdf6}
+
+  section.card{background:var(--card);border:1px solid var(--sky-dark);border-radius:14px;padding:20px 20px 22px;margin-bottom:18px;box-shadow:0 1px 3px rgba(12,35,64,.05)}
+  .shead{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:6px}
+  .num{background:var(--navy);color:#fff;width:32px;height:32px;border-radius:50%;display:grid;place-items:center;font-weight:700;flex:none}
+  .shead h2{font-size:23px}
+  .tag{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:12px;margin-left:auto}
+  .tag.e{background:#fdf1d0;color:#7a5a00}
+  .tag.s{background:var(--sky-med);color:var(--navy)}
+  .tag.a{background:#e3f4ea;color:var(--ok)}
+  .intro{color:var(--muted);margin-bottom:14px}
+  h3{font-size:18px;margin:18px 0 8px}
+  .task{background:var(--sky-light);border-radius:10px;padding:14px 16px;margin:12px 0}
+  .task > .tlabel{font-weight:700;color:var(--navy);margin-bottom:8px;display:block}
+  .who{font-size:12px;font-weight:700;color:var(--gold);letter-spacing:.04em;text-transform:uppercase}
+
+  /* Inputs */
+  input[type=text],textarea,select{font:inherit;color:var(--ink);background:#fff;border:1.5px solid var(--sky-dark);border-radius:8px;padding:8px 10px;width:100%}
+  textarea{min-height:90px;resize:vertical}
+  input[type=text]:focus,textarea:focus,select:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(28,79,143,.15)}
+  select.inline{width:auto;max-width:100%;min-width:0;display:inline-block;padding:4px 6px;margin:0 3px;font-weight:600}
+  .frame{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:8px 0}
+  .frame span{white-space:nowrap}
+  .frame input{flex:1;min-width:160px}
+
+  .opts{display:grid;gap:8px}
+  .opt{display:flex;gap:10px;align-items:flex-start;background:#fff;border:1.5px solid var(--sky-dark);border-radius:10px;padding:10px 12px;cursor:pointer;transition:.15s}
+  .opt:hover{border-color:var(--blue)}
+  .opt input{margin-top:5px;accent-color:var(--navy);transform:scale(1.2)}
+  .opt.right{border-color:var(--ok);background:var(--ok-bg)}
+  .opt.wrong{border-color:var(--no);background:var(--no-bg)}
+  .fb{font-weight:600;margin-top:8px;min-height:1px}
+  .fb.ok{color:var(--ok)} .fb.no{color:var(--no)}
+
+  .row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:8px 0;border-bottom:1px dashed var(--sky-dark)}
+  .row:last-child{border-bottom:0}
+  .row .n{color:var(--muted);font-weight:700;width:22px;flex:none}
+  select.good{border-color:var(--ok);background:var(--ok-bg)}
+  select.bad{border-color:var(--no);background:var(--no-bg)}
+
+  .btn{font:inherit;font-weight:700;border:0;border-radius:8px;padding:9px 18px;cursor:pointer;background:var(--navy);color:#fff}
+  .btn:hover{background:var(--blue)}
+  .btn.gold{background:var(--gold-bright);color:var(--deep)}
+  .btn.ghost{background:#fff;color:var(--navy);border:1.5px solid var(--navy)}
+  .btnrow{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:12px}
+  .score{font-weight:700}
+
+  /* Vocab cards */
+  .vgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+  .vcard{background:#fff;border:1.5px solid var(--sky-dark);border-radius:12px;padding:12px 14px;position:relative}
+  .vcard .emo{font-size:30px;line-height:1}
+  .vcard .w{font-family:"Source Serif 4",Georgia,serif;font-size:22px;font-weight:700;color:var(--navy);margin-top:4px}
+  .vcard .pos{font-size:12px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.05em}
+  .vcard .pr{font-size:14px;color:var(--muted)}
+  .vcard .def{margin-top:6px;font-weight:600}
+  .vcard .ex{margin-top:6px;font-size:15px;font-style:italic;color:var(--muted);border-left:3px solid var(--gold-bright);padding-left:8px}
+  .say{position:absolute;top:10px;right:10px;border:0;background:var(--sky-light);border-radius:50%;width:34px;height:34px;cursor:pointer;font-size:16px}
+  .say:hover{background:var(--sky-med)}
+
+  /* Article */
+  .headline{background:#fff;border:2px solid var(--navy);border-radius:12px;overflow:hidden}
+  .headline .bar{background:var(--navy);color:var(--gold-bright);font-size:12px;font-weight:700;letter-spacing:.1em;padding:5px 12px}
+  .headline h2{font-size:28px;padding:12px 14px 4px}
+  .headline .sub{padding:0 14px 12px;color:var(--muted);font-size:15px}
+  .shelf{display:block;width:100%;height:auto;background:#f7f2e6}
+  .lvl{display:flex;gap:8px;margin:6px 0 12px;flex-wrap:wrap}
+  .lvl button{font:inherit;font-weight:700;border:2px solid var(--navy);background:#fff;color:var(--navy);border-radius:22px;padding:6px 16px;cursor:pointer}
+  .lvl button.on{background:var(--navy);color:#fff}
+  .article{background:#fff;border:1px solid var(--sky-dark);border-radius:12px;padding:18px 20px}
+  .article h3{margin-top:0;font-size:24px}
+  .article p{margin:10px 0;font-size:18px;line-height:1.65}
+  .article .byline{font-size:13px;color:var(--muted)}
+  .gloss{margin-top:12px;background:var(--warm);border-radius:10px;padding:10px 14px;font-size:15px}
+  .gloss b{color:var(--navy)}
+  .speak{margin-top:10px}
+
+  table.ws{width:100%;border-collapse:separate;border-spacing:0 8px}
+  table.ws th{width:96px;text-align:left;vertical-align:middle;color:#fff;background:var(--navy);border-radius:8px 0 0 8px;padding:8px 12px;font-family:"Source Serif 4",Georgia,serif}
+  table.ws td{padding:0}
+  table.ws td input{border-radius:0 8px 8px 0}
+  .model{display:none;font-size:14px;color:var(--ok);font-weight:600;padding:3px 2px 0}
+  .show-models .model{display:block}
+
+  .tf{display:grid;gap:4px;padding:10px 0;border-bottom:1px dashed var(--sky-dark)}
+  .tf:last-child{border-bottom:0}
+  .tf .q{font-weight:600}
+  .tfbtns{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+  .tfbtns label{display:flex;align-items:center;gap:5px;background:#fff;border:1.5px solid var(--sky-dark);border-radius:8px;padding:4px 12px;cursor:pointer;font-weight:600}
+  .tfbtns label.right{border-color:var(--ok);background:var(--ok-bg)}
+  .tfbtns label.wrong{border-color:var(--no);background:var(--no-bg)}
+  .tf input[type=text]{margin-top:4px}
+
+  .rule{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .rbox{background:#fff;border:1.5px solid var(--sky-dark);border-radius:12px;padding:12px 14px}
+  .rbox h4{font-family:"Source Serif 4",Georgia,serif;color:var(--navy);font-size:18px;margin-bottom:6px}
+  .rbox p{margin:4px 0}
+  .hl{background:#fdf1d0;border-radius:4px;padding:0 4px;font-weight:700;color:#7a5a00}
+  .s{color:var(--no);font-weight:700}
+
+  .qcard{background:#fff;border:1.5px solid var(--sky-dark);border-radius:12px;padding:12px 14px;margin:10px 0}
+  .qcard .qq{font-weight:700;color:var(--navy);font-size:18px}
+  .qcard .fr{font-size:14px;color:var(--muted);margin:2px 0 6px}
+  .chip{display:inline-block;font-size:11px;font-weight:700;background:var(--gold-bright);color:var(--deep);border-radius:10px;padding:1px 8px;margin-left:6px;vertical-align:middle}
+
+  .modelbox{background:var(--deep);color:#fff;border-radius:12px;padding:14px 18px;font-family:"Source Serif 4",Georgia,serif;font-size:18px;line-height:1.6}
+  .modelbox u{text-decoration-color:var(--gold-bright);text-decoration-thickness:2px}
+  .counter{font-size:14px;color:var(--muted);margin-top:4px}
+  .checks label{display:flex;gap:8px;align-items:flex-start;padding:5px 0;cursor:pointer}
+  .checks input{margin-top:5px;accent-color:var(--ok);transform:scale(1.2)}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+
+  .faces{display:flex;gap:8px;flex-wrap:wrap}
+  .faces label{flex:1;min-width:120px;text-align:center;background:#fff;border:1.5px solid var(--sky-dark);border-radius:10px;padding:10px 6px;cursor:pointer;font-size:14px;font-weight:600}
+  .faces label span{display:block;font-size:28px}
+  .faces input{display:none}
+  .faces label:has(input:checked){border-color:var(--navy);background:var(--sky-med)}
+
+  .finish{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;border-radius:14px;padding:20px}
+  .finish h2{color:#fff}
+  .finish p{opacity:.92}
+  .toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%) translateY(120px);background:var(--deep);color:#fff;padding:10px 18px;border-radius:24px;font-weight:600;transition:.3s;z-index:50;box-shadow:0 4px 14px rgba(0,0,0,.2);opacity:0;pointer-events:none}
+  .toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+  .saved{font-size:13px;color:#e9d9a8;margin-top:8px}
+
+  @media (max-width:640px){
+    body{font-size:16px}
+    .hero h1{font-size:25px}
+    .rule,.two{grid-template-columns:1fr}
+    .hright{display:none}
+    section.card{padding:16px 14px}
+    .article{padding:14px}
+    table.ws th{width:76px;font-size:14px}
+    .tag{margin-left:0}
+  }
+</style>
+</head>
+<body>
+
+<header><div class="hwrap">
+  <img src="data:image/png;base64,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" alt="Approach International Student Center logo">
+  <div class="brandtxt">APPROACH<small>International Student Center®</small></div>
+  <div class="hright">Current Issues · Basic Level<br>Week 1 · Headlines, Photos & Topics</div>
+</div></header>
+
+<div class="hero"><div class="in">
+  <h1>📰 Too Many Choices?</h1>
+  <p>Week 1 · Today you will read a news story, learn new words, and talk about choices in your life.</p>
+  <div class="namebox">
+    <label for="studentName">My name:</label>
+    <input type="text" id="studentName" data-label="Name" placeholder="Write your name">
+  </div>
+  <div class="saved">✓ Your answers save automatically on this device.</div>
+</div></div>
+
+<nav><div class="in">
+  <a href="#s1">1 · Warm-up</a><a href="#s2">2 · Headline</a><a href="#s3">3 · Words</a><a href="#s4">4 · Read</a>
+  <a href="#s5">5 · Grammar</a><a href="#s6">6 · Talk</a><a href="#s7">7 · Write</a><a href="#s8">8 · Exit ticket</a><a href="#done">✓ Finish</a>
+</div></nav>
+
+<main>
+
+<div class="classbar">Class 1</div>
+
+<!-- 1 WARM-UP -->
+<section class="card" id="s1">
+  <div class="shead"><div class="num">1</div><h2>Warm-up: Is it easy to choose?</h2><span class="tag e">Engage</span></div>
+  <p class="intro">Answer for you. Then tell a partner.</p>
+
+  <div class="task">
+    <span class="tlabel">A. Which choice is the hardest for you?</span>
+    <div class="opts" id="poll1"></div>
+    <div class="frame"><span>It is hard because</span><input type="text" data-label="Warm-up A: because" placeholder="there are many…"></div>
+  </div>
+
+  <div class="task">
+    <span class="tlabel">B. Would you rather…?</span>
+    <div class="opts" id="poll2"></div>
+    <div class="frame"><span>I want this store because</span><input type="text" data-label="Warm-up B: because" placeholder="…"></div>
+  </div>
+  <p class="who">Say it: “For me, it is hard to choose ___ because ___.”</p>
+</section>
+
+<!-- 2 HEADLINE -->
+<section class="card" id="s2">
+  <div class="shead"><div class="num">2</div><h2>Headline & Picture Detective</h2><span class="tag e">Engage</span></div>
+  <p class="intro">Look at the headline and the picture. Do not read the story yet!</p>
+
+  <div class="headline">
+    <div class="bar">TODAY'S NEWS</div>
+    <h2>More Choices, More Stress?</h2>
+    <div class="sub">Scientists say too many options can be a problem.</div>
+    <svg class="shelf" id="shelf" viewBox="0 0 800 300" role="img" aria-label="A supermarket shelf with many boxes and jars"></svg>
+  </div>
+
+  <div class="task">
+    <span class="tlabel">A. Look at the picture. What do you see?</span>
+    <div class="frame"><span>There is</span><input type="text" data-label="Picture: There is" placeholder="a shelf / a…"></div>
+    <div class="frame"><span>There are</span><input type="text" data-label="Picture: There are" placeholder="many boxes of…"></div>
+  </div>
+
+  <div class="task">
+    <span class="tlabel">B. Predict: What is the story about?</span>
+    <div class="opts" id="predict"></div>
+  </div>
+
+  <div class="task">
+    <span class="tlabel">C. Say one sentence about the story.</span>
+    <div class="frame"><span>I think the story is about</span><input type="text" data-label="Prediction sentence" placeholder="…"></div>
+    <p class="who">★ Challenge: What is “stress”? Guess from the headline.</p>
+  </div>
+</section>
+
+<!-- 3 VOCAB -->
+<section class="card" id="s3">
+  <div class="shead"><div class="num">3</div><h2>Key Words</h2><span class="tag s">Study</span></div>
+  <p class="intro">Tap 🔊 to hear the word. Read the meaning and the example.</p>
+  <div class="vgrid" id="vgrid"></div>
+
+  <h3>Game 1 · Match the word and the meaning</h3>
+  <div class="task" id="match"></div>
+
+  <h3>Game 2 · Complete the sentences</h3>
+  <div class="task" id="gaps"></div>
+</section>
+
+<!-- 4 READING -->
+<section class="card" id="s4">
+  <div class="shead"><div class="num">4</div><h2>Read the Story</h2><span class="tag s">Study</span></div>
+  <p class="intro">Choose your level. Read two times.</p>
+
+  <div class="lvl">
+    <button type="button" data-lvl="a1" class="on">⭐ Story A (easier)</button>
+    <button type="button" data-lvl="a2">⭐⭐ Story B (challenge)</button>
+  </div>
+
+  <div class="article" id="artA1">
+    <h3>Too Many Choices</h3>
+    <p class="byline">Adapted for Current Issues · Basic Level · Story A</p>
+    <p>Go to a supermarket. There are many kinds of cereal. There are many kinds of bread and jam. Is this good? Some scientists say no.</p>
+    <p>Barry Schwartz is a scientist. He writes about people and their choices. He says too many choices can make people stressed. People are afraid to make a bad choice. After they choose, they think, “Maybe the other one is better.”</p>
+    <p>There is a famous study about jam. In a store, there are two tables. One table has 24 kinds of jam. The other table has 6 kinds of jam. More people buy jam from the small table! Many choices are hard. A few choices are easy.</p>
+    <p>What can you do? Make a short list of what you need. Choose a good option. It does not need to be perfect. You can also ask a friend for help.</p>
+    <button type="button" class="btn ghost speak" data-read="artA1">🔊 Listen</button>
+  </div>
+
+  <div class="article" id="artA2" hidden>
+    <h3>More Choices, More Stress?</h3>
+    <p class="byline">Adapted for Current Issues · Basic Level · Story B</p>
+    <p>Walk into any supermarket and there are dozens of kinds of cereal, bread, and jam. Many people think more choices give us more freedom. But some behavioral scientists say that too many options can cause anxiety.</p>
+    <p>Barry Schwartz is a psychology professor and the writer of a book called <i>The Paradox of Choice</i>. He says that when there are many options, people worry about making the wrong decision. After they choose, they often feel regret and ask, “Is another option better?” This is especially hard for “maximizers” — people who always want the best possible choice.</p>
+    <p>Studies show the same thing. In one famous study, a store has two tables. One table has 24 kinds of jam, and the other has only 6. More shoppers buy jam from the smaller table. In another study, companies offer savings plans to their workers. When there are more investment options, fewer workers join the plan.</p>
+    <p>Daniel Willingham, a psychology professor at the University of Virginia, explains that our brain likes routines. Making a decision takes a lot of mental energy, so we often choose the same things again and again.</p>
+    <p>So what can we do? Experts give three tips: decide your criteria before you shop, choose an option that is “good enough” and not perfect, and ask someone you trust for advice.</p>
+    <div class="gloss"><b>Help words:</b> <b>behavioral scientist</b> = a person who studies how people act · <b>anxiety</b> = a strong worried feeling · <b>regret</b> = feeling bad about a choice · <b>maximizer</b> = a person who always wants the best · <b>savings plan / investment</b> = a way to save money for the future · <b>routine</b> = things you do every day the same way · <b>criteria</b> = the things that are important to you</div>
+    <button type="button" class="btn ghost speak" data-read="artA2">🔊 Listen</button>
+  </div>
+
+  <h3>First reading · What is the story mainly about?</h3>
+  <div class="task"><div class="opts" id="mainidea"></div></div>
+
+  <h3>Second reading · The 5 Ws</h3>
+  <div class="task" id="fivewsWrap">
+    <span class="tlabel">Find the facts. Write short answers.</span>
+    <table class="ws" id="fivews"></table>
+    <div class="btnrow"><button type="button" class="btn ghost" id="showModels">Compare with sample answers</button></div>
+  </div>
+
+  <h3>After reading · True or False?</h3>
+  <div class="task">
+    <span class="tlabel">Choose T or F. If it is false, write the correct sentence.</span>
+    <div id="tf"></div>
+    <div class="btnrow"><button type="button" class="btn" id="checkTF">Check</button><span class="score" id="tfScore"></span></div>
+  </div>
+</section>
+
+<div class="breakbar">☕ 30-MINUTE BREAK ☕</div>
+<div class="classbar">Class 2</div>
+
+<!-- 5 GRAMMAR -->
+<section class="card" id="s5">
+  <div class="shead"><div class="num">5</div><h2>Grammar: There is / There are + Present Simple</h2><span class="tag s">Study</span></div>
+  <p class="intro">News headlines and stories often use the present simple.</p>
+
+  <div class="rule">
+    <div class="rbox">
+      <h4>There is / There are</h4>
+      <p><span class="hl">There is</span> + one thing</p>
+      <p>➜ There is a famous study about jam.</p>
+      <p><span class="hl">There are</span> + two or more</p>
+      <p>➜ There are 24 kinds of jam.</p>
+      <p><b>Question:</b> <span class="hl">Is there</span> a park? <span class="hl">Are there</span> many choices?</p>
+    </div>
+    <div class="rbox">
+      <h4>Present simple</h4>
+      <p>I / you / we / they <span class="hl">choose</span></p>
+      <p>he / she / it <span class="hl">choose<span class="s">s</span></span></p>
+      <p>➜ People <b>feel</b> stressed.</p>
+      <p>➜ Barry Schwartz <b>say<span class="s">s</span></b> choices are hard.</p>
+      <p><b>No:</b> It <span class="hl">does not</span> need to be perfect.</p>
+    </div>
+  </div>
+
+  <h3>Practice 1 · is or are?</h3>
+  <div class="task" id="g1"></div>
+
+  <h3>Practice 2 · Choose the correct verb</h3>
+  <div class="task" id="g2"></div>
+
+  <h3>Practice 3 · My supermarket</h3>
+  <div class="task">
+    <span class="tlabel">Write about a supermarket near your home.</span>
+    <div class="frame"><span>There is</span><input type="text" data-label="My supermarket 1: There is" placeholder="a big supermarket near my home."></div>
+    <div class="frame"><span>There are</span><input type="text" data-label="My supermarket 2: There are" placeholder="many kinds of…"></div>
+    <div class="frame"><span>There are</span><input type="text" data-label="My supermarket 3: There are" placeholder="…"></div>
+    <div class="frame"><span>I usually buy</span><input type="text" data-label="My supermarket 4: I usually buy" placeholder="…"></div>
+    <p class="who">★ Challenge: Add a question for a partner: “Is there…? / Are there…?”</p>
+    <input type="text" data-label="My supermarket: question" placeholder="Are there many kinds of rice in your supermarket?">
+  </div>
+</section>
+
+<!-- 6 TALK -->
+<section class="card" id="s6">
+  <div class="shead"><div class="num">6</div><h2>Talk with a Partner</h2><span class="tag a">Activate</span></div>
+  <p class="intro">Ask your partner the questions. Write short notes about your partner's answers.</p>
+  <div class="frame"><span><b>My partner's name:</b></span><input type="text" data-label="Partner's name" placeholder="…"></div>
+  <div id="talk"></div>
+  <div class="task">
+    <span class="tlabel">Report to the class (use -s!)</span>
+    <div class="frame"><span>My partner</span><input type="text" data-label="Report about partner" placeholder="thinks it is hard to choose clothes because…"></div>
+    <p class="who">Example: “Maria usually buys the same bread. She thinks many choices are stressful.”</p>
+  </div>
+</section>
+
+<!-- 7 WRITE -->
+<section class="card" id="s7">
+  <div class="shead"><div class="num">7</div><h2>Write: Choices in My Life</h2><span class="tag a">Activate</span></div>
+  <p class="intro">Write 4–6 sentences. Then copy your paragraph to Approach's Community.</p>
+
+  <h3>Read the model</h3>
+  <div class="modelbox">
+    My name is Ana, and I am from Brazil. <u>There is</u> a big supermarket near my home. <u>There are</u> about 30 kinds of bread there! It is hard for me to choose. I usually <u>buy</u> the same bread every week. I think too many choices are stressful because I am afraid to make a bad choice.
+  </div>
+
+  <div class="two" style="margin-top:12px">
+    <div class="task" style="margin:0">
+      <span class="tlabel">Sentence starters</span>
+      <p>My name is ___, and I am from ___.</p>
+      <p>There is a ___ near my home.</p>
+      <p>There are ___ kinds of ___.</p>
+      <p>It is easy / hard for me to choose ___.</p>
+      <p>I usually ___.</p>
+      <p>I think ___ because ___.</p>
+    </div>
+    <div class="task" style="margin:0">
+      <span class="tlabel">Word bank</span>
+      <p>choice · option · choose · decide · stressed · perfect · supermarket · kinds of · the same · every week · a friend · a short list</p>
+    </div>
+  </div>
+
+  <h3>My paragraph</h3>
+  <textarea id="para" data-label="My paragraph" placeholder="Write here…" style="min-height:150px"></textarea>
+  <div class="counter" id="counter">0 words · 0 sentences</div>
+
+  <h3>Check your writing</h3>
+  <div class="checks" id="selfcheck"></div>
+
+  <h3>Partner check</h3>
+  <div class="task">
+    <span class="tlabel">Your partner reads your paragraph and writes here.</span>
+    <div class="frame"><span>Partner's name:</span><input type="text" data-label="Peer reviewer" placeholder="…"></div>
+    <div class="frame"><span>I like</span><input type="text" data-label="Peer: I like" placeholder="your sentence about…"></div>
+    <div class="frame"><span>My question:</span><input type="text" data-label="Peer: question" placeholder="What do you usually buy…?"></div>
+  </div>
+</section>
+
+<!-- 8 EXIT -->
+<section class="card" id="s8">
+  <div class="shead"><div class="num">8</div><h2>Exit Ticket</h2><span class="tag a">Reflect</span></div>
+  <div class="frame"><span>Today's story is about</span><input type="text" data-label="Exit: Today's story is about" placeholder="…"></div>
+  <div class="frame"><span>One new word:</span><input type="text" data-label="Exit: new word" placeholder="…"></div>
+  <div class="frame"><span>My sentence with it:</span><input type="text" data-label="Exit: sentence with new word" placeholder="…"></div>
+  <h3>How do you feel about today?</h3>
+  <div class="faces">
+    <label><input type="radio" name="feel" value="I need help" data-label="Exit: feeling"><span>😟</span>I need help</label>
+    <label><input type="radio" name="feel" value="OK" data-label="Exit: feeling"><span>🙂</span>OK</label>
+    <label><input type="radio" name="feel" value="Good" data-label="Exit: feeling"><span>😀</span>Good</label>
+    <label><input type="radio" name="feel" value="Great — I can explain it!" data-label="Exit: feeling"><span>🤩</span>Great!</label>
+  </div>
+</section>
+
+<section class="finish" id="done">
+  <h2>✓ Finished?</h2>
+  <p>Copy your answers and paste them into the Week 1 assignment on Approach's Community.</p>
+  <div class="btnrow">
+    <button type="button" class="btn gold" id="copyAll">📋 Copy my answers</button>
+    <button type="button" class="btn ghost" id="dlAll" style="background:#fff">⬇ Download</button>
+    <button type="button" class="btn ghost" id="clearAll" style="background:transparent;color:#fff;border-color:#fff">Start again</button>
+  </div>
+</section>
+
+</main>
+<div class="toast" id="toast"></div>
+
+<script>
+/* ---------- Data ---------- */
+const VOCAB = [
+  {w:"choice", pos:"noun", pr:"/tʃɔɪs/", emo:"🛒", def:"something you can pick", ex:"There are many choices in the supermarket."},
+  {w:"option", pos:"noun", pr:"/ˈɑp·ʃən/", emo:"🔢", def:"one possible choice", ex:"One table has 24 options of jam."},
+  {w:"choose", pos:"verb", pr:"/tʃuz/", emo:"👉", def:"to pick one thing", ex:"People choose jam from the small table."},
+  {w:"decide", pos:"verb", pr:"/dɪˈsaɪd/", emo:"🤔", def:"to think and then make a choice", ex:"It is hard to decide when there are many options."},
+  {w:"stressed", pos:"adjective", pr:"/strɛst/", emo:"😰", def:"worried and nervous", ex:"Too many choices make people stressed."},
+  {w:"scientist", pos:"noun", pr:"/ˈsaɪ·ən·tɪst/", emo:"🔬", def:"a person who studies the world or people", ex:"Some scientists say more choices are not always good."},
+  {w:"study", pos:"noun", pr:"/ˈstʌd·i/", emo:"📊", def:"a project to learn about something", ex:"There is a famous study about jam."},
+  {w:"perfect", pos:"adjective", pr:"/ˈpɜr·fɪkt/", emo:"💯", def:"the best, with no problems", ex:"A good option is OK. It does not need to be perfect."}
+];
+
+const GAPS = [
+  {t:["I always ", " tea, not coffee."], a:["choose"]},
+  {t:["My test is tomorrow. I feel very ", "."], a:["stressed"]},
+  {t:["Bus or train? I can't ", "!"], a:["decide"]},
+  {t:["Nobody is ", ". Everybody makes mistakes."], a:["perfect"]},
+  {t:["The ", " works in a big lab."], a:["scientist"]},
+  {t:["A new ", " says coffee is good for you."], a:["study"]},
+  {t:["There are three ", ": small, medium, and large."], a:["options","choices"]},
+  {t:["I like this store. It has a lot of ", "."], a:["choices","options"]}
+];
+const GAP_BANK = ["choose","stressed","decide","perfect","scientist","study","options","choices"];
+
+const FIVEWS = [
+  {w:"Who?", q:"Who is the story about?", m:"Scientists (Barry Schwartz) and shoppers / people."},
+  {w:"What?", q:"What is the problem?", m:"Too many choices make people stressed."},
+  {w:"Where?", q:"Where do people have many choices?", m:"In supermarkets and stores."},
+  {w:"When?", q:"When do people feel stressed?", m:"When they choose / after they choose."},
+  {w:"Why?", q:"Why are many choices hard?", m:"People are afraid to make a bad choice. (B: Deciding takes a lot of mental energy.)"}
+];
+
+const TF = [
+  {s:"In the jam study, there are two tables.", t:true},
+  {s:"One table has 12 kinds of jam.", t:false, fix:"One table has 24 kinds of jam."},
+  {s:"More people buy jam from the table with 6 kinds.", t:true},
+  {s:"Barry Schwartz says many choices make people happy.", t:false, fix:"He says many choices can make people stressed."},
+  {s:"The experts say your choice must be perfect.", t:false, fix:"A good option is OK. It does not need to be perfect."},
+  {s:"Another person can help you choose.", t:true}
+];
+
+const G1 = [
+  {t:["There ", " a supermarket near my home."], a:"is"},
+  {t:["There ", " 24 kinds of jam on the table."], a:"are"},
+  {t:["There ", " many kinds of cereal."], a:"are"},
+  {t:["There ", " one small table."], a:"is"},
+  {t:["There ", " a famous study about jam."], a:"is"},
+  {t:["", " there many choices in your country?"], a:"Are", opts:["Is","Are"]}
+];
+const G2 = [
+  {t:["Barry Schwartz ", " too many choices are hard."], o:["say","says"], a:"says"},
+  {t:["Many people ", " stressed in big stores."], o:["feel","feels"], a:"feel"},
+  {t:["My sister ", " online every week."], o:["shop","shops"], a:"shops"},
+  {t:["We ", " bread at the small store."], o:["buy","buys"], a:"buy"},
+  {t:["The brain ", " routines."], o:["like","likes"], a:"likes"},
+  {t:["Shoppers ", " jam from the small table."], o:["choose","chooses"], a:"choose"}
+];
+
+const TALK = [
+  {q:"Is it easy or hard for you to choose food in a restaurant?", f:"For me, it is easy / hard because ___."},
+  {q:"Do you agree with Barry Schwartz? Are too many choices stressful?", f:"I agree because ___. / I disagree because ___."},
+  {q:"In your country, are there many choices in the supermarket?", f:"In my country, there are ___. / There is ___."},
+  {q:"What do you usually buy every week? Do you buy the same things?", f:"I usually buy ___. I always / sometimes ___."},
+  {q:"Do you always want the perfect choice? When?", f:"Yes, I do. For example, when I buy ___.", c:true},
+  {q:"What is your best tip for a hard choice?", f:"I think the best tip is ___ because ___.", c:true}
+];
+
+const CHECKS = [
+  "I wrote 4–6 sentences.",
+  "I used <b>There is</b> or <b>There are</b>.",
+  "I used the present simple (I buy, she buys…).",
+  "I gave my opinion: <b>I think ___ because ___</b>.",
+  "Every sentence starts with a capital letter and ends with a period (.)"
+];
+
+/* ---------- Helpers ---------- */
+const $ = s => document.querySelector(s);
+const el = (tag, attrs={}, html="") => { const e=document.createElement(tag); for(const k in attrs) e.setAttribute(k,attrs[k]); if(html) e.innerHTML=html; return e; };
+const shuffle = a => a.map(v=>[Math.random(),v]).sort((x,y)=>x[0]-y[0]).map(v=>v[1]);
+
+function radioGroup(container, name, label, options, correct){
+  const box = $(container);
+  options.forEach((o,i)=>{
+    const lab = el("label",{class:"opt"});
+    const inp = el("input",{type:"radio",name, value:o, "data-label":label});
+    lab.append(inp, el("span",{},o));
+    box.append(lab);
+  });
+  if(correct!==undefined){
+    const fb = el("div",{class:"fb"}); box.append(fb);
+    box.addEventListener("change",()=>markRadio(box,name,options[correct],fb));
+  }
+}
+function markRadio(box,name,right,fb){
+  const sel = box.querySelector(`input[name="${name}"]:checked`); if(!sel) return;
+  box.querySelectorAll(".opt").forEach(l=>l.classList.remove("right","wrong"));
+  const ok = sel.value===right;
+  sel.parentElement.classList.add(ok?"right":"wrong");
+  fb.className="fb "+(ok?"ok":"no");
+  fb.textContent = ok ? "✓ Yes! Great job." : "✗ Not quite. Read again and try another answer.";
+}
+
+function selectRows(container, key, items, getOpts, isRight, labelPrefix){
+  const box=$(container);
+  items.forEach((it,i)=>{
+    const row = el("div",{class:"row"});
+    row.append(el("span",{class:"n"},(i+1)+"."));
+    const sel = el("select",{class:"inline",id:`${key}${i}`,"data-label":`${labelPrefix} ${i+1}`});
+    sel.append(el("option",{value:""},"— choose —"));
+    getOpts(it).forEach(o=>sel.append(el("option",{value:o},o)));
+    const span1 = el("span",{},it.t[0]), span2 = el("span",{},it.t[1]);
+    if(it.t[0]) row.append(span1); row.append(sel); row.append(span2);
+    box.append(row);
+  });
+  const br = el("div",{class:"btnrow"});
+  const b = el("button",{type:"button",class:"btn"},"Check");
+  const sc = el("span",{class:"score"});
+  br.append(b,sc); box.append(br);
+  b.addEventListener("click",()=>{
+    let n=0;
+    items.forEach((it,i)=>{
+      const s=$("#"+key+i); s.classList.remove("good","bad");
+      if(!s.value) return;
+      const ok=isRight(it,s.value); if(ok)n++;
+      s.classList.add(ok?"good":"bad");
+    });
+    sc.textContent = `${n} / ${items.length} correct ${n===items.length?"🎉":""}`;
+  });
+}
+
+/* ---------- Build ---------- */
+radioGroup("#poll1","poll1","Warm-up A: hardest choice",["🍽️ Food in a restaurant","📺 A show to watch","👕 Clothes in a store","📱 A new phone"]);
+radioGroup("#poll2","poll2","Warm-up B: store",["🍞 A small store with 5 kinds of bread","🥖 A big store with 50 kinds of bread"]);
+radioGroup("#predict","predict","Prediction: topic",["A new supermarket opens in our city","Having too many choices can be a problem","Food prices are going up"],1);
+radioGroup("#mainidea","mainidea","Main idea",["Supermarkets sell cheap jam.","Too many choices can make people stressed.","Scientists want to close big supermarkets."],1);
+
+// vocab cards
+const vg=$("#vgrid");
+VOCAB.forEach(v=>{
+  const c=el("div",{class:"vcard"},`<div class="emo">${v.emo}</div><div class="w">${v.w}</div><div class="pos">${v.pos} <span class="pr">${v.pr}</span></div><div class="def">${v.def}</div><div class="ex">${v.ex}</div>`);
+  const b=el("button",{type:"button",class:"say","aria-label":"Listen to "+v.w},"🔊");
+  b.onclick=()=>say(v.w+". "+v.ex);
+  c.append(b); vg.append(c);
+});
+
+// match game
+const defs = shuffle(VOCAB.map(v=>v.def));
+selectRows("#match","m",VOCAB.map(v=>({t:["",""],w:v.w,a:v.def})),()=>defs,(it,val)=>val===it.a,"Vocab match");
+$("#match").querySelectorAll(".row").forEach((r,i)=>{
+  const w=el("b",{style:"min-width:90px;color:var(--navy)"},VOCAB[i].w+" =");
+  r.insertBefore(w,r.children[1]);
+  r.querySelector("select").style.flex="1";
+});
+
+// gaps
+selectRows("#gaps","gp",GAPS,()=>GAP_BANK,(it,val)=>it.a.includes(val),"Vocab sentence");
+
+// 5 Ws
+const tw=$("#fivews");
+FIVEWS.forEach((x,i)=>{
+  const tr=el("tr");
+  tr.append(el("th",{},x.w));
+  const td=el("td");
+  td.append(el("input",{type:"text",placeholder:x.q,"data-label":"5Ws "+x.w}));
+  td.append(el("div",{class:"model"},"Sample: "+x.m));
+  tr.append(td); tw.append(tr);
+});
+$("#showModels").onclick=e=>{
+  const w=$("#fivewsWrap"); w.classList.toggle("show-models");
+  e.target.textContent = w.classList.contains("show-models")?"Hide sample answers":"Compare with sample answers";
+};
+
+// TF
+const tfb=$("#tf");
+TF.forEach((x,i)=>{
+  const d=el("div",{class:"tf"});
+  d.append(el("div",{class:"q"},`${i+1}. ${x.s}`));
+  const bt=el("div",{class:"tfbtns"});
+  ["T","F"].forEach(v=>{
+    const l=el("label"); l.append(el("input",{type:"radio",name:"tf"+i,value:v,"data-label":`True/False ${i+1}`}),document.createTextNode(v==="T"?"True":"False"));
+    bt.append(l);
+  });
+  d.append(bt);
+  d.append(el("input",{type:"text",placeholder:"If false, write the correct sentence…","data-label":`True/False ${i+1} correction`}));
+  tfb.append(d);
+});
+$("#checkTF").onclick=()=>{
+  let n=0;
+  TF.forEach((x,i)=>{
+    const labs=document.querySelectorAll(`input[name="tf${i}"]`);
+    labs.forEach(r=>r.parentElement.classList.remove("right","wrong"));
+    const s=document.querySelector(`input[name="tf${i}"]:checked`); if(!s) return;
+    const ok=(s.value==="T")===x.t; if(ok)n++;
+    s.parentElement.classList.add(ok?"right":"wrong");
+  });
+  $("#tfScore").textContent=`${n} / ${TF.length} correct ${n===TF.length?"🎉":""}`;
+};
+
+// grammar
+selectRows("#g1","ga",G1,it=>it.opts||["is","are"],(it,v)=>v===it.a,"is/are");
+selectRows("#g2","gb",G2,it=>it.o,(it,v)=>v===it.a,"Verb");
+
+// talk
+const tk=$("#talk");
+TALK.forEach((x,i)=>{
+  const c=el("div",{class:"qcard"});
+  c.append(el("div",{class:"qq"},`${i+1}. ${x.q}${x.c?'<span class="chip">★ CHALLENGE</span>':''}`));
+  c.append(el("div",{class:"fr"},"💬 "+x.f));
+  c.append(el("input",{type:"text",placeholder:"Notes about my partner's answer…","data-label":`Talk Q${i+1} notes`}));
+  tk.append(c);
+});
+
+// self-check
+const sc=$("#selfcheck");
+CHECKS.forEach((c,i)=>{
+  const l=el("label"); l.append(el("input",{type:"checkbox","data-label":"Checklist: "+c.replace(/<[^>]+>/g,"")}),el("span",{},c));
+  sc.append(l);
+});
+
+// counter
+const para=$("#para");
+function count(){
+  const t=para.value.trim();
+  const w=t?t.split(/\s+/).length:0;
+  const s=(t.match(/[.!?](\s|$)/g)||[]).length;
+  $("#counter").textContent=`${w} words · ${s} sentence${s===1?"":"s"}${s>=4&&s<=6?" ✓":""}`;
+}
+para.addEventListener("input",count);
+
+// level toggle
+document.querySelectorAll(".lvl button").forEach(b=>b.onclick=()=>setLevel(b.dataset.lvl));
+function setLevel(l){
+  document.querySelectorAll(".lvl button").forEach(x=>x.classList.toggle("on",x.dataset.lvl===l));
+  $("#artA1").hidden = l!=="a1"; $("#artA2").hidden = l!=="a2";
+  store.level=l; persist();
+}
+
+// speech
+function say(t){
+  try{ speechSynthesis.cancel(); const u=new SpeechSynthesisUtterance(t); u.lang="en-US"; u.rate=.85; speechSynthesis.speak(u);}catch(e){}
+}
+document.querySelectorAll("[data-read]").forEach(b=>b.onclick=()=>{
+  const a=$("#"+b.dataset.read);
+  if(speechSynthesis.speaking){speechSynthesis.cancel(); return;}
+  say([...a.querySelectorAll("h3,p:not(.byline)")].map(p=>p.textContent).join(" "));
+});
+
+// shelf picture
+(function(){
+  const svg=$("#shelf"); const cols=["#c0392b","#e67e22","#f1c40f","#27ae60","#2980b9","#8e44ad","#16a085","#d35400","#2c3e50","#e84393"];
+  let s='<rect x="0" y="0" width="800" height="300" fill="#f7f2e6"/>';
+  const shelves=[95,195,290];
+  shelves.forEach(y=>{ s+=`<rect x="20" y="${y}" width="760" height="10" rx="3" fill="#8c7535"/>`; });
+  let k=0;
+  // row 1: cereal boxes
+  for(let x=30;x<760;x+=46){const h=62+((k*13)%18);const c=cols[k%cols.length];s+=`<rect x="${x}" y="${95-h}" width="40" height="${h}" rx="3" fill="${c}"/><rect x="${x+6}" y="${95-h+10}" width="28" height="14" rx="2" fill="#fff" opacity=".85"/><circle cx="${x+20}" cy="${95-h/2+12}" r="8" fill="#fff" opacity=".5"/>`;k++;}
+  // row 2: jars
+  for(let x=34;x<760;x+=38){const c=cols[(k*3)%cols.length];s+=`<rect x="${x}" y="150" width="30" height="45" rx="7" fill="${c}" opacity=".9"/><rect x="${x+2}" y="142" width="26" height="10" rx="2" fill="#5a6578"/><rect x="${x+5}" y="162" width="20" height="14" rx="2" fill="#fff" opacity=".85"/>`;k++;}
+  // row 3: bags & bottles
+  for(let x=30;x<760;x+=52){const c=cols[(k*7)%cols.length];if(k%2){s+=`<rect x="${x}" y="225" width="44" height="65" rx="10" fill="${c}"/><rect x="${x+8}" y="245" width="28" height="18" rx="3" fill="#fff" opacity=".8"/>`}else{s+=`<rect x="${x+12}" y="215" width="20" height="75" rx="6" fill="${c}"/><rect x="${x+16}" y="205" width="12" height="12" rx="2" fill="#5a6578"/>`}k++;}
+  s+=`<g><rect x="610" y="10" width="170" height="40" rx="20" fill="#0c2340"/><text x="695" y="37" text-anchor="middle" font-family="Arial" font-size="20" font-weight="700" fill="#d39f10">Which one? 🤔</text></g>`;
+  svg.innerHTML=s;
+})();
+
+/* ---------- Save / load ---------- */
+const KEY="approach-ci-basic-w1-choices";
+let store={};
+function persist(){ try{ localStorage.setItem(KEY,JSON.stringify(store)); }catch(e){} }
+function fields(){ return [...document.querySelectorAll("input[data-label],textarea[data-label],select[data-label]")]; }
+function fid(f,i){ return f.id || (f.type==="radio" ? "r:"+f.name+":"+f.value : "f"+i); }
+function saveAll(){
+  store.v={}; fields().forEach((f,i)=>{
+    const k=fid(f,i);
+    if(f.type==="radio"||f.type==="checkbox") store.v[k]=f.checked; else store.v[k]=f.value;
+  }); persist();
+}
+function loadAll(){
+  try{ store=JSON.parse(localStorage.getItem(KEY))||{}; }catch(e){ store={}; }
+  const v=store.v||{};
+  fields().forEach((f,i)=>{
+    const k=fid(f,i); if(!(k in v)) return;
+    if(f.type==="radio"||f.type==="checkbox") f.checked=!!v[k]; else f.value=v[k];
+  });
+  if(store.level) setLevel(store.level);
+  count();
+}
+document.addEventListener("input",saveAll);
+document.addEventListener("change",saveAll);
+loadAll();
+
+/* ---------- Export ---------- */
+function exportText(){
+  const out=["CURRENT ISSUES · BASIC LEVEL · WEEK 1","Story: Too Many Choices","Level read: "+(store.level==="a2"?"Story B":"Story A"),""];
+  const seenRadio=new Set();
+  fields().forEach(f=>{
+    const L=f.dataset.label;
+    if(f.type==="radio"){ if(seenRadio.has(f.name))return; seenRadio.add(f.name);
+      const c=document.querySelector(`input[name="${f.name}"]:checked`); out.push(`${L}: ${c?c.value:"—"}`); return; }
+    if(f.type==="checkbox"){ out.push(`${f.checked?"[x]":"[ ]"} ${L.replace("Checklist: ","")}`); return; }
+    out.push(`${L}: ${f.value.trim()||"—"}`);
+  });
+  return out.join("\n");
+}
+function toast(m){ const t=$("#toast"); t.textContent=m; t.classList.add("show"); setTimeout(()=>t.classList.remove("show"),2200); }
+$("#copyAll").onclick=async()=>{
+  const t=exportText();
+  try{ await navigator.clipboard.writeText(t); toast("✓ Copied! Now paste it on Community."); }
+  catch(e){ const ta=el("textarea"); ta.value=t; document.body.append(ta); ta.select(); try{document.execCommand("copy"); toast("✓ Copied!");}catch(_){toast("Please use Download.");} ta.remove(); }
+};
+$("#dlAll").onclick=()=>{
+  const n=($("#studentName").value.trim()||"student").replace(/\s+/g,"-");
+  const a=el("a",{href:URL.createObjectURL(new Blob([exportText()],{type:"text/plain"})),download:`week1-${n}.txt`});
+  document.body.append(a); a.click(); a.remove();
+};
+$("#clearAll").onclick=()=>{
+  if(!confirm("Delete all your answers and start again?")) return;
+  try{ localStorage.removeItem(KEY);}catch(e){}
+  location.reload();
+};
+</script>
+</body>
+</html>
