@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Culture Bingo · ApproachUSA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0c2340; --navy2:#16396a; --gold:#b0913f; --gold-l:#f3ead0;
+    --bg:#f3f4f8; --ink:#1c2533; --muted:#5b6475; --line:#d9dce5; --warn:#a4271b; --ok:#2b6b45;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{font-family:Montserrat,system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--ink);-webkit-tap-highlight-color:transparent}
+  header{background:var(--navy);color:#fff;padding:16px 16px 12px;text-align:center}
+  .kicker{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:700}
+  h1{font-family:"Playfair Display",Georgia,serif;margin:4px 0 2px;font-size:clamp(28px,7vw,42px);color:var(--gold);line-height:1.1}
+  .sub{font-size:13px;color:#c9d2e3}
+
+  /* timer bar */
+  .tbar{position:sticky;top:0;z-index:6;background:var(--navy);border-bottom:4px solid var(--gold);padding:8px 16px 10px}
+  .tin{max-width:780px;margin:0 auto;display:flex;align-items:center;gap:12px}
+  .clock{font-size:26px;font-weight:800;color:#fff;font-variant-numeric:tabular-nums;min-width:78px}
+  .tlabel{font-size:12px;color:#c9d2e3;line-height:1.25}
+  .tlabel b{color:var(--gold)}
+  .ttrack{flex:1;height:10px;background:#21406b;border-radius:99px;overflow:hidden}
+  .ttrack i{display:block;height:100%;width:100%;background:var(--gold);transition:width 1s linear}
+  .tbar.low .clock{color:#ff9c8f;animation:blink 1s infinite}
+  .tbar.low .ttrack i{background:#e0604f}
+  .tbar.over{background:var(--warn);border-bottom-color:#fff}
+  .tbar.over .ttrack{display:none}
+  .tbar.over .clock{color:#fff}
+  @keyframes blink{50%{opacity:.45}}
+
+  main{max-width:780px;margin:0 auto;padding:14px 16px 40px}
+  .me{display:flex;gap:10px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+  .me label{font-weight:700;font-size:14px;white-space:nowrap;color:var(--navy)}
+  .me input{flex:1;min-width:0;border:none;border-bottom:2px solid var(--gold);font:inherit;font-size:16px;padding:4px 2px;outline:none;background:transparent}
+
+  details.rules{margin-top:10px;background:#fff;border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:10px;padding:10px 12px}
+  details.rules summary{font-weight:700;color:var(--navy);cursor:pointer;font-size:14px}
+  details.rules ol{margin:8px 0 4px;padding-left:20px;font-size:14px;line-height:1.5}
+  .fmt{margin-top:10px;border-top:1px dashed var(--line);padding-top:10px}
+  .fmt h4{margin:0 0 6px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}
+  .frow{display:grid;grid-template-columns:1fr 1.35fr;gap:4px 10px;align-items:start;background:var(--bg);border-radius:8px;padding:8px 10px;margin-bottom:6px;font-size:13.5px;line-height:1.4}
+  .frow .c{color:var(--muted)}
+  .frow .c b{color:var(--ink)}
+  .frow .q b{color:var(--navy)}
+  .frow .a{grid-column:1 / -1;font-size:12.5px;color:var(--ok);font-weight:600}
+  .fu{font-size:13.5px;line-height:1.45;background:var(--navy);color:#fff;border-radius:8px;padding:8px 10px}
+  .fu b{color:var(--gold)}
+
+  .status{display:flex;justify-content:space-between;align-items:center;margin-top:12px;font-size:13px;color:var(--muted);gap:8px}
+  .bar{flex:1;height:8px;background:#e1e4ec;border-radius:99px;overflow:hidden}
+  .bar i{display:block;height:100%;width:0;background:var(--gold);transition:width .3s}
+
+  .grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));grid-auto-rows:1fr;gap:5px;margin-top:10px}
+  .cell{position:relative;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;
+        background:#fff;border:2px solid var(--gold);border-radius:8px;padding:16px 3px 6px;min-height:78px;
+        font:inherit;font-size:clamp(9.5px,2.45vw,13px);line-height:1.2;color:var(--ink);cursor:pointer;
+        -webkit-hyphens:auto;hyphens:auto;overflow-wrap:break-word;transition:transform .1s,background .2s}
+  .cell:active{transform:scale(.97)}
+  .cell .n{position:absolute;top:3px;left:5px;font-size:9px;font-weight:700;color:var(--gold)}
+  .cell .ty{position:absolute;top:3px;right:5px;font-size:8.5px;font-weight:800;color:#8a93a6;letter-spacing:.02em}
+  .cell .who{display:block;margin-top:4px;font-weight:800;font-size:clamp(9px,2.3vw,12px);color:var(--gold);word-break:break-word}
+  .cell.signed{background:var(--navy);color:#dfe5f0;border-color:var(--navy)}
+  .cell.signed .ty{display:none}
+  .cell.signed::after{content:"✓";position:absolute;top:2px;right:5px;font-size:11px;color:var(--gold);font-weight:800}
+  .cell.win{background:var(--gold);border-color:var(--gold);color:var(--navy)}
+  .cell.win .who,.cell.win .n,.cell.win::after{color:var(--navy)}
+
+  .banner{display:none;margin-top:12px;background:var(--gold);color:var(--navy);border-radius:12px;padding:14px;text-align:center;animation:pop .4s ease}
+  .banner.show{display:block}
+  .banner b{font-family:"Playfair Display",Georgia,serif;font-size:30px;display:block}
+  .banner span{font-size:14px;font-weight:600}
+  @keyframes pop{0%{transform:scale(.85);opacity:0}100%{transform:scale(1);opacity:1}}
+
+  .actions{display:flex;gap:8px;justify-content:center;margin-top:16px;flex-wrap:wrap}
+  .btn{font:inherit;font-weight:700;font-size:14px;border-radius:8px;padding:10px 16px;border:2px solid var(--navy);background:var(--navy);color:#fff;cursor:pointer}
+  .btn.ghost{background:transparent;color:var(--navy)}
+  .btn.danger{background:transparent;border-color:var(--warn);color:var(--warn)}
+  footer{text-align:center;font-size:11px;color:var(--muted);margin-top:22px}
+
+  /* sheet */
+  .overlay{position:fixed;inset:0;background:rgba(8,20,40,.6);display:none;align-items:flex-end;justify-content:center;z-index:10}
+  .overlay.show{display:flex}
+  .sheet{background:#fff;width:100%;max-width:560px;border-radius:16px 16px 0 0;padding:18px 16px calc(18px + env(safe-area-inset-bottom));max-height:92vh;overflow:auto;animation:up .25s ease}
+  @media(min-width:600px){.overlay{align-items:center}.sheet{border-radius:16px}}
+  @keyframes up{from{transform:translateY(30px);opacity:0}to{transform:none;opacity:1}}
+  .sheet .num{font-size:12px;font-weight:700;color:var(--gold);letter-spacing:.1em;text-transform:uppercase}
+  .sheet h2{font-family:"Playfair Display",Georgia,serif;color:var(--navy);margin:4px 0 10px;font-size:21px;line-height:1.25}
+  .box{background:var(--bg);border-radius:10px;padding:10px 12px;margin-bottom:8px;font-size:14px;line-height:1.45}
+  .lbl{display:block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
+  .box.pat{background:#fff;border:1.5px dashed var(--gold);font-size:13px;color:var(--muted)}
+  .box.pat b{color:var(--navy)}
+  .box.ask{background:var(--navy);color:#fff}
+  .box.ask .lbl{color:var(--gold)}
+  .box.ask .qq{font-size:17px;font-weight:700;line-height:1.35}
+  .box.ask .short{margin-top:6px;font-size:13px;color:#c9d2e3}
+  .box.ask .short b{color:#fff}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .two .box{margin-bottom:0}
+  .box.yes{background:#e7f2ea}
+  .box.yes .lbl{color:var(--ok)}
+  .box.yes .fq{font-weight:700;color:var(--navy)}
+  .box.no{background:#f7eceb}
+  .box.no .lbl{color:var(--warn)}
+  .box.hint{background:var(--gold-l);margin-top:8px}
+  .field{margin-top:12px}
+  .field label{display:block;font-size:13px;font-weight:700;color:var(--navy);margin-bottom:4px}
+  .field input,.field textarea{width:100%;font:inherit;font-size:16px;border:1.5px solid var(--line);border-radius:8px;padding:10px;outline:none}
+  .field input:focus,.field textarea:focus{border-color:var(--gold)}
+  .field textarea{min-height:58px;resize:vertical}
+  .warn{color:var(--warn);font-size:13px;font-weight:600;margin-top:6px;min-height:1em}
+  .sheet .actions{justify-content:flex-end;margin-top:12px}
+  .locked .field,.locked #mSave,.locked #mClear{display:none}
+  .locknote{display:none;background:#f7eceb;color:var(--warn);font-weight:700;font-size:13px;border-radius:8px;padding:8px 10px;margin-top:10px}
+  .locked .locknote{display:block}
+
+  /* time's up */
+  .tu{position:fixed;inset:0;z-index:12;background:rgba(8,20,40,.75);display:none;align-items:center;justify-content:center;padding:16px}
+  .tu.show{display:flex}
+  .tu > div{background:#fff;border-radius:16px;padding:22px 20px;max-width:380px;width:100%;text-align:center;border-top:6px solid var(--gold);animation:pop .35s ease}
+  .tu h2{font-family:"Playfair Display",Georgia,serif;color:var(--navy);margin:4px 0 6px;font-size:30px}
+  .tu p{margin:6px 0;font-size:15px;line-height:1.45}
+  .tu .score{font-size:15px;font-weight:700;color:var(--navy);background:var(--gold-l);border-radius:10px;padding:10px;margin:12px 0}
+</style>
+</head>
+<body>
+<header>
+  <div class="kicker">ApproachUSA · American Culture</div>
+  <h1>Culture Bingo</h1>
+  <div class="sub">Find someone who…</div>
+</header>
+
+<div class="tbar" id="tbar" role="timer" aria-live="off">
+  <div class="tin">
+    <div class="clock" id="clock">15:00</div>
+    <div class="ttrack"><i id="tfill"></i></div>
+    <div class="tlabel" id="tlabel"><b>Time left</b><br>to play</div>
+  </div>
+</div>
+
+<main>
+  <div class="me">
+    <label for="myName">My name:</label>
+    <input id="myName" type="text" autocomplete="off" placeholder="Type your name">
+  </div>
+
+  <details class="rules" id="rules" open>
+    <summary>How to play</summary>
+    <ol>
+      <li>Stand up and walk around the room. The timer is already running!</li>
+      <li>Tap a square. Ask a classmate the question <b>in English</b>.</li>
+      <li>If they say <b>yes</b>, ask the follow-up question. Listen, then type their name.</li>
+      <li>Use a <b>different classmate</b> for each square.</li>
+      <li>Complete a full line (→ ↓ ✕) and say <b>“BINGO!”</b></li>
+    </ol>
+    <div class="fmt">
+      <h4>How to make the question</h4>
+      <div class="frow">
+        <div class="c">Card says<br><b>Has</b> experienced…</div>
+        <div class="q">You ask<br><b>Have you ever</b> experienced…?</div>
+        <div class="a">Answer: Yes, I have. / No, I haven't.</div>
+      </div>
+      <div class="frow">
+        <div class="c">Card says<br><b>Thinks / Believes / Feels</b>…</div>
+        <div class="q">You ask<br><b>Do you think / believe / feel</b>…?</div>
+        <div class="a">Answer: Yes, I do. / No, I don't.</div>
+      </div>
+      <div class="fu"><b>If YES → ask a follow-up:</b> “Why?” · “What happened?” · “Can you give me an example?”<br><b>If NO →</b> “Thanks anyway!” Then find someone else.</div>
+    </div>
+  </details>
+
+  <div class="status">
+    <span id="count">0 / 25 signed</span>
+    <div class="bar"><i id="barFill"></i></div>
+    <span id="lines">0 lines</span>
+  </div>
+
+  <div class="banner" id="banner">
+    <b>BINGO!</b>
+    <span id="bannerText">Raise your hand and show your teacher. Be ready to share one answer with the class!</span>
+  </div>
+
+  <div class="grid" id="grid" aria-label="Bingo card"></div>
+
+  <div class="actions">
+    <button class="btn danger" id="resetBtn" type="button">Start a new card</button>
+  </div>
+
+  <footer>ApproachUSA · American Culture · Day 1 Icebreaker</footer>
+</main>
+
+<div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+  <div class="sheet" id="sheet">
+    <div class="num" id="mNum"></div>
+    <h2 id="mTitle"></h2>
+    <div class="box pat" id="mPat"></div>
+    <div class="box ask"><span class="lbl">Ask</span><div class="qq" id="mAsk"></div><div class="short" id="mShort"></div></div>
+    <div class="two">
+      <div class="box yes"><span class="lbl">If YES → follow up</span><span class="fq" id="mFollow"></span></div>
+      <div class="box no"><span class="lbl">If NO</span>“Thanks anyway!” Find someone else.</div>
+    </div>
+    <div class="box hint" id="mHintBox"><span class="lbl">Word help</span><span id="mHint"></span></div>
+    <div class="locknote">⏰ Time's up — you can't add names now.</div>
+    <div class="field">
+      <label for="mName">Classmate's name</label>
+      <input id="mName" type="text" autocomplete="off" placeholder="Who said yes?">
+      <div class="warn" id="mWarn"></div>
+    </div>
+    <div class="field">
+      <label for="mNote">Their answer to the follow-up (optional)</label>
+      <textarea id="mNote" placeholder="A few words about what they said"></textarea>
+    </div>
+    <div class="actions">
+      <button class="btn danger" id="mClear" type="button">Clear</button>
+      <button class="btn ghost" id="mCancel" type="button">Close</button>
+      <button class="btn" id="mSave" type="button">Save</button>
+    </div>
+  </div>
+</div>
+
+<div class="tu" id="tu"><div>
+  <div class="kicker">Culture Bingo</div>
+  <h2>⏰ Time's up!</h2>
+  <p>Please stop and go back to your seat.</p>
+  <div class="score" id="tuScore"></div>
+  <p>Be ready to share <b>one interesting answer</b> you heard.</p>
+  <div class="actions"><button class="btn" type="button" id="tuOk">See my card</button></div>
+</div></div>
+
+<script>
+/* Change the game length here (minutes). You can also add ?min=12 to the link. */
+const DEFAULT_MINUTES = 15;
+
+// k: "have" → Have you ever…? · "do" → Do you…?
+const ITEMS = [
+  {t:"Has questioned something about American culture", q:"Have you ever questioned something about American culture?", k:"have", f:"What did you question? Why?"},
+  {t:"Thinks Americans are more direct than people in their country", q:"Do you think Americans are more direct than people in your country?", k:"do", f:"Can you give me an example?", h:"direct = saying exactly what you think, clearly"},
+  {t:"Has experienced “fake” friendliness (e.g., small talk)", q:"Have you ever experienced “fake” friendliness, like small talk?", k:"have", f:"What happened? How did you feel?", h:"small talk = light, friendly conversation"},
+  {t:"Believes independence is very important in the U.S.", q:"Do you believe independence is very important in the U.S.?", k:"do", f:"Why do you think so? Is it the same in your country?", h:"independence = taking care of yourself without depending on others"},
+  {t:"Has felt pressure to share opinions in class", q:"Have you ever felt pressure to share your opinion in class?", k:"have", f:"In which class? How did you feel?"},
+  {t:"Has disagreed with an American cultural value", q:"Have you ever disagreed with an American cultural value?", k:"have", f:"Which value? Why do you disagree?"},
+  {t:"Thinks time is treated strictly in the U.S.", q:"Do you think time is treated strictly in the U.S.?", k:"do", f:"Can you give me an example? Is it different in your country?", h:"strictly = with firm rules (for example, “9:00 means 9:00”)"},
+  {t:"Has noticed differences in personal boundaries", q:"Have you ever noticed differences in personal boundaries here?", k:"have", f:"What difference did you notice?", h:"personal boundaries = limits on space, touch, or private topics"},
+  {t:"Thinks Americans are comfortable with disagreement", q:"Do you think Americans are comfortable with disagreement?", k:"do", f:"Why do you think so? What about in your country?"},
+  {t:"Has changed their behavior to fit U.S. culture", q:"Have you ever changed your behavior to fit U.S. culture?", k:"have", f:"What did you change? Why?"},
+  {t:"Has experienced culture shock in the U.S.", q:"Have you ever experienced culture shock in the U.S.?", k:"have", f:"What shocked you the most?", h:"culture shock = feeling confused or uncomfortable in a new culture"},
+  {t:"Thinks Americans are more individualistic than collectivist", q:"Do you think Americans are more individualistic than collectivist?", k:"do", f:"What makes you think so?", h:"individualistic = the person comes first · collectivist = the group comes first"},
+  {t:"Has misunderstood an American social situation", q:"Have you ever misunderstood an American social situation?", k:"have", f:"What happened?"},
+  {t:"Thinks communication is more informal in the U.S.", q:"Do you think communication is more informal in the U.S.?", k:"do", f:"Can you give me an example?", h:"informal = relaxed, not official (first names, casual words)"},
+  {t:"Has felt uncomfortable in a U.S. social situation", q:"Have you ever felt uncomfortable in a social situation in the U.S.?", k:"have", f:"What was the situation? What did you do?"},
+  {t:"Thinks Americans value efficiency / productivity", q:"Do you think Americans value efficiency and productivity?", k:"do", f:"Where have you seen this?", h:"efficiency / productivity = getting a lot done without wasting time"},
+  {t:"Has noticed differences in classroom expectations", q:"Have you ever noticed differences in classroom expectations?", k:"have", f:"What is different from classes in your country?", h:"expectations = what teachers think students should do"},
+  {t:"Thinks Americans express emotions differently", q:"Do you think Americans express emotions differently?", k:"do", f:"How are they different?"},
+  {t:"Has compared U.S. culture to another country", q:"Have you ever compared U.S. culture to another country's culture?", k:"have", f:"Which country? What was the biggest difference?"},
+  {t:"Thinks respect is shown differently in the U.S.", q:"Do you think respect is shown differently in the U.S.?", k:"do", f:"How do people show respect in your country?"},
+  {t:"Has changed their opinion about Americans", q:"Have you ever changed your opinion about Americans?", k:"have", f:"What did you think before? What do you think now?"},
+  {t:"Thinks stereotypes about Americans are sometimes true", q:"Do you think stereotypes about Americans are sometimes true?", k:"do", f:"Which stereotype? Why do you think so?", h:"stereotype = a simple idea about a whole group of people"},
+  {t:"Has had a surprising cultural misunderstanding", q:"Have you ever had a surprising cultural misunderstanding?", k:"have", f:"What happened? What did you learn?"},
+  {t:"Thinks social interactions are more casual", q:"Do you think social interactions are more casual in the U.S.?", k:"do", f:"Can you give me an example?", h:"casual = relaxed and informal"},
+  {t:"Feels more confident interacting in the U.S. now", q:"Do you feel more confident interacting with people in the U.S. now?", k:"do", f:"What helped you feel more confident?"}
+];
+const PATTERN = {
+  have: { tag:"Have…?", pat:"Card: <b>Has</b> + verb → Ask: <b>Have you ever</b> + verb…?", short:"<b>Yes, I have.</b> / <b>No, I haven't.</b>" },
+  do:   { tag:"Do…?",   pat:"Card: <b>Thinks / Believes / Feels</b> → Ask: <b>Do you think / believe / feel</b>…?", short:"<b>Yes, I do.</b> / <b>No, I don't.</b>" }
+};
+
+const params = new URLSearchParams(location.search);
+const MINUTES = Math.min(60, Math.max(1, parseFloat(params.get("min")) || DEFAULT_MINUTES));
+const DURATION = MINUTES * 60 * 1000;
+const STALE = 3 * 60 * 60 * 1000;   // after 3 hours, a reopened page starts a fresh card
+
+const KEY = "approach-culture-bingo-v2";
+const store = {
+  get(){ try { return JSON.parse(localStorage.getItem(KEY)); } catch(e){ return null; } },
+  set(v){ try { localStorage.setItem(KEY, JSON.stringify(v)); } catch(e){} },
+  clear(){ try { localStorage.removeItem(KEY); } catch(e){} }
+};
+function shuffled(){
+  const a = ITEMS.map((_, i) => i);
+  for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; }
+  return a;
+}
+function fresh(me){ return { me: me || "", order: shuffled(), sig:{}, announced:0, start: Date.now(), dur: DURATION, ended:false }; }
+
+let state = store.get();
+if (!state || !Array.isArray(state.order) || state.order.length !== ITEMS.length || !state.start || Date.now() - state.start > STALE) {
+  state = fresh(state && state.me);
+}
+if (params.has("min") && state.dur !== DURATION && Object.keys(state.sig).length === 0) { state.dur = DURATION; state.start = Date.now(); }
+
+const LINES = [];
+for (let r = 0; r < 5; r++) LINES.push([0,1,2,3,4].map(c => r*5 + c));
+for (let c = 0; c < 5; c++) LINES.push([0,1,2,3,4].map(r => r*5 + c));
+LINES.push([0,6,12,18,24], [4,8,12,16,20]);
+
+const $ = id => document.getElementById(id);
+const grid = $("grid");
+const esc = s => String(s).replace(/[&<>"']/g, ch => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]));
+const timeLeft = () => Math.max(0, state.start + state.dur - Date.now());
+const isOver = () => timeLeft() <= 0;
+
+function completedLines(){ return LINES.filter(line => line.every(pos => state.sig[state.order[pos]])); }
+
+function render(){
+  const done = completedLines();
+  const winPos = new Set(done.flat());
+  grid.innerHTML = "";
+  state.order.forEach((id, pos) => {
+    const it = ITEMS[id], s = state.sig[id];
+    const b = document.createElement("button");
+    b.type = "button";
+    b.className = "cell" + (s ? " signed" : "") + (winPos.has(pos) ? " win" : "");
+    b.innerHTML = `<span class="n">${pos + 1}</span><span class="ty">${PATTERN[it.k].tag}</span>${esc(it.t)}${s ? `<span class="who">${esc(s.name)}</span>` : ""}`;
+    b.setAttribute("aria-label", it.t + (s ? ". Signed by " + s.name : ". Not signed"));
+    b.addEventListener("click", () => openSheet(id, pos));
+    grid.appendChild(b);
+  });
+  const n = Object.keys(state.sig).length;
+  $("count").textContent = `${n} / 25 signed`;
+  $("barFill").style.width = (n / 25 * 100) + "%";
+  $("lines").textContent = `${done.length} line${done.length === 1 ? "" : "s"}`;
+
+  const banner = $("banner");
+  if (done.length > 0) {
+    $("bannerText").textContent = done.length === 1
+      ? "Raise your hand and show your teacher. Be ready to share one answer with the class!"
+      : `${done.length} lines! Keep going — can you fill the whole card?`;
+    banner.classList.add("show");
+    if (done.length > (state.announced || 0)) {
+      banner.style.animation = "none"; void banner.offsetWidth; banner.style.animation = "";
+      banner.scrollIntoView({behavior:"smooth", block:"center"});
+      if (navigator.vibrate) { try { navigator.vibrate([120,60,120]); } catch(e){} }
+    }
+  } else banner.classList.remove("show");
+  state.announced = done.length;
+  store.set(state);
+}
+
+/* ---------- timer ---------- */
+function fmt(ms){ const s = Math.ceil(ms / 1000); return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`; }
+function tick(){
+  const left = timeLeft(), bar = $("tbar");
+  $("clock").textContent = fmt(left);
+  $("tfill").style.width = (left / state.dur * 100) + "%";
+  bar.classList.toggle("low", left > 0 && left <= 2 * 60 * 1000);
+  bar.classList.toggle("over", left <= 0);
+  $("tlabel").innerHTML = left <= 0 ? "<b style='color:#fff'>Time's up!</b><br>Go back to your seat" : (left <= 2 * 60 * 1000 ? "<b>Almost done!</b><br>Finish your line" : "<b>Time left</b><br>to play");
+  if (left <= 0 && !state.ended) {
+    state.ended = true; store.set(state);
+    closeSheet();
+    const lines = completedLines().length, n = Object.keys(state.sig).length;
+    $("tuScore").textContent = `You got ${n} name${n === 1 ? "" : "s"} and ${lines} line${lines === 1 ? "" : "s"}.`;
+    $("tu").classList.add("show");
+    if (navigator.vibrate) { try { navigator.vibrate([300,120,300]); } catch(e){} }
+  }
+}
+$("tuOk").onclick = () => $("tu").classList.remove("show");
+setInterval(tick, 500);
+
+/* ---------- square sheet ---------- */
+let current = null;
+function openSheet(id, pos){
+  current = id;
+  const it = ITEMS[id], s = state.sig[id] || {}, P = PATTERN[it.k];
+  $("mNum").textContent = "Square " + (pos + 1);
+  $("mTitle").textContent = "Find someone who " + it.t.charAt(0).toLowerCase() + it.t.slice(1);
+  $("mPat").innerHTML = P.pat;
+  $("mAsk").textContent = it.q;
+  $("mShort").innerHTML = "Short answer: " + P.short;
+  $("mFollow").textContent = "“" + it.f + "”";
+  $("mHintBox").style.display = it.h ? "" : "none";
+  $("mHint").textContent = it.h || "";
+  $("mName").value = s.name || "";
+  $("mNote").value = s.note || "";
+  $("mWarn").textContent = "";
+  $("mClear").style.display = s.name ? "" : "none";
+  $("sheet").classList.toggle("locked", isOver());
+  $("overlay").classList.add("show");
+  document.body.style.overflow = "hidden";
+}
+function closeSheet(){
+  $("overlay").classList.remove("show");
+  document.body.style.overflow = "";
+  current = null;
+}
+const norm = s => s.trim().toLowerCase().replace(/\s+/g, " ");
+
+$("mSave").addEventListener("click", () => {
+  if (isOver()) { closeSheet(); return; }
+  const name = $("mName").value.trim().replace(/\s+/g, " ");
+  if (!name) { $("mWarn").textContent = "Type your classmate's name first."; return; }
+  const me = norm(state.me || "");
+  if (me && norm(name) === me) { $("mWarn").textContent = "You can't sign your own card — find a classmate!"; return; }
+  const dup = Object.entries(state.sig).find(([k, v]) => Number(k) !== current && norm(v.name) === norm(name));
+  if (dup) { $("mWarn").textContent = `${name} already signed another square. Find a different classmate!`; return; }
+  state.sig[current] = { name, note: $("mNote").value.trim() };
+  if (Object.keys(state.sig).length === 1) $("rules").open = false;
+  closeSheet(); render();
+});
+$("mClear").addEventListener("click", () => { if (isOver()) return; delete state.sig[current]; closeSheet(); render(); });
+$("mCancel").addEventListener("click", closeSheet);
+$("overlay").addEventListener("click", e => { if (e.target.id === "overlay") closeSheet(); });
+document.addEventListener("keydown", e => { if (e.key === "Escape" && current !== null) closeSheet(); });
+$("mName").addEventListener("keydown", e => { if (e.key === "Enter") $("mSave").click(); });
+
+const myName = $("myName");
+myName.value = state.me || "";
+myName.addEventListener("input", () => { state.me = myName.value; store.set(state); });
+
+$("resetBtn").addEventListener("click", () => {
+  if (!confirm("Start a new card? All names will be erased and the timer will start again.")) return;
+  store.clear(); state = fresh(state.me); $("tu").classList.remove("show"); render(); tick();
+});
+
+render();
+tick();
+</script>
+</body>
+</html>
