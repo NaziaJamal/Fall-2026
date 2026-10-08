@@ -1,0 +1,539 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Teacher Guide · Week 1 · Ethics in a Global World</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#143865;--blue:#1c4f8f;--gold:#d39f10;--gold-d:#8c7535;--sky:#c1cddd;--sky2:#e1e8f2;--sky3:#edf2f9;--cream:#efe9d9;--ink:#1a2233;--muted:#4a5568;--bg:#fbfaf6}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:"Source Sans 3",system-ui,sans-serif;color:var(--ink);background:var(--bg);font-size:17px;line-height:1.6}
+a{color:var(--blue)}
+header.top{background:var(--navy);color:#fff;border-bottom:4px solid var(--gold)}
+.top .in{max-width:1180px;margin:0 auto;padding:22px 16px 26px;display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.top img{width:64px;height:64px;border-radius:8px}
+.top .w{font-family:"Libre Baskerville",serif;color:var(--gold);letter-spacing:.12em;font-size:18px;line-height:1.1}
+.top .w small{display:block;letter-spacing:.02em;font-size:11px;color:#e6d8a8}
+.top h1{font-family:"Libre Baskerville",serif;margin:0;font-size:clamp(22px,4vw,32px);line-height:1.2}
+.top p{margin:4px 0 0;color:var(--sky);font-size:15px}
+.top .grow{flex:1;min-width:240px}
+.btn{display:inline-block;background:var(--gold);color:var(--navy);border:0;border-radius:6px;padding:9px 16px;font:700 15px "Source Sans 3",sans-serif;cursor:pointer;text-decoration:none}
+.btn.ghost{background:transparent;color:#fff;border:1px solid var(--sky)}
+.layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:240px 1fr;gap:36px;padding:28px 16px 80px}
+nav.toc{position:sticky;top:16px;align-self:start;font-size:14.5px;max-height:calc(100vh - 32px);overflow:auto}
+nav.toc b{display:block;color:var(--gold-d);font-size:12px;letter-spacing:.08em;text-transform:uppercase;margin:14px 0 4px}
+nav.toc a{display:block;color:var(--ink);text-decoration:none;padding:3px 0 3px 10px;border-left:2px solid var(--sky)}
+nav.toc a:hover{border-left-color:var(--gold);color:var(--blue)}
+main{min-width:0}
+section{margin-bottom:44px}
+h2{font-family:"Libre Baskerville",serif;color:var(--navy);font-size:26px;margin:0 0 6px;padding-top:6px}
+h2 .t{display:inline-block;font-family:"Source Sans 3",sans-serif;font-size:13px;letter-spacing:.06em;background:var(--navy);color:var(--gold);padding:3px 9px;border-radius:4px;vertical-align:middle;margin-right:8px}
+h3{font-family:"Libre Baskerville",serif;color:var(--navy);font-size:19px;margin:30px 0 8px;border-bottom:1px solid var(--sky);padding-bottom:6px}
+h4{font-size:15px;letter-spacing:.06em;text-transform:uppercase;color:var(--gold-d);margin:18px 0 4px}
+.lead{font-size:18.5px;color:var(--muted);margin:4px 0 16px}
+table{width:100%;border-collapse:collapse;margin:10px 0 16px;font-size:15.5px;background:#fff}
+th,td{border:1px solid var(--sky);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--sky2);color:var(--navy);font-weight:700}
+tr.phase td{background:var(--navy);color:var(--gold);font-weight:700;letter-spacing:.04em}
+.tbl{overflow-x:auto}
+.stage{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.06em;padding:2px 8px;border-radius:999px}
+.E{background:#fbe9b8;color:#6b5000}.S{background:var(--sky2);color:var(--navy)}.A{background:#dfe9d6;color:#2f4d1c}.O{background:#eee;color:#444}
+.meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:8px;margin:10px 0 14px}
+.meta div{background:#fff;border:1px solid var(--sky);border-radius:8px;padding:8px 12px;font-size:15px}
+.meta b{display:block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--gold-d)}
+.activity{background:#fff;border:1px solid var(--sky);border-left:6px solid var(--blue);border-radius:10px;padding:6px 22px 14px;margin:22px 0}
+.activity.e{border-left-color:var(--gold)}.activity.a{border-left-color:#5a7d3a}
+.say{background:var(--cream);border-radius:8px;padding:10px 14px;margin:10px 0;font-style:italic}
+.say::before{content:"Say: ";font-style:normal;font-weight:700;color:var(--gold-d)}
+.note{background:var(--sky3);border-left:4px solid var(--gold);padding:10px 14px;border-radius:6px;margin:12px 0;font-size:15.5px}
+.note b:first-child{color:var(--navy)}
+.warn{background:#fff6e0;border-left:4px solid #c27b00;padding:10px 14px;border-radius:6px;margin:12px 0;font-size:15.5px}
+.phr{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.phr span{background:var(--sky3);border:1px solid var(--sky);border-radius:999px;padding:4px 12px;font-size:14.5px}
+ol li,ul li{margin:4px 0}
+blockquote{margin:10px 0;padding:12px 18px;background:#fff;border-left:4px solid var(--gold-d);font-family:"Libre Baskerville",serif;font-size:15.5px;line-height:1.7}
+footer{font-size:13px;color:#6b7280;border-top:1px solid var(--sky);padding-top:14px}
+@media (max-width:860px){.layout{grid-template-columns:1fr}nav.toc{position:static;max-height:none;columns:2}}
+@media print{
+  body{background:#fff;font-size:11pt}
+  nav.toc,.noprint{display:none!important}
+  .layout{display:block;padding:0}
+  header.top{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .activity,table,.say,.note{break-inside:avoid}
+  h2{break-before:page}
+  section:first-of-type h2{break-before:auto}
+  a{color:inherit;text-decoration:none}
+}
+</style>
+</head>
+<body>
+<header class="top"><div class="in">
+  <img src="logo.png" alt="Approach International Student Center" onload="this.nextElementSibling.remove()" onerror="this.remove()"><div class="w">APPROACH<small>International Student Center</small></div>
+  <div class="grow"><h1>Week 1 Teacher Guide · Why Ethics Matter</h1><p>Ethics in a Global World · Chapter 1 · Wednesdays 6:00–9:50 pm</p></div>
+  <div class="noprint"><button class="btn" onclick="print()">Print / Save PDF</button> <a class="btn ghost" href="index.html">All files</a></div>
+</div></header>
+
+<div class="layout">
+<nav class="toc" aria-label="Contents">
+  <b>Overview</b>
+  <a href="#overview">Goals &amp; concepts</a>
+  <a href="#materials">Materials &amp; sources</a>
+  <a href="#prep">Prep checklist</a>
+  <b>Class 1 · 6:00–7:40</b>
+  <a href="#c1">Timing</a>
+  <a href="#c1-a">Arrive &amp; connect</a>
+  <a href="#c1-b">Ethical / Unethical / It Depends</a>
+  <a href="#c1-c">Criteria Harvest</a>
+  <a href="#c1-d">Words for "Right"</a>
+  <a href="#c1-e">Discussion Contract</a>
+  <a href="#c1-f">Exit ticket &amp; bridge</a>
+  <b>Class 2 · 8:10–9:50</b>
+  <a href="#c2">Timing</a>
+  <a href="#c2-a">Bridge</a>
+  <a href="#c2-b">Diamond-9 ranking</a>
+  <a href="#c2-c">Chapter 1 jigsaw</a>
+  <a href="#c2-d">Equifax crisis meeting</a>
+  <a href="#c2-e">Reflection</a>
+  <b>Support</b>
+  <a href="#lang">Language support</a>
+  <a href="#hw">Homework</a>
+  <a href="#assess">Checks &amp; quiz key</a>
+  <a href="#roadmap">Course roadmap</a>
+  <a href="#flags">Open questions</a>
+</nav>
+
+<main>
+
+<section id="overview">
+<h2>Week 1 at a glance</h2>
+<p class="lead">Students discover they already reason ethically, learn the book's three lenses as names for what they just did, and leave able to say <em>"It depends — on X."</em></p>
+<div class="meta">
+  <div><b>Class 1</b>"It Depends — On What?"<br>dilemmas → lenses → words → norms</div>
+  <div><b>Class 2</b>"Integrity, Profit, and One Standard"<br>values → jigsaw → crisis meeting</div>
+  <div><b>Textbook</b>Chapter 1 (1.1–1.3)</div>
+  <div><b>Assessment link</b>Quiz 1 (Week 3), Journal #1, participation</div>
+</div>
+
+<h3>Learning goals</h3>
+<p>By the end of Week 1, students can:</p>
+<ol>
+  <li>Explain the difference between a legal and an ethical responsibility, with an example.</li>
+  <li>Identify whether an argument focuses on <strong>consequences</strong> (ends), <strong>duties or rules</strong> (means), or <strong>character</strong>.</li>
+  <li>Distinguish <em>stakeholder</em> from <em>stockholder</em>, and short-term from long-term thinking.</li>
+  <li>Explain ethical relativism and evaluate the book's case for a single ethical standard.</li>
+  <li>Disagree, hedge and clarify using B2+ discussion language.</li>
+</ol>
+
+<h3>Key concepts (Chapter 1)</h3>
+<div class="tbl"><table>
+<tr><th>Section</th><th>Concepts</th><th>Examples in the book</th></tr>
+<tr><td>1.1 Being a Professional of Integrity</td><td>Ethics/morals (used interchangeably), integrity, stakeholders, legal compliance as a minimum, three normative approaches: consequences (utilitarianism), means/duty (deontology), character (virtue theory, <em>phronesis</em>)</td><td>Patagonia, Hippocratic Oath, Kant, Aristotle's practical wisdom</td></tr>
+<tr><td>1.2 Ethics and Profitability</td><td>Short- vs long-term perspective, social contract, stockholder vs stakeholder, goodwill, corporate culture, CSR</td><td>Friedman (1970), Toyota, Warren Buffett's "front-page" test, Equifax, TOMS</td></tr>
+<tr><td>1.3 Multiple versus Single Ethical Standards</td><td>Ethical relativism; the argument for one consistent standard</td><td>Employee-discount dilemma</td></tr>
+</table></div>
+
+<h3>Big ethical questions</h3>
+<ul>
+  <li>Is "legal" enough?</li>
+  <li>Can a business be both ethical and profitable — or is that a convenient story?</li>
+  <li>Should you keep one ethical standard everywhere, or adapt to the culture you are in?</li>
+  <li>If a company is ethical only because ethics pays, is it still ethical?</li>
+</ul>
+</section>
+
+<section id="materials">
+<h2>Materials &amp; sources</h2>
+<div class="tbl"><table>
+<tr><th>Source</th><th>Used for</th><th>Type</th></tr>
+<tr><td><a href="https://alek-approach.github.io/ethics/">Warm-up page</a></td><td>Three scenarios: gift vs bribe, $4 wage, sharing homework</td><td>Teacher-made</td></tr>
+<tr><td><a href="https://openstax.org/books/business-ethics/pages/1-1-being-a-professional-of-integrity">OpenStax 1.1</a></td><td>Integrity, legal vs ethical, ends/means/character</td><td>Textbook</td></tr>
+<tr><td><a href="https://openstax.org/books/business-ethics/pages/1-2-ethics-and-profitability">OpenStax 1.2</a></td><td>Profit, stakeholders, goodwill, Equifax, CSR</td><td>Textbook</td></tr>
+<tr><td><a href="https://openstax.org/books/business-ethics/pages/1-3-multiple-versus-single-ethical-standards">OpenStax 1.3</a></td><td>Relativism vs a single standard</td><td>Textbook</td></tr>
+<tr><td><a href="https://www.consumerfinance.gov/policy-compliance/enforcement/actions/equifax-inc/">CFPB: Equifax enforcement action</a></td><td>2019 settlement update</td><td>Outside source</td></tr>
+<tr><td><a href="https://www.fox5atlanta.com/news/former-equifax-executive-gets-4-months-for-insider-trading">Fox 5 Atlanta: Equifax executive sentenced</a></td><td>Insider-trading update</td><td>Outside source</td></tr>
+</table></div>
+<div class="note"><b>Adapting the textbook.</b> Chapter 1 is from 2018, US-focused and fairly abstract. Keep it, but pair each book case with "what happened next," read it in jigsaw chunks, and set students' own professional cases beside the book's.</div>
+<div class="note"><b>Licensing.</b> OpenStax is CC BY-NC-SA. If you print textbook pages, each page must carry: <em>Access for free at https://openstax.org/books/business-ethics/pages/1-introduction</em></div>
+</section>
+
+<section id="prep">
+<h2>Prep checklist</h2>
+<p class="lead">Everything except the textbook pages is in <a href="handouts.html">handouts.html</a>; print it once and cut.</p>
+<ul>
+  <li>Projector: <a href="slides.html">slides.html</a> and the warm-up page open in two tabs</li>
+  <li>A4 paper for name tents; verdict cards (3 per group, from handouts)</li>
+  <li>Sticky notes; board split into three <strong>unlabeled</strong> columns + a box labeled LAW / CUSTOM</li>
+  <li>Index cards for Words for "Right"</li>
+  <li>Diamond-9 card sets: one per student + one per group</li>
+  <li>Chapter 1 printed by section, with reading guides A–D from the handouts stapled on top (or students read on phones)</li>
+  <li>Equifax fact sheet, role cards and a Board Resolution sheet per group</li>
+  <li>Exit tickets; share the <a href="worksheet.html">worksheet</a> link (QR code on the first slide)</li>
+</ul>
+</section>
+
+<!-- ========== CLASS 1 ========== -->
+<section id="c1">
+<h2><span class="t">CLASS 1</span>"It Depends — On What?"</h2>
+<p class="lead">Students argue first and get the theory second: the lenses are "revealed" from their own reasons, so the vocabulary arrives as names for thinking they already did.</p>
+<div class="tbl"><table>
+<tr><th>Time</th><th>Stage</th><th>Activity</th><th>Grouping</th></tr>
+<tr><td>0–10</td><td><span class="stage O">CONNECT</span></td><td>Name tents + "unwritten rule" intros</td><td>Groups of 3–4</td></tr>
+<tr><td>10–50</td><td><span class="stage E">ENGAGE</span></td><td>Ethical, Unethical, or It Depends? (warm-up page)</td><td>Same groups, rotating roles</td></tr>
+<tr><td>50–65</td><td><span class="stage S">STUDY</span></td><td>Criteria Harvest → the three lenses</td><td>Whole class</td></tr>
+<tr><td>65–82</td><td><span class="stage A">ACTIVATE</span></td><td>Words for "Right" (syllabus icebreaker)</td><td>Pairs → groups</td></tr>
+<tr><td>82–94</td><td><span class="stage A">ACTIVATE</span></td><td>Our Discussion Contract</td><td>Groups → class</td></tr>
+<tr><td>94–100</td><td><span class="stage O">CLOSE</span></td><td>Exit ticket + bridge question</td><td>Individual</td></tr>
+</table></div>
+
+<div class="activity" id="c1-a">
+<h3>0–10 · Arrive and connect</h3>
+<div class="meta"><div><b>Purpose</b>Learn names and professions fast</div><div><b>Grouping</b>Mixed groups of 3–4</div><div><b>Materials</b>A4 paper, markers</div></div>
+<ol>
+  <li>As students arrive, they fold an A4 name tent: <strong>name / field and years / languages</strong>.</li>
+  <li>Seat groups mixing fields and first languages.</li>
+  <li>Each person answers in 45 seconds: <em>"What is one unwritten rule in your profession that outsiders don't know?"</em></li>
+  <li>Take two quick examples to the whole class. These often surface ethics immediately.</li>
+</ol>
+<div class="note"><b>Why it works:</b> it tells you who the nurse, engineer and accountant are, so you can call on expertise all term.</div>
+</div>
+
+<div class="activity e" id="c1-b">
+<h3>10–50 · Ethical, Unethical, or It Depends?</h3>
+<div class="meta"><div><b>Purpose</b>Hook with real tension; reward reasoned changes of mind</div><div><b>Time</b>40 min (≈12 per scenario + debrief)</div><div><b>Grouping</b>Groups of 3–4</div><div><b>Materials</b>Warm-up page, verdict cards, markers</div></div>
+<h4>Group roles — rotate every scenario</h4>
+<ul>
+  <li><strong>Chair</strong> — keeps time; makes sure everyone speaks.</li>
+  <li><strong>Devil's Advocate</strong> — argues against the group's emerging view for at least one minute.</li>
+  <li><strong>Spokesperson</strong> — defends the verdict to the class.</li>
+</ul>
+<h4>Procedure (per scenario)</h4>
+<ol>
+  <li><strong>1 min</strong> — Project the scenario; students read silently.</li>
+  <li><strong>5 min</strong> — Start the page timer. Groups discuss using "Push your group."</li>
+  <li><strong>1 min</strong> — Groups write <strong>verdict + single strongest reason</strong> on a verdict card. If <em>It Depends</em>, they must finish: <em>"It depends on whether…"</em></li>
+  <li><strong>1 min</strong> — "3-2-1 — show!" All cards up at once. Tap the tallies on the page.</li>
+  <li><strong>2 min</strong> — Two groups with different verdicts defend, one minute each.</li>
+  <li><strong>2 min</strong> — Reveal the twist. <em>"Which groups want to change?"</em> One changer explains; one non-changer explains.</li>
+</ol>
+<div class="say">You won't be marked on the verdict. You'll be marked on the reason. And changing your mind for a good reason is a strength.</div>
+<h4>What each scenario sets up</h4>
+<div class="tbl"><table>
+<tr><th>Scenario</th><th>Tension</th><th>Chapter link</th><th>Extra push</th></tr>
+<tr><td>1. The Thank-You Gift</td><td>Gift vs bribe; 10 jobs vs the rule</td><td>1.3 relativism; 1.1 legal vs ethical</td><td>Ask anyone in procurement, compliance or government how their organization defines a gift. Home-country law can matter: e.g., the US FCPA has a narrow exception for routine "facilitating payments," while the UK Bribery Act allows none (check current rules before presenting as fact).</td></tr>
+<tr><td>2. The Three-Dollar Question</td><td>Legal wage vs fair wage; jobs vs rights</td><td>1.1 law as minimum; 1.2 stakeholders</td><td>"Who is missing from this story?" — consumers, shareholders, government, workers' families</td></tr>
+<tr><td>3. Helping a Friend</td><td>Loyalty vs a fair rule</td><td>1.3 one standard vs many</td><td>Link to the syllabus integrity policy: <em>"Where is the line with translation tools and AI?"</em></td></tr>
+</table></div>
+<h4>Debrief (3 min after Scenario 3)</h4>
+<ul>
+  <li>Which scenario was hardest, and what information was missing?</li>
+  <li>Did your group use the same kind of reason in all three, or switch?</li>
+  <li>Is "everyone does it here" a reason, an excuse, or a fact?</li>
+</ul>
+<h4>Expected outcome</h4>
+<p>Split verdicts on all three, several groups changing after a twist, and a board full of reasons to harvest in the next stage.</p>
+<h4>Useful language (on slides)</h4>
+<div class="phr"><span>The crux of the issue is whether…</span><span>I'd distinguish between a gift and an inducement.</span><span>That's legally defensible, but is it ethically defensible?</span><span>If we prioritize the workers, then…</span><span>I'm revising my position because…</span></div>
+</div>
+
+<div class="activity" id="c1-c">
+<h3>50–65 · Criteria Harvest → the three lenses</h3>
+<div class="meta"><div><b>Purpose</b>Turn students' reasons into the book's three approaches</div><div><b>Time</b>15 min</div><div><b>Grouping</b>Groups → whole class</div><div><b>Materials</b>Sticky notes; board with 3 unlabeled columns + LAW / CUSTOM box</div></div>
+<ol>
+  <li><strong>3 min</strong> — Each group writes the reasons it actually used tonight, one per sticky note.</li>
+  <li><strong>4 min</strong> — Spokespeople read notes aloud; you place each in a column <strong>without explaining</strong>.</li>
+  <li><strong>2 min</strong> — <em>"What do the notes in each column have in common?"</em> Groups guess labels.</li>
+  <li><strong>4 min</strong> — Reveal the labels (slide) with the script below.</li>
+  <li><strong>2 min</strong> — "Name that lens" check.</li>
+</ol>
+<h4>Teacher script (≈4 min)</h4>
+<ul>
+  <li><strong>ENDS — consequences.</strong> "Who is helped and who is harmed?" One version is <em>utilitarianism</em>: the greatest good for the greatest number.</li>
+  <li><strong>MEANS — duties and rules.</strong> "Is the action itself right, whatever the result?" This is <em>deontology</em>, linked in the book to Immanuel Kant. <em>Deon</em> is Greek for duty.</li>
+  <li><strong>CHARACTER.</strong> "What would a person of integrity do? Who am I becoming?" This is <em>virtue theory</em>. Practical wisdom (<em>phronesis</em>) is knowing how to act well in a real situation.</li>
+  <li><strong>LAW / CUSTOM.</strong> The book calls law a minimum baseline; ethics goes further.</li>
+</ul>
+<div class="say">You were already using all three. This course gives you names for them — and shows you when they disagree.</div>
+<h4>"Name that lens" — answer key</h4>
+<div class="tbl"><table>
+<tr><th>Statement</th><th>Answer</th></tr>
+<tr><td>"If the brand raises wages, 3,000 people may lose their jobs."</td><td>Ends</td></tr>
+<tr><td>"Copying is cheating, whatever the reason."</td><td>Means</td></tr>
+<tr><td>"A good friend helps — but a wise friend helps in a way that doesn't hurt you."</td><td>Character (practical wisdom)</td></tr>
+<tr><td>"It's legal there, so the company did nothing wrong."</td><td>Law/custom — only the minimum, says the book</td></tr>
+</table></div>
+</div>
+
+<div class="activity a" id="c1-d">
+<h3>65–82 · Words for "Right"</h3>
+<div class="meta"><div><b>Purpose</b>Answer "What does ethics mean in your culture?" through language</div><div><b>Time</b>17 min</div><div><b>Grouping</b>Individual → pairs → groups of 4</div><div><b>Materials</b>Index cards (or worksheet)</div></div>
+<ol>
+  <li><strong>3 min</strong> — Individually: the word(s) in your first language for <em>ethics</em> or <em>a good person</em>; its literal meaning or root; one saying about honesty or fairness, translated.</li>
+  <li><strong>5 min</strong> — Pairs with different first languages explain their cards.</li>
+  <li><strong>5 min</strong> — Groups of four find one word with <strong>no neat English equivalent</strong> and explain what English loses.</li>
+  <li><strong>4 min</strong> — Whole class. Add English roots: <em>ethics</em> ← Greek <em>ēthos</em> (character, custom); <em>moral</em> ← Latin <em>mores</em> (customs).</li>
+</ol>
+<div class="say">If both of our English words come from "custom," is ethics just whatever my community does? Hold that question — the reading after the break answers it.</div>
+<div class="warn"><b>Watch for:</b> ask for experience, not representation — "in your family," "where you've worked," never "in your country." The book uses <em>ethics</em> and <em>morals</em> interchangeably; ask whether students' languages distinguish them.</div>
+</div>
+
+<div class="activity a" id="c1-e">
+<h3>82–94 · Our Discussion Contract</h3>
+<div class="meta"><div><b>Purpose</b>Students write the norms for respectful debate (syllabus: Respect &amp; Inclusion)</div><div><b>Time</b>12 min</div><div><b>Grouping</b>Groups → class</div><div><b>Materials</b>Paper strips, sticky dots or markers</div></div>
+<ol>
+  <li><strong>4 min</strong> — Each group drafts two norms beginning <em>"We challenge ideas, not people, by…"</em></li>
+  <li><strong>4 min</strong> — Post them; everyone gets three dot votes.</li>
+  <li><strong>4 min</strong> — Keep the top five. Add these if missing:
+    <ul><li>Restate the other person's view in a form they accept before you disagree.</li><li>Changing your mind for a good reason is a strength.</li><li>No one speaks for a whole country or culture.</li><li>Ask for evidence, not credentials.</li></ul></li>
+</ol>
+<p>Photograph the contract and show it at the start of every class.</p>
+</div>
+
+<div class="activity" id="c1-f">
+<h3>94–100 · Exit ticket &amp; bridge</h3>
+<ol><li>Which scenario was hardest, and what one piece of information would help you decide?</li><li>Complete: <em>"Something can be legal but unethical when…"</em></li></ol>
+<div class="say">Over the break, think about this: if you could keep only three values at work, which three would they be?</div>
+</div>
+</section>
+
+<!-- ========== CLASS 2 ========== -->
+<section id="c2">
+<h2><span class="t">CLASS 2</span>"Integrity, Profit, and One Standard"</h2>
+<p class="lead">The values students carried over the break become a ranking; the ranking exposes the 1.3 question (one standard or many?); the reading answers it; a crisis meeting tests it.</p>
+<div class="tbl"><table>
+<tr><th>Time</th><th>Stage</th><th>Activity</th><th>Grouping</th></tr>
+<tr><td>0–8</td><td><span class="stage O">BRIDGE</span></td><td>"Three values" + two exit-ticket answers</td><td>New groups of 3–4</td></tr>
+<tr><td>8–33</td><td><span class="stage E">ENGAGE</span></td><td>Diamond-9 Values Ranking + context switch</td><td>Individual → groups</td></tr>
+<tr><td>33–65</td><td><span class="stage S">STUDY</span></td><td>Chapter 1 jigsaw</td><td>Home → expert → home</td></tr>
+<tr><td>65–90</td><td><span class="stage A">ACTIVATE</span></td><td>Equifax crisis meeting + Front-Page Test</td><td>Groups of 4–6</td></tr>
+<tr><td>90–100</td><td><span class="stage O">REFLECT</span></td><td>Position Change Log + homework</td><td>Individual</td></tr>
+</table></div>
+
+<div class="activity" id="c2-a">
+<h3>0–8 · Bridge</h3>
+<ol>
+  <li>Regroup so students meet new people.</li>
+  <li>Each person names their three values, one sentence each. Groups note values named twice.</li>
+  <li>Read two anonymous exit-ticket answers to "Something can be legal but unethical when…" and ask the room to improve one.</li>
+</ol>
+</div>
+
+<div class="activity e" id="c2-b">
+<h3>8–33 · Diamond-9 Values Ranking</h3>
+<div class="meta"><div><b>Purpose</b>Rank values (syllabus task); show words mean different things; show rankings shift by context</div><div><b>Time</b>25 min</div><div><b>Grouping</b>Individual → groups of 3–4</div><div><b>Materials</b>Diamond-9 cards (handouts) or worksheet</div></div>
+<p><strong>Cards:</strong> Honesty · Integrity · Loyalty · Fairness · Respect for the law · Respect for others · Compassion · Courage · Success. The first six come from the book's list of universal principles in 1.3; <em>Success</em> is the provocation.</p>
+<ol>
+  <li><strong>3 min — Individual.</strong> Arrange a diamond: 1 at the top, then 2, 3, 2, and 1 at the bottom.</li>
+  <li><strong>10 min — Group consensus.</strong> One group diamond. Rule: move a card only if you give a reason. Devil's Advocate continues.</li>
+  <li><strong>2 min — Definition check.</strong> Each group writes a one-line definition of <em>Loyalty</em> and <em>Fairness</em>. Collect them.</li>
+  <li><strong>6 min — Context switch.</strong> Each group re-ranks as: CEO of a 500-person public company (the book's Figure 1.5 scenario) · owner of a small family business · new manager working in another country · government official who approves permits. Mark which cards moved.</li>
+  <li><strong>4 min — Debrief.</strong> Read the different <em>Loyalty</em> definitions aloud.</li>
+</ol>
+<h4>Debrief questions</h4>
+<ul>
+  <li>Which card moved most when your role changed? Why?</li>
+  <li>If your ranking changes with your role, do you have one ethical standard or several?</li>
+  <li>Is there any card that should <strong>never</strong> move, whatever the role?</li>
+  <li>Where did Success end up — and is it a value or a goal?</li>
+</ul>
+<div class="say">The reading you're about to do takes a strong position on this. Let's see if you agree.</div>
+<h4>Useful language</h4>
+<div class="phr"><span>I'd put ___ above ___ because…</span><span>That depends on how we define loyalty.</span><span>Loyalty to whom, though?</span><span>I can live with that compromise if…</span></div>
+</div>
+
+<div class="activity" id="c2-c">
+<h3>33–65 · Chapter 1 jigsaw</h3>
+<div class="meta"><div><b>Purpose</b>Cover Chapter 1 through peer teaching and critical reading</div><div><b>Time</b>32 min</div><div><b>Grouping</b>Home groups of 4 → expert groups → home</div><div><b>Materials</b>Reading guides A–D + textbook sections; worksheet Expert Brief</div></div>
+<div class="tbl"><table>
+<tr><th>Guide</th><th>Read (OpenStax)</th><th>Gloss words</th></tr>
+<tr><td>A</td><td>1.1 — from the start through the end of "Acting with Integrity" (stops before "Ends, Means, and Character")</td><td>incorruptible, baseline, precedent</td></tr>
+<tr><td>B</td><td>1.2 — start through the Buffett box ("Competition and the Markers of Business Success")</td><td>shareholder wealth, quarterly, reciprocal, disabuse</td></tr>
+<tr><td>C</td><td>1.2 — "Stockholders, Stakeholders, and Goodwill" to the end of the section (includes Equifax box and CSR)</td><td>intangible, scrutiny, bottom line, civic</td></tr>
+<tr><td>D</td><td>1.3 — the whole section, including the employee-discount box</td><td>revere, coherent, hypocrisy, perk</td></tr>
+</table></div>
+<div class="note"><b>Tip for C:</b> tell group C to read the Equifax box last and lightly — the whole class will work with it in the next activity.</div>
+<ol>
+  <li><strong>2 min — Pre-reading vote.</strong> True or false: "Being ethical makes a company more profitable in the long run." Record the count.</li>
+  <li><strong>1 min</strong> — In home groups of four, each member takes A, B, C or D. Fewer than 16 students: double up on B and D.</li>
+  <li><strong>12 min — Expert groups</strong> read and complete the Expert Brief: key idea in one sentence · two terms in your own words · one example · one claim you'd challenge · one question for your home group.</li>
+  <li><strong>3 min</strong> — Experts compare briefs and agree on their challenge.</li>
+  <li><strong>12 min — Home groups.</strong> Each expert teaches ≈2.5 minutes <strong>from the brief only</strong> — no reading aloud — then asks their question.</li>
+  <li><strong>2 min</strong> — Re-vote. Did anyone move? Why?</li>
+</ol>
+<h4>Model Expert Briefs (answer key)</h4>
+<div class="tbl"><table>
+<tr><th></th><th>Key idea</th><th>Terms</th><th>Claim worth challenging</th></tr>
+<tr><td>A</td><td>Integrity means unity between what we say and do; obeying the law is only the minimum, and ethics goes beyond it.</td><td>integrity, stakeholder, compliance</td><td>The book calls law and ethics "totally different." Many laws (anti-bribery, safety) encode ethical ideas — are they really separate?</td></tr>
+<tr><td>B</td><td>Quarterly, short-term thinking narrows success; a long-term view and the social contract mean a company owes something back to society.</td><td>social contract, short-term perspective</td><td>Was Toyota's decision to sell at a loss ethics, or simply smart strategy? Does the motive matter?</td></tr>
+<tr><td>C</td><td>Leaders should weigh all stakeholders, not only stockholders; goodwill built over time supports profit; CSR goes beyond legal minimums.</td><td>goodwill, CSR, corporate culture</td><td>"Being ethical is simply good business." If ethics is done only because it pays, is it still ethics? (A deontologist would say motive matters.)</td></tr>
+<tr><td>D</td><td>Using different standards in different contexts is ethical relativism; one consistent standard builds trust.</td><td>ethical relativism, hypocrisy</td><td>Is adapting to local customs (like gift-giving in Scenario 1) always relativism? Distinguish etiquette from core principles.</td></tr>
+</table></div>
+</div>
+
+<div class="activity a" id="c2-d">
+<h3>65–90 · Equifax crisis meeting + Front-Page Test</h3>
+<div class="meta"><div><b>Purpose</b>Apply stakeholders, legal vs ethical, short vs long term and the lenses to a real case</div><div><b>Time</b>25 min</div><div><b>Grouping</b>Groups of 4–6</div><div><b>Materials</b>Fact sheet, role cards, Board Resolution sheet</div></div>
+<div class="say">It is early September 2017. You are Equifax's leadership. Nobody outside knows about the breach yet. You have 12 minutes.</div>
+<h4>Fact sheet (from the textbook only)</h4>
+<ul>
+  <li>From mid-May to July 2017, hackers accessed Equifax servers and the personal information of nearly half the US population.</li>
+  <li>After learning of the hack in late July, executives sold nearly $2 million of their own company stock, weeks before the public announcement.</li>
+  <li>The company plans to offer free credit monitoring and identity-theft protection.</li>
+</ul>
+<h4>Agenda</h4>
+<ol><li>What do we announce, and when?</li><li>What do we offer affected people? Is credit monitoring enough?</li><li>What do we do about the executives who sold stock before the announcement?</li></ol>
+<h4>Procedure</h4>
+<ol>
+  <li><strong>3 min</strong> — Students read role cards silently.</li>
+  <li><strong>12 min</strong> — The CEO chairs. Each role must speak from its assigned lens at least once.</li>
+  <li><strong>2 min</strong> — Write three decisions on the Board Resolution sheet.</li>
+  <li><strong>3 min — Front-Page Test.</strong> Groups swap resolutions and write the headline an "unfriendly but intelligent reporter" would write (Buffett's test, section 1.2). Read headlines aloud.</li>
+  <li><strong>5 min — "What happened next"</strong> (slide; outside sources): in July 2019 Equifax reached a settlement with the CFPB, FTC and 48 states worth up to $700 million; about 147 million consumers were affected. A former Equifax CIO, Jun Ying, was sentenced to four months in prison for insider trading, and a second employee was also convicted.</li>
+</ol>
+<div class="warn"><b>Accuracy note:</b> the book's "nearly $2 million" refers to executives' sales. The people later convicted were separate cases — don't merge the two.</div>
+<h4>Debrief questions</h4>
+<ul>
+  <li>The book (2018) said few expected managers to face penalties. What changed — and does that strengthen or weaken "ethics pays"?</li>
+  <li>Were the later penalties about law or about ethics?</li>
+  <li>Which decision would you defend on the front page? Which would you quietly change?</li>
+  <li>Which lens did your group rely on most? Which stakeholder had the weakest voice?</li>
+</ul>
+<h4>Useful language</h4>
+<div class="phr"><span>I'd like to put on record that…</span><span>Legally we're covered, but…</span><span>In the short term ___, but in the long term ___.</span><span>Can we agree on ___ and revisit ___?</span><span>I move that we…</span></div>
+</div>
+
+<div class="activity" id="c2-e">
+<h3>90–100 · Reflection &amp; homework</h3>
+<ol>
+  <li><strong>5 min — Position Change Log</strong> (worksheet): "Tonight I changed / refined / held my view on ___ because ___."</li>
+  <li><strong>5 min</strong> — Explain homework. Preview Week 2: <em>"Next week we meet Aristotle and Confucius. Bring a saying from your language about honesty or duty."</em></li>
+</ol>
+</div>
+</section>
+
+<section id="lang">
+<h2>Language support</h2>
+<p class="lead">Every word below appears in at least two activities this week and returns in Quiz 1.</p>
+<div class="tbl"><table>
+<tr><th>Word</th><th>Meaning here</th><th>Collocations</th><th>Watch out</th></tr>
+<tr><td>ethics / ethical</td><td>Standards of right behavior we hold ourselves to</td><td>ethical standards, an ethical dilemma</td><td><em>work ethic</em> is different</td></tr>
+<tr><td>integrity</td><td>Unity between what you say and do</td><td>act with integrity, compromise your integrity</td><td>Not just "honesty"; in-TEG-ri-ty</td></tr>
+<tr><td>stakeholder</td><td>Anyone affected by a business's decisions</td><td>key stakeholders, prioritize stakeholders</td><td>Confused with <em>stockholder</em></td></tr>
+<tr><td>stockholder / shareholder</td><td>Someone who owns shares</td><td>maximize shareholder value</td><td>One kind of stakeholder</td></tr>
+<tr><td>compliance</td><td>Following laws and regulations</td><td>comply <strong>with</strong> regulations</td><td>Preposition</td></tr>
+<tr><td>consequences</td><td>Results of an action (ends)</td><td>weigh the consequences, unintended consequences</td><td></td></tr>
+<tr><td>utilitarianism</td><td>Greatest good for the greatest number</td><td>a utilitarian argument</td><td>u-ti-li-TAR-i-an-ism</td></tr>
+<tr><td>deontology</td><td>Ethics of duty and rules (means)</td><td>a deontological view</td><td>dee-on-TOL-o-jee</td></tr>
+<tr><td>virtue</td><td>A good character trait built by habit</td><td>virtue ethics</td><td>Not "virtual"</td></tr>
+<tr><td>ethical relativism</td><td>Right and wrong depend only on context</td><td>fall into relativism</td><td>≠ cultural difference</td></tr>
+<tr><td>goodwill</td><td>Positive feeling stakeholders have toward a company</td><td>build / damage goodwill</td><td>Also an accounting term</td></tr>
+<tr><td>social contract</td><td>Unwritten agreement between business and society</td><td>break the social contract</td><td></td></tr>
+<tr><td>CSR</td><td>Obligations beyond what the law requires</td><td>a CSR policy</td><td>Say C-S-R</td></tr>
+<tr><td>bribe / inducement</td><td>Payment to influence a decision</td><td>offer / accept a bribe</td><td>gift vs bribe</td></tr>
+</table></div>
+<h3>Idioms professionals use</h3>
+<div class="phr"><span>walk the talk</span><span>practise what you preach</span><span>cut corners</span><span>bend the rules</span><span>turn a blind eye</span><span>a grey area</span><span>above and beyond the law</span><span>a quick buck</span><span>at the expense of</span></div>
+<h3>Discussion language by function</h3>
+<div class="tbl"><table>
+<tr><th>Function</th><th>Phrases</th></tr>
+<tr><td>Clarify</td><td>"So, if I understand you correctly, you're saying…" · "Are you distinguishing between X and Y?"</td></tr>
+<tr><td>Steelman</td><td>"The strongest argument for your view is… but…"</td></tr>
+<tr><td>Concede partly</td><td>"I agree to some extent; however…" · "That's a fair point as far as it goes."</td></tr>
+<tr><td>Challenge</td><td>"What evidence supports that?" · "Doesn't that assume…?" · "One concern I have is…"</td></tr>
+<tr><td>Use a lens</td><td>"From a consequences perspective…" · "A deontologist would object that…"</td></tr>
+<tr><td>Condition</td><td>"It depends on whether…" · "If we prioritize ___, then…"</td></tr>
+<tr><td>Revise</td><td>"I'm revising my position because…" · "You've persuaded me on X, but not on Y."</td></tr>
+</table></div>
+<h3>Grammar in context</h3>
+<ul>
+  <li><strong>Past modals for judging:</strong> Maya <em>shouldn't have</em> paid. She <em>could have</em> reported it. She <em>might have had</em> no choice.</li>
+  <li><strong>Second / mixed conditionals:</strong> If I <em>were</em> Ali, I <em>would</em>… If Maya <em>hadn't paid</em>, ten people <em>would be</em> unemployed now.</li>
+  <li><strong>It depends on + wh-clause:</strong> It depends on <em>whether</em> it's legal / <em>how much</em> the gift is / <em>who</em> benefits.</li>
+  <li><strong>Hedging:</strong> arguably, to some extent, it could be argued that, in most cases.</li>
+</ul>
+<h3>Pronunciation</h3>
+<p>Stress shifts: ETH-ics → ETH-i-cal · MOR-al (adj.) vs mo-RALE (team spirit) · in-TEG-ri-ty · re-SPON-si-BIL-i-ty. Drill quickly during the Criteria Harvest.</p>
+</section>
+
+<section id="hw">
+<h2>Homework</h2>
+<ol>
+  <li><strong>Read Chapter 1</strong> in full, especially sections outside your jigsaw guide and "Ends, Means, and Character" in 1.1. Review the Key Terms page.</li>
+  <li><strong>Ethics Journal #1</strong> (150–200 words, on the worksheet): an anonymized grey area from your work or studies. Was it legal? Which lens did you or others use? Would you decide the same way today?</li>
+  <li><strong>Week 2 bridge:</strong> bring a saying from your language about honesty, fairness or duty, with a translation.</li>
+</ol>
+<h4>Model journal entry</h4>
+<blockquote>In my previous job as a purchasing manager, a supplier offered to pay for my team's year-end dinner. It was legal, and in that industry it was common. However, I hesitated. From a consequences perspective, the dinner was harmless: my team was happy and the cost was small. From a duty perspective, though, I had a responsibility to choose suppliers fairly, and accepting the dinner could create an obligation, or at least the appearance of one. I asked myself what an unfriendly reporter would write. In the end, I declined politely and our company paid for the dinner. Today I would make the same decision, but I would also suggest a clear written gift policy, so the next manager would not have to decide alone.</blockquote>
+<h4>Journal rubric (5 points)</h4>
+<div class="tbl"><table>
+<tr><th>Criterion</th><th>Point</th></tr>
+<tr><td>Describes a real, specific situation</td><td>1</td></tr>
+<tr><td>Separates legal from ethical</td><td>1</td></tr>
+<tr><td>Uses at least one lens accurately</td><td>1</td></tr>
+<tr><td>Gives a clear position with a reason</td><td>1</td></tr>
+<tr><td>Uses this week's vocabulary correctly</td><td>1</td></tr>
+</table></div>
+</section>
+
+<section id="assess">
+<h2>Checks for understanding &amp; Quiz 1 items</h2>
+<div class="tbl"><table>
+<tr><th>Check</th><th>When</th><th>What it shows</th></tr>
+<tr><td>Verdict cards with "It depends on…"</td><td>Class 1, Engage</td><td>Can students name a condition?</td></tr>
+<tr><td>"Name that lens"</td><td>Class 1, Study</td><td>Ends vs means vs character</td></tr>
+<tr><td>Exit ticket</td><td>End of Class 1</td><td>Legal vs ethical</td></tr>
+<tr><td>Expert Briefs</td><td>Class 2, jigsaw</td><td>Comprehension + critical challenge</td></tr>
+<tr><td>Board Resolution + headlines</td><td>Class 2, Activate</td><td>Applying stakeholders and lenses</td></tr>
+<tr><td>Position Change Log</td><td>End of Class 2</td><td>Reflection on reasoning</td></tr>
+</table></div>
+<h3>Sample Quiz 1 items — answer key</h3>
+<ol>
+  <li><strong>Match:</strong> (a) stakeholder (b) stockholder (c) goodwill (d) ethical relativism → (i) owns shares (ii) right and wrong depend only on context (iii) anyone affected by a business decision (iv) positive feeling toward a company.<br><em>Key: a-iii, b-i, c-iv, d-ii.</em></li>
+  <li><strong>True or false:</strong> According to the textbook, obeying the law is enough to be ethical in business.<br><em>Key: False — compliance is a minimum baseline; ethics goes beyond it.</em></li>
+  <li><strong>Lens:</strong> "We should not lie to customers, even if the lie would increase sales."<br><em>Key: Means (deontology / duty).</em></li>
+  <li><strong>Lens:</strong> "This decision helps 900 people and harms 100, so it is right."<br><em>Key: Ends (utilitarianism).</em></li>
+  <li><strong>Short answer:</strong> Why did Toyota sell cars at a slight loss in the US for many years?<br><em>Key: To build long-term trust and change the belief that Japanese products were cheap and unreliable.</em></li>
+  <li><strong>Short answer:</strong> What is Buffett's "front-page" test, and why is it useful?<br><em>Model: Do nothing you'd be unhappy to see an unfriendly but intelligent reporter describe on the front page. It is a simple check on whether a decision would damage trust and reputation.</em></li>
+</ol>
+</section>
+
+<section id="roadmap">
+<h2>Course roadmap</h2>
+<p class="lead">Opinion → reasoning → evidence → framework → counterargument → conclusion, over four phases.</p>
+<div class="tbl"><table>
+<tr><th>Wk</th><th>Chapter</th><th>Thinking skill</th><th>Speaking / writing</th><th>Feeds into</th></tr>
+<tr class="phase"><td colspan="5">Phase 1 — Foundations</td></tr>
+<tr><td>1</td><td>Why Ethics Matter</td><td>Opinion → reason; legal vs ethical; three lenses</td><td>Hedging; "It depends on…"</td><td>Journal #1</td></tr>
+<tr><td>2</td><td>Antiquity to Present</td><td>Apply lenses; compare traditions</td><td>Peer teaching; debate</td><td>Journal #2</td></tr>
+<tr><td>3</td><td>Stakeholders</td><td>Map and prioritize</td><td>Negotiation role-play</td><td><strong>Quiz 1</strong></td></tr>
+<tr class="phase"><td colspan="5">Phase 2 — Society and culture</td></tr>
+<tr><td>4</td><td>Society, environment, government</td><td>Evaluate evidence (CSR vs greenwashing)</td><td>Gallery walk</td><td>Journal #3</td></tr>
+<tr><td>5</td><td>Culture and time</td><td>Compare without relativism</td><td>Paragraph workshop</td><td><strong>Quiz 2</strong></td></tr>
+<tr><td>6</td><td>What employers owe</td><td>Full case brief under time</td><td>Group presentations</td><td><strong>Midterm</strong></td></tr>
+<tr class="phase"><td colspan="5">Phase 3 — Workplace and rights</td></tr>
+<tr><td>7</td><td>What employees owe</td><td>Counterargument and rebuttal</td><td>Formal debate; essay outline</td><td>Journal #4</td></tr>
+<tr><td>8</td><td>Rights of all</td><td>Rights and justice lenses</td><td>Discussion circles</td><td><strong>Quiz 3</strong>; Code draft</td></tr>
+<tr><td>9</td><td>(see open question 1)</td><td>Judging codes of conduct</td><td>Peer review</td><td>Code revision</td></tr>
+<tr class="phase"><td colspan="5">Phase 4 — Future and synthesis</td></tr>
+<tr><td>10</td><td>Contemporary workplace, AI</td><td>Problems with no precedent</td><td>Fishbowl; timed essay</td><td><strong>Quiz 4</strong></td></tr>
+<tr><td>11</td><td>Review</td><td>Synthesis</td><td>Final essay + case</td><td><strong>Final</strong></td></tr>
+</table></div>
+</section>
+
+<section id="flags">
+<h2>Open questions</h2>
+<ol>
+  <li><strong>Week 9:</strong> Chapter 9 in the book covers entrepreneurship, advertising, insurance and health care — not the trade/codes activities in the syllabus ("bounty" in the title looks like a typo). Which do we follow?</li>
+  <li><strong>Quiz timing:</strong> Quiz 1 covers Chapter 3, taught the same night. End of evening, or exclude the current chapter?</li>
+  <li><strong>Written work (15%):</strong> how many tasks, and how is it split? Is the weekly journal too much?</li>
+  <li><strong>Warm-up twists:</strong> share them if you'd like them tied to the reading.</li>
+</ol>
+</section>
+
+<footer>Textbook content summarized from Byars &amp; Stanberry, <em>Business Ethics</em>, OpenStax (CC BY-NC-SA 4.0). Access for free at https://openstax.org/books/business-ethics/pages/1-introduction · Equifax updates: CFPB; Fox 5 Atlanta.</footer>
+</main>
+</div>
+</body>
+</html>
