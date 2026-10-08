@@ -1,0 +1,504 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Slides · Week 1 · Ethics in a Global World</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#143865;--blue:#1c4f8f;--gold:#d39f10;--gold-d:#8c7535;--sky:#c1cddd;--sky2:#e1e8f2;--sky3:#edf2f9;--cream:#efe9d9;--ink:#1a2233;--muted:#4a5568;--green:#4f7232}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:#0b1d36;overflow:hidden;font-family:"Source Sans 3",system-ui,sans-serif;color:var(--ink)}
+#stage{position:fixed;inset:0;display:flex;align-items:center;justify-content:center}
+#deck{width:1280px;height:720px;position:relative;transform-origin:center center;flex:none}
+.slide{position:absolute;inset:0;background:#fbfaf6;padding:60px 76px 70px;display:none;flex-direction:column;overflow:hidden}
+.slide.on{display:flex}
+.slide.dark{background:var(--navy);color:#fff}
+.slide.cream{background:var(--cream)}
+.slide::after{content:"";position:absolute;left:0;right:0;bottom:0;height:8px;background:var(--gold)}
+.slide .foot{position:absolute;left:76px;right:76px;bottom:22px;display:flex;justify-content:space-between;font-size:15px;color:var(--muted);letter-spacing:.04em}
+.slide.dark .foot{color:var(--sky)}
+.kick{font-size:18px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-d);margin-bottom:10px}
+.slide.dark .kick{color:var(--gold)}
+h1{font-family:"Libre Baskerville",serif;font-size:58px;line-height:1.12;margin:0 0 16px;color:var(--navy)}
+.slide.dark h1{color:#fff}
+h2{font-family:"Libre Baskerville",serif;font-size:42px;line-height:1.18;margin:0 0 24px;color:var(--navy)}
+.slide.dark h2{color:#fff}
+p,li{font-size:27px;line-height:1.42}
+ul,ol{margin:0;padding-left:34px}
+li{margin:8px 0}
+.big{font-size:34px;line-height:1.35}
+.muted{color:var(--muted)}
+.slide.dark .muted{color:var(--sky)}
+.cols{display:grid;gap:22px;flex:1;min-height:0}
+.c2{grid-template-columns:1fr 1fr}.c3{grid-template-columns:repeat(3,1fr)}.c4{grid-template-columns:repeat(4,1fr)}
+.box{background:#fff;border:2px solid var(--sky);border-radius:14px;padding:20px 24px}
+.slide.dark .box{background:rgba(255,255,255,.07);border-color:rgba(193,205,221,.35)}
+.box h3{font-family:"Libre Baskerville",serif;font-size:26px;margin:0 0 8px;color:var(--navy)}
+.slide.dark .box h3{color:var(--gold)}
+.box p,.box li{font-size:22px}
+.lens{border-top:10px solid var(--blue)}
+.lens.g{border-top-color:var(--gold)}.lens.v{border-top-color:var(--green)}.lens.l{border-top-color:#8a8a8a;background:#f2f2f2}
+.lens .tag{font-size:16px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-d)}
+.say{font-family:"Libre Baskerville",serif;font-style:italic;font-size:34px;line-height:1.4;color:var(--navy);border-left:8px solid var(--gold);padding:6px 0 6px 28px;margin:10px 0}
+.slide.dark .say{color:#fff}
+.pill{display:inline-block;background:var(--sky3);border:2px solid var(--sky);border-radius:999px;padding:8px 20px;margin:6px 8px 6px 0;font-size:23px}
+.slide.dark .pill{background:rgba(255,255,255,.08);border-color:rgba(193,205,221,.4);color:#fff}
+table{border-collapse:collapse;width:100%}
+th,td{border:2px solid var(--sky);padding:10px 14px;text-align:left;font-size:22px;vertical-align:top}
+th{background:var(--sky2);color:var(--navy)}
+.step{opacity:0;transform:translateY(8px);transition:opacity .35s,transform .35s}
+.step.shown{opacity:1;transform:none}
+.ans{display:inline-block;min-width:220px;font-weight:700;border-radius:8px;padding:2px 12px}
+.time{position:absolute;top:28px;right:40px;background:var(--navy);color:var(--gold);font-weight:700;font-size:20px;padding:6px 14px;border-radius:8px;letter-spacing:.04em}
+.slide.dark .time{background:var(--gold);color:var(--navy)}
+.logo{width:150px;height:150px;border-radius:14px}
+.dia{display:grid;gap:10px;justify-items:center}
+.dia .r{display:flex;gap:10px}
+.dia span{width:200px;text-align:center;background:#fff;border:2px solid var(--sky);border-radius:10px;padding:10px 6px;font-size:20px;font-weight:700;color:var(--navy)}
+.dia .r:first-child span{border-color:var(--gold);background:#fff8e3}
+.fact{display:flex;gap:18px;align-items:flex-start;margin:12px 0}
+.fact b{flex:none;width:52px;height:52px;border-radius:50%;background:var(--gold);color:var(--navy);display:flex;align-items:center;justify-content:center;font-size:24px}
+.headline{font-family:"Libre Baskerville",serif;font-size:40px;font-weight:700;border-top:4px double var(--ink);border-bottom:4px double var(--ink);padding:18px 0;margin:16px 0;text-align:center}
+.btnlink{display:inline-block;background:var(--gold);color:var(--navy);font-weight:700;font-size:22px;padding:12px 22px;border-radius:10px;text-decoration:none}
+#qr{background:#fff;padding:12px;border-radius:12px;display:inline-block}
+#qr:empty{display:none}
+/* controls */
+#ui{position:fixed;left:0;right:0;bottom:0;display:flex;gap:8px;align-items:center;padding:8px 12px;background:rgba(11,29,54,.88);color:#fff;font:600 14px "Source Sans 3";opacity:0;transition:opacity .25s;z-index:20}
+#ui:hover,#ui.show{opacity:1}
+#ui button{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.35);border-radius:6px;padding:6px 12px;font:600 14px "Source Sans 3";cursor:pointer}
+#ui button:hover{background:rgba(255,255,255,.12)}
+#ui .sp{flex:1}
+#prog{position:fixed;left:0;top:0;height:4px;background:var(--gold);z-index:21;transition:width .25s}
+#timer{position:fixed;right:18px;top:18px;z-index:22;background:var(--navy);color:#fff;border:3px solid var(--gold);border-radius:14px;padding:10px 16px;display:none;text-align:center;box-shadow:0 8px 24px rgba(0,0,0,.35)}
+#timer .t{font:700 44px/1 "Source Sans 3";letter-spacing:.03em;font-variant-numeric:tabular-nums}
+#timer .t.end{color:var(--gold);animation:pulse 1s infinite}
+@keyframes pulse{50%{opacity:.35}}
+#timer .row{display:flex;gap:6px;justify-content:center;margin-top:8px}
+#timer button{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.4);border-radius:6px;padding:4px 9px;font:600 13px "Source Sans 3";cursor:pointer}
+#help{position:fixed;inset:0;background:rgba(11,29,54,.92);color:#fff;z-index:30;display:none;align-items:center;justify-content:center;font-size:20px}
+#help.on{display:flex}
+#help div{max-width:560px;line-height:1.8}
+#help kbd{background:#fff;color:var(--navy);border-radius:4px;padding:1px 8px;font-weight:700}
+@media print{
+  html,body{overflow:visible;background:#fff;height:auto}
+  #stage{position:static;display:block}
+  #deck{transform:none!important;width:auto;height:auto}
+  .slide{display:flex!important;position:relative;width:1280px;height:720px;break-after:page;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .step{opacity:1!important;transform:none!important}
+  #ui,#prog,#timer,#help{display:none!important}
+  @page{size:1280px 720px;margin:0}
+}
+</style>
+</head>
+<body>
+<div id="prog"></div>
+<div id="stage"><div id="deck">
+
+<!-- ================= CLASS 1 ================= -->
+<section class="slide dark" data-title="Title">
+  <div style="display:flex;gap:40px;align-items:center;flex:1">
+    <div style="flex:1">
+      <div class="kick">Ethics in a Global World · Week 1</div>
+      <h1>Why Ethics Matter</h1>
+      <p class="muted big" style="margin:0 0 28px">Textbook: <em>Business Ethics</em> (OpenStax), Chapter 1</p>
+      <p style="font-size:22px">Open your worksheet: scan the code, or go to the class link.</p>
+    </div>
+    <div style="text-align:center"><img class="logo" src="logo.png" alt="Approach International Student Center" onerror="this.remove()"><div style="height:24px"></div><div id="qr"></div></div>
+  </div>
+  <div class="foot"><span>Approach International Student Center</span><span>Press ? for controls</span></div>
+</section>
+
+<section class="slide" data-title="Tonight">
+  <div class="kick">Tonight</div>
+  <h2>Two classes, one question: is "legal" enough?</h2>
+  <div class="cols c3">
+    <div class="box"><h3>Class 1 · 9:00–10:40</h3><p>It depends — on what?</p><ul><li>Three dilemmas</li><li>The three lenses</li><li>Words for "right"</li><li>Our discussion contract</li></ul></div>
+    <div class="box" style="background:var(--sky3);display:flex;flex-direction:column;justify-content:center;text-align:center"><h3>Break · 10:40–11:10</h3><p>30 minutes</p></div>
+    <div class="box"><h3>Class 2 · 11:10–12:50</h3><p>Integrity, profit, one standard</p><ul><li>Ranking values</li><li>Chapter 1 jigsaw</li><li>Equifax crisis meeting</li></ul></div>
+  </div>
+</section>
+
+<section class="slide" data-title="Arrive" data-timer="10">
+  <div class="time">10 min</div>
+  <div class="kick">Arrive and connect</div>
+  <h2>Make a name tent, then meet your group</h2>
+  <div class="cols c2">
+    <div class="box"><h3>On your name tent</h3><p>Name<br>Field + years of experience<br>Languages you speak</p></div>
+    <div class="box"><h3>45 seconds each</h3><p class="big" style="font-family:'Libre Baskerville',serif;font-style:italic;color:var(--navy)">"What is one unwritten rule in your profession that outsiders don't know?"</p></div>
+  </div>
+</section>
+
+<section class="slide cream" data-title="Warm-up rules" data-timer="5">
+  <div class="time">40 min</div>
+  <div class="kick">Engage</div>
+  <h2>Ethical, Unethical, or It Depends?</h2>
+  <div class="cols c2">
+    <div class="box"><h3>Roles — rotate each time</h3>
+      <ul><li><b>Chair</b> keeps time; everyone speaks</li><li><b>Devil's Advocate</b> argues against the group for 1 minute</li><li><b>Spokesperson</b> defends the verdict</li></ul></div>
+    <div class="box"><h3>For each scenario</h3>
+      <ol><li>Read (1 min)</li><li>Discuss (5 min)</li><li>Write verdict + <b>strongest reason</b></li><li>3-2-1 — show!</li><li>Defend · twist · change?</li></ol></div>
+  </div>
+  <p style="margin:18px 0 0">Rule: no bare "it depends." Say <b>"It depends on whether…"</b> &nbsp; <a class="btnlink" href="https://alek-approach.github.io/ethics/" target="_blank" rel="noopener">Open the scenarios ↗</a></p>
+</section>
+
+<section class="slide" data-title="Phrases">
+  <div class="kick">Language for the discussion</div>
+  <h2>Sound like a professional, not a textbook</h2>
+  <div>
+    <span class="pill">The crux of the issue is whether…</span>
+    <span class="pill">I'd distinguish between a gift and an inducement.</span>
+    <span class="pill">That's legally defensible — but is it ethically defensible?</span>
+    <span class="pill">If we prioritize the workers, then…</span>
+    <span class="pill">The strongest argument for your view is…, but…</span>
+    <span class="pill">What evidence supports that?</span>
+    <span class="pill">Doesn't that assume…?</span>
+    <span class="pill">I'm revising my position because…</span>
+  </div>
+  <p class="say" style="margin-top:30px">Changing your mind for a good reason is a strength.</p>
+</section>
+
+<section class="slide" data-title="Debrief">
+  <div class="kick">Debrief</div>
+  <h2>Before we name anything…</h2>
+  <ol class="big">
+    <li class="step">Which scenario was hardest — and what information was missing?</li>
+    <li class="step">Did your group use the same kind of reason in all three, or switch?</li>
+    <li class="step">Is "everyone does it here" a reason, an excuse, or a fact?</li>
+  </ol>
+</section>
+
+<section class="slide cream" data-title="Criteria Harvest" data-timer="3">
+  <div class="time">15 min</div>
+  <div class="kick">Study · Criteria Harvest</div>
+  <h2>What did you <em>actually</em> use to decide?</h2>
+  <p class="big">One reason per sticky note. Write the reasons your group really used tonight.</p>
+  <div style="display:flex;gap:18px;margin-top:24px;flex-wrap:wrap">
+    <span class="pill" style="background:#fff8c8;border-color:#e6cf62;transform:rotate(-2deg)">"10 workers lose their jobs"</span>
+    <span class="pill" style="background:#fff8c8;border-color:#e6cf62;transform:rotate(1.5deg)">"a rule is a rule"</span>
+    <span class="pill" style="background:#fff8c8;border-color:#e6cf62;transform:rotate(-1deg)">"a real friend helps"</span>
+    <span class="pill" style="background:#fff8c8;border-color:#e6cf62;transform:rotate(2deg)">"it's legal there"</span>
+  </div>
+  <p class="muted" style="margin-top:30px">Then: what do the notes in each column have in common?</p>
+</section>
+
+<section class="slide" data-title="Three lenses">
+  <div class="kick">The reveal</div>
+  <h2>You were already using three lenses</h2>
+  <div class="cols c4">
+    <div class="box lens step"><div class="tag">Ends</div><h3>Consequences</h3><p>Who is helped? Who is harmed?</p><p class="muted" style="font-size:19px">Utilitarianism: the greatest good for the greatest number</p></div>
+    <div class="box lens g step"><div class="tag">Means</div><h3>Duties &amp; rules</h3><p>Is the action itself right, whatever the result?</p><p class="muted" style="font-size:19px">Deontology · Kant · <em>deon</em> = duty</p></div>
+    <div class="box lens v step"><div class="tag">Character</div><h3>Who am I?</h3><p>What would a person of integrity do?</p><p class="muted" style="font-size:19px">Virtue theory · <em>phronesis</em> = practical wisdom</p></div>
+    <div class="box lens l step"><div class="tag">Law / custom</div><h3>The minimum</h3><p>Legal is not the same as ethical.</p><p class="muted" style="font-size:19px">The book: law is a baseline; ethics goes further</p></div>
+  </div>
+</section>
+
+<section class="slide" data-title="Name that lens">
+  <div class="kick">Check</div>
+  <h2>Name that lens — point to the column</h2>
+  <table>
+    <tr><td>"If the brand raises wages, 3,000 people may lose their jobs."</td><td style="width:280px"><span class="ans step" style="background:var(--sky2);color:var(--navy)">Ends</span></td></tr>
+    <tr><td>"Copying is cheating, whatever the reason."</td><td><span class="ans step" style="background:#fbe9b8;color:#6b5000">Means</span></td></tr>
+    <tr><td>"A good friend helps — but a wise friend helps in a way that doesn't hurt you."</td><td><span class="ans step" style="background:#dfe9d6;color:#2f4d1c">Character</span></td></tr>
+    <tr><td>"It's legal there, so the company did nothing wrong."</td><td><span class="ans step" style="background:#eee;color:#333">Law — only the minimum</span></td></tr>
+  </table>
+</section>
+
+<section class="slide cream" data-title="Words for Right" data-timer="3">
+  <div class="time">17 min</div>
+  <div class="kick">Activate · Words for "Right"</div>
+  <h2>What does "ethics" mean in your language?</h2>
+  <ol>
+    <li><b>Alone (3 min):</b> your word for <em>ethics</em> or <em>a good person</em> · its literal meaning or root · a saying about honesty or fairness</li>
+    <li><b>Pairs (5 min):</b> explain your card to someone with a different first language</li>
+    <li><b>Groups of 4 (5 min):</b> find one word with <b>no neat English equivalent</b>. What does English lose?</li>
+  </ol>
+  <p class="muted" style="margin-top:22px">Speak from experience — your family, your field — not for a whole country.</p>
+</section>
+
+<section class="slide dark" data-title="Roots">
+  <div class="kick">English has its own story</div>
+  <div class="cols c2" style="flex:none;margin-bottom:30px">
+    <div class="box"><h3>ethics</h3><p>← Greek <em>ēthos</em><br>character, custom</p></div>
+    <div class="box"><h3>moral</h3><p>← Latin <em>mores</em><br>customs</p></div>
+  </div>
+  <p class="say step">If both words come from "custom," is ethics just whatever my community does?</p>
+  <p class="muted step" style="font-size:22px">Hold that question — the reading after the break answers it.</p>
+</section>
+
+<section class="slide" data-title="Contract" data-timer="4">
+  <div class="time">12 min</div>
+  <div class="kick">Our discussion contract</div>
+  <h2>"We challenge ideas, not people, by…"</h2>
+  <div class="cols c2">
+    <div class="box"><h3>Your group</h3><ol><li>Write two norms (4 min)</li><li>Post them; three dot votes each</li><li>We keep the top five</li></ol></div>
+    <div class="box step"><h3>Worth adding?</h3><ul style="font-size:21px"><li>Restate the other view so they agree with it — then disagree</li><li>Changing your mind for a good reason is a strength</li><li>No one speaks for a whole country</li><li>Ask for evidence, not credentials</li></ul></div>
+  </div>
+</section>
+
+<section class="slide cream" data-title="Exit ticket">
+  <div class="kick">Exit ticket</div>
+  <h2>Before the break</h2>
+  <ol class="big">
+    <li>Which scenario was hardest, and what one piece of information would help you decide?</li>
+    <li>Complete: <em>"Something can be legal but unethical when…"</em></li>
+  </ol>
+</section>
+
+<section class="slide dark" data-title="Break" data-timer="30">
+  <div style="flex:1;display:flex;flex-direction:column;justify-content:center">
+    <div class="kick">Break · 10:40–11:10 · 30 minutes</div>
+    <h1>Think about this over coffee</h1>
+    <p class="say">If you could keep only <b>three</b> values at work, which three would they be?</p>
+  </div>
+</section>
+
+<!-- ================= CLASS 2 ================= -->
+<section class="slide dark" data-title="Class 2">
+  <div style="flex:1;display:flex;flex-direction:column;justify-content:center">
+    <div class="kick">Class 2</div>
+    <h1>Integrity, Profit, and One Standard</h1>
+    <p class="big">New group. Your three values — one sentence each.<br><span class="muted">Which value did more than one person choose?</span></p>
+  </div>
+</section>
+
+<section class="slide" data-title="Diamond-9" data-timer="3">
+  <div class="time">25 min</div>
+  <div class="kick">Engage · Diamond-9</div>
+  <div class="cols c2" style="grid-template-columns:1fr 1.05fr">
+    <div>
+      <h2 style="font-size:38px">Rank nine values</h2>
+      <ol style="font-size:24px">
+        <li><b>Alone (3 min)</b> — build your diamond</li>
+        <li><b>Group (10 min)</b> — one diamond. You may move a card <b>only if you give a reason</b></li>
+        <li><b>Define (2 min)</b> — <em>Loyalty</em> and <em>Fairness</em> in one line each</li>
+      </ol>
+    </div>
+    <div class="dia">
+      <div class="r"><span>Most important</span></div>
+      <div class="r"><span>·</span><span>·</span></div>
+      <div class="r"><span>·</span><span>·</span><span>·</span></div>
+      <div class="r"><span>·</span><span>·</span></div>
+      <div class="r"><span style="border-style:dashed">Least important</span></div>
+      <p style="font-size:18px;text-align:center;margin:6px 0 0" class="muted">Honesty · Integrity · Loyalty · Fairness · Respect for the law · Respect for others · Compassion · Courage · Success</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide cream" data-title="Context switch" data-timer="6">
+  <div class="time">6 min</div>
+  <div class="kick">Context switch</div>
+  <h2>Now re-rank — as this person</h2>
+  <div class="cols c2">
+    <div class="box"><h3>Group 1</h3><p>CEO of a 500-person public company</p></div>
+    <div class="box"><h3>Group 2</h3><p>Owner of a small family business</p></div>
+    <div class="box"><h3>Group 3</h3><p>New manager working in another country</p></div>
+    <div class="box"><h3>Group 4</h3><p>Government official who approves permits</p></div>
+  </div>
+  <p style="margin-top:16px">Mark every card that moved.</p>
+</section>
+
+<section class="slide" data-title="Ranking debrief">
+  <div class="kick">Debrief</div>
+  <h2>One standard — or several?</h2>
+  <ol>
+    <li class="step">Which card moved most when your role changed? Why?</li>
+    <li class="step">Listen to the <em>Loyalty</em> definitions. Loyalty to whom?</li>
+    <li class="step">If your ranking changes with your role, do you have one ethical standard or several?</li>
+    <li class="step">Is there a card that should <b>never</b> move?</li>
+    <li class="step">Where did <em>Success</em> end up — is it a value or a goal?</li>
+  </ol>
+  <p class="say step" style="font-size:28px">The reading takes a strong position on this. Let's see if you agree.</p>
+</section>
+
+<section class="slide dark" data-title="Vote">
+  <div style="flex:1;display:flex;flex-direction:column;justify-content:center">
+    <div class="kick">Before you read · vote</div>
+    <h1 style="font-size:50px">"Being ethical makes a company more profitable in the long run."</h1>
+    <p class="big">True or false? Hands up — we'll vote again after reading.</p>
+  </div>
+</section>
+
+<section class="slide" data-title="Jigsaw" data-timer="12">
+  <div class="time">32 min</div>
+  <div class="kick">Study · Chapter 1 jigsaw</div>
+  <h2>Read one part. Teach it. Learn the rest.</h2>
+  <table>
+    <tr><th style="width:70px"></th><th>Read in OpenStax</th><th style="width:330px">Look out for</th></tr>
+    <tr><td><b>A</b></td><td>1.1 — start through "Acting with Integrity"</td><td>integrity · legal vs ethical</td></tr>
+    <tr><td><b>B</b></td><td>1.2 — start through the Warren Buffett box</td><td>social contract · long term</td></tr>
+    <tr><td><b>C</b></td><td>1.2 — "Stockholders, Stakeholders, and Goodwill" to the end</td><td>goodwill · CSR</td></tr>
+    <tr><td><b>D</b></td><td>1.3 — the whole section</td><td>ethical relativism</td></tr>
+  </table>
+  <p style="font-size:23px;margin-top:16px">Expert groups 12 min → compare 3 min → home groups 12 min (≈2.5 min each)</p>
+</section>
+
+<section class="slide cream" data-title="Expert Brief">
+  <div class="kick">Your Expert Brief (worksheet, part 8)</div>
+  <h2>Teach from your brief — never read aloud</h2>
+  <div class="cols c2">
+    <ol style="font-size:26px">
+      <li>The key idea in <b>one</b> sentence</li>
+      <li>Two terms, in your own words</li>
+      <li>One example from the text</li>
+      <li>One claim you would <b>challenge</b> — and why</li>
+      <li>One question for your home group</li>
+    </ol>
+    <div class="box"><h3>Language for teaching</h3><p style="font-size:21px">"The main point of our section is…"<br>"In other words…"<br>"For example, the book mentions…"<br>"Where we disagree with the author is…"<br>"Here's a question for you…"</p></div>
+  </div>
+</section>
+
+<section class="slide dark" data-title="Re-vote">
+  <div style="flex:1;display:flex;flex-direction:column;justify-content:center">
+    <div class="kick">After reading · vote again</div>
+    <h1 style="font-size:50px">"Being ethical makes a company more profitable in the long run."</h1>
+    <p class="big">Did anyone move? What moved you?</p>
+    <p class="say step" style="font-size:28px">And if a company is ethical only because it pays — is that still ethics?</p>
+  </div>
+</section>
+
+<section class="slide" data-title="Equifax setup">
+  <div class="kick">Activate · Crisis meeting</div>
+  <h2>It is early September 2017. You are Equifax's leadership.</h2>
+  <div class="fact"><b>1</b><p>From mid-May to July 2017, hackers accessed Equifax servers and the personal information of <b>nearly half the US population</b>.</p></div>
+  <div class="fact"><b>2</b><p>After learning of the hack in late July, executives sold <b>nearly $2 million</b> of their own company stock — weeks before any public announcement.</p></div>
+  <div class="fact"><b>3</b><p>The company plans to offer <b>free credit monitoring</b> and identity-theft protection.</p></div>
+  <p class="muted" style="font-size:20px;margin-top:auto">Source: <em>Business Ethics</em> (OpenStax), section 1.2</p>
+</section>
+
+<section class="slide cream" data-title="Agenda" data-timer="12">
+  <div class="time">12 min</div>
+  <div class="kick">The meeting · the CEO chairs</div>
+  <div class="cols c2">
+    <div><h2 style="font-size:36px">Three decisions</h2>
+      <ol><li>What do we announce, and when?</li><li>What do we offer affected people? Is credit monitoring enough?</li><li>What do we do about the executives who sold stock early?</li></ol></div>
+    <div class="box"><h3>Roles</h3><p style="font-size:21px">CEO (chair) · General Counsel · Head of Communications · Investor Relations · Customer Advocate · Chief Ethics Officer</p><p style="font-size:21px"><b>Rule:</b> speak from your assigned lens at least once.</p><p style="font-size:20px" class="muted">Useful: "I'd like to put on record that…" · "Legally we're covered, but…" · "I move that we…"</p></div>
+  </div>
+</section>
+
+<section class="slide" data-title="Front-page test" data-timer="3">
+  <div class="time">3 min</div>
+  <div class="kick">The Front-Page Test (Warren Buffett, section 1.2)</div>
+  <h2>Swap resolutions. Write the headline.</h2>
+  <p class="big">Imagine an <b>unfriendly but intelligent</b> reporter reading the other group's three decisions. What is tomorrow's front page?</p>
+  <div class="headline">EQUIFAX BOSSES ___________________</div>
+  <p class="muted">Read them aloud. Would you defend your decisions on that front page?</p>
+</section>
+
+<section class="slide dark" data-title="What happened">
+  <div class="kick">What happened next · outside sources</div>
+  <h2>The book (2018) said few expected managers to face penalties.</h2>
+  <div class="cols c2" style="flex:none">
+    <div class="box step"><h3>July 2019</h3><p>Equifax settled with the CFPB, FTC and 48 states for up to <b>$700 million</b>. About <b>147 million</b> consumers were affected.</p></div>
+    <div class="box step"><h3>Insider trading</h3><p>A former Equifax CIO, Jun Ying, was sentenced to <b>four months in prison</b>. A second employee was also convicted.</p></div>
+  </div>
+  <p class="muted" style="font-size:18px;margin-top:auto">Sources: consumerfinance.gov (Equifax enforcement action) · Fox 5 Atlanta. The convictions were separate from the executives' sales in the book.</p>
+</section>
+
+<section class="slide" data-title="Equifax debrief">
+  <div class="kick">Debrief</div>
+  <h2>Ethics, law, or both?</h2>
+  <ol>
+    <li class="step">Does what happened strengthen or weaken the claim that "ethics pays"?</li>
+    <li class="step">Were the later penalties about law, or about ethics?</li>
+    <li class="step">Which of your decisions would you defend on the front page? Which would you quietly change?</li>
+    <li class="step">Which lens did your group use most? Which stakeholder had the weakest voice?</li>
+  </ol>
+</section>
+
+<section class="slide cream" data-title="Reflect">
+  <div class="kick">Position Change Log</div>
+  <h2>Tonight I <span style="color:var(--gold-d)">changed / refined / held</span> my view on ___ because ___.</h2>
+  <div class="box" style="margin-top:10px"><h3>Homework</h3>
+    <ol style="font-size:23px">
+      <li>Read all of Chapter 1 (especially the parts outside your guide)</li>
+      <li><b>Ethics Journal #1</b> — 150–200 words on your worksheet: a grey area from your work or studies. Legal? Which lens? Same decision today?</li>
+      <li>Bring a saying from your language about honesty, fairness or duty</li>
+    </ol></div>
+</section>
+
+<section class="slide dark" data-title="Next week">
+  <div style="flex:1;display:flex;gap:40px;align-items:center">
+    <div style="flex:1">
+      <div class="kick">Next week · Chapter 2</div>
+      <h1>Ethics from Antiquity to the Present</h1>
+      <p class="big muted">Aristotle, Confucius — and the sayings you bring.<br>Are ancient ethical ideas still useful at work?</p>
+    </div>
+    <img class="logo" src="logo.png" alt="" onerror="this.remove()">
+  </div>
+</section>
+
+</div></div>
+
+<div id="timer" aria-live="polite"><div class="t" id="tt">05:00</div><div class="row"><button id="tStart">Start</button><button data-add="60">+1</button><button data-add="-60">−1</button><button id="tReset">Reset</button><button id="tClose">✕</button></div></div>
+<div id="ui"><button id="bPrev">← Prev</button><button id="bNext">Next →</button><span id="count"></span><span class="sp"></span><button id="bTimer">Timer (T)</button><button id="bFull">Full screen (F)</button><button id="bHelp">?</button><a href="index.html" style="color:#fff;font-size:14px;margin-left:6px">All files</a></div>
+<div id="help" onclick="this.classList.remove('on')"><div>
+  <b style="color:var(--gold);font-size:24px">Controls</b><br>
+  <kbd>→</kbd> / <kbd>Space</kbd> / tap right side — next (reveals steps first)<br>
+  <kbd>←</kbd> / tap left side — back<br>
+  <kbd>T</kbd> timer (uses the slide's suggested time) · <kbd>F</kbd> full screen<br>
+  <kbd>Home</kbd> first slide · <kbd>B</kbd> jump to the break · <kbd>2</kbd> jump to Class 2<br>
+  Print to PDF: every slide on its own page, all steps shown.<br><br><span class="muted">Tap anywhere to close.</span>
+</div></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+const slides=[...document.querySelectorAll('.slide')];
+let cur=0;
+function fit(){const s=Math.min(innerWidth/1280,innerHeight/720);document.getElementById('deck').style.transform='scale('+s+')';}
+addEventListener('resize',fit);fit();
+function show(i,fromBack){
+  cur=Math.max(0,Math.min(slides.length-1,i));
+  slides.forEach((s,k)=>s.classList.toggle('on',k===cur));
+  const steps=slides[cur].querySelectorAll('.step');steps.forEach(st=>st.classList.toggle('shown',!!fromBack));
+  document.getElementById('count').textContent=(cur+1)+' / '+slides.length+' · '+(slides[cur].dataset.title||'');
+  document.getElementById('prog').style.width=((cur+1)/slides.length*100)+'%';
+  try{history.replaceState(null,'','#'+(cur+1));}catch(e){}
+}
+function next(){const hidden=slides[cur].querySelector('.step:not(.shown)');if(hidden){hidden.classList.add('shown');return;}if(cur<slides.length-1)show(cur+1);}
+function prev(){const shown=[...slides[cur].querySelectorAll('.step.shown')];if(shown.length){shown[shown.length-1].classList.remove('shown');return;}if(cur>0)show(cur-1,true);}
+const jump=t=>{const k=slides.findIndex(s=>s.dataset.title===t);if(k>=0)show(k);};
+addEventListener('keydown',e=>{
+  if(e.target.closest&&e.target.closest('#timer'))return;
+  const k=e.key;
+  if(['ArrowRight','PageDown',' ','Enter'].includes(k)){e.preventDefault();next();}
+  else if(['ArrowLeft','PageUp','Backspace'].includes(k)){e.preventDefault();prev();}
+  else if(k==='Home')show(0);else if(k==='End')show(slides.length-1);
+  else if(k==='t'||k==='T')openTimer();
+  else if(k==='f'||k==='F')full();
+  else if(k==='b'||k==='B')jump('Break');
+  else if(k==='2')jump('Class 2');
+  else if(k==='?')document.getElementById('help').classList.toggle('on');
+});
+document.getElementById('stage').addEventListener('click',e=>{
+  if(e.target.closest('a,button,#qr'))return;
+  (e.clientX<innerWidth*0.3?prev:next)();
+});
+let tx=null;addEventListener('touchstart',e=>{tx=e.touches[0].clientX;},{passive:true});
+addEventListener('touchend',e=>{if(tx===null)return;const dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>50){(dx<0?next:prev)();}tx=null;});
+let uiT;addEventListener('mousemove',()=>{const u=document.getElementById('ui');u.classList.add('show');clearTimeout(uiT);uiT=setTimeout(()=>u.classList.remove('show'),2200);});
+document.getElementById('bPrev').onclick=prev;document.getElementById('bNext').onclick=next;
+document.getElementById('bHelp').onclick=()=>document.getElementById('help').classList.add('on');
+function full(){try{document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen();}catch(e){}}
+document.getElementById('bFull').onclick=full;
+
+/* Timer */
+let remain=300,running=false,tick=null;const T=document.getElementById('timer'),TT=document.getElementById('tt');
+function draw(){const m=Math.floor(Math.max(remain,0)/60),s=Math.max(remain,0)%60;TT.textContent=String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');TT.classList.toggle('end',remain<=0);}
+function openTimer(){remain=(parseFloat(slides[cur].dataset.timer)||5)*60;stop();draw();T.style.display='block';}
+function stop(){running=false;clearInterval(tick);document.getElementById('tStart').textContent='Start';}
+function beep(){try{const c=new (window.AudioContext||window.webkitAudioContext)(),o=c.createOscillator(),g=c.createGain();o.frequency.value=660;o.connect(g);g.connect(c.destination);g.gain.setValueAtTime(.2,c.currentTime);o.start();o.stop(c.currentTime+.6);}catch(e){}}
+document.getElementById('tStart').onclick=()=>{if(running){stop();return;}running=true;document.getElementById('tStart').textContent='Pause';tick=setInterval(()=>{remain--;draw();if(remain===0)beep();if(remain<=0)stop();},1000);};
+document.getElementById('tReset').onclick=()=>{stop();remain=(parseFloat(slides[cur].dataset.timer)||5)*60;draw();};
+document.getElementById('tClose').onclick=()=>{stop();T.style.display='none';};
+T.querySelectorAll('[data-add]').forEach(b=>b.onclick=()=>{remain=Math.max(0,remain+parseInt(b.dataset.add));draw();});
+document.getElementById('bTimer').onclick=openTimer;
+
+/* QR to worksheet */
+try{if(location.protocol.startsWith('http')&&window.QRCode){new QRCode(document.getElementById('qr'),{text:new URL('worksheet.html',location.href).href,width:170,height:170,colorDark:'#143865',colorLight:'#ffffff'});}}catch(e){}
+
+const h=parseInt(location.hash.slice(1));show(isNaN(h)?0:h-1);
+</script>
+</body>
+</html>
