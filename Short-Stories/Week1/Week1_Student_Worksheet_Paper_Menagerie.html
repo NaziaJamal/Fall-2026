@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Week 1 Student Worksheet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#143865; --blue:#1c4f8f; --gold-dk:#8c7535; --gold:#d39f10;
+    --sky-dk:#c1cddd; --sky-md:#e1e8f2; --sky-lt:#edf2f9; --warm:#efe9d9;
+    --ink:#1b2430; --muted:#55606e; --ok:#2f7d4f; --bad:#b03a3a;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--sky-lt);font-family:"Source Sans 3",Arial,sans-serif;color:var(--ink);font-size:16.5px;line-height:1.5}
+  .page{max-width:900px;margin:0 auto;background:#fff;padding:0 0 40px;box-shadow:0 4px 30px rgba(20,56,101,.12)}
+  header.mast{background:var(--navy);color:#fff;padding:26px 40px 22px;border-bottom:6px solid var(--gold)}
+  .brand{display:flex;flex-direction:column;line-height:1.05;margin-bottom:14px}
+  .brand b{font-family:"Libre Baskerville",Georgia,serif;letter-spacing:.14em;color:var(--gold);font-size:1.25rem}
+  .brand span{font-family:"Libre Baskerville",Georgia,serif;font-size:.75rem;color:var(--warm)}
+  header h1{font-family:"Libre Baskerville",Georgia,serif;margin:.1em 0 .2em;font-size:1.9rem}
+  header .sub{color:var(--sky-dk);font-size:1rem}
+  .meta{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}
+  .meta div{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:8px;padding:8px 10px;font-size:.85rem}
+  .meta b{display:block;color:var(--gold);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase}
+  .wrap{padding:0 40px}
+  .idrow{display:flex;gap:16px;flex-wrap:wrap;margin:22px 0 6px}
+  .idrow label{flex:1;min-width:200px;font-weight:600;color:var(--navy)}
+  .toolbar{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 4px}
+  .btn{border:none;border-radius:8px;padding:9px 16px;font:700 .95rem "Source Sans 3",sans-serif;cursor:pointer;background:var(--navy);color:#fff}
+  .btn.gold{background:var(--gold);color:var(--navy)}
+  .btn.ghost{background:transparent;border:1px solid var(--navy);color:var(--navy)}
+  .btn.small{padding:6px 12px;font-size:.85rem}
+  .saved{font-size:.85rem;color:var(--muted);align-self:center}
+  section.part{margin-top:30px;page-break-inside:auto}
+  .parthead{display:flex;align-items:center;gap:12px;border-bottom:2px solid var(--navy);padding-bottom:6px;margin-bottom:12px;flex-wrap:wrap}
+  .parthead h2{font-family:"Libre Baskerville",Georgia,serif;font-size:1.3rem;color:var(--navy);margin:0;flex:1;min-width:240px}
+  .pn{background:var(--gold);color:var(--navy);font-weight:700;border-radius:6px;padding:2px 10px;font-size:.9rem}
+  .tag{font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border-radius:999px;padding:3px 10px;border:1px solid}
+  .t-ind{color:var(--blue);border-color:var(--blue)}
+  .t-pair{color:#7a4d00;border-color:var(--gold)}
+  .t-grp{color:#fff;background:var(--blue);border-color:var(--blue)}
+  .t-cls{color:#fff;background:var(--navy);border-color:var(--navy)}
+  .t-type{color:var(--gold-dk);border-color:var(--gold-dk)}
+  .instr{font-style:italic;color:var(--muted);margin:4px 0 12px}
+  .box{background:var(--sky-lt);border-left:5px solid var(--blue);border-radius:6px;padding:12px 16px;margin:10px 0 14px}
+  .box.gold{background:var(--warm);border-left-color:var(--gold)}
+  .box h3{margin:0 0 6px;font-size:1rem;color:var(--navy);letter-spacing:.03em}
+  .box p{margin:.3em 0}
+  .quote{font-family:"Libre Baskerville",Georgia,serif;font-size:1.15rem;color:var(--navy);margin:6px 0}
+  ol.q{padding-left:1.4em;margin:0}
+  ol.q>li{margin:0 0 14px}
+  input[type=text]{font:inherit;border:none;border-bottom:1.5px solid var(--sky-dk);background:transparent;padding:3px 4px;min-width:120px;color:var(--blue)}
+  input[type=text]:focus,textarea:focus,select:focus{outline:2px solid var(--gold);outline-offset:1px}
+  input.wide{width:100%}
+  input.sm{width:70px;min-width:0}
+  textarea{
+    font:inherit;width:100%;border:1px solid var(--sky-dk);border-radius:6px;padding:6px 8px;color:var(--blue);resize:vertical;
+    background-image:repeating-linear-gradient(transparent,transparent 27px,var(--sky-md) 27px,var(--sky-md) 28px);
+    line-height:28px;background-attachment:local;
+  }
+  textarea.r2{min-height:64px} textarea.r3{min-height:92px} textarea.r4{min-height:120px} textarea.r6{min-height:176px}
+  select{font:inherit;border:1px solid var(--sky-dk);border-radius:6px;padding:3px 6px;color:var(--blue);background:#fff}
+  table{width:100%;border-collapse:collapse;margin:6px 0 10px}
+  th,td{border:1px solid var(--sky-dk);padding:7px 8px;vertical-align:top;text-align:left}
+  th{background:var(--navy);color:#fff;font-size:.88rem;font-weight:600}
+  td.model{background:var(--warm);font-size:.95rem}
+  td textarea{border:none;min-height:84px;padding:2px}
+  .bank{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 12px}
+  .bank span{background:var(--sky-md);border:1px solid var(--sky-dk);border-radius:6px;padding:3px 10px;font-weight:600;color:var(--navy)}
+  .ok{background:#e4f3ea!important;border-color:var(--ok)!important}
+  .bad{background:#f8e4e4!important;border-color:var(--bad)!important}
+  .score{font-weight:700;margin-left:10px}
+  .starters{columns:2;column-gap:24px;font-size:.95rem;margin:6px 0}
+  .starters li{break-inside:avoid;margin-bottom:4px}
+  .tf td:first-child{width:56%}
+  .links a{color:var(--blue);font-weight:600}
+  .divider{border:none;border-top:2px dashed var(--gold);margin:34px 0 0}
+  .classlabel{display:inline-block;margin-top:30px;background:var(--navy);color:#fff;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-size:.8rem;padding:5px 14px;border-radius:4px}
+  footer{margin-top:36px;padding:14px 40px 0;font-size:.8rem;color:var(--muted);border-top:1px solid var(--sky-dk)}
+  @media (max-width:640px){
+    .wrap,header.mast,footer{padding-left:16px;padding-right:16px}
+    .meta{grid-template-columns:1fr}
+    .starters{columns:1}
+    table{font-size:.9rem}
+  }
+  @media print{
+    @page{margin:14mm}
+    body{background:#fff;font-size:11.5pt}
+    .page{box-shadow:none;max-width:none}
+    .toolbar,.btn,.saved,.noprint{display:none!important}
+    header.mast{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    th,.pn,.tag,.t-grp,.t-cls,.classlabel,td.model,.box{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    textarea{resize:none;overflow:visible}
+    .ok,.bad{background:none!important}
+    section.part{page-break-inside:avoid}
+    .parthead{page-break-after:avoid}
+  }
+.logo{width:72px;height:72px;border-radius:8px;display:block;margin-bottom:10px}
+</style>
+</head>
+<body>
+<div class="page">
+<header class="mast">
+  <img src="data:image/png;base64,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" alt="Approach International Student Center" class="logo">
+  <div class="sub">Reading &amp; Critical Thinking — Proficient Level: American Short Fiction · Week 1</div>
+  <h1>“The Paper Menagerie” by Ken Liu (2011)</h1>
+  <div class="meta">
+    <div><b>Course Theme</b>I · The American Self</div>
+    <div><b>Literary Lens</b>Motif</div>
+    <div><b>Author’s Style</b>Figurative Language</div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="idrow">
+    <label>Name <input type="text" class="wide" id="name"></label>
+    <label>Date <input type="text" class="wide" id="date"></label>
+    <label>Partner(s) <input type="text" class="wide" id="partners"></label>
+  </div>
+  <div class="toolbar">
+    <button class="btn gold" onclick="window.print()">Print / Save as PDF</button>
+    <button class="btn ghost" id="clearAll">Clear my answers</button>
+    <span class="saved" id="savedMsg">Your answers are saved in this browser as you type.</span>
+  </div>
+
+  <div class="box gold">
+    <h3>Our big question this term</h3>
+    <p><b>Who is the “American” in American literature — and who is excluded?</b></p>
+    <p class="links">Read the story here: <a href="https://gizmodo.com/read-ken-lius-amazing-story-that-swept-the-hugo-nebula-5958919" target="_blank" rel="noopener">“The Paper Menagerie” — full text (io9/Gizmodo)</a></p>
+    <p><b>Section numbers (§):</b> The story is divided into parts by a <b>#</b> symbol. Number the parts <b>§1 to §13</b> in your copy. Use these numbers as your evidence references.<br>
+    <b>Reading 1</b> = §1–§7 (childhood to high school) · <b>Reading 2</b> = §8–§13 (the hospital to the end)</p>
+  </div>
+
+  <!-- ============== CLASS A ============== -->
+  <span class="classlabel">Class A</span>
+
+  <section class="part">
+    <div class="parthead"><span class="pn">Part 1</span><h2>Engage: Before You Read</h2><span class="tag t-pair">Pairs</span></div>
+    <p class="instr">Discuss the questions with a partner. Then write short notes. You only need to share what you feel comfortable sharing.</p>
+    <ol class="q">
+      <li>Do you have an object from your childhood or your home country that holds special memories? What is it, and why does it matter to you?<textarea class="r2" id="p1q1"></textarea></li>
+      <li>Which language(s) do you speak with your family? Do you feel like a slightly different person when you switch languages?<textarea class="r2" id="p1q2"></textarea></li>
+      <li>Children of immigrants sometimes feel embarrassed by their parents’ language or customs in public. Why do you think this happens?<textarea class="r2" id="p1q3"></textarea></li>
+      <li><b>Predict:</b> A <i>menagerie</i> is a collection of animals. What could a “paper menagerie” be? What might the story be about?<textarea class="r2" id="p1q4"></textarea></li>
+    </ol>
+  </section>
+
+  <section class="part">
+    <div class="parthead"><span class="pn">Part 2</span><h2>Vocabulary in Context</h2><span class="tag t-ind">Individual</span><span class="tag t-type">Controlled</span></div>
+
+    <h3 style="color:var(--navy);margin:8px 0 4px">2A · Match the word to its meaning (Reading 1 words)</h3>
+    <table id="match">
+      <tr><th style="width:68%">Meaning</th><th>Word</th></tr>
+      <tr><td>a. In a shy, nervous way, without confidence</td><td><select data-ans="timidly"></select></td></tr>
+      <tr><td>b. A strong feeling that someone or something is worthless</td><td><select data-ans="contempt"></select></td></tr>
+      <tr><td>c. To jump forward suddenly to catch something</td><td><select data-ans="pounce"></select></td></tr>
+      <tr><td>d. Made to seem bigger or more dramatic than it really is</td><td><select data-ans="exaggerated"></select></td></tr>
+      <tr><td>e. A collection of different animals kept together</td><td><select data-ans="menagerie"></select></td></tr>
+      <tr><td>f. To be accepted by a group because you are similar to them</td><td><select data-ans="fit in"></select></td></tr>
+      <tr><td>g. To press paper into a small, untidy ball full of folds</td><td><select data-ans="crumple"></select></td></tr>
+    </table>
+    <button class="btn small" data-check="match">Check 2A</button><span class="score" id="score-match"></span>
+
+    <h3 style="color:var(--navy);margin:20px 0 4px">2B · Word stress: choose the stressed syllable</h3>
+    <table id="stress">
+      <tr><th style="width:40%">Word</th><th>Stressed syllable</th></tr>
+      <tr><td>menagerie</td><td><select data-ans="nag"><option></option><option>me</option><option>nag</option><option>er</option><option>ie</option></select></td></tr>
+      <tr><td>contempt</td><td><select data-ans="tempt"><option></option><option>con</option><option>tempt</option></select></td></tr>
+      <tr><td>timidly</td><td><select data-ans="tim"><option></option><option>tim</option><option>id</option><option>ly</option></select></td></tr>
+      <tr><td>exaggerated</td><td><select data-ans="ag"><option></option><option>ex</option><option>ag</option><option>ger</option><option>at</option><option>ed</option></select></td></tr>
+      <tr><td>unfurl</td><td><select data-ans="furl"><option></option><option>un</option><option>furl</option></select></td></tr>
+      <tr><td>intertwine</td><td><select data-ans="twine"><option></option><option>in</option><option>ter</option><option>twine</option></select></td></tr>
+      <tr><td>motif</td><td><select data-ans="tif"><option></option><option>mo</option><option>tif</option></select></td></tr>
+      <tr><td>personification</td><td><select data-ans="ca"><option></option><option>per</option><option>son</option><option>i</option><option>fi</option><option>ca</option><option>tion</option></select></td></tr>
+    </table>
+    <button class="btn small" data-check="stress">Check 2B</button><span class="score" id="score-stress"></span>
+
+    <h3 style="color:var(--navy);margin:20px 0 4px">2C · Complete the sentences (Class B or homework)</h3>
+    <p class="instr">Use each word once. Change the form if necessary (for example, add -ed).</p>
+    <div class="bank"><span>menagerie</span><span>pounce</span><span>contempt</span><span>crumple</span><span>timidly</span><span>fit in</span><span>exaggerated</span><span>awkwardly</span><span>brittle</span><span>unfurl</span><span>intertwine</span><span>cradle</span></div>
+    <ol class="q" id="gap">
+      <li>The tiny pet shop felt like a <input type="text" data-ans="menagerie">: parrots, lizards, rabbits, and even a tortoise.</li>
+      <li>The kitten hid behind the sofa, then <input type="text" data-ans="pounced"> on the ball of yarn.</li>
+      <li>The manager spoke to the cleaning staff with open <input type="text" data-ans="contempt">, as if their work did not matter.</li>
+      <li>Frustrated, he <input type="text" data-ans="crumpled|crumpled up"> his first draft into a ball and started again.</li>
+      <li>“Can I ask a question?” she said <input type="text" data-ans="timidly">, looking down at her desk.</li>
+      <li>At my new job, I tried hard to <input type="text" data-ans="fit in"> by joining the team for lunch every day.</li>
+      <li>His story about the fish he caught was so <input type="text" data-ans="exaggerated"> that nobody believed him.</li>
+      <li>After the argument, the two brothers hugged <input type="text" data-ans="awkwardly"> at the airport.</li>
+      <li>Be careful with that old map. The paper is very <input type="text" data-ans="brittle">.</li>
+      <li>As the ceremony began, the soldiers <input type="text" data-ans="unfurled"> the flag.</li>
+      <li>In this novel, the lives of three families are closely <input type="text" data-ans="intertwined">.</li>
+      <li>The grandmother <input type="text" data-ans="cradled"> the newborn baby in her arms.</li>
+    </ol>
+    <button class="btn small" data-check="gap">Check 2C</button><span class="score" id="score-gap"></span>
+  </section>
+
+  <section class="part">
+    <div class="parthead"><span class="pn">Part 3</span><h2>Reading 1 (§1–§7): Check Your Understanding</h2><span class="tag t-ind">Individual</span><span class="tag t-pair">then Pairs</span><span class="tag t-type">Controlled</span></div>
+    <p class="instr">Read §1–§7. Then choose True, False, or Not Given. Write the section number (§) where you found the evidence. Compare with a partner.</p>
+    <table class="tf" id="tf">
+      <tr><th>Statement</th><th>T / F / NG</th><th>Evidence §</th></tr>
+      <tr><td>1. Mom made the first tiger from paper she had saved from Christmas presents.</td><td><select data-ans="T"></select></td><td><input type="text" class="sm" id="tf1e"></td></tr>
+      <tr><td>2. Everything the catalog said about Mom turned out to be true.</td><td><select data-ans="F"></select></td><td><input type="text" class="sm" id="tf2e"></td></tr>
+      <tr><td>3. Jack was born in the Year of the Tiger.</td><td><select data-ans="T"></select></td><td><input type="text" class="sm" id="tf3e"></td></tr>
+      <tr><td>4. The first paper shark survived in the sink full of water.</td><td><select data-ans="F"></select></td><td><input type="text" class="sm" id="tf4e"></td></tr>
+      <tr><td>5. The neighbor women spoke quietly so the family would not hear them.</td><td><select data-ans="F"></select></td><td><input type="text" class="sm" id="tf5e"></td></tr>
+      <tr><td>6. Mark’s Obi-Wan Kenobi figure was a birthday present from his grandmother.</td><td><select data-ans="NG"></select></td><td><input type="text" class="sm" id="tf6e"></td></tr>
+      <tr><td>7. After Mark tore Laohu, Jack was able to fold him back together.</td><td><select data-ans="F"></select></td><td><input type="text" class="sm" id="tf7e"></td></tr>
+      <tr><td>8. Dad agrees that Mom should speak English to Jack.</td><td><select data-ans="T"></select></td><td><input type="text" class="sm" id="tf8e"></td></tr>
+      <tr><td>9. Jack finally hides the box of paper animals in the attic.</td><td><select data-ans="T"></select></td><td><input type="text" class="sm" id="tf9e"></td></tr>
+      <tr><td>10. Mom stopped making paper animals when Jack was in elementary school.</td><td><select data-ans="F"></select></td><td><input type="text" class="sm" id="tf10e"></td></tr>
+    </table>
+    <button class="btn small" data-check="tf">Check Part 3</button><span class="score" id="score-tf"></span>
+    <h3 style="color:var(--navy);margin:18px 0 6px">Short answers</h3>
+    <ol class="q">
+      <li>What is <i>zhezhi</i>, and what makes Mom’s version special? (§1)<textarea class="r2" id="p3s1"></textarea></li>
+      <li>Mark uses a single insulting word to describe Laohu. How does this word change the way Jack sees his tiger? (§5)<textarea class="r2" id="p3s2"></textarea></li>
+      <li>List <b>three</b> things Jack rejects after the fight with Mark. (§6–§7)<textarea class="r2" id="p3s3"></textarea></li>
+    </ol>
+  </section>
+
+  <section class="part">
+    <div class="parthead"><span class="pn">Part 4</span><h2>Literary Lens: Motif</h2><span class="tag t-pair">Pairs</span><span class="tag t-type">Semi-controlled</span></div>
+    <div class="box">
+      <h3>Study: What is a motif?</h3>
+      <p>A <b>motif</b> is an image, object, idea, or phrase that <b>appears again and again</b> in a story. Each time it returns, its meaning can <b>grow or change</b>. Readers track a motif to discover the story’s theme.</p>
+      <p><b>Three questions for any motif:</b> (1) Where does it appear? (2) What happens to it? (3) What does it mean <i>at this moment</i>?</p>
+    </div>
+    <p class="instr">Track the paper animals through the story. The first row is a model. Complete the rows for Reading 1 now; complete the last row after Reading 2.</p>
+    <table>
+      <tr><th style="width:22%">Moment (§)</th><th style="width:39%">What happens to the paper animals?</th><th>What do they mean at this moment?</th></tr>
+      <tr><td class="model"><b>Model:</b> Laohu is born (§1)</td><td class="model">Mom folds Christmas wrapping paper and breathes into it. The tiger comes alive, plays, and purrs.</td><td class="model">Mom’s love and her culture, shared with her son. A private “language” of magic between mother and child.</td></tr>
+      <tr><td>The shark and the water buffalo (§3)</td><td><textarea id="m1a"></textarea></td><td><textarea id="m1b"></textarea></td></tr>
+      <tr><td>Mark and Laohu (§5)</td><td><textarea id="m2a"></textarea></td><td><textarea id="m2b"></textarea></td></tr>
+      <tr><td>The shoebox in the attic (§7)</td><td><textarea id="m3a"></textarea></td><td><textarea id="m3b"></textarea></td></tr>
+      <tr><td>Qingming (§10–§13)<br><small>after Reading 2</small></td><td><textarea id="m4a"></textarea></td><td><textarea id="m4b"></textarea></td></tr>
+    </table>
+    <p><b>Discuss:</b> How does the meaning of the paper animals change from §1 to §7?</p>
+    <textarea class="r3" id="m5"></textarea>
+  </section>
+
+  <hr class="divider">
+  <!-- ============== CLASS B ============== -->
+  <span class="classlabel">Class B</span>
+
+  <section class="part">
+    <div class="parthead"><span class="pn">Part 5</span><h2>Engage: The Language of the Heart</h2><span class="tag t-ind">Quick-write</span><span class="tag t-pair">then Pairs</span></div>
+    <p class="instr">At dinner (§6), Jack’s mother points first to her lips, then to her heart, and says:</p>
+    <p class="quote">“If I say ‘love,’ I feel here.” … “If I say ‘ai,’ I feel here.”</p>
+    <ol class="q">
+      <li>What does she mean? Explain in your own words.<textarea class="r2" id="p5q1"></textarea></li>
+      <li>Is there a word in your first language that feels stronger or deeper than its English translation? Write it, translate it, and explain the difference.<textarea class="r3" id="p5q2"></textarea></li>
+    </ol>
+  </section>
+
+  <section class="part">
+    <div class="parthead"><span class="pn">Part 6</span><h2>Reading 2 (§8–§13): Check Your Understanding</h2><span class="tag t-ind">Individual</span><span class="tag t-type">Controlled</span></div>
+    <ol class="q">
+      <li>At the hospital, what is Jack thinking about instead of his mother? What does this show about him at this age? (§8)<textarea class="r2" id="p6q1"></textarea></li>
+      <li>What does Mom ask Jack to do every year at Qingming? What did she and Jack used to do on this day? (§8)<textarea class="r2" id="p6q2"></textarea></li>
+      <li>What happens to the paper animals after Mom dies, and how does Jack explain it? (§9)<textarea class="r2" id="p6q3"></textarea></li>
+      <li>How does Jack get the letter translated? Why is this situation ironic? (§11)<textarea class="r2" id="p6q4"></textarea></li>
+      <li>Name <b>two</b> events from Mom’s life before she came to America. (§12)<textarea class="r2" id="p6q5"></textarea></li>
+      <li>What does Jack do at the very end of the story? (§13)<textarea class="r2" id="p6q6"></textarea></li>
+    </ol>
+  </section>
+
+  <section class="part">
+    <div class="parthead"><span class="pn">Part 7</span><h2>Author’s Style: Figurative Language</h2><span class="tag t-pair">Pairs</span><span class="tag t-type">Semi-controlled</span></div>
+    <div class="box">
+      <h3>Study: Three tools of figurative language</h3>
+      <p><b>Simile</b> — compares two different things using <i>like</i> or <i>as</i>.</p>
+      <p><b>Metaphor</b> — compares two things directly, without <i>like</i> or <i>as</i>; one thing <i>is</i> or <i>acts as</i> another.</p>
+      <p><b>Personification</b> — gives human feelings or actions to an animal, object, or idea.</p>
+      <p><b>Analysis formula:</b> The writer uses <i>[tool]</i> when <i>[quote/§]</i>. This suggests <i>[meaning]</i> and makes the reader feel <i>[effect]</i>.</p>
+    </div>
+    <p class="instr">Find each passage. Copy the key words (no more than one line), name the tool, and explain its effect.</p>
+    <table>
+      <tr><th style="width:24%">Find it</th><th style="width:26%">Key words from the text</th><th style="width:16%">Tool</th><th>Effect / meaning</th></tr>
+      <tr><td>§1: the sound Laohu makes is compared to two other sounds.</td><td><textarea id="f1a"></textarea></td><td><textarea id="f1b"></textarea></td><td><textarea id="f1c"></textarea></td></tr>
+      <tr><td>§2: teenage Jack describes how looking down on his mother felt.</td><td><textarea id="f2a"></textarea></td><td><textarea id="f2b"></textarea></td><td><textarea id="f2c"></textarea></td></tr>
+      <tr><td>§6: how Mom looks when she sinks down in her seat at dinner.</td><td><textarea id="f3a"></textarea></td><td><textarea id="f3b"></textarea></td><td><textarea id="f3c"></textarea></td></tr>
+      <tr><td>§7: Jack says how far away from him Mom seems.</td><td><textarea id="f4a"></textarea></td><td><textarea id="f4b"></textarea></td><td><textarea id="f4c"></textarea></td></tr>
+      <tr><td>§11: how the Chinese words feel as they enter Jack’s body.</td><td><textarea id="f5a"></textarea></td><td><textarea id="f5b"></textarea></td><td><textarea id="f5c"></textarea></td></tr>
+    </table>
+    <div class="box gold"><h3>Think deeper</h3><p>Laohu laughs, purrs, and seems to feel guilt. Is this <b>personification</b> — or is the magic <b>real</b> in this story? Does it matter? Write one sentence for your opinion.</p></div>
+    <textarea class="r2" id="f6"></textarea>
+  </section>
+
+  <section class="part">
+    <div class="parthead"><span class="pn">Part 8</span><h2>Inference: Claim · Evidence · Reasoning</h2><span class="tag t-pair">Pairs</span><span class="tag t-type">Semi-controlled</span></div>
+    <p class="instr">Choose ONE question. Build an answer together using the CER frame.</p>
+    <ol class="q" type="A">
+      <li>Why does Jack keep demanding that his mother speak English? Is he really angry only at her?</li>
+      <li>Is Dad a good husband and father? Consider §2, §6, §7, and §8.</li>
+      <li>Mom writes her letter in Chinese, even though she knows Jack cannot read it. Why?</li>
+    </ol>
+    <p>Our question: <select id="cerq"><option></option><option>A</option><option>B</option><option>C</option></select></p>
+    <table>
+      <tr><th style="width:20%">Claim</th><td><textarea class="r2" id="cer1" placeholder="Our answer in one clear sentence."></textarea></td></tr>
+      <tr><th>Evidence 1</th><td><textarea class="r2" id="cer2" placeholder="Short quotation + (§ )"></textarea></td></tr>
+      <tr><th>Evidence 2</th><td><textarea class="r2" id="cer3" placeholder="Short quotation + (§ )"></textarea></td></tr>
+      <tr><th>Reasoning</th><td><textarea class="r3" id="cer4" placeholder="Explain HOW the evidence proves the claim. What is not said directly?"></textarea></td></tr>
+      <tr><th>Counter-view</th><td><textarea class="r2" id="cer5" placeholder="Someone might argue… However…"></textarea></td></tr>
+    </table>
+  </section>
+
+  <section class="part">
+    <div class="parthead"><span class="pn">Part 9</span><h2>Perspective Analysis</h2><span class="tag t-grp">Groups of 3–4</span><span class="tag t-type">Freer practice</span></div>
+    <p class="instr">Your teacher will give your group one character. Answer the questions <b>from that character’s point of view</b>, with evidence. Prepare a <b>1-minute report</b> for the class.</p>
+    <p>Our character:
+      <select id="gchar"><option></option><option>Mom</option><option>Jack as a teenager</option><option>Dad</option><option>Mark and the neighbor women</option><option>Jack as an adult (§10–§13)</option></select>
+    </p>
+    <table>
+      <tr><th style="width:42%">Question</th><th>Our notes + evidence (§)</th></tr>
+      <tr><td>What does this character believe it means to be “American”?</td><td><textarea id="g1"></textarea></td></tr>
+      <tr><td>What does this character want? What are they afraid of?</td><td><textarea id="g2"></textarea></td></tr>
+      <tr><td>What assumption or bias does this character have?</td><td><textarea id="g3"></textarea></td></tr>
+      <tr><td>When is this character’s voice heard, and when is it silent?</td><td><textarea id="g4"></textarea></td></tr>
+    </table>
+    <h3 style="color:var(--navy);margin:16px 0 4px">Ranking: Who is most responsible?</h3>
+    <p class="instr">Who is most responsible for the distance between Jack and his mother? Rank 1 (most) to 5 (least). Be ready to defend your #1 and #5.</p>
+    <table>
+      <tr><th style="width:42%">Person / force</th><th style="width:14%">Rank</th><th>Reason</th></tr>
+      <tr><td>Jack</td><td><select class="rank" id="r1"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></td><td><input type="text" class="wide" id="r1t"></td></tr>
+      <tr><td>Dad</td><td><select class="rank" id="r2"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></td><td><input type="text" class="wide" id="r2t"></td></tr>
+      <tr><td>Mark</td><td><select class="rank" id="r3"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></td><td><input type="text" class="wide" id="r3t"></td></tr>
+      <tr><td>The neighbor women</td><td><select class="rank" id="r4"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></td><td><input type="text" class="wide" id="r4t"></td></tr>
+      <tr><td>American society / school culture</td><td><select class="rank" id="r5"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></td><td><input type="text" class="wide" id="r5t"></td></tr>
+    </table>
+  </section>
+
+  <section class="part">
+    <div class="parthead"><span class="pn">Part 10</span><h2>Seminar Discussion</h2><span class="tag t-cls">Whole class</span></div>
+    <p class="instr">Seminar grades are based on the <b>quality</b> of your contributions: depth, evidence, and building on others’ ideas — not how often you speak.</p>
+    <ol class="q">
+      <li>Why does Liu call the story “The Paper <i>Menagerie</i>” instead of “The Paper Animals” or “My Mother’s Toys”?</li>
+      <li>Is this an <b>American</b> story? Who is “the American self” here — Jack, Mom, or both?</li>
+      <li>Mom’s life story is told only at the very end. Why does Liu wait so long to let her speak? What is the effect?</li>
+      <li>Is the ending hopeful or tragic? Can it be both?</li>
+      <li>Does this story describe only one family, or a wider experience? Connect it to your own observations.</li>
+    </ol>
+    <div class="box">
+      <h3>Discussion moves</h3>
+      <ul class="starters">
+        <li>I’d like to build on what ___ said…</li>
+        <li>I see it differently, because in §__…</li>
+        <li>What evidence makes you think that?</li>
+        <li>That’s true, but have we considered…?</li>
+        <li>This connects to the motif of…</li>
+        <li>The text doesn’t say this directly, but…</li>
+      </ul>
+    </div>
+    <p><b>An idea from a classmate that changed or challenged my thinking:</b></p>
+    <textarea class="r3" id="sem1"></textarea>
+  </section>
+
+  <section class="part">
+    <div class="parthead"><span class="pn">Part 11</span><h2>Homework: Reading Journal</h2><span class="tag t-ind">Individual</span></div>
+    <p class="instr">Due next week. Re-read the whole story before you write. Use at least two short quotations with section numbers (§).</p>
+    <table>
+      <tr><th style="width:30%">Literary Lens concept</th><td><textarea class="r2" id="j1" placeholder="Define motif in your own words."></textarea></td></tr>
+      <tr><th>Three recurring motifs and their function</th><td><textarea class="r4" id="j2" placeholder="1. ___ appears in §__ and §__. It shows…&#10;2.&#10;3."></textarea></td></tr>
+      <tr><th>Author’s Style example 1</th><td><textarea class="r2" id="j3" placeholder="Quotation (§) + tool + effect"></textarea></td></tr>
+      <tr><th>Author’s Style example 2</th><td><textarea class="r2" id="j4" placeholder="Quotation (§) + tool + effect"></textarea></td></tr>
+      <tr><th>3-sentence analytical response</th><td><textarea class="r3" id="j5" placeholder="Claim → evidence → what it reveals about the American self."></textarea></td></tr>
+      <tr><th>One discussion question</th><td><textarea class="r2" id="j6" placeholder="A question with no single correct answer."></textarea></td></tr>
+    </table>
+    <div class="box gold">
+      <h3>Self-check before you submit</h3>
+      <p>☐ I used two or more quotations with § numbers. ☐ I explained effect, not only meaning. ☐ My discussion question is open, not factual.</p>
+    </div>
+  </section>
+</div>
+
+<footer>
+  Approach International Student Center · Reading &amp; Critical Thinking — Proficient Level (B2–B2+) · Week 1.<br>
+  Story: Ken Liu, “The Paper Menagerie,” <i>The Magazine of Fantasy &amp; Science Fiction</i>, March/April 2011. Winner of the Nebula, Hugo, and World Fantasy Awards.
+  Links: <a href="https://gizmodo.com/read-ken-lius-amazing-story-that-swept-the-hugo-nebula-5958919" target="_blank" rel="noopener">full text</a> ·
+  <a href="https://en.wikipedia.org/wiki/The_Paper_Menagerie" target="_blank" rel="noopener">about the story</a> ·
+  <a href="https://en.wikipedia.org/wiki/Qingming_Festival" target="_blank" rel="noopener">Qingming Festival</a>
+</footer>
+</div>
+
+<script>
+// Fill option lists
+const matchWords=["","contempt","crumple","exaggerated","fit in","menagerie","pounce","timidly"];
+document.querySelectorAll('#match select').forEach(s=>s.innerHTML=matchWords.map(w=>`<option>${w}</option>`).join(''));
+document.querySelectorAll('#tf select').forEach(s=>s.innerHTML=['','T','F','NG'].map(w=>`<option>${w}</option>`).join(''));
+
+// Give every unnamed field a stable id
+let n=0;
+document.querySelectorAll('input,textarea,select').forEach(el=>{ if(!el.id) el.id='f_auto_'+(n++); });
+
+// Autosave (browser storage; works when the file is opened in a normal browser window)
+const KEY='approach_w1_paper_menagerie';
+let store={};
+try{ store=JSON.parse(localStorage.getItem(KEY)||'{}'); }catch(e){ store={}; }
+document.querySelectorAll('input,textarea,select').forEach(el=>{
+  if(store[el.id]!==undefined) el.value=store[el.id];
+  el.addEventListener('input',save); el.addEventListener('change',save);
+});
+function save(e){
+  store[e.target.id]=e.target.value;
+  try{ localStorage.setItem(KEY,JSON.stringify(store)); document.getElementById('savedMsg').textContent='Saved ✓'; }
+  catch(err){ document.getElementById('savedMsg').textContent='Not saved automatically — print or save as PDF to keep your work.'; }
+}
+document.getElementById('clearAll').onclick=()=>{
+  if(!confirm('Clear all your answers on this worksheet?')) return;
+  try{ localStorage.removeItem(KEY); }catch(e){}
+  store={};
+  document.querySelectorAll('input,textarea,select').forEach(el=>{ el.value=''; el.classList.remove('ok','bad'); });
+  document.querySelectorAll('.score').forEach(s=>s.textContent='');
+};
+
+// Self-check for controlled tasks
+const norm=s=>s.trim().toLowerCase().replace(/\s+/g,' ');
+document.querySelectorAll('[data-check]').forEach(b=>b.onclick=()=>{
+  const id=b.dataset.check; let right=0,total=0;
+  document.querySelectorAll('#'+id+' [data-ans]').forEach(el=>{
+    total++;
+    const ok=el.dataset.ans.split('|').some(a=>norm(a)===norm(el.value));
+    el.classList.remove('ok','bad');
+    if(el.value) el.classList.add(ok?'ok':'bad');
+    if(ok) right++;
+  });
+  document.getElementById('score-'+id).textContent=`${right} / ${total}`;
+});
+</script>
+</body>
+</html>
