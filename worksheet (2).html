@@ -1,0 +1,528 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Week 1 Worksheet · Ethics in a Global World</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#143865;--blue:#1c4f8f;--gold:#d39f10;--gold-d:#8c7535;--sky:#c1cddd;--sky2:#e1e8f2;--sky3:#edf2f9;--cream:#efe9d9;--ink:#1a2233;--muted:#4a5568;--bg:#f6f4ee;--ok:#2f6b2f;--no:#a33a2a}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Source Sans 3",system-ui,sans-serif;color:var(--ink);background:var(--bg);font-size:17px;line-height:1.55}
+header.top{background:var(--navy);color:#fff;border-bottom:4px solid var(--gold)}
+.top .in{max-width:860px;margin:0 auto;padding:20px 16px 24px;display:flex;gap:14px;align-items:center}
+.top img{width:60px;height:60px;border-radius:8px;flex:none}
+.top .w{font-family:"Libre Baskerville",serif;color:var(--gold);letter-spacing:.12em;font-size:16px;line-height:1.1;flex:none}
+.top .w small{display:block;letter-spacing:.02em;font-size:10px;color:#e6d8a8}
+.top h1{font-family:"Libre Baskerville",serif;margin:0;font-size:clamp(20px,4.5vw,28px);line-height:1.2}
+.top p{margin:3px 0 0;color:var(--sky);font-size:14.5px}
+.bar{position:sticky;top:0;z-index:5;background:#fff;border-bottom:1px solid var(--sky);box-shadow:0 2px 8px rgba(20,56,101,.06)}
+.bar .in{max-width:860px;margin:0 auto;padding:8px 16px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.bar .status{font-size:13.5px;color:var(--muted);margin-right:auto}
+button,.btn{font:700 14.5px "Source Sans 3",sans-serif;border-radius:6px;border:1px solid var(--navy);background:var(--navy);color:#fff;padding:8px 14px;cursor:pointer}
+button.alt{background:#fff;color:var(--navy)}
+button.gold{background:var(--gold);border-color:var(--gold);color:var(--navy)}
+button.small{padding:5px 10px;font-size:13.5px}
+main{max-width:860px;margin:0 auto;padding:20px 16px 80px}
+.part{font-family:"Libre Baskerville",serif;color:var(--gold-d);font-size:14px;letter-spacing:.14em;text-transform:uppercase;margin:34px 0 8px;display:flex;align-items:center;gap:12px}
+.part::after{content:"";flex:1;height:1px;background:var(--gold)}
+.card{background:#fff;border:1px solid var(--sky);border-radius:12px;padding:18px 20px 20px;margin:14px 0}
+.card h2{font-family:"Libre Baskerville",serif;color:var(--navy);font-size:20px;margin:0 0 4px}
+.card .sub{color:var(--muted);margin:0 0 12px;font-size:15.5px}
+.num{display:inline-flex;width:28px;height:28px;border-radius:50%;background:var(--navy);color:var(--gold);align-items:center;justify-content:center;font:700 14px "Source Sans 3";margin-right:8px;vertical-align:2px}
+label.q,legend.q{display:block;font-weight:700;color:var(--navy);margin:14px 0 5px;font-size:16px}
+label.q small,legend.q small{font-weight:400;color:var(--muted)}
+input[type=text],textarea,select{width:100%;font:16px "Source Sans 3",sans-serif;color:var(--ink);border:1px solid var(--sky);border-radius:8px;padding:9px 11px;background:var(--sky3)}
+textarea{min-height:76px;resize:vertical;line-height:1.5}
+input:focus,textarea:focus,select:focus{outline:2px solid var(--gold);outline-offset:1px;background:#fff}
+fieldset{border:0;padding:0;margin:0}
+.choices{display:flex;gap:8px;flex-wrap:wrap}
+.choices label{flex:1;min-width:110px;text-align:center;border:1px solid var(--sky);border-radius:8px;padding:9px 6px;cursor:pointer;font-weight:600;background:var(--sky3)}
+.choices input{position:absolute;opacity:0;pointer-events:none}
+.choices label:has(input:checked){background:var(--navy);color:#fff;border-color:var(--navy)}
+.choices label:has(input:focus-visible){outline:2px solid var(--gold)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.scen{border-left:4px solid var(--gold);padding-left:14px;margin:18px 0 8px}
+.scen h3{margin:0;font-size:17px;color:var(--navy)}
+table{width:100%;border-collapse:collapse;margin-top:8px}
+th,td{border:1px solid var(--sky);padding:6px 8px;vertical-align:top;text-align:left;font-size:15px}
+th{background:var(--sky2);color:var(--navy)}
+td textarea{min-height:56px;background:#fff;border-color:#dfe5ee}
+.lens{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:10px 0}
+.lens div{border-radius:8px;padding:8px 10px;font-size:14px;background:var(--sky3);border-top:4px solid var(--blue)}
+.lens div:nth-child(2){border-top-color:var(--gold)}.lens div:nth-child(3){border-top-color:#5a7d3a}.lens div:nth-child(4){border-top-color:#888}
+.lens b{display:block;color:var(--navy);font-size:15px}
+.quiz{display:grid;gap:10px}
+.quiz .item{display:grid;grid-template-columns:1fr 190px;gap:10px;align-items:center;background:var(--sky3);border-radius:8px;padding:8px 10px}
+.quiz .item p{margin:0;font-style:italic}
+.fb{font-size:14px;font-weight:700;grid-column:1/-1}
+.fb.ok{color:var(--ok)}.fb.no{color:var(--no)}
+.diamond{display:grid;gap:8px;margin:12px auto;max-width:560px}
+.diamond .r{display:flex;justify-content:center;gap:8px;width:100%;min-width:0}
+.diamond select{flex:1 1 0;max-width:170px;min-width:0;width:0;text-align:center;font-weight:600;background:#fff;border:2px solid var(--sky)}
+.diamond select.top{border-color:var(--gold)}
+.dlabel{display:flex;justify-content:center;font-size:13px;color:var(--muted);max-width:560px;margin:0 auto}
+.warnmsg{color:var(--no);font-size:14px;font-weight:700;text-align:center;min-height:20px}
+.wc{font-size:13.5px;color:var(--muted);text-align:right;margin-top:3px}
+.wc.good{color:var(--ok);font-weight:700}
+.check{display:flex;gap:8px;align-items:flex-start;margin:6px 0;font-size:15.5px}
+.check input{width:18px;height:18px;margin-top:3px;accent-color:var(--navy)}
+details{background:#fff;border:1px solid var(--sky);border-radius:12px;padding:12px 18px;margin:14px 0}
+summary{cursor:pointer;font-weight:700;color:var(--navy);font-family:"Libre Baskerville",serif}
+.phr{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.phr span{background:var(--sky3);border:1px solid var(--sky);border-radius:999px;padding:3px 11px;font-size:14.5px}
+.hint{background:var(--cream);border-radius:8px;padding:9px 13px;font-size:15px;margin:10px 0}
+a{color:var(--blue)}
+.pv{display:none}
+.mat{background:var(--sky3);border:1px solid var(--sky);border-radius:10px;padding:13px 16px;margin:10px 0 6px;font-size:16px}
+.mat p{margin:0 0 8px}.mat p:last-child{margin-bottom:0}
+.mat .tag{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-d);margin-bottom:4px}
+.mat .quote{font-style:italic;border-left:3px solid var(--gold);padding-left:10px}
+.mat .decision{font-weight:700;color:var(--navy)}
+.push{background:#fff;border:1px dashed var(--sky);border-radius:8px;padding:8px 14px;margin:8px 0 4px;font-size:15px}
+.push b{color:var(--gold-d);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.push ul{margin:4px 0 0;padding-left:20px}
+.steps{margin:6px 0;padding-left:22px;font-size:15.5px}
+.steps li{margin:3px 0}
+.lensx{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:10px 0}
+.lensx div{background:#fff;border:1px solid var(--sky);border-top:5px solid var(--blue);border-radius:8px;padding:9px 12px;font-size:14.5px}
+.lensx div:nth-child(2){border-top-color:var(--gold)}.lensx div:nth-child(3){border-top-color:#5a7d3a}.lensx div:nth-child(4){border-top-color:#888;background:#f6f6f4}
+.lensx b{display:block;color:var(--navy);font-size:15.5px}
+.lensx i{color:var(--muted)}
+details.inner{background:#fff;border:1px solid var(--sky);border-radius:8px;padding:8px 14px;margin:8px 0}
+details.inner summary{font-family:"Source Sans 3",sans-serif;font-size:16px}
+.gloss{font-size:14.5px;margin:6px 0}
+.gloss td:first-child{font-weight:700;width:34%}
+.vals{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0}
+.vals span{background:#fff;border:1.5px solid var(--navy);border-radius:6px;padding:3px 10px;font-weight:600;color:var(--navy);font-size:14.5px}
+.rolec{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:8px 0}
+.rolec div{background:#fff;border:1px solid var(--sky);border-radius:8px;padding:9px 12px;font-size:14.5px}
+.rolec b{color:var(--navy);display:block;font-size:15.5px}
+.rolec em{color:var(--gold-d);font-style:normal;font-weight:600}
+@media (max-width:620px){.rolec,.lensx{grid-template-columns:1fr}}
+footer{font-size:12.5px;color:#6b7280;text-align:center;padding:10px 16px 40px}
+@media (max-width:620px){.row2,.lens{grid-template-columns:1fr 1fr}.quiz .item{grid-template-columns:1fr}.diamond select{font-size:13.5px;padding:8px 4px}}
+@media print{
+  body{background:#fff;font-size:11pt}
+  .bar,.noprint,button{display:none!important}
+  header.top{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .card,details{border-color:#bbb}
+  .mat,.push,.rolec div,.lensx div,.gloss,.item{break-inside:avoid}
+  details{display:block}details>*{display:block}
+  textarea,input[type=text]{display:none}
+  .pv{display:block;white-space:pre-wrap;border-bottom:1px solid #999;min-height:1.6em;padding:2px 2px 4px;font-size:11pt}
+  select{border:1px solid #999;background:#fff;-webkit-appearance:none;appearance:none}
+  .choices label{background:#fff}
+  .choices label:has(input:checked){-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+<header class="top"><div class="in">
+  <img src="logo.png" alt="Approach International Student Center" onload="this.nextElementSibling.remove()" onerror="this.remove()"><div class="w">APPROACH<small>International Student Center</small></div>
+  <div><h1>Week 1 Worksheet · Why Ethics Matter</h1><p>Ethics in a Global World · Chapter 1</p></div>
+</div></header>
+
+<div class="bar"><div class="in">
+  <span class="status" id="status">Your answers save automatically on this device.</span>
+  <button class="gold" onclick="downloadAnswers()">Download</button>
+  <button class="alt" onclick="window.print()">Print / PDF</button>
+  <button class="alt" onclick="clearAll()">Clear</button>
+</div></div>
+
+<main id="ws">
+
+<div class="card">
+  <div class="row2">
+    <div><label class="q" for="name">Name</label><input type="text" id="name" data-q="Name"></div>
+    <div><label class="q" for="date">Date</label><input type="text" id="date" data-q="Date" placeholder="e.g. Wed, Oct 14"></div>
+  </div>
+</div>
+
+<div class="part">Class 1 · It Depends — On What?</div>
+
+<div class="card">
+  <h2><span class="num">1</span>Ethical, Unethical, or It Depends?</h2>
+  <p class="sub">Three real-world problems. No easy answers. Your group decides — and defends the decision. A bare "it depends" is not enough: name the condition.</p>
+  <div class="hint">
+    <b>Group roles (change roles for each scenario):</b> <b>Chair</b> — keeps time and makes sure everyone speaks · <b>Devil's Advocate</b> — argues against the group for at least one minute · <b>Spokesperson</b> — defends the verdict to the class.
+    <ol class="steps"><li>Read the scenario (1 min).</li><li>Discuss (5 min).</li><li>Write your verdict and your <b>single strongest reason</b>.</li><li>Show your verdict when the teacher says "3-2-1."</li><li>Listen to the twist. Change your verdict only if you have a good reason.</li></ol>
+  </div>
+
+  <div class="scen"><h3>Scenario 1 · The Thank-You Gift</h3><span style="font-size:13.5px;color:var(--muted)">Business ethics and local custom</span></div>
+  <div class="mat">
+    <p>Maya owns a small coffee company. She wants to open a warehouse in a new country, and she needs an official permit. The official tells her the permit takes six months.</p>
+    <p class="quote">His assistant whispers: "Most businesses give a small thank-you gift of $200. Then it takes one week."</p>
+    <p>In this country, everyone knows this is "how things work." If Maya waits six months, her company may run out of money and she will have to fire 10 workers.</p>
+    <p class="decision">Maya pays the $200. What does your group say about Maya's decision?</p>
+  </div>
+  <div class="push"><b>Push your group</b><ul><li>What is the difference between a gift and a bribe?</li><li>Who decides what is right: the local culture, or the law in Maya's home country?</li><li>Is Maya responsible for her 10 workers more than for the official's country's rules?</li></ul></div>
+  <fieldset data-q="S1 verdict" data-type="radio"><legend class="q">Our verdict</legend>
+    <div class="choices"><label><input type="radio" name="s1v" value="Ethical">Ethical</label><label><input type="radio" name="s1v" value="It depends">It depends</label><label><input type="radio" name="s1v" value="Unethical">Unethical</label></div></fieldset>
+  <label class="q" for="s1r">Our strongest reason <small>(or "It depends on whether…")</small></label><textarea id="s1r" data-q="S1 reason"></textarea>
+  <label class="q" for="s1t">After the twist: did we change? Why or why not?</label><textarea id="s1t" data-q="S1 after twist"></textarea>
+
+  <div class="scen"><h3>Scenario 2 · The Three-Dollar Question</h3><span style="font-size:13.5px;color:var(--muted)">Global trade and responsibility</span></div>
+  <div class="mat">
+    <p>A fashion brand sells T-shirts in Europe. Its factory in another country pays workers $4 a day. This is legal, and it is higher than the average pay for jobs nearby.</p>
+    <p>A group of activists demands $8 a day. If the brand agrees, each T-shirt will cost more. The brand says it may move production to another country instead, and 3,000 workers would lose their jobs.</p>
+    <p class="quote">"A low-paying job is better than no job," says the brand's manager.</p>
+    <p class="decision">The brand decides to keep paying $4 a day. What does your group say about the brand's decision?</p>
+  </div>
+  <div class="push"><b>Push your group</b><ul><li>Is "legal" the same as "ethical"?</li><li>Who should decide what a fair wage is: the company, the government, or the workers?</li><li>Should customers pay more for T-shirts? Would you?</li></ul></div>
+  <fieldset data-q="S2 verdict" data-type="radio"><legend class="q">Our verdict</legend>
+    <div class="choices"><label><input type="radio" name="s2v" value="Ethical">Ethical</label><label><input type="radio" name="s2v" value="It depends">It depends</label><label><input type="radio" name="s2v" value="Unethical">Unethical</label></div></fieldset>
+  <label class="q" for="s2r">Our strongest reason</label><textarea id="s2r" data-q="S2 reason"></textarea>
+  <label class="q" for="s2t">After the twist: did we change? Why or why not?</label><textarea id="s2t" data-q="S2 after twist"></textarea>
+
+  <div class="scen"><h3>Scenario 3 · Helping a Friend</h3><span style="font-size:13.5px;color:var(--muted)">Culture, loyalty, and rules</span></div>
+  <div class="mat">
+    <p>Ali is an international student. In his home country, students help each other with homework, and sharing answers shows friendship and respect.</p>
+    <p>At his new school, the rule is clear: all homework must be done alone. His friend Sara is new to the language and is falling behind. She asks to copy his answers.</p>
+    <p class="quote">"Please, Ali. If I fail this class, I have to go home."</p>
+    <p class="decision">Ali knows the rule. He shares his answers anyway. What does your group say about Ali's decision?</p>
+  </div>
+  <div class="push"><b>Push your group</b><ul><li>Should you follow the rules of the place you are in, or the values you grew up with?</li><li>Is loyalty to a friend more important than a fair rule?</li><li>Is there a better way for Ali to help Sara?</li></ul></div>
+  <fieldset data-q="S3 verdict" data-type="radio"><legend class="q">Our verdict</legend>
+    <div class="choices"><label><input type="radio" name="s3v" value="Ethical">Ethical</label><label><input type="radio" name="s3v" value="It depends">It depends</label><label><input type="radio" name="s3v" value="Unethical">Unethical</label></div></fieldset>
+  <label class="q" for="s3r">Our strongest reason</label><textarea id="s3r" data-q="S3 reason"></textarea>
+  <label class="q" for="s3t">After the twist: did we change? Why or why not?</label><textarea id="s3t" data-q="S3 after twist"></textarea>
+</div>
+
+<div class="card">
+  <h2><span class="num">2</span>The three lenses</h2>
+  <p class="sub">Your reasons tonight fell into these groups. Read the four boxes, then write each lens in your own words, with an example from the scenarios.</p>
+  <div class="lensx">
+    <div><b>Ends — consequences</b>"What will happen? Who is helped, and who is harmed?"<br><i>Name: utilitarianism — the greatest good for the greatest number.</i></div>
+    <div><b>Means — duties and rules</b>"Is the action itself right, whatever the result?"<br><i>Name: deontology (Immanuel Kant). Greek <em>deon</em> = duty.</i></div>
+    <div><b>Character — who am I?</b>"What would a person of integrity do? Who am I becoming?"<br><i>Name: virtue ethics. Practical wisdom = <em>phronesis</em>.</i></div>
+    <div><b>Law / custom — the minimum</b>"Is it legal? Is it normal here?"<br><i>The textbook: law is the minimum. Legal is not the same as ethical.</i></div>
+  </div>
+  <div class="push"><b>Same case, different answers — Maya</b><ul><li><b>Ends:</b> ten jobs are saved for $200 → paying looks acceptable.</li><li><b>Means:</b> paying an official to work faster is a bribe → wrong.</li><li><b>Character:</b> what kind of business owner does this make her?</li><li><b>Law/custom:</b> "everyone does it here" — but is it legal in her home country?</li></ul></div>
+  <table>
+    <tr><th style="width:22%">Lens</th><th>In my own words</th><th>Example from tonight</th></tr>
+    <tr><td><b>Ends</b></td><td><textarea data-q="Ends: own words"></textarea></td><td><textarea data-q="Ends: example"></textarea></td></tr>
+    <tr><td><b>Means</b></td><td><textarea data-q="Means: own words"></textarea></td><td><textarea data-q="Means: example"></textarea></td></tr>
+    <tr><td><b>Character</b></td><td><textarea data-q="Character: own words"></textarea></td><td><textarea data-q="Character: example"></textarea></td></tr>
+    <tr><td><b>Law / custom</b></td><td><textarea data-q="Law: own words"></textarea></td><td><textarea data-q="Law: example"></textarea></td></tr>
+  </table>
+
+  <label class="q" style="margin-top:20px">Name that lens <small>— choose, then check</small></label>
+  <div class="quiz" id="quiz">
+    <div class="item"><p>"If the brand raises wages, 3,000 people may lose their jobs."</p><select data-q="Lens quiz 1" data-ans="Ends"><option value="">Choose…</option><option>Ends</option><option>Means</option><option>Character</option><option>Law / custom</option></select><div class="fb"></div></div>
+    <div class="item"><p>"Copying is cheating, whatever the reason."</p><select data-q="Lens quiz 2" data-ans="Means"><option value="">Choose…</option><option>Ends</option><option>Means</option><option>Character</option><option>Law / custom</option></select><div class="fb"></div></div>
+    <div class="item"><p>"A good friend helps — but a wise friend helps in a way that doesn't hurt you."</p><select data-q="Lens quiz 3" data-ans="Character"><option value="">Choose…</option><option>Ends</option><option>Means</option><option>Character</option><option>Law / custom</option></select><div class="fb"></div></div>
+    <div class="item"><p>"It's legal there, so the company did nothing wrong."</p><select data-q="Lens quiz 4" data-ans="Law / custom"><option value="">Choose…</option><option>Ends</option><option>Means</option><option>Character</option><option>Law / custom</option></select><div class="fb"></div></div>
+  </div>
+  <p class="noprint" style="margin:12px 0 0"><button class="small" onclick="checkQuiz()">Check my answers</button></p>
+</div>
+
+<div class="card">
+  <h2><span class="num">3</span>Words for "Right"</h2>
+  <p class="sub">Think about your family, your studies, or where you have worked — you don't need to speak for a whole country.</p>
+  <ol class="steps"><li><b>Alone (3 min):</b> fill in the first four boxes below.</li><li><b>Pairs (5 min):</b> explain your word to a classmate with a different first language.</li><li><b>Groups of 4 (5 min):</b> find one word with no neat English equivalent. What does English lose?</li></ol>
+  <div class="row2">
+    <div><label class="q" for="w1">My first language</label><input type="text" id="w1" data-q="First language"></div>
+    <div><label class="q" for="w2">Word for "ethics" or "a good person"</label><input type="text" id="w2" data-q="Word for ethics"></div>
+  </div>
+  <label class="q" for="w3">Literal meaning or root</label><textarea id="w3" data-q="Literal meaning"></textarea>
+  <label class="q" for="w4">A saying about honesty or fairness <small>(original + English translation)</small></label><textarea id="w4" data-q="Saying"></textarea>
+  <label class="q" for="w5">A classmate's word with no neat English equivalent — what does English lose?</label><textarea id="w5" data-q="Untranslatable word"></textarea>
+  <div class="hint"><b>English roots:</b> <em>ethics</em> ← Greek <em>ēthos</em> (character, custom) · <em>moral</em> ← Latin <em>mores</em> (customs). If ethics comes from "custom," is it just whatever my community does?</div>
+</div>
+
+<div class="card">
+  <h2><span class="num">4</span>Our Discussion Contract</h2>
+  <p class="sub">In your group, write two rules for respectful debate that begin "We challenge ideas, not people, by…". The class votes, and we keep the top five. Write the final five here.</p>
+  <div class="push"><b>Ideas to consider</b><ul><li>Restate the other person's view so they agree with it — then disagree.</li><li>Changing your mind for a good reason is a strength.</li><li>No one speaks for a whole country or culture.</li><li>Ask for evidence, not credentials.</li></ul></div>
+  <label class="q" for="n1">1</label><input type="text" id="n1" data-q="Norm 1">
+  <label class="q" for="n2">2</label><input type="text" id="n2" data-q="Norm 2">
+  <label class="q" for="n3">3</label><input type="text" id="n3" data-q="Norm 3">
+  <label class="q" for="n4">4</label><input type="text" id="n4" data-q="Norm 4">
+  <label class="q" for="n5">5</label><input type="text" id="n5" data-q="Norm 5">
+</div>
+
+<div class="card">
+  <h2><span class="num">5</span>Exit ticket</h2>
+  <label class="q" for="e1">Which scenario was hardest, and what one piece of information would help you decide?</label><textarea id="e1" data-q="Exit 1"></textarea>
+  <label class="q" for="e2">Complete: "Something can be legal but unethical when…"</label><textarea id="e2" data-q="Exit 2"></textarea>
+  <div class="hint"><b>Over the break:</b> if you could keep only three values at work, which three would they be?</div>
+</div>
+
+<div class="part">Class 2 · Integrity, Profit, and One Standard</div>
+
+<div class="card">
+  <h2><span class="num">6</span>My three values</h2>
+  <div class="row2" style="grid-template-columns:1fr 1fr 1fr">
+    <input type="text" data-q="Value 1" aria-label="Value 1" placeholder="1">
+    <input type="text" data-q="Value 2" aria-label="Value 2" placeholder="2">
+    <input type="text" data-q="Value 3" aria-label="Value 3" placeholder="3">
+  </div>
+</div>
+
+<div class="card">
+  <h2><span class="num">7</span>Diamond-9 ranking</h2>
+  <p class="sub">Place each value once. Most important at the top, least important at the bottom.</p>
+  <div class="vals"><span>Honesty</span><span>Integrity</span><span>Loyalty</span><span>Fairness</span><span>Respect for the law</span><span>Respect for others</span><span>Compassion</span><span>Courage</span><span>Success</span></div>
+  <ol class="steps"><li><b>Alone (3 min):</b> build your own diamond: 1 · 2 · 3 · 2 · 1.</li><li><b>Group (10 min):</b> agree on one diamond. You may move a card <b>only if you give a reason</b>.</li><li><b>Define (2 min):</b> write a one-line definition of <em>Loyalty</em> and <em>Fairness</em>.</li><li><b>Context switch (6 min):</b> re-rank as your group's role (below). Which cards move?</li></ol>
+  <div class="dlabel"><span>▲ most important</span></div>
+  <div class="diamond" id="diamond"></div>
+  <div class="dlabel"><span>▼ least important</span></div>
+  <div class="warnmsg" id="dwarn"></div>
+
+  <div class="rolec">
+    <div><b>Group 1 · CEO of a 500-person public company</b>Your shares are traded publicly. Investors, employees and the media watch every decision.</div>
+    <div><b>Group 2 · Owner of a small family business</b>Twelve employees, three of them your relatives. One bad year could close the business.</div>
+    <div><b>Group 3 · New manager working in another country</b>You arrived three months ago. You don't know the unwritten rules yet, and your team is watching you.</div>
+    <div><b>Group 4 · Government official who approves permits</b>Businesses need your signature to open. Some of them offer "thank-you gifts."</div>
+  </div>
+  <label class="q" for="ctx">Context switch: our group's role</label>
+  <select id="ctx" data-q="Context role"><option value="">Choose…</option><option>CEO of a 500-person public company</option><option>Owner of a small family business</option><option>New manager working in another country</option><option>Government official who approves permits</option></select>
+  <label class="q" for="moved">Which cards moved, and why?</label><textarea id="moved" data-q="Cards that moved"></textarea>
+  <div class="row2">
+    <div><label class="q" for="dl">Our definition of <em>Loyalty</em></label><textarea id="dl" data-q="Definition: Loyalty"></textarea></div>
+    <div><label class="q" for="df">Our definition of <em>Fairness</em></label><textarea id="df" data-q="Definition: Fairness"></textarea></div>
+  </div>
+  <label class="q" for="one">If your ranking changes with your role, do you have one ethical standard or several?</label><textarea id="one" data-q="One standard or several?"></textarea>
+</div>
+
+<div class="card">
+  <h2><span class="num">8</span>Chapter 1 jigsaw</h2>
+  <p class="sub"><b>Before and after reading:</b> "Being ethical makes a company more profitable in the long run."</p>
+  <div class="row2">
+    <fieldset data-q="Vote before reading" data-type="radio"><legend class="q">Before</legend><div class="choices"><label><input type="radio" name="vb" value="True">True</label><label><input type="radio" name="vb" value="False">False</label></div></fieldset>
+    <fieldset data-q="Vote after reading" data-type="radio"><legend class="q">After</legend><div class="choices"><label><input type="radio" name="va" value="True">True</label><label><input type="radio" name="va" value="False">False</label></div></fieldset>
+  </div>
+
+  <ol class="steps"><li>Your home group (4 people) gives each person one guide: A, B, C or D.</li><li><b>Expert group (12 min):</b> meet the people with the same letter. Read your section and complete your Expert Brief. Compare (3 min).</li><li><b>Home group (12 min):</b> teach your section in 2–3 minutes <b>from your brief — don't read aloud</b>. Take notes on the others.</li></ol>
+
+  <details class="inner"><summary>Guide A · 1.1 "Acting with Integrity"</summary>
+    <p><b>Read:</b> <a href="https://openstax.org/books/business-ethics/pages/1-1-being-a-professional-of-integrity" target="_blank" rel="noopener">Section 1.1</a> from the start to the end of "Acting with Integrity" (stop at "Ends, Means, and Character").</p>
+    <p><b>Before you read:</b> Is a company that obeys every law automatically ethical?</p>
+    <table class="gloss"><tr><td>incorruptible</td><td>cannot be persuaded to do wrong, for example with money</td></tr><tr><td>baseline</td><td>the minimum starting level</td></tr><tr><td>precedent</td><td>an earlier case used as a guide for later decisions</td></tr></table>
+    <p><b>Look for:</b> how the book defines <em>integrity</em>, and how it separates <em>legal</em> from <em>ethical</em>.</p>
+  </details>
+  <details class="inner"><summary>Guide B · 1.2 Profit and the long term</summary>
+    <p><b>Read:</b> <a href="https://openstax.org/books/business-ethics/pages/1-2-ethics-and-profitability" target="_blank" rel="noopener">Section 1.2</a> from the start to the end of the Warren Buffett box ("Competition and the Markers of Business Success").</p>
+    <p><b>Before you read:</b> In your field, is success measured in months or in years?</p>
+    <table class="gloss"><tr><td>shareholder wealth</td><td>the value owned by people who hold shares in a company</td></tr><tr><td>quarterly</td><td>every three months</td></tr><tr><td>reciprocal</td><td>given in return; working in both directions</td></tr><tr><td>disabuse (someone of)</td><td>persuade someone that a belief is wrong</td></tr></table>
+    <p><b>Look for:</b> Friedman's view, the "social contract," and why Toyota sold cars at a loss.</p>
+  </details>
+  <details class="inner"><summary>Guide C · 1.2 Stakeholders, goodwill, CSR</summary>
+    <p><b>Read:</b> <a href="https://openstax.org/books/business-ethics/pages/1-2-ethics-and-profitability" target="_blank" rel="noopener">Section 1.2</a> from "Stockholders, Stakeholders, and Goodwill" to the end. Read the Equifax box last and quickly — the whole class uses it later.</p>
+    <p><b>Before you read:</b> Who is affected when your company makes a decision? List five groups.</p>
+    <table class="gloss"><tr><td>intangible</td><td>cannot be touched or easily measured (e.g., reputation)</td></tr><tr><td>scrutiny</td><td>careful, critical examination</td></tr><tr><td>bottom line</td><td>final profit; also, the most important result</td></tr><tr><td>civic</td><td>connected to a community and its citizens</td></tr></table>
+    <p><b>Look for:</b> the difference between a <em>stockholder</em> and a <em>stakeholder</em>, and what <em>goodwill</em> includes.</p>
+  </details>
+  <details class="inner"><summary>Guide D · 1.3 One standard or many?</summary>
+    <p><b>Read:</b> <a href="https://openstax.org/books/business-ethics/pages/1-3-multiple-versus-single-ethical-standards" target="_blank" rel="noopener">Section 1.3</a> — the whole section, including the employee-discount box.</p>
+    <p><b>Before you read:</b> Do you behave the same way at work, at home and with strangers? Be honest.</p>
+    <table class="gloss"><tr><td>revere</td><td>respect very deeply</td></tr><tr><td>coherent</td><td>logical and consistent</td></tr><tr><td>hypocrisy</td><td>saying one thing and doing another</td></tr><tr><td>perk</td><td>an extra benefit you get from your job</td></tr></table>
+    <p><b>Look for:</b> the meaning of <em>ethical relativism</em> and the book's reasons for one standard.</p>
+  </details>
+
+  <label class="q" for="guide">My reading guide</label>
+  <select id="guide" data-q="My reading guide">
+    <option value="">Choose…</option>
+    <option>A · 1.1 Acting with Integrity</option>
+    <option>B · 1.2 Profit and the long term</option>
+    <option>C · 1.2 Stakeholders, goodwill, CSR</option>
+    <option>D · 1.3 One standard or many?</option>
+  </select>
+  <h3 style="color:var(--navy);margin:18px 0 0;font-size:17px">My Expert Brief</h3>
+  <label class="q" for="b1">The key idea in one sentence</label><textarea id="b1" data-q="Brief: key idea"></textarea>
+  <label class="q" for="b2">Two important terms, in my own words</label><textarea id="b2" data-q="Brief: two terms"></textarea>
+  <label class="q" for="b3">One example from the text</label><textarea id="b3" data-q="Brief: example"></textarea>
+  <label class="q" for="b4">One claim I would challenge, and why</label><textarea id="b4" data-q="Brief: challenge"></textarea>
+  <label class="q" for="b5">One question for my home group</label><textarea id="b5" data-q="Brief: question"></textarea>
+
+  <label class="q" style="margin-top:20px">Notes from my home group</label>
+  <table>
+    <tr><th style="width:20%">Section</th><th>Key idea</th><th>One term + meaning</th></tr>
+    <tr><td>A · Integrity</td><td><textarea data-q="Notes A: key idea"></textarea></td><td><textarea data-q="Notes A: term"></textarea></td></tr>
+    <tr><td>B · Long term</td><td><textarea data-q="Notes B: key idea"></textarea></td><td><textarea data-q="Notes B: term"></textarea></td></tr>
+    <tr><td>C · Stakeholders</td><td><textarea data-q="Notes C: key idea"></textarea></td><td><textarea data-q="Notes C: term"></textarea></td></tr>
+    <tr><td>D · One standard</td><td><textarea data-q="Notes D: key idea"></textarea></td><td><textarea data-q="Notes D: term"></textarea></td></tr>
+  </table>
+</div>
+
+<div class="card">
+  <h2><span class="num">9</span>Equifax crisis meeting</h2>
+  <p class="sub">It is early September 2017. You are Equifax's leadership. Nobody outside the company knows about the breach yet. You have 12 minutes.</p>
+  <div class="mat">
+    <span class="tag">The facts (from the textbook, section 1.2)</span>
+    <p>1. From mid-May to July 2017, hackers accessed Equifax servers and the personal information of nearly half the US population.</p>
+    <p>2. After learning of the hack in late July, executives sold nearly $2 million of their own company stock — weeks before any public announcement.</p>
+    <p>3. The company plans to offer free credit monitoring and identity-theft protection.</p>
+  </div>
+  <div class="push"><b>Your meeting must decide</b><ul><li>What do we announce, and when?</li><li>What do we offer the people affected? Is credit monitoring enough?</li><li>What do we do about the executives who sold stock early?</li></ul></div>
+  <details class="inner"><summary>Role cards — read yours only</summary>
+    <p style="font-size:14px;color:var(--muted);margin:6px 0">Each role must speak from its lens at least once. "Private concerns" are role-play pressures, not historical facts.</p>
+    <div class="rolec">
+      <div><b>CEO (chair)</b>Keep the company alive and protect your reputation. You run the meeting.<br><em>Lens: character</em> — "What kind of company do we want to be?"<br>Private concern: the board meets tomorrow, and you must explain every decision.</div>
+      <div><b>General Counsel</b>Limit legal risk. You know the rules on disclosure and insider trading.<br><em>Lens: means</em> — "What are we required to do, and what is right to do?"<br>Private concern: anything said here could one day be read aloud in court.</div>
+      <div><b>Head of Communications</b>Protect public trust. Control the story before the media does.<br><em>Lens: ends</em> — "What happens if we wait? If we speak now?"<br>Private concern: the longer we stay silent, the worse it will look.</div>
+      <div><b>Investor Relations</b>Protect stockholders. The share price will fall.<br><em>Lens: ends</em> — short term vs long term.<br>Private concern: big shareholders will ask why they heard the news from journalists.</div>
+      <div><b>Customer Advocate</b>Speak for the millions whose data was exposed. They never chose Equifax.<br><em>Lens: means</em> — "What do we owe these people?"<br>Private concern: is credit monitoring a real solution, or just PR?</div>
+      <div><b>Chief Ethics Officer</b>Decide what to do about the executives who sold stock early.<br><em>Lens: character and means</em> — "What message does this send to every employee?"<br>Private concern: employees are watching whether senior people follow the same rules.</div>
+    </div>
+  </details>
+  <div class="hint"><b>The Front-Page Test</b> (Warren Buffett, section 1.2): imagine an unfriendly but intelligent reporter reads another group's decisions. Write tomorrow's headline about them.</div>
+  <label class="q" for="role">My role</label>
+  <select id="role" data-q="Equifax role"><option value="">Choose…</option><option>CEO (chair)</option><option>General Counsel</option><option>Head of Communications</option><option>Investor Relations</option><option>Customer Advocate</option><option>Chief Ethics Officer</option></select>
+  <label class="q" for="q1">Decision 1 · What do we announce, and when?</label><textarea id="q1" data-q="Decision 1: announcement"></textarea>
+  <label class="q" for="q2">Decision 2 · What do we offer affected people?</label><textarea id="q2" data-q="Decision 2: offer"></textarea>
+  <label class="q" for="q3">Decision 3 · What do we do about the executives who sold stock early?</label><textarea id="q3" data-q="Decision 3: executives"></textarea>
+  <label class="q" for="hl">Front-Page Test · the headline we wrote about another group</label><input type="text" id="hl" data-q="Headline we wrote">
+  <label class="q" for="after">After hearing what happened next: does it strengthen or weaken the idea that "ethics pays"?</label><textarea id="after" data-q="Ethics pays? (after reveal)"></textarea>
+</div>
+
+<div class="card">
+  <h2><span class="num">10</span>Position Change Log</h2>
+  <p class="sub">Tonight I changed / refined / held my view on ___ because ___.</p>
+  <fieldset data-q="Position" data-type="radio"><div class="choices"><label><input type="radio" name="pc" value="Changed">Changed</label><label><input type="radio" name="pc" value="Refined">Refined</label><label><input type="radio" name="pc" value="Held">Held</label></div></fieldset>
+  <label class="q" for="pc1">My view on…</label><input type="text" id="pc1" data-q="Position: topic">
+  <label class="q" for="pc2">Because…</label><textarea id="pc2" data-q="Position: because"></textarea>
+</div>
+
+<div class="part">Homework</div>
+
+<div class="card">
+  <h2><span class="num">11</span>Ethics Journal #1</h2>
+  <p class="sub">150–200 words. Describe a grey area from your work or studies (change names and details). Was it legal? Which lens did you or others use? Would you decide the same way today?</p>
+  <details class="inner"><summary>See a model journal entry</summary>
+    <p style="font-family:'Libre Baskerville',serif;font-size:15px;line-height:1.7">In my previous job as a purchasing manager, a supplier offered to pay for my team's year-end dinner. It was legal, and in that industry it was common. However, I hesitated. From a consequences perspective, the dinner was harmless: my team was happy and the cost was small. From a duty perspective, though, I had a responsibility to choose suppliers fairly, and accepting the dinner could create an obligation, or at least the appearance of one. I asked myself what an unfriendly reporter would write. In the end, I declined politely and our company paid for the dinner. Today I would make the same decision, but I would also suggest a clear written gift policy, so the next manager would not have to decide alone.</p>
+  </details>
+  <textarea id="journal" data-q="Ethics Journal #1" style="min-height:240px"></textarea>
+  <div class="wc" id="wc">0 words</div>
+  <label class="q">Before you submit, check:</label>
+  <label class="check"><input type="checkbox" data-q="Check: real situation">I describe a real, specific situation.</label>
+  <label class="check"><input type="checkbox" data-q="Check: legal vs ethical">I separate what is legal from what is ethical.</label>
+  <label class="check"><input type="checkbox" data-q="Check: lens">I use at least one lens (ends, means, character).</label>
+  <label class="check"><input type="checkbox" data-q="Check: position">I give a clear position with a reason.</label>
+  <label class="check"><input type="checkbox" data-q="Check: vocabulary">I use this week's vocabulary.</label>
+  <label class="q" for="say2">For Week 2: a saying from your language about honesty, fairness or duty <small>(+ translation)</small></label><textarea id="say2" data-q="Week 2 saying"></textarea>
+  <p class="hint">Read all of <a href="https://openstax.org/books/business-ethics/pages/1-introduction" target="_blank" rel="noopener">Chapter 1</a>, especially the sections outside your reading guide.</p>
+</div>
+
+<details>
+  <summary>Language bank — useful phrases</summary>
+  <p><b>Clarify:</b></p><div class="phr"><span>So, if I understand you correctly…</span><span>Are you distinguishing between X and Y?</span></div>
+  <p><b>Disagree respectfully:</b></p><div class="phr"><span>The strongest argument for your view is… but…</span><span>I agree to some extent; however…</span><span>One concern I have is…</span><span>What evidence supports that?</span></div>
+  <p><b>Use a lens:</b></p><div class="phr"><span>From a consequences perspective…</span><span>A deontologist would object that…</span><span>What does this say about her character?</span></div>
+  <p><b>Conditions and changes:</b></p><div class="phr"><span>It depends on whether…</span><span>If we prioritize ___, then…</span><span>I'm revising my position because…</span><span>That's legally defensible, but is it ethically defensible?</span></div>
+  <p><b>Key words:</b></p>
+  <table class="gloss">
+    <tr><td>integrity</td><td>your words and actions match</td></tr>
+    <tr><td>stakeholder</td><td>anyone affected by a business decision</td></tr>
+    <tr><td>stockholder / shareholder</td><td>someone who owns shares in a company</td></tr>
+    <tr><td>compliance</td><td>following the law (comply <i>with</i>)</td></tr>
+    <tr><td>utilitarianism</td><td>judge by results: the most good for the most people</td></tr>
+    <tr><td>deontology</td><td>judge by duties and rules</td></tr>
+    <tr><td>virtue ethics</td><td>judge by character</td></tr>
+    <tr><td>ethical relativism</td><td>"right and wrong depend only on the situation"</td></tr>
+    <tr><td>social contract</td><td>the unwritten deal between business and society</td></tr>
+    <tr><td>goodwill</td><td>the trust and good feeling people have toward a company</td></tr>
+    <tr><td>CSR</td><td>corporate social responsibility: doing more than the law requires</td></tr>
+  </table>
+  <p style="font-size:14.5px;color:var(--muted)">Pronunciation: in-TEG-ri-ty · dee-on-TOL-o-jee · u-ti-li-TAR-i-an-ism · ETH-i-cal</p>
+</details>
+
+</main>
+<footer>Textbook: Byars &amp; Stanberry, <em>Business Ethics</em>, OpenStax (CC BY-NC-SA 4.0). Access for free at https://openstax.org/books/business-ethics/pages/1-introduction</footer>
+
+<script>
+const KEY='ethics-week1-worksheet-v1';
+const VALUES=['Honesty','Integrity','Loyalty','Fairness','Respect for the law','Respect for others','Compassion','Courage','Success'];
+
+/* Build diamond */
+(function(){
+  const rows=[1,2,3,2,1];let n=0;const d=document.getElementById('diamond');
+  rows.forEach((c,ri)=>{const r=document.createElement('div');r.className='r';
+    for(let i=0;i<c;i++){n++;const s=document.createElement('select');s.dataset.q='Diamond position '+n+' (row '+(ri+1)+')';s.setAttribute('aria-label','Diamond row '+(ri+1)+', place '+(i+1));if(ri===0)s.className='top';
+      s.innerHTML='<option value="">—</option>'+VALUES.map(v=>'<option>'+v+'</option>').join('');r.appendChild(s);}
+    d.appendChild(r);});
+})();
+function checkDiamond(){
+  const vals=[...document.querySelectorAll('#diamond select')].map(s=>s.value).filter(Boolean);
+  const dup=vals.filter((v,i)=>vals.indexOf(v)!==i);
+  document.getElementById('dwarn').textContent=dup.length?('Used twice: '+[...new Set(dup)].join(', ')):'';
+}
+
+/* Fields */
+const fields=()=>[...document.querySelectorAll('[data-q]')];
+function fieldKey(el,i){return el.id||('f'+i);}
+function getVal(el){
+  if(el.dataset.type==='radio'){const c=el.querySelector('input:checked');return c?c.value:'';}
+  if(el.type==='checkbox')return el.checked?'yes':'';
+  return el.value;
+}
+function setVal(el,v){
+  if(el.dataset.type==='radio'){el.querySelectorAll('input').forEach(r=>r.checked=(r.value===v));return;}
+  if(el.type==='checkbox'){el.checked=v==='yes';return;}
+  el.value=v||'';
+}
+function save(){
+  const data={};fields().forEach((el,i)=>data[fieldKey(el,i)]=getVal(el));
+  try{localStorage.setItem(KEY,JSON.stringify(data));setStatus('Saved on this device · '+new Date().toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'}));}
+  catch(e){setStatus('Auto-save is not available here — use Download to keep your work.');}
+}
+function load(){
+  let data=null;try{data=JSON.parse(localStorage.getItem(KEY)||'null');}catch(e){}
+  if(!data)return;fields().forEach((el,i)=>{const k=fieldKey(el,i);if(k in data)setVal(el,data[k]);});
+}
+function setStatus(t){document.getElementById('status').textContent=t;}
+let t;document.addEventListener('input',()=>{clearTimeout(t);t=setTimeout(save,400);checkDiamond();wordCount();});
+document.addEventListener('change',()=>{save();checkDiamond();});
+
+function clearAll(){
+  if(!confirm('Clear all your answers on this device? This cannot be undone.'))return;
+  fields().forEach(el=>setVal(el,''));try{localStorage.removeItem(KEY);}catch(e){}
+  document.querySelectorAll('.fb').forEach(f=>{f.textContent='';f.className='fb';});
+  checkDiamond();wordCount();setStatus('Cleared.');
+}
+
+/* Quiz */
+function checkQuiz(){
+  document.querySelectorAll('#quiz .item').forEach(it=>{
+    const s=it.querySelector('select'),fb=it.querySelector('.fb');
+    if(!s.value){fb.className='fb no';fb.textContent='Choose an answer first.';return;}
+    const ok=s.value===s.dataset.ans;fb.className='fb '+(ok?'ok':'no');
+    fb.textContent=ok?'✓ Correct.':'✗ Not quite — think about what the speaker is focusing on.';
+    if(ok&&s.dataset.ans==='Law / custom')fb.textContent='✓ Correct. The book says the law is only the minimum.';
+    if(ok&&s.dataset.ans==='Character')fb.textContent='✓ Correct — this is practical wisdom (phronesis).';
+  });
+}
+
+/* Word count */
+function wordCount(){
+  const v=document.getElementById('journal').value.trim();const n=v?v.split(/\s+/).length:0;
+  const el=document.getElementById('wc');el.textContent=n+' words'+(n<150?' · aim for 150–200':n>200?' · a little long (150–200)':' · good length');
+  el.className='wc'+(n>=150&&n<=200?' good':'');
+}
+
+/* Print mirrors for text fields */
+window.addEventListener('beforeprint',()=>{
+  document.querySelectorAll('details').forEach(d=>d.open=true);
+  document.querySelectorAll('textarea,input[type=text]').forEach(el=>{
+    let pv=el.nextElementSibling;if(!pv||!pv.classList||!pv.classList.contains('pv')){pv=document.createElement('div');pv.className='pv';el.after(pv);}
+    pv.textContent=el.value;
+  });
+});
+
+/* Download */
+function esc(s){return String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));}
+function downloadAnswers(){
+  const name=document.getElementById('name').value.trim()||'student';
+  let rows='';fields().forEach(el=>{const v=getVal(el);rows+='<tr><th>'+esc(el.dataset.q)+'</th><td>'+(v?esc(v).replace(/\n/g,'<br>'):'<span style="color:#999">—</span>')+'</td></tr>';});
+  const html='<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Week 1 answers · '+esc(name)+'</title><style>body{font-family:system-ui,sans-serif;max-width:820px;margin:24px auto;padding:0 16px;color:#1a2233}h1{color:#143865;font-family:Georgia,serif;border-bottom:3px solid #d39f10;padding-bottom:8px}table{border-collapse:collapse;width:100%}th,td{border:1px solid #c1cddd;padding:7px 9px;text-align:left;vertical-align:top}th{background:#edf2f9;color:#143865;width:34%}</style></head><body><h1>Ethics in a Global World · Week 1 Worksheet</h1><p><b>'+esc(name)+'</b> · downloaded '+new Date().toLocaleString()+'</p><table>'+rows+'</table></body></html>';
+  const blob=new Blob([html],{type:'text/html'});const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);a.download='Week1-Ethics-'+name.replace(/[^\w-]+/g,'_')+'.html';
+  document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},500);
+}
+
+load();checkDiamond();wordCount();
+</script>
+</body>
+</html>
