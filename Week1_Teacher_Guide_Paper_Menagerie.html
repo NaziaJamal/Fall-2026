@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Week 1 Teacher Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#143865; --blue:#1c4f8f; --gold-dk:#8c7535; --gold:#d39f10;
+    --sky-dk:#c1cddd; --sky-md:#e1e8f2; --sky-lt:#edf2f9; --warm:#efe9d9;
+    --ink:#1b2430; --muted:#55606e; --alert:#8a2d2d;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--sky-lt);font-family:"Source Sans 3",Arial,sans-serif;color:var(--ink);font-size:16px;line-height:1.55}
+  .page{max-width:1000px;margin:0 auto;background:#fff;box-shadow:0 4px 30px rgba(20,56,101,.12);padding-bottom:40px}
+  header.mast{background:var(--navy);color:#fff;padding:26px 40px 22px;border-bottom:6px solid var(--gold)}
+  .brand{display:flex;flex-direction:column;line-height:1.05;margin-bottom:12px}
+  .brand b{font-family:"Libre Baskerville",Georgia,serif;letter-spacing:.14em;color:var(--gold);font-size:1.25rem}
+  .brand span{font-family:"Libre Baskerville",Georgia,serif;font-size:.75rem;color:var(--warm)}
+  header h1{font-family:"Libre Baskerville",Georgia,serif;margin:.1em 0 .2em;font-size:1.9rem}
+  header .sub{color:var(--sky-dk)}
+  .wrap{padding:0 40px}
+  nav.toc{background:var(--warm);border-radius:8px;padding:12px 18px;margin:22px 0;font-size:.95rem}
+  nav.toc b{color:var(--navy)}
+  nav.toc a{color:var(--blue);text-decoration:none;margin-right:14px;white-space:nowrap;font-weight:600}
+  h2{font-family:"Libre Baskerville",Georgia,serif;color:var(--navy);font-size:1.35rem;border-bottom:2px solid var(--navy);padding-bottom:6px;margin:36px 0 12px}
+  h3{color:var(--navy);margin:20px 0 6px;font-size:1.08rem}
+  table{width:100%;border-collapse:collapse;margin:8px 0 14px;font-size:.94rem}
+  th,td{border:1px solid var(--sky-dk);padding:7px 9px;vertical-align:top;text-align:left}
+  th{background:var(--navy);color:#fff;font-weight:600}
+  tr.stage-E td:first-child, tr.stage-S td:first-child, tr.stage-A td:first-child{font-weight:700}
+  .E{background:#fff6dc} .S{background:var(--sky-lt)} .A{background:#e6efe7}
+  .pill{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border-radius:999px;padding:2px 9px;margin:2px 0}
+  .pE{background:var(--gold);color:var(--navy)} .pS{background:var(--blue);color:#fff} .pA{background:#2f6b45;color:#fff} .pX{background:var(--sky-dk);color:var(--navy)}
+  .box{background:var(--sky-lt);border-left:5px solid var(--blue);border-radius:6px;padding:12px 16px;margin:12px 0}
+  .box.gold{background:var(--warm);border-left-color:var(--gold)}
+  .box.alert{background:#f7eaea;border-left-color:var(--alert)}
+  .box h3{margin-top:0}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .kv td:first-child{width:30%;font-weight:600;color:var(--navy);background:var(--sky-lt)}
+  ul,ol{margin:.3em 0 .6em}
+  li{margin-bottom:4px}
+  a{color:var(--blue)}
+  .btn{border:none;border-radius:8px;padding:9px 16px;font:700 .95rem "Source Sans 3",sans-serif;cursor:pointer;background:var(--gold);color:var(--navy)}
+  .src{font-size:.85rem;color:var(--muted)}
+  .legend{display:flex;gap:10px;flex-wrap:wrap;font-size:.85rem;margin:6px 0 4px}
+  @media (max-width:700px){ .wrap,header.mast{padding-left:16px;padding-right:16px} .grid2{grid-template-columns:1fr} table{font-size:.85rem} }
+  @media print{
+    @page{margin:13mm}
+    body{background:#fff;font-size:10.5pt}
+    .page{box-shadow:none;max-width:none}
+    .btn,nav.toc{display:none}
+    header.mast,th,.E,.S,.A,.pill,.box{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    h2{page-break-after:avoid}
+    tr{page-break-inside:avoid}
+  }
+.logo{width:72px;height:72px;border-radius:8px;display:block;margin-bottom:10px}
+</style>
+</head>
+<body>
+<div class="page">
+<header class="mast">
+  <img src="data:image/png;base64,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" alt="Approach International Student Center" class="logo">
+  <div class="sub">Reading &amp; Critical Thinking — Proficient Level: American Short Fiction · Teacher’s Guide</div>
+  <h1>Week 1: “The Paper Menagerie” by Ken Liu</h1>
+  <div class="sub">Theme I · The American Self &nbsp;|&nbsp; Literary Lens: Motif &nbsp;|&nbsp; Author’s Style: Figurative Language &nbsp;|&nbsp; 2 × 100-minute classes</div>
+</header>
+
+<div class="wrap">
+  <p style="margin-top:18px"><button class="btn" onclick="window.print()">Print / Save as PDF</button></p>
+  <nav class="toc"><b>Contents:</b>
+    <a href="#glance">At a glance</a><a href="#content">Content note</a><a href="#objectives">Objectives</a>
+    <a href="#prep">Prep &amp; links</a><a href="#background">Background</a><a href="#classA">Class A</a>
+    <a href="#classB">Class B</a><a href="#key">Answer key</a><a href="#seminar">Seminar rubric</a>
+    <a href="#diff">Differentiation</a><a href="#hw">Homework</a>
+  </nav>
+
+  <h2 id="glance">1. The story at a glance</h2>
+  <table class="kv">
+    <tr><td>Story</td><td>“The Paper Menagerie,” Ken Liu</td></tr>
+    <tr><td>First published</td><td><i>The Magazine of Fantasy &amp; Science Fiction</i>, March/April 2011. Collected in <i>The Paper Menagerie and Other Stories</i> (Saga Press, 2016).</td></tr>
+    <tr><td>Recognition</td><td>First work of fiction to win the Nebula, Hugo, and World Fantasy Awards.</td></tr>
+    <tr><td>Free legal text</td><td><a href="https://gizmodo.com/read-ken-lius-amazing-story-that-swept-the-hugo-nebula-5958919" target="_blank" rel="noopener">io9/Gizmodo authorized reprint (2012)</a></td></tr>
+    <tr><td>Length / reading time</td><td>About 5,000 words (estimate). B2 readers: about 45–55 minutes in total. Reading 1 (§1–§7) ≈ 25 min; Reading 2 (§8–§13) ≈ 20 min.</td></tr>
+    <tr><td>Difficulty for B2–B2+</td><td><b>Moderate.</b> Language: clear, modern, mostly concrete. Culture: a few Chinese words and historical references (glossed below).</td></tr>
+    <tr><td>Plot in brief</td><td>Jack’s mother, a Chinese woman his American father chose from a marriage catalog, folds paper animals and breathes life into them. After racist bullying, Jack rejects her language, food, and love, and hides the animals in the attic. After her death, on Qingming, the paper tiger unfolds into a letter in Chinese telling her life story — which Jack must ask a stranger to read to him.</td></tr>
+    <tr><td>Why it opens the course</td><td>It asks the course’s first question directly: <i>Who is the “American” — and who is excluded?</i> The paper animals give students a clear, trackable motif, and Liu’s style uses simile, metaphor, and personification in a way B2 students can identify and evaluate.</td></tr>
+  </table>
+  <div class="box gold">
+    <h3>Section numbers (§)</h3>
+    <p>The online text is divided by <b>#</b> marks into <b>13 sections</b>. Students number them §1–§13 and use them as evidence references (the syllabus requires paragraph or page references).</p>
+    <p>§1 tiger is born · §2 the catalog · §3 the menagerie’s adventures · §4 new neighbors · §5 Mark · §6 the dinner · §7 the attic · §8 the hospital · §9 the shoebox · §10 Qingming · §11 the tour buses · §12 the letter · §13 ending</p>
+  </div>
+
+  <h2 id="content">2. Content note (please read before class)</h2>
+  <div class="box alert">
+    <p>This is serious adult literature. Preview §4–§6 and §12 before teaching.</p>
+    <ul>
+      <li><b>Racism:</b> neighbor women describe the child in racist terms (§4); a classmate insults Jack’s mother’s culture (§5); Jack repeats an anti-Chinese slur at dinner (§6).</li>
+      <li><b>Mom’s letter (§12)</b> refers to famine, the death of her parents (her mother takes her own life), child trafficking, forced domestic labor, physical beatings, and the threat of sexual abuse.</li>
+      <li><b>Illness and death:</b> Mom dies of cancer (§8).</li>
+    </ul>
+    <p><b>Suggested approach:</b> Tell students before Reading 2 that the letter describes painful historical events. Read the letter aloud yourself, calmly. Keep discussion on the <i>story’s</i> meaning; never require students to share personal experiences of racism, migration, or loss. The “pass” option is always available.</p>
+  </div>
+
+  <h2 id="objectives">3. Learning objectives</h2>
+  <p>By the end of Week 1, students will be able to:</p>
+  <ol>
+    <li>Read and understand a complete, authentic contemporary American short story (SLO 23).</li>
+    <li>Define <b>motif</b> and trace how a motif’s meaning changes across a story (SLO 24).</li>
+    <li>Identify <b>simile, metaphor, and personification</b> and explain their effect, not only their meaning (SLOs 24, 25, 30).</li>
+    <li>Use 12 story words and 3 literary terms accurately, with correct word stress.</li>
+    <li>Make inferences and support them with Claim–Evidence–Reasoning (SLO 32).</li>
+    <li>Analyze competing perspectives and identify assumptions and bias in characters (SLO 32).</li>
+    <li>Contribute to a seminar discussion by building on classmates’ ideas with textual evidence (SLO 27).</li>
+  </ol>
+
+  <h2 id="prep">4. Preparation, materials, and links</h2>
+  <div class="grid2">
+    <div>
+      <h3>Before class</h3>
+      <ul>
+        <li>Print the story with §1–§13 marked, one copy per student (or share the link). <b>Optional:</b> if you can email the link before Week 1, students can read in advance and you can use the reading time for close reading.</li>
+        <li>Print the student worksheet, or share the HTML file for students to complete on laptops.</li>
+        <li>Test the vocabulary slides on the classroom computer: click “Hear it” to check the speakers.</li>
+        <li>Prepare five character cards for Part 9: Mom · Jack (teen) · Dad · Mark &amp; the neighbor women · Jack (adult).</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Links</h3>
+      <ul>
+        <li><a href="https://gizmodo.com/read-ken-lius-amazing-story-that-swept-the-hugo-nebula-5958919" target="_blank" rel="noopener">Full text of the story (io9/Gizmodo)</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/The_Paper_Menagerie" target="_blank" rel="noopener">About the story and its awards</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/Ken_Liu" target="_blank" rel="noopener">About Ken Liu</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/Qingming_Festival" target="_blank" rel="noopener">Qingming Festival</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/Great_Chinese_Famine" target="_blank" rel="noopener">The Great Chinese Famine</a> · <a href="https://en.wikipedia.org/wiki/Cultural_Revolution" target="_blank" rel="noopener">The Cultural Revolution</a></li>
+        <li><a href="https://dictionary.cambridge.org/" target="_blank" rel="noopener">Cambridge Dictionary</a> · <a href="https://youglish.com/" target="_blank" rel="noopener">YouGlish</a> (pronunciation)</li>
+      </ul>
+    </div>
+  </div>
+  <p><b>Files for this week:</b> Student Worksheet (HTML, fillable and printable) · Vocabulary Cards (HTML slides with audio) · this Teacher’s Guide.</p>
+
+  <h2 id="background">5. Background notes for the teacher</h2>
+  <table>
+    <tr><th style="width:26%">Item</th><th>What students need to know</th></tr>
+    <tr><td>Chinese words in the story</td><td><i>kan</i> = look · <i>laohu</i> = tiger · <i>xiao laohu</i> = little tiger · <i>zhezhi</i> = paper folding (origami) · <i>Xuexiao hao ma?</i> = How was school? · <i>Bu haochi?</i> = Is it not tasty? · <i>Fashao la?</i> = Do you have a fever? · <i>Haizi, mama ai ni</i> = Child, Mama loves you · <i>ai</i> = love</td></tr>
+    <tr><td>Qingming</td><td>A Chinese festival in early April when families honor their dead ancestors. Mom’s letter can only come to life on this day.</td></tr>
+    <tr><td>The marriage catalog (§2)</td><td>In the 1970s, some “introduction services” sold catalogs of foreign women to American men seeking wives. The catalog lied about Mom’s age, interests, and English.</td></tr>
+    <tr><td>China, 1957–1970s (§12)</td><td>The Great Famine (1959–61) and the Cultural Revolution (1966–76) caused mass suffering. Mom’s family is persecuted because a relative lives in Hong Kong, then a British colony.</td></tr>
+    <tr><td>Setting</td><td>Suburban Connecticut, 1970s–1990s. Jack is born in a Year of the Tiger, which is why his first paper animal is a tiger.</td></tr>
+    <tr><td>Genre</td><td>Magical realism: one magical element (the living paper animals) inside an otherwise realistic story. Useful for the Part 7 debate.</td></tr>
+  </table>
+
+  <h2 id="classA">6. Class A (100 minutes): Comprehension, vocabulary, motif</h2>
+  <div class="legend"><span class="pill pE">Engage</span><span class="pill pS">Study</span><span class="pill pA">Activate</span><span class="pill pX">Logistics</span></div>
+  <p><b>Objectives:</b> understand §1–§7 · use 7 story words with correct stress · define motif and trace it through Reading 1.</p>
+  <table>
+    <tr><th style="width:9%">Time</th><th style="width:15%">Stage / grouping</th><th style="width:30%">Teacher does</th><th style="width:27%">Students do</th><th>Output</th></tr>
+    <tr class="X"><td>0–10</td><td><span class="pill pX">Launch</span><br>Whole class</td><td>Welcome. Present the course’s big question (top of worksheet). Explain the two key expectations: analytical Reading Journal entries and seminar participation graded on quality.</td><td>Read the big question box. Write one first idea in the margin.</td><td>First response to the big question</td></tr>
+    <tr class="E"><td>10–22</td><td><span class="pill pE">Engage</span><br>Pairs → class</td><td>Assign Part 1. Monitor; note interesting answers. Take 3 short shares; write predictions about the title on the board.</td><td>Discuss Part 1 questions 1–4; take notes.</td><td>Part 1 notes; class predictions</td></tr>
+    <tr class="S"><td>22–40</td><td><span class="pill pS">Study</span><br>Whole class → individual</td><td>Open <b>Vocabulary Cards</b>, words 1–7, in Guess-first mode. For each word: show the story context, elicit a guess, reveal, play audio, drill stress chorally. Then set Part 2A and 2B; check with the self-check buttons or orally.</td><td>Guess meanings from context; repeat words with correct stress; complete 2A and 2B.</td><td>2A, 2B completed</td></tr>
+    <tr class="X"><td>40–43</td><td><span class="pill pX">Set-up</span></td><td>Students number §1–§13. Give reading symbols: <b>?</b> = confusing · <b>!</b> = surprising · <b>★</b> = important.</td><td>Number sections; prepare to annotate.</td><td>Marked text</td></tr>
+    <tr class="S"><td>43–68</td><td><span class="pill pS">Study</span><br>Teacher → individual</td><td>Read §1 aloud to model pace and tone (≈3 min). Students read §2–§7 silently. Circulate; answer vocabulary questions quietly.</td><td>Read and annotate §2–§7. Fast finishers begin Part 3 short answers.</td><td>Annotated Reading 1</td></tr>
+    <tr class="A"><td>68–78</td><td><span class="pill pA">Activate</span><br>Individual → pairs</td><td>Set Part 3. After pairs compare, discuss only the items they disagree on, asking “Which section proves it?”</td><td>Complete T/F/NG with § evidence; compare; answer short questions.</td><td>Part 3 with evidence</td></tr>
+    <tr class="S"><td>78–83</td><td><span class="pill pS">Study</span><br>Whole class</td><td>Mini-lesson on <b>motif</b> (card 13 + worksheet box). Walk through the model row: <i>where it appears → what happens → what it means now</i>.</td><td>Listen; ask questions.</td><td>Understanding of motif</td></tr>
+    <tr class="A"><td>83–98</td><td><span class="pill pA">Activate</span><br>Pairs → class</td><td>Pairs complete the motif tracker for §3, §5, §7. Two pairs present one row each. Close with the Part 4 discussion question; push for change across time.</td><td>Complete 3 rows; discuss how the motif changes from §1 to §7.</td><td>Motif tracker (3 rows)</td></tr>
+    <tr class="X"><td>98–100</td><td>Wrap-up</td><td>Exit question: “One word for how Jack feels at the end of §7 — and one word for how his mother feels.”</td><td>Say or write two words.</td><td>Quick check of inference</td></tr>
+  </table>
+
+  <h2 id="classB">7. Class B (100 minutes): Interpretation, style, argument, seminar</h2>
+  <p><b>Objectives:</b> understand §8–§13 · identify and evaluate figurative language · build an inference with CER · analyze perspectives · take part in an evidence-based seminar.</p>
+  <table>
+    <tr><th style="width:9%">Time</th><th style="width:15%">Stage / grouping</th><th style="width:30%">Teacher does</th><th style="width:27%">Students do</th><th>Output</th></tr>
+    <tr class="E"><td>0–8</td><td><span class="pill pE">Engage</span><br>Individual → pairs</td><td>Show Mom’s quotation (Part 5). Give 4 minutes of silent quick-writing, then pair sharing. Invite 2–3 students to share a word from their first language.</td><td>Quick-write; share a word that feels stronger than its English translation.</td><td>Part 5 notes</td></tr>
+    <tr class="S"><td>8–14</td><td><span class="pill pS">Study</span><br>Whole class</td><td>Vocabulary Cards 8–12 (Reading 2 words), quickly: context, audio, stress. Assign Part 2C as homework or for early finishers.</td><td>Predict meanings; repeat with correct stress.</td><td>5 new words</td></tr>
+    <tr class="X"><td>14–16</td><td>Content note</td><td>Tell students that Mom’s letter describes painful historical events, including violence and the deaths of her parents.</td><td>—</td><td>—</td></tr>
+    <tr class="S"><td>16–38</td><td><span class="pill pS">Study</span><br>Individual → teacher</td><td>Students read §8–§11 silently (≈10 min). <b>You read the letter (§12) aloud</b> while they follow (≈8 min). Students read §13. Allow one minute of silence before speaking.</td><td>Read; annotate with ? ! ★.</td><td>Annotated Reading 2</td></tr>
+    <tr class="A"><td>38–46</td><td><span class="pill pA">Activate</span><br>Pairs</td><td>Set Part 6 and the last motif-tracker row (Part 4). Check Q4 (irony) together.</td><td>Answer comprehension questions; complete the Qingming row.</td><td>Part 6; motif tracker complete</td></tr>
+    <tr class="S"><td>46–50</td><td><span class="pill pS">Study</span><br>Whole class</td><td>Mini-lesson on simile, metaphor, and personification (cards 14–15 + worksheet box). Model the analysis formula with one example.</td><td>Note the formula.</td><td>—</td></tr>
+    <tr class="A"><td>50–58</td><td><span class="pill pA">Activate</span><br>Pairs</td><td>Set Part 7. Insist on <i>effect</i>, not only <i>tool</i>. Finish with the “Think deeper” question: personification or real magic?</td><td>Find, label, and analyze 5 passages.</td><td>Part 7 table</td></tr>
+    <tr class="A"><td>58–68</td><td><span class="pill pA">Activate</span><br>Pairs</td><td>Set Part 8 (CER). Ask one pair per question to read their claim and reasoning; others challenge with a counter-view.</td><td>Build a CER argument with two pieces of evidence.</td><td>Part 8 CER</td></tr>
+    <tr class="A"><td>68–80</td><td><span class="pill pA">Activate</span><br>Groups of 3–4</td><td>Hand out character cards. Groups complete the perspective table (8 min). Students rank individually, then agree on a group #1 (4 min).</td><td>Analyze one perspective; rank responsibility.</td><td>Perspective table; ranking</td></tr>
+    <tr class="A"><td>80–97</td><td><span class="pill pA">Activate</span><br>Groups → whole class</td><td>Each group gives a 1-minute report (5 min). Then run a <b>fishbowl seminar</b> (12 min): 6–8 students in the inner circle discuss Part 10 questions; the outer circle notes evidence use and good “building” moves; swap after 6 minutes. You speak only to redirect or ask for evidence.</td><td>Discuss with evidence and discussion moves; outer circle observes and gives feedback.</td><td>Seminar contributions; observer notes</td></tr>
+    <tr class="X"><td>97–100</td><td>Close</td><td>Assign the Reading Journal (Part 11) and 2C if needed. Students complete the last box of Part 10.</td><td>Write one idea that changed their thinking.</td><td>Exit reflection</td></tr>
+  </table>
+
+  <h2 id="key">8. Answer key and model answers</h2>
+  <div class="grid2">
+    <div>
+      <h3>2A Matching</h3>
+      <p>a timidly · b contempt · c pounce · d exaggerated · e menagerie · f fit in · g crumple</p>
+      <h3>2B Word stress</h3>
+      <p>me-<b>NAG</b>-er-ie · con-<b>TEMPT</b> · <b>TIM</b>-id-ly · ex-<b>AG</b>-ger-at-ed · un-<b>FURL</b> · in-ter-<b>TWINE</b> · mo-<b>TIF</b> · per-son-i-fi-<b>CA</b>-tion</p>
+    </div>
+    <div>
+      <h3>2C Gap-fill</h3>
+      <p>1 menagerie · 2 pounced · 3 contempt · 4 crumpled · 5 timidly · 6 fit in · 7 exaggerated · 8 awkwardly · 9 brittle · 10 unfurled · 11 intertwined · 12 cradled</p>
+    </div>
+  </div>
+
+  <h3>Part 3: True / False / Not Given</h3>
+  <table>
+    <tr><th style="width:6%">#</th><th style="width:8%">Ans.</th><th style="width:8%">§</th><th>Explanation</th></tr>
+    <tr><td>1</td><td>T</td><td>§1</td><td>She saved the wrapping paper from Christmas gifts on top of the fridge.</td></tr>
+    <tr><td>2</td><td>F</td><td>§2</td><td>The catalog was wrong about her age, her interests, and her English.</td></tr>
+    <tr><td>3</td><td>T</td><td>§2</td><td>Jack was born a year after Dad met Mom, in the Year of the Tiger.</td></tr>
+    <tr><td>4</td><td>F</td><td>§3</td><td>The paper shark became soggy and sank; Mom made a new one from tin foil.</td></tr>
+    <tr><td>5</td><td>F</td><td>§4</td><td>They were not trying to be quiet.</td></tr>
+    <tr><td>6</td><td>NG</td><td>§5</td><td>We only learn that it was expensive and hard to find.</td></tr>
+    <tr><td>7</td><td>F</td><td>§5</td><td>Jack tried and failed. (§10 reveals that Mom repaired Laohu herself.)</td></tr>
+    <tr><td>8</td><td>T</td><td>§6</td><td>Dad tells Mom to speak English so Jack can fit in.</td></tr>
+    <tr><td>9</td><td>T</td><td>§7</td><td>He tapes the shoebox shut and pushes it into a corner of the attic.</td></tr>
+    <tr><td>10</td><td>F</td><td>§7</td><td>She stopped when he was in high school.</td></tr>
+  </table>
+  <p><b>Short answers:</b> (1) <i>Zhezhi</i> is Chinese paper folding; Mom breathes into her animals so they share her breath and live. (2) Mark calls Laohu trash; Jack suddenly sees the tiger, and his mother’s culture, through an outsider’s eyes as cheap and worthless. (3) Any three: Chinese language, Chinese food, homemade paper toys (he asks for store-bought toys), his mother’s affection, his own Chinese appearance.</p>
+
+  <h3>Part 4: Motif tracker (model answers)</h3>
+  <table>
+    <tr><th style="width:20%">Moment</th><th style="width:38%">What happens</th><th>Possible meaning</th></tr>
+    <tr><td>§3 shark &amp; buffalo</td><td>Animals get damaged; Mom repairs them or makes new ones.</td><td>Fragility; Mom’s patient care; their life depends on her.</td></tr>
+    <tr><td>§5 Mark</td><td>Mark calls Laohu trash, crumples him, and tears him.</td><td>Outsiders devalue Mom’s culture; Jack starts to see it as shameful. Violence against the tiger mirrors the racism against the family.</td></tr>
+    <tr><td>§7 attic</td><td>Jack hides the animals; they keep escaping; he squeezes the air out of new ones.</td><td>Jack suppresses his heritage and his mother; the heritage refuses to disappear. Squeezing out the air echoes the water buffalo and Mom losing her breath.</td></tr>
+    <tr><td>§10–§13 Qingming</td><td>Laohu unfolds into Mom’s letter; Jack writes “ai” and refolds him.</td><td>Mom’s silenced voice finally speaks; the motif becomes her story and her love. Jack begins to reclaim what he rejected.</td></tr>
+  </table>
+
+  <h3>Part 6: Reading 2</h3>
+  <ol>
+    <li>Job recruiting season, résumés, interviews, his flight back to California. It shows his emotional distance and his full commitment to an all-American success story.</li>
+    <li>Keep the box and take it out each Qingming to think of her. Years ago, they wrote a letter to her dead parents, folded it into a paper crane, and released it toward the west.</li>
+    <li>They stop moving. Jack thinks the magic ended with her death, or that as a child he only imagined it.</li>
+    <li>He stops Chinese tourists downtown, and a young woman reads it aloud. <b>Irony:</b> he rejected Chinese, and now needs a stranger to translate his own mother’s words.</li>
+    <li>Any two: born in 1957 in Sigulu Village, Hebei; survived the Great Famine; her parents died during the Cultural Revolution; she was an orphan at ten; she was smuggled to Hong Kong; she worked as an abused servant for six years; she joined the catalog to escape.</li>
+    <li>He traces the character for <i>ai</i> (love) again and again below her letter, refolds Laohu, and carries him home.</li>
+  </ol>
+
+  <h3>Part 7: Figurative language</h3>
+  <table>
+    <tr><th style="width:12%">§</th><th style="width:20%">Tool</th><th>Effect</th></tr>
+    <tr><td>§1</td><td>Comparison (close to a simile) + sound words</td><td>The tiger’s growl is between a living cat and dry paper: it is both alive and paper, both real and fragile.</td></tr>
+    <tr><td>§2</td><td>Simile (contempt like wine)</td><td>Contempt is pleasant and intoxicating to the teenage narrator; the adult narrator is judging his younger self.</td></tr>
+    <tr><td>§6</td><td>Simile (Mom like the flattened water buffalo)</td><td>Links Mom to her own paper animals: Jack and Dad are pressing the life out of her. Motif and figurative language work together.</td></tr>
+    <tr><td>§7</td><td>Metaphor / hyperbole (she might as well be from the moon)</td><td>Emotional distance feels as large as outer space; she is completely “foreign” to him.</td></tr>
+    <tr><td>§11</td><td>Metaphor / personification of words</td><td>Language becomes physical: the forgotten Chinese enters his body and squeezes his heart, the place where Mom said she feels <i>ai</i>.</td></tr>
+  </table>
+  <p><b>Think deeper:</b> Accept either view with evidence. Strong answers notice that the story treats the magic as real, yet the adult Jack doubts his childhood memory (§9); the ambiguity lets the animals be both literal magic and a metaphor for Mom’s breath, love, and language.</p>
+
+  <h3>Part 8: Sample claims</h3>
+  <ul>
+    <li><b>A:</b> Jack’s anger at his mother is really shame created by racism; he attacks the part of himself others attack (§5–§6 mirror scene).</li>
+    <li><b>B:</b> Dad is kind but takes the easy side: he pressures Mom to assimilate and cannot look Jack in the eye (§6–§7).</li>
+    <li><b>C:</b> She writes in Chinese because she can only write from her heart in that language; the language itself is part of the message.</li>
+  </ul>
+
+  <h3>Part 9: Perspective notes</h3>
+  <table>
+    <tr><th style="width:20%">Character</th><th>Key points to listen for</th></tr>
+    <tr><td>Mom</td><td>Being American should not mean losing her child’s language; wants connection; fears losing her family a second time; silenced until §12.</td></tr>
+    <tr><td>Jack (teen)</td><td>Being American = looking and sounding like others; wants acceptance; fears being an outsider; assumes his mother’s culture is inferior.</td></tr>
+    <tr><td>Dad</td><td>American = speaking English and fitting in; wants peace; avoids conflict; assumes assimilation is necessary and natural.</td></tr>
+    <tr><td>Mark &amp; neighbors</td><td>American = white, English-speaking, store-bought; open bias; their voices are loud and shape Jack’s view.</td></tr>
+    <tr><td>Jack (adult)</td><td>Begins to see that his American self includes his mother’s story; regret and recognition.</td></tr>
+  </table>
+
+  <h2 id="seminar">9. Seminar assessment rubric (quick scoring)</h2>
+  <table>
+    <tr><th style="width:22%">Criterion</th><th>3 · Strong</th><th>2 · Developing</th><th>1 · Beginning</th></tr>
+    <tr><td>Textual evidence</td><td>Cites specific § and words; explains how they support the point</td><td>Refers to events generally</td><td>Opinion without evidence</td></tr>
+    <tr><td>Depth of analysis</td><td>Interprets meaning, motif, or effect; goes beyond plot</td><td>Some interpretation, mostly summary</td><td>Summary only</td></tr>
+    <tr><td>Building on others</td><td>Names and extends or challenges a classmate’s idea</td><td>Responds but doesn’t develop</td><td>Isolated comments</td></tr>
+    <tr><td>Academic register</td><td>Uses literary terms (motif, simile, perspective) accurately</td><td>Some terms, some errors</td><td>Informal only</td></tr>
+  </table>
+
+  <h2 id="diff">10. Differentiation</h2>
+  <div class="grid2">
+    <div class="box">
+      <h3>B2 support</h3>
+      <ul>
+        <li>Give the Chinese-words glossary (section 5) with the reading.</li>
+        <li>Allow pairs to split Part 7: each does 2–3 rows, then they teach each other.</li>
+        <li>Provide the CER sentence frames on the board.</li>
+        <li>In the seminar, allow students to prepare one comment in writing first.</li>
+      </ul>
+    </div>
+    <div class="box gold">
+      <h3>B2+ extension</h3>
+      <ul>
+        <li><b>Evaluate</b> (SLO 30): Is the ending too sentimental, or earned? Defend with evidence.</li>
+        <li>Find a second motif (breath and air; language; folding and unfolding) and connect it to the paper animals.</li>
+        <li><b>Optional comparison:</b> read the opening portrait of Ichabod Crane in Irving’s “The Legend of Sleepy Hollow” (from the original syllabus). How do Irving and Liu each portray an outsider in a small American community? How do their styles differ?</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2 id="hw">11. Homework and assessment links</h2>
+  <ul>
+    <li><b>Reading Journal</b> (worksheet Part 11), in the syllabus format: Literary Lens concept, 2 Author’s Style examples, a 3-sentence analytical response, and one discussion question. Also identify 3 recurring motifs and explain their function, as in the original Week 1 homework.</li>
+    <li><b>Part 2C</b> gap-fill, if not finished in class.</li>
+    <li>Collect the motif tracker. It is useful evidence for Analytical Essay 1 and the midterm.</li>
+  </ul>
+  <p class="src">Sources for publication details: <a href="https://gizmodo.com/read-ken-lius-amazing-story-that-swept-the-hugo-nebula-5958919" target="_blank" rel="noopener">io9/Gizmodo reprint</a> (includes the original publication credit) · <a href="https://en.wikipedia.org/wiki/The_Paper_Menagerie" target="_blank" rel="noopener">Wikipedia: The Paper Menagerie</a> · <a href="https://sf-encyclopedia.com/entry/liu_ken" target="_blank" rel="noopener">SF Encyclopedia: Ken Liu</a>. Word count and reading times are estimates.</p>
+</div>
+</div>
+</body>
+</html>
