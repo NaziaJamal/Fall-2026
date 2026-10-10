@@ -1,0 +1,588 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Week 2 Teacher Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0f2340; --blue:#143865; --blue-2:#1c4f8f; --gold:#8c7535; --gold-2:#d39f10;
+    --red:#a91512; --sky:#c1cddd; --sky-2:#e1e8f2; --sky-3:#edf2f9; --warm:#efe9d9; --paper:#fbf9f3;
+    --ink:#14213a; --muted:#5b6b82; --ok:#1f8a5b; --ok-bg:#e3f4ec;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0; background:var(--sky-3); color:var(--ink); font-family:Inter, system-ui, sans-serif; font-size:16px; line-height:1.55}
+  a{color:var(--blue-2)}
+  .wrap{max-width:1040px; margin:0 auto; padding:0 16px 64px}
+
+  /* top */
+  .hero{background:var(--navy); color:#fff; padding:34px 0 28px; position:relative; overflow:hidden}
+  .hero::after{content:""; position:absolute; right:-60px; top:-60px; width:240px; height:240px; border:18px solid var(--gold-2); border-radius:50%; opacity:.2}
+  .eyebrow{font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:var(--gold-2); font-weight:800}
+  .hero h1{font-family:Lora, serif; font-size:clamp(30px,5vw,46px); margin:6px 0 4px; line-height:1.1}
+  .hero p{margin:0; color:var(--sky)}
+  .chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:16px}
+  .chip{border:1px solid rgba(255,255,255,.28); border-radius:999px; padding:4px 12px; font-size:13px; color:#fff}
+  .chip b{color:var(--gold-2)}
+
+  /* nav */
+  nav{position:sticky; top:0; z-index:10; background:#fff; border-bottom:1px solid var(--sky); box-shadow:0 4px 14px rgba(20,56,101,.06)}
+  nav .wrap{display:flex; gap:6px; overflow-x:auto; padding-top:10px; padding-bottom:10px; align-items:center}
+  nav a{white-space:nowrap; text-decoration:none; font-weight:700; font-size:13px; color:var(--blue); padding:6px 10px; border-radius:8px}
+  nav a:hover{background:var(--sky-3)}
+  nav .sep{color:var(--sky)}
+  nav button{margin-left:auto; flex:none; font:inherit; font-weight:700; font-size:13px; border:none; background:var(--gold-2); color:var(--ink); padding:7px 14px; border-radius:8px; cursor:pointer}
+
+  h2.sec{font-family:Lora, serif; color:var(--blue); font-size:28px; margin:40px 0 14px; scroll-margin-top:70px}
+  .card{background:#fff; border:1px solid var(--sky); border-radius:16px; padding:22px; margin-bottom:16px}
+  .card h3{margin:0 0 10px; color:var(--blue); font-size:19px}
+  .grid2{display:grid; grid-template-columns:1fr 1fr; gap:16px}
+  .grid3{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
+  ul,ol{margin:6px 0; padding-left:22px}
+  li{margin:3px 0}
+  .muted{color:var(--muted)}
+  .small{font-size:14px}
+
+  table{width:100%; border-collapse:collapse; font-size:15px}
+  th{background:var(--blue); color:#fff; text-align:left; padding:9px 10px; font-weight:700}
+  td{padding:9px 10px; border-bottom:1px solid var(--sky-2); vertical-align:top}
+  tr.brk td{background:var(--warm); font-weight:700}
+  tr.sesh td{background:var(--sky-2); font-weight:800; color:var(--blue); letter-spacing:.04em}
+
+  .banner{display:flex; align-items:center; gap:16px; border-radius:16px; padding:18px 22px; margin:44px 0 16px; color:#fff; scroll-margin-top:70px}
+  .banner.a{background:var(--blue)}
+  .banner.b{background:var(--navy)}
+  .banner .tag{font-family:Lora, serif; font-size:42px; font-weight:700; color:var(--gold-2); line-height:1}
+  .banner h2{margin:0; font-family:Lora, serif; font-size:26px}
+  .banner p{margin:2px 0 0; color:var(--sky); font-size:14px}
+
+  /* activity */
+  .act{background:#fff; border:1px solid var(--sky); border-radius:18px; margin-bottom:20px; overflow:hidden; scroll-margin-top:70px}
+  .act-head{display:flex; flex-wrap:wrap; align-items:center; gap:10px 16px; padding:16px 22px; background:var(--paper); border-bottom:1px solid var(--sky)}
+  .num{width:40px; height:40px; border-radius:50%; background:var(--blue); color:var(--gold-2); display:flex; align-items:center; justify-content:center; font-weight:800; font-size:18px; flex:none}
+  .act-head h3{margin:0; font-family:Lora, serif; font-size:22px; color:var(--blue); flex:1; min-width:200px}
+  .stage{font-size:12px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; padding:4px 10px; border-radius:999px}
+  .st-e{background:#fdf1d2; color:#7a5a00}
+  .st-s{background:var(--sky-2); color:var(--blue)}
+  .st-a{background:var(--ok-bg); color:var(--ok)}
+  .time{font-weight:800; color:var(--blue); background:#fff; border:2px solid var(--blue); border-radius:10px; padding:3px 10px; font-size:14px}
+  .act-body{padding:18px 22px}
+  .meta{display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-bottom:16px}
+  .meta div{background:var(--sky-3); border-radius:10px; padding:10px 12px; font-size:14px}
+  .meta b{display:block; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--gold); margin-bottom:2px}
+  .lbl{font-size:12px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:var(--gold); margin:16px 0 6px}
+  .steps{counter-reset:s; list-style:none; padding:0; margin:0}
+  .steps li{counter-increment:s; position:relative; padding:8px 0 8px 46px; border-bottom:1px dashed var(--sky-2)}
+  .steps li:last-child{border-bottom:none}
+  .steps li::before{content:counter(s); position:absolute; left:0; top:8px; width:30px; height:30px; border-radius:8px; background:var(--sky-2); color:var(--blue); font-weight:800; display:flex; align-items:center; justify-content:center; font-size:14px}
+  .steps .t{display:inline-block; font-size:12px; font-weight:800; color:var(--blue-2); background:var(--sky-3); border-radius:6px; padding:0 6px; margin-right:6px}
+  .say{background:var(--warm); border-left:5px solid var(--gold-2); border-radius:10px; padding:10px 14px; margin:8px 0; font-style:italic}
+  .say::before{content:"Say: "; font-style:normal; font-weight:800; color:var(--gold)}
+  .student{background:var(--sky-3); border-left:5px solid var(--blue-2); border-radius:10px; padding:10px 14px}
+  .diff{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:16px}
+  .diff div{border-radius:12px; padding:12px 14px; font-size:15px}
+  .diff .b2{background:#eef5ff; border:1px solid #cfe0f5}
+  .diff .b2p{background:#fbf3df; border:1px solid #ecdcae}
+  .diff h4{margin:0 0 4px; font-size:13px; letter-spacing:.08em; text-transform:uppercase}
+  .diff .b2 h4{color:var(--blue-2)} .diff .b2p h4{color:var(--gold)}
+  .out{background:var(--ok-bg); border-radius:10px; padding:10px 14px; font-size:15px; margin-top:12px}
+  .out b{color:var(--ok)}
+  .warn{background:#fbe7e4; border-left:5px solid var(--red); border-radius:10px; padding:10px 14px; font-size:15px; margin-top:12px}
+  .warn b{color:var(--red)}
+  .tip{background:#fff8e6; border-left:5px solid var(--gold-2); border-radius:10px; padding:10px 14px; font-size:15px; margin-top:12px}
+  .tip b{color:var(--gold)}
+  .box{border:2px dashed var(--sky); border-radius:12px; padding:12px 16px; margin:8px 0}
+  .key{font-size:14px}
+  .key td{padding:6px 8px}
+  q{quotes:"“" "”"; font-style:italic}
+
+  .check{list-style:none; padding:0}
+  .check li{padding-left:30px; position:relative}
+  .check li::before{content:""; position:absolute; left:0; top:4px; width:16px; height:16px; border:2px solid var(--blue-2); border-radius:4px}
+
+  footer{text-align:center; color:var(--muted); font-size:13px; margin-top:30px}
+
+  @media (max-width:760px){
+    .grid2,.grid3,.meta,.diff{grid-template-columns:1fr}
+  }
+  @media print{
+    @page{margin:12mm}
+    body{background:#fff; font-size:12px}
+    nav{display:none}
+    .hero{background:#fff; color:var(--ink); border:2px solid var(--blue); border-radius:12px; padding:16px}
+    .hero::after{display:none}
+    .hero p,.chip{color:var(--ink)} .chip{border-color:#999}
+    .wrap{max-width:none; padding:0}
+    .act,.card{break-inside:auto; border-color:#999}
+    .act-head{break-after:avoid}
+    .banner{background:#fff !important; color:var(--ink); border:2px solid var(--blue)}
+    .banner p{color:var(--muted)}
+    .banner.b{break-before:page}
+    h2.sec{margin-top:20px}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Approach International Student Center · Teacher Guide</div>
+    <h1>Week 2 · Your Idea</h1>
+    <p>TED Talks: Ideas Worth Sharing · B2 · B2+ · 6:00–9:40 pm · 200 minutes of instruction + 20-minute break</p>
+    <div class="chips">
+      <span class="chip"><b>Book:</b> Ch. 2 Idea Building (opening + "Start with the Idea")</span>
+      <span class="chip"><b>Talk:</b> Derek Sivers, "How to start a movement" (~3 min)</span>
+      <span class="chip"><b>Warm-up clip:</b> Sophie Scott, "Why we laugh" (90 sec)</span>
+      <span class="chip"><b>Language:</b> Cleft sentences</span>
+      <span class="chip"><b>Milestone:</b> Idea Blueprint</span>
+    </div>
+  </div>
+</header>
+
+<nav>
+  <div class="wrap">
+    <a href="#overview">Overview</a>
+    <a href="#prep">Prep</a>
+    <a href="#timing">Timing</a>
+    <span class="sep">|</span>
+    <a href="#sessionA">Session A</a>
+    <a href="#a1">1 Warm-up</a>
+    <a href="#a2">2 Vocabulary</a>
+    <a href="#a3">3 Reading</a>
+    <a href="#a4">4 Watch</a>
+    <span class="sep">|</span>
+    <a href="#sessionB">Session B</a>
+    <a href="#b5">5 Language</a>
+    <a href="#b6">6 Speaking</a>
+    <a href="#b7">7 Build</a>
+    <span class="sep">|</span>
+    <a href="#milestone">Milestone</a>
+    <a href="#keys">Answer keys</a>
+    <button onclick="window.print()">🖨 Print</button>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<!-- ================= OVERVIEW ================= -->
+<h2 class="sec" id="overview">Overview</h2>
+
+<div class="card" style="border-left:6px solid var(--gold-2)">
+  <h3>The big idea for today</h3>
+  <p style="font-family:Lora,serif; font-size:21px; margin:0; color:var(--blue)">An idea only spreads when other people can understand it, and follow it.</p>
+  <p class="muted small" style="margin:8px 0 0">Anderson says the speaker's job is to rebuild an idea inside the listener's mind. Sivers shows that a movement only starts when the first person follows. Today, every student finds their idea and says it so clearly that a partner can "follow" it.</p>
+</div>
+
+<div class="grid2">
+  <div class="card">
+    <h3>By the end of class, students can…</h3>
+    <ul>
+      <li>Explain what Anderson means by an <b>idea</b> and why he calls it a <b>gift</b></li>
+      <li>Identify the core idea of a short talk in one sentence</li>
+      <li>Use <b>cleft sentences</b> to put focus on their key message</li>
+      <li>State their own idea in one clear sentence and test it with a partner</li>
+      <li>Complete an <b>Idea Blueprint</b> for their final talk</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>Syllabus links</h3>
+    <ul>
+      <li><b>SLO 3</b> Build a talk around one idea (B2: with a template · B2+: independently)</li>
+      <li><b>SLO 1</b> Identify a talk's core idea and structure</li>
+      <li><b>SLO 2</b> Read the excerpt and explain its advice</li>
+      <li><b>SLO 7</b> Give peer feedback (frames for B2)</li>
+    </ul>
+    <p class="small muted" style="margin:10px 0 0"><b>Leads to:</b> Week 3 throughline + outline → Week 6 midterm pitch → Week 11 final talk.</p>
+  </div>
+</div>
+
+<div class="card small">
+  <b>Materials for this week:</b> Week 2 slides · student worksheet (online link or printed) · vocabulary cards (projected) · vocabulary matching page · printed reading Parts A, B, C · Sophie Scott clip · Derek Sivers talk · timer. Worksheet parts match the class: <b>A</b> warm-up and vocabulary · <b>B</b> reading · <b>C</b> video · <b>D</b> language · <b>E</b> speaking · <b>F</b> Idea Blueprint + exit ticket.
+</div>
+
+<!-- ================= PREP ================= -->
+<h2 class="sec" id="prep">Before class</h2>
+<div class="grid2">
+  <div class="card">
+    <h3>Prepare</h3>
+    <ul class="check">
+      <li>Read the Week 1 milestones ("My idea worth sharing") and note students who don't have an idea yet</li>
+      <li><b>Sophie Scott clip:</b> on TED.com or YouTube, find the moment she plays the recording of people laughing and start the clip just before it (90 seconds)</li>
+      <li><b>Sivers talk:</b> cue it so you can play it muted first. Worksheet times are from the YouTube version (youtu.be/gxFt1BZiMTw)</li>
+      <li>Print the reading in three parts (A, B, C) from the e-book; enough copies for each expert group</li>
+      <li>Share the worksheet link, and print copies for students who prefer paper</li>
+      <li>Open the timer (the Talk Lines file works) for the pitch rounds</li>
+      <li>Sticky notes for the exit ticket</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>Reading split (Ch. 2)</h3>
+    <table class="small">
+      <tr><th style="width:24%">Part</th><th>From → to</th><th style="width:20%">Give to</th></tr>
+      <tr><td><b>A</b><br>Sophie's gift</td><td>Chapter opening → end of the TED transition story, just before the heading "Start with the Idea"</td><td>B2+<br><span class="muted">(more idioms)</span></td></tr>
+      <tr><td><b>B</b><br>What is an idea?</td><td>"Start with the Idea" → "…You just have to figure out which ones."</td><td>B2</td></tr>
+      <tr><td><b>C</b><br>"I have nothing to say"</td><td>"Are you stressed about this?" → end of the section, just before "Procrastinate No More"</td><td>B2 / mixed</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- ================= TIMING ================= -->
+<h2 class="sec" id="timing">Timing at a glance</h2>
+<div class="card" style="padding:0; overflow:hidden">
+  <table>
+    <tr><th style="width:7%">#</th><th>Stage</th><th style="width:30%">Activity</th><th style="width:10%">Time</th><th style="width:15%">Clock</th><th style="width:10%">Worksheet</th></tr>
+    <tr class="sesh"><td colspan="6">SESSION A · 6:00–7:40</td></tr>
+    <tr><td>1</td><td>Engage · Warm-up</td><td>Sophie Scott clip + One Breath</td><td>15 min</td><td>6:00–6:15</td><td>A1–A2</td></tr>
+    <tr><td>2</td><td>Engage · Vocabulary</td><td>Cards + matching + use it</td><td>15 min</td><td>6:15–6:30</td><td>A3–A4</td></tr>
+    <tr><td>3</td><td>Study · Guided reading</td><td>Three Rooms jigsaw</td><td>35 min</td><td>6:30–7:05</td><td>B1–B5</td></tr>
+    <tr><td>4</td><td>Study · Watch & analyze</td><td>Derek Sivers, three viewings</td><td>35 min</td><td>7:05–7:40</td><td>C1–C7</td></tr>
+    <tr class="brk"><td>☕</td><td colspan="2">Break</td><td>20 min</td><td>7:40–8:00</td><td>—</td></tr>
+    <tr class="sesh"><td colspan="6">SESSION B · 8:00–9:40</td></tr>
+    <tr><td>5</td><td>Study → Activate · Language</td><td>Cleft sentences</td><td>35 min</td><td>8:00–8:35</td><td>D1–D5</td></tr>
+    <tr><td>6</td><td>Activate · Speaking</td><td>First Follower pitch rounds</td><td>40 min</td><td>8:35–9:15</td><td>E1–E3</td></tr>
+    <tr><td>7</td><td>Activate · Build your talk</td><td>Idea Blueprint + exit ticket</td><td>25 min</td><td>9:15–9:40</td><td>F</td></tr>
+    <tr><td></td><td colspan="2"><b>Total instruction</b></td><td><b>200 min</b></td><td colspan="2" class="muted small">The syllabus lists 210 min; this schedule has 10 fewer minutes, taken from the reading and video blocks.</td></tr>
+  </table>
+</div>
+
+<!-- ================= SESSION A ================= -->
+<div class="banner a" id="sessionA">
+  <span class="tag">A</span>
+  <div><h2>Session A · Find the idea</h2><p>6:00–7:40 · Warm-up · Vocabulary · Reading · Watch & analyze · 100 minutes</p></div>
+</div>
+
+<!-- 1 -->
+<section class="act" id="a1">
+  <div class="act-head"><span class="num">1</span><h3>Sophie's Laugh + One Breath</h3><span class="stage st-e">Engage</span><span class="time">6:00–6:15</span></div>
+  <div class="act-body">
+    <div class="meta">
+      <div><b>Goal</b>Hook students with a real "gift" talk, then show them why an idea must be short and clear</div>
+      <div><b>Interaction</b>Whole class → pairs → whole class</div>
+      <div><b>Materials</b>Sophie Scott clip (90 sec) · slides 3–4 · worksheet A1–A2</div>
+    </div>
+    <div class="lbl">Teacher instructions</div>
+    <ol class="steps">
+      <li><span class="t">2 min</span><b>Play the clip.</b> Don't introduce the topic. Just say: <i>"This is a scientist at TED in 2015. Watch."</i></li>
+      <li><span class="t">4 min</span><b>Pairs discuss A1:</b> Did you laugh? Why? What will her big idea about laughter be? (B2+: what did she do to make you keep listening?)
+        <div class="say">Don't tell anyone her idea. You'll find out in the reading.</div></li>
+      <li><span class="t">2 min</span><b>Quick share:</b> collect 3 predictions and write them on the board. Leave them there for the reading.</li>
+      <li><span class="t">7 min</span><b>One Breath (A2).</b> Bridge: <i>"Sophie made a thousand people laugh and learn. Can you make one person understand your idea in one breath?"</i> Model one sample idea in one breath, then pairs: A says their Week 1 idea in one breath, B repeats it in their own words, then swap. Debrief: <i>What made an idea easy to repeat?</i> Write a short list on the board (one point · simple words · a reason to care).</li>
+    </ol>
+    <div class="lbl">Student instructions</div>
+    <div class="student">Watch and discuss A1. Then say your idea in one breath. Your partner repeats it in their own words.</div>
+    <div class="out"><b>Expected output:</b> 3 predictions on the board; every student says their idea once and hears it repeated.</div>
+    <div class="diff">
+      <div class="b2"><h4>B2 support</h4>Frames on the slide: <i>"My idea is that…"</i> / <i>"So you're saying that…"</i>. No Week 1 idea yet? Use: <i>"Something I wish everyone knew is…"</i></div>
+      <div class="b2p"><h4>B2+ challenge</h4>One breath with no "and" or "but". The listener guesses <b>who</b> the idea is for.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 2 -->
+<section class="act" id="a2">
+  <div class="act-head"><span class="num">2</span><h3>Words from the Chapter and the Talk</h3><span class="stage st-e">Engage</span><span class="time">6:15–6:30</span></div>
+  <div class="act-body">
+    <div class="meta">
+      <div><b>Goal</b>Pre-teach the words students need for the reading and the video</div>
+      <div><b>Interaction</b>Teacher-led → pairs → individual</div>
+      <div><b>Materials</b>Vocabulary cards (projected) · worksheet A3–A4 or the matching page</div>
+    </div>
+    <div class="lbl">Teacher instructions</div>
+    <ol class="steps">
+      <li><span class="t">7 min</span><b>Cards.</b> Words 1–6 are from the book, 7–12 from Sivers. For each: play the audio, students repeat with the stress, ask the concept-check question (below). Use "Hide meaning" for 2–3 words and let students guess first. Move fast: about 35 seconds a word.</li>
+      <li><span class="t">5 min</span><b>Matching (A3)</b> in pairs, then <i>Check answers</i>.</li>
+      <li><span class="t">3 min</span><b>Use it (A4).</b> Students complete 2 sentences about themselves and read them to their partner. Finish the rest at home.</li>
+    </ol>
+    <table class="small" style="margin-top:12px">
+      <tr><th style="width:22%">Word</th><th style="width:14%">Stress</th><th>Concept-check question</th></tr>
+      <tr><td>phenomenon</td><td>phe·<b>NOM</b>·e·non</td><td>Is laughter a phenomenon? Is a pencil?</td></tr>
+      <tr><td>compelling</td><td>com·<b>PEL</b>·ling</td><td>Do you stop watching a compelling talk?</td></tr>
+      <tr><td>conjure up</td><td><b>CON</b>·jure up</td><td>Does a smell conjure up memories for you?</td></tr>
+      <tr><td>substance</td><td><b>SUB</b>·stance</td><td>Can a talk look beautiful but have no substance?</td></tr>
+      <tr><td>charisma</td><td>cha·<b>RIS</b>·ma</td><td>Is charisma the same as having a good idea?</td></tr>
+      <tr><td>paradox</td><td><b>PAR</b>·a·dox</td><td>"The more I learn, the less I know." Paradox?</td></tr>
+      <tr><td>guts</td><td><b>GUTS</b></td><td>Does it take guts to eat breakfast? To quit your job?</td></tr>
+      <tr><td>ridicule</td><td><b>RID</b>·i·cule</td><td>Is ridicule kind or unkind?</td></tr>
+      <tr><td>emulate</td><td><b>EM</b>·u·late</td><td>Do you emulate people you admire or people you dislike?</td></tr>
+      <tr><td>momentum</td><td>mo·<b>MEN</b>·tum</td><td>Is momentum about stopping or about moving forward?</td></tr>
+      <tr><td>tipping point</td><td><b>TIP</b>·ping point</td><td>After the tipping point, is it easy to go back?</td></tr>
+      <tr><td>sit on the fence</td><td>sit on the <b>FENCE</b></td><td>If I sit on the fence, have I decided?</td></tr>
+    </table>
+    <div class="out"><b>Expected output:</b> all 12 words matched; 2 personal sentences per student.</div>
+    <div class="diff">
+      <div class="b2"><h4>B2 support</h4>Do words 1–6 before the reading and 7–12 just before the video if the class is slow.</div>
+      <div class="b2p"><h4>B2+ challenge</h4>Make one sentence using <i>charisma</i> and <i>substance</i> to compare two speakers.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 3 -->
+<section class="act" id="a3">
+  <div class="act-head"><span class="num">3</span><h3>Three Rooms Jigsaw</h3><span class="stage st-s">Study</span><span class="time">6:30–7:05</span></div>
+  <div class="act-body">
+    <div class="meta">
+      <div><b>Goal</b>Understand Anderson's idea of an idea, and apply it to their own life</div>
+      <div><b>Interaction</b>Pairs → expert groups → mixed groups → individual → pairs</div>
+      <div><b>Materials</b>Printed Parts A, B, C · worksheet B1–B5 · slides 7–12</div>
+    </div>
+    <div class="lbl">Teacher instructions</div>
+    <ol class="steps">
+      <li><span class="t">3 min</span><b>Predict (B1).</b> Show the subtitle <i>"The Gift in Every Great Talk."</i> Pairs: <i>What gift can a talk give? Remember Anderson's talk last week.</i></li>
+      <li><span class="t">10 min</span><b>Expert groups (B2).</b> Groups A, B, C read their part and complete the expert card. Walk around; check each expert can explain the message <b>without reading</b>. Point B2 students to the glossary.</li>
+      <li><span class="t">10 min</span><b>Teaching groups (B3).</b> One A + one B + one C per group. Each expert teaches for 3 minutes; others take notes. The group writes one summary sentence.</li>
+      <li><span class="t">4 min</span><b>True/false (B4).</b> Individually, then <i>Check answers</i>. Go back to the board: were the Sophie predictions right? (Her idea: laughter turns social stress into pleasant connection.)</li>
+      <li><span class="t">8 min</span><b>Find your idea (B5).</b> Each student picks two of Anderson's discovery questions and answers them to a partner. The partner listens and suggests: <i>"I think your idea might be…"</i></li>
+    </ol>
+    <div class="lbl">What each part is about (for the teacher)</div>
+    <table class="small">
+      <tr><th style="width:12%">Part</th><th>Main point</th><th style="width:34%">Make sure students notice</th></tr>
+      <tr><td><b>A</b></td><td>Sophie's talk changed how Anderson sees laughter forever. That is the "gift": an idea the listener keeps. His own difficult TED talk worked because it planted one idea: TED is special because people from every field come together and understand each other.</td><td>The speaker's mission: take something that matters to you and rebuild it in the listener's mind.</td></tr>
+      <tr><td><b>B</b></td><td>Anyone with an idea worth sharing can give a powerful talk; what matters is having something worth saying, not confidence or smooth talking. An idea can be simple: a how-to, a story with an insight, an image, a hope, a reminder. Some people overrate their ideas; many underrate them.</td><td>"An idea is anything that can change how people see the world." The warning about style without substance.</td></tr>
+      <tr><td><b>C</b></td><td>Feeling you have nothing to say may just be low confidence. Other people may see value you can't see. Your experience is unique. A personal story with a simple lesson can make a great talk. Questions help you find your idea.</td><td>The paradox (you only see yourself from the inside) and the discovery questions.</td></tr>
+    </table>
+    <div class="out"><b>Expected output:</b> group summary sentences; B4 completed; each student has 1–2 possible ideas.</div>
+    <div class="diff">
+      <div class="b2"><h4>B2 support</h4>Parts B and C, glossary on the worksheet, expert card with starters. Experts may bring key-word notes to the teaching group.</div>
+      <div class="b2p"><h4>B2+ challenge</h4>Part A. Explain <i>why</i> Anderson tells his own TED story here. Is "style without substance is awful" too harsh?</div>
+    </div>
+    <div class="warn"><b>Sensitive moment:</b> Part B says people who overrate their ideas are "often male" and those who underrate them "often female". If it comes up, turn it to <i>"Do <u>you</u> underestimate your ideas?"</i> rather than a gender debate.</div>
+  </div>
+</section>
+
+<!-- 4 -->
+<section class="act" id="a4">
+  <div class="act-head"><span class="num">4</span><h3>Watch & Analyze: Derek Sivers</h3><span class="stage st-s">Study</span><span class="time">7:05–7:40</span></div>
+  <div class="act-body">
+    <div class="meta">
+      <div><b>Goal</b>Find a talk's core idea and see how a short talk builds it step by step</div>
+      <div><b>Interaction</b>Pairs → individual → groups → whole class</div>
+      <div><b>Materials</b>Sivers talk (~3 min) · worksheet C1–C7 · slides 13–18</div>
+    </div>
+    <div class="lbl">Teacher instructions</div>
+    <ol class="steps">
+      <li><span class="t">2 min</span><b>Predict (C1)</b> from the title only.</li>
+      <li><span class="t">6 min</span><b>Viewing 1, no sound (C2).</b> Students order the 7 events, then retell the story to a partner: <i>"First…, then…"</i>. Ask: <i>"Without words, what do you think his idea is?"</i></li>
+      <li><span class="t">6 min</span><b>Viewing 2, with sound (C3).</b> Choose the core idea (answer: c), then write it in their own words in 15 words or fewer. Pairs compare.</li>
+      <li><span class="t">6 min</span><b>Viewing 3 (C4).</b> Gap-fill: 10 one-word gaps, captions off. Pause briefly after 1:28 and 2:20 if needed. Then <i>Check answers</i>.</li>
+      <li><span class="t">10 min</span><b>Groups (C5 + C6).</b> How he builds the idea (start, video, steps, call to action), then Anderson's four tests with evidence. Assign C5 to half the groups and C6 to the other half to save time, then they swap answers.</li>
+      <li><span class="t">5 min</span><b>Class discussion (C7).</b> <i>"Leadership is over-glorified."</i> Students stand on a line: agree on one side of the room, disagree on the other. Ask 2–3 people from each end for a reason or example.</li>
+    </ol>
+    <div class="lbl">Talk map (YouTube times)</div>
+    <table class="small">
+      <tr><th style="width:14%">Time</th><th>What happens</th><th style="width:34%">Notice</th></tr>
+      <tr><td>0:15–0:26</td><td>Sets up the task: watch a movement happen, start to finish, and dissect it</td><td>Gets to the point in about 10 seconds</td></tr>
+      <tr><td>0:26–0:58</td><td>The lone dancer; the first follower; the leader embraces him as an equal</td><td>Key claim: the first follower turns a "lone nut" into a leader</td></tr>
+      <tr><td>1:05–1:32</td><td>Second follower; "three is a crowd"; more people join; momentum; the tipping point</td><td>New followers copy followers, not the leader</td></tr>
+      <tr><td>1:32–1:58</td><td>Joining becomes less risky; the people "on the fence" join; the crowd rushes in</td><td>Explains <i>why</i> people join</td></tr>
+      <tr><td>1:58–2:13</td><td>Lesson 1 for leaders: nurture your first followers as equals</td><td>Signposting: "let's recap some lessons"</td></tr>
+      <tr><td>2:13–2:50</td><td>The real lesson: leadership is over-glorified; have the courage to follow and to be the first to join</td><td>Twist + call to action</td></tr>
+    </table>
+    <div class="out"><b>Expected output:</b> C2 order correct; one-sentence core idea; gap-fill completed; four-test evaluation; a short class debate.</div>
+    <div class="diff">
+      <div class="b2"><h4>B2 support</h4>Turn English captions on for Viewing 2. For C6, give one piece of evidence as a model.</div>
+      <div class="b2p"><h4>B2+ challenge</h4>Write the core idea as a cleft sentence (preview of Session B). Find a real-life example of a "first follower".</div>
+    </div>
+    <div class="tip"><b>Before the break:</b> ask students to think, <i>"Which of your possible ideas would someone else want to follow?"</i></div>
+  </div>
+</section>
+
+<!-- ================= BREAK ================= -->
+<div class="card" style="text-align:center; background:var(--warm); border-color:#e2d6b4">
+  <p style="margin:0; font-family:Lora,serif; font-size:22px; color:var(--gold)">☕ Break · 7:40–8:00</p>
+</div>
+
+<!-- ================= SESSION B ================= -->
+<div class="banner b" id="sessionB">
+  <span class="tag">B</span>
+  <div><h2>Session B · Say it and test it</h2><p>8:00–9:40 · Language focus · Speaking practice · Build your talk · 100 minutes</p></div>
+</div>
+
+<!-- 5 -->
+<section class="act" id="b5">
+  <div class="act-head"><span class="num">5</span><h3>Cleft Sentences: Put the Spotlight on Your Idea</h3><span class="stage st-s">Study → Activate</span><span class="time">8:00–8:35</span></div>
+  <div class="act-body">
+    <div class="meta">
+      <div><b>Goal</b>Use cleft sentences to give focus and emphasis to a key message</div>
+      <div><b>Interaction</b>Pairs → teacher-led → individual → pairs</div>
+      <div><b>Materials</b>Slides 20–23 · worksheet D1–D5</div>
+    </div>
+    <div class="lbl">Teacher instructions</div>
+    <ol class="steps">
+      <li><span class="t">6 min</span><b>Notice (D1).</b> Board: <i>a) The first follower matters. b) What really matters is the first follower.</i> Which sounds like a TED speaker? Then students find the focus in three real sentences: two from Sivers (0:55 and 2:27) and one from Anderson's Part A.</li>
+      <li><span class="t">7 min</span><b>Explain (D2).</b> Four patterns: what-cleft, it-cleft, "the reason/thing… is", all-cleft.
+        <div class="say">The cleft makes the audience wait. The important part comes at the end, after a small pause.</div>
+        Model: <i>"What really matters | is the FIRST follower."</i> Students repeat chorally.</li>
+      <li><span class="t">7 min</span><b>Controlled (D3).</b> Rewrite 6 sentences, compare in pairs, then <i>Show model answers</i>.</li>
+      <li><span class="t">6 min</span><b>Semi-controlled (D4).</b> Complete 4–5 cleft frames about the video and their opinions. Say two aloud to a partner with the pause.</li>
+      <li><span class="t">9 min</span><b>Freer (D5).</b> Each student writes their own idea as three clefts. Partners read them aloud; the listener chooses the strongest and explains: <i>"Your second one is stronger because…"</i></li>
+    </ol>
+    <div class="out"><b>Expected output:</b> D3 correct; 4–5 personal clefts; one strongest cleft version of their own idea.</div>
+    <div class="diff">
+      <div class="b2"><h4>B2 support</h4>Focus on what-clefts and "the reason… is". Frame: <i>"What I've learned is that ___."</i></div>
+      <div class="b2p"><h4>B2+ challenge</h4>All four patterns, plus contrast: <i>"It isn't ___ that matters; it's ___."</i></div>
+    </div>
+    <div class="tip"><b>Common errors:</b> double subject (<i>"What I want it is…"</i>); missing <i>that/who</i> in it-clefts; tense (<i>"What mattered is…"</i> → <i>"What mattered was…"</i>).</div>
+  </div>
+</section>
+
+<!-- 6 -->
+<section class="act" id="b6">
+  <div class="act-head"><span class="num">6</span><h3>First Follower Pitch Rounds</h3><span class="stage st-a">Activate</span><span class="time">8:35–9:15</span></div>
+  <div class="act-body">
+    <div class="meta">
+      <div><b>Goal</b>Pitch their idea, get feedback, and make it clearer each round</div>
+      <div><b>Interaction</b>Individual → rotating pairs (two lines) → whole class</div>
+      <div><b>Materials</b>Projected timer · slides 24–25 · worksheet E1–E3</div>
+    </div>
+    <div class="lbl">Teacher instructions</div>
+    <ol class="steps">
+      <li><span class="t">5 min</span><b>Plan (E1).</b> Key words only: idea (best cleft from D5), one example or story, why the listener should care.</li>
+      <li><span class="t">2 min</span><b>Set up two lines.</b>
+        <div class="say">You are the leader. Your partner decides whether to be your first follower. Make your idea easy to follow.</div></li>
+      <li><span class="t">8 min</span><b>Round 1.</b> 60-second pitch → listener repeats the idea and says <i>"I'd follow because…"</i> or <i>"I'm not following yet because…"</i> → swap → Line B moves. Students log feedback in E2.</li>
+      <li><span class="t">2 min</span><b>Revise</b> one thing.</li>
+      <li><span class="t">8 min</span><b>Round 2.</b> New partner. The listener also asks one question.</li>
+      <li><span class="t">2 min</span><b>Revise</b> again.</li>
+      <li><span class="t">7 min</span><b>Round 3.</b> New partner. <b>45 seconds</b>: shorter and sharper.</li>
+      <li><span class="t">6 min</span><b>Class discussion (E3).</b> <i>"Whose idea (not yours) would you follow? Why?"</i> 2–3 volunteers pitch to the whole class; the class says what made it easy to follow.</li>
+    </ol>
+    <div class="out"><b>Expected output:</b> each student pitches 3 times and revises twice; E2 log completed.</div>
+    <div class="diff">
+      <div class="b2"><h4>B2 support</h4>Use the feedback frames in E2. Students may hold a card with their cleft sentence in rounds 1–2.</div>
+      <div class="b2p"><h4>B2+ challenge</h4>No frames: diplomatic feedback in their own words. In round 3, the listener asks: <i>"What would someone who disagrees say?"</i></div>
+    </div>
+    <div class="tip"><b>Odd number?</b> Join a line yourself, or make one student the observer who writes down the best sentence they hear.</div>
+  </div>
+</section>
+
+<!-- 7 -->
+<section class="act" id="b7">
+  <div class="act-head"><span class="num">7</span><h3>Build Your Talk: Idea Blueprint + Exit Ticket</h3><span class="stage st-a">Activate</span><span class="time">9:15–9:40</span></div>
+  <div class="act-body">
+    <div class="meta">
+      <div><b>Goal</b>Turn today's work into the Week 2 milestone</div>
+      <div><b>Interaction</b>Individual → pairs → individual</div>
+      <div><b>Materials</b>Worksheet Part F · slides 26–27 · sticky notes</div>
+    </div>
+    <div class="say">By the end of today, you'll have an idea you can say in one sentence, and that a partner can follow.</div>
+    <div class="lbl">Teacher instructions</div>
+    <ol class="steps">
+      <li><span class="t">15 min</span><b>Blueprint.</b> Students complete Part F individually. Walk around and check section 1 first: is it <b>one</b> idea, and is it a cleft?</li>
+      <li><span class="t">5 min</span><b>Partner check.</b> Swap and tick the four tests (section 6) for each other.</li>
+      <li><span class="t">5 min</span><b>Exit ticket.</b> Two lines on a sticky note, handed to you at the door: <i>My idea in one sentence is… / One thing I changed today is…</i> Online students fill in the worksheet box and download their answers.</li>
+    </ol>
+    <div class="out"><b>Expected output:</b> completed Idea Blueprint (Week 2 milestone) + exit ticket from every student.</div>
+    <div class="diff">
+      <div class="b2"><h4>B2 support</h4>Sections 1–4 in class; 5–7 can be finished at home.</div>
+      <div class="b2p"><h4>B2+ challenge</h4>All sections in class, including section 8 (biggest risk + how to handle it).</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MILESTONE ================= -->
+<h2 class="sec" id="milestone">Weekly milestone · Idea Blueprint</h2>
+<div class="grid2">
+  <div class="card">
+    <h3>What students submit</h3>
+    <ul>
+      <li>The Idea Blueprint (Part F), due at the <b>start of Week 3</b></li>
+      <li>Online: the downloaded answers file or a PDF (Print → Save as PDF). Paper: the printed Part F</li>
+      <li>B2: sections 1–7 · B2+: sections 1–8</li>
+      <li>Counts toward <b>weekly milestones (25%)</b></li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>Before next class</h3>
+    <ul>
+      <li>Tell your idea to one person outside class. Can they repeat it?</li>
+      <li>Improve the cleft sentence based on their reaction</li>
+      <li><b>Why:</b> in Week 3 this sentence becomes the <b>throughline</b> (15 words or fewer) and the first outline</li>
+    </ul>
+  </div>
+</div>
+<div class="card small">
+  <b>Assessment link:</b> the one-sentence idea is the first item on the midterm and final rubric (<i>idea and throughline</i>). Today's pitch rounds are a low-stakes rehearsal for the Week 6 midterm pitch (2 min B2 / 3 min B2+).
+</div>
+
+<!-- ================= KEYS ================= -->
+<h2 class="sec" id="keys">Answer keys</h2>
+<div class="grid2">
+  <div class="card">
+    <h3>A3 · Vocabulary matching</h3>
+    <table class="key">
+      <tr><td>1 phenomenon · <b>i</b></td><td>7 guts · <b>e</b></td></tr>
+      <tr><td>2 compelling · <b>g</b></td><td>8 ridicule · <b>f</b></td></tr>
+      <tr><td>3 conjure up · <b>d</b></td><td>9 emulate · <b>b</b></td></tr>
+      <tr><td>4 substance · <b>c</b></td><td>10 momentum · <b>j</b></td></tr>
+      <tr><td>5 charisma · <b>k</b></td><td>11 tipping point · <b>a</b></td></tr>
+      <tr><td>6 paradox · <b>l</b></td><td>12 sit on the fence · <b>h</b></td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h3>B4 · True / false</h3>
+    <table class="key">
+      <tr><td>1</td><td><b>T</b></td><td>within 2 minutes the audience was laughing</td></tr>
+      <tr><td>2</td><td><b>F</b></td><td>her gift was an idea he keeps forever</td></tr>
+      <tr><td>3</td><td><b>F</b></td><td>many things were wrong, but it planted one idea</td></tr>
+      <tr><td>4</td><td><b>F</b></td><td>having something worth saying matters most</td></tr>
+      <tr><td>5</td><td><b>T</b></td><td></td></tr>
+      <tr><td>6</td><td><b>T</b></td><td>double-check your self-assessment</td></tr>
+      <tr><td>7</td><td><b>F</b></td><td>your experience is unique</td></tr>
+      <tr><td>8</td><td><b>T</b></td><td>"we need reminding"</td></tr>
+    </table>
+  </div>
+</div>
+<div class="grid2">
+  <div class="card">
+    <h3>C2 · Order of events (no sound)</h3>
+    <ol class="small">
+      <li>A man dances alone while others sit and watch</li>
+      <li>A second man joins and copies him</li>
+      <li>The dancer welcomes him as an equal</li>
+      <li>The follower waves to call his friends</li>
+      <li>A third person joins</li>
+      <li>Several more people join quickly</li>
+      <li>A big crowd runs in</li>
+    </ol>
+    <p class="small" style="margin:6px 0 0"><b>C3:</b> c. The first follower is what turns one person's action into a movement.</p>
+  </div>
+  <div class="card">
+    <h3>C4 · Gap fill</h3>
+    <table class="key">
+      <tr><td>1 guts</td><td>6 emulate</td></tr>
+      <tr><td>2 crucial</td><td>7 point</td></tr>
+      <tr><td>3 equal</td><td>8 nurturing</td></tr>
+      <tr><td>4 nut</td><td>9 glorified</td></tr>
+      <tr><td>5 news</td><td>10 join</td></tr>
+    </table>
+  </div>
+</div>
+<div class="card">
+  <h3>D1 · Notice (the focus)</h3>
+  <ol class="small">
+    <li>It-cleft · focus: <b>the first follower</b></li>
+    <li>Reversed what-cleft · focus: <b>the first follower</b> (= What transforms a lone nut into a leader is the first follower.)</li>
+    <li>What-cleft · focus: <b>that a special way of sharing knowledge should be preserved</b></li>
+  </ol>
+  <p class="small" style="margin:6px 0 0"><b>Why use them?</b> To give focus and emphasis, create a short wait before the key point, and contrast it with something else.</p>
+</div>
+<div class="card">
+  <h3>D3 · Controlled practice</h3>
+  <table class="key">
+    <tr><th style="width:4%">#</th><th style="width:44%">Prompt</th><th>Model answer</th></tr>
+    <tr><td>1</td><td>The first follower changes everything. <i>(It…)</i></td><td>It's the first follower who/that changes everything.</td></tr>
+    <tr><td>2</td><td>I want you to remember one thing: practice. <i>(What…)</i></td><td>What I want you to remember is practice.</td></tr>
+    <tr><td>3</td><td>A clear idea matters, not confidence. <i>(It isn't… it's…)</i></td><td>It isn't confidence that matters; it's a clear idea.</td></tr>
+    <tr><td>4</td><td>This matters because everyone can do it. <i>(The reason…)</i></td><td>The reason this matters is that everyone can do it.</td></tr>
+    <tr><td>5</td><td>I'm only asking for five minutes a day. <i>(All…)</i></td><td>All I'm asking for is five minutes a day.</td></tr>
+    <tr><td>6</td><td>My grandmother taught me to listen. <i>(It was…)</i></td><td>It was my grandmother who taught me to listen.</td></tr>
+  </table>
+</div>
+
+<footer>Approach International Student Center · TED Talks: Ideas Worth Sharing · Week 2 Teacher Guide</footer>
+</main>
+</body>
+</html>
