@@ -1,0 +1,721 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Week 2 Worksheet · Your Idea</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0f2340; --blue:#143865; --blue-2:#1c4f8f; --gold:#8c7535; --gold-2:#d39f10;
+    --sky:#c1cddd; --sky-2:#e1e8f2; --sky-3:#edf2f9; --warm:#efe9d9; --paper:#fbf9f3;
+    --ink:#14213a; --muted:#5b6b82; --ok:#1f8a5b; --ok-bg:#e3f4ec; --no:#c0392b; --no-bg:#fbe7e4;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0; background:var(--sky-3); color:var(--ink); font-family:Inter, system-ui, sans-serif; font-size:16px; line-height:1.55}
+  .page{max-width:960px; margin:0 auto; padding:20px 16px 60px}
+
+  .top{background:var(--blue); color:#fff; border-radius:18px; padding:22px 26px; position:relative; overflow:hidden}
+  .top::after{content:""; position:absolute; right:-40px; top:-40px; width:180px; height:180px; border:14px solid var(--gold-2); border-radius:50%; opacity:.25}
+  .school{font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--gold-2); font-weight:700}
+  h1{font-family:Lora, serif; font-size:clamp(26px,4.4vw,38px); margin:4px 0 2px}
+  .top p{margin:0; color:var(--sky)}
+  .goal{margin-top:12px; display:inline-block; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.25); border-radius:12px; padding:6px 14px; font-size:14px}
+
+  .toolbar{position:sticky; top:0; z-index:20; display:flex; flex-wrap:wrap; gap:8px; align-items:center; background:#fff; border:1px solid var(--sky); border-radius:14px; padding:10px 12px; margin:14px 0; box-shadow:0 6px 18px rgba(20,56,101,.08)}
+  .toolbar nav{display:flex; gap:4px; flex-wrap:wrap}
+  .toolbar nav a{text-decoration:none; font-weight:800; color:var(--blue); background:var(--sky-3); border-radius:8px; padding:5px 10px; font-size:14px}
+  .toolbar nav a:hover{background:var(--sky-2)}
+  .toolbar .sp{flex:1}
+  .saved{font-size:13px; color:var(--muted)}
+  .btn{font:inherit; font-weight:700; border-radius:10px; padding:8px 14px; border:2px solid var(--blue); background:var(--blue); color:#fff; cursor:pointer; font-size:14px}
+  .btn:hover{background:var(--blue-2); border-color:var(--blue-2)}
+  .btn.ghost{background:#fff; color:var(--blue)}
+  .btn.gold{background:var(--gold-2); border-color:var(--gold-2); color:var(--ink)}
+
+  .info{display:grid; grid-template-columns:2fr 1fr 1fr; gap:10px; margin-bottom:6px}
+  .info label{display:flex; align-items:center; gap:8px; background:#fff; border:1px solid var(--sky); border-radius:12px; padding:8px 12px; font-weight:600; color:var(--muted)}
+  .info input, .info select{flex:1; border:none; border-bottom:1px solid var(--sky); font:inherit; color:var(--ink); padding:4px; min-width:0; background:transparent}
+
+  .part{margin-top:28px; scroll-margin-top:80px}
+  .part-head{display:flex; align-items:center; gap:14px; margin-bottom:12px}
+  .part-letter{width:52px; height:52px; border-radius:14px; background:var(--navy); color:var(--gold-2); font-family:Lora, serif; font-weight:700; font-size:28px; display:flex; align-items:center; justify-content:center; flex:none}
+  .part-head h2{margin:0; font-family:Lora, serif; color:var(--blue); font-size:26px; line-height:1.15}
+  .part-head p{margin:2px 0 0; color:var(--muted); font-size:14px}
+
+  .task{background:#fff; border:1px solid var(--sky); border-radius:16px; padding:18px 20px; margin-bottom:14px}
+  .task-head{display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin-bottom:6px}
+  .task-head h3{margin:0; font-size:18px; color:var(--blue); flex:1; min-width:200px}
+  .tag{font-size:11px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; border-radius:999px; padding:3px 9px}
+  .t-ind{background:#eef0f4; color:#4a5568}
+  .t-pair{background:#e6f0fb; color:var(--blue-2)}
+  .t-grp{background:#fdf1d2; color:#7a5a00}
+  .t-cls{background:var(--ok-bg); color:var(--ok)}
+  .t-b2p{background:var(--navy); color:var(--gold-2)}
+  .instr{color:var(--muted); margin:0 0 12px; font-size:15px}
+
+  .q{margin:12px 0}
+  .q > label, .ql{display:block; font-weight:600; margin-bottom:5px}
+  textarea, input.line{width:100%; font:inherit; color:var(--ink); border:1px solid var(--sky); border-radius:10px; padding:9px 12px; background:var(--paper); resize:vertical}
+  textarea{min-height:64px}
+  textarea.tall{min-height:100px}
+  textarea:focus, input.line:focus, .gap:focus, select:focus{outline:2px solid var(--gold-2); outline-offset:1px}
+  .frame{font-size:13px; color:var(--gold); font-weight:700; margin-bottom:4px}
+
+  details.help{margin:8px 0; background:#eef5ff; border:1px solid #cfe0f5; border-radius:10px; padding:8px 12px; font-size:14px}
+  details.help summary{cursor:pointer; font-weight:700; color:var(--blue-2)}
+  .gloss{display:grid; grid-template-columns:1fr 1fr; gap:4px 18px; margin-top:6px}
+
+  /* matching */
+  .match{display:grid; grid-template-columns:1.1fr 1fr; gap:18px; align-items:start}
+  .mrow{display:grid; grid-template-columns:24px 36px 1fr 66px; gap:8px; align-items:center; padding:7px 6px; border-bottom:1px solid var(--sky-2); border-radius:8px}
+  .mnum{font-weight:800; color:var(--gold)}
+  .say{width:34px; height:34px; border-radius:50%; border:2px solid var(--sky); background:var(--sky-3); cursor:pointer; font-size:15px}
+  .say.playing{background:var(--gold-2); border-color:var(--gold-2)}
+  .mword{font-weight:700; color:var(--blue)}
+  .pos{display:inline-block; font-size:11px; font-weight:700; font-style:italic; color:var(--gold); background:var(--warm); border-radius:999px; padding:0 8px}
+  select{font:inherit; font-weight:700; border:2px solid var(--sky); border-radius:8px; padding:5px; background:var(--sky-3); color:var(--blue)}
+  .defs{background:var(--sky-3); border-radius:12px; padding:10px 14px; font-size:15px}
+  .def{display:flex; gap:8px; padding:5px 0; border-bottom:1px dashed var(--sky)}
+  .def:last-child{border-bottom:none}
+  .def b{color:var(--gold); min-width:14px}
+
+  /* list items */
+  .item{display:grid; grid-template-columns:28px 1fr auto; gap:10px; align-items:start; padding:9px 6px; border-bottom:1px solid var(--sky-2); border-radius:8px}
+  .item:last-child{border-bottom:none}
+  .n{font-weight:800; color:var(--gold)}
+  .tf{display:flex; gap:6px}
+  .tf label, .mc label{cursor:pointer}
+  .tf input, .mc input{position:absolute; opacity:0; pointer-events:none}
+  .tf span{display:inline-flex; width:40px; height:34px; align-items:center; justify-content:center; border:2px solid var(--sky); border-radius:8px; font-weight:800; color:var(--blue); background:#fff}
+  .tf input:checked + span{background:var(--blue); border-color:var(--blue); color:#fff}
+  .tf input:focus-visible + span, .mc input:focus-visible + span{outline:2px solid var(--gold-2)}
+  .mc{display:flex; flex-direction:column; gap:8px}
+  .mc span{display:block; border:2px solid var(--sky); border-radius:10px; padding:9px 12px; background:#fff}
+  .mc input:checked + span{border-color:var(--blue); background:#eef5ff; font-weight:600}
+  .gap{font:inherit; font-weight:600; color:var(--blue); border:none; border-bottom:2px solid var(--blue-2); background:var(--sky-3); padding:1px 6px; width:8.5em; max-width:100%; border-radius:4px 4px 0 0}
+  .time{display:inline-block; font-size:12px; font-weight:800; color:var(--blue-2); background:var(--sky-2); border-radius:6px; padding:0 6px; margin-right:6px}
+
+  .ok{background:var(--ok-bg) !important}
+  .no{background:var(--no-bg) !important}
+  .gap.ok{border-color:var(--ok)} .gap.no{border-color:var(--no)}
+  select.ok{border-color:var(--ok)} select.no{border-color:var(--no)}
+  .fixnote{grid-column:2 / -1; font-size:13px; color:var(--no); font-weight:600}
+  .checkbar{display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-top:12px}
+  .score{font-weight:800; color:var(--blue); margin-left:auto}
+  .model{display:none; font-size:14px; color:var(--ok); font-weight:600; margin-top:4px}
+  .show-models .model{display:block}
+
+  table.grid{width:100%; border-collapse:collapse; font-size:15px}
+  table.grid th{background:var(--blue); color:#fff; text-align:left; padding:8px 10px}
+  table.grid td{border-bottom:1px solid var(--sky-2); padding:8px 10px; vertical-align:top}
+  table.grid td textarea{min-height:44px}
+  .ref{background:var(--paper); border:1px solid #e6dcbf; border-radius:12px; padding:12px 14px; font-size:15px}
+  .ref table{width:100%; border-collapse:collapse}
+  .ref td,.ref th{padding:6px 8px; border-bottom:1px solid #eee3c6; text-align:left; vertical-align:top}
+  .ref th{color:var(--gold); font-size:12px; letter-spacing:.08em; text-transform:uppercase}
+  .quote{border-left:4px solid var(--gold-2); padding:6px 12px; margin:8px 0; background:var(--paper); border-radius:0 8px 8px 0; font-style:italic}
+  .scale{display:flex; flex-wrap:wrap; gap:6px}
+  .scale label span{display:inline-block; border:2px solid var(--sky); border-radius:999px; padding:5px 12px; font-size:14px; font-weight:600; background:#fff; cursor:pointer}
+  .scale input{position:absolute; opacity:0}
+  .scale input:checked + span{background:var(--blue); color:#fff; border-color:var(--blue)}
+  .checks{display:flex; flex-wrap:wrap; gap:8px 18px}
+  .checks label{display:flex; gap:6px; align-items:center; font-weight:500}
+  .checks input{width:18px; height:18px; accent-color:var(--blue)}
+
+  .bp{border:2px solid var(--blue); border-radius:16px; padding:16px 18px; background:#fff}
+  .bp h3{font-family:Lora, serif; color:var(--blue); margin:0 0 4px}
+  footer{text-align:center; color:var(--muted); font-size:12px; margin-top:28px}
+
+  @media (max-width:720px){
+    .info{grid-template-columns:1fr}
+    .match{grid-template-columns:1fr}
+    .defs{order:-1}
+    .gloss{grid-template-columns:1fr}
+    .item{grid-template-columns:24px 1fr}
+    .item > .tf{grid-column:2}
+    table.grid, table.grid tbody, table.grid tr, table.grid td{display:block; width:100%}
+    table.grid tr:first-child{display:none}
+    table.grid td{border:none; padding:4px 0}
+    table.grid tr{border-bottom:1px solid var(--sky); padding:8px 0}
+  }
+
+  @media print{
+    @page{margin:11mm}
+    body{background:#fff; font-size:11.5px}
+    .page{max-width:none; padding:0}
+    .toolbar, .checkbar, .say, .no-print{display:none !important}
+    .top{background:#fff; color:var(--ink); border:2px solid var(--blue); padding:10px 14px}
+    .top::after{display:none}
+    .top p, .goal{color:var(--muted); border-color:#999; background:none}
+    .task{border-color:#999; break-inside:avoid; padding:10px 12px}
+    .part{break-before:page; margin-top:0}
+    #partA{break-before:auto}
+    textarea, input.line{background:#fff; border:none; border-bottom:1px solid #777; border-radius:0; resize:none}
+    textarea{min-height:46px}
+    textarea.tall{min-height:72px}
+    .ok, .no{background:none !important}
+    details.help{border-color:#bbb; background:none}
+    details.help:not([open]){display:none}
+    .model{display:none !important}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="top">
+    <div class="school">Approach International Student Center</div>
+    <h1>Week 2 · Your Idea</h1>
+    <p>TED Talks: Ideas Worth Sharing · B2 · B2+ · Student Worksheet</p>
+    <span class="goal">🎯 Today's goal: say your idea in one sentence, so clearly that a partner can follow it.</span>
+  </header>
+
+  <div class="toolbar">
+    <nav>
+      <a href="#partA">A</a><a href="#partB">B</a><a href="#partC">C</a><a href="#partD">D</a><a href="#partE">E</a><a href="#partF">F</a>
+    </nav>
+    <span class="sp"></span>
+    <span class="saved" id="saved">Your answers save on this device.</span>
+    <button class="btn ghost" id="dl">⬇ Download answers</button>
+    <button class="btn gold" onclick="window.print()">🖨 Print / Save PDF</button>
+  </div>
+
+  <div class="info">
+    <label>Name <input type="text" data-k="name" data-label="Name"></label>
+    <label>Date <input type="text" data-k="date" data-label="Date"></label>
+    <label>Level <select data-k="level" data-label="Level"><option value="">–</option><option>B2</option><option>B2+</option></select></label>
+  </div>
+
+<!-- ======================= PART A ======================= -->
+<section class="part" id="partA">
+  <div class="part-head"><div class="part-letter">A</div><div><h2>Warm-up and Vocabulary</h2><p>Laughter, ideas, and the words you need today</p></div></div>
+
+  <div class="task">
+    <div class="task-head"><h3>A1 · Watch 90 seconds of Sophie Scott</h3><span class="tag t-pair">Pairs</span></div>
+    <p class="instr">Watch the clip from Sophie Scott's TED Talk (2015). Then discuss with a partner and take short notes.</p>
+    <div class="q"><label>1. Did you laugh? Why or why not?</label><textarea data-k="a1_1" data-label="A1.1 Did you laugh?"></textarea></div>
+    <div class="q"><label>2. Sophie is a scientist. What do you think her big idea about laughter will be?</label><textarea data-k="a1_2" data-label="A1.2 Her big idea (prediction)"></textarea></div>
+    <div class="q"><label>3. <span class="tag t-b2p">B2+</span> What did she do in the first 90 seconds to make you want to keep listening?</label><textarea data-k="a1_3" data-label="A1.3 Why keep listening"></textarea></div>
+  </div>
+
+  <div class="task">
+    <div class="task-head"><h3>A2 · One Breath Challenge</h3><span class="tag t-pair">Pairs</span></div>
+    <p class="instr">Say your idea from Week 1 in <b>one breath</b>. Your partner repeats it in their own words.</p>
+    <div class="q"><div class="frame">My idea is that…</div><input class="line" data-k="a2_1" data-label="A2 My idea in one breath"></div>
+    <div class="q"><div class="frame">My partner said: "So you're saying that…"</div><input class="line" data-k="a2_2" data-label="A2 Partner's version"></div>
+    <div class="q"><div class="frame">Was it the same idea? What was missing or unclear?</div><input class="line" data-k="a2_3" data-label="A2 What was unclear"></div>
+  </div>
+
+  <div class="task" id="vocab">
+    <div class="task-head"><h3>A3 · Match the words</h3><span class="tag t-pair">Pairs</span><span class="tag t-ind">Controlled</span></div>
+    <p class="instr">Press 🔊 to hear the word. Words 1–6 are from the book; 7–12 are from the Derek Sivers talk. Choose the correct meaning (a–l).</p>
+    <div class="match">
+      <div id="mwords"></div>
+      <div class="defs" id="mdefs"></div>
+    </div>
+    <div class="checkbar"><button class="btn" data-check="vocab">Check answers</button><button class="btn ghost" data-reset="vocab">Reset</button><span class="score"></span></div>
+  </div>
+
+  <div class="task">
+    <div class="task-head"><h3>A4 · Use the words</h3><span class="tag t-ind">Semi-controlled</span><span class="tag t-pair">Then share</span></div>
+    <p class="instr">Complete the sentences about <b>you</b>. Then read two of them to your partner.</p>
+    <div class="q"><div class="frame">One speaker or teacher with real charisma is… because…</div><input class="line" data-k="a4_1" data-label="A4.1 charisma"></div>
+    <div class="q"><div class="frame">It takes guts to…</div><input class="line" data-k="a4_2" data-label="A4.2 guts"></div>
+    <div class="q"><div class="frame">I usually sit on the fence when…</div><input class="line" data-k="a4_3" data-label="A4.3 sit on the fence"></div>
+    <div class="q"><div class="frame">A talk without substance is…</div><input class="line" data-k="a4_4" data-label="A4.4 substance"></div>
+  </div>
+</section>
+
+<!-- ======================= PART B ======================= -->
+<section class="part" id="partB">
+  <div class="part-head"><div class="part-letter">B</div><div><h2>Guided Reading · Three Rooms</h2><p>Chris Anderson, <i>TED Talks</i>, Ch. 2 "Idea Building"</p></div></div>
+
+  <div class="task">
+    <div class="task-head"><h3>B1 · Predict</h3><span class="tag t-pair">Pairs</span></div>
+    <p class="instr">The chapter's subtitle is <b>"The Gift in Every Great Talk."</b> Remember Anderson's talk from Week 1.</p>
+    <div class="q"><label>What "gift" can a talk give the audience?</label><textarea data-k="b1" data-label="B1 Prediction: the gift"></textarea></div>
+  </div>
+
+  <div class="task">
+    <div class="task-head"><h3>B2 · Expert group</h3><span class="tag t-grp">Groups</span></div>
+    <p class="instr">Your teacher gives your group <b>one part</b> of the reading. Read it together and prepare to teach it. You will teach it <b>without reading from the page</b>.</p>
+    <div class="q"><label>My part:</label>
+      <select data-k="b2_part" data-label="B2 My part">
+        <option value="">– choose –</option>
+        <option>Part A · Sophie's gift</option>
+        <option>Part B · What is an idea?</option>
+        <option>Part C · "I have nothing to say"</option>
+      </select>
+    </div>
+    <details class="help"><summary>Word help (glossary)</summary>
+      <div class="gloss">
+        <div><b>howling with laughter</b> – laughing very loudly</div>
+        <div><b>basking in</b> – enjoying a warm, good feeling</div>
+        <div><b>wondrous</b> – amazing, wonderful</div>
+        <div><b>cross-fertilization</b> – ideas from different fields mixing</div>
+        <div><b>held in trust</b> – kept safe for other people</div>
+        <div><b>strutting the stage</b> – walking on stage proudly, to be seen</div>
+        <div><b>grounding</b> – a solid base of knowledge</div>
+        <div><b>self-assessment</b> – how you judge yourself</div>
+      </div>
+    </details>
+    <div class="q"><label>1. The most important sentence in our part is…</label><textarea data-k="b2_1" data-label="B2.1 Key sentence"></textarea></div>
+    <div class="q"><label>2. One example the writer gives is…</label><textarea data-k="b2_2" data-label="B2.2 Example"></textarea></div>
+    <div class="q"><label>3. In our own words, the message is…</label><textarea data-k="b2_3" data-label="B2.3 Message in our words"></textarea></div>
+    <div class="q"><label>4. A question we want to ask the other groups:</label><input class="line" data-k="b2_4" data-label="B2.4 Our question"></div>
+  </div>
+
+  <div class="task">
+    <div class="task-head"><h3>B3 · Teaching group</h3><span class="tag t-grp">Groups</span><span class="tag t-cls">Share</span></div>
+    <p class="instr">In your new group, each expert teaches their part (3 minutes each). Take notes on the <b>other two</b> parts.</p>
+    <table class="grid">
+      <tr><th style="width:26%">Part</th><th>Main message (notes)</th></tr>
+      <tr><td><b>A</b> · Sophie's gift</td><td><textarea data-k="b3_a" data-label="B3 Notes Part A"></textarea></td></tr>
+      <tr><td><b>B</b> · What is an idea?</td><td><textarea data-k="b3_b" data-label="B3 Notes Part B"></textarea></td></tr>
+      <tr><td><b>C</b> · "I have nothing to say"</td><td><textarea data-k="b3_c" data-label="B3 Notes Part C"></textarea></td></tr>
+    </table>
+    <div class="q"><div class="frame">Our group summary: "In this chapter, Anderson says that…"</div><textarea data-k="b3_sum" data-label="B3 Group summary"></textarea></div>
+  </div>
+
+  <div class="task" id="tfread">
+    <div class="task-head"><h3>B4 · True or false?</h3><span class="tag t-ind">Controlled</span></div>
+    <p class="instr">Answer about the <b>whole</b> reading (all three parts). Then check.</p>
+    <div id="tfs"></div>
+    <div class="checkbar"><button class="btn" data-check="tfread">Check answers</button><button class="btn ghost" data-reset="tfread">Reset</button><span class="score"></span></div>
+  </div>
+
+  <div class="task">
+    <div class="task-head"><h3>B5 · Find your idea</h3><span class="tag t-pair">Pairs</span><span class="tag t-ind">Personal</span></div>
+    <p class="instr">Anderson gives questions to help you find an idea. Answer <b>two</b> of them to your partner. Your partner listens and suggests a possible idea.</p>
+    <div class="q"><label>Choose two questions:</label>
+      <div class="checks" data-k="b5_q" data-label="B5 Questions chosen" data-type="checks">
+        <label><input type="checkbox" value="stands out">What really stands out in your work or life in the last few years?</label>
+        <label><input type="checkbox" value="excited/angered">What was the last thing that excited you, or made you angry?</label>
+        <label><input type="checkbox" value="proud">What are you most proud of?</label>
+        <label><input type="checkbox" value="that's interesting">When did someone last say, "That's really interesting!" to you?</label>
+        <label><input type="checkbox" value="magic wand">With a magic wand, what one idea would you spread to everyone?</label>
+      </div>
+    </div>
+    <div class="q"><label>My answers (short notes):</label><textarea class="tall" data-k="b5_ans" data-label="B5 My answers"></textarea></div>
+    <div class="q"><div class="frame">My partner said: "I think your idea might be…"</div><input class="line" data-k="b5_partner" data-label="B5 Partner's suggestion"></div>
+  </div>
+</section>
+
+<!-- ======================= PART C ======================= -->
+<section class="part" id="partC">
+  <div class="part-head"><div class="part-letter">C</div><div><h2>Watch and Analyze</h2><p>Derek Sivers, "How to start a movement" (TED2010, about 3 minutes)</p></div></div>
+
+  <div class="task">
+    <div class="task-head"><h3>C1 · Before you watch</h3><span class="tag t-pair">Pairs</span></div>
+    <p class="instr">The title is <b>"How to start a movement."</b> Predict.</p>
+    <div class="q"><label>What kind of movement? Who starts it? What will the speaker say is most important?</label><textarea data-k="c1" data-label="C1 Prediction"></textarea></div>
+  </div>
+
+  <div class="task" id="seq">
+    <div class="task-head"><h3>C2 · Viewing 1: no sound</h3><span class="tag t-ind">Controlled</span><span class="tag t-pair">Then retell</span></div>
+    <p class="instr">Watch with the sound <b>off</b>. Put the events in order (1–7). Then tell the story to your partner: <i>"First…, then…, after that…"</i></p>
+    <div id="seqItems"></div>
+    <div class="checkbar"><button class="btn" data-check="seq">Check order</button><button class="btn ghost" data-reset="seq">Reset</button><span class="score"></span></div>
+  </div>
+
+  <div class="task" id="mc">
+    <div class="task-head"><h3>C3 · Viewing 2: with sound</h3><span class="tag t-ind">Controlled</span><span class="tag t-pair">Then compare</span></div>
+    <p class="instr">Watch again with sound. Which sentence is the <b>core idea</b> of the talk?</p>
+    <div class="mc ck" data-ans="c" data-name="mc1" data-k="c3mc" data-label="C3 Core idea (choice)">
+      <label><input type="radio" name="mc1" value="a"><span>a) Dancing is a good way to make friends at a festival.</span></label>
+      <label><input type="radio" name="mc1" value="b"><span>b) A good leader must be confident and stand out from the crowd.</span></label>
+      <label><input type="radio" name="mc1" value="c"><span>c) The first follower is what turns one person's action into a movement.</span></label>
+      <label><input type="radio" name="mc1" value="d"><span>d) When a crowd gets big, people should be careful.</span></label>
+    </div>
+    <div class="checkbar"><button class="btn" data-check="mc">Check</button><span class="score"></span></div>
+    <div class="q"><label>Now write the core idea <b>in your own words</b> (15 words or fewer):</label><input class="line" data-k="c3" data-label="C3 Core idea in my words"></div>
+    <div class="q"><label>Was your prediction (C1) or your muted guess right?</label><input class="line" data-k="c3b" data-label="C3 Prediction right?"></div>
+  </div>
+
+  <div class="task" id="gaps">
+    <div class="task-head"><h3>C4 · Viewing 3: listen for the words</h3><span class="tag t-ind">Controlled</span></div>
+    <p class="instr">Write <b>one word</b> in each gap. The times are from the YouTube version.</p>
+    <div id="gapItems"></div>
+    <div class="checkbar"><button class="btn" data-check="gaps">Check answers</button><button class="btn ghost" data-reset="gaps">Reset</button><span class="score"></span></div>
+  </div>
+
+  <div class="task">
+    <div class="task-head"><h3>C5 · How does he build the idea?</h3><span class="tag t-grp">Groups</span></div>
+    <p class="instr">Discuss in your group. One person writes; everyone must speak.</p>
+    <div class="q"><label>1. How does he start? How quickly does he get to his point?</label><textarea data-k="c5_1" data-label="C5.1 Start"></textarea></div>
+    <div class="q"><label>2. How does the video help? Could the talk work without it?</label><textarea data-k="c5_2" data-label="C5.2 The video"></textarea></div>
+    <div class="q"><label>3. What are the steps of his idea? Number them.</label><textarea class="tall" data-k="c5_3" data-label="C5.3 Steps"></textarea></div>
+    <div class="q"><label>4. What does he want the audience to <b>do</b> at the end?</label><textarea data-k="c5_4" data-label="C5.4 Call to action"></textarea></div>
+  </div>
+
+  <div class="task">
+    <div class="task-head"><h3>C6 · Does Sivers pass Anderson's four tests?</h3><span class="tag t-grp">Groups</span></div>
+    <p class="instr">Remember Anderson's four guidelines from Week 1. Give Sivers a mark for each and find evidence.</p>
+    <table class="grid">
+      <tr><th style="width:34%">Guideline</th><th style="width:16%">Pass?</th><th>Evidence from the talk</th></tr>
+      <tr><td>1. One major idea</td><td><select data-k="c6_1p" data-label="C6.1 Pass?"><option value="">–</option><option>✓ Yes</option><option>~ Partly</option><option>✗ No</option></select></td><td><textarea data-k="c6_1e" data-label="C6.1 Evidence"></textarea></td></tr>
+      <tr><td>2. A reason to care (curiosity)</td><td><select data-k="c6_2p" data-label="C6.2 Pass?"><option value="">–</option><option>✓ Yes</option><option>~ Partly</option><option>✗ No</option></select></td><td><textarea data-k="c6_2e" data-label="C6.2 Evidence"></textarea></td></tr>
+      <tr><td>3. Builds from what we already know</td><td><select data-k="c6_3p" data-label="C6.3 Pass?"><option value="">–</option><option>✓ Yes</option><option>~ Partly</option><option>✗ No</option></select></td><td><textarea data-k="c6_3e" data-label="C6.3 Evidence"></textarea></td></tr>
+      <tr><td>4. Worth sharing (who benefits?)</td><td><select data-k="c6_4p" data-label="C6.4 Pass?"><option value="">–</option><option>✓ Yes</option><option>~ Partly</option><option>✗ No</option></select></td><td><textarea data-k="c6_4e" data-label="C6.4 Evidence"></textarea></td></tr>
+    </table>
+  </div>
+
+  <div class="task">
+    <div class="task-head"><h3>C7 · Class discussion: "Leadership is over-glorified."</h3><span class="tag t-cls">Whole class</span></div>
+    <p class="instr">Sivers says this near the end. Do you agree? Choose, then give one reason or example.</p>
+    <div class="scale" data-k="c7" data-label="C7 Agree?" data-type="radio">
+      <label><input type="radio" name="c7" value="Strongly agree"><span>Strongly agree</span></label>
+      <label><input type="radio" name="c7" value="Agree"><span>Agree</span></label>
+      <label><input type="radio" name="c7" value="Not sure"><span>Not sure</span></label>
+      <label><input type="radio" name="c7" value="Disagree"><span>Disagree</span></label>
+      <label><input type="radio" name="c7" value="Strongly disagree"><span>Strongly disagree</span></label>
+    </div>
+    <div class="q"><div class="frame">I (dis)agree because… / For example, in my country / job…</div><textarea data-k="c7_r" data-label="C7 Reason"></textarea></div>
+  </div>
+</section>
+
+<!-- ======================= PART D ======================= -->
+<section class="part" id="partD">
+  <div class="part-head"><div class="part-letter">D</div><div><h2>Language Focus · Cleft Sentences</h2><p>Put the spotlight on your idea</p></div></div>
+
+  <div class="task">
+    <div class="task-head"><h3>D1 · Notice</h3><span class="tag t-pair">Pairs</span></div>
+    <p class="instr">Compare: which one sounds like a TED speaker? Why?</p>
+    <div class="quote" style="font-style:normal">a) The first follower matters.<br>b) <b>What really matters is the first follower.</b></div>
+    <p class="instr" style="margin-top:12px">Now look at these sentences from today's talk and reading. <b>Underline</b> (or write) the part that gets the spotlight.</p>
+    <div class="q"><label>1. Sivers: "It was really the first follower that transformed the lone nut into a leader."</label><input class="line" data-k="d1_1" data-label="D1.1 Focus"></div>
+    <div class="q"><label>2. Sivers: "The first follower is what transforms a lone nut into a leader."</label><input class="line" data-k="d1_2" data-label="D1.2 Focus"></div>
+    <div class="q"><label>3. Anderson (Part A): "What mattered now was that a special way of sharing knowledge should be preserved."</label><input class="line" data-k="d1_3" data-label="D1.3 Focus"></div>
+    <div class="q"><label>Why do speakers use this kind of sentence?</label><input class="line" data-k="d1_why" data-label="D1 Why use clefts?"></div>
+  </div>
+
+  <div class="task">
+    <div class="task-head"><h3>D2 · The patterns</h3><span class="tag t-cls">Reference</span></div>
+    <div class="ref">
+      <table>
+        <tr><th>Pattern</th><th>Form</th><th>Example</th></tr>
+        <tr><td><b>What-cleft</b></td><td>What + clause + <b>is/was</b> + FOCUS</td><td>What I want you to remember <b>is</b> this.</td></tr>
+        <tr><td><b>It-cleft</b></td><td>It + <b>is/was</b> + FOCUS + that/who…</td><td>It's <b>the first follower</b> who changes everything.</td></tr>
+        <tr><td><b>The thing / reason</b></td><td>The (only) thing / reason / problem + clause + <b>is</b></td><td>The reason this matters <b>is that</b> anyone can do it.</td></tr>
+        <tr><td><b>All-cleft</b></td><td>All + clause + <b>is</b></td><td>All I'm asking <b>is</b> one minute a day.</td></tr>
+      </table>
+      <p style="margin:10px 0 0"><b>Say it:</b> pause before the focus, and stress it. <i>"What really matters | is the FIRST follower."</i></p>
+    </div>
+  </div>
+
+  <div class="task" id="clefts">
+    <div class="task-head"><h3>D3 · Rewrite the sentences</h3><span class="tag t-ind">Controlled</span></div>
+    <p class="instr">Rewrite each sentence with the pattern in brackets. Then press <b>Show model answers</b> and compare.</p>
+    <div id="cleftItems"></div>
+    <div class="checkbar"><button class="btn" id="showModels">Show model answers</button></div>
+  </div>
+
+  <div class="task">
+    <div class="task-head"><h3>D4 · Complete with your ideas</h3><span class="tag t-ind">Semi-controlled</span><span class="tag t-pair">Then share</span></div>
+    <p class="instr">Finish the sentences. Then say them to your partner with a pause before the focus.</p>
+    <div class="q"><div class="frame">What surprised me most about the dancing video was…</div><input class="line" data-k="d4_1" data-label="D4.1"></div>
+    <div class="q"><div class="frame">It was the… who/that…</div><input class="line" data-k="d4_2" data-label="D4.2"></div>
+    <div class="q"><div class="frame">The reason Sivers's talk works is that…</div><input class="line" data-k="d4_3" data-label="D4.3"></div>
+    <div class="q"><div class="frame">It isn't… that matters in a talk; it's…</div><input class="line" data-k="d4_4" data-label="D4.4"></div>
+    <div class="q"><div class="frame"><span class="tag t-b2p">B2+</span> All I'm asking my audience to do is…</div><input class="line" data-k="d4_5" data-label="D4.5"></div>
+  </div>
+
+  <div class="task">
+    <div class="task-head"><h3>D5 · Your idea, three ways</h3><span class="tag t-ind">Freer</span><span class="tag t-pair">Pairs</span></div>
+    <p class="instr">Write your idea as three different cleft sentences. Read them to your partner. Your partner chooses the strongest.</p>
+    <div class="q"><div class="frame">What-cleft: What…is…</div><input class="line" data-k="d5_1" data-label="D5.1 What-cleft"></div>
+    <div class="q"><div class="frame">It-cleft: It's… that/who…</div><input class="line" data-k="d5_2" data-label="D5.2 It-cleft"></div>
+    <div class="q"><div class="frame">The reason / thing: The… is…</div><input class="line" data-k="d5_3" data-label="D5.3 Reason/thing cleft"></div>
+    <div class="q"><div class="frame">My partner chose number ___ because "Your ___ one is stronger because…"</div><input class="line" data-k="d5_pick" data-label="D5 Partner's choice"></div>
+  </div>
+</section>
+
+<!-- ======================= PART E ======================= -->
+<section class="part" id="partE">
+  <div class="part-head"><div class="part-letter">E</div><div><h2>Speaking · First Follower Pitch Rounds</h2><p>You are the leader. Can your partner follow you?</p></div></div>
+
+  <div class="task">
+    <div class="task-head"><h3>E1 · Plan your 60-second pitch</h3><span class="tag t-ind">Individual</span></div>
+    <p class="instr">Notes only: key words, not full sentences.</p>
+    <div class="q"><label>① My idea (best cleft sentence from D5)</label><input class="line" data-k="e1_1" data-label="E1 Idea"></div>
+    <div class="q"><label>② One example or short story</label><input class="line" data-k="e1_2" data-label="E1 Example/story"></div>
+    <div class="q"><label>③ Why should the listener care?</label><input class="line" data-k="e1_3" data-label="E1 Why care"></div>
+  </div>
+
+  <div class="task">
+    <div class="task-head"><h3>E2 · Pitch rounds log</h3><span class="tag t-pair">Rotating pairs</span></div>
+    <p class="instr">After each round, write what your listener said and <b>one thing</b> you will change. Round 3 is <b>45 seconds</b>.</p>
+    <table class="grid">
+      <tr><th style="width:8%">Round</th><th style="width:22%">Could they repeat my idea?</th><th>Their feedback</th><th>One thing I'll change</th></tr>
+      <tr><td><b>1</b></td><td><select data-k="e2_1r" data-label="E2 R1 Repeat?"><option value="">–</option><option>Yes</option><option>Partly</option><option>No</option></select></td><td><textarea data-k="e2_1f" data-label="E2 R1 Feedback"></textarea></td><td><textarea data-k="e2_1c" data-label="E2 R1 Change"></textarea></td></tr>
+      <tr><td><b>2</b></td><td><select data-k="e2_2r" data-label="E2 R2 Repeat?"><option value="">–</option><option>Yes</option><option>Partly</option><option>No</option></select></td><td><textarea data-k="e2_2f" data-label="E2 R2 Feedback"></textarea></td><td><textarea data-k="e2_2c" data-label="E2 R2 Change"></textarea></td></tr>
+      <tr><td><b>3</b></td><td><select data-k="e2_3r" data-label="E2 R3 Repeat?"><option value="">–</option><option>Yes</option><option>Partly</option><option>No</option></select></td><td><textarea data-k="e2_3f" data-label="E2 R3 Feedback"></textarea></td><td><textarea data-k="e2_3c" data-label="E2 R3 Change"></textarea></td></tr>
+    </table>
+    <details class="help" open><summary>Feedback frames (B2)</summary>
+      <div class="gloss">
+        <div><b>I'd follow because…</b><br>· Your idea was clear when you said…<br>· Your example about ___ made me care.<br>· I can repeat it: "You're saying that…"</div>
+        <div><b>I'm not following yet because…</b><br>· I wasn't sure who the idea is for.<br>· I understood the topic, but not the idea.<br>· One thing that would help is…</div>
+      </div>
+    </details>
+  </div>
+
+  <div class="task">
+    <div class="task-head"><h3>E3 · Class discussion</h3><span class="tag t-cls">Whole class</span></div>
+    <div class="q"><label>Whose idea (not yours!) would you follow? Why?</label><textarea data-k="e3" data-label="E3 Whose idea would I follow"></textarea></div>
+  </div>
+</section>
+
+<!-- ======================= PART F ======================= -->
+<section class="part" id="partF">
+  <div class="part-head"><div class="part-letter">F</div><div><h2>Build Your Talk · Idea Blueprint</h2><p>Week 2 milestone · due at the start of Week 3</p></div></div>
+
+  <div class="bp">
+    <h3>My Idea Blueprint</h3>
+    <p class="instr">B2: sections 1–7 · B2+: sections 1–8. In Week 3, section 1 becomes your <b>throughline</b>.</p>
+    <div class="q"><label>1. My idea in one cleft sentence</label><input class="line" data-k="f1" data-label="F1 Idea (cleft)"></div>
+    <div class="q"><label>2. Type of idea</label>
+      <div class="scale" data-k="f2" data-label="F2 Type of idea" data-type="radio">
+        <label><input type="radio" name="f2" value="A how-to"><span>A how-to</span></label>
+        <label><input type="radio" name="f2" value="A story with a lesson"><span>A story with a lesson</span></label>
+        <label><input type="radio" name="f2" value="An image with meaning"><span>An image with meaning</span></label>
+        <label><input type="radio" name="f2" value="A hope for the future"><span>A hope for the future</span></label>
+        <label><input type="radio" name="f2" value="A reminder of what matters"><span>A reminder of what matters</span></label>
+      </div>
+    </div>
+    <div class="q"><label>3. Who is it for?</label><input class="line" data-k="f3" data-label="F3 Audience"></div>
+    <div class="q"><label>4. Why should they care?</label><textarea data-k="f4" data-label="F4 Why care"></textarea></div>
+    <div class="q"><label>5. Two or three pieces I could use (a story, an example, a fact)</label><textarea class="tall" data-k="f5" data-label="F5 Pieces"></textarea></div>
+    <div class="q"><label>6. The four tests (my partner checks)</label>
+      <div class="checks" data-k="f6" data-label="F6 Four tests" data-type="checks">
+        <label><input type="checkbox" value="One idea">One idea</label>
+        <label><input type="checkbox" value="A reason to care">A reason to care</label>
+        <label><input type="checkbox" value="Builds from what they know">Builds from what they know</label>
+        <label><input type="checkbox" value="Worth sharing">Worth sharing (who benefits?)</label>
+      </div>
+    </div>
+    <div class="q"><label>7. The most useful feedback I got today</label><textarea data-k="f7" data-label="F7 Feedback"></textarea></div>
+    <div class="q"><label>8. <span class="tag t-b2p">B2+</span> The biggest risk for my idea is… I'll handle it by…</label><textarea data-k="f8" data-label="F8 Risk"></textarea></div>
+  </div>
+
+  <div class="task" style="margin-top:14px; border:2px dashed var(--gold-2)">
+    <div class="task-head"><h3>🎟 Exit ticket</h3><span class="tag t-ind">Individual</span></div>
+    <div class="q"><label>1. My idea in one sentence is…</label><input class="line" data-k="x1" data-label="Exit 1 Idea"></div>
+    <div class="q"><label>2. One thing I changed about my idea today is…</label><input class="line" data-k="x2" data-label="Exit 2 Change"></div>
+  </div>
+
+  <div class="task">
+    <div class="task-head"><h3>🏠 Before next class</h3></div>
+    <ul style="margin:0">
+      <li>Tell your idea to one person outside class. Can they repeat it?</li>
+      <li>Improve your cleft sentence based on their reaction.</li>
+      <li>Bring your Idea Blueprint to Week 3.</li>
+    </ul>
+  </div>
+</section>
+
+<footer>Approach International Student Center · TED Talks: Ideas Worth Sharing · Week 2</footer>
+</div>
+
+<script>
+const $ = s => document.querySelector(s);
+const $$ = s => [...document.querySelectorAll(s)];
+
+/* ---------------- DATA ---------------- */
+const vocab = [
+  {w:"phenomenon",      say:"phenomenon",       pos:"noun",          ans:"i"},
+  {w:"compelling",      say:"compelling",       pos:"adjective",     ans:"g"},
+  {w:"conjure up",      say:"conjure up",       pos:"phrasal verb",  ans:"d"},
+  {w:"substance",       say:"substance",        pos:"noun",          ans:"c"},
+  {w:"charisma",        say:"charisma",         pos:"noun",          ans:"k"},
+  {w:"paradox",         say:"paradox",          pos:"noun",          ans:"l"},
+  {w:"guts",            say:"guts",             pos:"noun (informal)", ans:"e"},
+  {w:"ridicule",        say:"ridicule",         pos:"verb",          ans:"f"},
+  {w:"emulate",         say:"emulate",          pos:"verb",          ans:"b"},
+  {w:"momentum",        say:"momentum",         pos:"noun",          ans:"j"},
+  {w:"tipping point",   say:"tipping point",    pos:"noun",          ans:"a"},
+  {w:"sit on the fence",say:"sit on the fence", pos:"idiom",         ans:"h"}
+];
+const defs = [
+  ["a","the moment when a small change becomes a big change that can't be stopped"],
+  ["b","to copy someone because you admire them"],
+  ["c","real, important content or meaning"],
+  ["d","to make a picture or idea appear in someone's mind"],
+  ["e","courage to do something difficult or scary"],
+  ["f","to laugh at someone in an unkind way"],
+  ["g","so interesting or convincing that you have to pay attention"],
+  ["h","to avoid choosing a side"],
+  ["i","something that happens or exists, especially something unusual"],
+  ["j","the force that keeps something moving and growing"],
+  ["k","a strong personal attraction that makes people want to follow you"],
+  ["l","a situation with two facts that seem opposite but are both true"]
+];
+const tfs = [
+  ["Sophie Scott made the audience laugh within the first few minutes of her talk.","T"],
+  ["Anderson says Sophie's real gift was the pleasure of listening to her.","F"],
+  ["Anderson's own \"scariest talk\" worked because it was perfect in every way.","F"],
+  ["Anderson says confidence and stage presence are the most important things in public speaking.","F"],
+  ["An idea can be as simple as a how-to or a reminder of what matters in life.","T"],
+  ["If you feel you have nothing to say, Anderson says you should first check if you are just lacking confidence.","T"],
+  ["Anderson says your own experience of life is not special enough for a talk.","F"],
+  ["A familiar lesson can still make a great talk if it is told in a fresh story.","T"]
+];
+const seq = [
+  ["A man dances alone on the grass while other people sit and watch.",1],
+  ["A second man joins and copies the dancer.",2],
+  ["The dancer welcomes the new dancer as an equal.",3],
+  ["The follower waves to call his friends.",4],
+  ["A third person joins them.",5],
+  ["Several more people join quickly, one group after another.",6],
+  ["A big crowd runs in to join the dance.",7]
+];
+const seqShown = [3,0,6,2,5,1,4]; // display order (indexes into seq)
+const gaps = [
+  ["0:28","A leader needs the ___ to stand out and be ridiculed.",["guts"]],
+  ["0:35","Here's his first follower with a ___ role.",["crucial"]],
+  ["0:39","Notice that the leader embraces him as an ___.",["equal"]],
+  ["0:55","The first follower is what transforms a lone ___ into a leader.",["nut"]],
+  ["1:09","Three is a crowd, and a crowd is ___.",["news"]],
+  ["1:19","New followers ___ the followers, not the leader.",["emulate"]],
+  ["1:28","Now we've got momentum. This is the tipping ___.",["point"]],
+  ["2:07","Remember the importance of ___ your first few followers as equals.",["nurturing"]],
+  ["2:20","The biggest lesson… is that leadership is over-___.",["glorified"]],
+  ["2:42","Have the guts to be the first one to stand up and ___ in.",["join"]]
+];
+const clefts = [
+  ["The first follower changes everything.","It…","It's the first follower who/that changes everything."],
+  ["I want you to remember one thing: practice.","What…","What I want you to remember is practice."],
+  ["A clear idea matters, not confidence.","It isn't… it's…","It isn't confidence that matters; it's a clear idea."],
+  ["This matters because everyone can do it.","The reason…","The reason this matters is that everyone can do it."],
+  ["I'm only asking for five minutes a day.","All…","All I'm asking for is five minutes a day."],
+  ["My grandmother taught me to listen.","It was…","It was my grandmother who taught me to listen."]
+];
+
+/* ---------------- BUILD ---------------- */
+$("#mwords").innerHTML = vocab.map((v,i)=>`
+  <div class="mrow">
+    <span class="mnum">${i+1}</span>
+    <button class="say no-print" data-say="${v.say}" aria-label="Listen to ${v.w}">🔊</button>
+    <div><div class="mword">${v.w}</div><span class="pos">${v.pos}</span></div>
+    <select class="ck" data-ans="${v.ans}" data-k="v${i}" data-label="A3 ${v.w}"><option value="">–</option>${defs.map(d=>`<option>${d[0]}</option>`).join("")}</select>
+  </div>`).join("");
+$("#mdefs").innerHTML = defs.map(d=>`<div class="def"><b>${d[0]}</b><span>${d[1]}</span></div>`).join("");
+
+$("#tfs").innerHTML = tfs.map((t,i)=>`
+  <div class="item">
+    <span class="n">${i+1}</span><div>${t[0]}</div>
+    <div class="tf ck" data-ans="${t[1]}" data-name="tf${i}" data-k="tf${i}" data-label="B4.${i+1}" data-type="radio">
+      <label><input type="radio" name="tf${i}" value="T"><span>T</span></label>
+      <label><input type="radio" name="tf${i}" value="F"><span>F</span></label>
+    </div>
+  </div>`).join("");
+
+$("#seqItems").innerHTML = seqShown.map(ix=>`
+  <div class="item">
+    <span class="n">•</span><div>${seq[ix][0]}</div>
+    <select class="ck" data-ans="${seq[ix][1]}" data-k="seq${ix}" data-label="C2 ${seq[ix][0]}"><option value="">#</option>${[1,2,3,4,5,6,7].map(n=>`<option>${n}</option>`).join("")}</select>
+  </div>`).join("");
+
+$("#gapItems").innerHTML = gaps.map((g,i)=>{
+  const [b,a] = g[1].split("___");
+  return `<div class="item"><span class="n">${i+1}</span>
+    <div><span class="time">${g[0]}</span>${b}<input class="gap ck" data-ans="${g[2].join("|")}" data-k="g${i}" data-label="C4.${i+1}" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Gap ${i+1}">${a}</div><span></span></div>`;
+}).join("");
+
+$("#cleftItems").innerHTML = clefts.map((c,i)=>`
+  <div class="q"><label>${i+1}. ${c[0]} <span class="pos">${c[1]}</span></label>
+  <input class="line" data-k="d3_${i}" data-label="D3.${i+1}"><div class="model">✓ ${c[2]}</div></div>`).join("");
+$("#showModels").onclick = e => { const t = $("#clefts").classList.toggle("show-models"); e.target.textContent = t ? "Hide model answers" : "Show model answers"; };
+
+/* ---------------- CHECKING ---------------- */
+const norm = s => (s||"").toLowerCase().trim().replace(/[.,!?;:"'’]/g,"").replace(/\s+/g," ").replace(/^over-?/,"");
+function valueOf(el){
+  if(el.matches("select, input")) return el.value;
+  const r = el.querySelector("input[type=radio]:checked"); return r ? r.value : "";
+}
+function rowOf(el){ return el.closest(".item, .mrow") || el; }
+$$("[data-check]").forEach(btn => btn.onclick = () => {
+  const box = document.getElementById(btn.dataset.check);
+  const items = [...box.querySelectorAll(".ck")];
+  let n = 0;
+  items.forEach(el => {
+    const row = rowOf(el), v = norm(valueOf(el));
+    [el,row].forEach(x => x.classList.remove("ok","no"));
+    row.querySelector(".fixnote")?.remove();
+    if(!v) return;
+    const answers = el.dataset.ans.split("|").map(norm);
+    const good = answers.includes(v);
+    (el.matches(".gap, select") ? el : row).classList.add(good ? "ok" : "no");
+    if(el.matches(".mc")) el.querySelectorAll("input").forEach(r => { r.nextElementSibling.classList.toggle("ok", r.checked && good); r.nextElementSibling.classList.toggle("no", r.checked && !good); });
+    if(good) n++;
+    else if(el.matches(".gap") || box.id === "tfread" || box.id === "vocab"){
+      const note = document.createElement("div"); note.className = "fixnote";
+      note.textContent = "Answer: " + (box.id === "vocab" ? el.dataset.ans + " — " + defs.find(d=>d[0]===el.dataset.ans)[1] : box.id === "tfread" ? (el.dataset.ans === "T" ? "True" : "False") : el.dataset.ans.split("|")[0]);
+      if(row.classList.contains("mrow")) row.appendChild(note); else row.appendChild(note);
+    }
+  });
+  const s = btn.parentElement.querySelector(".score"); if(s) s.textContent = `Score: ${n} / ${items.length}`;
+});
+$$("[data-reset]").forEach(btn => btn.onclick = () => {
+  const box = document.getElementById(btn.dataset.reset);
+  box.querySelectorAll(".ok,.no").forEach(x => x.classList.remove("ok","no"));
+  box.querySelectorAll(".fixnote").forEach(x => x.remove());
+  box.querySelectorAll(".ck").forEach(el => { if(el.matches("select, input")) el.value = ""; else el.querySelectorAll("input").forEach(r => r.checked = false); });
+  const s = btn.parentElement.querySelector(".score"); if(s) s.textContent = "";
+  save();
+});
+
+/* ---------------- AUDIO ---------------- */
+const canSpeak = "speechSynthesis" in window;
+let voice = null;
+function pickVoice(){ const vs = canSpeak ? speechSynthesis.getVoices() : []; voice = vs.find(v=>v.lang==="en-US" && /Google|Samantha|Aria|Jenny|Natural/i.test(v.name)) || vs.find(v=>v.lang==="en-US") || vs.find(v=>v.lang && v.lang.startsWith("en")) || null; }
+if(canSpeak){ pickVoice(); speechSynthesis.onvoiceschanged = pickVoice; } else $$(".say").forEach(b => b.style.display = "none");
+$$(".say").forEach(b => b.onclick = () => {
+  speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(b.dataset.say);
+  u.lang = "en-US"; u.rate = .8; if(voice) u.voice = voice;
+  b.classList.add("playing"); u.onend = u.onerror = () => b.classList.remove("playing");
+  speechSynthesis.speak(u);
+});
+
+/* ---------------- SAVE / RESTORE / DOWNLOAD ---------------- */
+const KEY = "ted-b2-week2-worksheet";
+const fields = () => $$("[data-k]");
+function getVal(el){
+  const t = el.dataset.type;
+  if(t === "checks") return [...el.querySelectorAll("input:checked")].map(i=>i.value).join(", ");
+  if(t === "radio" || el.matches(".tf, .mc")) { const r = el.querySelector("input:checked"); return r ? r.value : ""; }
+  return el.value;
+}
+function setVal(el, v){
+  const t = el.dataset.type;
+  if(t === "checks"){ const set = v.split(", "); el.querySelectorAll("input").forEach(i => i.checked = set.includes(i.value)); }
+  else if(t === "radio" || el.matches(".tf, .mc")) el.querySelectorAll("input").forEach(i => i.checked = i.value === v);
+  else el.value = v;
+}
+function save(){
+  const data = {}; fields().forEach(el => data[el.dataset.k] = getVal(el));
+  try{ localStorage.setItem(KEY, JSON.stringify(data)); $("#saved").textContent = "✓ Saved on this device " + new Date().toLocaleTimeString([], {hour:"2-digit", minute:"2-digit"}); }
+  catch(e){ $("#saved").textContent = "Use Download to keep your answers."; }
+}
+try{ const d = JSON.parse(localStorage.getItem(KEY) || "{}"); fields().forEach(el => { if(d[el.dataset.k] != null) setVal(el, d[el.dataset.k]); }); }catch(e){}
+let tmr; document.addEventListener("input", () => { clearTimeout(tmr); tmr = setTimeout(save, 400); });
+document.addEventListener("change", () => { clearTimeout(tmr); tmr = setTimeout(save, 200); });
+
+$("#dl").onclick = () => {
+  let out = "TED Talks: Ideas Worth Sharing · Week 2 · Your Idea\n";
+  $$("section.part").forEach(sec => {
+    out += "\n==== " + sec.querySelector("h2").textContent.toUpperCase() + " ====\n";
+    sec.querySelectorAll("[data-k]").forEach(el => { const v = getVal(el); out += el.dataset.label + ": " + (v || "—") + "\n"; });
+  });
+  const head = ["name","date","level"].map(k => { const el = document.querySelector(`[data-k="${k}"]`); return el.dataset.label + ": " + (getVal(el)||"—"); }).join("\n");
+  const blob = new Blob([head + "\n\n" + out], {type:"text/plain"});
+  const a = document.createElement("a");
+  const nm = (getVal(document.querySelector('[data-k="name"]')) || "student").replace(/[^\w-]+/g,"_");
+  a.href = URL.createObjectURL(blob); a.download = `Week2_${nm}.txt`; a.click();
+  setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+};
+</script>
+</body>
+</html>
