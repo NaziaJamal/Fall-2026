@@ -1,0 +1,638 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Week 2 Teacher Guide · Ethics in a Global World</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#143865;--blue:#1c4f8f;--gold:#d39f10;--gold-d:#8c7535;--sky:#c1cddd;--sky2:#e1e8f2;--sky3:#edf2f9;--cream:#efe9d9;--ink:#1a2233;--muted:#4a5568;--bg:#fbfaf6}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Source Sans 3",system-ui,sans-serif;color:var(--ink);background:var(--bg);font-size:16.5px;line-height:1.55}
+header.top{background:var(--navy);color:#fff;border-bottom:4px solid var(--gold)}
+.top .in{max-width:1180px;margin:0 auto;padding:18px 16px 20px;display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.top img{width:56px;height:56px;border-radius:8px;flex:none}
+.top .w{font-family:"Libre Baskerville",serif;color:var(--gold);letter-spacing:.12em;font-size:16px;line-height:1.1;flex:none}
+.top .w small{display:block;letter-spacing:.02em;font-size:10px;color:#e6d8a8}
+.top .grow{flex:1;min-width:220px}
+.top h1{font-family:"Libre Baskerville",serif;margin:0;font-size:clamp(19px,3.6vw,26px);line-height:1.2}
+.top p{margin:3px 0 0;color:var(--sky);font-size:14.5px}
+.btn{display:inline-block;background:var(--gold);color:var(--navy);border:0;border-radius:6px;padding:8px 14px;font:inherit;font-weight:700;font-size:14px;cursor:pointer;text-decoration:none}
+.btn.ghost{background:transparent;color:#fff;border:1px solid var(--sky)}
+.layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:230px 1fr;gap:28px;padding:0 16px}
+.toc{position:sticky;top:0;align-self:start;max-height:100vh;overflow:auto;padding:22px 0;font-size:14px}
+.toc b{display:block;margin:14px 0 4px;color:var(--gold-d);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.toc a{display:block;color:var(--navy);text-decoration:none;padding:2px 0}
+.toc a:hover{text-decoration:underline}
+main{padding:10px 0 60px;min-width:0}
+section{padding-top:8px}
+h2{font-family:"Libre Baskerville",serif;color:var(--navy);font-size:24px;margin:34px 0 10px;padding-bottom:6px;border-bottom:3px solid var(--gold)}
+h3{font-family:"Libre Baskerville",serif;color:var(--navy);font-size:19px;margin:28px 0 8px}
+h4{margin:18px 0 6px;color:var(--blue);font-size:16.5px}
+.lead{font-size:18.5px;color:var(--navy)}
+.meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin:14px 0}
+.meta>div{background:#fff;border:1px solid var(--sky);border-left:5px solid var(--gold);border-radius:8px;padding:12px 14px}
+.meta b{display:block;color:var(--navy)}
+table{width:100%;border-collapse:collapse;margin:10px 0 16px;background:#fff;font-size:15px}
+th,td{border:1px solid var(--sky);padding:7px 9px;text-align:left;vertical-align:top}
+th{background:var(--sky2);color:var(--navy)}
+.tw{overflow-x:auto}
+.act{background:#fff;border:1px solid var(--sky);border-radius:10px;padding:4px 18px 14px;margin:18px 0}
+.act h3{margin-top:14px}
+.tag{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:2px 8px;border-radius:4px;background:var(--navy);color:#fff;margin-right:6px;vertical-align:middle}
+.tag.s{background:var(--blue)}.tag.a{background:var(--gold-d)}.tag.b{background:#5a6b84}
+.kv{display:grid;grid-template-columns:130px 1fr;gap:4px 12px;font-size:15px;margin:8px 0 10px}
+.kv b{color:var(--navy)}
+.say{background:var(--cream);border-left:4px solid var(--gold-d);padding:9px 14px;border-radius:6px;margin:10px 0;font-style:italic}
+.note{background:var(--sky3);border-left:4px solid var(--blue);padding:9px 14px;border-radius:6px;margin:10px 0;font-size:15px}
+.warn{background:#fbf1dc;border-left:4px solid var(--gold);padding:9px 14px;border-radius:6px;margin:10px 0;font-size:15px}
+.lang{background:#fff;border:1px dashed var(--gold-d);border-radius:8px;padding:8px 14px;margin:10px 0;font-size:15px}
+.lang b{color:var(--gold-d)}
+ol li,ul li{margin:3px 0}
+.time{font-weight:700;color:var(--gold-d)}
+footer{font-size:13px;color:#6b7280;border-top:1px solid var(--sky);margin-top:40px;padding-top:12px}
+@media (max-width:860px){.layout{grid-template-columns:1fr}.toc{position:static;max-height:none;padding:10px 0 0;columns:2}.kv{grid-template-columns:1fr}}
+@media print{
+  body{font-size:11.5pt;background:#fff}
+  .noprint,.toc{display:none!important}
+  .layout{display:block;padding:0}
+  header.top{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .act,table,.say,.note,.warn,.lang{break-inside:avoid}
+  h2{break-before:page}
+  section:first-of-type h2{break-before:auto}
+  a{color:inherit;text-decoration:none}
+}
+</style>
+</head>
+<body>
+<header class="top"><div class="in">
+  <img src="logo.png" alt="Approach International Student Center" onload="this.nextElementSibling.remove()" onerror="this.remove()"><div class="w">APPROACH<small>International Student Center</small></div>
+  <div class="grow"><h1>Week 2 Teacher Guide · Ethics from Antiquity to the Present</h1><p>Ethics in a Global World · Chapter 2 · 9:00 am–12:50 pm</p></div>
+  <div class="noprint"><button class="btn" onclick="print()">Print / Save PDF</button> <a class="btn ghost" href="index.html">All files</a></div>
+</div></header>
+
+<div class="layout">
+<nav class="toc" aria-label="Contents">
+  <b>Overview</b>
+  <a href="#overview">Goals &amp; concepts</a>
+  <a href="#materials">Materials &amp; sources</a>
+  <a href="#prep">Prep checklist</a>
+  <b>Class 1 · 9:00–10:40</b>
+  <a href="#c1">Timing</a>
+  <a href="#c1-a">The colleague you'd trust</a>
+  <a href="#c1-b">Find the golden mean</a>
+  <a href="#c1-c">Athens &amp; China jigsaw</a>
+  <a href="#c1-d">East meets West grid</a>
+  <a href="#c1-e">Advise the board: Chiquita</a>
+  <a href="#c1-f">Exit ticket &amp; bridge</a>
+  <b>Class 2 · 11:10–12:50</b>
+  <a href="#c2">Timing</a>
+  <a href="#c2-a">Bridge: Jon &amp; Matt</a>
+  <a href="#c2-b">Framework triads</a>
+  <a href="#c2-c">Northfield: three verdicts</a>
+  <a href="#c2-d">Timeline challenge</a>
+  <a href="#c2-e">Debate</a>
+  <a href="#c2-f">Reflection &amp; homework</a>
+  <b>Support</b>
+  <a href="#lang">Language support</a>
+  <a href="#hw">Homework</a>
+  <a href="#assess">Checks &amp; quiz items</a>
+  <a href="#align">Assessment links</a>
+  <a href="#flags">Open questions</a>
+</nav>
+
+<main>
+
+<section id="overview">
+<h2>Week 2 at a glance</h2>
+<p class="lead">In Week 1 students met three lenses — consequences, duty, character. This week they meet the people behind them, and leave able to say <em>"A Kantian would say X, but a utilitarian would say Y — and here's why they disagree."</em></p>
+<div class="meta">
+  <div><b>Class 1 · "Who Should We Be?"</b>Virtue ethics, West and East: Aristotle and Confucius (Sections 2.1–2.3). Trustworthy colleagues → golden mean → jigsaw → Chiquita board advice.</div>
+  <div><b>Class 2 · "Results, Rules, or Fairness?"</b>Bentham &amp; Mill, Kant, Rawls (Sections 2.4–2.6). Jon &amp; Matt → framework triads → plant-closing case behind the veil → timeline → debate.</div>
+  <div><b>The thread</b>Class 1 judges the <em>person</em>. Class 2 judges the <em>action</em> (results, duty) and the <em>system</em> (fairness). The debate asks whether 2,500-year-old answers still work.</div>
+</div>
+
+<h3>Learning goals</h3>
+<p>By the end of Week 2, students can:</p>
+<ol>
+<li>Explain virtue ethics and find the golden mean (deficiency – virtue – excess) for a workplace virtue.</li>
+<li>Compare Aristotle and Confucius: aim (happiness vs. harmony), ideal person (magnanimous person vs. <em>junzi</em>), locus of ethics (individual vs. family).</li>
+<li>State the central question of utilitarianism, deontology and justice as fairness, and the test each one uses.</li>
+<li>Apply three frameworks to one business case and explain <em>why</em> they reach different conclusions.</li>
+<li>Report and compare viewpoints using B2+ language: <em>"A Kantian would object that…", "If I were behind the veil, I would…"</em></li>
+</ol>
+
+<h3>Key concepts (all from Chapter 2)</h3>
+<div class="tw"><table>
+<tr><th>Section</th><th>Core ideas students need</th><th>Examples in the text</th></tr>
+<tr><td>2.1 Ancient Athens</td><td>Virtue ethics; <em>telos</em>; <em>eudaimonia</em> (flourishing, not superficial happiness); <em>phrónēsis</em> (practical wisdom / prudence); golden mean; moral virtues grow through habit — action comes before character; magnanimity; Aristotle condemned <em>greed</em>, not profit; honor and reputation; legal, commutative and distributive justice</td><td>Shoemaker and house-builder trade as equals through money; metics; Athenian democracy box</td></tr>
+<tr><td>2.2 Ancient China</td><td>Confucius (551–479 BCE); <em>li</em> (proper order, ritual); <em>junzi</em> vs. the "small" person; the <em>dao</em> (Way) of humanity; loyalty to truth, not blind loyalty; the constant mean; <em>quan</em> (weighing options like a counterweight); five great relationships; family as the school of character; righteousness → justice</td><td>New-employee orientation as ritual; Yijing case; Broad Group (Zhang Yue, UN prize 2011); Enron, LIBOR, VW, Uber; Jack Ma's "clean communism"</td></tr>
+<tr><td>2.3 East and West</td><td>Aim: happiness (Aristotle) vs. harmony (Confucius); shared theme of control/self-regulation; locus of ethics: individual vs. family; integrating personal and professional life (motive + awareness); dispersed accountability; is a universal ethic possible? Standards (GAAP, IFRS) are not enough without transformation</td><td>Retail manager who donates to wildlife but burns out staff; Chiquita in Colombia (1997–2004)</td></tr>
+<tr><td>2.4 Utilitarianism</td><td>Bentham: greatest happiness for the greatest number; utility; hedonic calculus (intensity, duration, certainty, probability); consequentialism; Mill: harm principle, rights + utility, <em>On Liberty</em> (1859); cost-benefit analysis in business</td><td>Jon &amp; Matt (Fiery Cushman); Bentham's auto-icon; reckless driver; store closings and layoffs</td></tr>
+<tr><td>2.5 Deontology</td><td>Kant: duty, goodwill, categorical imperative — (1) act only on a rule you could will as universal law; (2) never treat people merely as a means; motive over outcome; "worthy of happiness"; strength (humanity, autonomy) vs. weakness (unconditional, hard across cultures)</td><td>Jean Valjean; Uber, VW, Theranos, "Fat Leonard"; Samsung Note 7 (see <a href="#flags">flags</a>)</td></tr>
+<tr><td>2.6 Justice</td><td>Rawls (1921–2002): justice as fairness; social contract; original position; veil of ignorance; unanimity; maximize the welfare of the most disadvantaged; problem of redistribution; Nozick's critique (entitlement); three business advantages (global/diverse firms, practical method, CSR and employee development)</td><td>Cake-cutting (pure procedural justice); the syllabus as a contract; baker example; senior-care thought experiment</td></tr>
+</table></div>
+
+<h3>Big ethical questions</h3>
+<ul>
+<li>Should we judge a businessperson by <strong>who they are</strong>, <strong>what they intended</strong>, <strong>what happened</strong>, or <strong>whether the system was fair</strong>?</li>
+<li>Is the center of ethics the <strong>individual</strong> (Aristotle) or our <strong>relationships</strong> (Confucius)? Which does your workplace assume?</li>
+<li>When is loyalty a virtue, and when is it "blind"?</li>
+<li>Can 2,500-year-old ideas guide decisions about AI, global supply chains and high-frequency trading?</li>
+<li>Is there one ethic for every culture, or only a shared <em>method</em>?</li>
+</ul>
+</section>
+
+<section id="materials">
+<h2>Materials &amp; sources</h2>
+<div class="tw"><table>
+<tr><th>Source</th><th>What we use</th><th>Type</th></tr>
+<tr><td><a href="https://openstax.org/books/business-ethics/pages/2-1-the-concept-of-ethical-business-in-ancient-athens">OpenStax 2.1</a></td><td>Jigsaw packets A and B</td><td>Textbook</td></tr>
+<tr><td><a href="https://openstax.org/books/business-ethics/pages/2-2-ethical-advice-for-nobles-and-civil-servants-in-ancient-china">OpenStax 2.2</a></td><td>Jigsaw packets C and D; Yijing (homework option)</td><td>Textbook</td></tr>
+<tr><td><a href="https://openstax.org/books/business-ethics/pages/2-3-comparing-the-virtue-ethics-of-east-and-west">OpenStax 2.3</a></td><td>East meets West grid; Chiquita case; debate evidence</td><td>Textbook</td></tr>
+<tr><td><a href="https://openstax.org/books/business-ethics/pages/2-4-utilitarianism-the-greatest-good-for-the-greatest-number">OpenStax 2.4</a></td><td>Jon &amp; Matt; Framework card U</td><td>Textbook</td></tr>
+<tr><td><a href="https://openstax.org/books/business-ethics/pages/2-5-deontology-ethics-as-duty">OpenStax 2.5</a></td><td>Framework card K; Jean Valjean (homework option)</td><td>Textbook</td></tr>
+<tr><td><a href="https://openstax.org/books/business-ethics/pages/2-6-a-theory-of-justice">OpenStax 2.6</a></td><td>Framework card R; veil of ignorance; senior-care thought experiment (homework option)</td><td>Textbook</td></tr>
+<tr><td><a href="https://earthrights.org/media_release/u-s-court-upholds-landmark-jury-verdict-for-victims-of-paramilitary-violence-in-colombia-against-chiquita/">EarthRights International, Oct 2024</a>; <a href="https://news.bloomberglaw.com/litigation/chiquita-appeals-38-3-million-landmark-human-rights-verdict">Bloomberg Law</a></td><td>Chiquita update: 2024 jury verdict and appeal (the textbook stops at 2015)</td><td>Outside source</td></tr>
+<tr><td>Northfield Components case; golden-mean cards; identity cards; debate evidence cards</td><td>Class 2 main case and supporting cards</td><td>Teacher-made (fictional case)</td></tr>
+</table></div>
+<div class="note"><b>Adapting the textbook:</b> Chapter 2 is the densest chapter in the book — six sections, three Greek terms, two Chinese terms and four modern philosophers. Students do not read all of it in class. Class 1 uses a four-packet jigsaw (2.1–2.2) plus the 2.3 comparison. Class 2 uses short plain-English framework cards (in the worksheet and handouts) that point to the exact textbook paragraphs. The full chapter is the homework reading, so nothing is discarded.</div>
+</section>
+
+<section id="prep">
+<h2>Prep checklist</h2>
+<ul>
+<li>☐ Upload the <code>week2</code> folder to GitHub; check the worksheet link and QR code on slide 1.</li>
+<li>☐ Print from <strong>handouts.html</strong>: golden-mean cards (1 set per 3 students, cut), Expert Brief sheets (1 per student), Chiquita board brief (1 per group), exit tickets, Jon &amp; Matt vote slips, framework cards U/K/R (1 per triad), Northfield case (1 per student), identity cards (cut, 1 per student), timeline cards (1 set per team, cut), debate evidence cards (1 set per side).</li>
+<li>☐ Two envelopes: "Jon &amp; Matt votes" and identity cards (shuffled).</li>
+<li>☐ Masking tape line on the floor for the opinion line (1 = strongly disagree, 10 = strongly agree).</li>
+<li>☐ Board space for: "Trustworthy colleague" harvest (two columns), vote tallies (Northfield A/B/C, before and after the veil).</li>
+<li>☐ Optional: a small prize for the timeline winners.</li>
+<li>☐ Collect Ethics Journal #1 at the start of Class 1.</li>
+</ul>
+</section>
+
+<!-- CLASS 1 -->
+<section id="c1">
+<h2>Class 1 · "Who Should We Be?" · 9:00–10:40</h2>
+<div class="tw"><table>
+<tr><th>Clock</th><th>Min</th><th>Stage</th><th>Activity</th></tr>
+<tr><td>9:00–9:14</td><td>14</td><td><span class="tag">Engage</span></td><td>The colleague you'd trust</td></tr>
+<tr><td>9:14–9:26</td><td>12</td><td><span class="tag s">Study</span></td><td>Find the golden mean (card sort)</td></tr>
+<tr><td>9:26–10:00</td><td>34</td><td><span class="tag s">Study</span></td><td>Athens &amp; China jigsaw (2.1–2.2)</td></tr>
+<tr><td>10:00–10:08</td><td>8</td><td><span class="tag s">Study</span></td><td>East meets West grid (2.3)</td></tr>
+<tr><td>10:08–10:32</td><td>24</td><td><span class="tag a">Activate</span></td><td>Advise the board: Chiquita, 1997</td></tr>
+<tr><td>10:32–10:40</td><td>8</td><td><span class="tag b">Reflect</span></td><td>Exit ticket + bridge (Jon &amp; Matt vote over the break)</td></tr>
+</table></div>
+</section>
+
+<div class="act" id="c1-a">
+<h3><span class="tag">Engage</span> 9:00–9:14 · The colleague you'd trust</h3>
+<div class="kv"><b>Purpose</b><span>Students discover that they already judge people by character. That is virtue ethics before the name. It draws directly on their professional experience.</span>
+<b>Grouping</b><span>Individual → pairs → whole class</span>
+<b>Materials</b><span>Worksheet §1; board with two columns: "Built trust" / "Destroyed trust"</span></div>
+<ol>
+<li><span class="time">(3 min)</span> Individually: <em>Think of the most trustworthy colleague you have ever worked with. Write three things they <strong>did</strong> — specific behaviors, not adjectives. Then one thing a colleague did that destroyed your trust.</em></li>
+<li><span class="time">(4 min)</span> Pairs compare. Push them: <em>Would this behavior build trust in every workplace you've known, or only some?</em></li>
+<li><span class="time">(5 min)</span> Harvest 8–10 behaviors onto the board. As you write each one, ask the class for the <strong>quality</strong> behind it (e.g., "admitted her mistake to the client" → honesty, courage). Write the quality in gold/colored marker.</li>
+<li><span class="time">(2 min)</span> Point at the colored words.</li>
+</ol>
+<div class="say">"Look at what you just did. You didn't judge your colleagues by a rule or by a spreadsheet. You judged who they <em>were</em>. Twenty-five centuries ago, two men on opposite sides of the world built entire ethical systems on lists like this one. Today we meet them."</div>
+<p><b>Debrief question (quick):</b> In Week 1 we had three lenses — results, duty, character. Which lens were you using just now?</p>
+<p><b>Expected outcome:</b> A board of 8–10 virtues in students' own words, used again at 9:14 and in the exit ticket.</p>
+<div class="lang"><b>Language:</b> "She was the kind of person who…" · "What made him trustworthy was…" · "I'd trust her with…" · "In my field, that would be seen as…"</div>
+<div class="note"><b>Cross-cultural opportunity:</b> Listen for disagreement about the same behavior — e.g., a colleague who openly criticized the boss. Some will call it courage, others disloyalty. Write it on the board with a "?" and say: "Hold that — Confucius has an answer."</div>
+</div>
+
+<div class="act" id="c1-b">
+<h3><span class="tag s">Study</span> 9:14–9:26 · Find the golden mean</h3>
+<div class="kv"><b>Purpose</b><span>Teach the golden mean through doing, not definition: every virtue sits between two vices — a deficiency and an excess.</span>
+<b>Grouping</b><span>Groups of 3</span>
+<b>Materials</b><span>Golden-mean card set (handouts p.1, cut): 6 virtue cards + 12 extreme cards; worksheet §2 (self-check)</span></div>
+<div class="say">"Aristotle said courage is not the opposite of fear. Courage sits <em>between</em> two failures — too little and too much. Your job: find the two failures for each virtue."</div>
+<ol>
+<li><span class="time">(1 min)</span> Model one on the board: <strong>cowardice ← COURAGE → recklessness</strong>.</li>
+<li><span class="time">(5 min)</span> Groups build five more triplets from the cards.</li>
+<li><span class="time">(2 min)</span> Groups check with the worksheet self-check button.</li>
+<li><span class="time">(4 min)</span> <strong>Twist:</strong> each group picks <em>Candor</em> or <em>Loyalty</em>. <em>"Where does the line sit between virtue and excess in your profession? In a workplace you know abroad? Give one real example."</em> Take two or three answers.</li>
+</ol>
+<h4>Answer key</h4>
+<div class="tw"><table>
+<tr><th>Deficiency (too little)</th><th>Virtue</th><th>Excess (too much)</th></tr>
+<tr><td>Cowardice</td><td>Courage</td><td>Recklessness</td></tr>
+<tr><td>Stinginess</td><td>Generosity</td><td>Wastefulness</td></tr>
+<tr><td>Disloyalty</td><td>Loyalty</td><td>Blind loyalty</td></tr>
+<tr><td>Evasiveness</td><td>Candor</td><td>Tactlessness</td></tr>
+<tr><td>Complacency</td><td>Ambition</td><td>Greed</td></tr>
+<tr><td>Irritability</td><td>Patience</td><td>Passivity</td></tr>
+</table></div>
+<div class="note"><b>Source note:</b> The golden mean, courage, generosity ("liberality") and patience are from 2.1. "Blind loyalty" is from 2.2 — Confucius opposed it. "Greed" as the excess that Aristotle condemned (rather than profit) is from 2.1. Candor and ambition are workplace adaptations for practice; say so if asked.</div>
+<p><b>Debrief:</b> Is "greed" just too much ambition, or something different? Can a whole company culture sit at the "excess" end?</p>
+<div class="lang"><b>Language:</b> "There's a fine line between ___ and ___." · "Taken too far, ___ becomes ___." · "In my experience, ___ is valued more in…" · "That would come across as…"</div>
+</div>
+
+<div class="act" id="c1-c">
+<h3><span class="tag s">Study</span> 9:26–10:00 · Athens &amp; China jigsaw</h3>
+<div class="kv"><b>Purpose</b><span>Cover 2.1–2.2 through peer teaching (syllabus: "Jigsaw reading: Aristotle, Confucius, and ethical traditions"). Every student reads critically, not just for comprehension.</span>
+<b>Grouping</b><span>Home groups of 4 → expert groups → home groups</span>
+<b>Materials</b><span>Reading guides A–D (in worksheet §3, linked to OpenStax); Expert Brief (worksheet or handouts p.2)</span></div>
+<div class="tw"><table>
+<tr><th>Packet</th><th>Textbook pages</th><th>Focus</th></tr>
+<tr><td>A · Aristotle's virtue</td><td>2.1 "Aristotelian Virtue Ethics"</td><td><em>telos</em>, <em>eudaimonia</em>, <em>phrónēsis</em>, golden mean, habit, magnanimity</td></tr>
+<tr><td>B · Honor in business</td><td>2.1 "Honorable Behavior in Business" + "Three Forms of Justice" box</td><td>Greed vs. profit, honor, reputation, Aquinas's prudence, three forms of justice</td></tr>
+<tr><td>C · Confucius's Way</td><td>2.2 opening + "Social Upheaval" + "Confucian Virtue Ethics"</td><td><em>li</em>, rituals (onboarding), <em>junzi</em> vs. small person, <em>dao</em>, loyalty to truth, five relationships</td></tr>
+<tr><td>D · Confucian business</td><td>2.2 "Quan and the Broad Group" to the end</td><td><em>quan</em>, righteousness → justice, truth vs. greed, Broad Group, critics, modern China</td></tr>
+</table></div>
+<ol>
+<li><span class="time">(2 min)</span> <strong>Pre-reading vote:</strong> "What matters more for an ethical business — the individual's conscience or the group's relationships?" Hands up for each; record the count.</li>
+<li><span class="time">(1 min)</span> Home groups of 4; each member takes a letter. With fewer than 16, double up on B and D.</li>
+<li><span class="time">(12 min)</span> Expert groups (all As together, etc.) read and complete the Expert Brief: key idea in one sentence · two terms in your own words · one example from the text · one claim you would challenge, and why · one question for your home group.</li>
+<li><span class="time">(3 min)</span> Experts compare briefs and agree on their challenge.</li>
+<li><span class="time">(14 min)</span> Home groups: each expert teaches for about 3 minutes <strong>from the brief only</strong> — no reading aloud — then asks their question. Listeners take notes in worksheet §3.</li>
+<li><span class="time">(2 min)</span> Re-vote. Did anyone move? Why?</li>
+</ol>
+<h4>Model Expert Briefs (answer key)</h4>
+<div class="tw"><table>
+<tr><th>Packet</th><th>Key idea</th><th>Terms</th><th>Claim worth challenging</th></tr>
+<tr><td>A</td><td>For Aristotle, ethics is about who you become; we reach <em>eudaimonia</em> (flourishing) by practicing virtues until they become habits, guided by practical wisdom that finds the mean between excess and deficiency.</td><td><em>Telos</em> — purpose/end; <em>phrónēsis</em> — practical wisdom</td><td>"Action precedes character." Can a person with bad character really become good just by practicing good actions? What about a manager who only acts ethically when watched?</td></tr>
+<tr><td>B</td><td>Aristotle didn't condemn profit; he condemned greed. An honorable merchant serves customers at fair prices, never deceives — even for a good end — and builds a reputation in the community.</td><td>Avarice — love of money; distributive justice — fair sharing of benefits and burdens</td><td>The text says modern scandals often come from conflicts of <em>honor</em> (loyalty to a colleague or boss), not just conflicts of interest. Is loyalty really the cause?</td></tr>
+<tr><td>C</td><td>Confucius answered a violent, divided society with <em>li</em> — proper order and ritual — and the ideal of the <em>junzi</em>, a balanced, humane person shaped first by family relationships.</td><td><em>Li</em> — proper order, expressed in ritual; <em>junzi</em> — exemplary person</td><td>Confucius opposed blind loyalty: you must tell the ruler the truth. But three of the five relationships are hierarchical. Can you really tell your boss "no" in a hierarchy?</td></tr>
+<tr><td>D</td><td>Confucian business ethics engages the market rather than fleeing it: <em>quan</em> weighs options for fairness, righteousness becomes justice in transactions, and truth — not greed — is the guide.</td><td><em>Quan</em> — weighing options, like a counterweight; righteousness — the virtue that makes compassion just</td><td>Critics say ancient values don't fit blockchain, AI or high-frequency trading. The text replies that Enron, LIBOR and VW were failures of character. Is that a full answer?</td></tr>
+</table></div>
+<div class="warn"><b>Avoid stereotyping:</b> Students from China, Korea, Vietnam or Greece may be treated as "experts." Don't ask them to explain or represent Confucian or Greek culture. If they want to add a personal view, welcome it as <em>one</em> perspective. Packet D includes modern Chinese politics (anti-corruption campaign, Mao, Jack Ma) — keep the focus on what the text claims and whether the argument holds.</div>
+<div class="lang"><b>Language for experts:</b> "The gist of our section is…" · "The author's main claim is that…" · "In other words…" · "What we found questionable was…" · "Let me give you an example from the text."</div>
+</div>
+
+<div class="act" id="c1-d">
+<h3><span class="tag s">Study</span> 10:00–10:08 · East meets West grid</h3>
+<div class="kv"><b>Purpose</b><span>Turn the jigsaw into a comparison — the analytical move behind 2.3 and a frequent quiz/exam task.</span>
+<b>Grouping</b><span>Home groups</span>
+<b>Materials</b><span>Worksheet §4 (grid with "Compare with the book" button)</span></div>
+<ol>
+<li><span class="time">(5 min)</span> Groups complete the six-row grid together.</li>
+<li><span class="time">(3 min)</span> Reveal the key on the slide. Highlight the <strong>locus of ethics</strong> row — it's the biggest idea in 2.3.</li>
+</ol>
+<div class="tw"><table>
+<tr><th></th><th>Aristotle (Athens)</th><th>Confucius (China)</th></tr>
+<tr><td>Ultimate aim</td><td>Happiness / flourishing (<em>eudaimonia</em>), linked to the search for truth</td><td>Harmony — a social order that mirrors heavenly order</td></tr>
+<tr><td>Ideal person</td><td>The magnanimous person with practical wisdom</td><td>The <em>junzi</em>; a <em>ru</em> (great, humane person), not a "small" one</td></tr>
+<tr><td>Where ethics is centered</td><td>The <strong>individual</strong></td><td>The <strong>family</strong> and the five relationships</td></tr>
+<tr><td>How virtue grows</td><td>Habit: small, repeated actions; action comes before character</td><td>Ritual (<em>li</em>), education, self-regulation</td></tr>
+<tr><td>Form of control</td><td><em>Phrónēsis</em>, self-restraint, temperance</td><td>Self-regulation, ability, courage</td></tr>
+<tr><td>View of profit</td><td>Not condemned; greed is. Money enables fair exchange</td><td>Not opposed if it benefits humanity; greed must not be the supreme motive; truth guides</td></tr>
+</table></div>
+<p><b>Shared by both:</b> the mean between extremes; character over rules; personal and professional life should be integrated.</p>
+<p><b>Debrief:</b> Which locus — individual or family — does <em>your</em> workplace assume? How can you tell? (e.g., who gets blamed, who gets credit, who gets promoted)</p>
+</div>
+
+<div class="act" id="c1-e">
+<h3><span class="tag a">Activate</span> 10:08–10:32 · Advise the board: Chiquita, 1997</h3>
+<div class="kv"><b>Purpose</b><span>Use virtue ethics on a real, hard case (2.3 "What Would You Do?") — advising a board, not summarizing a theory.</span>
+<b>Grouping</b><span>Groups of 3–4; half the groups are "Aristotle Advisory," half "Confucius Advisory"</span>
+<b>Materials</b><span>Board brief (handouts p.3; worksheet §5)</span></div>
+<div class="warn"><b>Sensitivity:</b> This case involves killings by armed groups in Colombia. A student may have a personal or family connection. Before starting, say: "This is a real case with real victims. If anyone prefers to take a note-taker role, that's fine." Never ask a Colombian student to explain the conflict.</div>
+<h4>The brief (what students see — the outcome is hidden)</h4>
+<p>It is 1997. You advise the board of a U.S. fruit company with banana plantations, employees and facilities in Colombia. Armed groups are demanding regular "protection" payments and threatening the company's people and property. Paying such groups may violate U.S. law. The board is considering four options:</p>
+<ol type="A">
+<li>Pay quietly to protect employees and operations.</li>
+<li>Refuse to pay and stay, increasing security.</li>
+<li>Pay, but report the situation to the U.S. government and seek guidance.</li>
+<li>Withdraw from the region (sell or close the operation).</li>
+</ol>
+<ol>
+<li><span class="time">(2 min)</span> Read the brief together. Assign advisory firms.</li>
+<li><span class="time">(9 min)</span> Groups prepare a 60-second recommendation. It must use at least <strong>three</strong> concepts from their thinker. (Aristotle: prudence, honor, golden mean, greed vs. profit, reputation, courage. Confucius: <em>junzi</em>, loyalty to truth, <em>quan</em>, righteousness/justice, relationships, <em>li</em>.) It must also name one risk of their own recommendation.</li>
+<li><span class="time">(7 min)</span> Pitches, 60 seconds each. The "board" (everyone else) may ask one question per group.</li>
+<li><span class="time">(3 min)</span> <strong>Reveal</strong> (slide): what actually happened.</li>
+<li><span class="time">(3 min)</span> Debrief with the textbook's own question.</li>
+</ol>
+<h4>The reveal (textbook + outside update)</h4>
+<ul>
+<li><strong>Textbook (2.3):</strong> Chiquita Brands International paid protection money to right-wing and Marxist guerrilla groups in Colombia from 1997 to 2004 to protect employees, plantations and facilities. The payments violated the U.S. Foreign Corrupt Practices Act (1977). Chiquita said it was extorted and had no choice, and paid $25 million in U.S. fines. In 2007 Colombians sued under the Alien Tort Claims Act, alleging complicity in killings, torture and disappearances. The U.S. Supreme Court declined to hear that case in 2015.</li>
+<li><strong>Outside update (not in the textbook):</strong> In June 2024 a U.S. federal jury found Chiquita liable for knowingly financing the AUC paramilitary group, a designated terrorist organization (over $1.7 million, 1997–2004), and awarded about $38 million to 16 plaintiffs whose relatives were killed. In October 2024 the judge rejected Chiquita's request to cut the award and entered judgment (EarthRights International). Chiquita has appealed (Bloomberg Law). Check for newer rulings before class.</li>
+</ul>
+<p><b>Debrief questions:</b></p>
+<ul>
+<li>The textbook asks: were the executives <strong>prudent, craven, or deceitful</strong>? (craven = cowardly) Defend one word.</li>
+<li>Option C mixes honesty with payment. Does telling the truth make paying acceptable?</li>
+<li>Who are the <em>family</em> here, in Confucian terms — employees, shareholders, local communities?</li>
+<li>Did any group recommend withdrawal? Who would have paid the price for that "clean" choice?</li>
+</ul>
+<div class="lang"><b>Language for pitches:</b> "We would advise the board to…, on the grounds that…" · "A prudent leader would…" · "The honorable course is…" · "The risk we acknowledge is…" · "We considered ___ but rejected it because…"</div>
+</div>
+
+<div class="act" id="c1-f">
+<h3><span class="tag b">Reflect</span> 10:32–10:40 · Exit ticket &amp; bridge</h3>
+<ol>
+<li><span class="time">(5 min)</span> Exit ticket (worksheet §6 or paper slip): (1) One virtue in your profession, with its deficiency and its excess. (2) One real difference between Aristotle and Confucius. (3) One question you still have.</li>
+<li><span class="time">(3 min)</span> <strong>Bridge.</strong> Show the Jon &amp; Matt slide. Hand out vote slips.</li>
+</ol>
+<div class="say">"Aristotle and Confucius judge the <em>person</em>. After the break, three thinkers will judge the <em>action</em> — or the <em>system</em>. Here's a case to think about during the break. Two brothers. Jon shoots at a man, meaning to kill him, and misses. Matt fires a shot only to scare a man, and kills him by accident. Who deserves the harsher punishment? Put your vote in the envelope before we start again."</div>
+<p class="note">Jon &amp; Matt is from 2.4 (Harvard psychologist Fiery Cushman). The textbook notes that Matt usually faces the harsher penalty.</p>
+</div>
+
+<!-- CLASS 2 -->
+<section id="c2">
+<h2>Class 2 · "Results, Rules, or Fairness?" · 11:10–12:50</h2>
+<div class="tw"><table>
+<tr><th>Clock</th><th>Min</th><th>Stage</th><th>Activity</th></tr>
+<tr><td>11:10–11:20</td><td>10</td><td><span class="tag">Engage</span></td><td>Bridge: Jon &amp; Matt votes</td></tr>
+<tr><td>11:20–11:45</td><td>25</td><td><span class="tag s">Study</span></td><td>Framework triads: Bentham &amp; Mill / Kant / Rawls</td></tr>
+<tr><td>11:45–12:10</td><td>25</td><td><span class="tag a">Activate</span></td><td>Northfield Components: three verdicts + veil of ignorance</td></tr>
+<tr><td>12:10–12:18</td><td>8</td><td><span class="tag a">Activate</span></td><td>Timeline challenge (team competition)</td></tr>
+<tr><td>12:18–12:42</td><td>24</td><td><span class="tag a">Activate</span></td><td>Debate: Are ancient ethical ideas still useful?</td></tr>
+<tr><td>12:42–12:50</td><td>8</td><td><span class="tag b">Reflect</span></td><td>Framework fingerprint + homework</td></tr>
+</table></div>
+</section>
+
+<div class="act" id="c2-a">
+<h3><span class="tag">Engage</span> 11:10–11:20 · Bridge: Jon &amp; Matt</h3>
+<ol>
+<li><span class="time">(2 min)</span> Count the votes aloud. Write the result.</li>
+<li><span class="time">(4 min)</span> Pairs: <em>Who is more <strong>guilty</strong>? Who did more <strong>harm</strong>? Are those the same question?</em></li>
+<li><span class="time">(4 min)</span> Whole class. Then reveal: the law usually punishes Matt more. Ask: "Which lens is the law using? Which lens were you using?"</li>
+</ol>
+<div class="say">"If you only look at <em>results</em>, Matt is worse — someone died. If you look at <em>motive</em>, Jon is worse — he wanted to kill. Those are two of today's thinkers: Bentham, who looked only at consequences, and Kant, who looked at the will behind the act. The third, Rawls, asks a different question: is the whole system fair? Let's meet them."</div>
+<div class="lang"><b>Language:</b> "It depends whether we judge the intention or the outcome." · "Morally, Jon is more culpable, whereas legally…" · "I'd distinguish between guilt and harm."</div>
+</div>
+
+<div class="act" id="c2-b">
+<h3><span class="tag s">Study</span> 11:20–11:45 · Framework triads</h3>
+<div class="kv"><b>Purpose</b><span>Learn 2.4–2.6 through peer teaching, and turn each theory into a usable <em>test</em>.</span>
+<b>Grouping</b><span>Triads: U (utilitarianism), K (Kant), R (Rawls). With a group of 4, two students share R.</span>
+<b>Materials</b><span>Framework cards (handouts p.5; worksheet §8) with links to the textbook paragraphs; framework note-taker (worksheet §8)</span></div>
+<ol>
+<li><span class="time">(10 min)</span> Each person reads their card and the linked textbook part, and fills their row: big question · the test you run · key words · one strength · one weakness · one business use.</li>
+<li><span class="time">(12 min)</span> Teach your triad for 4 minutes each. Listeners fill the other rows. Each teacher ends with: "Here's a case where my framework gives a strange answer: …"</li>
+<li><span class="time">(3 min)</span> <strong>Rapid check</strong> (slide): students hold up 1 (U), 2 (K) or 3 (R) fingers for six statements (key below).</li>
+</ol>
+<h4>Framework notes (answer key)</h4>
+<div class="tw"><table>
+<tr><th></th><th>Utilitarianism (Bentham, Mill)</th><th>Deontology (Kant)</th><th>Justice as fairness (Rawls)</th></tr>
+<tr><td>Big question</td><td>Which choice produces the greatest happiness for the greatest number?</td><td>What is my duty? Am I acting from goodwill?</td><td>What rules would we agree to if we didn't know who we would be?</td></tr>
+<tr><td>Test</td><td>Add up benefits and harms for everyone affected (cost-benefit). Mill: only limit freedom to prevent harm to others.</td><td>(1) Could everyone follow my rule? (2) Am I treating anyone <em>merely</em> as a means?</td><td>Choose behind the veil of ignorance; everyone must agree; protect the most disadvantaged.</td></tr>
+<tr><td>Key words</td><td>utility, consequences, hedonic calculus, harm principle</td><td>duty, goodwill, categorical imperative, ends/means</td><td>original position, veil of ignorance, unanimity, redistribution</td></tr>
+<tr><td>Strength</td><td>Measurable; fits business tools (cost-benefit, risk management)</td><td>Respects humanity and autonomy; motive and character matter</td><td>Practical method; fairness is widely understood across cultures</td></tr>
+<tr><td>Weakness (from text)</td><td>A majority can oppress a minority; "harm" is never clearly defined; ignores emotional harm</td><td>Unconditional — hard to apply across cultures and circumstances; most firms focus on outcomes</td><td>Coercive redistribution; "blind" to history; may dampen initiative (Nozick)</td></tr>
+<tr><td>Business use</td><td>Expansion, store closings, hiring, layoffs</td><td>Building an ethical culture; treating employees as people</td><td>HR, global teams, CSR, stakeholder relations</td></tr>
+</table></div>
+<h4>Rapid check (1 = U, 2 = K, 3 = R)</h4>
+<ol>
+<li>"Never use your employees merely as tools for profit." → <b>2</b></li>
+<li>"Let's run a cost-benefit analysis of closing the store." → <b>1</b></li>
+<li>"Design the bonus policy as if you didn't know whether you'd be a manager or a cleaner." → <b>3</b></li>
+<li>"Lying is wrong, even if this lie would save the deal." → <b>2</b></li>
+<li>"The only good reason to restrict someone's freedom is to stop them harming others." → <b>1</b> (Mill)</li>
+<li>"The policy is acceptable only if it benefits the least advantaged." → <b>3</b></li>
+</ol>
+<div class="note"><b>Two notes for you:</b> The textbook gives Bentham's dates as 1748–1842; he died in 1832 (the textbook's own Figure 2.7 shows his 1832 dissection). The materials use 1832. The textbook calls Nozick's 1974 book <em>A Theory of Entitlement</em>; the actual title is <em>Anarchy, State, and Utopia</em>. The materials say "Nozick (1974)" and give the real title in the study notes.</div>
+<div class="lang"><b>Language:</b> "The question a utilitarian would ask is…" · "From a Kantian standpoint, …" · "Behind the veil, you'd want…" · "The weak point of this approach is that…"</div>
+</div>
+
+<div class="act" id="c2-c">
+<h3><span class="tag a">Activate</span> 11:45–12:10 · Northfield Components: three verdicts</h3>
+<div class="kv"><b>Purpose</b><span>Different frameworks, same facts, different conclusions — the core skill of the course. The veil-of-ignorance draw makes Rawls felt, not just understood.</span>
+<b>Grouping</b><span>Same triads → whole class</span>
+<b>Materials</b><span>Northfield case (handouts p.6; worksheet §9); identity cards (handouts p.7, cut and shuffled in an envelope)</span></div>
+<h4>The case (fictional)</h4>
+<p><strong>Northfield Components</strong> makes parts for medical equipment. It employs 2,000 people at headquarters and three plants. It has lost its largest customer and must cut annual costs by about 10% or risk breaking its loan agreements. The board has three options:</p>
+<ol type="A">
+<li><strong>Close the Ridgeway plant.</strong> 300 jobs lost. Ridgeway is a small town, and the plant is its largest employer. Everyone else keeps their job and pay.</li>
+<li><strong>Cut pay for everyone.</strong> All plants stay open. Staff take an 8% pay cut, executives 20%. Top engineers may leave for competitors.</li>
+<li><strong>Outsource one product line overseas.</strong> HQ and plants are protected, Ridgeway loses 120 jobs, and the new supplier is much cheaper, but its labor standards are hard to verify.</li>
+</ol>
+<ol>
+<li><span class="time">(2 min)</span> Individually, choose A, B or C — gut answer. Hands up; tally on the board ("Before").</li>
+<li><span class="time">(8 min)</span> Triads: each member gives the verdict of <em>their</em> framework, with reasons (2 min each), and the others challenge with one question. Then triads note where frameworks agree and disagree.</li>
+<li><span class="time">(8 min)</span> <strong>Veil of ignorance.</strong>
+  <ul>
+  <li>Say: "Vote again — but this time you will draw a random identity card <em>after</em> you vote, and you will live with the result as that person."</li>
+  <li>Secret vote on worksheet; then everyone draws a card and reads it.</li>
+  <li>Ask: "Stand up if you would now change your vote." Count. Re-tally on the board ("After the veil").</li>
+  </ul></li>
+<li><span class="time">(7 min)</span> Debrief.</li>
+</ol>
+<h4>Model verdicts (no single right answer)</h4>
+<div class="tw"><table>
+<tr><th>Framework</th><th>Likely verdict</th><th>Reasoning</th></tr>
+<tr><td>Utilitarian</td><td>Often A or C</td><td>Fewest people harmed; company survives; protects most jobs. Mill would ask: who counts as "others"? Overseas workers are stakeholders too.</td></tr>
+<tr><td>Kantian</td><td>Often B</td><td>Shares the burden; doesn't use Ridgeway workers merely as a means to save others. Could you universalize "close the weakest town's plant"? C is questionable if the supplier's workers are treated merely as means.</td></tr>
+<tr><td>Rawlsian</td><td>Often B</td><td>Behind the veil, you might be the 54-year-old machinist in Ridgeway; protect the most disadvantaged. But an engineer card shows B also has costs.</td></tr>
+<tr><td>Virtue (from Class 1)</td><td>Depends</td><td>What would a prudent, honorable leader do? What would a <em>junzi</em> owe the Ridgeway "family"?</td></tr>
+</table></div>
+<p><b>Debrief questions:</b></p>
+<ul>
+<li>How many people changed their vote after the veil? What does that tell us about the first vote?</li>
+<li>Did any two frameworks agree for different reasons?</li>
+<li>Which framework would a real board most likely use? Which one <em>should</em> it use?</li>
+<li>What information is missing? (Can Ridgeway workers transfer? What is the supplier's record?) — reward "We need more information."</li>
+</ul>
+<div class="lang"><b>Language:</b> "If I were behind the veil, I'd choose ___, because I might turn out to be…" · "On utilitarian grounds, A is defensible; however, …" · "Both approaches lead to B, but for different reasons." · "Now that I know I'm ___, I would…"</div>
+</div>
+
+<div class="act" id="c2-d">
+<h3><span class="tag a">Activate</span> 12:10–12:18 · Timeline challenge</h3>
+<div class="kv"><b>Purpose</b><span>Syllabus "timeline activity," as a fast team competition that reviews the whole chapter.</span>
+<b>Grouping</b><span>Teams of 3–4</span>
+<b>Materials</b><span>Timeline card sets (handouts p.8): 10 thinker cards + 10 idea cards, no dates. Worksheet §10 self-check.</span></div>
+<ol>
+<li><span class="time">(5 min)</span> Teams (a) match each idea to a thinker and (b) put the thinkers in chronological order. First team to finish raises hands; you check. 1 point per correct match + 1 per correct position (max 20). If it's wrong, they continue.</li>
+<li><span class="time">(3 min)</span> Reveal. Ask: "Read the ideas in order. What changes over 2,500 years?" (From character and harmony → consequences → duty → fair systems.)</li>
+</ol>
+<div class="tw"><table>
+<tr><th>#</th><th>Thinker</th><th>Date</th><th>Idea</th></tr>
+<tr><td>1</td><td>Confucius</td><td>551–479 BCE</td><td>Become a <em>junzi</em>; keep proper order (<em>li</em>) through family relationships.</td></tr>
+<tr><td>2</td><td>Cleisthenes</td><td>508 BCE</td><td>Establishes an open democracy in Athens.</td></tr>
+<tr><td>3</td><td>Aristotle</td><td>384–322 BCE*</td><td>Virtue is the mean between excess and deficiency; aim at flourishing.</td></tr>
+<tr><td>4</td><td>Thomas Aquinas</td><td>13th century</td><td>Expands Aristotle; describes the parts of prudence.</td></tr>
+<tr><td>5</td><td>Thomas Hobbes</td><td>1588–1679</td><td>People are selfish, so they surrender power to a sovereign to avoid chaos.</td></tr>
+<tr><td>6</td><td>Immanuel Kant</td><td>1724–1804 (<em>Groundwork</em>, 1785)</td><td>Act only on a rule you could will as a universal law.</td></tr>
+<tr><td>7</td><td>Jeremy Bentham</td><td>1748–1832</td><td>The greatest happiness for the greatest number.</td></tr>
+<tr><td>8</td><td>John Stuart Mill</td><td>1806–1873 (<em>On Liberty</em>, 1859)</td><td>Limit freedom only to prevent harm to others.</td></tr>
+<tr><td>9</td><td>John Rawls</td><td>1921–2002 (<em>A Theory of Justice</em>, 1971)</td><td>Choose the rules behind a veil of ignorance.</td></tr>
+<tr><td>10</td><td>Robert Nozick</td><td>1938–2002 (1974 critique)</td><td>The state may not take legally obtained property to give to others.</td></tr>
+</table></div>
+<p class="note">*Aristotle's dates are not given in the textbook (general reference). Order is by birth date; Kant (1724) comes before Bentham (1748), even though Kant's famous work is from 1785.</p>
+</div>
+
+<div class="act" id="c2-e">
+<h3><span class="tag a">Activate</span> 12:18–12:42 · Debate: Are ancient ethical ideas still useful?</h3>
+<div class="kv"><b>Purpose</b><span>Syllabus debate. Students build and defend an argument with textbook evidence, respond to rebuttals, and show changed thinking.</span>
+<b>Grouping</b><span>Opinion line → two teams (Proposition / Opposition)</span>
+<b>Materials</b><span>Floor line (1–10); debate evidence cards (handouts p.9); worksheet §11 prep sheet</span></div>
+<p><b>Motion:</b> <em>"This house believes that the ethics of Aristotle and Confucius are more useful to today's business leaders than modern rules and regulations."</em></p>
+<ol>
+<li><span class="time">(2 min)</span> <strong>Opinion line.</strong> Students stand from 1 (strongly disagree) to 10 (strongly agree). Ask two people at each end: "Why there?"</li>
+<li><span class="time">(1 min)</span> <strong>Fold the line</strong> so the 10s face the 1s; split into Proposition and Opposition. This mixes opinions — some students will argue against their own view. Say so: that's the skill.</li>
+<li><span class="time">(6 min)</span> Prep with evidence cards. Assign roles: Opener, Evidence 1, Evidence 2, Rebuttal, Closer (doubling up is fine).</li>
+<li><span class="time">(11 min)</span> Debate:
+  <ul>
+  <li>Proposition opening — 90 sec · Opposition opening — 90 sec</li>
+  <li>Open floor — 5 min, alternating sides. Anyone may stand and say "Point of information" — the speaker can accept or decline.</li>
+  <li>Opposition closing — 1 min · Proposition closing — 1 min</li>
+  </ul></li>
+<li><span class="time">(4 min)</span> <strong>Re-stand on the line</strong> by personal opinion. "Who moved? What argument moved you? What would make you move further?"</li>
+</ol>
+<h4>Evidence cards (key arguments from the text)</h4>
+<div class="tw"><table>
+<tr><th>Proposition (ancient ideas are more useful)</th><th>Opposition (modern rules are more useful)</th></tr>
+<tr><td>Enron, LIBOR, the 2008 crisis, Uber and Volkswagen were failures of <em>character</em>, not of rules (2.2).</td><td>Critics say ancient values don't fit high-frequency trading, blockchain, AI or robotics (2.2).</td></tr>
+<tr><td>Standards alone are not enough: selfish people break rules when there's no strong incentive (2.3).</td><td>Shared standards like GAAP and IFRS give companies a common language across countries (2.3).</td></tr>
+<tr><td>A virtuous person acts well even when unobserved; rules only work when someone is watching (2.3).</td><td>Kant's and Rawls's theories are more flexible or practical than Confucian virtue ethics (2.6 compares them).</td></tr>
+<tr><td>Business schools now teach Aristotelian and Confucian virtue ethics in executive education (2.2).</td><td>Ancient societies accepted slavery and excluded women and foreigners from citizenship (2.1 box). Can their ethics guide us?</td></tr>
+<tr><td>Compartmentalizing personal and professional values leads to "dispersed accountability" (2.3).</td><td>Bentham's utility supports risk assessment and strategic planning with data (2.4).</td></tr>
+<tr><td>Confucius's "loyalty to truth" is exactly what whistleblowers need (2.2).</td><td>China's anti-corruption campaign prosecutes executives — enforcement, not virtue alone (2.2).</td></tr>
+</table></div>
+<div class="note"><b>Your judging focus:</b> Don't pick a winner on opinion. Give feedback on (1) one argument backed by evidence, (2) one good rebuttal, and (3) one piece of strong language you heard. Note language errors privately for a 1-minute correction slot later.</div>
+<div class="lang"><b>Language:</b> "The motion assumes that…" · "My opponent's argument rests on…" · "That may be true of ___, but it doesn't follow that…" · "Granted, ___; nevertheless…" · "Let me steelman the other side for a moment." · "Point of information: isn't it the case that…?"</div>
+</div>
+
+<div class="act" id="c2-f">
+<h3><span class="tag b">Reflect</span> 12:42–12:50 · Framework fingerprint &amp; homework</h3>
+<ol>
+<li><span class="time">(4 min)</span> Worksheet §12: four sliders — how much do I rely on character / results / duty / fairness at work? Then: "One decision I made at work that a ___ would criticize, and why." (This seeds the Personal Code of Ethics.)</li>
+<li><span class="time">(4 min)</span> Homework: Ethics Journal #2 (one of three prompts), read all of Chapter 2, preview Chapter 3. Remind: <strong>Quiz 1 (Ch. 1–3) is next week</strong>.</li>
+</ol>
+</div>
+
+<section id="lang">
+<h2>Language support</h2>
+<h3>Essential vocabulary</h3>
+<div class="tw"><table>
+<tr><th>Word</th><th>Simple meaning</th><th>Example</th></tr>
+<tr><td>virtue / vice</td><td>a good / bad quality of character</td><td>Patience is a virtue in client service.</td></tr>
+<tr><td>prudence (practical wisdom)</td><td>good judgment about what to do in real situations</td><td>A prudent manager waits for the facts.</td></tr>
+<tr><td>the golden mean</td><td>the balance point between too little and too much</td><td>Candor is the golden mean between evasiveness and tactlessness.</td></tr>
+<tr><td>flourishing</td><td>living fully and well (not just feeling happy)</td><td>Aristotle's aim was human flourishing.</td></tr>
+<tr><td>harmony</td><td>a peaceful, balanced order between people</td><td>Confucius aimed at social harmony.</td></tr>
+<tr><td>righteousness</td><td>doing what is morally right and just</td><td>Righteousness becomes justice in business deals.</td></tr>
+<tr><td>filial piety</td><td>respect and duty toward parents</td><td>Filial piety is one of Confucius's virtues.</td></tr>
+<tr><td>utility</td><td>usefulness; the happiness an action produces</td><td>Bentham wanted to measure utility.</td></tr>
+<tr><td>consequentialism</td><td>judging an act only by its results</td><td>Utilitarianism is a form of consequentialism.</td></tr>
+<tr><td>duty / obligation</td><td>what you must do because it is right</td><td>Kant said we must act out of duty.</td></tr>
+<tr><td>categorical</td><td>absolute, with no exceptions</td><td>A categorical rule applies everywhere.</td></tr>
+<tr><td>universal / universalize</td><td>applying to everyone</td><td>Could this rule be universalized?</td></tr>
+<tr><td>a means / an end</td><td>a tool / a goal in itself</td><td>Don't treat staff merely as a means.</td></tr>
+<tr><td>fairness / justice</td><td>equal and reasonable treatment</td><td>Rawls defined justice as fairness.</td></tr>
+<tr><td>the most disadvantaged</td><td>the people in the weakest position</td><td>Policies should protect the most disadvantaged.</td></tr>
+<tr><td>redistribution</td><td>moving resources from some people to others</td><td>Taxes are a form of redistribution.</td></tr>
+<tr><td>coercion / coercive</td><td>forcing someone to act</td><td>Critics call redistribution coercive.</td></tr>
+<tr><td>craven</td><td>cowardly</td><td>Was paying the guerrillas craven or prudent?</td></tr>
+</table></div>
+<h3>Useful collocations</h3>
+<p>strike a balance between · cultivate a virtue · act out of duty · treat someone merely as a means · weigh the costs against the benefits · maximize welfare · distribute benefits and burdens · bear the burden · set a precedent · a sense of fairness · the greater good · at someone's expense · a conflict of interest / a conflict of honor</p>
+<h3>Words students may misunderstand</h3>
+<ul>
+<li><b>liberal</b> — in Aristotle it means <em>generous, open</em>, not political (the textbook makes this point).</li>
+<li><b>utility</b> — not the electricity or water bill; here it means usefulness/happiness.</li>
+<li><b>prudence / prudent</b> — wise judgment, not "prudish" and not only "careful with money."</li>
+<li><b>categorical</b> — absolute, not "about categories."</li>
+<li><b>means</b> — a method or tool (plural and singular are the same), not "money" and not the verb "mean."</li>
+<li><b>virtue / virtual</b> — completely different words.</li>
+<li><b>justice</b> — fairness in general, not only courts and police.</li>
+</ul>
+<h3>Pronunciation</h3>
+<p>Aristotle /ˈær.ɪ.stɒt.əl/ · Confucius /kənˈfjuː.ʃəs/ · eudaimonia /juː.daɪˈmoʊ.ni.ə/ · phronesis /froʊˈniː.sɪs/ · junzi /ˈdʒʊn.zɪ/ · utilitarianism /juː.tɪl.ɪˈteə.ri.ən.ɪz.əm/ · deontology /ˌdiː.ɒnˈtɒl.ə.dʒi/ · Kant /kænt/ · Rawls /rɔːlz/ · categorical /ˌkæt.əˈɡɒr.ɪ.kəl/</p>
+<p><b>Stress shift:</b> PHIlosophy → philoSOPHical · CHARacter → characteRIStic · DUty → DUtiful · CONsequence → conseQUENtial · JUStice → jusTIfiable</p>
+<h3>Grammar in use</h3>
+<ul>
+<li><b>Reporting a framework (would):</b> "A Kantian <em>would argue</em> that… whereas a utilitarian <em>would focus on</em>…"</li>
+<li><b>Second conditional for hypotheticals:</b> "If I <em>were</em> behind the veil, I <em>would</em> choose B." / "If I <em>were</em> Yijing, I <em>would</em>…"</li>
+<li><b>Third and mixed conditionals for real cases:</b> "If Chiquita <em>had refused</em> to pay, employees <em>might have been</em> harmed." / "If they <em>had reported</em> it earlier, they <em>wouldn't be</em> in court now."</li>
+<li><b>Concession:</b> "Granted, …; nevertheless, …" · "While it's true that…, …"</li>
+</ul>
+<h3>Discussion &amp; debate language (B2+)</h3>
+<div class="tw"><table>
+<tr><th>Function</th><th>Language</th></tr>
+<tr><td>Taking a framework's view</td><td>Viewed through a utilitarian lens, … · From a Kantian standpoint, … · A Rawlsian would ask…</td></tr>
+<tr><td>Challenging an idea, not a person</td><td>That assumes… · I'm not sure that follows. · Where I'd push back is…</td></tr>
+<tr><td>Asking for evidence</td><td>What in the text supports that? · Is there a case where that wasn't true?</td></tr>
+<tr><td>Acknowledging complexity</td><td>It depends on whether… · There's a trade-off between ___ and ___.</td></tr>
+<tr><td>Conceding / changing your mind</td><td>That's a fair point; I'd modify my position to… · You've persuaded me that…</td></tr>
+<tr><td>Steelmanning</td><td>The strongest version of the other side is… · To be fair to the opposition, …</td></tr>
+</table></div>
+</section>
+
+<section id="hw">
+<h2>Homework</h2>
+<h3>1 · Ethics Journal #2 (150–200 words)</h3>
+<p>Choose <strong>one</strong> prompt. Use the structure <em>Opinion → Reasons → Framework (at least two) → Counterargument → Conclusion</em>.</p>
+<ol type="A">
+<li><b>Yijing (2.2):</b> Yijing runs her father's business successfully but must disguise herself as a man. If you were Yijing, what would you have done?</li>
+<li><b>Jean Valjean (2.5):</b> He steals bread to feed his sister's starving family. Was he wrong? Is breaking one moral rule to satisfy a greater one ever right?</li>
+<li><b>Rawls's senior-care thought experiment (2.6):</b> Most of us will become old. Behind a "veil of time," what would you give up now so that older people are cared for and secure?</li>
+</ol>
+<h3>2 · Reading</h3>
+<p>Read all of Chapter 2 (sections you did not read in class). Preview Chapter 3: Defining and Prioritizing Stakeholders.</p>
+<h3>3 · Quiz 1 next week</h3>
+<p>Covers Chapters 1–3: key terms, frameworks, and short case analysis.</p>
+
+<h3>Model journal (Prompt A, ~190 words)</h3>
+<div class="say" style="font-style:normal">If I were Yijing, I would accept the disguise at first, but I would plan to remove it. My main reason is practical: without the disguise, the business might fail, and her father, her brothers and the workers would all suffer. From a utilitarian perspective, the disguise produces the greatest good for the greatest number, because the firm prospers. However, a Kantian would object that the disguise is a form of deception, and that it could not become a universal rule — if everyone hid who they were, trust in business would collapse. A Confucian view is more complicated: loyalty to her father matters, but Confucius valued loyalty to the truth over blind loyalty. One could argue that Yijing has no real choice and that it is unfair to judge her for adapting to an unjust system. I accept that, but I still think she owes something to the truth. In conclusion, the disguise is defensible in the short term, but a prudent leader would build a reputation strong enough to one day do business as herself.</div>
+<h3>Journal rubric (4 × 3 points = 12)</h3>
+<div class="tw"><table>
+<tr><th>Criterion</th><th>3</th><th>2</th><th>1</th></tr>
+<tr><td>Position</td><td>Clear, specific answer to the prompt</td><td>Position present but vague</td><td>No clear position</td></tr>
+<tr><td>Frameworks</td><td>Two or more used accurately and compared</td><td>One used accurately, or two used loosely</td><td>Named but not applied</td></tr>
+<tr><td>Counterargument</td><td>Strong opposing view stated fairly and answered</td><td>Mentioned but not answered</td><td>Missing</td></tr>
+<tr><td>Language</td><td>Range of course vocabulary; conditionals/hedging mostly accurate</td><td>Some course vocabulary; errors rarely block meaning</td><td>Errors often block meaning</td></tr>
+</table></div>
+</section>
+
+<section id="assess">
+<h2>Checks for understanding &amp; quiz items</h2>
+<h3>In-class checks</h3>
+<ul>
+<li>Golden-mean sort (self-check) — accuracy shows understanding of the mean.</li>
+<li>Expert Briefs — collect one per group; check "claim you'd challenge" for critical reading.</li>
+<li>East meets West grid — the locus-of-ethics row.</li>
+<li>Rapid check (1/2/3 fingers) — framework recognition.</li>
+<li>Exit ticket — individual evidence for every student.</li>
+<li>Northfield verdicts and debate — can students reason <em>from</em> a framework?</li>
+</ul>
+<h3>Chapter 2 items for Quiz 1 (with key)</h3>
+<ol>
+<li>For Aristotle, the human <em>telos</em> is ___. <b>(eudaimonia / flourishing)</b></li>
+<li>Name the intellectual virtue Aristotle considered most important, which helps find the golden mean. <b>(phrónēsis / practical wisdom / prudence)</b></li>
+<li>True or false: Aristotle condemned profit. <b>(False — he condemned greed.)</b></li>
+<li>In Confucian ethics, the exemplary, balanced, humane person is called a ___. <b>(junzi)</b></li>
+<li>Which statement about Confucius and loyalty is correct? (a) loyalty to the ruler above all (b) loyalty to truth, including giving unwelcome honest advice (c) loyalty only to family. <b>(b)</b></li>
+<li>According to 2.3, the locus of ethics is the ___ for Aristotle and the ___ for Confucius. <b>(individual; family)</b></li>
+<li>Bentham's principle: the greatest ___ for the greatest ___. <b>(happiness; number)</b></li>
+<li>Mill's harm principle says power over someone against their will is justified only to ___. <b>(prevent harm to others)</b></li>
+<li>Give the two parts of Kant's categorical imperative described in 2.5. <b>(act only on a rule you could will as universal law; never treat others merely as a means)</b></li>
+<li>In Rawls's theory, why do people choose behind a veil of ignorance? <b>(Not knowing their own position reduces bias and self-interest, so they choose fair rules.)</b></li>
+<li>Short case: A manager hides a product defect because recalling it would cost jobs. Give one utilitarian and one Kantian assessment. <b>(Model: U might weigh jobs saved against harm to customers and likely conclude the harm outweighs; K would say deceiving customers treats them merely as a means and can't be universalized — wrong regardless of outcome.)</b></li>
+</ol>
+</section>
+
+<section id="align">
+<h2>How Week 2 builds toward the assessments</h2>
+<div class="tw"><table>
+<tr><th>Assessment</th><th>This week's practice</th></tr>
+<tr><td>Quiz 1 (Week 3)</td><td>Key terms through use (golden mean, grid, rapid check); quiz items above</td></tr>
+<tr><td>Written assignments</td><td>Journal #2 with the Opinion → Framework → Counterargument → Conclusion structure</td></tr>
+<tr><td>Midterm (Week 6)</td><td>Case analysis with multiple frameworks (Chiquita, Northfield)</td></tr>
+<tr><td>Personal Code of Ethics (Weeks 8–9)</td><td>Golden mean in your profession (exit ticket); framework fingerprint</td></tr>
+<tr><td>Final assessment</td><td>Comparing frameworks; East–West comparison; argued debate position</td></tr>
+<tr><td>Participation</td><td>Expert teaching, board pitches, triad teaching, debate roles</td></tr>
+</table></div>
+</section>
+
+<section id="flags">
+<h2>Open questions &amp; flags</h2>
+<ol>
+<li><strong>Chapter size:</strong> Chapter 2 has six sections; the syllabus names only Aristotle, Confucius, a timeline and a debate. I've covered all six because Chapter 2 introduces the frameworks the rest of the course depends on. If you prefer a lighter week, cut the Northfield case and move Rawls to Week 3.</li>
+<li><strong>Samsung overlap:</strong> Section 2.5 ends with the Samsung Galaxy Note 7 case, which the syllabus lists for Week 5. I left it out this week so it stays fresh.</li>
+<li><strong>Trolley overlap:</strong> 2.4 links a streetcar (trolley) video, but the syllabus puts Trolley Problem variations in Week 3. I used Jon &amp; Matt instead.</li>
+<li><strong>Textbook errors:</strong> Bentham's death year (1842 in the book; actually 1832) and Nozick's book title (see Class 2 notes).</li>
+<li><strong>Chiquita update:</strong> The textbook stops in 2015. The 2024 verdict is from outside sources; the appeal may have been decided — check before class.</li>
+</ol>
+</section>
+
+<footer>Textbook content summarized from Byars &amp; Stanberry, <em>Business Ethics</em>, OpenStax (CC BY-NC-SA 4.0). Access for free at https://openstax.org/books/business-ethics/pages/2-introduction · Chiquita update: EarthRights International (Oct 2024); Bloomberg Law. Northfield Components is a fictional case.</footer>
+</main>
+</div>
+</body>
+</html>
