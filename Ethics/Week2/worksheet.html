@@ -1,0 +1,579 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Week 2 Worksheet · Ethics in a Global World</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#143865;--blue:#1c4f8f;--gold:#d39f10;--gold-d:#8c7535;--sky:#c1cddd;--sky2:#e1e8f2;--sky3:#edf2f9;--cream:#efe9d9;--ink:#1a2233;--muted:#4a5568;--bg:#f6f4ee;--ok:#2f6b2f;--no:#a33a2a}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Source Sans 3",system-ui,sans-serif;color:var(--ink);background:var(--bg);font-size:17px;line-height:1.55}
+header.top{background:var(--navy);color:#fff;border-bottom:4px solid var(--gold)}
+.top .in{max-width:860px;margin:0 auto;padding:20px 16px 24px;display:flex;gap:14px;align-items:center}
+.top img{width:60px;height:60px;border-radius:8px;flex:none}
+.top .w{font-family:"Libre Baskerville",serif;color:var(--gold);letter-spacing:.12em;font-size:16px;line-height:1.1;flex:none}
+.top .w small{display:block;letter-spacing:.02em;font-size:10px;color:#e6d8a8}
+.top h1{font-family:"Libre Baskerville",serif;margin:0;font-size:clamp(20px,4.5vw,28px);line-height:1.2}
+.top p{margin:3px 0 0;color:var(--sky);font-size:14.5px}
+.bar{position:sticky;top:0;z-index:5;background:#fff;border-bottom:1px solid var(--sky);box-shadow:0 2px 8px rgba(20,56,101,.06)}
+.bar .in{max-width:860px;margin:0 auto;padding:8px 16px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.bar input{flex:1;min-width:160px}
+.btn{background:var(--navy);color:#fff;border:0;border-radius:6px;padding:8px 13px;font:inherit;font-weight:700;font-size:14.5px;cursor:pointer;white-space:nowrap}
+.btn.gold{background:var(--gold);color:var(--navy)}
+.btn.ghost{background:#fff;color:var(--navy);border:1px solid var(--sky)}
+.btn.sm{padding:6px 11px;font-size:14px}
+#saved{font-size:13px;color:var(--muted);min-width:70px}
+main{max-width:860px;margin:0 auto;padding:10px 16px 60px}
+.part{font-family:"Libre Baskerville",serif;color:var(--gold-d);font-size:14px;letter-spacing:.12em;text-transform:uppercase;margin:34px 0 0;border-top:2px solid var(--gold);padding-top:12px}
+section.card{background:#fff;border:1px solid var(--sky);border-radius:12px;padding:16px 18px 18px;margin:16px 0}
+section.card h2{font-family:"Libre Baskerville",serif;color:var(--navy);font-size:21px;margin:0 0 4px}
+.sub{color:var(--muted);font-size:14.5px;margin:0 0 10px}
+label{display:block;font-weight:600;margin:12px 0 4px;color:var(--navy)}
+input[type=text],textarea,select{width:100%;font:inherit;font-size:16px;border:1px solid var(--sky);border-radius:7px;padding:8px 10px;background:#fbfcfe;color:var(--ink)}
+textarea{min-height:64px;resize:vertical}
+textarea.big{min-height:180px}
+input:focus,textarea:focus,select:focus{outline:2px solid var(--gold);border-color:var(--gold)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.opts{display:flex;flex-wrap:wrap;gap:6px 14px;margin:4px 0}
+.opts label{display:flex;gap:6px;align-items:center;font-weight:400;margin:0;color:var(--ink)}
+details{border:1px solid var(--sky);border-radius:9px;margin:10px 0;background:var(--sky3)}
+details>summary{cursor:pointer;padding:9px 12px;font-weight:700;color:var(--navy);list-style:none}
+details>summary::before{content:"▸ ";color:var(--gold-d)}
+details[open]>summary::before{content:"▾ "}
+details>div{padding:2px 14px 12px;background:#fff;border-radius:0 0 9px 9px}
+.box{background:var(--cream);border-left:4px solid var(--gold-d);padding:10px 14px;border-radius:6px;margin:10px 0;font-size:16px}
+.tip{background:var(--sky3);border-left:4px solid var(--blue);padding:8px 12px;border-radius:6px;margin:10px 0;font-size:15px}
+table{width:100%;border-collapse:collapse;font-size:15.5px;margin:8px 0}
+th,td{border:1px solid var(--sky);padding:6px 8px;text-align:left;vertical-align:top}
+th{background:var(--sky2);color:var(--navy)}
+.gm{display:grid;grid-template-columns:1fr auto 1fr;gap:8px;align-items:center;margin:8px 0}
+.gm .v{font-weight:700;color:var(--navy);text-align:center;background:var(--cream);border-radius:6px;padding:6px 10px;min-width:110px}
+.fb{font-size:14.5px;margin-top:6px;font-weight:600}
+.ok{color:var(--ok)}.no{color:var(--no)}
+select.ok{border-color:var(--ok);background:#eef6ec}select.no{border-color:var(--no);background:#fbefec}
+.hidden{display:none}
+.key{background:#eef6ec;border:1px solid #b9d3b1;border-radius:8px;padding:8px 12px;margin-top:8px;font-size:15px}
+.grid3{display:grid;grid-template-columns:120px 1fr 1fr 1fr;gap:6px;align-items:start}
+.grid3 .h{font-weight:700;color:var(--navy);font-size:14.5px;background:var(--sky2);border-radius:5px;padding:5px 7px}
+.grid3 textarea{min-height:58px;font-size:15px}
+.grid2{display:grid;grid-template-columns:140px 1fr 1fr;gap:6px;align-items:start}
+.grid2 .h{font-weight:700;color:var(--navy);font-size:14.5px;background:var(--sky2);border-radius:5px;padding:5px 7px}
+.grid2 textarea{min-height:58px;font-size:15px}
+.tl{display:grid;grid-template-columns:150px 90px 1fr;gap:6px;align-items:center;margin:6px 0}
+.tl b{color:var(--navy)}
+.wc{font-size:14px;color:var(--muted);margin-top:4px}
+.slider{display:grid;grid-template-columns:120px 1fr 34px;gap:10px;align-items:center;margin:6px 0}
+.slider input{width:100%}
+ul.lb li{margin:3px 0}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;font-size:13px;color:#6b7280}
+@media (max-width:640px){
+  .row2{grid-template-columns:1fr}
+  .gm{grid-template-columns:1fr}.gm .v{order:-1}
+  .grid3,.grid2{grid-template-columns:1fr}
+  .grid3 .h.c,.grid2 .h.c,.hdr{display:none}
+  .grid3 textarea::placeholder,.grid2 textarea::placeholder{color:#7a8597}
+  .tl{grid-template-columns:1fr 80px}.tl select.idea{grid-column:1/-1}
+  .slider{grid-template-columns:90px 1fr 30px}
+}
+@media print{
+  body{background:#fff;font-size:11.5pt}
+  .bar,.noprint,button{display:none!important}
+  section.card{break-inside:avoid;border-color:#bbb}
+  details>div{display:block!important}
+  details{background:#fff}
+  textarea{border:1px solid #bbb;overflow:hidden}
+  header.top{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+<header class="top"><div class="in">
+  <img src="logo.png" alt="Approach International Student Center" onload="this.nextElementSibling.remove()" onerror="this.remove()"><div class="w">APPROACH<small>International Student Center</small></div>
+  <div><h1>Week 2 Worksheet · Ethics from Antiquity to the Present</h1><p>Ethics in a Global World · Chapter 2 · Class 1 and Class 2</p></div>
+</div></header>
+
+<div class="bar"><div class="in">
+  <input type="text" id="sname" data-k="name" placeholder="Your name" aria-label="Your name">
+  <span id="saved">Saved</span>
+  <button class="btn gold" onclick="downloadAnswers()">Download</button>
+  <button class="btn" onclick="window.print()">Print / PDF</button>
+  <button class="btn ghost sm" onclick="clearAll()">Clear</button>
+</div></div>
+
+<main>
+<p class="tip">Your answers save automatically <b>on this device</b>. Before you leave class, tap <b>Download</b> to keep a copy.</p>
+
+<div class="part">Class 1 · Who Should We Be?</div>
+
+<!-- 1 -->
+<section class="card">
+<h2>1 · The colleague you'd trust</h2>
+<p class="sub">Think of the most trustworthy colleague you have ever worked with. Write what they <b>did</b> — specific actions, not adjectives.</p>
+<label>Three things they did</label>
+<textarea data-k="s1_did" placeholder="1. …&#10;2. …&#10;3. …"></textarea>
+<label>One thing a colleague did that destroyed your trust</label>
+<textarea data-k="s1_destroy"></textarea>
+<label>After the class discussion: which qualities (virtues) were behind these actions?</label>
+<input type="text" data-k="s1_qualities" placeholder="e.g., honesty, courage, …">
+</section>
+
+<!-- 2 -->
+<section class="card">
+<h2>2 · Find the golden mean</h2>
+<p class="sub">Aristotle: every virtue sits <b>between</b> two failures — too little (deficiency) and too much (excess). Choose the two extremes for each virtue.</p>
+<div id="gmRows"></div>
+<button class="btn sm" onclick="checkGM()">Check my answers</button>
+<div id="gmFb" class="fb"></div>
+<label>Twist: For candor or loyalty, where is the line between virtue and excess in your profession? Give a real example.</label>
+<textarea data-k="s2_twist"></textarea>
+</section>
+
+<!-- 3 -->
+<section class="card">
+<h2>3 · Athens &amp; China jigsaw</h2>
+<p class="sub">Read your guide in your expert group, complete the Expert Brief, then teach your home group from the brief — don't read aloud.</p>
+<label>Before reading: What matters more for an ethical business?</label>
+<div class="opts">
+  <label><input type="radio" name="s3_pre" data-k="s3_pre" value="individual"> The individual's conscience</label>
+  <label><input type="radio" name="s3_pre" data-k="s3_pre" value="group"> The group's relationships</label>
+</div>
+
+<details><summary>Reading guide A · Aristotle's virtue</summary><div>
+<p><b>Read:</b> <a href="https://openstax.org/books/business-ethics/pages/2-1-the-concept-of-ethical-business-in-ancient-athens" target="_blank" rel="noopener">OpenStax 2.1</a> — the part titled <b>"Aristotelian Virtue Ethics."</b></p>
+<p><b>Before you read:</b> Can a person <em>learn</em> to be good, the way they learn a skill?</p>
+<p><b>Glossary:</b> <i>telos</i> — purpose, end goal · <i>eudaimonia</i> — flourishing, living well · <i>phrónēsis</i> — practical wisdom, prudence · <i>magnanimity</i> — greatness of spirit · <i>habit</i> — something you do so often it becomes natural</p>
+<p><b>Look for:</b> What is the human <i>telos</i>? Which intellectual virtue is most important? How do moral virtues grow? What does "action precedes character" mean?</p>
+</div></details>
+<details><summary>Reading guide B · Honor in business</summary><div>
+<p><b>Read:</b> <a href="https://openstax.org/books/business-ethics/pages/2-1-the-concept-of-ethical-business-in-ancient-athens" target="_blank" rel="noopener">OpenStax 2.1</a> — <b>"Honorable Behavior in Business"</b> and the box <b>"Three Forms of Justice."</b></p>
+<p><b>Before you read:</b> Is wanting to make a lot of money a problem?</p>
+<p><b>Glossary:</b> <i>avarice</i> — love of money · <i>greed</i> — love of material goods · <i>honor</i> — respect earned by acting rightly · <i>reputation</i> — what others believe about you · <i>commutative justice</i> — fairness between individuals · <i>distributive justice</i> — fair sharing of benefits and burdens by the state</p>
+<p><b>Look for:</b> Did Aristotle condemn profit or greed? What makes a merchant honorable? What are the three forms of justice, and where do we see them today?</p>
+</div></details>
+<details><summary>Reading guide C · Confucius's Way</summary><div>
+<p><b>Read:</b> <a href="https://openstax.org/books/business-ethics/pages/2-2-ethical-advice-for-nobles-and-civil-servants-in-ancient-china" target="_blank" rel="noopener">OpenStax 2.2</a> — the opening, <b>"Social Upheaval in Ancient China,"</b> and <b>"Confucian Virtue Ethics."</b></p>
+<p><b>Before you read:</b> What do workplace rituals (orientation days, team meetings, celebrations) actually do?</p>
+<p><b>Glossary:</b> <i>li</i> — proper order; expressed through ritual · <i>junzi</i> — the exemplary, balanced, humane person · <i>dao</i> — the Way · <i>filial piety</i> — respect and duty toward parents · <i>blind loyalty</i> — loyalty without thinking or truth</p>
+<p><b>Look for:</b> What problem was Confucius responding to? How is a <i>junzi</i> different from a "small" person? What are the five great relationships? What kind of loyalty did Confucius reject?</p>
+</div></details>
+<details><summary>Reading guide D · Confucian business</summary><div>
+<p><b>Read:</b> <a href="https://openstax.org/books/business-ethics/pages/2-2-ethical-advice-for-nobles-and-civil-servants-in-ancient-china" target="_blank" rel="noopener">OpenStax 2.2</a> — from <b>"Quan and the Broad Group"</b> to the end of the section.</p>
+<p><b>Before you read:</b> Should an ethical person stay away from business — or go into it?</p>
+<p><b>Glossary:</b> <i>quan</i> — weighing options fairly, like a counterweight on a scale · <i>righteousness</i> — the virtue that makes compassion just · <i>good faith</i> — honest intention · <i>critique</i> — a critical argument</p>
+<p><b>Look for:</b> What is <i>quan</i>? What does righteousness become in business? What is the Broad Group example? What do critics say, and how does the text answer them?</p>
+</div></details>
+
+<label>My packet</label>
+<select data-k="s3_packet"><option value="">— choose —</option><option>A · Aristotle's virtue</option><option>B · Honor in business</option><option>C · Confucius's Way</option><option>D · Confucian business</option></select>
+<div class="box"><b>Expert Brief</b></div>
+<label>The key idea in one sentence</label><textarea data-k="s3_key"></textarea>
+<div class="row2">
+<div><label>Term 1 (in my own words)</label><textarea data-k="s3_t1"></textarea></div>
+<div><label>Term 2 (in my own words)</label><textarea data-k="s3_t2"></textarea></div>
+</div>
+<label>One example from the text</label><textarea data-k="s3_ex"></textarea>
+<label>One claim I would challenge, and why</label><textarea data-k="s3_chal"></textarea>
+<label>One question for my home group</label><input type="text" data-k="s3_q">
+
+<div class="box"><b>Notes from my home group</b></div>
+<div class="row2">
+<div><label>A · Aristotle's virtue</label><textarea data-k="s3_nA"></textarea></div>
+<div><label>B · Honor in business</label><textarea data-k="s3_nB"></textarea></div>
+<div><label>C · Confucius's Way</label><textarea data-k="s3_nC"></textarea></div>
+<div><label>D · Confucian business</label><textarea data-k="s3_nD"></textarea></div>
+</div>
+<label>After reading: did you change your answer? Why?</label>
+<textarea data-k="s3_post"></textarea>
+</section>
+
+<!-- 4 -->
+<section class="card">
+<h2>4 · East meets West</h2>
+<p class="sub">With your home group, compare the two thinkers (Section 2.3).</p>
+<div class="grid2 hdr">
+  <div class="h c"></div><div class="h">Aristotle (Athens)</div><div class="h">Confucius (China)</div>
+</div>
+<div id="ewRows" class="grid2"></div>
+<button class="btn sm" style="margin-top:10px" onclick="toggle('ewKey')">Compare with the book</button>
+<div id="ewKey" class="key hidden">
+<table>
+<tr><th></th><th>Aristotle</th><th>Confucius</th></tr>
+<tr><td>Ultimate aim</td><td>Happiness / flourishing (<i>eudaimonia</i>)</td><td>Harmony — social order that mirrors heavenly order</td></tr>
+<tr><td>Ideal person</td><td>Magnanimous person with practical wisdom</td><td><i>Junzi</i>; a <i>ru</i> (great, humane person)</td></tr>
+<tr><td>Ethics is centered on…</td><td>The <b>individual</b></td><td>The <b>family</b> and the five relationships</td></tr>
+<tr><td>How virtue grows</td><td>Habit: small, repeated actions</td><td>Ritual (<i>li</i>), education, self-regulation</td></tr>
+<tr><td>Form of control</td><td><i>Phrónēsis</i>, self-restraint, temperance</td><td>Self-regulation, ability, courage</td></tr>
+<tr><td>View of profit</td><td>Profit is fine; greed is the vice</td><td>Fine if it benefits humanity; greed must not be the main motive</td></tr>
+</table></div>
+<label>Which center of ethics — individual or family/relationships — does your workplace assume? How can you tell?</label>
+<textarea data-k="s4_work"></textarea>
+</section>
+
+<!-- 5 -->
+<section class="card">
+<h2>5 · Advise the board: Chiquita, 1997</h2>
+<div class="box">It is 1997. You advise the board of a U.S. fruit company with banana plantations, employees and facilities in Colombia. Armed groups are demanding regular "protection" payments and threatening the company's people and property. Paying such groups may violate U.S. law.<br><br>
+<b>A</b> Pay quietly to protect employees and operations.<br>
+<b>B</b> Refuse to pay and stay, increasing security.<br>
+<b>C</b> Pay, but report the situation to the U.S. government and seek guidance.<br>
+<b>D</b> Withdraw from the region (sell or close the operation).</div>
+<p class="tip">This is a real case with real victims. You may choose a note-taker role.</p>
+<label>Our advisory firm</label>
+<div class="opts">
+  <label><input type="radio" name="s5_firm" data-k="s5_firm" value="Aristotle"> Aristotle Advisory</label>
+  <label><input type="radio" name="s5_firm" data-k="s5_firm" value="Confucius"> Confucius Advisory</label>
+</div>
+<details><summary>Concepts you can use</summary><div>
+<p><b>Aristotle:</b> prudence (practical wisdom) · honor · reputation · the golden mean · courage (between cowardice and recklessness) · greed vs. profit · never deceive, even for a good end</p>
+<p><b>Confucius:</b> <i>junzi</i> vs. small person · loyalty to truth, not blind loyalty · <i>quan</i> (weighing options fairly) · righteousness → justice · relationships and responsibility · <i>li</i> (proper order)</p>
+</div></details>
+<label>Our recommendation</label>
+<div class="opts">
+  <label><input type="radio" name="s5_opt" data-k="s5_opt" value="A"> A</label>
+  <label><input type="radio" name="s5_opt" data-k="s5_opt" value="B"> B</label>
+  <label><input type="radio" name="s5_opt" data-k="s5_opt" value="C"> C</label>
+  <label><input type="radio" name="s5_opt" data-k="s5_opt" value="D"> D</label>
+</div>
+<label>Three concepts from our thinker, and how they support our choice</label>
+<textarea data-k="s5_concepts" placeholder="1. …&#10;2. …&#10;3. …"></textarea>
+<label>One risk of our own recommendation</label>
+<textarea data-k="s5_risk"></textarea>
+<label>60-second pitch notes</label>
+<textarea data-k="s5_pitch" placeholder="We would advise the board to…, on the grounds that…"></textarea>
+<button class="btn sm" onclick="toggle('chqKey')">What happened? (open when your teacher says)</button>
+<div id="chqKey" class="key hidden">
+<p><b>From the textbook (2.3):</b> Chiquita Brands International paid "protection" money to right-wing and Marxist guerrilla groups in Colombia from 1997 to 2004. The payments violated the U.S. Foreign Corrupt Practices Act (1977). Chiquita said it was extorted and had no choice; it paid $25 million in U.S. fines. In 2007 Colombians sued, alleging the company was complicit in killings and other crimes. The U.S. Supreme Court declined to hear that case in 2015.</p>
+<p><b>Update (outside source, not in the textbook):</b> In June 2024 a U.S. federal jury found Chiquita liable for knowingly financing the AUC paramilitary group and awarded about $38 million to 16 families of people who were killed. The judge confirmed the verdict in October 2024; Chiquita appealed. <i>Sources: EarthRights International; Bloomberg Law.</i></p>
+</div>
+<label>Were the executives prudent, craven (cowardly), or deceitful?</label>
+<div class="opts">
+  <label><input type="radio" name="s5_judge" data-k="s5_judge" value="prudent"> Prudent</label>
+  <label><input type="radio" name="s5_judge" data-k="s5_judge" value="craven"> Craven</label>
+  <label><input type="radio" name="s5_judge" data-k="s5_judge" value="deceitful"> Deceitful</label>
+</div>
+<textarea data-k="s5_why" placeholder="Because…"></textarea>
+</section>
+
+<!-- 6 -->
+<section class="card">
+<h2>6 · Exit ticket</h2>
+<label>One virtue in my profession — and its deficiency and excess</label>
+<input type="text" data-k="s6_virtue" placeholder="deficiency ← VIRTUE → excess">
+<label>One real difference between Aristotle and Confucius</label>
+<textarea data-k="s6_diff"></textarea>
+<label>One question I still have</label>
+<input type="text" data-k="s6_q">
+</section>
+
+<div class="part">Class 2 · Results, Rules, or Fairness?</div>
+
+<!-- 7 -->
+<section class="card">
+<h2>7 · Jon &amp; Matt</h2>
+<div class="box">Two brothers. <b>Jon</b> shoots at a man, meaning to kill him — and misses. <b>Matt</b> fires a shot only to scare a man — and kills him by accident. <i>(Section 2.4)</i></div>
+<label>Who deserves the harsher punishment?</label>
+<div class="opts">
+  <label><input type="radio" name="s7_vote" data-k="s7_vote" value="Jon"> Jon</label>
+  <label><input type="radio" name="s7_vote" data-k="s7_vote" value="Matt"> Matt</label>
+  <label><input type="radio" name="s7_vote" data-k="s7_vote" value="Same"> The same</label>
+</div>
+<label>Who is more <b>guilty</b>? Who did more <b>harm</b>? Are these the same question?</label>
+<textarea data-k="s7_why"></textarea>
+</section>
+
+<!-- 8 -->
+<section class="card">
+<h2>8 · Framework triads</h2>
+<p class="sub">Read your card and the linked textbook part. Fill your column, then teach your triad for 4 minutes. Fill the other columns while you listen.</p>
+<label>My framework</label>
+<select data-k="s8_mine"><option value="">— choose —</option><option>U · Utilitarianism (Bentham &amp; Mill)</option><option>K · Deontology (Kant)</option><option>R · Justice as fairness (Rawls)</option></select>
+
+<details><summary>Card U · Utilitarianism — Bentham &amp; Mill (2.4)</summary><div>
+<p><b>Jeremy Bentham (1748–1832):</b> The right action produces <b>the greatest happiness for the greatest number</b>. Only results matter — not character or motive. This is called <b>consequentialism</b>.</p>
+<p><b>Utility</b> = the benefit or pleasure an action produces. Bentham wanted to measure it like science. His <b>hedonic calculus</b> looks at intensity, duration, certainty and probability.</p>
+<p><b>John Stuart Mill (1806–1873)</b> added <b>rights and individual freedom</b>. His <b>harm principle</b>: we may only limit someone's freedom against their will to <b>prevent harm to others</b>.</p>
+<p><b>In business:</b> cost-benefit analysis for expansion, store closings, hiring and layoffs; risk management.</p>
+<p><b>Problems:</b> a majority can oppress a minority; "harm" was never clearly defined; emotional harm is ignored; who counts as "others" — all stakeholders, or only shareholders?</p>
+<p><a href="https://openstax.org/books/business-ethics/pages/2-4-utilitarianism-the-greatest-good-for-the-greatest-number" target="_blank" rel="noopener">Read 2.4</a>: "Maximizing Utility," "Synthesizing Rights and Utility," "The Role of Utilitarianism in Contemporary Business."</p>
+</div></details>
+<details><summary>Card K · Deontology — Kant (2.5)</summary><div>
+<p><b>Immanuel Kant (1724–1804):</b> <b>Motive</b> matters more than outcome. We must act from <b>duty</b> and <b>goodwill</b>, not only self-interest. <i>Deontology</i> comes from Greek <i>deon</i> = duty.</p>
+<p><b>The categorical imperative</b> — an unconditional duty with two tests:</p>
+<ol><li>Act only on a rule you could want <b>everyone</b> to follow (a universal law).</li><li>Never treat people <b>merely as a means</b> to your goals; treat them as ends in themselves.</li></ol>
+<p>The question is not "How do I become happy?" but "How do I become <b>worthy</b> of happiness?"</p>
+<p><b>Example:</b> Jean Valjean steals bread to feed his sister's starving family. Legally guilty — but perhaps morally right, because his motive was goodwill.</p>
+<p><b>In business:</b> respect for humanity and autonomy; building an ethical culture. The text mentions Uber, Volkswagen and Theranos as failures.</p>
+<p><b>Problems:</b> the rule is unconditional — no exceptions for circumstances or cultures, which is hard for global companies; most companies judge by outcomes, not motives.</p>
+<p><a href="https://openstax.org/books/business-ethics/pages/2-5-deontology-ethics-as-duty" target="_blank" rel="noopener">Read 2.5</a>: "Aroused from 'Dogmatic Slumber,'" "Utilitarianism and Deontology," "Kantian Business Ethics."</p>
+</div></details>
+<details><summary>Card R · Justice as fairness — Rawls (2.6)</summary><div>
+<p><b>John Rawls (1921–2002), <i>A Theory of Justice</i> (1971):</b> instead of maximizing happiness, distribute goods by <b>justice as fairness</b>.</p>
+<p><b>The original position:</b> imagine people agreeing on the rules of society <b>behind a veil of ignorance</b> — they don't know their age, sex, ethnicity, education, income or abilities. Because you might be anyone, you choose fair rules.</p>
+<p>Everyone must agree (<b>unanimity</b>), basic freedoms are included, and the rules must <b>maximize the welfare of the most disadvantaged</b>.</p>
+<p><b>Example:</b> the person who cuts the cake takes the last piece — so they cut it fairly.</p>
+<p><b>In business:</b> fairness in global, diverse companies; a practical method for training; CSR, stakeholder relations and employee development.</p>
+<p><b>Problems:</b> redistribution can be coercive; it ignores history and how people got what they have; it may reduce initiative. Robert Nozick (1974) argued the state may not take legally obtained property to give to others.</p>
+<p><a href="https://openstax.org/books/business-ethics/pages/2-6-a-theory-of-justice" target="_blank" rel="noopener">Read 2.6</a>: "Justice Theory," "The Problem of Redistribution," "Justice in Business."</p>
+</div></details>
+
+<div class="grid3 hdr" style="margin-top:10px">
+  <div class="h c"></div><div class="h">U · Bentham &amp; Mill</div><div class="h">K · Kant</div><div class="h">R · Rawls</div>
+</div>
+<div id="fwRows" class="grid3"></div>
+
+<div class="box" style="margin-top:14px"><b>Rapid check:</b> which framework is speaking?</div>
+<div id="rcRows"></div>
+<button class="btn sm" onclick="checkRC()">Check</button>
+<div id="rcFb" class="fb"></div>
+</section>
+
+<!-- 9 -->
+<section class="card">
+<h2>9 · Northfield Components: three verdicts</h2>
+<div class="box"><b>Northfield Components</b> <i>(fictional)</i> makes parts for medical equipment. It employs 2,000 people at headquarters and three plants. It has lost its largest customer and must cut annual costs by about 10% or risk breaking its loan agreements.<br><br>
+<b>A · Close the Ridgeway plant.</b> 300 jobs lost. Ridgeway is a small town, and the plant is its largest employer. Everyone else keeps their job and pay.<br>
+<b>B · Cut pay for everyone.</b> All plants stay open. Staff take an 8% pay cut, executives 20%. Top engineers may leave for competitors.<br>
+<b>C · Outsource one product line overseas.</b> HQ and plants are protected, Ridgeway loses 120 jobs, and the new supplier is much cheaper, but its labor standards are hard to verify.</div>
+<label>My gut answer</label>
+<div class="opts">
+  <label><input type="radio" name="s9_gut" data-k="s9_gut" value="A"> A</label>
+  <label><input type="radio" name="s9_gut" data-k="s9_gut" value="B"> B</label>
+  <label><input type="radio" name="s9_gut" data-k="s9_gut" value="C"> C</label>
+</div>
+<table>
+<tr><th style="width:24%">Framework</th><th style="width:18%">Verdict</th><th>Reasons</th></tr>
+<tr><td>Utilitarian</td><td><select data-k="s9_vU" aria-label="Utilitarian verdict"><option></option><option>A</option><option>B</option><option>C</option></select></td><td><textarea data-k="s9_rU" aria-label="Utilitarian reasons"></textarea></td></tr>
+<tr><td>Kantian</td><td><select data-k="s9_vK" aria-label="Kantian verdict"><option></option><option>A</option><option>B</option><option>C</option></select></td><td><textarea data-k="s9_rK" aria-label="Kantian reasons"></textarea></td></tr>
+<tr><td>Rawlsian</td><td><select data-k="s9_vR" aria-label="Rawlsian verdict"><option></option><option>A</option><option>B</option><option>C</option></select></td><td><textarea data-k="s9_rR" aria-label="Rawlsian reasons"></textarea></td></tr>
+</table>
+<label>Where did the frameworks agree or disagree — and why?</label>
+<textarea data-k="s9_agree"></textarea>
+<div class="box"><b>Veil of ignorance.</b> Vote again. After you vote, you will draw a random identity card — and live with the result as that person.</div>
+<label>My vote behind the veil</label>
+<div class="opts">
+  <label><input type="radio" name="s9_veil" data-k="s9_veil" value="A"> A</label>
+  <label><input type="radio" name="s9_veil" data-k="s9_veil" value="B"> B</label>
+  <label><input type="radio" name="s9_veil" data-k="s9_veil" value="C"> C</label>
+</div>
+<label>The identity I drew</label>
+<select data-k="s9_id"><option value="">— choose —</option>
+<option>Machinist at Ridgeway, 54</option><option>HQ design engineer, 31</option><option>Retired teacher, 70 (pension owns shares)</option><option>Worker at the overseas supplier, 24</option><option>Café owner opposite the Ridgeway plant</option><option>CEO of Northfield</option><option>New graduate in HQ accounting, 23</option><option>Hospital purchasing manager</option></select>
+<label>Would I still choose my vote? Is it fair to the person I became?</label>
+<textarea data-k="s9_after"></textarea>
+<label>What information is missing before the board decides?</label>
+<textarea data-k="s9_info"></textarea>
+</section>
+
+<!-- 10 -->
+<section class="card">
+<h2>10 · Timeline challenge</h2>
+<p class="sub">Put each thinker in order (1 = earliest) and match their idea.</p>
+<div id="tlRows"></div>
+<button class="btn sm" onclick="checkTL()">Check</button>
+<div id="tlFb" class="fb"></div>
+<label>Read the ideas in order. What changes over 2,500 years?</label>
+<textarea data-k="s10_change"></textarea>
+</section>
+
+<!-- 11 -->
+<section class="card">
+<h2>11 · Debate</h2>
+<div class="box"><b>Motion:</b> "This house believes that the ethics of Aristotle and Confucius are more useful to today's business leaders than modern rules and regulations."</div>
+<div class="row2">
+<div><label>My position on the line before (1–10)</label><input type="text" data-k="s11_before" inputmode="numeric" placeholder="1 = strongly disagree, 10 = strongly agree"></div>
+<div><label>My side in the debate</label><select data-k="s11_side"><option value="">— choose —</option><option>Proposition (for)</option><option>Opposition (against)</option></select></div>
+</div>
+<label>My role</label>
+<select data-k="s11_role"><option value="">— choose —</option><option>Opener</option><option>Evidence 1</option><option>Evidence 2</option><option>Rebuttal</option><option>Closer</option></select>
+<details><summary>Evidence from the textbook</summary><div>
+<table>
+<tr><th>For the motion</th><th>Against the motion</th></tr>
+<tr><td>Enron, LIBOR, the 2008 crisis, Uber and VW were failures of character, not of rules (2.2).</td><td>Critics say ancient values don't fit high-frequency trading, blockchain, AI or robotics (2.2).</td></tr>
+<tr><td>Standards alone are not enough: selfish people break rules without strong incentives (2.3).</td><td>Shared standards like GAAP and IFRS give businesses a common language across countries (2.3).</td></tr>
+<tr><td>A virtuous person acts well even when no one is watching (2.3).</td><td>Kant's and Rawls's methods are compared as more flexible or practical (2.6).</td></tr>
+<tr><td>Business schools now teach virtue ethics in executive education (2.2).</td><td>Ancient Athens accepted slavery and excluded women and foreigners from citizenship (2.1).</td></tr>
+<tr><td>Separating personal and professional values leads to "dispersed accountability" (2.3).</td><td>Bentham's utility supports data-based risk assessment and planning (2.4).</td></tr>
+<tr><td>Confucius's loyalty to truth is what whistleblowers need (2.2).</td><td>China's anti-corruption campaign prosecutes executives — enforcement, not virtue alone (2.2).</td></tr>
+</table></div></details>
+<label>My main argument</label><textarea data-k="s11_arg"></textarea>
+<label>My evidence</label><textarea data-k="s11_ev"></textarea>
+<label>What the other side will probably say — and my response</label><textarea data-k="s11_reb"></textarea>
+<div class="row2">
+<div><label>My position on the line after (1–10)</label><input type="text" data-k="s11_after" inputmode="numeric"></div>
+<div><label>What argument moved me (or didn't)?</label><input type="text" data-k="s11_moved"></div>
+</div>
+</section>
+
+<!-- 12 -->
+<section class="card">
+<h2>12 · Framework fingerprint</h2>
+<p class="sub">At work, how much do you rely on each way of thinking? (0 = never, 10 = always)</p>
+<div class="slider"><span>Character</span><input type="range" min="0" max="10" value="5" data-k="s12_char"><b class="sv">5</b></div>
+<div class="slider"><span>Results</span><input type="range" min="0" max="10" value="5" data-k="s12_res"><b class="sv">5</b></div>
+<div class="slider"><span>Duty</span><input type="range" min="0" max="10" value="5" data-k="s12_duty"><b class="sv">5</b></div>
+<div class="slider"><span>Fairness</span><input type="range" min="0" max="10" value="5" data-k="s12_fair"><b class="sv">5</b></div>
+<label>One decision I made at work that a ___ (Kantian / utilitarian / Rawlsian / Aristotle / Confucius) would criticize — and why</label>
+<textarea data-k="s12_dec"></textarea>
+</section>
+
+<div class="part">Homework</div>
+
+<section class="card">
+<h2>Ethics Journal #2</h2>
+<p class="sub">150–200 words. Choose one prompt. Structure: <b>Opinion → Reasons → Framework (at least two) → Counterargument → Conclusion</b>.</p>
+<select data-k="j_prompt"><option value="">— choose a prompt —</option>
+<option>A · Yijing: If you were Yijing, what would you have done?</option>
+<option>B · Jean Valjean: Was he wrong? Is breaking one moral rule to satisfy a greater one ever right?</option>
+<option>C · Rawls's senior care: What would you give up now so that older people are cared for?</option></select>
+<details><summary>The three cases</summary><div>
+<p><b>A · Yijing (2.2, fictional):</b> Bei Li, a merchant who sold farming tools and agricultural products, had three sons with no interest in the business. His daughter Yijing was the most capable and asked to run it. He agreed — but only if she disguised herself as a man when traveling and doing business, because he feared she would be ridiculed and exploited. She agreed, and the business became very prosperous.</p>
+<p><b>B · Jean Valjean (2.5):</b> In Victor Hugo's novel <i>Les Misérables</i>, Jean Valjean steals bread to feed his sister's starving family. He is arrested and imprisoned. Legally he is guilty; from a Kantian view, his motive and his duty to his sister's family matter.</p>
+<p><b>C · Rawls's thought experiment (2.6):</b> Imagine a community where you don't know who you will become. Most people eventually become senior citizens. Behind this "veil of time," what conditions would you agree to <i>now</i> so that older people are cared for and secure? Should you pay into a system that covers people less health-conscious than you?</p>
+</div></details>
+<textarea class="big" id="journal" data-k="journal" placeholder="If I were…"></textarea>
+<div class="wc" id="wc">0 words · target 150–200</div>
+<details><summary>Model journal (Prompt A)</summary><div>
+<p>If I were Yijing, I would accept the disguise at first, but I would plan to remove it. My main reason is practical: without the disguise, the business might fail, and her father, her brothers and the workers would all suffer. From a utilitarian perspective, the disguise produces the greatest good for the greatest number, because the firm prospers. However, a Kantian would object that the disguise is a form of deception, and that it could not become a universal rule — if everyone hid who they were, trust in business would collapse. A Confucian view is more complicated: loyalty to her father matters, but Confucius valued loyalty to the truth over blind loyalty. One could argue that Yijing has no real choice and that it is unfair to judge her for adapting to an unjust system. I accept that, but I still think she owes something to the truth. In conclusion, the disguise is defensible in the short term, but a prudent leader would build a reputation strong enough to one day do business as herself.</p>
+</div></details>
+<details><summary>How your journal is marked (12 points)</summary><div>
+<table>
+<tr><th>Criterion</th><th>3 points</th></tr>
+<tr><td>Position</td><td>Clear, specific answer to the prompt</td></tr>
+<tr><td>Frameworks</td><td>Two or more, used accurately and compared</td></tr>
+<tr><td>Counterargument</td><td>A strong opposing view, stated fairly and answered</td></tr>
+<tr><td>Language</td><td>Course vocabulary; conditionals and hedging mostly accurate</td></tr>
+</table></div></details>
+<p class="tip"><b>Also:</b> read all of Chapter 2 and preview Chapter 3. <b>Quiz 1 (Chapters 1–3) is next week.</b></p>
+</section>
+
+<section class="card">
+<h2>Language bank</h2>
+<details><summary>Key words in simple English</summary><div>
+<ul class="lb">
+<li><b>virtue / vice</b> — a good / bad quality of character</li>
+<li><b>prudence</b> — good practical judgment (not "careful with money" only)</li>
+<li><b>the golden mean</b> — the balance between too little and too much</li>
+<li><b>flourishing</b> — living fully and well</li>
+<li><b>harmony</b> — a peaceful, balanced order between people</li>
+<li><b>righteousness</b> — doing what is morally right and just</li>
+<li><b>utility</b> — usefulness; the happiness an action produces (not the electricity bill!)</li>
+<li><b>consequentialism</b> — judging an action only by its results</li>
+<li><b>duty</b> — what you must do because it is right</li>
+<li><b>categorical</b> — absolute, with no exceptions</li>
+<li><b>a means / an end</b> — a tool / a goal in itself</li>
+<li><b>the most disadvantaged</b> — people in the weakest position</li>
+<li><b>coercive</b> — using force</li>
+<li><b>craven</b> — cowardly</li>
+<li><b>liberal</b> (Aristotle) — generous and open, not political</li>
+</ul></div></details>
+<details><summary>Useful phrases for discussion and debate</summary><div>
+<ul class="lb">
+<li>Viewed through a utilitarian lens, … / From a Kantian standpoint, … / A Rawlsian would ask…</li>
+<li>There's a fine line between ___ and ___. / Taken too far, ___ becomes ___.</li>
+<li>That assumes… / I'm not sure that follows. / Where I'd push back is…</li>
+<li>What in the text supports that?</li>
+<li>Both approaches lead to B, but for different reasons.</li>
+<li>If I were behind the veil, I'd choose ___, because I might turn out to be…</li>
+<li>Granted, …; nevertheless, …</li>
+<li>That's a fair point — I'd modify my position to…</li>
+<li>The strongest version of the other side is…</li>
+<li>Point of information: isn't it the case that…?</li>
+</ul></div></details>
+<details><summary>Pronunciation</summary><div>
+<p>Aristotle /ˈær.ɪ.stɒt.əl/ · Confucius /kənˈfjuː.ʃəs/ · eudaimonia /juː.daɪˈmoʊ.ni.ə/ · junzi /ˈdʒʊn.zɪ/ · utilitarianism /juː.tɪl.ɪˈteə.ri.ən.ɪz.əm/ · deontology /ˌdiː.ɒnˈtɒl.ə.dʒi/ · Kant /kænt/ · Rawls /rɔːlz/</p>
+<p><b>Stress moves:</b> PHIlosophy → philoSOPHical · CONsequence → conseQUENtial · CHARacter → characteRIStic</p>
+</div></details>
+</section>
+</main>
+<footer>Textbook content summarized from Byars &amp; Stanberry, <em>Business Ethics</em>, OpenStax (CC BY-NC-SA 4.0). Access for free at https://openstax.org/books/business-ethics/pages/2-introduction · Chiquita update: EarthRights International; Bloomberg Law · Northfield Components is fictional.</footer>
+
+<script>
+const KEY='ethics-w2-worksheet-v1';
+let data={};
+try{data=JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){data={}}
+
+/* ---------- builders ---------- */
+const GM=[["Courage","Cowardice","Recklessness"],["Generosity","Stinginess","Wastefulness"],["Loyalty","Disloyalty","Blind loyalty"],["Candor","Evasiveness","Tactlessness"],["Ambition","Complacency","Greed"],["Patience","Irritability","Passivity"]];
+const GMopts=["Blind loyalty","Complacency","Cowardice","Disloyalty","Evasiveness","Greed","Irritability","Passivity","Recklessness","Stinginess","Tactlessness","Wastefulness"];
+const opt=(arr,l)=>'<option value="">'+(l||'—')+'</option>'+arr.map(o=>`<option>${o}</option>`).join('');
+document.getElementById('gmRows').innerHTML=GM.map((g,i)=>`<div class="gm"><select data-k="gm${i}d" aria-label="Deficiency for ${g[0]}">${opt(GMopts,'← too little…')}</select><div class="v">${g[0]}</div><select data-k="gm${i}e" aria-label="Excess for ${g[0]}">${opt(GMopts,'too much… →')}</select></div>`).join('')+'<div class="gm" style="font-size:13px;color:#4a5568"><div>← too little (deficiency)</div><div></div><div style="text-align:right">too much (excess) →</div></div>';
+
+const EW=["Ultimate aim","Ideal person","Ethics is centered on…","How virtue grows","Form of control","View of profit"];
+document.getElementById('ewRows').innerHTML=EW.map((r,i)=>`<div class="h">${r}</div><textarea data-k="ew${i}a" placeholder="Aristotle — ${r.toLowerCase()}"></textarea><textarea data-k="ew${i}c" placeholder="Confucius — ${r.toLowerCase()}"></textarea>`).join('');
+
+const FW=["Big question","The test you run","Key words","Strength","Weakness","Business use"];
+document.getElementById('fwRows').innerHTML=FW.map((r,i)=>`<div class="h">${r}</div><textarea data-k="fw${i}u" placeholder="U · ${r}"></textarea><textarea data-k="fw${i}k" placeholder="K · ${r}"></textarea><textarea data-k="fw${i}r" placeholder="R · ${r}"></textarea>`).join('');
+
+const RC=[["“Never use your employees merely as tools for profit.”","K"],["“Let's run a cost-benefit analysis of closing the store.”","U"],["“Design the bonus policy as if you didn't know whether you'd be a manager or a cleaner.”","R"],["“Lying is wrong, even if this lie would save the deal.”","K"],["“The only good reason to restrict someone's freedom is to stop them harming others.”","U"],["“The policy is acceptable only if it benefits the least advantaged.”","R"]];
+document.getElementById('rcRows').innerHTML=RC.map((r,i)=>`<div class="row2" style="align-items:center;grid-template-columns:1fr 150px;margin:6px 0"><div>${i+1}. ${r[0]}</div><select data-k="rc${i}" aria-label="Rapid check ${i+1}: ${r[0].replace(/"/g,'')}"><option value="">—</option><option value="U">U · Utilitarian</option><option value="K">K · Kant</option><option value="R">R · Rawls</option></select></div>`).join('');
+
+const TL=[["Confucius","Become a junzi; keep proper order (li) through family relationships."],["Cleisthenes","Establishes an open democracy in Athens."],["Aristotle","Virtue is the mean between excess and deficiency; aim at flourishing."],["Thomas Aquinas","Expands Aristotle; describes the parts of prudence."],["Thomas Hobbes","People are selfish, so they give power to a sovereign to avoid chaos."],["Immanuel Kant","Act only on a rule you could will as a universal law."],["Jeremy Bentham","The greatest happiness for the greatest number."],["John Stuart Mill","Limit freedom only to prevent harm to others."],["John Rawls","Choose the rules behind a veil of ignorance."],["Robert Nozick","The state may not take legally obtained property to give to others."]];
+const DATES=["551–479 BCE","508 BCE","384–322 BCE","13th century","1588–1679","1724–1804","1748–1832","1806–1873","1921–2002 (1971)","1938–2002 (1974)"];
+const tlOrder=[6,2,9,4,0,7,3,8,1,5]; // display order (shuffled)
+const ideasSorted=TL.map(t=>t[1]).slice().sort();
+document.getElementById('tlRows').innerHTML='<div class="tl" style="font-size:13.5px;color:#4a5568"><span>Thinker</span><span>Order</span><span>Idea</span></div>'+tlOrder.map(i=>`<div class="tl"><b>${TL[i][0]}</b><select data-k="tlp${i}" aria-label="Order for ${TL[i][0]}">${'<option value="">—</option>'+[1,2,3,4,5,6,7,8,9,10].map(n=>`<option>${n}</option>`).join('')}</select><select class="idea" data-k="tli${i}" aria-label="Idea for ${TL[i][0]}">${'<option value="">— idea —</option>'+ideasSorted.map(o=>`<option>${o}</option>`).join('')}</select></div>`).join('');
+
+/* ---------- save / load ---------- */
+const status=document.getElementById('saved');
+let tmr;
+function save(){try{localStorage.setItem(KEY,JSON.stringify(data));status.textContent='Saved ✓'}catch(e){status.textContent='Not saved — use Download'}}
+function bind(el){
+  const k=el.dataset.k;
+  if(el.type==='radio'){ if(data[k]===el.value) el.checked=true; el.addEventListener('change',()=>{data[k]=el.value;save()}); return;}
+  if(data[k]!==undefined) el.value=data[k];
+  const ev=(el.tagName==='SELECT'||el.type==='range')?'input':'input';
+  el.addEventListener(ev,()=>{data[k]=el.value;status.textContent='Saving…';clearTimeout(tmr);tmr=setTimeout(save,400);if(el.type==='range')el.nextElementSibling.textContent=el.value;if(el.id==='journal')wc();});
+  if(el.tagName==='SELECT') el.addEventListener('change',()=>{data[k]=el.value;save()});
+  if(el.type==='range') el.nextElementSibling.textContent=el.value;
+}
+document.querySelectorAll('[data-k]').forEach(bind);
+
+function wc(){const n=(document.getElementById('journal').value.trim().match(/\S+/g)||[]).length;const w=document.getElementById('wc');w.textContent=n+' words · target 150–200';w.className='wc '+(n>=150&&n<=200?'ok':n>200?'no':'');}
+wc();
+
+function toggle(id){document.getElementById(id).classList.toggle('hidden')}
+
+/* ---------- checks ---------- */
+function mark(el,ok){el.classList.remove('ok','no');if(el.value)el.classList.add(ok?'ok':'no')}
+function checkGM(){
+  let c=0,used={};
+  GM.forEach((g,i)=>{const d=document.querySelector(`[data-k="gm${i}d"]`),e=document.querySelector(`[data-k="gm${i}e"]`);mark(d,d.value===g[1]);mark(e,e.value===g[2]);c+=(d.value===g[1])+(e.value===g[2]);[d.value,e.value].forEach(v=>{if(v)used[v]=(used[v]||0)+1})});
+  const dup=Object.keys(used).filter(k=>used[k]>1);
+  const fb=document.getElementById('gmFb');
+  fb.innerHTML=`${c} / 12 correct.`+(dup.length?` <span class="no">You used "${dup.join('", "')}" more than once.</span>`:'')+(c===12?' <span class="ok">Excellent!</span>':' Red boxes need another look.');
+}
+function checkRC(){let c=0;RC.forEach((r,i)=>{const s=document.querySelector(`[data-k="rc${i}"]`);mark(s,s.value===r[1]);if(s.value===r[1])c++});document.getElementById('rcFb').textContent=`${c} / 6 correct.`}
+function checkTL(){
+  let p=0,m=0,used={};
+  TL.forEach((t,i)=>{const ps=document.querySelector(`[data-k="tlp${i}"]`),is=document.querySelector(`[data-k="tli${i}"]`);mark(ps,+ps.value===i+1);mark(is,is.value===t[1]);if(+ps.value===i+1)p++;if(is.value===t[1])m++;if(ps.value)used[ps.value]=(used[ps.value]||0)+1});
+  const dup=Object.keys(used).filter(k=>used[k]>1);
+  document.getElementById('tlFb').innerHTML=`Order: ${p} / 10 · Ideas: ${m} / 10 · Score: ${p+m} / 20`+(dup.length?` <span class="no">Number ${dup.join(', ')} used twice.</span>`:'')+(p+m===20?`<div class="key">Dates: ${TL.map((t,i)=>t[0]+' '+DATES[i]).join(' · ')}</div>`:'');
+}
+
+/* ---------- download / clear / print ---------- */
+function esc(s){return String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]))}
+function downloadAnswers(){
+  let html='',lastH='';
+  document.querySelectorAll('section.card').forEach(sec=>{
+    const h=sec.querySelector('h2').textContent;let body='';
+    sec.querySelectorAll('[data-k]').forEach(el=>{
+      const k=el.dataset.k;if(el.type==='radio'){if(!el.checked)return;}
+      const v=el.value;if(!v||(el.type==='range'&&!(k in data)))return;
+      let lab='';
+      if(el.type==='radio'){lab=el.closest('.opts')?.previousElementSibling?.textContent||k}
+      else{const p=el.previousElementSibling;lab=(p&&p.tagName==='LABEL')?p.textContent:(el.getAttribute('aria-label')||el.placeholder||el.closest('.slider')?.firstElementChild?.textContent||k)}
+      body+=`<p><b>${esc(lab)}</b><br>${esc(v).replace(/\n/g,'<br>')}</p>`;
+    });
+    if(body)html+=`<h2>${esc(h)}</h2>${body}`;
+  });
+  const name=document.getElementById('sname').value||'student';
+  const doc=`<!doctype html><meta charset="utf-8"><title>Week 2 answers · ${esc(name)}</title><body style="font-family:system-ui,sans-serif;max-width:760px;margin:30px auto;padding:0 16px;line-height:1.5"><h1 style="color:#143865">Ethics in a Global World · Week 2 answers</h1><p><b>Name:</b> ${esc(name)} · ${new Date().toLocaleString()}</p>${html||'<p>No answers yet.</p>'}</body>`;
+  const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([doc],{type:'text/html'}));a.download='week2-answers-'+name.replace(/\W+/g,'-').toLowerCase()+'.html';document.body.appendChild(a);a.click();a.remove();
+}
+function clearAll(){if(!confirm('Clear ALL your answers on this device? This cannot be undone.'))return;data={};try{localStorage.removeItem(KEY)}catch(e){}location.reload()}
+window.addEventListener('beforeprint',()=>{document.querySelectorAll('textarea').forEach(t=>{t.style.height='auto';t.style.height=(t.scrollHeight+4)+'px'});document.querySelectorAll('details').forEach(d=>d.setAttribute('open',''))});
+</script>
+</body>
+</html>

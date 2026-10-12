@@ -1,0 +1,588 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Slides · Week 2 · Ethics in a Global World</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+:root{--navy:#143865;--blue:#1c4f8f;--gold:#d39f10;--gold-d:#8c7535;--sky:#c1cddd;--sky2:#e1e8f2;--sky3:#edf2f9;--cream:#efe9d9;--ink:#1a2233;--muted:#4a5568}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:#0b1d36;overflow:hidden;font-family:"Source Sans 3",system-ui,sans-serif;color:var(--ink)}
+#stage{position:fixed;inset:0;display:flex;align-items:center;justify-content:center}
+#deck{width:1280px;height:720px;position:relative;transform-origin:center center;flex:none}
+.slide{position:absolute;inset:0;background:#fbfaf6;padding:56px 76px 70px;display:none;flex-direction:column;overflow:hidden}
+.slide.on{display:flex}
+.slide.dark{background:var(--navy);color:#fff}
+.slide.cream{background:var(--cream)}
+.slide::after{content:"";position:absolute;left:0;right:0;bottom:0;height:8px;background:var(--gold)}
+.foot{position:absolute;left:76px;right:76px;bottom:22px;display:flex;justify-content:space-between;font-size:15px;color:var(--muted);letter-spacing:.04em}
+.dark .foot{color:var(--sky)}
+.kick{font-size:18px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-d);margin-bottom:10px}
+.dark .kick{color:var(--gold)}
+h1{font-family:"Libre Baskerville",serif;font-size:56px;line-height:1.12;margin:0 0 16px;color:var(--navy)}
+.dark h1{color:#fff}
+h2{font-family:"Libre Baskerville",serif;font-size:40px;line-height:1.18;margin:0 0 18px;color:var(--navy)}
+.dark h2{color:#fff}
+p,li{font-size:27px;line-height:1.4;margin:0 0 10px}
+ul,ol{margin:0;padding-left:34px}
+.big{font-size:34px;line-height:1.35}
+.q{font-family:"Libre Baskerville",serif;font-size:36px;line-height:1.35;color:var(--navy)}
+.dark .q{color:#fff}
+.muted{color:var(--muted)}.dark .muted{color:var(--sky)}
+.gold{color:var(--gold-d)}.dark .gold{color:var(--gold)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.cols3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px}
+.cols4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.box{background:#fff;border:2px solid var(--sky);border-top:6px solid var(--blue);border-radius:12px;padding:16px 20px}
+.box h3{font-family:"Libre Baskerville",serif;margin:0 0 6px;font-size:24px;color:var(--navy)}
+.box p,.box li{font-size:21px}
+.dark .box{background:#1c4673;border-color:#2c5b8c;border-top-color:var(--gold);color:#fff}
+.dark .box h3{color:var(--gold)}
+.lang{margin-top:auto;background:var(--sky3);border-left:6px solid var(--gold);padding:10px 18px;border-radius:8px;font-size:20px;color:var(--navy)}
+.lang b{color:var(--gold-d)}
+.dark .lang{background:#1c4673;color:#fff}
+.dark .lang b{color:var(--gold)}
+table{border-collapse:collapse;width:100%;font-size:21px;background:#fff}
+th,td{border:2px solid var(--sky);padding:8px 12px;text-align:left;vertical-align:top}
+th{background:var(--sky2);color:var(--navy)}
+.mean{display:flex;align-items:center;justify-content:center;gap:24px;font-size:34px;margin:24px 0}
+.mean .v{background:var(--navy);color:#fff;padding:12px 26px;border-radius:10px;font-weight:700}
+.mean .x{color:var(--gold-d);font-weight:700}
+.tag{display:inline-block;background:var(--navy);color:#fff;font-size:16px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border-radius:5px;margin-bottom:12px}
+.tag.s{background:var(--blue)}.tag.a{background:var(--gold-d)}.tag.b{background:#5a6b84}
+.step{opacity:0;transform:translateY(8px);transition:opacity .3s,transform .3s}
+.step.shown{opacity:1;transform:none}
+.timechip{display:inline-block;background:var(--gold);color:var(--navy);font-weight:700;padding:3px 12px;border-radius:20px;font-size:18px;margin-left:10px;vertical-align:middle}
+.brand{display:flex;align-items:center;gap:16px;margin-bottom:auto}
+.brand img{height:74px}
+.brand .w{font-family:"Libre Baskerville",serif;color:var(--gold);letter-spacing:.14em;font-size:22px;line-height:1.1}
+.brand .w small{display:block;font-size:13px;letter-spacing:.03em;color:#e6d8a8}
+#qr{background:#fff;padding:10px;border-radius:10px;width:max-content}
+#qr img,#qr canvas{display:block;width:170px!important;height:170px!important}
+.warn{background:#fbf1dc;border-left:6px solid var(--gold);padding:10px 16px;border-radius:8px;font-size:20px;margin-bottom:12px}
+#timer{position:fixed;right:18px;top:18px;background:var(--gold);color:var(--navy);font:700 46px "Source Sans 3",sans-serif;padding:6px 20px;border-radius:12px;display:none;z-index:10;box-shadow:0 6px 20px rgba(0,0,0,.3);cursor:pointer}
+#timer.done{background:#a33a2a;color:#fff;animation:pulse 1s infinite}
+@keyframes pulse{50%{opacity:.6}}
+#help{position:fixed;left:14px;bottom:12px;color:#7f93ad;font-size:13px;z-index:10}
+#prog{position:fixed;left:0;top:0;height:4px;background:var(--gold);z-index:11;transition:width .2s}
+@media print{html,body{overflow:visible;background:#fff;height:auto}#stage{position:static;display:block}#deck{transform:none!important;width:auto;height:auto}.slide{display:flex!important;position:relative;width:1280px;height:720px;break-after:page}.step{opacity:1;transform:none}#timer,#help,#prog{display:none}}
+</style>
+</head>
+<body>
+<div id="prog"></div>
+<div id="stage"><div id="deck">
+
+<!-- 1 -->
+<section class="slide dark">
+  <div class="brand"><img src="logo.png" alt="" onerror="this.remove()"><div class="w">APPROACH<small>International Student Center</small></div></div>
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:40px">
+    <div><div class="kick">Ethics in a Global World · Week 2</div>
+    <h1>Ethics from Antiquity<br>to the Present</h1>
+    <p class="muted">Chapter 2 · Aristotle, Confucius, Bentham, Mill, Kant, Rawls</p></div>
+    <div style="text-align:center"><div id="qr"></div><p style="font-size:16px;margin-top:8px" class="muted">Scan for your worksheet</p></div>
+  </div>
+  <div class="foot"><span>Week 2</span><span>1</span></div>
+</section>
+
+<!-- 2 -->
+<section class="slide">
+  <div class="kick">Today</div>
+  <h2>Who should we be? And how should we decide?</h2>
+  <div class="cols3" style="margin-top:10px">
+    <div class="box"><h3>Class 1 · 9:00–10:40</h3><p><b>Who Should We Be?</b></p><p>Aristotle and Confucius: virtue, East and West</p></div>
+    <div class="box" style="border-top-color:var(--gold)"><h3>Break · 10:40–11:10</h3><p>A case to think about…</p></div>
+    <div class="box"><h3>Class 2 · 11:10–12:50</h3><p><b>Results, Rules, or Fairness?</b></p><p>Bentham &amp; Mill, Kant, Rawls — and a debate</p></div>
+  </div>
+  <p style="margin-top:26px" class="muted">Please hand in <b>Ethics Journal #1</b> now.</p>
+  <div class="foot"><span>Week 2 · Overview</span><span>2</span></div>
+</section>
+
+<!-- 3 -->
+<section class="slide" data-t="3">
+  <span class="tag">Engage</span>
+  <h2>The colleague you'd trust <span class="timechip">3 min</span></h2>
+  <p class="q">Think of the most trustworthy colleague you have ever worked with.</p>
+  <ul style="margin-top:14px">
+    <li>Write <b>three things they did</b> — specific actions, not adjectives.</li>
+    <li>Then <b>one thing</b> a colleague did that <b>destroyed</b> your trust.</li>
+  </ul>
+  <p class="muted" style="margin-top:14px">Worksheet §1</p>
+  <div class="foot"><span>Class 1 · Engage</span><span>3</span></div>
+</section>
+
+<!-- 4 -->
+<section class="slide" data-t="4">
+  <span class="tag">Engage</span>
+  <h2>Compare with a partner <span class="timechip">4 min</span></h2>
+  <p class="q">Would this behavior build trust in <em>every</em> workplace you've known — or only some?</p>
+  <div class="lang"><b>Try:</b> "She was the kind of person who…" · "What made him trustworthy was…" · "In my field, that would be seen as…" · "I'd trust her with…"</div>
+  <div class="foot"><span>Class 1 · Engage</span><span>4</span></div>
+</section>
+
+<!-- 5 -->
+<section class="slide dark">
+  <div class="kick">Look at the board</div>
+  <h1 class="step">You didn't judge them by a rule.</h1>
+  <h1 class="step">You didn't judge them by a spreadsheet.</h1>
+  <h1 class="step gold">You judged who they <em>were</em>.</h1>
+  <p class="step big" style="margin-top:20px">That is <b class="gold">virtue ethics</b> — 2,400 years old, from two sides of the world.</p>
+  <div class="foot"><span>Class 1 · Engage</span><span>5</span></div>
+</section>
+
+<!-- 6 -->
+<section class="slide" data-t="5">
+  <span class="tag s">Study</span>
+  <h2>Find the golden mean <span class="timechip">5 min</span></h2>
+  <p>Aristotle: courage is not the opposite of fear. It sits <b>between</b> two failures.</p>
+  <div class="mean"><span class="x">cowardice</span><span>←</span><span class="v">COURAGE</span><span>→</span><span class="x">recklessness</span></div>
+  <div class="cols">
+    <p><b>Too little</b> = deficiency<br><b>Too much</b> = excess</p>
+    <p>In groups of 3, build <b>five more</b> from the cards. Then check in worksheet §2.</p>
+  </div>
+  <div class="foot"><span>Class 1 · Study</span><span>6</span></div>
+</section>
+
+<!-- 7 -->
+<section class="slide">
+  <span class="tag s">Study</span>
+  <h2>The golden mean · answers</h2>
+  <table>
+    <tr><th>Too little</th><th>Virtue</th><th>Too much</th></tr>
+    <tr class="step"><td>Cowardice</td><td><b>Courage</b></td><td>Recklessness</td></tr>
+    <tr class="step"><td>Stinginess</td><td><b>Generosity</b></td><td>Wastefulness</td></tr>
+    <tr class="step"><td>Disloyalty</td><td><b>Loyalty</b></td><td>Blind loyalty</td></tr>
+    <tr class="step"><td>Evasiveness</td><td><b>Candor</b></td><td>Tactlessness</td></tr>
+    <tr class="step"><td>Complacency</td><td><b>Ambition</b></td><td>Greed</td></tr>
+    <tr class="step"><td>Irritability</td><td><b>Patience</b></td><td>Passivity</td></tr>
+  </table>
+  <p class="step muted" style="margin-top:14px">Aristotle didn't condemn profit. He condemned <b>greed</b>. (2.1)</p>
+  <div class="foot"><span>Class 1 · Study</span><span>7</span></div>
+</section>
+
+<!-- 8 -->
+<section class="slide cream" data-t="4">
+  <span class="tag s">Twist</span>
+  <h2>Where is the line? <span class="timechip">4 min</span></h2>
+  <p class="q">Choose <b>candor</b> or <b>loyalty</b>. Where does the virtue become an excess…</p>
+  <ul style="margin-top:12px"><li>…in your profession?</li><li>…in a workplace you know in another country?</li></ul>
+  <p>Give one <b>real example</b>.</p>
+  <div class="lang"><b>Try:</b> "There's a fine line between ___ and ___." · "Taken too far, ___ becomes ___." · "That would come across as…"</div>
+  <div class="foot"><span>Class 1 · Study</span><span>8</span></div>
+</section>
+
+<!-- 9 -->
+<section class="slide dark">
+  <div class="kick">Before you read · vote</div>
+  <p class="q" style="margin-top:20px">What matters more for an ethical business?</p>
+  <div class="cols" style="margin-top:30px">
+    <div class="box"><h3>✋ A</h3><p class="big">The individual's <b>conscience</b></p></div>
+    <div class="box"><h3>✋ B</h3><p class="big">The group's <b>relationships</b></p></div>
+  </div>
+  <div class="foot"><span>Class 1 · Jigsaw</span><span>9</span></div>
+</section>
+
+<!-- 10 -->
+<section class="slide" data-t="12">
+  <span class="tag s">Study</span>
+  <h2>Athens &amp; China jigsaw · expert groups <span class="timechip">12 min</span></h2>
+  <table>
+    <tr><th>Packet</th><th>Read</th><th>Focus</th></tr>
+    <tr><td><b>A</b> Aristotle's virtue</td><td>2.1 "Aristotelian Virtue Ethics"</td><td>telos, eudaimonia, phrónēsis, habit</td></tr>
+    <tr><td><b>B</b> Honor in business</td><td>2.1 "Honorable Behavior…" + "Three Forms of Justice"</td><td>greed vs. profit, honor, justice</td></tr>
+    <tr><td><b>C</b> Confucius's Way</td><td>2.2 opening → "Confucian Virtue Ethics"</td><td>li, junzi, dao, five relationships</td></tr>
+    <tr><td><b>D</b> Confucian business</td><td>2.2 "Quan and the Broad Group" → end</td><td>quan, righteousness, critics</td></tr>
+  </table>
+  <p style="margin-top:14px;font-size:22px"><b>Expert Brief:</b> key idea · 2 terms · 1 example · 1 claim you'd challenge · 1 question</p>
+  <div class="foot"><span>Class 1 · Jigsaw</span><span>10</span></div>
+</section>
+
+<!-- 11 -->
+<section class="slide" data-t="14">
+  <span class="tag s">Study</span>
+  <h2>Home groups · teach <span class="timechip">14 min</span></h2>
+  <ul>
+    <li>About <b>3 minutes</b> each.</li>
+    <li>Teach <b>from your brief</b> — no reading aloud.</li>
+    <li>End with your <b>challenge</b> and your <b>question</b>.</li>
+    <li>Listeners: notes in worksheet §3.</li>
+  </ul>
+  <div class="lang"><b>Try:</b> "The gist of our section is…" · "The author's main claim is that…" · "What we found questionable was…" · "Let me give you an example from the text."</div>
+  <div class="foot"><span>Class 1 · Jigsaw</span><span>11</span></div>
+</section>
+
+<!-- 12 -->
+<section class="slide" data-t="5">
+  <span class="tag s">Study</span>
+  <h2>East meets West <span class="timechip">5 min</span></h2>
+  <p>With your home group, complete the grid in worksheet §4.</p>
+  <table style="margin-top:10px">
+    <tr><th style="width:34%"></th><th>Aristotle</th><th>Confucius</th></tr>
+    <tr><td>Ultimate aim</td><td>?</td><td>?</td></tr>
+    <tr><td>Ideal person</td><td>?</td><td>?</td></tr>
+    <tr><td>Ethics is centered on…</td><td>?</td><td>?</td></tr>
+    <tr><td>How virtue grows</td><td>?</td><td>?</td></tr>
+    <tr><td>View of profit</td><td>?</td><td>?</td></tr>
+  </table>
+  <div class="foot"><span>Class 1 · Compare</span><span>12</span></div>
+</section>
+
+<!-- 13 -->
+<section class="slide">
+  <span class="tag s">Study</span>
+  <h2>East meets West · the book (2.3)</h2>
+  <table>
+    <tr><th style="width:28%"></th><th>Aristotle</th><th>Confucius</th></tr>
+    <tr class="step"><td>Ultimate aim</td><td>Happiness / flourishing</td><td>Harmony</td></tr>
+    <tr class="step"><td>Ideal person</td><td>Magnanimous, practically wise</td><td><i>Junzi</i>; a <i>ru</i> (humane person)</td></tr>
+    <tr class="step" style="background:#fdf6e3"><td><b>Ethics is centered on…</b></td><td><b>the individual</b></td><td><b>the family</b></td></tr>
+    <tr class="step"><td>How virtue grows</td><td>Habit: small, repeated actions</td><td>Ritual (<i>li</i>), education, self-regulation</td></tr>
+    <tr class="step"><td>View of profit</td><td>Fine — greed is the vice</td><td>Fine if it benefits humanity; truth, not greed</td></tr>
+  </table>
+  <p class="step q" style="font-size:26px;margin-top:14px">Which center does <em>your</em> workplace assume? Who gets the blame — and who gets the credit?</p>
+  <div class="foot"><span>Class 1 · Compare</span><span>13</span></div>
+</section>
+
+<!-- 14 -->
+<section class="slide" data-t="9">
+  <span class="tag a">Activate</span>
+  <h2>Advise the board · 1997 <span class="timechip">9 min prep</span></h2>
+  <div class="warn">A real case with real victims. You may choose a note-taker role.</div>
+  <p style="font-size:23px">A U.S. fruit company has banana plantations, employees and facilities in Colombia. Armed groups demand regular <b>"protection" payments</b> and threaten its people and property. Paying may violate U.S. law.</p>
+  <div class="cols" style="gap:10px 28px;margin-top:6px">
+    <p style="font-size:22px"><b>A</b> Pay quietly to protect employees</p>
+    <p style="font-size:22px"><b>B</b> Refuse to pay; stay; more security</p>
+    <p style="font-size:22px"><b>C</b> Pay, but report to the U.S. government</p>
+    <p style="font-size:22px"><b>D</b> Withdraw from the region</p>
+  </div>
+  <div class="foot"><span>Class 1 · Activate · Chiquita</span><span>14</span></div>
+</section>
+
+<!-- 15 -->
+<section class="slide">
+  <span class="tag a">Activate</span>
+  <h2>Your 60-second pitch</h2>
+  <div class="cols">
+    <div class="box"><h3>Aristotle Advisory</h3><p>prudence · honor · reputation · golden mean · courage · greed vs. profit · never deceive</p></div>
+    <div class="box"><h3>Confucius Advisory</h3><p><i>junzi</i> · loyalty to truth · <i>quan</i> · righteousness → justice · relationships · <i>li</i></p></div>
+  </div>
+  <ul style="margin-top:18px"><li>Use <b>three</b> concepts from your thinker.</li><li>Name <b>one risk</b> of your own recommendation.</li><li>The board may ask each group one question.</li></ul>
+  <div class="lang"><b>Try:</b> "We would advise the board to…, on the grounds that…" · "A prudent leader would…" · "The risk we acknowledge is…"</div>
+  <div class="foot"><span>Class 1 · Activate · Chiquita</span><span>15</span></div>
+</section>
+
+<!-- 16 -->
+<section class="slide dark">
+  <div class="kick">What actually happened</div>
+  <h2>Chiquita Brands International</h2>
+  <ul>
+    <li class="step">Paid "protection" money to armed groups in Colombia, <b>1997–2004</b>.</li>
+    <li class="step">Said it was extorted. Paid <b>$25 million</b> in U.S. fines (Foreign Corrupt Practices Act).</li>
+    <li class="step">2007: Colombian families sued. 2015: U.S. Supreme Court declined the case. <span class="muted">(Textbook, 2.3)</span></li>
+    <li class="step"><b class="gold">2024:</b> a U.S. federal jury found Chiquita liable for financing the AUC paramilitary group — about <b>$38 million</b> to 16 victims' families. Chiquita appealed. <span class="muted">(EarthRights; Bloomberg Law)</span></li>
+  </ul>
+  <div class="foot"><span>Class 1 · Activate · Chiquita</span><span>16</span></div>
+</section>
+
+<!-- 17 -->
+<section class="slide cream">
+  <span class="tag a">Debrief</span>
+  <h2>Prudent, craven, or deceitful?</h2>
+  <p class="muted">The textbook's own question. <i>craven</i> = cowardly</p>
+  <ul style="margin-top:10px">
+    <li>Defend <b>one</b> word.</li>
+    <li>Does telling the truth (Option C) make paying acceptable?</li>
+    <li>In Confucian terms, who is the "family" here?</li>
+    <li>Who would have paid the price for the "clean" choice — withdrawal?</li>
+  </ul>
+  <div class="foot"><span>Class 1 · Debrief</span><span>17</span></div>
+</section>
+
+<!-- 18 -->
+<section class="slide" data-t="5">
+  <span class="tag b">Exit ticket</span>
+  <h2>Before the break <span class="timechip">5 min</span></h2>
+  <ol>
+    <li>One virtue in your profession — with its <b>deficiency</b> and its <b>excess</b>.</li>
+    <li>One real <b>difference</b> between Aristotle and Confucius.</li>
+    <li>One <b>question</b> you still have.</li>
+  </ol>
+  <p class="muted" style="margin-top:16px">Worksheet §6</p>
+  <div class="foot"><span>Class 1 · Exit ticket</span><span>18</span></div>
+</section>
+
+<!-- 19 -->
+<section class="slide dark">
+  <div class="kick">Break · 10:40–11:10 · Think about this</div>
+  <h2>Two brothers</h2>
+  <div class="cols" style="margin-top:6px">
+    <div class="box"><h3>Jon</h3><p class="big">shoots at a man, <b>meaning to kill</b> him — and <b>misses</b>.</p></div>
+    <div class="box"><h3>Matt</h3><p class="big">fires a shot <b>only to scare</b> a man — and <b>kills him</b> by accident.</p></div>
+  </div>
+  <p class="q" style="margin-top:26px">Who deserves the harsher punishment? <span class="gold">Vote before we start again.</span></p>
+  <div class="foot"><span>Section 2.4 · Fiery Cushman</span><span>19</span></div>
+</section>
+
+<!-- 20 -->
+<section class="slide dark">
+  <div class="brand"><img src="logo.png" alt="" onerror="this.remove()"><div class="w">APPROACH<small>International Student Center</small></div></div>
+  <div class="kick">Class 2 · 11:10–12:50</div>
+  <h1>Results, Rules,<br>or Fairness?</h1>
+  <p class="muted">Bentham &amp; Mill · Kant · Rawls · Sections 2.4–2.6</p>
+  <div class="foot"><span>Week 2 · Class 2</span><span>20</span></div>
+</section>
+
+<!-- 21 -->
+<section class="slide" data-t="4">
+  <span class="tag">Bridge</span>
+  <h2>Jon &amp; Matt · the votes <span class="timechip">4 min</span></h2>
+  <p class="q">Who is more <b>guilty</b>? Who did more <b>harm</b>? Are those the same question?</p>
+  <p class="step big" style="margin-top:20px">The law usually punishes <b>Matt</b> more. <span class="muted">(2.4)</span></p>
+  <p class="step big">Results → <b>Matt</b> is worse. &nbsp; Motive → <b>Jon</b> is worse.</p>
+  <div class="lang"><b>Try:</b> "It depends whether we judge the intention or the outcome." · "Morally, Jon is more culpable, whereas legally…" · "I'd distinguish between guilt and harm."</div>
+  <div class="foot"><span>Class 2 · Bridge</span><span>21</span></div>
+</section>
+
+<!-- 22 -->
+<section class="slide">
+  <span class="tag s">Study</span>
+  <h2>Three more ways to judge</h2>
+  <div class="cols3">
+    <div class="box"><h3>U · Bentham &amp; Mill</h3><p>Judge the <b>results</b>.</p><p class="muted">Greatest happiness for the greatest number</p></div>
+    <div class="box"><h3>K · Kant</h3><p>Judge the <b>motive and duty</b>.</p><p class="muted">Never treat people merely as a means</p></div>
+    <div class="box"><h3>R · Rawls</h3><p>Judge the <b>fairness of the system</b>.</p><p class="muted">Choose behind a veil of ignorance</p></div>
+  </div>
+  <p class="muted" style="margin-top:22px">…and this morning: Aristotle and Confucius judge the <b>person</b>.</p>
+  <div class="foot"><span>Class 2 · Study</span><span>22</span></div>
+</section>
+
+<!-- 23 -->
+<section class="slide" data-t="10">
+  <span class="tag s">Study</span>
+  <h2>Framework triads <span class="timechip">10 + 12 min</span></h2>
+  <ol>
+    <li><b>Read</b> your card (U, K or R) and the linked textbook part. <b>10 min</b></li>
+    <li>Fill your column: big question · test · key words · strength · weakness · business use.</li>
+    <li><b>Teach</b> your triad — 4 minutes each. <b>12 min</b></li>
+    <li>End with: <i>"Here's a case where my framework gives a strange answer…"</i></li>
+  </ol>
+  <div class="lang"><b>Try:</b> "The question a utilitarian would ask is…" · "From a Kantian standpoint, …" · "Behind the veil, you'd want…" · "The weak point of this approach is…"</div>
+  <div class="foot"><span>Class 2 · Study</span><span>23</span></div>
+</section>
+
+<!-- 24 -->
+<section class="slide">
+  <span class="tag s">Rapid check</span>
+  <h2>Who's speaking? &nbsp;<span class="gold">1</span> U · <span class="gold">2</span> K · <span class="gold">3</span> R</h2>
+  <ol style="font-size:24px">
+    <li>"Never use your employees merely as tools for profit." <b class="step gold">→ 2 Kant</b></li>
+    <li>"Let's run a cost-benefit analysis of closing the store." <b class="step gold">→ 1 Utilitarian</b></li>
+    <li>"Design the bonus policy as if you didn't know whether you'd be a manager or a cleaner." <b class="step gold">→ 3 Rawls</b></li>
+    <li>"Lying is wrong, even if this lie would save the deal." <b class="step gold">→ 2 Kant</b></li>
+    <li>"The only good reason to restrict someone's freedom is to stop them harming others." <b class="step gold">→ 1 Mill</b></li>
+    <li>"The policy is acceptable only if it benefits the least advantaged." <b class="step gold">→ 3 Rawls</b></li>
+  </ol>
+  <div class="foot"><span>Class 2 · Check</span><span>24</span></div>
+</section>
+
+<!-- 25 -->
+<section class="slide" data-t="2">
+  <span class="tag a">Activate</span>
+  <h2>Northfield Components <span class="timechip">gut vote</span></h2>
+  <p style="font-size:23px">Medical-equipment parts · 2,000 employees · lost its biggest customer · must cut costs by ~10%. <span class="muted">(fictional)</span></p>
+  <div class="cols3" style="margin-top:8px">
+    <div class="box"><h3>A · Close Ridgeway</h3><p>300 jobs lost in a small town; it's the town's largest employer. Everyone else is safe.</p></div>
+    <div class="box"><h3>B · Cut everyone's pay</h3><p>All plants open. Staff −8%, executives −20%. Top engineers may leave.</p></div>
+    <div class="box"><h3>C · Outsource overseas</h3><p>120 Ridgeway jobs lost. Much cheaper supplier; labor standards hard to verify.</p></div>
+  </div>
+  <p class="q" style="margin-top:18px;font-size:28px">Your gut answer: A, B or C? ✋</p>
+  <div class="foot"><span>Class 2 · Activate</span><span>25</span></div>
+</section>
+
+<!-- 26 -->
+<section class="slide" data-t="8">
+  <span class="tag a">Activate</span>
+  <h2>Three verdicts <span class="timechip">8 min</span></h2>
+  <ul>
+    <li>Each person gives <b>their framework's</b> verdict and reasons — 2 minutes.</li>
+    <li>The others challenge with <b>one question</b>.</li>
+    <li>Then: where do your frameworks <b>agree</b>? Where do they <b>disagree</b> — and why?</li>
+  </ul>
+  <div class="lang"><b>Try:</b> "On utilitarian grounds, A is defensible; however, …" · "Both approaches lead to B, but for different reasons." · "That would mean treating Ridgeway workers merely as…"</div>
+  <div class="foot"><span>Class 2 · Activate</span><span>26</span></div>
+</section>
+
+<!-- 27 -->
+<section class="slide dark" data-t="8">
+  <div class="kick">Rawls · the veil of ignorance</div>
+  <h2>Vote again — blind <span class="timechip">8 min</span></h2>
+  <ol>
+    <li class="step">Vote <b>A, B or C</b> in secret (worksheet §9).</li>
+    <li class="step">Now draw an <b>identity card</b>. This is who you are.</li>
+    <li class="step">Read it. Would you still choose your vote?</li>
+    <li class="step"><b class="gold">Stand up</b> if you would change your vote.</li>
+  </ol>
+  <p class="step q" style="margin-top:20px">"If I were behind the veil, I'd choose ___, because I might turn out to be…"</p>
+  <div class="foot"><span>Class 2 · Activate</span><span>27</span></div>
+</section>
+
+<!-- 28 -->
+<section class="slide cream">
+  <span class="tag a">Debrief</span>
+  <h2>What did the veil change?</h2>
+  <ul>
+    <li>How many changed their vote? What does that say about the <b>first</b> vote?</li>
+    <li>Did two frameworks agree — for <b>different reasons</b>?</li>
+    <li>Which framework would a real board <b>most likely</b> use? Which one <b>should</b> it use?</li>
+    <li>What <b>information is missing</b> before the board decides?</li>
+  </ul>
+  <div class="foot"><span>Class 2 · Debrief</span><span>28</span></div>
+</section>
+
+<!-- 29 -->
+<section class="slide" data-t="5">
+  <span class="tag a">Team challenge</span>
+  <h2>Timeline race <span class="timechip">5 min</span></h2>
+  <ol>
+    <li><b>Match</b> each idea to its thinker.</li>
+    <li>Put the thinkers in <b>chronological order</b> (by birth).</li>
+    <li>First team finished: hands up! 1 point per correct match + 1 per correct position = <b>20</b>.</li>
+  </ol>
+  <p class="muted" style="margin-top:16px">No phones. No textbook. Teamwork only.</p>
+  <div class="foot"><span>Class 2 · Timeline</span><span>29</span></div>
+</section>
+
+<!-- 30 -->
+<section class="slide">
+  <span class="tag a">Answers</span>
+  <h2>2,500 years in ten ideas</h2>
+  <table style="font-size:18px">
+    <tr class="step"><td>551–479 BCE</td><td><b>Confucius</b></td><td>Become a <i>junzi</i>; keep proper order (<i>li</i>)</td></tr>
+    <tr class="step"><td>508 BCE</td><td><b>Cleisthenes</b></td><td>Open democracy in Athens</td></tr>
+    <tr class="step"><td>384–322 BCE</td><td><b>Aristotle</b></td><td>Virtue is the mean; aim at flourishing</td></tr>
+    <tr class="step"><td>13th c.</td><td><b>Aquinas</b></td><td>Expands Aristotle; the parts of prudence</td></tr>
+    <tr class="step"><td>1588–1679</td><td><b>Hobbes</b></td><td>Selfish people give power to a sovereign</td></tr>
+    <tr class="step"><td>1724–1804</td><td><b>Kant</b></td><td>Act on a rule you could will as universal law</td></tr>
+    <tr class="step"><td>1748–1832</td><td><b>Bentham</b></td><td>Greatest happiness for the greatest number</td></tr>
+    <tr class="step"><td>1806–1873</td><td><b>Mill</b></td><td>Limit freedom only to prevent harm to others</td></tr>
+    <tr class="step"><td>1921–2002</td><td><b>Rawls</b></td><td>Choose the rules behind a veil of ignorance</td></tr>
+    <tr class="step"><td>1938–2002</td><td><b>Nozick</b></td><td>The state may not take legally obtained property</td></tr>
+  </table>
+  <p class="step" style="margin-top:10px;font-size:22px"><b>What changes?</b> character &amp; harmony → consequences → duty → fair systems</p>
+  <div class="foot"><span>Class 2 · Timeline</span><span>30</span></div>
+</section>
+
+<!-- 31 -->
+<section class="slide dark" data-t="2">
+  <div class="kick">Debate · Take a position</div>
+  <p class="q" style="margin-top:14px">"This house believes that the ethics of Aristotle and Confucius are <span class="gold">more useful</span> to today's business leaders than modern rules and regulations."</p>
+  <div style="margin-top:36px;display:flex;justify-content:space-between;font-size:26px;border-top:4px solid var(--gold);padding-top:10px"><span>1 · strongly disagree</span><span>5</span><span>10 · strongly agree</span></div>
+  <p class="muted" style="margin-top:22px">Stand on the line. Why there?</p>
+  <div class="foot"><span>Class 2 · Debate</span><span>31</span></div>
+</section>
+
+<!-- 32 -->
+<section class="slide" data-t="6">
+  <span class="tag a">Debate</span>
+  <h2>Format <span class="timechip">6 min prep</span></h2>
+  <div class="cols">
+    <div>
+      <p><b>Roles:</b> Opener · Evidence 1 · Evidence 2 · Rebuttal · Closer</p>
+      <p><b>Evidence:</b> your cards (worksheet §11)</p>
+    </div>
+    <table style="font-size:20px">
+      <tr><td>Proposition opening</td><td>90 s</td></tr>
+      <tr><td>Opposition opening</td><td>90 s</td></tr>
+      <tr><td>Open floor (alternating)</td><td>5 min</td></tr>
+      <tr><td>Opposition closing</td><td>1 min</td></tr>
+      <tr><td>Proposition closing</td><td>1 min</td></tr>
+    </table>
+  </div>
+  <div class="lang"><b>Try:</b> "The motion assumes that…" · "My opponent's argument rests on…" · "That may be true of ___, but it doesn't follow that…" · "Granted, ___; nevertheless…" · "<b>Point of information:</b> isn't it the case that…?"</div>
+  <div class="foot"><span>Class 2 · Debate</span><span>32</span></div>
+</section>
+
+<!-- 33 -->
+<section class="slide dark" data-t="4">
+  <div class="kick">After the debate</div>
+  <h2>Back on the line — your own view</h2>
+  <ul>
+    <li class="step">Who <b>moved</b>?</li>
+    <li class="step">Which <b>argument</b> moved you?</li>
+    <li class="step">What would make you move <b>further</b>?</li>
+  </ul>
+  <p class="step q" style="margin-top:22px">"That's a fair point — I'd modify my position to…"</p>
+  <div class="foot"><span>Class 2 · Debate</span><span>33</span></div>
+</section>
+
+<!-- 34 -->
+<section class="slide" data-t="4">
+  <span class="tag b">Reflect</span>
+  <h2>Your framework fingerprint <span class="timechip">4 min</span></h2>
+  <p>At work, how much do you rely on…</p>
+  <div class="cols4" style="margin:10px 0 18px">
+    <div class="box"><h3>Character</h3><p>Aristotle, Confucius</p></div>
+    <div class="box"><h3>Results</h3><p>Bentham, Mill</p></div>
+    <div class="box"><h3>Duty</h3><p>Kant</p></div>
+    <div class="box"><h3>Fairness</h3><p>Rawls</p></div>
+  </div>
+  <p class="q" style="font-size:28px">One decision you made at work that a ___ would criticize — and why.</p>
+  <div class="foot"><span>Class 2 · Reflect</span><span>34</span></div>
+</section>
+
+<!-- 35 -->
+<section class="slide dark">
+  <div class="kick">Before next week</div>
+  <h2>Homework</h2>
+  <ol>
+    <li><b>Ethics Journal #2</b> (150–200 words) — choose one: <span class="muted">Yijing · Jean Valjean · Rawls's senior care</span></li>
+    <li>Read <b>all of Chapter 2</b>; preview <b>Chapter 3</b>: Stakeholders.</li>
+    <li><b class="gold">Quiz 1 next week</b> — Chapters 1–3.</li>
+  </ol>
+  <p class="muted" style="margin-top:20px">Structure: Opinion → Reasons → Two frameworks → Counterargument → Conclusion</p>
+  <p class="muted">Don't forget: <b>Download</b> your worksheet.</p>
+  <div class="foot"><span>Week 2 · Homework</span><span>35</span></div>
+</section>
+
+</div></div>
+<div id="timer" title="Click to pause; double-click to hide"></div>
+<div id="help">← → or tap · T timer · F fullscreen</div>
+
+<script>
+const slides=[...document.querySelectorAll('.slide')];
+let i=0;
+function fit(){const s=Math.min(innerWidth/1280,innerHeight/720);document.getElementById('deck').style.transform=`scale(${s})`}
+addEventListener('resize',fit);fit();
+function show(n,back){
+  i=Math.max(0,Math.min(slides.length-1,n));
+  slides.forEach((s,k)=>s.classList.toggle('on',k===i));
+  slides[i].querySelectorAll('.step').forEach(e=>e.classList.toggle('shown',!!back));
+  document.getElementById('prog').style.width=((i+1)/slides.length*100)+'%';
+  try{history.replaceState(null,'','#'+(i+1))}catch(e){}
+}
+function next(){const h=slides[i].querySelector('.step:not(.shown)');if(h){h.classList.add('shown');return}if(i<slides.length-1)show(i+1)}
+function prev(){const s=[...slides[i].querySelectorAll('.step.shown')];if(s.length){s[s.length-1].classList.remove('shown');return}if(i>0)show(i-1,true)}
+addEventListener('keydown',e=>{
+  if(['ArrowRight','PageDown',' ','Enter'].includes(e.key)){e.preventDefault();next()}
+  else if(['ArrowLeft','PageUp','Backspace'].includes(e.key)){e.preventDefault();prev()}
+  else if(e.key==='t'||e.key==='T')startTimer();
+  else if(e.key==='f'||e.key==='F'){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen?.()}
+  else if(e.key==='Home')show(0);else if(e.key==='End')show(slides.length-1);
+});
+document.getElementById('stage').addEventListener('click',e=>{if(e.clientX<innerWidth/3)prev();else next()});
+let tx=null;addEventListener('touchstart',e=>{tx=e.touches[0].clientX},{passive:true});
+addEventListener('touchend',e=>{if(tx===null)return;const dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>50){dx<0?next():prev();e.preventDefault()}tx=null});
+/* timer */
+const T=document.getElementById('timer');let left=0,run=null,paused=false;
+function fmt(s){return Math.floor(s/60)+':'+String(s%60).padStart(2,'0')}
+function startTimer(){const m=+(slides[i].dataset.t||5);left=m*60;paused=false;T.classList.remove('done');T.style.display='block';T.textContent=fmt(left);clearInterval(run);run=setInterval(()=>{if(paused)return;left--;T.textContent=fmt(Math.max(0,left));if(left<=0){clearInterval(run);T.classList.add('done');T.textContent="Time!"}},1000)}
+T.addEventListener('click',e=>{e.stopPropagation();paused=!paused;T.style.opacity=paused?.6:1});
+T.addEventListener('dblclick',e=>{e.stopPropagation();clearInterval(run);T.style.display='none'});
+/* QR */
+try{const url=location.href.split('#')[0].replace(/slides\.html.*$/,'worksheet.html');if(window.QRCode&&/^https?:/.test(url))new QRCode(document.getElementById('qr'),{text:url,width:170,height:170,colorDark:'#143865',colorLight:'#ffffff'});else document.getElementById('qr').closest('div[style]').style.display='none'}catch(e){}
+show(Math.max(0,(parseInt(location.hash.slice(1))||1)-1));
+</script>
+</body>
+</html>
