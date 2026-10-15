@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Week 2 Teacher Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#143865; --blue:#1c4f8f; --gold-dk:#8c7535; --gold:#d39f10;
+    --sky-dk:#c1cddd; --sky-md:#e1e8f2; --sky-lt:#edf2f9; --warm:#efe9d9;
+    --ink:#1b2430; --muted:#55606e; --alert:#8a2d2d;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--sky-lt);font-family:"Source Sans 3",Arial,sans-serif;color:var(--ink);font-size:16px;line-height:1.55}
+  .page{max-width:1000px;margin:0 auto;background:#fff;box-shadow:0 4px 30px rgba(20,56,101,.12);padding-bottom:40px}
+  header.mast{background:var(--navy);color:#fff;padding:26px 40px 22px;border-bottom:6px solid var(--gold)}
+  .brand{display:flex;flex-direction:column;line-height:1.05;margin-bottom:12px}
+  .brand b{font-family:"Libre Baskerville",Georgia,serif;letter-spacing:.14em;color:var(--gold);font-size:1.25rem}
+  .brand span{font-family:"Libre Baskerville",Georgia,serif;font-size:.75rem;color:var(--warm)}
+  header h1{font-family:"Libre Baskerville",Georgia,serif;margin:.1em 0 .2em;font-size:1.9rem}
+  header .sub{color:var(--sky-dk)}
+  .wrap{padding:0 40px}
+  nav.toc{background:var(--warm);border-radius:8px;padding:12px 18px;margin:22px 0;font-size:.95rem}
+  nav.toc b{color:var(--navy)}
+  nav.toc a{color:var(--blue);text-decoration:none;margin-right:14px;white-space:nowrap;font-weight:600}
+  h2{font-family:"Libre Baskerville",Georgia,serif;color:var(--navy);font-size:1.35rem;border-bottom:2px solid var(--navy);padding-bottom:6px;margin:36px 0 12px}
+  h3{color:var(--navy);margin:20px 0 6px;font-size:1.08rem}
+  table{width:100%;border-collapse:collapse;margin:8px 0 14px;font-size:.94rem}
+  th,td{border:1px solid var(--sky-dk);padding:7px 9px;vertical-align:top;text-align:left}
+  th{background:var(--navy);color:#fff;font-weight:600}
+  tr.stage-E td:first-child, tr.stage-S td:first-child, tr.stage-A td:first-child{font-weight:700}
+  .E{background:#fff6dc} .S{background:var(--sky-lt)} .A{background:#e6efe7}
+  .pill{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border-radius:999px;padding:2px 9px;margin:2px 0}
+  .pE{background:var(--gold);color:var(--navy)} .pS{background:var(--blue);color:#fff} .pA{background:#2f6b45;color:#fff} .pX{background:var(--sky-dk);color:var(--navy)}
+  .box{background:var(--sky-lt);border-left:5px solid var(--blue);border-radius:6px;padding:12px 16px;margin:12px 0}
+  .box.gold{background:var(--warm);border-left-color:var(--gold)}
+  .box.alert{background:#f7eaea;border-left-color:var(--alert)}
+  .box h3{margin-top:0}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .kv td:first-child{width:30%;font-weight:600;color:var(--navy);background:var(--sky-lt)}
+  ul,ol{margin:.3em 0 .6em}
+  li{margin-bottom:4px}
+  a{color:var(--blue)}
+  .btn{border:none;border-radius:8px;padding:9px 16px;font:700 .95rem "Source Sans 3",sans-serif;cursor:pointer;background:var(--gold);color:var(--navy)}
+  .src{font-size:.85rem;color:var(--muted)}
+  .legend{display:flex;gap:10px;flex-wrap:wrap;font-size:.85rem;margin:6px 0 4px}
+  @media (max-width:700px){ .wrap,header.mast{padding-left:16px;padding-right:16px} .grid2{grid-template-columns:1fr} table{font-size:.85rem} }
+  @media print{
+    @page{margin:13mm}
+    body{background:#fff;font-size:10.5pt}
+    .page{box-shadow:none;max-width:none}
+    .btn,nav.toc{display:none}
+    header.mast,th,.E,.S,.A,.pill,.box{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    h2{page-break-after:avoid}
+    tr{page-break-inside:avoid}
+  }
+.logo{width:72px;height:72px;border-radius:8px;display:block;margin-bottom:10px}
+@media (max-width:640px){ table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch} .meta div,.idrow label{min-width:0} input[type=text]{min-width:0;max-width:100%} select{max-width:100%} nav.toc a{white-space:normal;display:inline-block} }
+</style>
+</head>
+<body>
+<div class="page">
+<header class="mast">
+  <img src="data:image/png;base64,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" alt="Approach International Student Center" class="logo">
+  <div class="sub">Reading &amp; Critical Thinking — Proficient Level: American Short Fiction · Teacher’s Guide</div>
+  <h1>Week 2: “Young Goodman Brown” by Nathaniel Hawthorne</h1>
+  <div class="sub">Unit I · Finding an American Voice &nbsp;|&nbsp; Literary Lens: Theme &amp; Setting &nbsp;|&nbsp; Author’s Style: Setting as Mirror · Symbol &amp; Allegory &nbsp;|&nbsp; 2 × 100-minute classes</div>
+</header>
+
+<div class="wrap">
+  <p style="margin-top:18px"><button class="btn" onclick="window.print()">Print / Save as PDF</button></p>
+  <nav class="toc"><b>Contents:</b>
+    <a href="#glance">At a glance</a><a href="#adapt">Adaptation</a><a href="#content">Content note</a>
+    <a href="#objectives">Objectives</a><a href="#prep">Prep &amp; links</a><a href="#background">Background</a>
+    <a href="#classA">Class A</a><a href="#classB">Class B</a><a href="#key">Answer key</a>
+    <a href="#writing">Writing rubric</a><a href="#seminar">Seminar rubric</a><a href="#diff">Differentiation</a><a href="#hw">Homework</a>
+  </nav>
+
+  <h2 id="glance">1. The story at a glance</h2>
+  <table class="kv">
+    <tr><td>Story</td><td>“Young Goodman Brown,” Nathaniel Hawthorne</td></tr>
+    <tr><td>First published</td><td><i>The New-England Magazine</i>, April 1835, without the author’s name. Collected in <i>Mosses from an Old Manse</i> (1846). Public domain.</td></tr>
+    <tr><td>Syllabus placement</td><td>Week 2, Unit I “Finding an American Voice (1820s–1850s).” Literary Lens: Theme &amp; Setting. Focus: Puritanism and moral darkness; American anxieties in early fiction. Skills: close reading, seminar, writing. HW: Reading Journal, Analytical Essay 1, Quiz 1.</td></tr>
+    <tr><td>Class text</td><td><b>Approach adapted version</b> (Student Reading Packet), divided into <b>§1–§10</b>. Original ≈ 5,000 words; adaptation ≈ 5,200 words (modern phrasing is slightly longer).</td></tr>
+    <tr><td>Reading time (B2)</td><td>Reading 1 (§1–§5, ≈ 2,650 words): 20–23 min. Reading 2 (§6–§10, ≈ 2,650 words): 20–23 min, with you reading §9 aloud.</td></tr>
+    <tr><td>Difficulty for B2–B2+</td><td><b>Challenging</b> in the original (archaic forms, allegory, Puritan context). <b>Moderate–challenging</b> in the adaptation: the language is accessible; the ambiguity and symbolism remain fully intact.</td></tr>
+    <tr><td>Plot in brief</td><td>At sunset, a young Puritan leaves his new wife, Faith, for a secret night journey into the forest. A traveler with a serpent-shaped staff, who resembles Brown’s father, claims to know Brown’s ancestors and Salem’s leaders. Brown sees (or seems to see) his catechism teacher, his minister, and his deacon going to a midnight meeting. A pink ribbon falls from the sky; Brown despairs and rushes to a fire-lit forest “church” where all of Salem, good and wicked, worships the devil. He and Faith are presented as converts; he cries to her to resist, and suddenly he is alone. Back in Salem the next morning, he can trust no one, and he lives the rest of his life in gloom. The narrator never says whether it was a dream.</td></tr>
+    <tr><td>Why it fits Week 2</td><td>Setting and inner life are inseparable here: the forest darkens as Brown’s doubt grows. The story is ideal for moving students from <i>topic</i> to <i>theme</i>, and its ambiguity (dream or reality? did Faith resist?) forces evidence-based argument. Its Puritan “we” and its excluded voices (Quakers, Native Americans, accused “witches”) continue Theme I’s question from Week 1.</td></tr>
+  </table>
+  <div class="box gold">
+    <h3>Section numbers (§)</h3>
+    <p>§1 leaving Faith · §2 the forest and the traveler · §3 Brown’s family and Salem’s leaders · §4 Goody Cloyse · §5 voices on the road · §6 the cloud and the pink ribbon · §7 the chief horror · §8 the meeting in the forest · §9 “Welcome, my children” · §10 the next morning, and after</p>
+  </div>
+
+  <h2 id="adapt">2. Adaptation strategy (what changed, what did not)</h2>
+  <div class="grid2">
+    <div class="box">
+      <h3>Preserved</h3>
+      <ul>
+        <li>Every event, character, and the ending, in the original order.</li>
+        <li>All central ambiguities: the “trick of the eyes” staff; “uncertain” voices and sorrow; the basin of “water… blood… or liquid flame”; “Whether Faith obeyed, he never knew”; “Believe that if you wish.”</li>
+        <li>The key images and symbols: sunset, pink ribbons, the closing path, the serpent staff, the withering twigs, the cloud, the fire-lit “church.”</li>
+        <li>Lines kept very close to the original: “My Faith is gone! There is no good on earth; and sin is but a name. Come, devil; for to thee is this world given” · “A grave and dark-clad company” · “Evil is the nature of mankind” · “his dying hour was gloom.”</li>
+      </ul>
+    </div>
+    <div class="box gold">
+      <h3>Changed</h3>
+      <ul>
+        <li><i>Thee/thou, prithee, wot’st, ’twixt, durst, quoth</i> → modern English.</li>
+        <li>Long periodic sentences divided; Latinate words simplified where they block comprehension (<i>firmament → sky; zenith → the highest point of the sky; benignantly → kindly</i>).</li>
+        <li>Brief explanations built into the text only where essential (“a thin stick to use as a whip”); other terms are glossed after each section.</li>
+        <li>The devil’s list of secret sins (§9) keeps all four crimes, worded slightly less ornately.</li>
+        <li>The historical terms “Indian” and “powwow” are kept, with a note in the packet, because the Puritan view of Native people is part of the analysis.</li>
+      </ul>
+    </div>
+  </div>
+  <p><b>Quoting the adaptation:</b> Students quote the adapted text with § numbers. In formal essays they can add “(adapted text, §6)” once. B2+ students can check the original wording of their quotations on the <a href="https://anthologydev.lib.virginia.edu/work/Hawthorne/hawthorne-goodman" target="_blank" rel="noopener">University of Virginia online text</a>.</p>
+
+  <h2 id="content">3. Content note (please read before class)</h2>
+  <div class="box alert">
+    <ul>
+      <li><b>Historical violence and prejudice (§2, §3, §5, §7, §8):</b> the traveler describes the whipping of a Quaker woman and the burning of a Native village. Brown imagines “a devilish Indian behind every tree,” and Native spiritual leaders appear at the devil’s meeting. This reflects Puritan prejudice, and Part 9 asks students to analyze it critically.</li>
+      <li><b>Witchcraft imagery (§4):</b> Goody Cloyse’s “recipe” includes “the fat of a newborn baby.”</li>
+      <li><b>The devil’s sermon (§9):</b> it refers to church elders whispering improper words to servant girls, wives poisoning husbands, young men eager for inheritances, and young women burying babies. <b>Read §9 aloud yourself</b>, calmly and without drama.</li>
+      <li><b>Religion:</b> the story concerns Puritan Christianity and shows religious leaders as possible hypocrites. Your students come from many faiths. Frame the discussion as analysis of a historical community and a literary text, not as a judgment of any religion. Students should never be asked to share their personal religious beliefs; the “pass” option is always available.</li>
+    </ul>
+  </div>
+
+  <h2 id="objectives">4. Learning objectives and syllabus alignment</h2>
+  <p>By the end of Week 2, students will be able to:</p>
+  <ol>
+    <li>Read and understand a complete, classic American short story in an adapted version that keeps its literary complexity (SLO 23).</li>
+    <li>Explain how setting (time, place, atmosphere) mirrors a character’s inner and moral state, with evidence from at least four settings (SLO 24).</li>
+    <li>Distinguish a <b>topic</b> from a <b>theme</b>, and write and defend a general theme statement (SLOs 24, 32).</li>
+    <li>Identify Hawthorne’s symbols and allegory, give more than one interpretation of each, and evaluate how ambiguity affects meaning (SLOs 25, 30).</li>
+    <li>Use 12 story words and 3 literary terms accurately, with correct word stress.</li>
+    <li>Analyze whose perspectives dominate and who is excluded from the Puritan “we,” and connect the story to its historical context (SLOs 29, 32).</li>
+    <li>Write an analytical paragraph with two quotations as the first body paragraph of Analytical Essay 1, and give useful peer feedback (SLO 26).</li>
+    <li>Build on classmates’ interpretations with evidence in a seminar (SLO 27).</li>
+  </ol>
+  <table>
+    <tr><th style="width:30%">Syllabus requirement</th><th>Where it is met</th></tr>
+    <tr><td>Literary Lens: Theme &amp; Setting</td><td>Setting tracker (Part 4, both classes) · Topic-to-theme ranking and CER (Part 8)</td></tr>
+    <tr><td>Puritanism and moral darkness</td><td>Context brief (packet) · Parts 6, 7, 9 · Seminar Q1–Q4</td></tr>
+    <tr><td>American anxieties in early fiction</td><td>Part 9 (the Puritan “we” and the excluded) · Seminar Q4–Q5</td></tr>
+    <tr><td>Close reading · Seminar · Writing</td><td>Parts 3–4, 6–7 · Part 10 fishbowl · Part 11 paragraph with peer feedback</td></tr>
+    <tr><td>Reading Journal (analytical format)</td><td>Part 12B</td></tr>
+    <tr><td>Analytical Essay 1 (300 words, 2+ quotations)</td><td>Part 11 (first body paragraph) → Part 12A. See note in section 12 about Poe.</td></tr>
+  </table>
+
+  <h2 id="prep">5. Preparation, materials, and links</h2>
+  <div class="grid2">
+    <div>
+      <h3>Before class</h3>
+      <ul>
+        <li>Print the <b>Student Reading Packet</b> (one per student) or share the HTML file. <b>Optional:</b> send it before class so students can pre-read §1–§5 (the syllabus asks for reading before class). If most students pre-read, use the reading time for a second, focused close reading of §2 and §5.</li>
+        <li>Print the student worksheet, or share the HTML file for students to complete on laptops.</li>
+        <li>Test the <b>Vocabulary Cards</b> on the classroom computer: click “Hear it” to check the speakers.</li>
+        <li>Prepare six group cards for Part 9: Goodman Brown · Faith · the minister and Deacon Gookin · Goody Cloyse · the traveler · the people outside the Puritan “we.”</li>
+        <li>Arrange chairs for a fishbowl (6–8 inner chairs) for Class B, and prepare small slips of paper for the Class A exit ticket.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Links</h3>
+      <ul>
+        <li><a href="https://anthologydev.lib.virginia.edu/work/Hawthorne/hawthorne-goodman" target="_blank" rel="noopener">Original text (University of Virginia)</a> · <a href="https://www.gutenberg.org/ebooks/search/?query=Mosses+from+an+Old+Manse" target="_blank" rel="noopener"><i>Mosses from an Old Manse</i> (Project Gutenberg)</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/Young_Goodman_Brown" target="_blank" rel="noopener">About the story</a> · <a href="https://en.wikipedia.org/wiki/Nathaniel_Hawthorne" target="_blank" rel="noopener">About Nathaniel Hawthorne</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/Salem_witch_trials" target="_blank" rel="noopener">The Salem witch trials</a> · <a href="https://en.wikipedia.org/wiki/Timeline_of_the_Salem_witch_trials" target="_blank" rel="noopener">Timeline</a></li>
+        <li><a href="https://salemwitchmuseum.com/locations/john-hathorne-home-site-of/" target="_blank" rel="noopener">Judge John Hathorne (Salem Witch Museum)</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/King_Philip%27s_War" target="_blank" rel="noopener">King Philip’s War</a> · <a href="https://en.wikipedia.org/wiki/Puritans" target="_blank" rel="noopener">The Puritans</a> · <a href="https://en.wikipedia.org/wiki/Spectral_evidence" target="_blank" rel="noopener">Spectral evidence</a></li>
+        <li><a href="https://dictionary.cambridge.org/" target="_blank" rel="noopener">Cambridge Dictionary</a> · <a href="https://youglish.com/" target="_blank" rel="noopener">YouGlish</a> (pronunciation)</li>
+      </ul>
+    </div>
+  </div>
+  <p><b>Files for this week:</b> Student Reading Packet (adapted text, HTML, printable) · Student Worksheet (HTML, fillable and printable) · Vocabulary Cards (HTML slides with audio) · this Teacher’s Guide.</p>
+
+  <h2 id="background">6. Background notes for the teacher</h2>
+  <table>
+    <tr><th style="width:26%">Item</th><th>What students need to know</th></tr>
+    <tr><td>The Puritans</td><td>English Protestant reformers who settled Massachusetts Bay from 1630. They believed people are born sinful, only some are chosen by God for salvation (the “elect”), and nobody can be sure that they are among them. This uncertainty created constant self-examination and suspicion of others, which is central to Brown’s collapse.</td></tr>
+    <tr><td>Time of the story</td><td>Late 1600s. The traveler mentions King William (reigned 1689–1702) and King Philip’s War (1675–76) as past events, so the story is set around the time of the witch trials. Hawthorne was writing about 140 years later, looking back at his own ancestors (a link to Theme IV: the past and the present).</td></tr>
+    <tr><td>Salem witch trials (1692)</td><td>About 200 people were accused; 20 were executed (19 by hanging; Giles Corey was pressed to death). Courts accepted <b>spectral evidence</b>: testimony that a person’s spirit had appeared in a dream or vision. <b>Teaching point:</b> Brown condemns his neighbors on dream-like, “uncertain” evidence, just as the judges did.</td></tr>
+    <tr><td>Real names in the story</td><td><b>Goody Cloyse</b> (Sarah Cloyce): accused in 1692, imprisoned, survived. <b>Goody Cory</b> (Martha Corey): hanged September 22, 1692. <b>Martha Carrier</b>: hanged August 19, 1692; during the trials it was claimed that the devil had promised to make her “queen of hell.” Hawthorne places accused women at the devil’s meeting, which raises a question: is he repeating the accusations, or showing how such accusations are made?</td></tr>
+    <tr><td>John Hathorne</td><td>Hawthorne’s great-great-grandfather, one of the most active judges in the 1692 trials. Hawthorne added a “w” to his surname in his twenties; this is often explained as distancing himself from that history, although this is debated.</td></tr>
+    <tr><td>Quakers; King Philip’s War</td><td>Massachusetts Puritans whipped, jailed, banished, and in a few cases executed Quakers in the 1650s–60s. King Philip’s War (1675–76) was a devastating conflict between colonists and a Native alliance led by Metacom (“King Philip”), with villages burned on both sides. The traveler presents both as the Brown family’s “good” deeds done with his help.</td></tr>
+    <tr><td>Goodman, Goody, Old South</td><td>“Goodman” and “Goody” (Goodwife) were ordinary titles for married commoners. The Old South church in Boston (founded 1669) is a real place; the traveler covers the distance from Boston in about fifteen minutes, an early sign that he is not human.</td></tr>
+    <tr><td>Genre and style</td><td>A Romantic, Gothic allegory. The anthology’s Author’s Style note stresses that Hawthorne’s simple, precise language carries complex symbolic meaning, and that his dark settings mirror the characters’ emotional states.</td></tr>
+  </table>
+
+  <h2 id="classA">7. Class A (100 minutes): Context, vocabulary, Reading 1, setting</h2>
+  <div class="legend"><span class="pill pE">Engage</span><span class="pill pS">Study</span><span class="pill pA">Activate</span><span class="pill pX">Logistics</span></div>
+  <p><b>Objectives:</b> understand §1–§5 with evidence · use 7 story words with correct stress · explain how two settings mirror Brown’s mind.</p>
+  <table>
+    <tr><th style="width:9%">Time</th><th style="width:15%">Stage / grouping</th><th style="width:30%">Teacher does</th><th style="width:27%">Students do</th><th>Output</th></tr>
+    <tr class="X"><td>0–5</td><td><span class="pill pX">Launch</span><br>Whole class</td><td>Link to Week 1: “Last week we tracked a <i>motif</i>. This week we ask what a story <i>means</i> (theme) and how <i>place</i> creates meaning (setting).” Show this week’s big question (worksheet box).</td><td>Read the big question; note one first idea.</td><td>Activated prior learning</td></tr>
+    <tr class="E"><td>5–17</td><td><span class="pill pE">Engage</span><br>Individual → pairs → class</td><td>Part 1: students choose positions (3 min) and compare (4 min). Run a quick <b>opinion line</b> for statement 2: students stand along the wall from “strongly agree” to “strongly disagree”; ask 3 students at different points to justify (3 min). Take 2 predictions about the names (2 min).</td><td>Choose positions with reasons; justify; predict.</td><td>Part 1 table and prediction</td></tr>
+    <tr class="S"><td>17–30</td><td><span class="pill pS">Study</span><br>Whole class → individual</td><td>Vocabulary Cards 1–7 in <b>Guess-first mode</b>: context sentence → guess → reveal → audio → choral stress drill. Then set 2A and 2B; students self-check.</td><td>Predict meanings; repeat with correct stress; complete 2A and 2B.</td><td>2A, 2B completed</td></tr>
+    <tr class="S"><td>30–35</td><td><span class="pill pS">Study</span><br>Whole class</td><td>Context brief with the packet’s “Before You Read” page: Puritans, Salem 1692, Hawthorne’s ancestor, Goodman/Goody, and the content note on violence and historical terms.</td><td>Read along; ask questions.</td><td>Background knowledge</td></tr>
+    <tr class="X"><td>35–37</td><td><span class="pill pX">Set-up</span></td><td>Annotation symbols: <b>?</b> confusing · <b>!</b> surprising · <b>★</b> important · <b>S</b> setting detail (light, sound, color, space).</td><td>Prepare to annotate.</td><td>—</td></tr>
+    <tr class="S"><td>37–60</td><td><span class="pill pS">Study</span><br>Teacher → individual</td><td>Read §1 aloud (≈3 min) to model tone: tender, then uneasy. Students read §2–§5 silently and answer the two checkpoints in the margin. Circulate; answer vocabulary questions quietly. Pre-readers re-read §2 and §5 and annotate <b>S</b> details only.</td><td>Read and annotate §2–§5; answer checkpoints. Fast finishers begin Part 3.</td><td>Annotated Reading 1</td></tr>
+    <tr class="A"><td>60–70</td><td><span class="pill pA">Activate</span><br>Individual → pairs</td><td>Set Part 3. Pairs compare and discuss only items they disagree on: “Which section proves it?” Spend 2 minutes on item 7 (NG): <i>suspect</i> is not <i>know</i>.</td><td>Complete T/F/NG with § evidence and the short answers.</td><td>Part 3 with evidence</td></tr>
+    <tr class="S"><td>70–75</td><td><span class="pill pS">Study</span><br>Whole class</td><td>Mini-lesson on <b>setting</b> (card 14 + worksheet box). Walk through the model row: details → mood → what it reveals. Stress that Hawthorne’s settings are <i>psychological</i>.</td><td>Listen; note the three questions.</td><td>Understanding of setting</td></tr>
+    <tr class="A"><td>75–93</td><td><span class="pill pA">Activate</span><br>Pairs → class</td><td>Pairs complete the §2 and §5 rows (10 min). Two pairs present one row each (4 min). Discuss the Part 4 question: the path “closed immediately behind” (4 min). Push for <i>foreshadowing</i>: there is no way back.</td><td>Complete two rows; discuss the closing path.</td><td>Setting tracker (2 rows + discussion)</td></tr>
+    <tr class="X"><td>93–100</td><td>Exit ticket<br>Individual</td><td>On a slip: “Which detail of the forest best mirrors Brown’s mind so far, and why? (one sentence + §)” and “Who do you think the traveler is?” Collect them and use them to open Class B.</td><td>Write two short answers.</td><td>Formative check of inference</td></tr>
+  </table>
+
+  <h2 id="classB">8. Class B (100 minutes): Reading 2, symbol, theme, perspective, seminar, writing</h2>
+  <p><b>Objectives:</b> understand §6–§10 · interpret symbols and allegory · move from topic to theme · analyze excluded perspectives · discuss in a seminar · write an analytical paragraph with peer feedback.</p>
+  <table>
+    <tr><th style="width:9%">Time</th><th style="width:15%">Stage / grouping</th><th style="width:30%">Teacher does</th><th style="width:27%">Students do</th><th>Output</th></tr>
+    <tr class="E"><td>0–7</td><td><span class="pill pE">Engage</span><br>Individual → pairs</td><td>Read 2 strong exit tickets aloud. Show the Part 5 quotation (students have not read §6 yet). Allow 3 minutes of quick-writing, then pair talk (3 min).</td><td>Quick-write on the double meaning of “Faith” and on evidence vs. feeling.</td><td>Part 5 notes</td></tr>
+    <tr class="S"><td>7–12</td><td><span class="pill pS">Study</span><br>Whole class</td><td>Vocabulary Cards 8–12, quickly: context, audio, stress. Highlight the stress shift <i>hyPOCrisy → HYPocrite</i>. Assign 2C for homework or early finishers.</td><td>Predict; repeat with correct stress.</td><td>5 new words</td></tr>
+    <tr class="X"><td>12–14</td><td>Content note</td><td>Tell students that the dark figure’s speech (§9) lists secret crimes, including violence against family members, and that you will read it aloud.</td><td>—</td><td>—</td></tr>
+    <tr class="S"><td>14–36</td><td><span class="pill pS">Study</span><br>Individual → teacher</td><td>Students read §6–§8 silently (≈13 min). <b>You read §9 aloud</b> (≈5 min) while they follow. Students read §10 (≈3 min). Allow one minute of silence before speaking.</td><td>Read; annotate with ? ! ★ S; answer checkpoints.</td><td>Annotated Reading 2</td></tr>
+    <tr class="A"><td>36–42</td><td><span class="pill pA">Activate</span><br>Pairs</td><td>Part 6: Student A answers odd questions, Student B even; then they explain answers to each other with §. Remaining setting rows (§6, §8, §10) become homework if time is short.</td><td>Answer comprehension questions; share.</td><td>Part 6</td></tr>
+    <tr class="S"><td>42–45</td><td><span class="pill pS">Study</span><br>Whole class</td><td>Mini-lesson on <b>symbol</b> and <b>allegory</b> (card 15 + worksheet box). Model with Faith’s name: a person <i>and</i> an idea.</td><td>Note the analysis formula.</td><td>—</td></tr>
+    <tr class="A"><td>45–51</td><td><span class="pill pA">Activate</span><br>Pairs</td><td>Part 7: each pair completes three symbols of their choice; insist on <i>two</i> meanings. Take one “Think deeper” answer.</td><td>Find, quote, and interpret symbols.</td><td>Part 7 table (3+ rows)</td></tr>
+    <tr class="S"><td>51–53</td><td><span class="pill pS">Study</span><br>Whole class</td><td>Topic vs. theme (card 13 + Part 8 box). Model: “evil” (topic) → full statement (theme).</td><td>Listen.</td><td>—</td></tr>
+    <tr class="A"><td>53–60</td><td><span class="pill pA">Activate</span><br>Individual → pairs</td><td>Students rank A–E (2 min), then build a CER for their #1 in pairs (5 min). Ask: “Who ranked A first? Whose message is A?” (It is the devil’s, §9.)</td><td>Rank; write a claim, two pieces of evidence, reasoning, and a counter-view.</td><td>Part 8 ranking and CER</td></tr>
+    <tr class="A"><td>60–70</td><td><span class="pill pA">Activate</span><br>Groups of 3–4</td><td>Hand out group cards. Groups complete the perspective table (6 min) and rank responsibility (4 min). Make sure the “outside the Puritan we” card goes to a strong group.</td><td>Analyze one perspective; rank responsibility.</td><td>Perspective table; ranking</td></tr>
+    <tr class="A"><td>70–82</td><td><span class="pill pA">Activate</span><br>Fishbowl seminar</td><td>Inner circle: one student from each group (6). The first contribution from each must include their group’s key finding. Discuss Part 10 Q1–Q5; swap the inner circle at 6 minutes. The outer circle notes one strong use of evidence and one “building” move. You speak only to redirect or ask “Where is that in the text?”</td><td>Discuss with evidence and discussion moves; the outer circle observes.</td><td>Seminar contributions; observer notes</td></tr>
+    <tr class="A"><td>82–97</td><td><span class="pill pA">Activate</span><br>Individual → pairs</td><td>Part 11: plan (4 min), write 120–150 words (7 min), and exchange for peer feedback (4 min). Circulate and check topic sentences first: is it a claim about setting, not a summary?</td><td>Plan, write, and give and receive feedback.</td><td>Analytical paragraph + peer checklist</td></tr>
+    <tr class="X"><td>97–100</td><td>Close</td><td>Assign Part 12 (Essay 1 + Reading Journal) and 2C. Students write the last box of Part 10: an idea that changed their thinking.</td><td>Write one reflection sentence.</td><td>Exit reflection</td></tr>
+  </table>
+
+  <h2 id="key">9. Answer key and model answers</h2>
+  <div class="grid2">
+    <div>
+      <h3>2A Matching</h3>
+      <p>a scruples · b errand · c conceal · d resemblance · e pious · f wilderness · g resolve</p>
+      <h3>2B Word stress</h3>
+      <p>re-<b>SEM</b>-blance · <b>SCRU</b>-ples · <b>PI</b>-ous · con-<b>CEAL</b> · de-<b>SPAIR</b> · con-gre-<b>GA</b>-tion · hy-<b>POC</b>-ri-sy · <b>AL</b>-le-go-ry</p>
+    </div>
+    <div>
+      <h3>2C Gap-fill</h3>
+      <p>1 errand · 2 wilderness · 3 resolve · 4 resemblance · 5 scruples · 6 pious · 7 conceal · 8 despair · 9 congregation · 10 hypocrisy · 11 sternly · 12 gloomy</p>
+    </div>
+  </div>
+
+  <h3>Reading packet checkpoints (quick answers)</h3>
+  <ul>
+    <li><b>After §2:</b> the devil: he expected Brown; serpent staff; walked from Boston in fifteen minutes; knows the world. The resemblance suggests that the evil Brown meets is part of himself and his family.</li>
+    <li><b>After §5:</b> Goody Cloyse, the minister, Deacon Gookin. His “choice” is weak: his reasons are about reputation and others, and he still hides because he feels guilty.</li>
+    <li><b>After §8:</b> the rock as altar/pulpit; pines as candles; a familiar hymn; a figure like a minister; “converts.” He trembles because he hopes Faith is <i>not</i> there but fears she will be.</li>
+    <li><b>After §10:</b> no: “Believe that if you wish.” The village is unchanged; Brown has changed.</li>
+  </ul>
+
+  <h3>Part 3: True / False / Not Given</h3>
+  <table>
+    <tr><th style="width:6%">#</th><th style="width:8%">Ans.</th><th style="width:8%">§</th><th>Explanation</th></tr>
+    <tr><td>1</td><td>T</td><td>§1</td><td>“please put off your journey until sunrise”</td></tr>
+    <tr><td>2</td><td>F</td><td>§1</td><td>He says only that it must be done before sunrise (“My journey, as you call it…”). The errand stays secret.</td></tr>
+    <tr><td>3</td><td>T</td><td>§2</td><td>“bearing a considerable resemblance to him”; they could be father and son.</td></tr>
+    <tr><td>4</td><td>T</td><td>§2</td><td>“You are late, Goodman Brown.”</td></tr>
+    <tr><td>5</td><td>F</td><td>§3</td><td>“I am amazed they never spoke of these matters.”</td></tr>
+    <tr><td>6</td><td>F</td><td>§4</td><td>She screams “The devil!” but immediately greets him as an old friend (“your worship”) and asks for his arm.</td></tr>
+    <tr><td>7</td><td>NG</td><td>§4</td><td>She only <i>suspects</i> Goody Cory.</td></tr>
+    <tr><td>8</td><td>T</td><td>§5</td><td>The twigs “withered and dried up, as if they had been in the sun for a week.”</td></tr>
+    <tr><td>9</td><td>F</td><td>§5</td><td>He “could not see even a shadow”; he only hears voices.</td></tr>
+    <tr><td>10</td><td>T</td><td>§5</td><td>“there is a fine young woman to be taken into communion.”</td></tr>
+  </table>
+  <p><b>Short answers:</b> (1) That after this one night he will “cling to her skirts and follow her to heaven.” It is ironic because a promise to be good <i>later</i> is used to justify doing evil <i>now</i>; “excellent” means the opposite. (2) It looks like a black snake that seems to twist like a living serpent. The narrator calls it a trick of the eyes in bad light, but the staff later acts magically (§4, §5), so the rational explanation is doubtful: an early example of Hawthorne’s ambiguity. (3) Any three: his father and grandfather never did this (family honor, §3); he could not face the minister (§3); it would break Faith’s heart (§3); why should he follow Goody Cloyse to the devil (§5). <b>Inference to elicit:</b> his reasons concern reputation and other people, not his own relationship with God or with right and wrong.</p>
+
+  <h3>Part 4: Setting tracker (model answers)</h3>
+  <table>
+    <tr><th style="width:17%">Setting</th><th style="width:27%">Key details</th><th style="width:14%">Mood</th><th>What it reveals</th></tr>
+    <tr><td>§2 forest path</td><td>“dreary road,” “gloomiest trees,” “narrow path creep through,” “closed immediately behind,” “an unseen crowd”</td><td>Oppressive, lonely, threatening</td><td>Guilt and isolation; no way back. His imagination fills the dark with enemies (“a devilish Indian behind every tree”): fear and prejudice projected onto the wilderness.</td></tr>
+    <tr><td>§5 hollow</td><td>“gloomy hollow,” “deep darkness,” “could not see even a shadow,” voices “in the empty air”</td><td>Eerie, uncertain</td><td>Doubt begins: he judges the leaders he trusts from sounds alone. The evidence is literally invisible.</td></tr>
+    <tr><td>§6 sky and cloud</td><td>“blue arch,” “stars brightening,” “black mass of cloud,” “no wind,” “confused and uncertain sound of voices”</td><td>Hope → despair</td><td>The cloud covering the stars mirrors doubt covering his faith. Hawthorne repeats “uncertain”: the evidence is weak, but Brown’s conclusion is absolute.</td></tr>
+    <tr><td>§8 clearing</td><td>“red light,” “rock… like an altar or a pulpit,” “four blazing pine trees… like candles,” “flickering between darkness and brightness”</td><td>Terrifying, unholy</td><td>A dark copy of the church: Brown’s suspicion that religion hides sin. The flickering light shows good and evil mixed in the same faces.</td></tr>
+    <tr><td>§10 Salem morning</td><td>“early sunshine,” “graveyard,” prayer “through the open window,” Faith “with the pink ribbons”</td><td>Normal, peaceful (to us), sinister (to Brown)</td><td>The village is unchanged; Brown is not. The darkness has moved inside him, and the setting now <i>contrasts with</i> his mind instead of mirroring it.</td></tr>
+  </table>
+  <p><b>Closing path (§2):</b> the path closes behind him, so the journey cannot be undone. It foreshadows the ending: one night changes his whole life.</p>
+
+  <h3>Part 5 and Part 6: Reading 2</h3>
+  <p><b>Part 5:</b> (1) His wife Faith has gone, perhaps to the meeting, and his religious faith, his belief in goodness, has gone. (2) A feeling: the voices are “uncertain” and the sorrow is “uncertain”; one ribbon is not proof. He overgeneralizes from one case to the whole world.</p>
+  <ol>
+    <li>A black cloud moves across the stars with no wind. Confused voices of townspeople, pious and ungodly, and one young woman’s voice, apparently encouraged by the crowd. Then a scream, laughter, and a pink ribbon.</li>
+    <li>“But he himself was the chief horror of the scene” (also “The devil in his own shape is less horrible than when he rages in the heart of a man”).</li>
+    <li>The rock looks like an altar or pulpit; the four burning pines are like candles; a familiar church hymn; a figure like a minister; converts and a baptism.</li>
+    <li>Council members, ministers, fine ladies, pious women, young girls, and also wicked men, women with bad reputations, suspected criminals, and Native priests. It is strange because the good and the wicked mix without shame: there is no visible difference between saints and sinners.</li>
+    <li>“Evil is the nature of mankind. Evil must be your only happiness.”</li>
+    <li>“Faith! Faith! Look up to heaven, and resist the wicked one!” Immediately he is alone in the calm night; the rock is cold and damp; the twig sprinkles his cheek with cold dew.</li>
+    <li>He shrinks from the minister’s blessing as if it were a curse; asks what God the “wizard” (the deacon) prays to; snatches a child away from Goody Cloyse; walks past Faith sternly without a greeting.</li>
+    <li>Stern, sad, distrustful, desperate. He cannot hear hymns or sermons without fear; shrinks from Faith; dies old, surrounded by family, but with no hopeful verse on his tombstone: “his dying hour was gloom.”</li>
+  </ol>
+
+  <h3>Part 7: Symbols (model interpretations)</h3>
+  <table>
+    <tr><th style="width:16%">Symbol</th><th style="width:24%">Evidence</th><th>Possible meanings</th></tr>
+    <tr><td>Pink ribbons</td><td>§1, §6, §10</td><td>Innocence, youth, femininity, joy. Pink lies between white (purity) and red (sin): Faith is human, innocent but capable of sin. The ribbon falls from the sky in §6, yet Faith still wears her ribbons in §10, which deepens the dream-or-reality question.</td></tr>
+    <tr><td>Serpent staff</td><td>§2, §4, §5, §7</td><td>The devil and temptation (the serpent in Eden); the power of evil. When Brown grabs “his staff” in §7 (the traveler’s maple stick), he accepts evil’s help.</td></tr>
+    <tr><td>Forest / wilderness</td><td>§2, §5, §7</td><td>The unknown and temptation; the dark side of the human heart. For Puritans, the wilderness was the devil’s territory and the home of the people they feared and fought.</td></tr>
+    <tr><td>Fire and red light</td><td>§7, §8, §9</td><td>Hell, sin, passion; and also church candles: worship turned upside down, an image of hypocrisy.</td></tr>
+    <tr><td>Basin in the rock</td><td>§9</td><td>An inverted baptism, an initiation into shared human guilt. Hawthorne gives three options (water, blood, flame) and refuses to choose.</td></tr>
+  </table>
+  <p><b>Think deeper:</b> accept either view with reasons. Strong answers notice that allegory makes the story universal (an “everyman” losing faith) but costs Faith her individuality: we hear her voice only in §1, and we never learn her choice, which connects to Theme I’s question of who is silenced.</p>
+
+  <h3>Part 8: Theme ranking</h3>
+  <ul>
+    <li><b>Best supported:</b> <b>C</b> (the ending, §10: he shrinks from Faith; his “dying hour was gloom”) and <b>B</b> (Brown is “pleased with himself” in §5, judges others, and is shocked that “good” people sin).</li>
+    <li><b>Arguable:</b> <b>D</b> (the council, the minister, the deacon; but the evidence comes from a possible dream). <b>E</b> (one night changes him forever, although he does resist at the rock).</li>
+    <li><b>Weakest:</b> <b>A</b>. This is the devil’s message (§9). The story shows that a man who accepts it is destroyed, so it is unlikely to be Hawthorne’s theme. Use this to teach the difference between what a character says and what the story suggests.</li>
+  </ul>
+  <p><b>Sample CER (C):</b> <i>Claim:</i> Losing faith in other people can destroy a person’s own capacity for love. <i>Evidence:</i> “he shrank away from Faith” (§10); “his dying hour was gloom” (§10). <i>Reasoning:</i> Brown keeps his family, his church, and a long life, yet he cannot love or worship; the damage comes from his suspicion, not from any proven sin. <i>Counter-view:</i> someone might argue the devil is right, because Salem’s leaders were at the meeting (§8); however, the narrator says, “Believe that if you wish,” so the evidence is never confirmed.</p>
+
+  <h3>Part 9: Perspective notes</h3>
+  <table>
+    <tr><th style="width:20%">Group</th><th>Key points to listen for</th></tr>
+    <tr><td>Goodman Brown</td><td>Public: a good young Puritan. Forest: curious about evil, proud, quick to judge. We see almost everything through his eyes. Bias: he assumes he is better than others. Silent to Faith at the end.</td></tr>
+    <tr><td>Faith</td><td>Public: an innocent, loving wife. Forest: maybe a convert, but known only through uncertain voices and a ribbon. Speaks only in §1; we never learn whether she resisted. In §10 she is joyful to see him.</td></tr>
+    <tr><td>Minister and Deacon</td><td>Public: holy leaders. Forest: voices in the dark (§5) and faces in flickering light (§8). Evidence is weak, yet Brown condemns them for life.</td></tr>
+    <tr><td>Goody Cloyse</td><td>Public: pious teacher. Forest: a witch who knows the devil. She disappears when Brown looks away. Historically, a real woman accused in 1692: Brown judges her the way the court did, on “spectral” evidence.</td></tr>
+    <tr><td>The traveler</td><td>Respectable clothes, looks like Brown’s father, says exactly what Brown fears. A manipulator, or a projection of Brown’s own doubts? His claims about Salem’s leaders are never proven.</td></tr>
+    <tr><td>Outside the Puritan “we”</td><td>The Quaker woman (whipped), the Native village (burned), “a devilish Indian behind every tree,” the powwows, and the accused “witches.” They never speak. Brown is shocked that his family knew the devil, but not that a woman was whipped or a village burned. The Puritan “we” (“We are a people of prayer,” §3) excludes them.</td></tr>
+  </table>
+  <p><b>Responsibility ranking:</b> no single answer. Strong arguments for #1: <i>Brown himself</i> (he chose to go, and he chooses to believe the worst); <i>Puritan beliefs</i> (a doctrine of universal sin makes suspicion natural). Push students who rank “the devil” first: is the devil real in the story, or a voice inside Brown?</p>
+
+  <h3>Part 10: Seminar guidance</h3>
+  <ol>
+    <li><b>Dream or reality:</b> Hawthorne’s ambiguity moves attention from <i>what happened</i> to <i>what Brown does with it</i>: either way, his response destroys him.</li>
+    <li><b>Faith:</b> for resistance, her joy in §10 and the ribbons still on her cap; against, the voice and the ribbon in §6 and her presence at the rock in §9. Her silence is part of the meaning.</li>
+    <li><b>“No good on earth”:</b> most evidence suggests a warning: the narrator calls Brown “the chief horror,” and his life ends in gloom.</li>
+    <li><b>The excluded:</b> see Part 9. Link to Week 1: who is the “American” self, and who is outside it?</li>
+    <li><b>Today:</b> encourage specific, non-personal examples (public scandals, leaked messages, social media). A wiser response distinguishes evidence from rumor and individuals from whole groups.</li>
+  </ol>
+
+  <h2 id="writing">10. Writing rubric: Part 11 paragraph and Analytical Essay 1</h2>
+  <p>Analytical Essays are worth 15 points in total (three essays), so <b>5 points</b> each. Score each criterion 1 (strong), 0.5 (developing), or 0 (beginning). Assess the quality of the reasoning and evidence, not agreement with your own interpretation.</p>
+  <table>
+    <tr><th style="width:20%">Criterion</th><th>1 · Strong</th><th>0.5 · Developing</th><th>0 · Beginning</th></tr>
+    <tr><td>Claim / thesis</td><td>A clear, arguable claim about how setting creates moral and/or psychological dread</td><td>A claim, but general or partly summary</td><td>Summary or no claim</td></tr>
+    <tr><td>Evidence</td><td>Two or more short, well-chosen quotations with §</td><td>One quotation, or quotations without §</td><td>No direct evidence</td></tr>
+    <tr><td>Analysis</td><td>Explains specific words and their effect; links to dread</td><td>Explains meaning but not effect</td><td>Retells the plot</td></tr>
+    <tr><td>Organization</td><td>Logical paragraphing; topic and concluding sentences; smooth transitions</td><td>Mostly clear; some jumps</td><td>Hard to follow</td></tr>
+    <tr><td>Language and register</td><td>Accurate, academic (<i>suggests, mirrors, reveals</i>); few errors</td><td>Some errors that do not block meaning</td><td>Frequent errors that block meaning</td></tr>
+  </table>
+  <div class="box">
+    <h3>Model paragraph (B2+ target, 138 words)</h3>
+    <p>Hawthorne uses the forest to show that Brown’s journey is a moral trap that he cannot escape. At the beginning, the path is “darkened by all the gloomiest trees of the forest, which barely stood aside to let the narrow path creep through and closed immediately behind” (§2). The verb “creep” makes the path seem weak and secret, while “closed immediately behind” suggests that once Brown chooses evil, there is no way back. This creates moral dread, because the reader senses that one night of sin may have permanent results. Later, the forest becomes so dark that Brown hears the minister’s voice but “could not see even a shadow” (§5). Here the setting creates psychological dread: Brown must judge the people he trusts using only uncertain sounds. Therefore, the forest mirrors both his guilt and his growing doubt.</p>
+  </div>
+
+  <h2 id="seminar">11. Seminar assessment rubric (quick scoring)</h2>
+  <table>
+    <tr><th style="width:22%">Criterion</th><th>3 · Strong</th><th>2 · Developing</th><th>1 · Beginning</th></tr>
+    <tr><td>Textual evidence</td><td>Cites specific § and words; explains how they support the point</td><td>Refers to events generally</td><td>Opinion without evidence</td></tr>
+    <tr><td>Depth of analysis</td><td>Interprets setting, symbol, or theme; recognizes ambiguity</td><td>Some interpretation, mostly summary</td><td>Summary only</td></tr>
+    <tr><td>Building on others</td><td>Names and extends or challenges a classmate’s idea</td><td>Responds but does not develop</td><td>Isolated comments</td></tr>
+    <tr><td>Academic register</td><td>Uses literary terms (theme, setting, symbol, allegory) accurately</td><td>Some terms, some errors</td><td>Informal only</td></tr>
+  </table>
+
+  <h2 id="diff">12. Differentiation</h2>
+  <div class="grid2">
+    <div class="box">
+      <h3>B2 support</h3>
+      <ul>
+        <li>Read §1–§2 aloud together before silent reading.</li>
+        <li>Keep the word notes visible; use “Highlight key quotations” in the packet to focus evidence hunts.</li>
+        <li>Allow pairs to split Part 7 and Part 6 (A: odd, B: even), then teach each other.</li>
+        <li>Give the topic-sentence frame on the board: <i>Hawthorne uses the ___ to show that Brown’s ___ .</i></li>
+        <li>In the seminar, allow students to prepare one comment in writing first.</li>
+      </ul>
+    </div>
+    <div class="box gold">
+      <h3>B2+ extension</h3>
+      <ul>
+        <li><b>Style comparison:</b> read the original §6 (“My Faith is gone!…”) online. What do <i>thee</i>, inverted word order, and long sentences add to the effect? What is lost in the adaptation? (SLO 30)</li>
+        <li><b>Evaluate:</b> Is Hawthorne’s refusal to answer the dream question effective or frustrating? Defend with evidence.</li>
+        <li><b>Context:</b> research spectral evidence (1692) and argue whether Brown “judges like a witch-trial judge.” (SLO 29)</li>
+        <li><b>Comparison essay (SLOs 28, 31):</b> read Poe’s “The Masque of the Red Death” (from the original syllabus) and write the full syllabus prompt in 400–500 words: “How do Hawthorne and Poe use setting to create moral and psychological dread?”</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2 id="hw">13. Homework and assessment links</h2>
+  <ul>
+    <li><b>Analytical Essay 1 (300 words)</b> (worksheet Part 12A). The syllabus prompt names Hawthorne <i>and</i> Poe; because Week 2 now centers on “Young Goodman Brown,” the core prompt is narrowed to Hawthorne. The two-author version remains the B2+ extension (section 12). Score with the rubric in section 10.</li>
+    <li><b>Reading Journal</b> (Part 12B) in the syllabus format: Literary Lens concept (theme), two Author’s Style examples, a 3-sentence analytical response, and one discussion question.</li>
+    <li><b>Part 2C</b> gap-fill and any unfinished setting-tracker rows.</li>
+    <li><b>Quiz 1</b> (Unit I close-reading quiz) is listed for this week in the syllabus but is not included in these files. Good sources for it: the Part 3 statements, the setting tracker, and the symbols table.</li>
+    <li>Collect the setting tracker and Part 11 paragraph: they are useful evidence for the midterm (Units I–III).</li>
+  </ul>
+  <p class="src">Sources for publication and historical details: <a href="https://en.wikipedia.org/wiki/Young_Goodman_Brown" target="_blank" rel="noopener">Wikipedia: Young Goodman Brown</a> · <a href="https://en.wikipedia.org/wiki/Timeline_of_the_Salem_witch_trials" target="_blank" rel="noopener">Wikipedia: Timeline of the Salem witch trials</a> · <a href="https://salemwitchmuseum.com/locations/john-hathorne-home-site-of/" target="_blank" rel="noopener">Salem Witch Museum: John Hathorne</a> · the course anthology <i>American Short Stories</i>, “Before You Read” and “The Author’s Style” for Hawthorne. Word counts and reading times are estimates.</p>
+</div>
+</div>
+</body>
+</html>
