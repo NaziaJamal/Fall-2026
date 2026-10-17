@@ -1,0 +1,595 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Week 3 Teacher Guide · Strategic Communication</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Public+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0c2340; --navy-2:#143865; --blue:#1c4f8f; --gold:#d39f10; --gold-dark:#8c7535;
+  --sky:#edf2f9; --sky-2:#e1e8f2; --sky-3:#c1cddd; --warm:#efe9d9; --paper:#ffffff;
+  --ink:#1d2b44; --muted:#4f5f78; --line:#cfd9e6;
+  --engage:#1c4f8f; --study:#8c7535; --activate:#0c2340;
+  --key-bg:#eef7ee; --key-line:#2f7a45; --key-ink:#1d4a2b;
+  --serif:'Libre Baskerville', Georgia, serif; --sans:'Public Sans', Arial, sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--sky);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.5}
+a{color:var(--blue)}
+.wrap{max-width:1000px;margin:0 auto;padding:0 20px}
+.masthead{background:var(--navy);color:var(--sky);border-bottom:6px solid var(--gold)}
+.masthead .wrap{display:flex;gap:22px;align-items:center;padding-top:28px;padding-bottom:24px}
+.masthead img{width:84px;height:84px;flex:none;border-radius:6px}
+.eyebrow{margin:0 0 4px;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+.masthead h1{margin:0;font-family:var(--serif);font-size:30px;line-height:1.2;color:#f6f2e7}
+.masthead p{margin:6px 0 0;color:var(--sky-3)}
+.toolbar{position:sticky;top:0;z-index:10;background:var(--navy-2);color:var(--sky);box-shadow:0 2px 8px rgba(12,35,64,.25)}
+.toolbar .wrap{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding-top:8px;padding-bottom:8px}
+.clock{font:700 26px var(--sans);font-variant-numeric:tabular-nums;color:#fff;min-width:86px;text-align:center;background:#0a1c34;border-radius:8px;padding:2px 10px}
+.clock.low{color:var(--gold)}.clock.done{background:var(--gold);color:var(--navy)}
+.btn{font:600 14px var(--sans);border:1px solid #33598c;background:transparent;color:var(--sky);padding:6px 10px;border-radius:8px;cursor:pointer}
+.btn:hover{background:var(--gold);border-color:var(--gold);color:var(--navy)}
+.btn.primary{background:var(--gold);border-color:var(--gold);color:var(--navy)}
+.spacer{flex:1}
+.lbl{font-size:12px;color:var(--sky-3);text-transform:uppercase;letter-spacing:.1em}
+main{padding:24px 0 64px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin-bottom:16px}
+.card h2{font-family:var(--serif);font-size:21px;margin:0 0 10px;color:var(--navy)}
+.card p{margin:0 0 8px}
+.warn{background:#fff4e0;border:1px solid #f0d3a8;border-left:6px solid #c9771a;border-radius:10px;padding:12px 16px;color:#6b3d07;margin-bottom:16px}
+.starttime{display:flex;gap:10px;align-items:center;font-size:14px;color:var(--muted);margin-top:10px}
+input[type=time]{font:16px var(--sans);border:1px solid var(--sky-3);border-radius:8px;padding:6px 8px}
+table.tbl{width:100%;border-collapse:collapse;font-size:15px}
+.tbl th,.tbl td{border:1px solid var(--line);padding:7px 9px;vertical-align:top;text-align:left}
+.tbl th{background:var(--sky-2);color:var(--navy);font-size:13px}
+.tbl td.t{white-space:nowrap;font-variant-numeric:tabular-nums;font-weight:700;color:var(--navy)}
+.scroll{overflow-x:auto}
+.pill{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#fff;padding:3px 8px;border-radius:999px;white-space:nowrap}
+.pill.engage{background:var(--engage)}.pill.study{background:var(--study)}.pill.activate{background:var(--activate)}.pill.break{background:var(--gold);color:var(--navy)}
+.checklist{list-style:none;padding:0;margin:0;display:grid;gap:6px}
+.checklist label{display:flex;gap:10px;align-items:flex-start}.checklist input{margin-top:5px}
+.part-banner{margin:40px 0 0;padding:6px 0;font:700 13px var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--navy);border-bottom:3px solid var(--navy)}
+.stage{margin:16px 0 14px;border-radius:12px;padding:16px 20px;color:#fff;display:flex;flex-wrap:wrap;gap:6px 16px;align-items:baseline;scroll-margin-top:60px}
+.stage .name{font-family:var(--serif);font-size:26px;font-weight:700}
+.stage .seq{font-size:15px;opacity:.92}
+.stage .when{margin-left:auto;font-weight:700;font-variant-numeric:tabular-nums}
+.stage p{flex-basis:100%;margin:4px 0 0;font-size:15px;opacity:.95}
+.stage.engage{background:var(--engage)}.stage.study{background:var(--study)}.stage.activate{background:var(--activate)}.stage.break{background:var(--gold);color:var(--navy)}
+section.box{background:var(--paper);border:1px solid var(--line);border-radius:12px;margin:0 0 16px;overflow:hidden;scroll-margin-top:60px}
+.box > header{display:flex;gap:14px;align-items:center;padding:14px 18px;border-bottom:1px solid var(--line);background:#fbfcfe}
+.bn{flex:none;min-width:48px;height:40px;border-radius:8px;background:var(--navy);color:var(--gold);font:700 16px var(--serif);display:flex;align-items:center;justify-content:center;padding:0 8px}
+.box h2{margin:0;font-family:var(--serif);font-size:20px;line-height:1.3;color:var(--navy)}
+.box .meta{font-size:13px;color:var(--muted);margin-top:2px}
+.box .done{margin-left:auto;display:flex;gap:6px;align-items:center;font-size:13px;color:var(--muted);white-space:nowrap}
+.tag{font-weight:700;text-transform:uppercase;letter-spacing:.08em}
+.tag.engage{color:var(--engage)}.tag.study{color:var(--study)}.tag.activate{color:var(--activate)}
+.inner{padding:16px 18px;display:grid;gap:14px}
+.facts3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.facts3 div{background:var(--sky);border-radius:8px;padding:8px 12px;font-size:14px}
+.facts3 b{display:block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--blue)}
+h3.k{margin:0 0 6px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
+ol.steps{margin:0;padding-left:22px;display:grid;gap:6px}
+.say{display:block;margin-top:4px;padding:6px 12px;border-left:4px solid var(--gold);background:#fffaf0;font-style:italic;border-radius:0 6px 6px 0}
+.timers{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:14px;color:var(--muted)}
+.tbtn{font:600 13px var(--sans);border:1px solid var(--sky-3);background:#fff;color:var(--navy);padding:4px 10px;border-radius:999px;cursor:pointer}
+.tbtn:hover{background:var(--gold);border-color:var(--gold)}
+.key{background:var(--key-bg);border:1px solid #cfe5d4;border-left:6px solid var(--key-line);border-radius:10px;padding:12px 16px;color:var(--key-ink)}
+.key h3.k{color:var(--key-line)}
+.key p{margin:0 0 6px}.key p:last-child{margin:0}
+.key ul{margin:0;padding-left:20px}
+.key .tbl th{background:#dcefe0;color:var(--key-ink)}
+.lang{background:var(--warm);border-radius:10px;padding:12px 16px}
+.lang h3.k{color:var(--gold-dark)}
+.lang p{margin:0 0 4px;font-size:15px}
+.short{font-size:14px;color:var(--muted);border-top:1px dashed var(--line);padding-top:10px}
+.short b{color:var(--gold-dark)}
+.score input{width:100%;font:15px var(--sans);border:1px solid var(--sky-3);border-radius:6px;padding:4px 6px;text-align:center}
+.score input.name{text-align:left}
+.score td.tot{font-weight:700;text-align:center;color:var(--navy);font-variant-numeric:tabular-nums}
+.pcards{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.pcard{border:2px solid var(--navy);border-radius:10px;padding:14px 16px;background:#fff;break-inside:avoid}
+.pcard .c{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-dark)}
+.pcard h4{margin:4px 0;font-size:17px;color:var(--navy)}
+.pcard p,.pcard li{font-size:15px}
+.pcard p{margin:6px 0 0}
+.pcard ul{margin:6px 0 0;padding-left:18px}
+.timecard{border:3px solid var(--navy);border-radius:12px;display:flex;align-items:center;justify-content:center;min-height:160px;font:700 44px var(--serif);color:var(--navy);break-inside:avoid}
+.timecard.stop{background:var(--navy);color:var(--gold)}
+.pagebreak{break-before:page}
+footer{color:var(--muted);font-size:13px;padding:20px 0 40px;text-align:center}
+@media (max-width:720px){
+  .masthead .wrap{flex-direction:column;align-items:flex-start}
+  .facts3,.pcards{grid-template-columns:1fr}
+  .box > header{flex-wrap:wrap}
+}
+@media print{
+  body{background:#fff;font-size:11pt;color:#000}
+  .toolbar,.starttime,.timers,.no-print{display:none !important}
+  .masthead{background:#fff;color:#000;border-bottom:2px solid #000}
+  .masthead h1,.masthead p,.eyebrow{color:#000}
+  .stage{background:#fff !important;color:#000 !important;border:2px solid #000}
+  .bn{background:#fff;color:#000;border:2px solid #000}
+  .pill{background:#fff !important;color:#000 !important;border:1px solid #000}
+  .timecard.stop{background:#fff;color:#000}
+}
+</style>
+
+<style>
+.note-c{background:#fbeee8;border:1px solid #f0cdbd;border-left:6px solid #b0451a;border-radius:10px;padding:12px 16px;color:#5b2410}
+.sign{border:4px solid var(--navy);border-radius:14px;display:flex;align-items:center;justify-content:center;min-height:200px;font:700 54px var(--serif);color:var(--navy);break-inside:avoid;text-align:center}
+.sign.red{background:#b0451a;color:#fff;border-color:#b0451a}.sign.green{background:#2f7a45;color:#fff;border-color:#2f7a45}
+.lot{border:2px solid var(--navy);border-radius:10px;padding:14px 16px;background:#fff;break-inside:avoid;display:flex;gap:12px;align-items:flex-start}
+.lot b.n{font:700 30px var(--serif);color:var(--gold-dark);min-width:40px}
+.lot p{margin:0;font-size:17px}
+.big{font-size:17px}
+.station-print{border:3px solid var(--navy);border-radius:12px;padding:20px 24px;background:#fff;break-inside:avoid;break-after:page}
+.station-print h4{font:700 26px var(--serif);color:var(--navy);margin:4px 0 10px}
+.station-print li{font-size:18px;margin:6px 0}
+.station-print .q{margin-top:12px;font-size:18px;background:var(--warm);border-radius:8px;padding:10px 14px}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <img src="data:image/png;base64,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" alt="Approach International Student Center logo">
+    <div>
+      <p class="eyebrow">Strategic Communication · Week 3 · Teacher version</p>
+      <h1>The Art of the Apology — Teacher Guide</h1>
+      <p>9:00–12:50 · Part A 9:00–10:40 · break 10:40–11:10 · Part B 11:10–12:50 · Assignment 2 launched today</p>
+    </div>
+  </div>
+</header>
+
+<div class="toolbar">
+  <div class="wrap">
+    <span class="lbl">Timer</span>
+    <span class="clock" id="clock">1:00</span>
+    <button class="btn primary" type="button" id="tStart">Start</button>
+    <button class="btn" type="button" id="tReset">Reset</button>
+    <button class="btn" type="button" data-sec="45">45s</button>
+    <button class="btn" type="button" data-sec="60">60s</button>
+    <button class="btn" type="button" data-sec="180">3 min</button>
+    <button class="btn" type="button" data-sec="420">7 min</button>
+    <button class="btn" type="button" data-sec="480">8 min</button>
+    <span class="spacer"></span>
+    <button class="btn" type="button" onclick="window.print()">Print</button>
+  </div>
+</div>
+
+<main class="wrap">
+
+<div class="warn no-print"><b>Keep this page private.</b> It contains the reveals, the auction scores and the answer keys. Don't publish it in the same public GitHub repository as the student worksheet.</div>
+
+<div class="card">
+  <h2>Class overview</h2>
+  <div class="scroll"><table class="tbl">
+    <tr><th style="width:26%">Topic</th><td>The Art of the Apology (Classes 3–4, part 1 of 2) · GAME + 4A · Assignment 2 launched</td></tr>
+    <tr><th>Main objective</th><td>Students evaluate public apologies with GAME and the new 4A framework (Acknowledge · Accept · Apologize · Act) and classify them as success, failure or mixed (SLO 7).</td></tr>
+    <tr><th>Communication objective</th><td>Deliver a 60-second spoken apology under audience reaction, revise it, and deliver it again (SLOs 10, 11).</td></tr>
+    <tr><th>Language objectives</th><td>Non-apology formulas ("sorry if", "sorry you feel", "any inconvenience", "mistakes were made"); the passive voice hiding responsibility; 4A sentence frames; hedged verdicts ("On balance…", "It worked in the short term, but…"); reporting verbs that show stance (admitted, claimed, denied); falling intonation for sincerity.</td></tr>
+    <tr><th>Strategic-thinking objective</th><td>Separate the apology from the actions after it; judge success with evidence, not impressions; understand that accepting responsibility is not the same as admitting guilt (SLOs 3, 4).</td></tr>
+    <tr><th>Key vocabulary</th><td>apology · non-apology · acknowledge · accountable · liability · deflect · euphemism (review) · sincere / hollow · compensation · tamper-proof · recall · verdict · primary source · cross-examination</td></tr>
+    <tr><th>Frameworks</th><td>4A (new, named in Stage 3) · GAME (review from Week 2)</td></tr>
+    <tr><th>Materials</th><td>Student worksheet (GitHub link) · Study slides · this guide · printed appendix: Spectrum signs, four station cards, auction lots, six crisis cards, green/red reaction cards (one pair per student), A2 case cards · sticky notes · masking tape for a line on the floor</td></tr>
+  </table></div>
+</div>
+
+<div class="card">
+  <h2>Run sheet</h2>
+  <div class="scroll"><table class="tbl">
+    <tr><th>Time</th><th>Stage</th><th>Activity</th><th>Grouping</th><th>Students produce</th></tr>
+    <tr><td colspan="5" style="background:var(--sky);font-weight:700;letter-spacing:.1em;font-size:13px">PART A</td></tr>
+    <tr><td class="t"><span data-at="0"></span>–<span data-at="15"></span></td><td><span class="pill engage">Engage</span></td><td><a href="#s1">1 · The Sorry Spectrum</a></td><td>Whole class, standing (movement)</td><td>Positions + reasons; trio share</td></tr>
+    <tr><td class="t"><span data-at="15"></span>–<span data-at="40"></span></td><td><span class="pill engage">Engage</span></td><td><a href="#s2">2 · Jury Room: Domino's</a></td><td>Alone → juries of 4</td><td>Sealed verdict; jury verdict</td></tr>
+    <tr><td class="t"><span data-at="40"></span>–<span data-at="60"></span></td><td><span class="pill study">Study</span></td><td><a href="#s3">3 · Four piles → 4A · Non-apology autopsy</a> (slides)</td><td>Pairs → class</td><td>Sorted strips; named tricks; rewrites</td></tr>
+    <tr><td class="t"><span data-at="60"></span>–<span data-at="100"></span></td><td><span class="pill activate">Activate</span></td><td><a href="#s4">4 · Apology Audit Stations</a></td><td>Teams, rotating (movement)</td><td>Four 4A scorecards; Verdict Wall</td></tr>
+    <tr><td class="t"><span data-at="100"></span>–<span data-at="130"></span></td><td><span class="pill break">Break</span></td><td>Break</td><td>—</td><td>—</td></tr>
+    <tr><td colspan="5" style="background:var(--sky);font-weight:700;letter-spacing:.1em;font-size:13px">PART B</td></tr>
+    <tr><td class="t"><span data-at="130"></span>–<span data-at="145"></span></td><td><span class="pill engage">Engage</span></td><td><a href="#s5">5 · The Apology Auction</a></td><td>Teams (competition)</td><td>Bids; team score</td></tr>
+    <tr><td class="t"><span data-at="145"></span>–<span data-at="175"></span></td><td><span class="pill activate">Activate</span></td><td><a href="#s6">6 · Crisis Clinic: Take 1, Take 2</a></td><td>Teams + class focus group</td><td>Two live apologies; red/green feedback</td></tr>
+    <tr><td class="t"><span data-at="175"></span>–<span data-at="185"></span></td><td><span class="pill study">Study</span></td><td><a href="#s7">7 · Investigate like a journalist</a> (slides)</td><td>Class → pairs</td><td>Source ladder; reporting verbs</td></tr>
+    <tr><td class="t"><span data-at="185"></span>–<span data-at="225"></span></td><td><span class="pill activate">Activate</span></td><td><a href="#s8">8 · A2 launch · Research sprint · Opening statements</a></td><td>A2 teams</td><td>Case file; 45-second first verdict</td></tr>
+    <tr><td class="t"><span data-at="225"></span>–<span data-at="230"></span></td><td><span class="pill activate">Reflect</span></td><td><a href="#exit">Exit ticket</a></td><td>Alone</td><td>Three answers</td></tr>
+  </table></div>
+  <div class="starttime"><label for="start">Class starts at</label><input type="time" id="start" value="09:00" data-f="start"><span>— every time on this page updates to the clock.</span></div>
+</div>
+
+<div class="card">
+  <h2>What's new this week, and how it uses ESA</h2>
+  <p><b>New activity types:</b> a standing human spectrum (Stage 1), a sealed individual verdict followed by jury deliberation (Stage 2), a sort-before-you-name card task (Stage 3), rotating audit stations with a Verdict Wall (Stage 4), a strategy auction with hidden scores (Stage 5), live "dial testing" with green and red cards (Stage 6), and a research sprint that leads to a tribunal (Stage 8).</p>
+  <p><b>Part A</b> is a straight ESA arc: react (Spectrum, Domino's) → name 4A and the language of non-apologies → apply both to four famous cases. <b>Part B</b> is a game (Engage), then production with feedback (Activate), then the research skills needed for A2 (Study), then the assignment launch (Activate).</p>
+  <p><b>Discover → React → Question → Name → Practice → Apply:</b> Discover and React (Stage 1) · Question (Stage 2: decide before the reveal, as the syllabus requires) · Name (Stage 3: 4A; Stage 7: source ladder) · Practice (Stages 4, 5) · Apply (Stages 6, 8).</p>
+  <p><b>Teacher talk:</b> about 30 of 200 minutes (Stage 3, Stage 7, the reveals, the auctioneer role).</p>
+</div>
+
+<div class="card">
+  <h2>Before class</h2>
+  <ul class="checklist">
+    <li><label><input type="checkbox" data-f="prep1"> Post the Week 3 student worksheet on GitHub Pages and test it on a phone.</label></li>
+    <li><label><input type="checkbox" data-f="prep2"> Put a masking-tape line across the room. Tape the REJECT sign at one end and ACCEPT at the other (appendix).</label></li>
+    <li><label><input type="checkbox" data-f="prep3"> Find "Domino's President Responds To Prank Video 2009" on YouTube and cue it. <b>Don't show the prank video itself</b> — it's unpleasant and unnecessary; the worksheet describes it.</label></li>
+    <li><label><input type="checkbox" data-f="prep4"> Print the four station cards large and post them on four walls. Leave space under each for the Verdict Wall sticky notes.</label></li>
+    <li><label><input type="checkbox" data-f="prep5"> Print one green and one red reaction card per student (or students can use phone screens: green/red full-screen images).</label></li>
+    <li><label><input type="checkbox" data-f="prep6"> Print the six crisis cards and the A2 case cards. Decide A2 teams (new mixes, not the A1 teams).</label></li>
+    <li><label><input type="checkbox" data-f="prep7"> Decide whether to use the optional Weinstein example (Stage 3, slide 8). See the content note there.</label></li>
+  </ul>
+</div>
+
+<!-- =========================== PART A =========================== -->
+<div class="part-banner">Part A</div>
+<div class="stage engage"><span class="name">ENGAGE</span><span class="seq">Discover → React → Question</span><span class="when"><span data-at="0"></span>–<span data-at="40"></span></span><p>Bodies first, then a sealed decision. Don't name 4A yet.</p></div>
+
+<section class="box" id="s1">
+  <header><div class="bn">1</div><div><h2>Stage 1 · The Sorry Spectrum</h2><div class="meta"><span class="tag engage">Engage · Discover</span> · <span data-at="0"></span>–<span data-at="15"></span> · 15 min</div></div><label class="done no-print"><input type="checkbox" data-f="d1"> Done</label></header>
+  <div class="inner">
+    <div class="facts3"><div><b>Grouping</b>Whole class standing → trios</div><div><b>Rhythm</b>6 lines × 90 s · notes 2 · trios 4</div><div><b>Output</b>Positions and reasons; "what accepted apologies share"</div></div>
+    <div class="timers no-print">Timers: <button class="tbtn" data-sec="90">90 s per line</button><button class="tbtn" data-sec="240">4 min trios</button></div>
+    <h3 class="k">Steps</h3>
+    <ol class="steps">
+      <li><span class="say">"Everybody up. I'm going to read six apologies. After each one, walk to the place on the line that shows how you feel: reject it, accept it, or somewhere in between."</span></li>
+      <li>Read each line twice, with neutral delivery. After students move, ask one person at each end: <span class="say">"Why are you standing there?"</span> Keep it moving: 90 seconds per line.</li>
+      <li>After line 6: <span class="say">"Look at lines 3 and 6, where most of you accepted. What do they have that the others don't?"</span> Collect words on the board (specific, takes the blame, says sorry, does something). Don't name 4A.</li>
+      <li>Students sit, note their positions, and share the apology they remembered from last week in trios (4 min).</li>
+    </ol>
+    <div class="key"><h3 class="k">Key · what each line does</h3>
+      <div class="scroll"><table class="tbl">
+        <tr><th style="width:6%">#</th><th>The move</th><th style="width:22%">Usual position</th></tr>
+        <tr><td>1</td><td>Conditional apology: "if" makes the harm hypothetical and the offense the listener's problem.</td><td>Reject</td></tr>
+        <tr><td>2</td><td>Passive voice: no one made the mistakes; "looking into it" is vague.</td><td>Reject / lean reject</td></tr>
+        <tr><td>3</td><td>Complete: what happened, my fault, sorry, specific fix and prevention.</td><td>Accept</td></tr>
+        <tr><td>4</td><td>Sorry about the listener's feelings, not the action. Often heard as an insult.</td><td>Reject</td></tr>
+        <tr><td>5</td><td>Corporate formula: "any" and "may have" minimize the harm.</td><td>Lean reject / not sure</td></tr>
+        <tr><td>6</td><td>Complete, and the action is already done: strongest of all.</td><td>Accept</td></tr>
+      </table></div>
+      <p style="margin-top:8px"><b>Listen for:</b> cultural differences in what counts as a sincere apology (in some cultures the act of apologizing matters more than the details). Welcome them — they are useful for Stage 6, when audiences are mixed.</p>
+    </div>
+  </div>
+</section>
+
+<section class="box" id="s2">
+  <header><div class="bn">2</div><div><h2>Stage 2 · Jury Room: Domino's</h2><div class="meta"><span class="tag engage">Engage · React → Question</span> · <span data-at="15"></span>–<span data-at="40"></span> · 25 min</div></div><label class="done no-print"><input type="checkbox" data-f="d2"> Done</label></header>
+  <div class="inner">
+    <div class="facts3"><div><b>Grouping</b>Alone → juries of 4 → class</div><div><b>Rhythm</b>Context 2 · video 3 · notes 3 · seal 2 · jury 6 · verdicts 3 · two reveals 6</div><div><b>Output</b>Sealed verdict; jury verdict with vote</div></div>
+    <div class="timers no-print">Timers: <button class="tbtn" data-sec="180">3 min notes</button><button class="tbtn" data-sec="360">6 min jury</button></div>
+    <h3 class="k">Steps</h3>
+    <ol class="steps">
+      <li>Read the case box aloud (worksheet). <span class="say">"You won't see the prank video — trust me, you don't need to. You'll see how the company answered."</span></li>
+      <li>Play Patrick Doyle's video once (about 2 minutes). Students take notes in the five rows.</li>
+      <li><span class="say">"Now decide alone: success, failure or mixed? Then press Seal my verdict. Once it's sealed, it's locked — like a real juror's vote."</span></li>
+      <li>Juries of four: <span class="say">"Six minutes. Try to agree. Choose a foreperson who announces your verdict and your vote."</span> Write each jury's verdict on the board.</li>
+      <li>Reveal 1 (students open the gold box): the next two weeks. Ask: <span class="say">"Does this change anything?"</span> Then Reveal 2: the Pizza Turnaround. Final question: <span class="say">"Was the apology the success — or what came after it?"</span></li>
+    </ol>
+    <div class="key"><h3 class="k">Key · what strong juries notice</h3><ul>
+      <li><b>For success:</b> fast response (within about two days); the president himself, on camera; the <i>same channel</i> as the crisis (YouTube, with the same title and tags so searchers found it); concrete actions (store closed and sanitized, employees fired and charged).</li>
+      <li><b>Against:</b> it partly reads as a statement of defense ("two individuals", "isolated"), so <i>Accept</i> is weak; it talks about "our great system" and franchisees as much as customers; reputation still dropped sharply in the short term.</li>
+      <li><b>The best answer is usually "mixed in the short term, success in the long term".</b> The apology stopped the story; the Pizza Turnaround — an apology for the pizza itself — rebuilt trust and sales. This sets up the key idea of 4A: <i>Act</i> is where apologies are won.</li>
+      <li><b>Not at fault?</b> Domino's corporate didn't make the video. Ask: <span class="say">"Should you apologize for something you didn't do?"</span> Keep the answers — the Tylenol station returns to this question.</li>
+    </ul>
+    <p style="margin-top:8px"><b>Sources:</b> <a href="https://time.com/archive/6914398/dominos-youtube-crisis-5-ways-to-fight-back/" target="_blank" rel="noopener">TIME, 18 April 2009</a> · <a href="https://www.nbcwashington.com/local/dirty-dominos-pizza-workers-charged/1889579/" target="_blank" rel="noopener">NBC Washington: charges, 16 April 2009</a> · <a href="https://instituteforpr.org/wp-content/uploads/https___page.org_wp-content_uploads_2023_11_Dominos_Special_Delivery_B.pdf" target="_blank" rel="noopener">"Domino's Special Delivery" case study (page.org, hosted by the Institute for Public Relations): timeline, Doyle quotes, YouGov, franchise sales</a> · <a href="https://www.nrn.com/restaurant-technology/domino-s-fights-viral-prank-with-video-push" target="_blank" rel="noopener">Nation's Restaurant News, 27 April 2009</a> · <a href="https://business.columbia.edu/insights/brand-talk/dominos-wins-eating-little-humble-pie" target="_blank" rel="noopener">Columbia Business School: Pizza Turnaround and 2010 sales</a></p>
+    </div>
+  </div>
+</section>
+
+<div class="stage study"><span class="name">STUDY</span><span class="seq">Notice → Name → Practice</span><span class="when"><span data-at="40"></span>–<span data-at="60"></span></span><p>Slides 2–9. Sort, then name 4A; take apart non-apologies; spotlight the passive voice.</p></div>
+
+<section class="box" id="s3">
+  <header><div class="bn">3</div><div><h2>Stage 3 · Four Piles → 4A · The Non-Apology Autopsy</h2><div class="meta"><span class="tag study">Study · Notice → Name → Practice</span> · <span data-at="40"></span>–<span data-at="60"></span> · 20 min</div></div><label class="done no-print"><input type="checkbox" data-f="d3"> Done</label></header>
+  <div class="inner">
+    <div class="facts3"><div><b>Grouping</b>Pairs → class</div><div><b>Rhythm</b>Sort 5 · name 4A 3 · autopsy 6 · passive 4 · intonation 2</div><div><b>Output</b>Four named piles; six tricks + rewrites; three active sentences</div></div>
+    <div class="timers no-print">Timers: <button class="tbtn" data-sec="300">5 min sort</button><button class="tbtn" data-sec="360">6 min autopsy</button></div>
+    <h3 class="k">Steps</h3>
+    <ol class="steps">
+      <li><b>Slide 2 (5 min):</b> pairs sort the twelve strips into four piles and name each pile in their own words.</li>
+      <li><b>Slide 3 (3 min):</b> take the pairs' names first. Then click the four cards to reveal <b>Acknowledge · Accept · Apologize · Act</b>. <span class="say">"Last week we named GAME. This is our second tool: 4A. GAME tells you how any message works; 4A tells you if an apology is complete."</span> Students open the 4A reveal on the worksheet.</li>
+      <li><b>Slide 4 (1 min):</b> map Doyle's video onto 4A in one minute as a class.</li>
+      <li><b>Slides 5–6 (6 min):</b> the non-apology autopsy. Pairs name each trick and rewrite. Click each line on slide 5 to reveal its trick.</li>
+      <li><b>Slide 7 (4 min):</b> passive voice. <span class="say">"Who made the mistakes? The sentence doesn't say. That's the point."</span></li>
+      <li><b>Slide 8 (optional, 3 min):</b> the Weinstein example — see the content note below. Skip it if you prefer; the stage still works.</li>
+      <li><b>Slide 9 (2 min):</b> intonation. Model "I'm SORry ↘" (falling, sincere) vs. "I'm sorry ↗" (rising, sounds like a question or sarcasm). Choral drill of 4A stress.</li>
+    </ol>
+    <div class="key"><h3 class="k">Key · the twelve strips</h3>
+      <p><b>Acknowledge:</b> 1, 5, 9 · <b>Accept:</b> 2, 6, 10 · <b>Apologize:</b> 3, 7, 11 · <b>Act:</b> 4, 8, 12. Accept any defended alternatives (for example, 10 also acknowledges). Common student pile names: "what happened / facts", "blame / fault", "sorry", "solution / promise".</p>
+    </div>
+    <div class="key"><h3 class="k">Key · the non-apology autopsy</h3>
+      <div class="scroll"><table class="tbl">
+        <tr><th style="width:30%">Non-apology</th><th style="width:30%">The trick</th><th>A real apology (sample)</th></tr>
+        <tr><td>I'm sorry if anyone was offended.</td><td>Conditional "if": harm becomes hypothetical; the problem is the listener's sensitivity.</td><td>I'm sorry. What I said was offensive, and it was wrong.</td></tr>
+        <tr><td>I'm sorry you feel that way.</td><td>Apologizes for the listener's feelings, not the speaker's action.</td><td>I'm sorry I ignored your concerns in the meeting.</td></tr>
+        <tr><td>I apologize, but the media has exaggerated this.</td><td>"But" cancels the apology; shifts blame to others.</td><td>I apologize. Whatever the coverage says, we got this wrong.</td></tr>
+        <tr><td>We regret that the situation occurred.</td><td>"Regret" ≠ sorry; "the situation" is vague; it just "occurred" — no one did it.</td><td>We are sorry that our system charged you twice.</td></tr>
+        <tr><td>We apologize for any inconvenience this may have caused.</td><td>"Any" and "may have" minimize the harm; "inconvenience" is often too small a word.</td><td>We apologize for the missed flights and the nights you spent at the airport.</td></tr>
+        <tr><td>Mistakes were made.</td><td>Passive voice hides who made them.</td><td>I made a mistake. / We made serious mistakes.</td></tr>
+      </table></div>
+      <p style="margin-top:8px"><b>Passive → active:</b> "We / I made mistakes." · "We exposed our customers' data." / "Our system exposed…" · "We overbooked the flight, and our staff removed a passenger." <b>When passive is chosen fairly:</b> when the person responsible genuinely isn't known yet, or to protect a junior employee's identity; it becomes dishonest when it is used to hide the organization's own responsibility.</p>
+    </div>
+    <div class="note-c"><b>Content note · optional Weinstein example (slide 8).</b> The syllabus lists Harvey Weinstein. His case involves allegations of sexual harassment and assault, so this guide keeps it to a short, teacher-led language example rather than group research. Tell students first: <span class="say">"This next example involves sexual harassment allegations. We'll look only at one sentence of the statement and how it works."</span>
+      <ul style="margin:8px 0 0">
+        <li><b>Facts:</b> on 5 October 2017, after a New York Times investigation, Weinstein issued a statement. It included: "I came of age in the 60's and 70's, when all the rules about behavior and workplaces were different." It said he "sincerely" apologized for causing "a lot of pain", announced therapy and a leave of absence, and also mentioned unrelated plans (a scholarship fund; turning his attention to the National Rifle Association). It named none of the women. Three days later, on 8 October, his company's board fired him.</li>
+        <li><b>The one question:</b> <span class="say">"Is the 'came of age' sentence an explanation or an excuse? Which A does it damage?"</span> (It is an excuse that weakens <i>Accept</i>; the unrelated promises are a classic distraction from <i>Act</i>.)</li>
+        <li><b>Sources:</b> <a href="https://deadline.com/2017/10/harvey-weinstein-apologizes-new-york-times-sexual-harassment-allegations-1202182912" target="_blank" rel="noopener">Deadline: full statement, 5 Oct 2017</a> · <a href="https://www.wbur.org/npr/556559288/harvey-weinstein-out-at-the-weinstein-company" target="_blank" rel="noopener">NPR: fired by the board, 8 Oct 2017</a></li>
+        <li><b>If you skip it:</b> use Tony Hayward's "I'd like my life back" (BP, 2010, from Week 1) as the "excuse" example instead.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="stage activate"><span class="name">ACTIVATE</span><span class="seq">Practice → Apply</span><span class="when"><span data-at="60"></span>–<span data-at="100"></span></span><p>Four walls, four famous apologies. Teams audit, predict, then you reveal.</p></div>
+
+<section class="box" id="s4">
+  <header><div class="bn">4</div><div><h2>Stage 4 · Apology Audit Stations</h2><div class="meta"><span class="tag activate">Activate · Practice</span> · <span data-at="60"></span>–<span data-at="100"></span> · 40 min</div></div><label class="done no-print"><input type="checkbox" data-f="d4"> Done</label></header>
+  <div class="inner">
+    <div class="facts3"><div><b>Grouping</b>4 teams (3–5 students), rotating clockwise</div><div><b>Rhythm</b>Set-up 2 · 4 stations × 7 · Verdict Wall reveal 10</div><div><b>Output</b>Four scorecards; four sticky-note verdicts on the Verdict Wall</div></div>
+    <div class="timers no-print">Timers: <button class="tbtn" data-sec="420">7 min station</button></div>
+    <h3 class="k">Steps</h3>
+    <ol class="steps">
+      <li>Send each team to a different wall. <span class="say">"Seven minutes per station. Read the card, score each A from 0 to 2 with evidence, answer the station question, and stick your verdict on the wall. When the timer rings, move clockwise."</span></li>
+      <li>Circulate. Push teams to quote the card as evidence, not to give impressions.</li>
+      <li><b>Verdict Wall reveal (10 min):</b> stand at each wall in turn. Read the sticky notes aloud ("Three teams said success, one said mixed"), then reveal the outcome (key below). Students fill in "What really happened".</li>
+      <li>Close with: <span class="say">"Does a high 4A score guarantee success?"</span> (Zuckerberg is the best evidence that it doesn't, and Tylenol that timing and action matter most.)</li>
+    </ol>
+    <div class="key"><h3 class="k">Key · suggested scores and the outcomes to reveal</h3>
+      <div class="scroll"><table class="tbl">
+        <tr><th style="width:17%">Station</th><th style="width:18%">Suggested 4A (Ack · Acc · Apol · Act)</th><th>Outcome to reveal</th><th style="width:22%">Usual verdict · push students on</th></tr>
+        <tr><td><b>1 · Tylenol 1982</b></td><td>2 · 2 · 1 · 2 = 7. The card shows actions more than apology words, so Apologize is 1.</td><td>Tylenol's share of the pain-relief market fell from 35% to 7%. It was back to 30% by mid-1983 and 35% by the end of 1983. Burke was later named one of history's 10 greatest CEOs by <i>Fortune</i>. <a href="https://knowledge.wharton.upenn.edu/article/tylenol-and-the-legacy-of-jjs-james-burke/" target="_blank" rel="noopener">Wharton</a></td><td>Success. You can accept responsibility for customers' safety without having caused the harm.</td></tr>
+        <tr><td><b>2 · Armstrong 2013</b></td><td>2 · 1 · 1 · 0 = 4. "My fault", but "I didn't invent the culture" deflects; no reported apology to specific people; no action.</td><td>The confession came months after he had lost his titles and after the anti-doping report. He remained banned for life, was dropped by his sponsors, and faced possible legal action to repay earnings. <a href="https://www.bangordailynews.com/2013/01/17/sports/armstrong-finally-admits-to-doping/" target="_blank" rel="noopener">Bangor Daily News</a></td><td>Failure (some argue mixed: honesty at last). An apology after you are caught is a confession, not a choice.</td></tr>
+        <tr><td><b>3 · Zuckerberg 2018</b></td><td>2 · 2 · 1 · 2 = 7 for April (lower for March: no "sorry", several days of silence).</td><td>In July 2019, US regulators (the FTC) fined Facebook a record $5 billion over its privacy failures. <a href="https://itv.com/news/2019-07-24/facebook-hit-by-4bn-fine-for-privacy-violations" target="_blank" rel="noopener">ITV News</a></td><td>Mixed. The best message came weeks after the first one; a complete apology did not prevent serious consequences.</td></tr>
+        <tr><td><b>4 · KFC UK 2018</b></td><td>2 · 1 · 2 · 1 = 6. The ad didn't blame the delivery company; actions were general ("reopening").</td><td>The ad was widely discussed and won a Gold Lion at the Cannes Lions advertising festival in 2018. <a href="https://www.campaignlive.co.uk/article/kfcs-were-sorry-mother-wins-cannes-lions-gold-print-publishing/1485469" target="_blank" rel="noopener">Campaign</a></td><td>Success. Humor worked because no one was hurt and the brand's voice was already playful. It would have been a disaster for Tylenol or United.</td></tr>
+      </table></div>
+      <p style="margin-top:8px"><b>Other station sources:</b> Zuckerberg's March post and CNN apology: <a href="https://www.mprnews.org/story/2018/03/21/facebook-zuckerberg-admits-mistakes-outlines-fixes-privacy" target="_blank" rel="noopener">MPR News, 21 Mar 2018</a>; April testimony: <a href="https://globalnews.ca/news/4132651/facebook-data-scandal-zuckerberg" target="_blank" rel="noopener">Global News</a>; KFC ad text: <a href="https://www.cnbc.com/2018/02/23/kfc-issues-tongue-in-cheek-apology-after-uk-chicken-shortage-causes-restaurant-closures.html" target="_blank" rel="noopener">CNBC</a>.</p>
+    </div>
+    <p class="short"><b>With 5 or more teams:</b> post two copies of the busiest card, or let two teams share a station. <b>If you run long:</b> cut to 6 minutes per station.</p>
+  </div>
+</section>
+
+<div class="stage break"><span class="name">BREAK</span><span class="seq">30 minutes</span><span class="when"><span data-at="100"></span>–<span data-at="130"></span></span><p>Leave the Verdict Wall up. Write team names on the board for the auction ledger.</p></div>
+
+<!-- =========================== PART B =========================== -->
+<div class="part-banner">Part B</div>
+<div class="stage engage"><span class="name">ENGAGE</span><span class="seq">React → Question</span><span class="when"><span data-at="130"></span>–<span data-at="145"></span></span><p>Fast, competitive, and secretly a review of everything from Part A.</p></div>
+
+<section class="box" id="s5">
+  <header><div class="bn">5</div><div><h2>Stage 5 · The Apology Auction</h2><div class="meta"><span class="tag engage">Engage · React</span> · <span data-at="130"></span>–<span data-at="145"></span> · 15 min</div></div><label class="done no-print"><input type="checkbox" data-f="d5"> Done</label></header>
+  <div class="inner">
+    <div class="facts3"><div><b>Grouping</b>Teams (same as the stations)</div><div><b>Rhythm</b>Read crisis 1 · plan bids 2 · 12 lots × 40 s · reveal and scores 4</div><div><b>Output</b>Moves won; team score</div></div>
+    <div class="timers no-print">Timers: <button class="tbtn" data-sec="120">2 min plan</button><button class="tbtn" data-sec="40">40 s lot</button></div>
+    <h3 class="k">Steps</h3>
+    <ol class="steps">
+      <li>Read the FreshCart crisis aloud. <span class="say">"You have $1,000. I'm auctioning twelve apology moves. Some help, some hurt. Every move has a secret score. Highest total score wins — not the team that buys the most."</span></li>
+      <li>Two minutes for teams to plan their maximum bid for each move.</li>
+      <li>Be a lively auctioneer: hold up the lot card (appendix), start at $50, go up in $50 steps, "going once, going twice, sold!" Teams record what they won and the price. Keep each lot to about 40 seconds.</li>
+      <li>Reveal the hidden scores one by one (students type them in; the worksheet adds up their score). Winner announced. Ask: <span class="say">"Which move did you overpay for?"</span></li>
+    </ol>
+    <div class="key"><h3 class="k">Hidden scores (keep secret until the reveal)</h3>
+      <div class="scroll"><table class="tbl">
+        <tr><th style="width:6%">#</th><th>Move</th><th style="width:10%">Score</th><th style="width:34%">Why</th></tr>
+        <tr><td>1</td><td>Name the harm exactly</td><td><b>+3</b></td><td>Acknowledge, specifically.</td></tr>
+        <tr><td>2</td><td>"We're sorry if anyone was inconvenienced."</td><td><b>−3</b></td><td>Conditional + minimizing. A trap.</td></tr>
+        <tr><td>3</td><td>Full refund in 24 hours + bank fees covered</td><td><b>+3</b></td><td>Act: repairs the real harm.</td></tr>
+        <tr><td>4</td><td>CEO video within 6 hours</td><td><b>+2</b></td><td>Speed and the right messenger.</td></tr>
+        <tr><td>5</td><td>A joke</td><td><b>−2</b></td><td>People lost money. Compare KFC: there, nobody was harmed.</td></tr>
+        <tr><td>6</td><td>"Our payment partner caused this error."</td><td><b>−3</b></td><td>Blame before responsibility. Even if true, customers chose FreshCart.</td></tr>
+        <tr><td>7</td><td>"This was our failure…"</td><td><b>+3</b></td><td>Accept, in the active voice.</td></tr>
+        <tr><td>8</td><td>Long technical explanation</td><td><b>−1</b></td><td>Sounds like an excuse; the audience wants to know what happens to their money.</td></tr>
+        <tr><td>9</td><td>"Without admitting any legal liability…"</td><td><b>−2</b></td><td>Lawyer language kills sincerity (remember United).</td></tr>
+        <tr><td>10</td><td>Personal email to every affected customer</td><td><b>+2</b></td><td>Right channel, right audience.</td></tr>
+        <tr><td>11</td><td>20% discount on next order</td><td><b>+1</b></td><td>Nice, but it isn't repair, and it asks them to spend more.</td></tr>
+        <tr><td>12</td><td>"This will never happen again." (no details)</td><td><b>−1</b></td><td>An empty promise. Specific prevention beats a big promise.</td></tr>
+      </table></div>
+      <p style="margin-top:8px"><b>Note:</b> the scores are a teaching judgment, not a research finding. Invite teams to challenge a score — a good argument can win a point back. Maximum possible score: 14.</p>
+    </div>
+  </div>
+</section>
+
+<div class="stage activate"><span class="name">ACTIVATE</span><span class="seq">Apply · rehearse → feedback → perform</span><span class="when"><span data-at="145"></span>–<span data-at="175"></span></span><p>Each team apologizes live; the class reacts in real time, like a TV focus group.</p></div>
+
+<section class="box" id="s6">
+  <header><div class="bn">6</div><div><h2>Stage 6 · Crisis Clinic: Take 1, Take 2</h2><div class="meta"><span class="tag activate">Activate · Apply</span> · <span data-at="145"></span>–<span data-at="175"></span> · 30 min</div></div><label class="done no-print"><input type="checkbox" data-f="d6"> Done</label></header>
+  <div class="inner">
+    <div class="facts3"><div><b>Grouping</b>4 teams; one team moderates each delivery</div><div><b>Rhythm</b>Prep 8 · Take 1 (4 × 2.5) 10 · fix 4 · Take 2 (4 × 1.5) 6 · debrief 2</div><div><b>Output</b>Two deliveries per team; moderator notes</div></div>
+    <div class="timers no-print">Timers: <button class="tbtn" data-sec="480">8 min prep</button><button class="tbtn" data-sec="60">60 s apology</button><button class="tbtn" data-sec="240">4 min fix</button></div>
+    <h3 class="k">Steps</h3>
+    <ol class="steps">
+      <li>Hand out crisis cards (one per team) and green/red cards (one pair per student).</li>
+      <li><span class="say">"Eight minutes. Plan a 60-second apology from your CEO with all four A's. Key words only."</span></li>
+      <li><b>Take 1:</b> the CEO stands at the front. Everyone else is the focus group: <span class="say">"Raise green when a sentence makes you believe them. Raise red the moment a sentence loses you. Keep it up for two seconds, then lower it."</span> The moderating team (the next team in order) notes the red moments. After 60 seconds, the moderator gives 30 seconds of feedback: the biggest red moment and the best green moment.</li>
+      <li>Four minutes to fix. <b>Take 2</b> with a different speaker. Ask the class after each: <span class="say">"Hands up if Take 2 was better."</span></li>
+      <li>Debrief: <span class="say">"What made the reds turn green?"</span> (Usually: specifics, active voice, removing excuses, a date.)</li>
+    </ol>
+    <div class="key"><h3 class="k">What to listen for</h3><ul>
+      <li><b>Red moments:</b> "we take this very seriously" with nothing after it; blaming a supplier or a junior employee; "any inconvenience"; legal phrasing; reading from a phone.</li>
+      <li><b>Green moments:</b> naming the people affected; "I"/"we" + active verb; a specific action with a date; contacting affected people directly; a pause after "I'm sorry".</li>
+      <li><b>Model (C2 · NovaBank):</b> "For 40 minutes yesterday, our app showed some of you other customers' transactions. That was our failure: an update we released wasn't tested properly. I'm sorry — your financial information should never be seen by anyone else. Every affected customer will hear from us personally by Friday, we've stopped all updates until an independent review is complete, and we'll publish what we find."</li>
+      <li><b>C3 and C1 are the most serious</b> (people were hurt or humiliated): humor is never right, and speed matters most.</li>
+    </ul></div>
+  </div>
+</section>
+
+<div class="stage study"><span class="name">STUDY</span><span class="seq">Name → Practice</span><span class="when"><span data-at="175"></span>–<span data-at="185"></span></span><p>Slides 10–13. The research and reporting skills A2 depends on.</p></div>
+
+<section class="box" id="s7">
+  <header><div class="bn">7</div><div><h2>Stage 7 · Investigate Like a Journalist</h2><div class="meta"><span class="tag study">Study · Name → Practice</span> · <span data-at="175"></span>–<span data-at="185"></span> · 10 min</div></div><label class="done no-print"><input type="checkbox" data-f="d7"> Done</label></header>
+  <div class="inner">
+    <ol class="steps">
+      <li><b>Slide 11 (4 min):</b> the source ladder. Pairs place the eight sources on the worksheet; check with the slide. <span class="say">"Start at the top: find the original apology. Then find two reliable reports. Never quote a quote you can't trace."</span></li>
+      <li><b>Slides 12–13 (5 min):</b> reporting verbs. Show the stance scale, then pairs choose verbs for the four sentences.</li>
+      <li><b>1 min:</b> <span class="say">"In the Tribunal, the other team will ask: 'Where did you get that?' Have the answer."</span></li>
+    </ol>
+    <div class="key"><h3 class="k">Key</h3>
+      <p><b>Source ladder.</b> Top: 1 (the company's own statement — top for what they <i>said</i>, not for whether it was true), 5 (the original video). Middle: 2 (Reuters/AP), 7 (business school case study), 4 (Wikipedia — use it as a map to find sources, don't cite it as the final source). Bottom: 3 (reaction video), 6 (anonymous blog), 8 (quotes website with no source).</p>
+      <p><b>Reporting verbs.</b> 1 admitted / acknowledged (agrees the fact is true, after resisting) · 2 claimed / insisted (the writer doubts it) · 3 insisted (or "denied any wrongdoing", which needs a different sentence) · 4 announced (neutral, new information).</p>
+    </div>
+  </div>
+</section>
+
+<section class="box" id="s8">
+  <header><div class="bn">8</div><div><h2>Stage 8 · Assignment 2 Launch · Research Sprint · Opening Statements</h2><div class="meta"><span class="tag activate">Activate · Apply</span> · <span data-at="185"></span>–<span data-at="225"></span> · 40 min</div></div><label class="done no-print"><input type="checkbox" data-f="d8"> Done</label></header>
+  <div class="inner">
+    <div class="facts3"><div><b>Grouping</b>A2 teams of 3–4 (new mixes)</div><div><b>Rhythm</b>Brief 4 · sprint 30 · opening statements 6</div><div><b>Output</b>Case file; 45-second first verdict</div></div>
+    <div class="timers no-print">Timers: <button class="tbtn" data-sec="1800">30 min sprint</button><button class="tbtn" data-sec="45">45 s opening</button></div>
+    <h3 class="k">Steps</h3>
+    <ol class="steps">
+      <li>Brief A2 from the worksheet callout (4 min). <span class="say">"Next week is the Apology Tribunal. Your team is the expert witness. You present your verdict; another team is the opposing counsel and argues the opposite verdict."</span></li>
+      <li>Assign one case card per team (A2-1 to A2-5, or an approved own case).</li>
+      <li><b>Research sprint (30 min).</b> Visit each team twice. First visit: <span class="say">"Have you found the original apology?"</span> Second visit: <span class="say">"What's your best outcome fact, and where is it from?"</span></li>
+      <li><b>Opening statements:</b> 45 seconds per team, standing. Announce the Class 4 pairings: who cross-examines whom.</li>
+    </ol>
+    <div class="key"><h3 class="k">A2 case bank · starter sources for you</h3>
+      <div class="scroll"><table class="tbl">
+        <tr><th style="width:16%">Case</th><th>Key facts to expect</th><th style="width:30%">Starter sources</th></tr>
+        <tr><td><b>A2-1 JetBlue 2007</b></td><td>Valentine's Day ice storm; passengers stuck on planes at JFK for up to 8 hours; apology ads ("We are sorry and embarrassed"), an online video; Customer Bill of Rights issued 21 Feb 2007.</td><td><a href="https://www.library.hbs.edu/working-knowledge/jetblues-valentines-day-crisis" target="_blank" rel="noopener">Harvard Business School</a> · <a href="https://cbsnews.com/news/jetblue-goes-on-the-apology-offensive" target="_blank" rel="noopener">CBS News</a> · <a href="https://money.cnn.com/2007/02/19/news/companies/jetblue/index.htm?cnn=yes" target="_blank" rel="noopener">CNN Money</a></td></tr>
+        <tr><td><b>A2-2 Volkswagen 2015</b></td><td>Emissions-test cheating software in about 11 million diesel cars; Michael Horn: "We have totally screwed up"; in Congress, said "a couple of software engineers" were responsible and "This was not a corporate decision".</td><td><a href="https://www.nbcnews.com/news/us-news/volkswagen-u-s-boss-admits-we-have-totally-screwed-up-probe-n431406" target="_blank" rel="noopener">NBC News</a> · <a href="https://www.npr.org/sections/thetwo-way/2015/10/08/446861855/volkswagen-u-s-ceo-faces-questions-on-capitol-hill" target="_blank" rel="noopener">NPR</a> · <a href="https://autos.yahoo.com/vw-boss-famously-apologized-america-left-company-212628841.html" target="_blank" rel="noopener">Autoblog via Yahoo</a></td></tr>
+        <tr><td><b>A2-3 Starbucks 2018</b></td><td>Arrests on 12 April 2018; Kevin Johnson's statement ("reprehensible outcome"); met the men in person; more than 8,000 US stores closed on the afternoon of 29 May 2018 for racial-bias training.</td><td><a href="https://www.fox6now.com/news/reprehensible-outcome-starbucks-ceo-apologizes-after-2-black-men-arrested-in-incident-caught-on-camera" target="_blank" rel="noopener">FOX6</a> · <a href="https://abc7ny.com/philadelphia-starbucks-arrests-restroom-demonstration-protest/3356025/" target="_blank" rel="noopener">ABC7 New York</a></td></tr>
+        <tr><td><b>A2-4 Southwest 2022</b></td><td>More than 15,000 flights canceled, 22–30 December 2022; Bob Jordan's letter ("no amount of apologies can undo your experience"); 25,000 points for affected travelers.</td><td><a href="https://www.npr.org/2023/01/04/1146865858/southwest-airlines-apologizes-and-then-gives-its-customers-frequent-flyer-points" target="_blank" rel="noopener">NPR</a></td></tr>
+        <tr><td><b>A2-5 CrowdStrike 2024</b></td><td>Faulty update on 19 July 2024; about 8.5 million Windows devices crashed; Kurtz's apology; the $10 Uber Eats gift card, which some recipients found had been canceled.</td><td><a href="https://techcrunch.com/2024/07/24/crowdstrike-offers-a-10-apology-gift-card-to-say-sorry-for-outage" target="_blank" rel="noopener">TechCrunch</a></td></tr>
+      </table></div>
+      <p style="margin-top:8px"><b>Sensitivity:</b> A2-3 involves racial profiling. It is an excellent case, but give it to a team you trust to discuss it with care, and remind the class that the analysis is about the company's communication.</p>
+    </div>
+  </div>
+</section>
+
+<section class="box" id="exit">
+  <header><div class="bn">✓</div><div><h2>Exit Ticket and Class 4 Bridge</h2><div class="meta"><span class="tag activate">Reflect</span> · <span data-at="225"></span>–<span data-at="230"></span> · 5 min</div></div><label class="done no-print"><input type="checkbox" data-f="dexit"> Done</label></header>
+  <div class="inner">
+    <ol class="steps">
+      <li>Students answer the three exit questions (the third shows their sealed Domino's verdict automatically), then download their answers.</li>
+      <li><span class="say">"Next week: the Apology Tribunal. You'll have time at the start to finish your case file. Bring the same device."</span></li>
+    </ol>
+    <div class="key"><h3 class="k">Checkpoint · objective achieved if…</h3><ul>
+      <li>Most exit answers to question 2 remove "regret", "any" and "may have" and add a specific harm or action.</li>
+      <li>Every team's case file has a 4A score with evidence and at least one primary source by the end of the sprint.</li>
+      <li>Take 2 was better than Take 1 for most teams (show of hands in Stage 6).</li>
+    </ul></div>
+  </div>
+</section>
+
+<div class="card" id="a2rubric">
+  <h2>Assignment 2 · Apology Tribunal format and rubric (for Class 4)</h2>
+  <p><b>Format:</b> each team presents for 5 minutes (case → original apology → 4A + GAME audit → outcome evidence → verdict), then faces 3 minutes of cross-examination from an assigned opposing team, which argues the opposite verdict. Everyone speaks. Suggested pairings: Team 1 ⇄ Team 2, Team 3 ⇄ Team 4.</p>
+  <div class="scroll"><table class="tbl">
+    <tr><th>Criterion</th><th>What a top score looks like</th><th style="width:70px">Points</th></tr>
+    <tr><td><b>Case and sources</b> (team)</td><td>Accurate facts and dates; the original apology quoted or played; at least two reliable sources.</td><td>2</td></tr>
+    <tr><td><b>4A audit</b> (team)</td><td>Each A scored with evidence from the apology itself; gaps named precisely.</td><td>4</td></tr>
+    <tr><td><b>GAME</b> (team)</td><td>Real goal and real audience identified; expression (tone, channel, timing) judged.</td><td>2</td></tr>
+    <tr><td><b>Verdict and evidence</b> (team)</td><td>Clear verdict supported by outcome facts and figures, not impressions; short-term vs. long-term separated.</td><td>3</td></tr>
+    <tr><td><b>Delivery</b> (individual)</td><td>Clear, confident, professional register; uses reporting verbs and hedged verdict language accurately.</td><td>2</td></tr>
+    <tr><td><b>Cross-examination</b> (individual)</td><td>Answers directly, cites evidence, concedes a fair point without abandoning the verdict.</td><td>2</td></tr>
+    <tr><td colspan="2" style="text-align:right"><b>Total</b></td><td><b>15</b></td></tr>
+  </table></div>
+</div>
+
+<div class="card">
+  <h2>Language support (also in the students' Language help drawer)</h2>
+  <div class="lang">
+    <h3 class="k">Stages 1–2 · Reacting and disagreeing</h3><p>It sounds sincere/hollow because… · I take your point, but the evidence suggests… · Can we separate the apology from what happened afterwards?</p>
+    <h3 class="k">Stages 4, 8 · Verdicts</h3><p>On balance, we'd call it… · It worked in the short term, but… · It succeeded with one audience and failed with another.</p>
+    <h3 class="k">Stage 6 · Delivering an apology</h3><p>What happened was… · This was our failure. · I'm sorry for… · By [date], every customer will…</p>
+    <h3 class="k">Stages 7–8 · Reporting</h3><p>said / stated / announced · admitted / acknowledged · claimed / insisted · denied</p>
+  </div>
+</div>
+
+<div class="card">
+  <h2>Differentiation</h2>
+  <table class="tbl">
+    <tr><th style="width:24%">Learner</th><th>What to do</th></tr>
+    <tr><td>Needs more language support</td><td>In the autopsy, they name the trick using the drawer's words; in the Clinic, give them the Acknowledge line (short, factual); in the sprint, they own the "facts and dates" row.</td></tr>
+    <tr><td>Stronger / needs challenge</td><td>At each station, ask them to write the one sentence that would have raised the lowest A score. In the Clinic, give their team C1 or C3 (the highest stakes). In A2, they prepare the opposing team's strongest argument.</td></tr>
+    <tr><td>Quieter students</td><td>The Spectrum lets them answer with their feet before their voice. Make them the moderator's spokesperson in Stage 6 (a short, prepared role).</td></tr>
+    <tr><td>Students who dominate</td><td>Make them jury foreperson with the rule "speak last". In Stage 6 they can't be the Take 1 CEO; they coach instead.</td></tr>
+  </table>
+</div>
+
+<div class="card" id="appendix">
+  <h2>Appendix — printable materials</h2>
+  <h3 class="k pagebreak">Sorry Spectrum signs (Stage 1)</h3>
+  <div class="pcards"><div class="sign red">REJECT</div><div class="sign green">ACCEPT</div></div>
+  <h3 class="k pagebreak" style="margin-top:18px">Station cards (Stage 4) · print large, one per wall</h3>
+  <div id="pstations" style="display:grid;gap:14px"></div>
+  <h3 class="k pagebreak" style="margin-top:18px">Auction lot cards (Stage 5)</h3>
+  <div class="pcards" id="plots"></div>
+  <h3 class="k pagebreak" style="margin-top:18px">Crisis cards (Stage 6)</h3>
+  <div class="pcards" id="pcrises"></div>
+  <h3 class="k pagebreak" style="margin-top:18px">Focus group reaction cards (Stage 6) · one pair per student</h3>
+  <div class="pcards"><div class="sign green">I believe you</div><div class="sign red">You lost me</div></div>
+  <h3 class="k pagebreak" style="margin-top:18px">A2 case cards (Stage 8)</h3>
+  <div class="pcards" id="pa2"></div>
+</div>
+
+</main>
+<footer>Strategic Communication · Approach International Student Center · Week 3 · Teacher use only</footer>
+
+<script>
+(function(){
+    var STATIONS=[
+    {n:1,t:'Johnson & Johnson · Tylenol (1982)',card:['<b>The crisis:</b> In autumn 1982, seven people in the Chicago area died after taking Extra-Strength Tylenol capsules. Someone had put cyanide into capsules sold in stores. The person was never found.','<b>J&amp;J was not the cause</b> of the poisoning.','<b>What they did:</b> recalled 31 million bottles nationwide, at a cost of about $100 million. CEO James Burke personally kept the heads of the TV news divisions informed and met the heads of the FBI and the FDA.','<b>Next step:</b> about two months later, Tylenol returned to stores in new tamper-proof packaging.'],q:'Can you "accept" responsibility for something you didn\'t cause? How?'},
+    {n:2,t:'Lance Armstrong · TV interview (January 2013)',card:['<b>The crisis:</b> For years the cyclist denied using performance-enhancing drugs. In 2012 an anti-doping report described an organized doping program, and he lost his seven Tour de France titles.','<b>What he did:</b> in January 2013, in a TV interview with Oprah Winfrey, he admitted doping in all seven Tour wins.','<b>His words:</b> he called his story "one big lie that I repeated a lot of times" and said: "This is too late, probably for most people, and that\'s my fault." He also said: "I didn\'t invent the culture, but I didn\'t try to stop the culture."','<b>He also</b> called himself "a deeply flawed character".'],q:'Does an apology still count if it comes only after you are caught?'},
+    {n:3,t:'Mark Zuckerberg · Facebook (March–April 2018)',card:['<b>The crisis:</b> in March 2018, news reports revealed that data from up to 87 million Facebook users had been passed to Cambridge Analytica, a political consulting firm.','<b>First response (21 March, after several days of silence):</b> a Facebook post: "We have a responsibility to protect your data, and if we can\'t, then we don\'t deserve to serve you." He called it "a breach of trust" and announced new limits on app developers. The post did not say "sorry"; he said "I\'m really sorry it happened" in a CNN interview.','<b>US Congress (April 2018):</b> "We didn\'t take a broad enough view of our responsibility, and that was a big mistake. It was my mistake, and I\'m sorry. I started Facebook, I run it, and I\'m responsible for what happens here."'],q:'Which matters more: the first message, or the best message?'},
+    {n:4,t:'KFC UK · newspaper ad (February 2018)',card:['<b>The crisis:</b> after KFC changed its delivery company, hundreds of its UK restaurants ran out of chicken and closed for days.','<b>What they did:</b> a full-page ad in two national newspapers, the Metro and The Sun. The picture: an empty KFC bucket with the letters rearranged to spell "FCK".','<b>The words:</b> "Huge apologies to our customers, especially those who travelled out of their way to find we were closed." The ad used a casual, self-mocking voice and promised that more restaurants were reopening every day.'],q:'When does humor help an apology, and when does it destroy it?'}
+  ];
+  var LOTS=['Name the harm exactly: "We charged 40,000 of you twice, and some of you went overdrawn."','"We\'re sorry if anyone was inconvenienced."','Full refund within 24 hours, plus we pay any bank fees you were charged.','The CEO posts a video within 6 hours.','A joke to lighten the mood: "Our app just loved you twice as much!"','"Our payment partner caused this error."','"This was our failure. Our update wasn\'t tested properly."','A long, technical explanation of the software bug.','"Without admitting any legal liability, we…"','A personal email to every affected customer.','A 20% discount on your next order.','"This will never happen again." (no details)'];
+  var CRISES=[
+    ['C1','SkyHop Airlines','A passenger films a SkyHop crew member shouting at a traveler in a wheelchair. The video has 3 million views in a day.'],
+    ['C2','NovaBank','For 40 minutes, a bug in the NovaBank app showed some customers other people\'s transaction histories.'],
+    ['C3','GreenLeaf Supermarkets','GreenLeaf recalls its own-brand salad kits after 30 customers got sick. Inspectors found the problem in one GreenLeaf warehouse.'],
+    ['C4','PixelPlay Studios','PixelPlay\'s CEO promised a "perfect launch". The new game arrived full of bugs, and the company first refused refunds.'],
+    ['C5','Metro City Transit','The ticket system crashed for a morning. Thousands of passengers who couldn\'t pay were given fines anyway.'],
+    ['C6','Lumen Cosmetics','Lumen used a real customer\'s photo in a national ad campaign without asking her. She found out from a friend.']
+  ];
+  var A2=[
+    ['A2-1','JetBlue (2007)','After an ice storm on Valentine\'s Day 2007, JetBlue passengers were stuck on planes at New York\'s JFK airport for hours. CEO David Neeleman apologized in full-page newspaper ads and an online video, and introduced a "Customer Bill of Rights".'],
+    ['A2-2','Volkswagen (2015)','VW admitted using software that cheated emissions tests in about 11 million diesel cars worldwide. At a US car launch, VW America\'s CEO Michael Horn said: "We have totally screwed up."'],
+    ['A2-3','Starbucks (2018)','Two Black men waiting for a business meeting were arrested in a Philadelphia Starbucks. CEO Kevin Johnson called it a "reprehensible outcome", met the men in person, and closed more than 8,000 US stores for an afternoon of racial-bias training.'],
+    ['A2-4','Southwest Airlines (2022)','Southwest canceled more than 15,000 flights over the December 2022 holidays. CEO Bob Jordan apologized in a letter and offered affected travelers 25,000 frequent-flyer points plus refunds.'],
+    ['A2-5','CrowdStrike (2024)','A faulty CrowdStrike software update crashed about 8.5 million Windows computers worldwide in July 2024. CEO George Kurtz apologized, and the company later sent some partners a $10 Uber Eats gift card.'],
+    ['A2-6','Your own case','A real public apology your team chooses, approved by your teacher. It must have an original statement you can find and reliable reports about what happened next.']
+  ];
+  function esc(s){ return String(s).replace(/&(?!amp;)/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;'); }
+  var ps=document.getElementById('pstations');
+  STATIONS.forEach(function(s){ ps.insertAdjacentHTML('beforeend','<div class="station-print"><div class="c" style="font-size:14px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-dark)">Station '+s.n+'</div><h4>'+s.t+'</h4><ul>'+s.card.map(function(c){return '<li>'+c+'</li>';}).join('')+'</ul><div class="q"><b>Station question:</b> '+esc(s.q)+'</div><p class="note" style="margin-top:10px">Score each A from 0 to 2 · predict: success, failure or mixed · stick your verdict below.</p></div>'); });
+  var pl=document.getElementById('plots');
+  LOTS.forEach(function(l,i){ pl.insertAdjacentHTML('beforeend','<div class="lot"><b class="n">'+(i+1)+'</b><p>'+esc(l)+'</p></div>'); });
+  var pc=document.getElementById('pcrises');
+  CRISES.forEach(function(c){ pc.insertAdjacentHTML('beforeend','<div class="pcard"><div class="c">Crisis '+c[0]+' · invented case</div><h4>'+esc(c[1])+'</h4><p>'+esc(c[2])+'</p><p><b>Your task:</b> a 60-second apology from your CEO, with all four A\'s.</p></div>'); });
+  var pa=document.getElementById('pa2');
+  A2.forEach(function(c){ pa.insertAdjacentHTML('beforeend','<div class="pcard"><div class="c">Assignment 2 · '+c[0]+'</div><h4>'+esc(c[1])+'</h4><p>'+esc(c[2])+'</p></div>'); });
+
+  var KEY='sc-week3-teacher-v1', store={};
+  try{ store=JSON.parse(localStorage.getItem(KEY)||'{}')||{}; }catch(e){}
+  function persist(){ try{ localStorage.setItem(KEY, JSON.stringify(store)); }catch(e){} }
+  document.querySelectorAll('[data-f]').forEach(function(el){
+    var k=el.getAttribute('data-f');
+    if(store.hasOwnProperty(k)){ if(el.type==='checkbox') el.checked=!!store[k]; else el.value=store[k]; }
+    var h=function(){ store[k]=(el.type==='checkbox')?el.checked:el.value; persist(); if(k==='start') updateTimes(); };
+    el.addEventListener('change',h); el.addEventListener('input',h);
+  });
+  function updateTimes(){
+    var s=document.getElementById('start').value, base=null;
+    if(/^\d{2}:\d{2}$/.test(s)){ var p=s.split(':'); base=(+p[0])*60+(+p[1]); }
+    document.querySelectorAll('[data-at]').forEach(function(el){
+      var m=+el.getAttribute('data-at');
+      if(base===null){ el.textContent=Math.floor(m/60)+':'+String(m%60).padStart(2,'0'); }
+      else{ var t=(base+m)%1440, h=Math.floor(t/60), mm=t%60; el.textContent=(((h+11)%12)+1)+':'+String(mm).padStart(2,'0'); }
+    });
+  }
+  updateTimes();
+  var clock=document.getElementById('clock'), startBtn=document.getElementById('tStart');
+  var total=60, left=60, running=false, iv=null, endAt=0;
+  function show(){ var s=Math.max(0,Math.ceil(left)); clock.textContent=Math.floor(s/60)+':'+String(s%60).padStart(2,'0'); clock.classList.toggle('low', s>0&&s<=10); clock.classList.toggle('done', s===0); }
+  function beep(){ try{ var c=new (window.AudioContext||window.webkitAudioContext)(), o=c.createOscillator(), g=c.createGain(); o.frequency.value=880; o.connect(g); g.connect(c.destination); g.gain.setValueAtTime(.25,c.currentTime); o.start(); o.stop(c.currentTime+.6); }catch(e){} }
+  function tick(){ left=(endAt-Date.now())/1000; if(left<=0){ left=0; stop(); beep(); } show(); }
+  function start(){ if(left<=0) left=total; endAt=Date.now()+left*1000; running=true; startBtn.textContent='Pause'; iv=setInterval(tick,200); }
+  function stop(){ running=false; startBtn.textContent='Start'; clearInterval(iv); }
+  function set(sec){ stop(); total=sec; left=sec; show(); }
+  startBtn.addEventListener('click',function(){ running?stop():start(); });
+  document.getElementById('tReset').addEventListener('click',function(){ set(total); });
+  document.querySelectorAll('[data-sec]').forEach(function(b){ b.addEventListener('click',function(){ set(+b.getAttribute('data-sec')); start(); }); });
+  set(60);
+})();
+</script>
+</body>
+</html>
