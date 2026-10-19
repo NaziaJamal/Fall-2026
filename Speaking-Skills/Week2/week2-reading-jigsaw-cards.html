@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Week 2 Reading Jigsaw Cards</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0f2340; --blue:#143865; --blue-2:#1c4f8f; --gold:#8c7535; --gold-2:#d39f10; --red:#a91512;
+    --sky:#c1cddd; --sky-2:#e1e8f2; --sky-3:#edf2f9; --warm:#efe9d9; --paper:#fbf9f3;
+    --ink:#14213a; --soft:#3f4b5e; --muted:#5b6b82;
+  }
+  *{box-sizing:border-box}
+  body{margin:0; background:#dfe5ee; color:var(--ink); font-family:Inter, system-ui, sans-serif; line-height:1.55}
+  .bar{position:sticky; top:0; z-index:5; display:flex; flex-wrap:wrap; gap:8px; align-items:center; justify-content:center; background:var(--navy); color:#fff; padding:10px 16px}
+  .bar b{font-family:Lora, serif; color:var(--gold-2); margin-right:auto}
+  .bar a{color:#fff; text-decoration:none; font-weight:700; font-size:14px; border:1px solid rgba(255,255,255,.3); border-radius:8px; padding:5px 10px}
+  .bar button{font:inherit; font-weight:800; border:none; border-radius:8px; padding:7px 14px; background:var(--gold-2); color:var(--ink); cursor:pointer}
+
+  /* one printed page per .sheet (US Letter) */
+  .sheet{width:8.5in; min-height:11in; margin:20px auto; background:#fff; padding:.5in .55in; box-shadow:0 6px 24px rgba(0,0,0,.12); position:relative}
+  .cut{border:2px dashed #9aa7b8; border-radius:16px; padding:22px 26px; position:relative}
+  .cut + .cut{margin-top:18px}
+  .scissors{position:absolute; top:-13px; left:18px; background:#fff; padding:0 6px; font-size:16px; color:#9aa7b8}
+
+  .head{display:flex; align-items:center; gap:16px; margin-bottom:12px}
+  .letter{width:64px; height:64px; border-radius:16px; color:#fff; font-family:Lora, serif; font-weight:700; font-size:40px; display:flex; align-items:center; justify-content:center; flex:none}
+  .A .letter{background:var(--blue)} .B .letter{background:var(--gold-2); color:var(--ink)} .C .letter{background:var(--red)}
+  .A .cut{border-color:var(--blue)} .B .cut{border-color:var(--gold-2)} .C .cut{border-color:var(--red)}
+  .head h2{margin:0; font-family:Lora, serif; font-size:26px; line-height:1.15; color:var(--blue)}
+  .head p{margin:2px 0 0; font-size:13px; color:var(--muted); font-weight:600; letter-spacing:.04em; text-transform:uppercase}
+  .lvl{margin-left:auto; font-size:12px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; border:2px solid currentColor; border-radius:999px; padding:3px 10px; color:var(--muted); white-space:nowrap}
+
+  .text p{margin:0 0 9px; font-size:15px; text-align:left}
+  .text p:last-child{margin-bottom:0}
+  .text sup{font-size:10px; font-weight:800; color:var(--gold)}
+  .quote{margin:14px 0; padding:10px 16px; border-left:5px solid var(--gold-2); background:var(--paper); border-radius:0 10px 10px 0; font-family:Lora, serif; font-style:italic; font-size:16.5px}
+  .quote small{display:block; font-family:Inter, sans-serif; font-style:normal; font-size:11px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; color:var(--gold); margin-bottom:2px}
+  .gloss{margin-top:12px; border-top:1px solid var(--sky); padding-top:10px; display:grid; grid-template-columns:1fr 1fr; gap:3px 18px; font-size:13px; color:var(--soft)}
+  .gloss b{color:var(--ink)}
+  .gloss .t{grid-column:1 / -1; font-size:11px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; color:var(--muted)}
+  .source{margin-top:10px; font-size:11px; color:var(--muted)}
+
+  /* task cards */
+  .task h3{margin:0 0 8px; font-family:Lora, serif; font-size:21px; color:var(--blue)}
+  .task ol{margin:0; padding-left:22px}
+  .task li{margin:0 0 6px; font-size:15px}
+  .lines{display:block; border-bottom:1px solid #b7c2d1; height:26px}
+  .task .rule{margin-top:10px; font-weight:800; color:var(--red); font-size:14px}
+  .two{display:grid; grid-template-columns:1fr 1fr; gap:18px}
+  table{width:100%; border-collapse:collapse; font-size:14px}
+  th{background:var(--blue); color:#fff; text-align:left; padding:7px 9px}
+  td{border-bottom:1px solid var(--sky-2); padding:7px 9px; vertical-align:top}
+  td.write{height:72px}
+
+  /* teacher page */
+  .teacher h1{font-family:Lora, serif; color:var(--blue); font-size:26px; margin:0 0 2px}
+  .teacher .sub{color:var(--muted); margin:0 0 8px; font-size:13px}
+  .teacher h3{font-size:13px; letter-spacing:.08em; text-transform:uppercase; color:var(--gold); margin:10px 0 4px}
+  .teacher li, .teacher p{font-size:13px; margin:3px 0}
+  .teacher table{font-size:12.5px}
+  .teacher td, .teacher th{padding:5px 8px}
+  .teacher ol{margin:4px 0}
+  .pill{display:inline-block; font-size:12px; font-weight:800; border-radius:999px; padding:2px 9px; color:#fff}
+  .pA{background:var(--blue)} .pB{background:var(--gold-2); color:var(--ink)} .pC{background:var(--red)}
+
+  @media print{
+    @page{size:letter; margin:0}
+    body{background:#fff}
+    .bar{display:none}
+    .sheet{margin:0; box-shadow:none; width:8.5in; height:10.5in; min-height:0; padding:.4in .5in; overflow:hidden; break-inside:avoid}
+    .sheet + .sheet{break-before:page}
+    *{-webkit-print-color-adjust:exact; print-color-adjust:exact}
+  }
+  @media (max-width:860px){
+    .sheet{width:auto; min-height:0; margin:12px; padding:20px}
+    .two,.gloss{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <b>Week 2 · Reading Jigsaw Cards</b>
+  <a href="#teacher">Teacher page</a><a href="#A">Card A</a><a href="#B">Card B</a><a href="#C">Card C</a><a href="#tasks">Task cards</a>
+  <button onclick="window.print()">🖨 Print</button>
+</div>
+
+<!-- ================= TEACHER PAGE ================= -->
+<section class="sheet teacher" id="teacher">
+  <h1>Three Rooms Jigsaw · Teacher page</h1>
+  <p class="sub">Week 2 · Your Idea · Chris Anderson, <i>TED Talks</i>, Ch. 2 "Idea Building" · 35 minutes · <b>Don't hand this page to students</b></p>
+
+  <h3>What to print</h3>
+  <table>
+    <tr><th>Page</th><th>What it is</th><th>How many</th></tr>
+    <tr><td>2</td><td><span class="pill pA">A</span> Reading card: Sophie's gift</td><td>One per student in group A</td></tr>
+    <tr><td>3</td><td><span class="pill pB">B</span> Reading card: What is an idea?</td><td>One per student in group B</td></tr>
+    <tr><td>4</td><td><span class="pill pC">C</span> Reading card: "I have nothing to say"</td><td>One per student in group C</td></tr>
+    <tr><td>5</td><td>Expert card + teaching-group notes (cut in two)</td><td>One per student</td></tr>
+  </table>
+  <p style="margin-top:6px">Card A is the hardest: give it to B2+. B and C suit B2. Each card is a summary in simpler English with one short quote from Anderson.</p>
+
+  <h3>Steps (35 min)</h3>
+  <ol>
+    <li><b>Predict (3 min).</b> Show the subtitle "The Gift in Every Great Talk." Pairs: what gift can a talk give?</li>
+    <li><b>Expert groups (10 min).</b> Groups A, B and C read their card and complete the top half of page 5. Check every expert can explain the message without reading.</li>
+    <li><b>Teaching groups (10 min).</b> New groups of three (one A, one B, one C). Each expert teaches for 3 minutes; the others write notes in the bottom half of page 5. The group writes one summary sentence.</li>
+    <li><b>Check (4 min).</b> Worksheet B4 true/false. Go back to the Sophie predictions from the warm-up.</li>
+    <li><b>Find your idea (8 min).</b> Students answer two questions from the box on Card C with a partner.</li>
+  </ol>
+
+  <h3>Key points students should find</h3>
+  <table>
+    <tr><th style="width:9%">Card</th><th>Main message</th><th style="width:34%">Must notice</th></tr>
+    <tr><td><span class="pill pA">A</span></td><td>A great talk gives the audience a gift: an idea they keep. Sophie Scott changed how Anderson sees laughter. His own difficult talk worked because it planted one clear idea about TED.</td><td>The speaker's mission: rebuild an idea that matters to you inside the listener's mind.</td></tr>
+    <tr><td><span class="pill pB">B</span></td><td>Anyone with something worth saying can give a powerful talk. An idea can be simple. Many people underestimate their own ideas; style without substance is bad.</td><td>An idea = anything that can change how people see the world. The five kinds of idea.</td></tr>
+    <tr><td><span class="pill pC">C</span></td><td>"I have nothing to say" is often low confidence. Others may see value you can't. Your experience is unique, and a simple story with a lesson can be a great talk.</td><td>The paradox of seeing yourself only from the inside. The questions for finding an idea.</td></tr>
+  </table>
+
+  <h3>Sensitive moment</h3>
+  <p>Card B mentions Anderson's view that people who overrate their ideas are "often male" and those who underrate them "often female." If students react, turn it into: <i>"Do <u>you</u> underestimate your own ideas?"</i></p>
+
+  <p class="source">Cards summarize Chris Anderson, <i>TED Talks: The Official TED Guide to Public Speaking</i> (2016), Ch. 2, in simpler English. The three short quotes are marked; everything else is a classroom summary. Students who want the full text can read the chapter.</p>
+</section>
+
+<!-- ================= CARD A ================= -->
+<section class="sheet A" id="A">
+  <div class="cut">
+    <span class="scissors">✂</span>
+    <div class="head">
+      <div class="letter">A</div>
+      <div><h2>Sophie's gift</h2><p>Reading card · Expert group A</p></div>
+      <span class="lvl">B2+</span>
+    </div>
+    <div class="text">
+      <p><b>The talk.</b> In 2015, the laughter scientist Sophie Scott spoke at TED. She played recordings of people laughing, and the audience was soon laughing too. Laughter, she showed, is a strange sound: more like an animal call than speech.</p>
+      <p><b>The gift.</b> The talk was fun, but for Anderson the real value came later. Her core idea (that laughter helps people turn social stress into a feeling of connection) stayed in his mind. Now, whenever he sees people laughing together, he understands it differently. That, he says, is what a great talk gives you: not just a good time, but an idea you keep.</p>
+    </div>
+    <div class="quote"><small>Anderson's words</small>"Your number-one mission as a speaker is to take something that matters deeply to you and to rebuild it inside the minds of your listeners."</div>
+    <div class="text">
+      <p><b>His own example.</b> Anderson describes the scariest talk of his life: he was taking over TED from its founder and had 15 minutes to win the audience's support. The talk wasn't perfect, but it worked because it gave people <b>one clear idea</b>: TED mattered because it brought people from every field together to understand each other, so it should belong to the public, not to one person. With that idea in their minds, the audience stopped worrying about the change in leadership.</p>
+      <p><b>The lesson:</b> a talk succeeds when the audience leaves with one idea they can hold on to, value, and be changed by.</p>
+    </div>
+    <div class="gloss">
+      <span class="t">Word help</span>
+      <div><b>howling with laughter</b>: laughing very loudly</div>
+      <div><b>phenomenon</b>: something that happens or exists</div>
+      <div><b>social bonding</b>: feeling close to other people</div>
+      <div><b>founder</b>: the person who started an organization</div>
+      <div><b>field / discipline</b>: an area of work or study</div>
+      <div><b>nonprofit</b>: an organization that doesn't try to make money</div>
+    </div>
+    <p class="source">Adapted from Chris Anderson, <i>TED Talks</i> (2016), Ch. 2.</p>
+  </div>
+</section>
+
+<!-- ================= CARD B ================= -->
+<section class="sheet B" id="B">
+  <div class="cut">
+    <span class="scissors">✂</span>
+    <div class="head">
+      <div class="letter">B</div>
+      <div><h2>What is an idea?</h2><p>Reading card · Expert group B</p></div>
+      <span class="lvl">B2</span>
+    </div>
+    <div class="text">
+      <p><b>The main message of the book:</b> if you have something worth saying, you can give a powerful talk. Confidence and smooth speaking matter much less than having a real idea.</p>
+      <p><b>What counts as an idea?</b> Anderson uses the word very broadly. It doesn't have to be a big discovery or invention. It could be:</p>
+      <p style="padding-left:14px">① a simple <b>how-to</b><br>② an insight told through a <b>story</b><br>③ an <b>image</b> with meaning<br>④ a <b>hope</b> for the future<br>⑤ a <b>reminder</b> of what matters in life</p>
+    </div>
+    <div class="quote"><small>Anderson's words</small>"An idea is anything that can change how people see the world."</div>
+    <div class="text">
+      <p>Putting a strong idea into someone's mind is a valuable gift; a little of you becomes part of them.</p>
+      <p><b>Are your ideas good enough?</b> Anderson says people judge this badly. Some speakers (often men, in his view) talk a lot but say little of value. Many others (often women, he says) think their work and experience are less important than they really are.</p>
+      <p><b>A warning:</b> if you just want to be a star on stage, work on something worth sharing first. Style without substance is awful.</p>
+      <p><b>The good news:</b> most people have more to share than they think. Your life and experiences are unique. The job is to find the parts that are worth sharing.</p>
+    </div>
+    <div class="gloss">
+      <span class="t">Word help</span>
+      <div><b>stage presence</b>: looking confident on stage</div>
+      <div><b>insight</b>: a clear, deep understanding</div>
+      <div><b>underestimate</b>: think something is less important than it is</div>
+      <div><b>charisma</b>: personal attraction that makes people follow you</div>
+      <div><b>substance</b>: real, important content</div>
+      <div><b>work out</b>: find the answer</div>
+    </div>
+    <p class="source">Adapted from Chris Anderson, <i>TED Talks</i> (2016), Ch. 2.</p>
+  </div>
+</section>
+
+<!-- ================= CARD C ================= -->
+<section class="sheet C" id="C">
+  <div class="cut">
+    <span class="scissors">✂</span>
+    <div class="head">
+      <div class="letter">C</div>
+      <div><h2>"I have nothing to say"</h2><p>Reading card · Expert group C</p></div>
+      <span class="lvl">B2</span>
+    </div>
+    <div class="text">
+      <p><b>The worry.</b> Many people need to give a talk (for a class, at work, or for a community group) and feel they have nothing interesting to say. They think they aren't creative, clever, or passionate enough.</p>
+      <p><b>Anderson's honest answer.</b> A talk does need some depth. For some people, the best choice is to keep exploring life and come back to speaking later.</p>
+      <p><b>But first, check yourself.</b> Maybe the real problem is low confidence. Anderson points out a paradox: you can only see yourself from the inside, so you may miss what is special about you.</p>
+    </div>
+    <div class="quote"><small>Anderson's words</small>"The bits that others find remarkable in you may be completely invisible to you."</div>
+    <div class="text">
+      <p><b>What to do.</b> Ask people who know you well what they find interesting about you. And remember that your experience of life is completely your own; nobody else has lived your days. Many great talks are just a personal story with a simple lesson, so start noticing moments that surprise you.</p>
+      <p><b>Stories work.</b> People love stories, and anyone can learn to tell one. A familiar lesson is fine, because people need reminding. An important idea in a fresh story can make a great talk.</p>
+    </div>
+    <div class="quote" style="font-family:Inter,sans-serif;font-style:normal;font-size:14.5px"><small>Questions to help you find your idea</small>
+      • What stands out in your work or life in the last few years?<br>
+      • What recently excited you, or made you angry?<br>
+      • What are you most proud of?<br>
+      • When did someone last tell you, "That's really interesting"?<br>
+      • If you could spread one idea to everyone, what would it be?
+    </div>
+    <p class="source">Adapted from Chris Anderson, <i>TED Talks</i> (2016), Ch. 2.</p>
+  </div>
+</section>
+
+<!-- ================= TASK CARDS ================= -->
+<section class="sheet" id="tasks">
+  <div class="cut task">
+    <span class="scissors">✂</span>
+    <h3>Expert card · Prepare to teach your part</h3>
+    <p style="margin:0 0 8px;font-size:14px;color:var(--muted)">My part (circle): <b style="font-size:16px">A · B · C</b> &nbsp;·&nbsp; 10 minutes with your expert group</p>
+    <ol>
+      <li>The most important sentence in our part is… <span class="lines"></span><span class="lines"></span></li>
+      <li>One example the writer gives is… <span class="lines"></span></li>
+      <li>In our own words, the message is… <span class="lines"></span><span class="lines"></span></li>
+      <li>A question we want to ask the other groups: <span class="lines"></span></li>
+    </ol>
+    <p class="rule">Rule: you will teach your part without reading from the card.</p>
+  </div>
+
+  <div class="cut task">
+    <span class="scissors">✂</span>
+    <h3>Teaching group · Notes</h3>
+    <p style="margin:0 0 8px;font-size:14px;color:var(--muted)">Listen to each expert (3 minutes each). Take notes on the <b>other two</b> parts.</p>
+    <table>
+      <tr><th style="width:26%">Part</th><th>Main message (notes)</th></tr>
+      <tr><td><b>A</b> · Sophie's gift</td><td class="write"></td></tr>
+      <tr><td><b>B</b> · What is an idea?</td><td class="write"></td></tr>
+      <tr><td><b>C</b> · "I have nothing to say"</td><td class="write"></td></tr>
+    </table>
+    <p style="margin:10px 0 4px;font-size:14px"><b>Our group summary:</b> "In this chapter, Anderson says that…"</p>
+    <span class="lines"></span><span class="lines"></span>
+  </div>
+</section>
+
+</body>
+</html>
