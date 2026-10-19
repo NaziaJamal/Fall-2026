@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Taboo — Speaking &amp; Listening Lab</title>
+<style>
+  :root{
+    --bg:#2a0e1a;
+    --bg2:#4a1528;
+    --panel:#3a1322;
+    --card:#5a1c33;
+    --accent:#ff5c8a;
+    --accent-2:#ffd23f;
+    --good:#5ee0a0;
+    --bad:#ff7a7a;
+    --easy:#5ee0a0;
+    --med:#ffd23f;
+    --hard:#ff8787;
+    --text:#fff0f5;
+    --muted:#e0a9bf;
+    --line:#6e2840;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{height:100%;}
+  body{
+    font-family:'Trebuchet MS','Segoe UI',system-ui,sans-serif;
+    background:radial-gradient(circle at 50% 0%,var(--bg2),var(--bg));
+    color:var(--text);height:100vh;display:flex;flex-direction:column;
+    padding:14px 18px;overflow:hidden;
+  }
+  button{font-family:inherit;cursor:pointer;border:none;border-radius:10px;font-weight:bold;transition:transform .08s,filter .15s,background .15s;}
+  button:active{transform:scale(.96);}
+  .btn{background:var(--card);color:var(--text);border:1px solid var(--line);padding:9px 16px;font-size:15px;}
+  .btn:hover{filter:brightness(1.18);}
+  .btn-primary{background:var(--accent);color:#3a0514;padding:12px 24px;font-size:17px;}
+  .btn-good{background:var(--good);color:#06301c;}
+  .btn-bad{background:var(--bad);color:#3a0808;}
+  .btn-accent{background:var(--accent-2);color:#3a2c00;}
+
+  .topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-shrink:0;margin-bottom:12px;flex-wrap:wrap;}
+  .brand{font-size:clamp(20px,2.4vw,30px);font-weight:bold;letter-spacing:1px;color:var(--accent);}
+  .brand span{color:var(--accent-2);}
+  .settings{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+  .settings label{font-size:13px;color:var(--muted);}
+  .settings input{width:52px;font-size:14px;padding:5px 6px;border-radius:7px;border:1px solid var(--line);background:var(--panel);color:var(--text);text-align:center;}
+  .diff-toggle{display:flex;gap:4px;}
+  .diff-toggle button{padding:6px 12px;font-size:13px;border:1px solid var(--line);border-radius:7px;background:var(--panel);color:var(--muted);}
+  .diff-toggle button.on{background:var(--accent);color:#3a0514;}
+
+  .stage{flex:1;display:flex;gap:16px;min-height:0;}
+  .main{flex:1;display:flex;flex-direction:column;min-width:0;}
+
+  .card-area{
+    flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    background:linear-gradient(160deg,var(--card),var(--bg2));
+    border:2px solid var(--line);border-radius:22px;padding:24px 34px;text-align:center;position:relative;
+  }
+  .diff-badge{position:absolute;top:18px;left:22px;font-size:13px;font-weight:bold;text-transform:uppercase;letter-spacing:2px;padding:5px 15px;border-radius:20px;display:none;}
+  .diff-badge.show{display:block;}
+  .diff-badge.easy{background:var(--easy);color:#06301c;}
+  .diff-badge.medium{background:var(--med);color:#3a2c00;}
+  .diff-badge.hard{background:var(--hard);color:#4a0d0d;}
+
+  /* Hidden state: screen faces the class, word is hidden until describer reveals */
+  .hidden-state{display:flex;flex-direction:column;align-items:center;gap:20px;}
+  .hidden-state .lead{font-size:clamp(20px,2.6vw,30px);color:var(--muted);line-height:1.4;max-width:640px;}
+  .hidden-state .big-ready{font-size:clamp(26px,3.4vw,42px);font-weight:bold;color:var(--accent-2);}
+
+  /* Card state: the word + forbidden words */
+  .card-state{display:none;flex-direction:column;align-items:center;width:100%;}
+  .card-state.show{display:flex;}
+  .word-label{font-size:clamp(13px,1.5vw,18px);text-transform:uppercase;letter-spacing:4px;color:var(--accent-2);font-weight:bold;margin-bottom:10px;}
+  .word-target{font-size:clamp(40px,6.5vw,92px);font-weight:bold;line-height:1.05;margin-bottom:24px;color:#fff;}
+  .forbidden-label{font-size:clamp(13px,1.5vw,17px);text-transform:uppercase;letter-spacing:2px;color:var(--bad);font-weight:bold;margin-bottom:12px;}
+  .forbidden-list{display:flex;flex-direction:column;gap:10px;width:100%;max-width:560px;}
+  .forbidden{
+    background:rgba(255,122,122,.14);border:2px solid var(--bad);border-radius:12px;
+    padding:12px 20px;font-size:clamp(20px,2.8vw,34px);font-weight:bold;color:#fff;
+    display:flex;align-items:center;justify-content:center;gap:10px;
+  }
+  .forbidden::before{content:"🚫";font-size:.8em;}
+
+  .controls-row{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:14px;flex-shrink:0;flex-wrap:wrap;}
+  .controls-row .btn,.controls-row .btn-good,.controls-row .btn-bad,.controls-row .btn-primary{padding:13px 24px;font-size:17px;}
+  .round-info{font-size:14px;color:var(--muted);text-align:center;margin-top:8px;}
+  .round-info b{color:var(--accent-2);}
+
+  /* Sidebar */
+  .side{width:260px;flex-shrink:0;display:flex;flex-direction:column;gap:14px;}
+  .timer-box{background:var(--panel);border-radius:16px;padding:16px;text-align:center;border:1px solid var(--line);}
+  .timer-display{font-size:62px;font-weight:bold;color:var(--accent-2);font-variant-numeric:tabular-nums;line-height:1;}
+  .timer-display.warn{color:var(--bad);animation:pulse .6s infinite;}
+  @keyframes pulse{50%{opacity:.4;}}
+  .timer-set{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:8px;}
+  .timer-set input{width:60px;font-size:15px;padding:4px;border-radius:6px;border:1px solid var(--line);background:var(--bg);color:var(--text);text-align:center;}
+  .timer-btns{display:flex;gap:6px;justify-content:center;margin-top:10px;}
+  .timer-btns .btn{padding:7px 12px;font-size:13px;}
+
+  .scores-box{background:var(--panel);border-radius:16px;padding:14px;border:1px solid var(--line);flex:1;overflow-y:auto;}
+  .scores-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;}
+  .scores-title{font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);font-weight:bold;}
+  .team{background:var(--bg);border-radius:12px;padding:10px;border:1px solid var(--line);margin-bottom:8px;}
+  .team.active{border-color:var(--accent-2);box-shadow:0 0 0 1px var(--accent-2);}
+  .team-name{font-size:15px;font-weight:bold;color:var(--text);background:transparent;border:none;border-bottom:1px dashed var(--line);width:100%;padding:2px 0;margin-bottom:6px;}
+  .team-name:focus{outline:none;border-bottom-color:var(--accent-2);}
+  .score-row{display:flex;align-items:center;gap:8px;}
+  .score-val{flex:1;font-size:26px;font-weight:bold;color:var(--accent-2);background:transparent;border:none;text-align:center;font-variant-numeric:tabular-nums;}
+  .score-val:focus{outline:1px solid var(--accent-2);border-radius:6px;}
+  .mini{padding:3px 10px;font-size:16px;background:var(--card);color:var(--text);border:1px solid var(--line);border-radius:6px;font-weight:bold;}
+  .mini:hover{filter:brightness(1.25);}
+  .turn-label{font-size:12px;color:var(--accent-2);text-align:center;margin-top:2px;font-weight:bold;min-height:14px;}
+
+  /* Welcome */
+  .welcome{position:fixed;inset:0;z-index:100;background:radial-gradient(circle at 50% 20%,var(--bg2),var(--bg));display:flex;align-items:center;justify-content:center;padding:30px;transition:opacity .4s;overflow-y:auto;}
+  .welcome.hide{opacity:0;pointer-events:none;}
+  .welcome-card{max-width:760px;width:100%;text-align:center;background:linear-gradient(160deg,var(--panel),var(--bg2));border:2px solid var(--accent);border-radius:24px;padding:40px 46px;box-shadow:0 24px 70px rgba(0,0,0,.5);}
+  .welcome-card .big-title{font-size:clamp(30px,4.5vw,52px);font-weight:bold;color:var(--accent);margin-bottom:6px;}
+  .welcome-card .big-title span{color:var(--accent-2);}
+  .welcome-card .sub{font-size:clamp(17px,2.1vw,23px);color:var(--text);margin-bottom:22px;}
+  .rules{text-align:left;background:var(--bg);border:1px solid var(--line);border-radius:16px;padding:20px 26px;margin-bottom:22px;}
+  .rules h3{font-size:15px;color:var(--accent);text-transform:uppercase;letter-spacing:2px;margin-bottom:12px;}
+  .rules ol{list-style:none;counter-reset:step;}
+  .rules li{counter-increment:step;position:relative;padding-left:44px;margin-bottom:11px;font-size:clamp(14px,1.8vw,18px);line-height:1.4;}
+  .rules li::before{content:counter(step);position:absolute;left:0;top:0;width:30px;height:30px;border-radius:50%;background:var(--accent);color:#3a0514;font-weight:bold;display:flex;align-items:center;justify-content:center;}
+  .rules li b{color:var(--accent-2);}
+  .setup-tip{font-size:13.5px;color:var(--muted);line-height:1.55;text-align:left;background:rgba(255,210,63,.1);border-left:4px solid var(--accent-2);border-radius:8px;padding:12px 16px;margin-bottom:22px;}
+  .setup-tip b{color:var(--accent-2);}
+</style>
+</head>
+<body>
+
+<div class="welcome" id="welcome">
+  <div class="welcome-card">
+    <div class="big-title">🙊 TABOO <span>LAB</span></div>
+    <div class="sub">Describe the word — without saying the forbidden words!</div>
+    <div class="rules">
+      <h3>How to play</h3>
+      <ol>
+        <li>One player per team is the <b>describer</b>. Only they look at the screen.</li>
+        <li>They describe the <b>target word</b> so their team can guess it — but they can't say the word itself or any of the <b>forbidden words</b> under it.</li>
+        <li>No spelling, no "rhymes with," no hand gestures — <b>only talking!</b></li>
+        <li>Team guesses it before the timer? <b>+1 point</b>, next word! Stuck or rule broken? <b>Skip it.</b></li>
+      </ol>
+    </div>
+    <div class="setup-tip">
+      <b>Classroom setup:</b> the describer stands by the laptop or holds a tablet, facing their team, so only they see the word. The class screen can stay on the big <b>timer</b> and scores. Rotate the describer each round so everyone gets a turn to talk.
+    </div>
+    <button class="btn-primary" id="startGame" style="font-size:22px;padding:15px 40px;">Let's play! ▶</button>
+  </div>
+</div>
+
+<div class="topbar">
+  <div class="brand">🙊 TABOO <span>LAB</span></div>
+  <div class="settings">
+    <label>Difficulty</label>
+    <div class="diff-toggle" id="diffToggle">
+      <button data-d="all" class="on">All</button>
+      <button data-d="easy">Easy</button>
+      <button data-d="medium">Medium</button>
+      <button data-d="hard">Hard</button>
+    </div>
+    <label style="margin-left:8px;">Teams</label>
+    <input type="number" id="teamCount" min="2" max="8" value="5">
+    <button class="btn" id="applyTeams">Set</button>
+  </div>
+</div>
+
+<div class="stage">
+  <div class="main">
+    <div class="card-area">
+      <div class="diff-badge" id="diffBadge"></div>
+
+      <div class="hidden-state" id="hiddenState">
+        <div class="big-ready">🙈 Word hidden</div>
+        <div class="lead">Describer: get ready! Press <b>"Reveal word"</b> when your team is set — then describe it without the forbidden words.</div>
+      </div>
+
+      <div class="card-state" id="cardState">
+        <div class="word-label">Describe this word</div>
+        <div class="word-target" id="wordTarget"></div>
+        <div class="forbidden-label">🚫 Don't say these:</div>
+        <div class="forbidden-list" id="forbiddenList"></div>
+      </div>
+    </div>
+
+    <div class="controls-row">
+      <button class="btn-primary" id="revealBtn">👁 Reveal word &amp; start</button>
+      <button class="btn-good" id="gotBtn">✓ Got it! (+1)</button>
+      <button class="btn-accent" id="skipBtn">⤳ Skip</button>
+      <button class="btn-bad" id="hideBtn">🙈 Hide</button>
+    </div>
+    <div class="round-info" id="roundInfo"></div>
+  </div>
+
+  <div class="side">
+    <div class="timer-box">
+      <div class="timer-display" id="timer">1:00</div>
+      <div class="timer-set">
+        <label style="font-size:12px;color:var(--muted);">Seconds:</label>
+        <input type="number" id="secInput" min="15" max="300" value="60">
+      </div>
+      <div class="timer-btns">
+        <button class="btn" id="tStart">Start</button>
+        <button class="btn" id="tPause">Pause</button>
+        <button class="btn" id="tReset">Reset</button>
+      </div>
+    </div>
+    <div class="scores-box">
+      <div class="scores-head">
+        <div class="scores-title">Scoreboards</div>
+        <button class="btn" id="nextTeam" style="padding:3px 9px;font-size:11px;">Next team →</button>
+      </div>
+      <div id="teams"></div>
+      <div class="turn-label" id="turnLabel"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+const $=id=>document.getElementById(id);
+
+// ---------- Word bank: target + forbidden words ----------
+const WORDS={
+  easy:[
+    {w:"Dog",f:["Cat","Bark","Pet","Animal"]},
+    {w:"Coffee",f:["Drink","Morning","Bean","Hot"]},
+    {w:"Teacher",f:["School","Class","Student","Learn"]},
+    {w:"Rain",f:["Water","Sky","Wet","Weather"]},
+    {w:"Banana",f:["Yellow","Fruit","Monkey","Peel"]},
+    {w:"Car",f:["Drive","Road","Wheel","Vehicle"]},
+    {w:"Beach",f:["Sand","Sea","Sun","Swim"]},
+    {w:"Doctor",f:["Hospital","Sick","Nurse","Medicine"]},
+    {w:"Pizza",f:["Cheese","Italy","Food","Round"]},
+    {w:"Phone",f:["Call","Mobile","Text","Smart"]},
+    {w:"Winter",f:["Cold","Snow","Season","Ice"]},
+    {w:"Book",f:["Read","Page","Story","Library"]},
+    {w:"Music",f:["Song","Listen","Sound","Sing"]},
+    {w:"Apple",f:["Fruit","Red","Tree","Eat"]},
+    {w:"House",f:["Home","Live","Door","Building"]},
+    {w:"Bus",f:["Drive","Passenger","Stop","Public"]},
+  ],
+  medium:[
+    {w:"Birthday",f:["Cake","Party","Year","Candle"]},
+    {w:"Airport",f:["Plane","Fly","Travel","Gate"]},
+    {w:"Dentist",f:["Teeth","Mouth","Doctor","Clean"]},
+    {w:"Umbrella",f:["Rain","Wet","Open","Hold"]},
+    {w:"Library",f:["Book","Quiet","Read","Borrow"]},
+    {w:"Wedding",f:["Marry","Bride","Ring","Love"]},
+    {w:"Breakfast",f:["Morning","Eat","Eggs","Meal"]},
+    {w:"Mountain",f:["High","Climb","Snow","Tall"]},
+    {w:"Garden",f:["Flower","Plant","Grow","Green"]},
+    {w:"Festival",f:["Music","Celebrate","People","Event"]},
+    {w:"Recipe",f:["Cook","Food","Ingredient","Kitchen"]},
+    {w:"Passport",f:["Travel","Country","Photo","Airport"]},
+    {w:"Neighbour",f:["Next","House","Live","Nearby"]},
+    {w:"Souvenir",f:["Gift","Travel","Buy","Remember"]},
+    {w:"Traffic",f:["Car","Road","Jam","Slow"]},
+    {w:"Market",f:["Buy","Sell","Food","Stall"]},
+  ],
+  hard:[
+    {w:"Patience",f:["Wait","Calm","Time","Angry"]},
+    {w:"Jealousy",f:["Envy","Want","Angry","Feeling"]},
+    {w:"Retirement",f:["Work","Old","Stop","Job"]},
+    {w:"Tradition",f:["Culture","Custom","Old","Family"]},
+    {w:"Curiosity",f:["Question","Want","Know","Interest"]},
+    {w:"Deadline",f:["Time","Finish","Work","Date"]},
+    {w:"Volunteer",f:["Free","Help","Work","Money"]},
+    {w:"Superstition",f:["Luck","Belief","Black","Cat"]},
+    {w:"Procrastinate",f:["Later","Delay","Lazy","Wait"]},
+    {w:"Homesick",f:["Miss","Home","Away","Sad"]},
+    {w:"Generous",f:["Give","Kind","Money","Share"]},
+    {w:"Exhausted",f:["Tired","Sleep","Energy","Rest"]},
+    {w:"Compromise",f:["Agree","Middle","Both","Deal"]},
+    {w:"Reputation",f:["Famous","Know","Name","Opinion"]},
+    {w:"Overwhelmed",f:["Too","Much","Stress","Busy"]},
+    {w:"Nostalgia",f:["Past","Memory","Miss","Old"]},
+  ],
+};
+
+// ---------- State ----------
+let diffFilter='all', deck=[], deckPos=-1, current=null;
+let teams=[], activeTeam=0, roundGot=0, roundSkip=0;
+
+function buildDeck(){
+  let pool=[];
+  if(diffFilter==='all'){['easy','medium','hard'].forEach(d=>WORDS[d].forEach(x=>pool.push({...x,d})));}
+  else{WORDS[diffFilter].forEach(x=>pool.push({...x,d:diffFilter}));}
+  for(let i=pool.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[pool[i],pool[j]]=[pool[j],pool[i]];}
+  deck=pool; deckPos=-1;
+}
+
+function nextWord(){
+  deckPos++; if(deckPos>=deck.length){buildDeck();deckPos=0;}
+  current=deck[deckPos];
+  $('wordTarget').textContent=current.w;
+  $('forbiddenList').innerHTML=current.f.map(x=>`<div class="forbidden">${x}</div>`).join('');
+  const badge=$('diffBadge'); badge.className='diff-badge show '+current.d; badge.textContent=current.d;
+  showCard(true);
+}
+function showCard(show){
+  $('cardState').classList.toggle('show',show);
+  $('hiddenState').style.display=show?'none':'flex';
+  $('diffBadge').style.display=show?'block':'none';
+}
+
+function revealAndStart(){
+  nextWord();
+  resetTimer(); startTimer();
+  updateRoundInfo();
+}
+function gotIt(){
+  if(teams.length) teams[activeTeam].score++;
+  roundGot++;
+  renderTeams(); ding();
+  nextWord(); updateRoundInfo();
+}
+function skip(){ roundSkip++; buzz(); nextWord(); updateRoundInfo(); }
+function hideWord(){ showCard(false); stopTimer(); }
+
+function updateRoundInfo(){
+  $('roundInfo').innerHTML=`This turn — got: <b>${roundGot}</b> · skipped: <b>${roundSkip}</b> &nbsp;·&nbsp; ${teams.length?teams[activeTeam].name+' describing':''}`;
+}
+
+// ---------- Teams ----------
+const DEFAULT_NAMES=['Team 1','Team 2','Team 3','Team 4','Team 5','Team 6','Team 7','Team 8'];
+function buildTeams(n){
+  const prev={}; teams.forEach(t=>prev[t.id]=t);
+  teams=[];
+  for(let i=0;i<n;i++) teams.push(prev[i]||{id:i,name:DEFAULT_NAMES[i],score:0});
+  if(activeTeam>=n) activeTeam=0;
+  renderTeams();
+}
+function renderTeams(){
+  const box=$('teams'); box.innerHTML='';
+  teams.forEach(t=>{
+    const d=document.createElement('div');
+    d.className='team'+(t.id===activeTeam?' active':'');
+    d.innerHTML=`
+      <input class="team-name" value="${t.name.replace(/"/g,'&quot;')}" data-id="${t.id}">
+      <div class="score-row">
+        <button class="mini" data-add="${t.id}" data-amt="-1">−</button>
+        <input class="score-val" type="number" value="${t.score}" data-score="${t.id}">
+        <button class="mini" data-add="${t.id}" data-amt="1">+</button>
+      </div>`;
+    box.appendChild(d);
+  });
+  box.querySelectorAll('.team-name').forEach(inp=>inp.addEventListener('input',e=>teams[+e.target.dataset.id].name=e.target.value));
+  box.querySelectorAll('.score-val').forEach(inp=>inp.addEventListener('change',e=>{teams[+e.target.dataset.score].score=parseInt(e.target.value||0,10);}));
+  box.querySelectorAll('[data-add]').forEach(b=>b.addEventListener('click',e=>{
+    const id=+e.currentTarget.dataset.add, amt=+e.currentTarget.dataset.amt;
+    teams[id].score+=amt; renderTeams();
+  }));
+  $('turnLabel').textContent=teams.length?`${teams[activeTeam].name}'s turn to describe`:'';
+}
+function nextTeam(){
+  if(teams.length){ activeTeam=(activeTeam+1)%teams.length; roundGot=0; roundSkip=0; renderTeams(); updateRoundInfo(); hideWord(); }
+}
+
+// ---------- Timer ----------
+let remaining=60, ticker=null, running=false;
+function fmt(s){const m=Math.floor(s/60);const ss=s%60;return m+':'+(ss<10?'0':'')+ss;}
+function getSecs(){return parseInt($('secInput').value||60,10);}
+function updateTimer(){$('timer').textContent=fmt(Math.max(0,remaining));$('timer').classList.toggle('warn',remaining<=10&&remaining>0);}
+function startTimer(){if(running)return;running=true;ticker=setInterval(()=>{remaining--;updateTimer();if(remaining<=0){stopTimer();ringBell();hideWord();}},1000);}
+function stopTimer(){running=false;if(ticker){clearInterval(ticker);ticker=null;}}
+function resetTimer(){stopTimer();remaining=getSecs();$('timer').classList.remove('warn');updateTimer();}
+
+function tone(freq,dur,delay,type){
+  try{
+    const ctx=tone.ctx||(tone.ctx=new (window.AudioContext||window.webkitAudioContext)());
+    const o=ctx.createOscillator(),g=ctx.createGain();
+    o.type=type||'sine';o.frequency.value=freq;o.connect(g);g.connect(ctx.destination);
+    const t=ctx.currentTime+(delay||0);
+    g.gain.setValueAtTime(0.001,t);
+    g.gain.exponentialRampToValueAtTime(0.4,t+0.02);
+    g.gain.exponentialRampToValueAtTime(0.001,t+dur);
+    o.start(t);o.stop(t+dur+0.05);
+  }catch(e){}
+}
+function ding(){ tone(660,0.12,0,'sine'); tone(990,0.2,0.09,'sine'); }
+function buzz(){ tone(170,0.25,0,'sawtooth'); }
+function ringBell(){ [0,0.22,0.44,0.66].forEach(d=>tone(880,0.5,d,'sine')); }
+
+// ---------- Wire up ----------
+$('startGame').addEventListener('click',()=>{ const w=$('welcome'); w.classList.add('hide'); setTimeout(()=>{w.style.display='none';},400); });
+$('revealBtn').addEventListener('click',revealAndStart);
+$('gotBtn').addEventListener('click',gotIt);
+$('skipBtn').addEventListener('click',skip);
+$('hideBtn').addEventListener('click',hideWord);
+$('tStart').addEventListener('click',startTimer);
+$('tPause').addEventListener('click',stopTimer);
+$('tReset').addEventListener('click',resetTimer);
+$('nextTeam').addEventListener('click',nextTeam);
+$('applyTeams').addEventListener('click',()=>{buildTeams(Math.min(8,Math.max(2,parseInt($('teamCount').value||5,10))));});
+$('secInput').addEventListener('change',()=>{if(!running){remaining=getSecs();updateTimer();}});
+$('diffToggle').querySelectorAll('button').forEach(b=>b.addEventListener('click',e=>{
+  $('diffToggle').querySelectorAll('button').forEach(x=>x.classList.remove('on'));
+  e.target.classList.add('on'); diffFilter=e.target.dataset.d; buildDeck();
+}));
+
+// ---------- Init ----------
+buildDeck();
+buildTeams(5);
+resetTimer();
+updateRoundInfo();
+</script>
+</body>
+</html>
