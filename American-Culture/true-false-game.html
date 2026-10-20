@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>True or False Line — Week 3</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1F2B4D;--navy-d:#16203A;--red:#8E0E0E;--panel:#EEF1F6;--ink:#26304A;--mute:#5D6782;
+  --true:#1d7a46;--true-l:#e3f4ea;--false:#b3261e;--false-l:#fbe7e6}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:#0b1120;overflow:hidden}
+body{font-family:"Source Sans 3",Calibri,Arial,sans-serif;color:var(--ink)}
+#viewport{position:fixed;inset:0;display:flex;align-items:center;justify-content:center}
+#stage{width:1280px;height:720px;position:relative;flex:none;background:#fff;overflow:hidden}
+h1,h2{font-family:"Source Serif 4",Georgia,serif;line-height:1.15}
+.screen{position:absolute;inset:0;display:none}
+.screen.on{display:block}
+/* intro */
+#intro{background:var(--navy);color:#fff;padding:56px 72px}
+#intro .kicker{color:#F2C4C4}
+.kicker{font-weight:700;font-size:18px;letter-spacing:.16em;text-transform:uppercase;color:var(--red)}
+#intro h1{font-size:76px;margin:12px 0 26px}
+.rules{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:10px}
+.rules div{background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.18);border-radius:12px;padding:20px 20px}
+.rules b{display:flex;width:46px;height:46px;border-radius:50%;background:var(--red);align-items:center;justify-content:center;font:700 24px "Source Serif 4",serif;margin-bottom:12px}
+.rules p{font-size:24px;line-height:1.3}
+.sides{display:flex;justify-content:space-between;margin-top:34px;font:700 34px "Source Sans 3",sans-serif}
+.sides span{padding:10px 26px;border-radius:10px}
+.sides .f{background:var(--false);}
+.sides .t{background:var(--true);}
+.start{margin-top:30px;text-align:center;font-size:22px;color:rgba(255,255,255,.75)}
+/* game */
+#game{background:#fff}
+.lane{position:absolute;top:0;bottom:0;width:150px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;font:700 34px "Source Sans 3",sans-serif;letter-spacing:.08em;transition:all .4s}
+.lane svg{width:70px;height:70px;stroke:currentColor;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.lane.left{left:0;background:var(--false-l);color:var(--false)}
+.lane.right{right:0;background:var(--true-l);color:var(--true)}
+.lane .w{writing-mode:vertical-rl;transform:rotate(180deg)}
+.lane.right .w{transform:none}
+.center{position:absolute;left:150px;right:150px;top:0;bottom:0;padding:36px 56px;display:flex;flex-direction:column}
+.top{display:flex;justify-content:space-between;align-items:center}
+.qnum{font-weight:700;font-size:20px;letter-spacing:.14em;color:var(--red);text-transform:uppercase}
+.dots{display:flex;gap:7px}
+.dots i{width:12px;height:12px;border-radius:50%;background:#d3d9e4;display:block}
+.dots i.done{background:var(--navy)}
+.dots i.cur{background:var(--red);transform:scale(1.25)}
+.statement{flex:1;display:flex;align-items:center;justify-content:center;text-align:center}
+.statement h2{font-size:54px;color:var(--navy);font-weight:700}
+.phase{min-height:200px;display:flex;align-items:center;justify-content:center}
+.instr{font-size:30px;font-weight:600;color:var(--mute);text-align:center}
+.instr b{color:var(--navy)}
+/* timer */
+.timer{display:flex;align-items:center;gap:34px}
+.ring{position:relative;width:170px;height:170px;flex:none}
+.ring svg{width:170px;height:170px;transform:rotate(-90deg)}
+.ring circle{fill:none;stroke-width:14}
+.ring .bg{stroke:#e3e7ef}
+.ring .fg{stroke:var(--navy);stroke-linecap:round;transition:stroke-dashoffset 1s linear,stroke .3s}
+.ring .num{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:700 54px "Source Sans 3",sans-serif;color:var(--navy)}
+.ring.low .fg{stroke:var(--red)} .ring.low .num{color:var(--red)}
+.talk h3{font:700 30px "Source Sans 3",sans-serif;color:var(--navy);margin-bottom:10px}
+.talk p{font-size:25px;line-height:1.45;color:var(--ink)}
+.talk p i{color:var(--mute)}
+.timeup{font:700 30px "Source Sans 3",sans-serif;color:var(--red)}
+/* reveal */
+.answer{display:flex;align-items:center;gap:30px;border-radius:14px;padding:22px 30px;width:100%;animation:pop .45s ease}
+.answer.t{background:var(--true-l);border:3px solid var(--true)}
+.answer.f{background:var(--false-l);border:3px solid var(--false)}
+.badge{font:800 50px "Source Sans 3",sans-serif;color:#fff;padding:12px 28px;border-radius:10px;flex:none;display:flex;align-items:center;gap:14px}
+.answer.t .badge{background:var(--true)} .answer.f .badge{background:var(--false)}
+.badge svg{width:46px;height:46px;stroke:#fff;stroke-width:3.5;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.answer p{font-size:27px;line-height:1.35;color:var(--ink)}
+@keyframes pop{from{transform:scale(.92);opacity:0}to{transform:none;opacity:1}}
+.lane.win{width:190px;font-size:40px;box-shadow:inset 0 0 0 6px currentColor}
+.lane.lose{opacity:.35}
+/* end */
+#end{background:var(--red);color:#fff;display:none;align-items:center;justify-content:center;flex-direction:column;text-align:center}
+#end.on{display:flex}
+#end h1{font-size:84px;margin:10px 0 18px}
+#end p{font-size:30px;max-width:900px;line-height:1.4}
+/* controls */
+#ui{position:fixed;right:0;bottom:0;display:flex;align-items:center;gap:8px;padding:8px;opacity:.35;transition:opacity .2s;z-index:5}
+#ui:hover,#ui:focus-within{opacity:1}
+#ui button,#ui select{font:600 14px "Source Sans 3",sans-serif;background:var(--navy);color:#fff;border:1px solid #fff;border-radius:6px;padding:7px 12px;cursor:pointer;min-height:36px}
+#nextBtn{background:var(--red)!important}
+@media print{#ui{display:none}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute"><defs>
+  <symbol id="arL" viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"/></symbol>
+  <symbol id="arR" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="ok" viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></symbol>
+  <symbol id="no" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+</defs></svg>
+
+<div id="viewport"><div id="stage">
+
+  <!-- INTRO -->
+  <section class="screen on" id="intro">
+    <div class="kicker">American Culture &nbsp;|&nbsp; Week 3 Warm-Up</div>
+    <h1>True or False Line</h1>
+    <div class="rules">
+      <div><b>1</b><p>Everyone lines up in the <strong>middle</strong> of the room.</p></div>
+      <div><b>2</b><p>Read the sentence. Is it true or false? <strong>Not sure? Guess!</strong></p></div>
+      <div><b>3</b><p>Move: <strong>TRUE → right</strong>, <strong>FALSE ← left</strong>.</p></div>
+      <div><b>4</b><p>Talk with the people on <strong>your side</strong> for <span class="tlen">90</span> seconds. Then we reveal the answer!</p></div>
+    </div>
+    <div class="sides"><span class="f">&larr; FALSE</span><span class="t">TRUE &rarr;</span></div>
+    <p class="start">Press <b>Space</b> or <b>&rarr;</b> to start</p>
+  </section>
+
+  <!-- GAME -->
+  <section class="screen" id="game">
+    <div class="lane left" id="laneF"><svg><use href="#arL"/></svg><span class="w">FALSE</span></div>
+    <div class="lane right" id="laneT"><svg><use href="#arR"/></svg><span class="w">TRUE</span></div>
+    <div class="center">
+      <div class="top"><span class="qnum" id="qnum">Sentence 1 of 12</span><span class="dots" id="dots"></span></div>
+      <div class="statement"><h2 id="stmt"></h2></div>
+      <div class="phase" id="phase"></div>
+    </div>
+  </section>
+
+  <!-- END -->
+  <section class="screen" id="end">
+    <div class="kicker" style="color:#F2C4C4">Warm-Up Complete</div>
+    <h1>Great Job!</h1>
+    <p>Which answer surprised you the most? Tell a partner, then go back to your seat.</p>
+  </section>
+
+</div></div>
+
+<div id="ui">
+  <button id="backBtn" aria-label="Back">&#9664; Back</button>
+  <button id="pauseBtn">Pause timer</button>
+  <select id="len" aria-label="Talk time">
+    <option value="60">60 sec talk</option>
+    <option value="90" selected>90 sec talk</option>
+    <option value="120">120 sec talk</option>
+  </select>
+  <button id="soundBtn">Sound: on</button>
+  <button id="fsBtn">Full screen</button>
+  <button id="nextBtn">Next &#9654;</button>
+</div>
+
+<script>
+/* ---------------- Sentences: edit here ----------------
+   a: true / false     why: short explanation shown on the reveal */
+const QS = [
+ {s:"In the U.S., you have the right to stay silent when police ask you questions.", a:true,
+  why:"You can say: \"I am going to remain silent. I would like to speak to a lawyer.\""},
+ {s:"Police must read you your rights every time they talk to you.", a:false,
+  why:"Police only have to read your Miranda rights when you are in custody AND being questioned."},
+ {s:"A lease is a written agreement between a tenant and a landlord.", a:true,
+  why:"It lists the rent, the due date, how long you will stay, and the rules."},
+ {s:"It is a good idea to take photos of your apartment when you move in.", a:true,
+  why:"Photos help you prove the condition of the apartment and get your security deposit back."},
+ {s:"A landlord can keep your security deposit for any reason.", a:false,
+  why:"Landlords can only keep money for things like damage, and they must give you a list of reasons."},
+ {s:"In cold months, landlords do not have to provide heat.", a:false,
+  why:"Landlords must provide heat in cold months. Local laws set a minimum indoor temperature."},
+ {s:"You usually go to the RMV or DMV to get a driver's license.", a:true,
+  why:"The RMV / DMV handles driver's licenses, state ID cards, and vehicle registration."},
+ {s:"You apply for U.S. citizenship at City Hall.", a:false,
+  why:"Citizenship (naturalization) applications go to USCIS — U.S. Citizenship and Immigration Services."},
+ {s:"If you cannot pay for a lawyer in a criminal case, you can get one for free.", a:true,
+  why:"A public defender is a free lawyer for criminal cases if you qualify."},
+ {s:"A spoken promise from your landlord is as easy to prove as a written one.", a:false,
+  why:"Spoken promises are hard to prove. Always ask for changes in writing."},
+ {s:"Only people with a lot of money can get help from a lawyer.", a:false,
+  why:"Legal aid offices give free or low-cost help to people with limited income."},
+ {s:"The Social Security Administration gives people their Social Security numbers.", a:true,
+  why:"The SSA also handles retirement and disability benefits, and it replaces lost SSN cards."}
+];
+
+/* ---------------- state ---------------- */
+let q=-1, stage=0;            // q=-1 intro, q=QS.length end; stage 0=decide,1=talk,2=reveal
+let TALK=90, left=TALK, tick=null, paused=false, sound=true;
+const $=id=>document.getElementById(id);
+const dots=$('dots'); dots.innerHTML=QS.map(()=>'<i></i>').join('');
+
+function fit(){const s=Math.min(innerWidth/1280,innerHeight/720);$('stage').style.transform=`scale(${s})`;}
+addEventListener('resize',fit); fit();
+
+function beep(){ if(!sound) return; try{
+  const ac=new (window.AudioContext||window.webkitAudioContext)();
+  [0,0.35,0.7].forEach((t,i)=>{const o=ac.createOscillator(),g=ac.createGain();o.type='sine';o.frequency.value=i===2?1046:784;
+    o.connect(g);g.connect(ac.destination);const st=ac.currentTime+t;g.gain.setValueAtTime(0.0001,st);
+    g.gain.exponentialRampToValueAtTime(0.4,st+0.02);g.gain.exponentialRampToValueAtTime(0.0001,st+0.3);o.start(st);o.stop(st+0.32);});
+}catch(e){} }
+
+function stopTimer(){clearInterval(tick);tick=null;}
+function render(){
+  ['intro','game','end'].forEach(id=>$(id).classList.remove('on'));
+  stopTimer(); $('pauseBtn').style.display='none';
+  if(q<0){$('intro').classList.add('on');return;}
+  if(q>=QS.length){$('end').classList.add('on');return;}
+  $('game').classList.add('on');
+  const Q=QS[q];
+  $('qnum').textContent=`Sentence ${q+1} of ${QS.length}`;
+  [...dots.children].forEach((d,i)=>d.className=i<q?'done':i===q?'cur':'');
+  $('stmt').textContent=Q.s;
+  const lf=$('laneF'), lt=$('laneT'); lf.classList.remove('win','lose'); lt.classList.remove('win','lose');
+  const ph=$('phase');
+  if(stage===0){
+    ph.innerHTML=`<p class="instr">Think &nbsp;&middot;&nbsp; Decide &nbsp;&middot;&nbsp; <b>Move!</b><br><span style="font-size:24px">Not sure? Make your best guess.</span></p>`;
+  } else if(stage===1){
+    left=TALK; paused=false; $('pauseBtn').style.display=''; $('pauseBtn').textContent='Pause timer';
+    ph.innerHTML=`<div class="timer"><div class="ring" id="ring"><svg viewBox="0 0 170 170"><circle class="bg" cx="85" cy="85" r="72"/><circle class="fg" id="fg" cx="85" cy="85" r="72"/></svg><div class="num" id="tnum"></div></div>
+      <div class="talk"><h3>Talk with the people on your side.</h3><p>Why did you choose this side?<br><i>"I think it's true / false because…"<br>"I'm not sure, but I guessed… because…"</i></p></div></div>`;
+    const C=2*Math.PI*72; $('fg').style.strokeDasharray=C;
+    const draw=()=>{ $('tnum').textContent=left>=60?`${Math.floor(left/60)}:${String(left%60).padStart(2,'0')}`:left;
+      $('fg').style.strokeDashoffset=C*(1-left/TALK); $('ring').classList.toggle('low',left<=10); };
+    draw();
+    tick=setInterval(()=>{ if(paused) return; left--; draw();
+      if(left<=0){ stopTimer(); beep(); $('pauseBtn').style.display='none';
+        document.querySelector('.talk').innerHTML='<p class="timeup">Time is up!</p><p>Ready for the answer? Press Next.</p>'; } },1000);
+  } else {
+    const t=Q.a;
+    (t?lt:lf).classList.add('win'); (t?lf:lt).classList.add('lose');
+    ph.innerHTML=`<div class="answer ${t?'t':'f'}"><span class="badge"><svg><use href="#${t?'ok':'no'}"/></svg>${t?'TRUE':'FALSE'}</span><p>${Q.why}</p></div>`;
+  }
+}
+function next(){
+  if(q<0){q=0;stage=0;}
+  else if(q>=QS.length) return;
+  else if(stage<2) stage++;
+  else {q++;stage=0;}
+  render();
+}
+function back(){
+  if(q>=QS.length){q=QS.length-1;stage=2;}
+  else if(q<0) return;
+  else if(stage>0) stage--;
+  else if(q===0) q=-1;
+  else {q--;stage=2;}
+  render();
+}
+addEventListener('keydown',e=>{
+  if(['ArrowRight',' ','Enter','PageDown'].includes(e.key)){e.preventDefault();next();}
+  else if(['ArrowLeft','PageUp','Backspace'].includes(e.key)){e.preventDefault();back();}
+  else if(e.key==='p'||e.key==='P'){togglePause();}
+  else if(e.key==='f'||e.key==='F'){toggleFs();}
+});
+function togglePause(){ if(!tick) return; paused=!paused; $('pauseBtn').textContent=paused?'Resume timer':'Pause timer'; }
+function toggleFs(){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen().catch(()=>{});}
+$('nextBtn').onclick=next; $('backBtn').onclick=back; $('pauseBtn').onclick=togglePause; $('fsBtn').onclick=toggleFs;
+$('soundBtn').onclick=()=>{sound=!sound;$('soundBtn').textContent='Sound: '+(sound?'on':'off');};
+$('len').onchange=e=>{TALK=+e.target.value; document.querySelectorAll('.tlen').forEach(s=>s.textContent=TALK); e.target.blur();};
+render();
+</script>
+</body>
+</html>
