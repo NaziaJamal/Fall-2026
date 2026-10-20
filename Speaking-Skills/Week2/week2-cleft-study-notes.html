@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cleft Sentences Study Notes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0f2340; --blue:#143865; --blue-2:#1c4f8f; --gold:#8c7535; --gold-2:#d39f10; --red:#a91512;
+    --sky:#c1cddd; --sky-2:#e1e8f2; --sky-3:#edf2f9; --warm:#efe9d9; --paper:#fbf9f3;
+    --ink:#14213a; --soft:#3f4b5e; --muted:#5b6b82; --ok:#1f8a5b; --ok-bg:#e3f4ec; --no-bg:#fbe7e4;
+  }
+  *{box-sizing:border-box}
+  body{margin:0; background:var(--sky-3); color:var(--ink); font-family:Inter, system-ui, sans-serif; font-size:16px; line-height:1.55}
+  .page{max-width:900px; margin:0 auto; padding:20px 16px 60px}
+  .top{background:var(--blue); color:#fff; border-radius:18px; padding:22px 26px; position:relative; overflow:hidden}
+  .top::after{content:""; position:absolute; right:-40px; top:-40px; width:180px; height:180px; border:14px solid var(--gold-2); border-radius:50%; opacity:.25}
+  .school{font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--gold-2); font-weight:700}
+  h1{font-family:Lora, serif; font-size:clamp(28px,4.6vw,40px); margin:4px 0 2px}
+  .top p{margin:0; color:var(--sky)}
+  .tools{display:flex; justify-content:flex-end; gap:8px; margin:12px 0}
+  .btn{font:inherit; font-weight:700; font-size:14px; border-radius:10px; padding:8px 14px; border:2px solid var(--blue); background:#fff; color:var(--blue); cursor:pointer}
+  .btn.gold{background:var(--gold-2); border-color:var(--gold-2); color:var(--ink)}
+
+  section{background:#fff; border:1px solid var(--sky); border-radius:18px; padding:20px 22px; margin-bottom:16px}
+  h2{font-family:Lora, serif; color:var(--blue); font-size:23px; margin:0 0 10px; display:flex; align-items:center; gap:10px}
+  h2 .n{width:34px; height:34px; border-radius:10px; background:var(--navy); color:var(--gold-2); font-size:18px; display:inline-flex; align-items:center; justify-content:center; flex:none}
+  h3{font-size:14px; letter-spacing:.08em; text-transform:uppercase; color:var(--gold); margin:16px 0 6px}
+  p{margin:6px 0}
+  ul{margin:6px 0; padding-left:22px} li{margin:4px 0}
+  .focus{background:#fff3cf; border-radius:4px; padding:0 4px; font-weight:700}
+  .pause{color:var(--gold-2); font-weight:800; padding:0 4px}
+  .compare{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+  .box{border:1px solid var(--sky); border-radius:12px; padding:12px 14px}
+  .box.plain{background:var(--sky-3)}
+  .box.cleft{background:var(--blue); border-color:var(--blue); color:#eef3fa}
+  .box.cleft .focus{background:var(--gold-2); color:var(--ink)}
+  .box small{display:block; font-size:11px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; margin-bottom:4px; color:var(--muted)}
+  .box.cleft small{color:var(--gold-2)}
+  .big{font-family:Lora, serif; font-size:20px}
+
+  .pattern{border:1px solid var(--sky); border-radius:14px; margin:12px 0; overflow:hidden}
+  .pattern .ph{background:var(--paper); padding:10px 14px; display:flex; flex-wrap:wrap; gap:8px 16px; align-items:center; border-bottom:1px solid var(--sky)}
+  .pattern .ph b{font-size:17px; color:var(--blue)}
+  .formula{font-family:ui-monospace, Menlo, Consolas, monospace; font-size:14px; background:#fff; border:1px solid #e6dcbf; border-radius:8px; padding:3px 8px}
+  .pattern .pb{padding:10px 14px}
+  .pattern .use{font-size:14px; color:var(--muted)}
+  .ex{margin:6px 0; padding-left:14px; border-left:4px solid var(--sky)}
+  .ex.talk{border-color:var(--gold-2)}
+  .ex .src{font-size:12px; font-weight:700; color:var(--gold)}
+
+  table{width:100%; border-collapse:collapse; font-size:15px}
+  th{background:var(--blue); color:#fff; text-align:left; padding:8px 10px}
+  td{border-bottom:1px solid var(--sky-2); padding:8px 10px; vertical-align:top}
+  td.bad{background:var(--no-bg)} td.good{background:var(--ok-bg)}
+  .steps{counter-reset:s; list-style:none; padding:0}
+  .steps li{counter-increment:s; position:relative; padding:6px 0 6px 40px}
+  .steps li::before{content:counter(s); position:absolute; left:0; top:5px; width:28px; height:28px; border-radius:8px; background:var(--sky-2); color:var(--blue); font-weight:800; display:flex; align-items:center; justify-content:center; font-size:14px}
+  .tip{background:var(--paper); border-left:5px solid var(--gold-2); border-radius:0 10px 10px 0; padding:10px 14px; margin-top:10px}
+  .b2p{background:#fbf3df; border:1px solid #ecdcae; border-radius:12px; padding:10px 14px; margin-top:10px}
+  .b2p b.t{color:var(--gold)}
+
+  .q{display:grid; grid-template-columns:26px 1fr; gap:8px; padding:8px 0; border-bottom:1px dashed var(--sky)}
+  .q:last-child{border-bottom:none}
+  .q .num{font-weight:800; color:var(--gold)}
+  .q input{width:100%; font:inherit; border:1px solid var(--sky); border-radius:8px; padding:6px 10px; margin-top:4px; background:var(--paper)}
+  .ans{display:none; color:var(--ok); font-weight:600; font-size:14px; margin-top:4px}
+  .show .ans{display:block}
+  footer{text-align:center; color:var(--muted); font-size:12px; margin-top:20px}
+
+  @media (max-width:640px){ .compare{grid-template-columns:1fr} table{font-size:14px} }
+  @media print{
+    @page{margin:12mm}
+    body{background:#fff; font-size:12px}
+    .page{max-width:none; padding:0}
+    .tools{display:none}
+    .top{background:#fff; color:var(--ink); border:2px solid var(--blue); padding:10px 14px}
+    .top::after{display:none} .top p{color:var(--muted)}
+    section{break-inside:avoid; padding:12px 14px; border-color:#999}
+    .box.cleft{background:#fff; color:var(--ink); border:2px solid var(--blue)}
+    .box.cleft small{color:var(--gold)}
+    .q input{border:none; border-bottom:1px solid #777; border-radius:0; background:none}
+    *{-webkit-print-color-adjust:exact; print-color-adjust:exact}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="top">
+  <div class="school">Approach International Student Center · TED Talks: Ideas Worth Sharing</div>
+  <h1>Cleft Sentences · Study Notes</h1>
+  <p>Week 2 · Your Idea · How to put the spotlight on your main message</p>
+</header>
+
+<div class="tools">
+  <button class="btn" id="toggle">Show answers</button>
+  <button class="btn gold" onclick="window.print()">🖨 Print / Save PDF</button>
+</div>
+
+<!-- 1 -->
+<section>
+  <h2><span class="n">1</span>What is a cleft sentence?</h2>
+  <p>A cleft sentence takes one simple sentence and <b>splits it into two parts</b> ("cleft" means split). This puts a <b>spotlight</b> on the most important information.</p>
+  <div class="compare">
+    <div class="box plain"><small>Simple sentence</small><span class="big">The first follower matters.</span></div>
+    <div class="box cleft"><small>Cleft sentence</small><span class="big">What really matters is <span class="focus">the first follower</span>.</span></div>
+  </div>
+  <p style="margin-top:10px">Same information, but the cleft sentence tells the audience: <i>"Listen, this is the important part."</i></p>
+</section>
+
+<!-- 2 -->
+<section>
+  <h2><span class="n">2</span>Why do speakers use them?</h2>
+  <ul>
+    <li><b>Focus:</b> the key information comes at the <b>end</b>, after a short wait. The audience pays more attention.</li>
+    <li><b>Clarity:</b> it shows exactly what your main point is. That's perfect for stating your idea.</li>
+    <li><b>Contrast:</b> it's easy to correct a wrong idea: <i>It isn't talent that matters; it's practice.</i></li>
+    <li><b>Confidence:</b> it sounds organized and sure, like a TED speaker.</li>
+  </ul>
+  <div class="tip"><b>In your talk:</b> use one or two clefts for your <b>big moments</b> (your main idea, a key contrast, your final message). If every sentence is a cleft, nothing stands out.</div>
+</section>
+
+<!-- 3 -->
+<section>
+  <h2><span class="n">3</span>The four patterns</h2>
+
+  <div class="pattern">
+    <div class="ph"><b>① What-cleft</b><span class="formula">What + subject + verb + be + FOCUS</span></div>
+    <div class="pb">
+      <p class="use">Use it to introduce your main point. The focus can be a noun, a <i>that</i>-clause, or an action.</p>
+      <div class="ex">What I want you to remember is <span class="focus">this</span>.</div>
+      <div class="ex">What surprised me most was <span class="focus">how fast the crowd grew</span>.</div>
+      <div class="ex">What I've learned is <span class="focus">that asking for help is a skill</span>.</div>
+      <div class="ex">What he did was <span class="focus">(to) start dancing alone</span>. <span class="use">← with <i>do</i>, the focus is an action</span></div>
+    </div>
+  </div>
+
+  <div class="pattern">
+    <div class="ph"><b>② It-cleft</b><span class="formula">It + be + FOCUS + that / who + rest of sentence</span></div>
+    <div class="pb">
+      <p class="use">Use it to point to one person, thing, time or place. Use <b>who</b> for people (or <i>that</i>), <b>that</b> for things.</p>
+      <div class="ex">It's <span class="focus">the first follower</span> who changes everything.</div>
+      <div class="ex">It was <span class="focus">in my first week at college</span> that I learned this.</div>
+      <div class="ex talk"><span class="src">Derek Sivers, 2:27</span><br>"It was really <span class="focus">the first follower</span> that transformed the lone nut into a leader."</div>
+    </div>
+  </div>
+
+  <div class="pattern">
+    <div class="ph"><b>③ The thing / reason / person / place…</b><span class="formula">The + noun + (that) clause + be + FOCUS</span></div>
+    <div class="pb">
+      <p class="use">A flexible version of the what-cleft. Choose the noun that fits: <i>thing, reason, problem, question, person, place, moment, way</i>.</p>
+      <div class="ex">The reason this matters is <span class="focus">that anyone can do it</span>.</div>
+      <div class="ex">The problem is <span class="focus">that we don't ask</span>.</div>
+      <div class="ex">The person who changed my mind was <span class="focus">my grandmother</span>.</div>
+      <div class="ex">The only thing that truly matters is <span class="focus">having something worth saying</span>.</div>
+    </div>
+  </div>
+
+  <div class="pattern">
+    <div class="ph"><b>④ All-cleft</b><span class="formula">All + subject + verb + be + FOCUS</span></div>
+    <div class="pb">
+      <p class="use"><i>All</i> here means "the only thing". Use it to make a request sound small and easy.</p>
+      <div class="ex">All I'm asking is <span class="focus">one minute a day</span>.</div>
+      <div class="ex">All you need is <span class="focus">one person to follow you</span>.</div>
+    </div>
+  </div>
+
+  <div class="b2p"><b class="t">B2+ · Reversed what-cleft:</b> put the focus <b>first</b> for a strong ending: <i><span class="focus">The first follower</span> is what transforms a lone nut into a leader.</i> (Sivers, 0:55). Also: <i><span class="focus">That</span>'s what I want you to remember.</i></div>
+</section>
+
+<!-- 4 -->
+<section>
+  <h2><span class="n">4</span>How to make one: four steps</h2>
+  <p>Start with a simple sentence: <i>Practice makes a great speaker.</i></p>
+  <ol class="steps">
+    <li><b>Choose the focus</b>: the part you want to stand out → <span class="focus">practice</span></li>
+    <li><b>Choose a pattern</b> → what-cleft? it-cleft?</li>
+    <li><b>Build it</b> → <i>It's <span class="focus">practice</span> that makes a great speaker.</i> / <i>What makes a great speaker is <span class="focus">practice</span>.</i></li>
+    <li><b>Check the verb <i>be</i></b>: does the tense match the story? (see section 5)</li>
+  </ol>
+</section>
+
+<!-- 5 -->
+<section>
+  <h2><span class="n">5</span>Grammar checklist</h2>
+  <ul>
+    <li><b>Tense of <i>be</i>:</b> usually match the tense of the story. Present: <i>What matters <b>is</b>…</i> · Past: <i>What mattered <b>was</b>…</i> · <i>It <b>was</b> my teacher who…</i></li>
+    <li><b>Singular <i>be</i></b> after <i>what</i>, even with a plural focus: <i>What we need <b>is</b> more examples.</i> (Many speakers also say <i>are</i> here; <i>is</i> is always safe.)</li>
+    <li><b>No extra pronoun</b> in the <i>what</i> part: <i>What I want <s>it</s> is…</i></li>
+    <li><b>Don't drop <i>that / who</i></b> in an it-cleft when it is the subject: <i>It's my mother <b>who</b> taught me.</i></li>
+    <li><b>A <i>that</i>-clause</b> after <i>is</i> when the focus is a full idea: <i>The reason is <b>that</b>…</i> (not <i>The reason is because…</i> in formal speech)</li>
+  </ul>
+  <h3>Common mistakes</h3>
+  <table>
+    <tr><th style="width:50%">✗ Don't say</th><th>✓ Say</th></tr>
+    <tr><td class="bad">What I want it is a clear idea.</td><td class="good">What I want is a clear idea.</td></tr>
+    <tr><td class="bad">It's my mother taught me to listen.</td><td class="good">It's my mother who taught me to listen.</td></tr>
+    <tr><td class="bad">Yesterday, what surprised me is the crowd.</td><td class="good">Yesterday, what surprised me was the crowd.</td></tr>
+    <tr><td class="bad">The thing what I love is stories.</td><td class="good">The thing (that) I love is stories.</td></tr>
+    <tr><td class="bad">What is important it is practice.</td><td class="good">What is important is practice.</td></tr>
+  </table>
+</section>
+
+<!-- 6 -->
+<section>
+  <h2><span class="n">6</span>Say it like a speaker</h2>
+  <p>The grammar does half the work. Your <b>voice</b> does the other half:</p>
+  <ul>
+    <li><b>Pause</b> just before the focus.</li>
+    <li><b>Stress</b> the most important word in the focus.</li>
+    <li>Let your voice <b>fall</b> at the end. It sounds sure.</li>
+  </ul>
+  <div class="box cleft" style="margin-top:8px"><span class="big">What really matters <span class="pause">|</span> is the FIRST follower.</span></div>
+  <div class="box" style="margin-top:8px"><span class="big">It isn't TALENT that matters <span class="pause">|</span> it's PRACTICE.</span></div>
+  <p class="use" style="font-size:14px;color:var(--muted);margin-top:8px"><b class="pause" style="padding:0">|</b> = short pause · CAPITALS = stress</p>
+</section>
+
+<!-- 7 -->
+<section>
+  <h2><span class="n">7</span>Use it in your TED talk</h2>
+  <table>
+    <tr><th style="width:24%">Where</th><th>Try</th></tr>
+    <tr><td><b>Your idea</b></td><td>What I've learned is that… / The reason this matters is that…</td></tr>
+    <tr><td><b>A surprise</b></td><td>What surprised me most was… / What happened next was…</td></tr>
+    <tr><td><b>A contrast</b></td><td>It isn't ___ that matters; it's ___. / It's not ___ who…; it's ___.</td></tr>
+    <tr><td><b>Your request</b></td><td>All I'm asking is… / What I'd like you to do is…</td></tr>
+    <tr><td><b>Your ending</b></td><td>So that's what I want you to remember: … / What I hope you'll take home is…</td></tr>
+  </table>
+</section>
+
+<!-- 8 -->
+<section id="check">
+  <h2><span class="n">8</span>Check yourself</h2>
+  <p>Rewrite each sentence with the pattern in brackets. Press <b>Show answers</b> at the top when you finish.</p>
+  <div class="q"><span class="num">1</span><div>Stories help people remember. <i>(What…)</i><input aria-label="Answer 1"><div class="ans">✓ What helps people remember is stories.</div></div></div>
+  <div class="q"><span class="num">2</span><div>My teacher gave me the courage to speak. <i>(It was…)</i><input aria-label="Answer 2"><div class="ans">✓ It was my teacher who gave me the courage to speak.</div></div></div>
+  <div class="q"><span class="num">3</span><div>We need one clear idea. <i>(All…)</i><input aria-label="Answer 3"><div class="ans">✓ All we need is one clear idea.</div></div></div>
+  <div class="q"><span class="num">4</span><div>People don't follow because joining feels risky. <i>(The reason…)</i><input aria-label="Answer 4"><div class="ans">✓ The reason people don't follow is that joining feels risky.</div></div></div>
+  <div class="q"><span class="num">5</span><div>The crowd, not the leader, created the movement. <i>(It wasn't… it was…)</i><input aria-label="Answer 5"><div class="ans">✓ It wasn't the leader that created the movement; it was the crowd.</div></div></div>
+  <div class="q"><span class="num">6</span><div>Find and fix the mistake: <i>What I learned it is that small steps matter.</i><input aria-label="Answer 6"><div class="ans">✓ What I learned is that small steps matter. (Remove "it"; for a past story, "What I learned was…" also works.)</div></div></div>
+  <div class="q"><span class="num">7</span><div><b>Your turn:</b> write your own idea as a cleft sentence. Underline the focus.<input aria-label="Your idea"><div class="ans">Check: Is there one focus? Is <i>be</i> in the right tense? Read it aloud with a pause.</div></div></div>
+</section>
+
+<footer>Approach International Student Center · TED Talks: Ideas Worth Sharing · Week 2</footer>
+</div>
+<script>
+document.getElementById("toggle").onclick = e => {
+  const on = document.getElementById("check").classList.toggle("show");
+  e.target.textContent = on ? "Hide answers" : "Show answers";
+};
+</script>
+</body>
+</html>
