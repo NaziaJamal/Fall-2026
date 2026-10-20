@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Conversation Lines — Week 3</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1F2B4D;--navy-d:#16203A;--red:#8E0E0E;--panel:#EEF1F6;--pink:#F8ECEC;--ink:#26304A;--mute:#5D6782;--gold:#C9A227}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:#0b1120;overflow:hidden}
+body{font-family:"Source Sans 3",Calibri,Arial,sans-serif;color:var(--ink)}
+#viewport{position:fixed;inset:0;display:flex;align-items:center;justify-content:center}
+#stage{width:1280px;height:720px;position:relative;flex:none;background:#fff;overflow:hidden}
+h1,h2{font-family:"Source Serif 4",Georgia,serif;line-height:1.15}
+.screen{position:absolute;inset:0;display:none}
+.screen.on{display:block}
+.kicker{font-weight:700;font-size:18px;letter-spacing:.16em;text-transform:uppercase;color:var(--red)}
+/* intro */
+#intro{background:var(--navy);color:#fff;padding:52px 72px}
+#intro .kicker{color:#F2C4C4}
+#intro h1{font-size:72px;margin:10px 0 24px}
+.rules{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.rules div{background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.18);border-radius:12px;padding:20px}
+.rules b{display:flex;width:46px;height:46px;border-radius:50%;background:var(--red);align-items:center;justify-content:center;font:700 24px "Source Serif 4",serif;margin-bottom:12px}
+.rules p{font-size:23px;line-height:1.32}
+.lines-demo{margin:30px auto 0;display:flex;flex-direction:column;gap:14px;align-items:center}
+.lrow{display:flex;gap:26px;align-items:center}
+.lrow span.lab{width:90px;font:700 22px "Source Sans 3",sans-serif;text-align:right}
+.p{width:46px;height:46px;border-radius:50%;display:inline-block}
+.pa{background:#C9363A}.pb{background:#6E8BC9}
+.start{margin-top:26px;text-align:center;font-size:22px;color:rgba(255,255,255,.75)}
+/* round */
+#round{background:#fff}
+.bar{position:absolute;left:0;right:0;top:0;height:10px;background:var(--panel)}
+.bar i{display:block;height:100%;background:var(--red);transition:width .3s}
+.wrap{position:absolute;inset:0;padding:42px 70px 40px;display:flex;flex-direction:column}
+.top{display:flex;justify-content:space-between;align-items:center}
+.rnum{font-weight:700;font-size:20px;letter-spacing:.14em;color:var(--red);text-transform:uppercase}
+.first{font:700 20px "Source Sans 3",sans-serif;color:var(--navy);display:flex;align-items:center;gap:10px}
+.question{flex:1;display:flex;align-items:center;justify-content:center;text-align:center;padding:0 20px}
+.question h2{font-size:60px;color:var(--navy);font-weight:700}
+.bottom{display:grid;grid-template-columns:200px 1fr;gap:36px;align-items:center;min-height:190px}
+.ring{position:relative;width:180px;height:180px}
+.ring svg{width:180px;height:180px;transform:rotate(-90deg)}
+.ring circle{fill:none;stroke-width:14}
+.ring .bg{stroke:#e3e7ef}
+.ring .fg{stroke:var(--navy);stroke-linecap:round;transition:stroke-dashoffset 1s linear}
+.ring .num{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;font:700 52px "Source Sans 3",sans-serif;color:var(--navy)}
+.ring .num small{font-size:16px;font-weight:600;color:var(--mute);letter-spacing:.06em}
+.ring.low .fg{stroke:var(--red)} .ring.low .num{color:var(--red)}
+.ring.idle .num{font-size:24px;color:var(--mute);text-align:center;line-height:1.2}
+.helper{background:var(--panel);border-radius:12px;padding:18px 24px}
+.helper h3{font:700 20px "Source Sans 3",sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--red);margin-bottom:8px}
+.helper p{font-size:26px;line-height:1.4}
+.helper p i{color:var(--navy)}
+.switch{background:var(--pink);border:3px solid var(--red);animation:pulse 1s ease 3}
+.switch h3{color:var(--red);font-size:30px;letter-spacing:.02em;text-transform:none}
+@keyframes pulse{50%{transform:scale(1.03)}}
+/* rotate */
+#rotate{background:var(--navy);color:#fff;text-align:center;padding:60px 70px}
+#rotate .kicker{color:#F2C4C4}
+#rotate h1{font-size:70px;margin:12px 0 10px}
+#rotate .sub{font-size:28px;color:rgba(255,255,255,.85)}
+.rot{margin:44px auto 0;width:900px;position:relative}
+.rot .lrow{justify-content:center}
+.rot .lrow span.lab{color:#fff}
+.rot .pa{animation:slide 1.6s ease-in-out infinite alternate}
+@keyframes slide{from{transform:translateX(0)}to{transform:translateX(72px)}}
+.rot .arrow{font:700 26px "Source Sans 3",sans-serif;color:#F6D3D3;margin-top:22px}
+.nextq{margin-top:34px;font-size:24px;color:rgba(255,255,255,.75)}
+/* end */
+#end{background:var(--red);color:#fff;text-align:center;flex-direction:column;align-items:center;justify-content:center}
+#end.on{display:flex}
+#end h1{font-size:82px;margin:10px 0 18px}
+#end p{font-size:30px;max-width:920px;line-height:1.4}
+/* ui */
+#ui{position:fixed;right:0;bottom:0;display:flex;align-items:center;gap:8px;padding:8px;opacity:.35;transition:opacity .2s;z-index:5}
+#ui:hover,#ui:focus-within{opacity:1}
+#ui button,#ui select{font:600 14px "Source Sans 3",sans-serif;background:var(--navy);color:#fff;border:1px solid #fff;border-radius:6px;padding:7px 12px;cursor:pointer;min-height:36px}
+#nextBtn{background:var(--red)!important}
+</style>
+</head>
+<body>
+<div id="viewport"><div id="stage">
+
+  <!-- INTRO -->
+  <section class="screen on" id="intro">
+    <div class="kicker">American Culture &nbsp;|&nbsp; After the Break</div>
+    <h1>Conversation Lines</h1>
+    <div class="rules">
+      <div><b>1</b><p>Make <strong>two lines</strong>. Stand face to face with a partner.</p></div>
+      <div><b>2</b><p>Read the question. <strong>Line A</strong> or <strong>Line B</strong> answers first.</p></div>
+      <div><b>3</b><p>Halfway through, the bell rings: <strong>switch speakers</strong>.</p></div>
+      <div><b>4</b><p>When time is up, <strong>Line A moves one step</strong> to a new partner.</p></div>
+    </div>
+    <div class="lines-demo">
+      <div class="lrow"><span class="lab" style="color:#F6B4B4">Line A</span><i class="p pa"></i><i class="p pa"></i><i class="p pa"></i><i class="p pa"></i><i class="p pa"></i><i class="p pa"></i></div>
+      <div class="lrow"><span class="lab" style="color:#B9C9EE">Line B</span><i class="p pb"></i><i class="p pb"></i><i class="p pb"></i><i class="p pb"></i><i class="p pb"></i><i class="p pb"></i></div>
+    </div>
+    <p class="start">Press <b>Space</b> or <b>&rarr;</b> to see the first question</p>
+  </section>
+
+  <!-- ROUND -->
+  <section class="screen" id="round">
+    <div class="bar"><i id="prog"></i></div>
+    <div class="wrap">
+      <div class="top">
+        <span class="rnum" id="rnum">Question 1 of 8</span>
+        <span class="first" id="first"></span>
+      </div>
+      <div class="question"><h2 id="qtext"></h2></div>
+      <div class="bottom">
+        <div class="ring idle" id="ring"><svg viewBox="0 0 180 180"><circle class="bg" cx="90" cy="90" r="76"/><circle class="fg" id="fg" cx="90" cy="90" r="76"/></svg><div class="num" id="tnum"></div></div>
+        <div class="helper" id="helper"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROTATE -->
+  <section class="screen" id="rotate">
+    <div class="kicker">Time is up!</div>
+    <h1>Say thank you &amp; move</h1>
+    <p class="sub"><strong>Line A</strong> takes one step to the right. The last person in Line A walks to the other end.</p>
+    <div class="rot">
+      <div class="lrow"><span class="lab" style="color:#F6B4B4">Line A</span><i class="p pa"></i><i class="p pa"></i><i class="p pa"></i><i class="p pa"></i><i class="p pa"></i><i class="p pa"></i></div>
+      <div class="lrow" style="margin-top:14px"><span class="lab" style="color:#B9C9EE">Line B</span><i class="p pb"></i><i class="p pb"></i><i class="p pb"></i><i class="p pb"></i><i class="p pb"></i><i class="p pb"></i></div>
+      <p class="arrow">Line A &rarr; one step &rarr; new partner!</p>
+    </div>
+    <p class="nextq">Line B stays still. Say hello to your new partner, then press Next.</p>
+  </section>
+
+  <!-- END -->
+  <section class="screen" id="end">
+    <div class="kicker" style="color:#F2C4C4">Warm-Up Complete</div>
+    <h1>Thank You!</h1>
+    <p>Go back to your seat. Be ready to share one interesting thing your partner told you.</p>
+  </section>
+
+</div></div>
+
+<div id="ui">
+  <button id="backBtn">&#9664; Back</button>
+  <button id="pauseBtn">Pause timer</button>
+  <select id="len" aria-label="Talk time">
+    <option value="60">60 sec</option>
+    <option value="90" selected>90 sec</option>
+    <option value="120">120 sec</option>
+  </select>
+  <button id="soundBtn">Sound: on</button>
+  <button id="fsBtn">Full screen</button>
+  <button id="nextBtn">Next &#9654;</button>
+</div>
+
+<script>
+/* ---------- Questions: edit here ---------- */
+const QS = [
+ "What surprised you the most about daily life when you first came to the U.S.?",
+ "Tell your partner about a home you have lived in. What did you like or not like about it?",
+ "What makes a good neighbor? Do you have a good neighbor story?",
+ "Have you ever waited in a long line or filled out a difficult form? What happened?",
+ "Who do you ask for help when you have a problem in a new place? Why?",
+ "What is something that works better in your home country? What works better here?",
+ "If you could give one piece of advice to a newcomer to the U.S., what would it be?",
+ "What does \"home\" mean to you?"
+];
+const FOLLOW = [
+ "<i>\"Really? What happened next?\"</i> &nbsp;&middot;&nbsp; <i>\"How did you feel?\"</i>",
+ "<i>\"Why do you think so?\"</i> &nbsp;&middot;&nbsp; <i>\"Can you give me an example?\"</i>",
+ "<i>\"That's interesting! Tell me more.\"</i> &nbsp;&middot;&nbsp; <i>\"What about you?\"</i>"
+];
+
+/* ---------- state ---------- */
+let q=-1, stage=0;   // stage 0 = question (timer ready), 1 = talking, 2 = rotate
+let TALK=90, left=TALK, tick=null, paused=false, sound=true, switched=false;
+const $=id=>document.getElementById(id);
+function fit(){const s=Math.min(innerWidth/1280,innerHeight/720);$('stage').style.transform=`scale(${s})`;}
+addEventListener('resize',fit); fit();
+
+let ac=null;
+function tone(freqs,gap=0.3){ if(!sound) return; try{
+  ac=ac||new (window.AudioContext||window.webkitAudioContext)();
+  freqs.forEach((f,i)=>{const o=ac.createOscillator(),g=ac.createGain();o.type='sine';o.frequency.value=f;o.connect(g);g.connect(ac.destination);
+    const st=ac.currentTime+i*gap;g.gain.setValueAtTime(0.0001,st);g.gain.exponentialRampToValueAtTime(0.4,st+0.02);g.gain.exponentialRampToValueAtTime(0.0001,st+0.35);o.start(st);o.stop(st+0.37);});
+}catch(e){} }
+
+const C=2*Math.PI*76;
+function stopTimer(){clearInterval(tick);tick=null;}
+function firstLine(){return q%2===0?'A':'B';}
+function otherLine(){return q%2===0?'B':'A';}
+function fmt(s){return s>=60?`${Math.floor(s/60)}:${String(s%60).padStart(2,'0')}`:String(s);}
+
+function helperDefault(){
+  $('helper').className='helper';
+  $('helper').innerHTML=`<h3>Keep the conversation going</h3><p>${FOLLOW[q%FOLLOW.length]}</p>`;
+}
+function draw(){
+  $('tnum').innerHTML=`${fmt(left)}<small>LINE ${switched?otherLine():firstLine()}</small>`;
+  $('fg').style.strokeDashoffset=C*(1-left/TALK);
+  $('ring').classList.toggle('low',left<=10);
+}
+function render(){
+  ['intro','round','rotate','end'].forEach(id=>$(id).classList.remove('on'));
+  stopTimer(); $('pauseBtn').style.display='none';
+  if(q<0){$('intro').classList.add('on');return;}
+  if(q>=QS.length){$('end').classList.add('on');return;}
+  if(stage===2){$('rotate').classList.add('on');return;}
+  $('round').classList.add('on');
+  $('rnum').textContent=`Question ${q+1} of ${QS.length}`;
+  $('prog').style.width=((q+(stage?0.5:0))/QS.length*100)+'%';
+  $('first').innerHTML=`<span class="p ${firstLine()==='A'?'pa':'pb'}" style="width:22px;height:22px"></span>Line ${firstLine()} answers first`;
+  $('qtext').textContent=QS[q];
+  $('fg').style.strokeDasharray=C;
+  const ring=$('ring');
+  if(stage===0){
+    ring.classList.add('idle'); ring.classList.remove('low');
+    $('fg').style.strokeDashoffset=0;
+    $('tnum').innerHTML=`Press<br>Next<br>to start`;
+    helperDefault();
+  } else {
+    ring.classList.remove('idle'); left=TALK; paused=false; switched=false;
+    $('pauseBtn').style.display=''; $('pauseBtn').textContent='Pause timer';
+    helperDefault(); draw();
+    tick=setInterval(()=>{
+      if(paused) return; left--;
+      if(!switched && left<=Math.floor(TALK/2)){
+        switched=true; tone([660,880]);
+        $('helper').className='helper switch';
+        $('helper').innerHTML=`<h3>Switch! Now Line ${otherLine()} answers.</h3><p>Line ${firstLine()}: listen and ask a follow-up question.</p>`;
+      }
+      draw();
+      if(left<=0){ stopTimer(); tone([784,784,1046],0.35); $('pauseBtn').style.display='none';
+        $('helper').className='helper switch';
+        $('helper').innerHTML=`<h3>Time is up!</h3><p>Finish your sentence. Press Next to change partners.</p>`; }
+    },1000);
+  }
+}
+function next(){
+  if(q<0){q=0;stage=0;}
+  else if(q>=QS.length) return;
+  else if(stage===0) stage=1;
+  else if(stage===1){ if(q===QS.length-1){q++;} else stage=2; }
+  else {q++;stage=0;}
+  render();
+}
+function back(){
+  if(q<0) return;
+  if(q>=QS.length){q=QS.length-1;stage=1;}
+  else if(stage>0) stage--;
+  else if(q===0) q=-1;
+  else {q--;stage=2;}
+  render();
+}
+addEventListener('keydown',e=>{
+  if(e.target.tagName==='SELECT') return;
+  if(['ArrowRight',' ','Enter','PageDown'].includes(e.key)){e.preventDefault();next();}
+  else if(['ArrowLeft','PageUp','Backspace'].includes(e.key)){e.preventDefault();back();}
+  else if(e.key==='p'||e.key==='P') togglePause();
+  else if(e.key==='f'||e.key==='F') toggleFs();
+});
+function togglePause(){ if(!tick) return; paused=!paused; $('pauseBtn').textContent=paused?'Resume timer':'Pause timer'; }
+function toggleFs(){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen().catch(()=>{});}
+$('nextBtn').onclick=next; $('backBtn').onclick=back; $('pauseBtn').onclick=togglePause; $('fsBtn').onclick=toggleFs;
+$('soundBtn').onclick=()=>{sound=!sound;$('soundBtn').textContent='Sound: '+(sound?'on':'off');};
+$('len').onchange=e=>{TALK=+e.target.value;e.target.blur();};
+render();
+</script>
+</body>
+</html>

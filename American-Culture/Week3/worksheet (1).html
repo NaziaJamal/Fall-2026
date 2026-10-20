@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>American Culture — Week 3 Worksheet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1F2B4D;--red:#8E0E0E;--panel:#EEF1F6;--pink:#F8ECEC;--ink:#26304A;--mute:#5D6782;--line:#d3d9e4;--field:#fbfcfe;--ok:#1d7a46;--okbg:#e7f5ec;--bad:#b3261e;--badbg:#fbeaea;--warn:#8a5a00;--warnbg:#fff4dc}
+*{box-sizing:border-box}
+body{margin:0;background:var(--panel);color:var(--ink);font:18px/1.55 "Source Sans 3",Calibri,Arial,sans-serif}
+.page{max-width:900px;margin:0 auto;background:#fff;padding:32px 44px 60px}
+h1,h2,h3{font-family:"Source Serif 4",Georgia,serif;color:var(--navy);line-height:1.2}
+h1{font-size:32px;margin:4px 0 4px}
+.kicker{font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
+.subt{font-style:italic;color:var(--mute);margin:0 0 18px}
+h2.ex{font-size:23px;margin:44px 0 8px;padding-bottom:8px;border-bottom:2px solid var(--red);display:flex;gap:12px;align-items:baseline;flex-wrap:wrap}
+h2.ex small{font:700 13px "Source Sans 3",sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
+h3{font-size:19px;margin:22px 0 4px;color:var(--red)}
+.hint{color:var(--mute);font-size:16.5px;margin:4px 0 12px}
+.gq{background:var(--panel);border-left:4px solid var(--navy);padding:10px 16px;font-style:italic;border-radius:0 6px 6px 0;margin:10px 0}
+input[type=text],textarea,select{font:inherit;color:var(--navy);width:100%;border:1.5px solid var(--line);border-radius:6px;padding:8px 11px;background:var(--field);min-height:42px}
+textarea{min-height:90px;resize:vertical;line-height:1.5}
+input:focus,textarea:focus,select:focus{outline:2px solid var(--navy);outline-offset:1px;background:#fff}
+label{font-weight:600;color:var(--navy)}
+.idrow{display:grid;grid-template-columns:2fr 1fr;gap:12px}
+.idrow label{font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+.match{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
+.mrow{display:grid;grid-template-columns:1fr 110px 28px;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid var(--line)}
+.mrow b{color:var(--navy)}
+.defs{background:var(--panel);border-radius:8px;padding:12px 16px}
+.defs p{margin:6px 0;font-size:17px}
+.defs b{color:var(--red);margin-right:6px}
+.box{display:flex;flex-wrap:wrap;gap:8px;background:var(--pink);border:1px dashed #d9a9a9;border-radius:8px;padding:10px 14px;margin:10px 0 14px}
+.box span{background:#fff;border:1px solid #e5c2c2;border-radius:20px;padding:2px 12px;font-weight:600;color:var(--navy)}
+.box span.used{opacity:.4;text-decoration:line-through}
+.fill p{margin:12px 0;line-height:2.1}
+input[type=text].blank{display:inline-block;width:210px;max-width:100%;vertical-align:middle;min-height:38px;padding:4px 9px}
+.mark{display:inline-block;width:24px;text-align:center;font-weight:700}
+.fill .mark:empty{width:0}
+.mark.ok{color:var(--ok)}.mark.bad{color:var(--bad)}
+input.ok,select.ok{border-color:var(--ok);background:var(--okbg)}
+input.bad,select.bad{border-color:var(--bad);background:var(--badbg)}
+.part{margin:14px 0 6px}
+.part > label{display:block;margin-bottom:4px}
+.part .prompt{font-size:17px;margin:0 0 8px}
+.counter{font-size:14px;color:var(--mute);text-align:right;margin-top:3px}
+.checkbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:16px 0 4px}
+.btn{font:700 16px "Source Sans 3",sans-serif;border-radius:8px;padding:10px 18px;cursor:pointer;border:2px solid var(--navy);background:var(--navy);color:#fff;min-height:44px}
+.btn.ghost{background:#fff;color:var(--navy)}
+.btn:focus-visible{outline:3px solid #9fb3dd;outline-offset:2px}
+.fb{border-radius:8px;padding:12px 16px;margin-top:10px;font-size:17px;display:none}
+.fb.show{display:block}
+.fb.ok{background:var(--okbg);border:1px solid #a9d8b9}
+.fb.bad{background:var(--badbg);border:1px solid #efbcbc}
+.fb.warn{background:var(--warnbg);border:1px solid #f0d394}
+.fb h4{margin:0 0 6px;font:700 17px "Source Sans 3",sans-serif}
+.fb ul{margin:6px 0;padding-left:22px}
+.model{background:#fff;border:1px solid var(--line);border-radius:6px;padding:10px 14px;margin-top:8px;font-style:italic}
+.toolbar{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);margin:-32px -44px 22px;padding:10px 44px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.toolbar .btn{font-size:15px;padding:7px 14px;min-height:40px}
+#saved{font-size:14px;color:var(--mute);margin-left:auto}
+#total{font-weight:700;color:var(--navy)}
+footer{margin-top:40px;font-size:13px;color:var(--mute);text-align:center}
+@media (max-width:640px){
+  body{font-size:17px}
+  .page{padding:20px 16px 40px}
+  .toolbar{margin:-20px -16px 16px;padding:8px 16px}
+  .idrow,.match{grid-template-columns:1fr}
+  .mrow{grid-template-columns:1fr 96px 24px}
+  h1{font-size:26px}
+  input[type=text].blank{width:100%;display:block;margin:4px 0}
+  .fill p{line-height:1.6}
+}
+@media print{
+  body{background:#fff;font-size:13px}
+  .page{padding:0;max-width:none}
+  .toolbar,.checkbar,.counter{display:none}
+  .fb{display:none!important}
+  input[type=text],textarea,select{border:0;border-bottom:1px solid #999;border-radius:0;background:transparent!important;min-height:0;padding:2px 4px}
+  textarea{resize:none;overflow:hidden}
+  h2.ex{break-after:avoid}
+  .part,.mrow,.fill p{break-inside:avoid}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+<main class="page">
+<div class="toolbar">
+  <button class="btn" onclick="print()">Print / Save as PDF</button>
+  <button class="btn ghost" id="clear">Clear my answers</button>
+  <span id="saved">Your answers save automatically on this device.</span>
+</div>
+
+<div class="kicker">American Culture &nbsp;|&nbsp; Week 3</div>
+<h1>Know Your Rights, Your Home, and Your Government</h1>
+<p class="subt">Student Worksheet — Vocabulary &amp; Activation Activities</p>
+<div class="idrow">
+  <div><label for="name">Name</label><input type="text" id="name" autocomplete="name"></div>
+  <div><label for="date">Date</label><input type="text" id="date"></div>
+</div>
+
+<!-- EXERCISE 1 -->
+<section id="ex1">
+<h2 class="ex"><small>Exercise 1</small>Vocabulary Matching</h2>
+<p class="hint">Match each word with its correct definition. Choose the letter of the definition.</p>
+<div class="match">
+  <div>
+    <div class="mrow"><b>1. Miranda rights</b><select data-ans="C" aria-label="Answer for 1"></select><span class="mark"></span></div>
+    <div class="mrow"><b>2. Legal aid</b><select data-ans="E" aria-label="Answer for 2"></select><span class="mark"></span></div>
+    <div class="mrow"><b>3. Lease</b><select data-ans="B" aria-label="Answer for 3"></select><span class="mark"></span></div>
+    <div class="mrow"><b>4. Security deposit</b><select data-ans="D" aria-label="Answer for 4"></select><span class="mark"></span></div>
+    <div class="mrow"><b>5. Code enforcement</b><select data-ans="F" aria-label="Answer for 5"></select><span class="mark"></span></div>
+    <div class="mrow"><b>6. Naturalization</b><select data-ans="A" aria-label="Answer for 6"></select><span class="mark"></span></div>
+  </div>
+  <div class="defs">
+    <p style="font-weight:700;color:var(--navy);margin-top:0">Definitions</p>
+    <p><b>A.</b>The process of becoming a U.S. citizen.</p>
+    <p><b>B.</b>A written contract between a tenant and a landlord.</p>
+    <p><b>C.</b>The rights police must tell you before questioning you in custody.</p>
+    <p><b>D.</b>Money paid up front to cover possible damage to a rental unit.</p>
+    <p><b>E.</b>Free or low-cost legal help for people with limited income.</p>
+    <p><b>F.</b>The city office that checks that buildings follow safety laws.</p>
+  </div>
+</div>
+<div class="checkbar"><button class="btn" data-check="ex1">Check Exercise 1</button><button class="btn ghost" data-reset="ex1">Try again</button></div>
+<div class="fb" id="fb-ex1"></div>
+</section>
+
+<!-- EXERCISE 2 -->
+<section id="ex2">
+<h2 class="ex"><small>Exercise 2</small>Part One Activation — Police Encounters</h2>
+<p class="gq">Guiding question: "Have you ever had to navigate a legal situation here? What did you learn?"</p>
+<div class="part">
+  <h3>A. Conversation — talk with a partner</h3>
+  <p class="prompt">Have you ever had to navigate a legal situation here (or do you know someone who has)? What did you learn from the experience? Discuss with a partner, then write one thing you learned from your partner's story.</p>
+  <textarea data-min="1" aria-label="Exercise 2 A"></textarea>
+</div>
+<div class="part">
+  <h3>B. Share Your Opinion — answer on your own</h3>
+  <p class="prompt">What is the one tip from today about police encounters that you think is most important to remember? Be ready to share your answer with the class.</p>
+  <textarea data-min="1" aria-label="Exercise 2 B"></textarea>
+</div>
+<div class="part">
+  <h3>C. Writing — write 3–5 sentences</h3>
+  <p class="prompt">Describe what you would say if a police officer stopped you and asked you questions.</p>
+  <textarea data-min="3" data-max="5" style="min-height:140px" aria-label="Exercise 2 C"></textarea>
+  <div class="counter"></div>
+</div>
+<div class="checkbar"><button class="btn" data-check="ex2">Check Exercise 2</button></div>
+<div class="fb" id="fb-ex2"></div>
+</section>
+
+<!-- EXERCISE 3 -->
+<section id="ex3">
+<h2 class="ex"><small>Exercise 3</small>Part Two Activation — Tenant Rights</h2>
+<p class="gq">Guiding question: "How is the landlord-tenant relationship here different from your home country?"</p>
+<div class="part">
+  <h3>A. Conversation — talk with a partner</h3>
+  <p class="prompt">How is the landlord-tenant relationship here different from your home country? Discuss with a partner, then write one difference you talked about.</p>
+  <textarea data-min="1" aria-label="Exercise 3 A"></textarea>
+</div>
+<div class="part">
+  <h3>B. Share Your Opinion — answer on your own</h3>
+  <p class="prompt">Which tenant right from today (heat, security deposit, or lease terms) do you think is the most important? Why?</p>
+  <textarea data-min="2" aria-label="Exercise 3 B"></textarea>
+</div>
+<div class="part">
+  <h3>C. Writing — write a short paragraph</h3>
+  <p class="prompt">Compare renting a home in the U.S. to renting a home in your home country.</p>
+  <textarea data-min="4" style="min-height:160px" aria-label="Exercise 3 C"></textarea>
+  <div class="counter"></div>
+</div>
+<div class="checkbar"><button class="btn" data-check="ex3">Check Exercise 3</button></div>
+<div class="fb" id="fb-ex3"></div>
+</section>
+
+<!-- EXERCISE 4 -->
+<section id="ex4">
+<h2 class="ex"><small>Exercise 4</small>Part Three Activation — Government Offices</h2>
+<p class="gq">Guiding question: "What is your experience of dealing with government offices in America vs. at home?"</p>
+<div class="part">
+  <h3>A. Conversation — talk with a partner</h3>
+  <p class="prompt">What is your experience of dealing with government offices in America vs. at home? Discuss with a partner, then write one similarity or difference you talked about.</p>
+  <textarea data-min="1" aria-label="Exercise 4 A"></textarea>
+</div>
+<div class="part">
+  <h3>B. Share Your Opinion — answer on your own</h3>
+  <p class="prompt">Which office (City Hall, RMV, Social Security Administration, or USCIS) do you think is the most confusing for newcomers? Why?</p>
+  <textarea data-min="2" aria-label="Exercise 4 B"></textarea>
+</div>
+<div class="part">
+  <h3>C. Writing — write step-by-step instructions</h3>
+  <p class="prompt">Describe a task you completed at a government office (for example, getting an ID or applying for benefits). Write each step on a new line.</p>
+  <textarea data-steps="3" style="min-height:170px" aria-label="Exercise 4 C" placeholder="1. First, …&#10;2. Next, …&#10;3. Then, …&#10;4. Finally, …"></textarea>
+  <div class="counter"></div>
+</div>
+<div class="checkbar"><button class="btn" data-check="ex4">Check Exercise 4</button></div>
+<div class="fb" id="fb-ex4"></div>
+</section>
+
+<!-- EXERCISE 5 -->
+<section id="ex5" class="fill">
+<h2 class="ex"><small>Exercise 5</small>Vocabulary in Context</h2>
+<p class="hint">Fill in each blank with the best word from the box. Use each word once.</p>
+<div class="box" id="ex5box"><span>lease</span><span>security deposit</span><span>Miranda rights</span><span>legal aid</span><span>code enforcement</span><span>naturalization</span></div>
+<p>1. Before the officer asked me questions at the station, she read me my <input type="text" class="blank" data-ans="miranda rights" aria-label="Blank 1"><span class="mark"></span>.</p>
+<p>2. I could not afford a lawyer, so I called a <input type="text" class="blank" data-ans="legal aid" aria-label="Blank 2"><span class="mark"></span> office for free help.</p>
+<p>3. My landlord kept part of my <input type="text" class="blank" data-ans="security deposit" aria-label="Blank 3"><span class="mark"></span> because of a broken window.</p>
+<p>4. I read my <input type="text" class="blank" data-ans="lease" aria-label="Blank 4"><span class="mark"></span> carefully before I signed it, to check the rent and rules.</p>
+<p>5. When our heat stopped working, we called <input type="text" class="blank" data-ans="code enforcement" aria-label="Blank 5"><span class="mark"></span> to report the problem.</p>
+<p>6. After five years as a permanent resident, she applied for <input type="text" class="blank" data-ans="naturalization" aria-label="Blank 6"><span class="mark"></span> to become a citizen.</p>
+<div class="checkbar"><button class="btn" data-check="ex5">Check Exercise 5</button><button class="btn ghost" data-reset="ex5">Try again</button></div>
+<div class="fb" id="fb-ex5"></div>
+</section>
+
+<footer>American Culture — Student Worksheet &nbsp;|&nbsp; Week 3</footer>
+</main>
+
+<script>
+/* ---------- helpers ---------- */
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const norm=s=>s.toLowerCase().replace(/[’']/g,"'").replace(/[^a-z' ]/g,' ').replace(/\s+/g,' ').trim();
+function sentences(t){return t.split(/[.!?]+(?:\s|$)/).map(s=>s.trim()).filter(s=>s.split(/\s+/).filter(Boolean).length>=3);}
+function words(t){return t.trim()?t.trim().split(/\s+/).length:0;}
+function steps(t){return t.split(/\n+/).map(s=>s.trim()).filter(s=>s.replace(/^\d+[.)]?\s*/,'').split(/\s+/).filter(Boolean).length>=2);}
+function show(id,cls,html){const f=$('#fb-'+id);f.className='fb show '+cls;f.innerHTML=html;f.scrollIntoView({behavior:'smooth',block:'nearest'});}
+const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;');
+
+/* letters for Exercise 1 */
+$$('#ex1 select').forEach(s=>s.innerHTML='<option value="">—</option>'+'ABCDEF'.split('').map(l=>`<option>${l}</option>`).join(''));
+
+/* ---------- Exercise 1 & 5: scored ---------- */
+function scored(id){
+  const items=$$(`#${id} [data-ans]`); let right=0, empty=0;
+  items.forEach(el=>{
+    const mark=el.nextElementSibling; const v=id==='ex5'?norm(el.value):el.value;
+    el.classList.remove('ok','bad'); mark.className='mark'; mark.textContent='';
+    if(!v){empty++;return;}
+    const ok = id==='ex5' ? (v===el.dataset.ans || v==='the '+el.dataset.ans || v==='a '+el.dataset.ans) : v===el.dataset.ans;
+    if(ok){right++;el.classList.add('ok');mark.classList.add('ok');mark.textContent='✓';}
+    else{el.classList.add('bad');mark.classList.add('bad');mark.textContent='✗';}
+  });
+  const n=items.length;
+  if(empty===n){show(id,'warn','<h4>Please answer the questions first.</h4>');return;}
+  let msg=`<h4>You got ${right} out of ${n} correct.</h4>`;
+  if(right===n) msg+='<p>Excellent work! All your answers are correct.</p>';
+  else{
+    msg+= empty?`<p>You left ${empty} blank. `:'<p>';
+    msg+='Look at the answers marked ✗, change them, and click Check again.</p>';
+    msg+=`<button class="btn ghost" style="margin-top:6px" onclick="reveal('${id}')">Show the correct answers</button>`;
+  }
+  show(id,right===n?'ok':'bad',msg);
+}
+function reveal(id){
+  const items=$$(`#${id} [data-ans]`);
+  const list=items.map((el,i)=>{
+    const a = id==='ex5' ? el.dataset.ans.replace('miranda','Miranda') : el.dataset.ans+' — '+$$('#ex1 .defs p')[ 'ABCDEF'.indexOf(el.dataset.ans)+1 ].textContent.slice(2).trim();
+    return `<li><b>${i+1}.</b> ${esc(a)}</li>`;}).join('');
+  const f=$('#fb-'+id); f.innerHTML+=`<div class="model" style="font-style:normal"><b>Answer key</b><ul>${list}</ul></div>`;
+  f.querySelector('button[onclick^="reveal"]')?.remove();
+}
+function resetEx(id){
+  $$(`#${id} [data-ans]`).forEach(el=>{el.value='';el.classList.remove('ok','bad');el.nextElementSibling.textContent='';});
+  $('#fb-'+id).className='fb'; save(); usedWords();
+}
+
+/* ---------- Exercises 2–4: completion check + ideas ---------- */
+const IDEAS={
+ ex2:{
+  B:['Stay calm and polite. Keep your hands where the officer can see them.','Do not run or argue at the scene.','If you are driving, show your driver\'s license, registration, and proof of insurance.','You can ask: "Am I being detained, or am I free to leave?"','You have the right to remain silent.','You can ask for a lawyer: "I would like to speak to a lawyer."'],
+  model:'First, I would stay calm and keep my hands where the officer can see them. I would say, "Good afternoon, officer. How can I help you?" If I was driving, I would show my driver\'s license, registration, and proof of insurance. If I did not understand a question, I would ask, "Am I being detained, or am I free to leave?" If I did not want to answer, I would say, "I am going to remain silent. I would like to speak to a lawyer."',
+  tips:'Use "I would…" to talk about an imaginary situation. Use quotation marks for the exact words you would say.'
+ },
+ ex3:{
+  B:['Heat: landlords must provide heat in cold months, with a minimum indoor temperature set by local law.','Security deposit: the landlord must return it within a set number of days, or give you an itemized list of reasons for keeping money.','Lease terms: the lease tells you the rent, due date, length, and rules. Get changes in writing and keep a copy.'],
+  model:'Renting a home in the U.S. is different from renting in my home country. In the U.S., most tenants sign a written lease, and they usually pay a security deposit before they move in. Landlords must follow laws about heat and repairs, and tenants can call code enforcement if there is a problem. In my home country, … . However, in both countries, … . I think the U.S. system is … because … .',
+  tips:'Useful phrases for comparing: "In the U.S., … but in my home country, …", "However, …", "Both … and …", "…is more/less … than …".'
+ },
+ ex4:{
+  B:['City Hall: marriage licenses, birth/death certificates, property taxes, voter registration.','RMV / DMV: driver\'s licenses, state ID cards, vehicle registration, driving tests.','Social Security Administration: SSN cards, retirement and disability benefits, Medicare.','USCIS: green cards, work permits, citizenship (naturalization) applications.'],
+  model:'1. First, I checked the RMV website to see which documents I needed for a state ID.\n2. Next, I made an appointment online.\n3. Then, I brought my passport, proof of my address, and my Social Security number.\n4. At the RMV, I filled out the application and paid the fee.\n5. After that, they took my photo.\n6. Finally, my ID card came in the mail about two weeks later.',
+  tips:'Use sequence words: First, Next, Then, After that, Finally. Start each step with a verb in the past tense (I checked, I made, I brought…).'
+ }
+};
+function openCheck(id){
+  const parts=$$(`#${id} .part`); const probs=[];
+  parts.forEach((p,i)=>{
+    const t=$('textarea',p), L='ABC'[i], v=t.value.trim();
+    t.classList.remove('ok','bad');
+    if(!v){probs.push(`Part ${L} is empty.`);return;}
+    if(t.dataset.steps){const n=steps(v).length; if(n<+t.dataset.steps)probs.push(`Part ${L}: write at least ${t.dataset.steps} steps, each on a new line (you have ${n}).`);return;}
+    const n=sentences(v).length, min=+t.dataset.min||1, max=+t.dataset.max||0;
+    if(n<min) probs.push(`Part ${L}: write at least ${min} complete sentence${min>1?'s':''} (you have ${n}). Remember to end each sentence with a period.`);
+    else if(max && n>max) probs.push(`Part ${L}: write no more than ${max} sentences (you have ${n}).`);
+  });
+  const I=IDEAS[id];
+  let html='';
+  if(probs.length){ html+=`<h4>Almost there! Please finish these parts:</h4><ul>${probs.map(p=>`<li>${p}</li>`).join('')}</ul>`; }
+  else html+='<h4>Great job! You completed every part.</h4><p>There is no single correct answer here. Compare your ideas with the notes below, and ask your teacher if you have a question.</p>';
+  html+=`<p style="margin:12px 0 4px"><b>Ideas from today's lesson (Part B):</b></p><ul>${I.B.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`;
+  html+=`<p style="margin:12px 0 4px"><b>Sample answer (Part C):</b></p><div class="model">${esc(I.model).replace(/\n/g,'<br>')}</div>`;
+  html+=`<p style="margin-top:10px"><b>Language tip:</b> ${esc(I.tips)}</p>`;
+  show(id,probs.length?'warn':'ok',html);
+}
+
+/* live counters */
+function counters(){
+  $$('textarea').forEach(t=>{const c=t.nextElementSibling; if(!c||!c.classList.contains('counter'))return;
+    c.textContent = t.dataset.steps ? `${steps(t.value).length} step(s)` : `${sentences(t.value).length} sentence(s) · ${words(t.value)} words`; });
+}
+/* word box: cross out used words */
+function usedWords(){
+  const vals=$$('#ex5 [data-ans]').map(i=>norm(i.value));
+  $$('#ex5box span').forEach(s=>s.classList.toggle('used',vals.includes(norm(s.textContent))));
+}
+
+document.addEventListener('click',e=>{
+  const c=e.target.closest('[data-check]'); if(c){const id=c.dataset.check; (id==='ex1'||id==='ex5')?scored(id):openCheck(id);}
+  const r=e.target.closest('[data-reset]'); if(r) resetEx(r.dataset.reset);
+});
+
+/* ---------- autosave ---------- */
+const KEY='ac-week3-worksheet-v1';
+const fields=$$('input[type=text],textarea,select');
+function load(){let d={};try{d=JSON.parse(localStorage.getItem(KEY)||'{}');}catch(e){} fields.forEach((f,i)=>{if(d['f'+i]!==undefined)f.value=d['f'+i];});}
+let tm;function save(){const d={};fields.forEach((f,i)=>d['f'+i]=f.value);
+  try{localStorage.setItem(KEY,JSON.stringify(d));const s=$('#saved');s.textContent='✓ Saved on this device';clearTimeout(tm);tm=setTimeout(()=>s.textContent='Your answers save automatically on this device.',2000);}catch(e){}}
+fields.forEach(f=>['input','change'].forEach(ev=>f.addEventListener(ev,()=>{save();counters();usedWords();f.classList.remove('ok','bad');})));
+$('#clear').onclick=()=>{if(!confirm('Clear ALL your answers? This cannot be undone.'))return;
+  try{localStorage.removeItem(KEY);}catch(e){} fields.forEach(f=>{f.value='';f.classList.remove('ok','bad');});
+  $$('.mark').forEach(m=>m.textContent=''); $$('.fb').forEach(f=>f.className='fb'); counters(); usedWords();};
+load(); counters(); usedWords();
+addEventListener('beforeprint',()=>$$('textarea').forEach(a=>{a.style.height='auto';a.style.height=(a.scrollHeight+4)+'px';}));
+</script>
+</body>
+</html>
