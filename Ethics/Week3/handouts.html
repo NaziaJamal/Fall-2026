@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Week 3 Handouts · Ethics in a Global World</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#143865;--blue:#1c4f8f;--gold:#d39f10;--gold-d:#8c7535;--sky:#c1cddd;--sky2:#e1e8f2;--sky3:#edf2f9;--cream:#efe9d9;--ink:#1a2233;--muted:#4a5568}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Source Sans 3",system-ui,sans-serif;color:var(--ink);background:#e9ecf1}
+.ctl{position:sticky;top:0;z-index:5;background:var(--navy);color:#fff;border-bottom:4px solid var(--gold);padding:12px 16px}
+.ctl .in{max-width:8.5in;margin:0 auto;display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center}
+.ctl h1{font-family:"Libre Baskerville",serif;font-size:18px;margin:0;flex-basis:100%}
+.ctl label{font-size:14px;display:flex;gap:5px;align-items:center}
+.btn{background:var(--gold);color:var(--navy);border:0;border-radius:6px;padding:7px 13px;font:inherit;font-weight:700;cursor:pointer;text-decoration:none;font-size:14px}
+.btn.ghost{background:transparent;color:#fff;border:1px solid var(--sky)}
+.page{width:8.5in;min-height:11in;margin:18px auto;background:#fff;padding:.45in .5in;box-shadow:0 4px 16px rgba(0,0,0,.12);position:relative;font-size:12.5pt;line-height:1.38}
+.page.off{display:none}
+.ph{display:flex;justify-content:space-between;align-items:baseline;border-bottom:3px solid var(--gold);padding-bottom:5px;margin-bottom:12px}
+.ph b{font-family:"Libre Baskerville",serif;color:var(--navy);font-size:15pt}
+.ph span{font-size:9.5pt;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.pf{position:absolute;bottom:.25in;left:.5in;right:.5in;font-size:8pt;color:#7a8597;display:flex;justify-content:space-between}
+.cut{border:1.5px dashed #9aa8bb;border-radius:6px}
+.grid{display:grid;gap:8px}
+.g3{grid-template-columns:repeat(3,1fr)}.g2{grid-template-columns:repeat(2,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+.card{padding:10px 12px;display:flex;flex-direction:column;justify-content:center;text-align:center;min-height:1.05in}
+.card.v{background:var(--navy);color:#fff;font-weight:700;font-size:16pt;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.card.x{font-size:14pt;font-weight:600;color:var(--navy)}
+.half{padding:12px 16px;margin-bottom:12px}
+h3{font-family:"Libre Baskerville",serif;color:var(--navy);margin:0 0 6px;font-size:13.5pt}
+.line{border-bottom:1px solid #aab4c3;height:24px}
+.lbl{font-weight:700;color:var(--navy);font-size:11pt;margin-top:6px}
+.small{font-size:10.5pt}
+.tiny{font-size:9.5pt;color:var(--muted)}
+.box{background:var(--sky3);border-left:4px solid var(--gold);padding:7px 11px;border-radius:4px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.fw{border:1.5px solid var(--sky);border-top:5px solid var(--blue);border-radius:8px;padding:8px 12px;margin-bottom:9px;font-size:10.5pt;line-height:1.32}
+.fw p{margin:3px 0}
+.id{padding:10px 12px;min-height:2.2in;display:flex;flex-direction:column}
+.id .who{font-family:"Libre Baskerville",serif;font-weight:700;color:var(--navy);font-size:13pt;margin-bottom:6px}
+.id .q{margin-top:auto;font-size:10pt;color:var(--gold-d);font-weight:700}
+.tc{min-height:.95in;padding:8px 10px;display:flex;align-items:center;justify-content:center;text-align:center}
+.tc.n{font-family:"Libre Baskerville",serif;font-weight:700;color:var(--navy);font-size:15pt;background:var(--cream);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.tc.i{font-size:11.5pt}
+.ev{padding:8px 11px;min-height:1.25in;font-size:11pt}
+.ev .s{font-size:8.5pt;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-d)}
+ul{margin:4px 0;padding-left:20px}
+@media print{
+  @page{size:letter;margin:0}
+  body{background:#fff}
+  .ctl{display:none}
+  .page{margin:0;box-shadow:none;break-after:page;width:8.5in;height:11in;min-height:0;overflow:hidden}
+  .page.off{display:none}
+}
+@media (max-width:8.7in){.page{transform-origin:top left}}
+
+.sign{height:4.7in;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;border-radius:14px;color:#fff;margin-bottom:.25in;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.sign b{font-family:"Libre Baskerville",serif;font-size:58pt;line-height:1.05}
+.sign span{font-size:16pt;margin-top:10px;opacity:.9}
+.case{padding:10px 12px;min-height:2.05in;font-size:11pt;line-height:1.35}
+.case h3{font-size:12.5pt}
+.case .mm{margin-top:6px;font-size:9.5pt;color:var(--gold-d);font-weight:700}
+.strip{display:grid;grid-template-columns:repeat(4,1fr);text-align:center;font-weight:700;font-size:12pt;border-radius:6px;overflow:hidden;margin-top:10px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.strip div{padding:12px 4px}
+.mxp{display:grid;grid-template-columns:.35in 1fr 1fr;grid-template-rows:4.1in 4.1in .35in;gap:6px}
+.mxp .q{border:2px solid var(--navy);border-radius:8px;padding:8px 10px;font-size:11pt;color:var(--navy)}
+.mxp .q b{display:block;font-size:13pt}
+.mxp .k{background:#eef2f8;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.mxp .ax{display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--gold-d);letter-spacing:.1em}
+.mxp .ay{writing-mode:vertical-rl;transform:rotate(180deg)}
+.brief{padding:12px 16px;font-size:11pt;line-height:1.4;margin-bottom:10px}
+.evc{min-height:1.55in;padding:12px 14px;font-size:13pt;line-height:1.35;display:flex;flex-direction:column;justify-content:center}
+.evc .n{font-size:9pt;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-d)}
+.role{padding:9px 12px;min-height:1.92in;font-size:10.3pt;line-height:1.32;margin-bottom:8px}
+.role h3{font-size:12.5pt;margin:0 0 2px}
+.role .cat{font-size:8.5pt;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-d)}
+.role .sec{background:#fbf1dc;border-left:3px solid var(--gold);padding:4px 8px;margin-top:5px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.slip{padding:8px 12px;font-size:10.5pt}
+</style>
+</head>
+<body>
+<div class="ctl"><div class="in">
+  <h1>Week 3 Handouts · untick pages you don't need, then print (Letter, 100%, no margins)</h1>
+  <div id="toggles" style="display:contents"></div>
+  <button class="btn" onclick="print()">Print</button>
+  <a class="btn ghost" href="index.html">All files</a>
+</div></div>
+
+<!-- P1 corners -->
+<div class="page" data-name="1 Corner signs A">
+  <div class="sign" style="background:#1c4f8f"><b>ACT</b><span>Pull the switch · push · swerve · lay off</span></div>
+  <div class="sign" style="background:#8c3a2a"><b>DON'T ACT</b><span>Leave it as it is</span></div>
+  <div class="pf"><span>Trolley four corners · tape in a corner</span><span>Approach International Student Center</span></div>
+</div>
+<div class="page" data-name="2 Corner signs B">
+  <div class="sign" style="background:#8c7535"><b>IT DEPENDS</b><span>…on what?</span></div>
+  <div class="sign" style="background:#4a5f7a"><b>I NEED MORE<br>INFORMATION</b><span>What would you need to know?</span></div>
+  <div class="pf"><span>Trolley four corners · tape in a corner</span><span>Approach International Student Center</span></div>
+</div>
+
+<!-- P3 thermometer -->
+<div class="page" data-name="3 Thermometer cards">
+  <div class="ph"><b>Ethics thermometer · case cards</b><span>Class 1 · 1 set per group · cut</span></div>
+  <div class="grid g2" id="cases"></div>
+  <div class="strip"><div style="background:#cfe0f3">❄ Below the law</div><div style="background:#e8eef5">Legal minimum</div><div style="background:#fbf1dc">Beyond the law</div><div style="background:#f6c9a4">Ethical maximum 🔥</div></div>
+  <div class="pf"><span>Cases from OpenStax Business Ethics Ch. 3 (CC BY-NC-SA 4.0)</span><span>Approach International Student Center</span></div>
+</div>
+
+<!-- P4 matrix -->
+<div class="page" data-name="4 Power–interest matrix">
+  <div class="ph"><b>Stakeholder map · Harbor Bay</b><span>Class 1 · 1 per group · A3 if possible</span></div>
+  <div class="mxp">
+    <div class="ax ay">POWER →</div>
+    <div class="q"><b>Keep satisfied</b>meet needs · high power, low interest</div>
+    <div class="q k"><b>Manage closely — KEY STAKEHOLDERS</b>keep engaged · high power, high interest</div>
+    <div class="ax ay">&nbsp;</div>
+    <div class="q"><b>Monitor lightly</b>low power, low interest</div>
+    <div class="q"><b>Keep informed</b>respect interests · low power, high interest</div>
+    <div></div><div class="ax" style="grid-column:2/4">INTEREST →</div>
+  </div>
+  <p class="tiny" style="margin-top:6px">Label each sticky note E (enabling) · F (functional) · N (normative) · D (diffused). Use a second color for voiceless stakeholders. Circle the key stakeholders.</p>
+  <div class="pf"><span>Matrix adapted from OpenStax Figure 3.5</span><span>Approach International Student Center</span></div>
+</div>
+
+<!-- P5 brief -->
+<div class="page" data-name="5 Harbor Bay brief (×2)">
+  <div class="ph"><b>Harbor Bay · case brief</b><span>1 per student · cut in half</span></div>
+  <div class="cut brief" id="brief">
+    <h3>Harbor Bay: a data center decision <span class="tiny">(fictional case)</span></h3>
+    <p><b>Lumen Data</b>, a technology company, wants to build a large AI data center on farmland outside <b>Harbor Bay</b> (population 18,000), a coastal town with dry summers.</p>
+    <ul>
+      <li>A <b>$1.2 billion</b> investment; about <b>1,500</b> construction jobs for two years, then <b>120</b> permanent jobs.</li>
+      <li>In return: a <b>10-year property-tax break</b>. After that, about <b>$9 million</b> a year in local taxes.</li>
+      <li>The cooling system would use up to <b>2 million liters of water a day</b> from the town's supply.</li>
+      <li>The center would use as much electricity as a small city. The utility says residents' <b>electricity rates may rise</b>.</li>
+      <li>Lumen offers a <b>$500,000-a-year community fund</b>.</li>
+    </ul>
+    <p>The <b>Town Council</b> will vote: <b>approve</b> · <b>approve with conditions</b> · <b>delay</b> for an independent study · <b>reject</b>.</p>
+    <p class="tiny"><b>Task:</b> Who are the stakeholders? Place them on the power–interest matrix. Who is voiceless? Who are the key stakeholders?</p>
+  </div>
+  <div id="brief2"></div>
+  <div class="pf"><span>Teacher-made fictional case</span><span>Approach International Student Center</span></div>
+</div>
+
+<!-- P6 events -->
+<div class="page" data-name="6 Event cards">
+  <div class="ph"><b>Event cards</b><span>Class 1 · read one every 2 minutes · cut</span></div>
+  <div class="grid g2" id="events"></div>
+  <div class="pf"><span>Teacher-made · Harbor Bay is fictional</span><span>Approach International Student Center</span></div>
+</div>
+
+<!-- P7-8 roles -->
+<div class="page" data-name="7 Role cards 1–5">
+  <div class="ph"><b>Town hall role cards (1)</b><span>Class 2 · secret · cut</span></div>
+  <div id="roles1"></div>
+  <div class="pf"><span>Teacher-made · Harbor Bay is fictional</span><span>Approach International Student Center</span></div>
+</div>
+<div class="page" data-name="8 Role cards 6–10">
+  <div class="ph"><b>Town hall role cards (2)</b><span>Class 2 · secret · cut</span></div>
+  <div id="roles2"></div>
+  <div class="pf"><span>Teacher-made · Harbor Bay is fictional</span><span>Approach International Student Center</span></div>
+</div>
+
+<!-- P9 agenda -->
+<div class="page" data-name="9 Agenda, Council sheet, deal slips">
+  <div class="ph"><b>Harbor Bay Town Hall · agenda</b><span>Class 2 · post on the board</span></div>
+  <table class="small" style="width:100%;border-collapse:collapse" border="1" cellpadding="5">
+    <tr><td style="width:28%"><b>Prep</b></td><td>7 min · position, need, bottom line, concession, opening statement</td></tr>
+    <tr><td><b>Round 1 · Opening statements</b></td><td>45 seconds per group · the Gazette may ask one question</td></tr>
+    <tr><td><b>Round 2 · The lobby</b></td><td>10 min · make deals; write and sign a deal slip</td></tr>
+    <tr><td><b>Round 3 · Final offers</b></td><td>20 seconds per group · announce deals</td></tr>
+    <tr><td><b>Round 4 · Council deliberation</b></td><td>5 min fishbowl · vote · announce the decision</td></tr>
+    <tr><td><b>Press</b></td><td>The Gazette reads its headline and story</td></tr>
+  </table>
+  <div class="cut half" style="margin-top:12px">
+    <h3>Council decision sheet</h3>
+    <div class="lbl">Our key stakeholders are…</div><div class="line"></div>
+    <div class="lbl">The test we used to prioritize: ☐ Survival ☐ Urgency (exigency) ☐ Power &amp; interest ☐ Protecting the voiceless</div>
+    <div class="lbl">A voiceless stakeholder we considered, and how</div><div class="line"></div>
+    <div class="lbl">Decision: ☐ Approve ☐ Approve with conditions ☐ Delay ☐ Reject &nbsp;&nbsp; Vote: ___ for · ___ against</div>
+    <div class="lbl">Conditions</div><div class="line"></div><div class="line"></div><div class="line"></div>
+  </div>
+  <div class="grid g2" id="slips"></div>
+  <div class="pf"><span>Ethics in a Global World · Week 3</span><span>Approach International Student Center</span></div>
+</div>
+
+<!-- P10 exit -->
+<div class="page" data-name="10 Exit tickets">
+  <div class="ph"><b>Exit tickets · Class 1</b><span>cut</span></div>
+  <div class="grid g2" id="exits"></div>
+  <div class="pf"><span>Ethics in a Global World · Week 3</span><span>Approach International Student Center</span></div>
+</div>
+
+<script>
+const $=s=>document.getElementById(s);
+const CASES=[["Volkswagen","Diesel engines exceeded U.S. emissions standards. Instead of redesigning them, engineers installed a device that made the cars appear to pass the tests. Fines and costs exceeded $30 billion by September 2017; some employees went to jail.","3.2"],["United Airlines","The airline removed ticketed, seated passengers from a flight to make room for four of its employees who needed to fly to another airport. Overbooking flights avoids unsold seats.","3.2"],["Amazon","At a distribution center, “pickers” walk 8–9 miles per shift at the “Amazon Pace.” Those who can't keep up are usually let go.","3.1"],["Samsung","2017: a spin-cycle problem in some washing machines. A warning wasn't enough. The final fix: a full refund for about 3 million washers ($450–$1,500 each) with free pickup. It cost billions and limited the company's legal exposure.","3.1"],["Starbucks","2018: after two Black men were arrested in a Philadelphia store, Starbucks closed about 8,000 U.S. stores for an afternoon of racial-bias training and changed its store-use policy. It was costly. The company “believed it was the right thing to do.”","Ch. 3 intro"],["Johnson & Johnson","1982: seven people near Chicago died after someone put cyanide in Tylenol capsules in stores. J&J pulled all Tylenol from the U.S. market — about 30 million bottles, worth over $100 million — guided by its credo. Market share fell from 37% to 7%, then recovered to 30% within a year.","3.2"]];
+$('cases').innerHTML=CASES.map(c=>`<div class="cut case"><h3>${c[0]} <span class="tiny">(${c[2]})</span></h3>${c[1]}<div class="mm">Where on the thermometer? Normative or instrumental?</div></div>`).join('');
+$('brief2').outerHTML=$('brief').outerHTML.replace('id="brief"','');
+const EV=["The state declares a <b>drought warning</b> for the region.","The <i>Harbor Bay Gazette</i> publishes the water figures. <b>Residents had not known.</b>","The building-trades union endorses the project and promises <b>300 members</b> at the vote.","A town 40 km away offers Lumen <b>free land</b>.","River Keepers, an environmental group, files a complaint <b>“on behalf of the river.”</b>"];
+$('events').innerHTML=EV.map((e,i)=>`<div class="cut evc"><div class="n">Event card ${i+1}</div><div>${e}</div></div>`).join('')+`<div class="cut evc" style="background:#f6f4ee"><div class="n">Teacher's wildcard</div><div>"The Water Utility has just been asked for its drought figures." <span class="tiny">(use in Class 2 if nobody discovers the utility's secret)</span></div></div>`;
+const R=[
+["Town Council","Enabling","You run the hearing. The Chair calls each group, keeps time and asks questions. At the end you deliberate in public and vote.","Public position: neutral.","The town's budget has a <b>$4 million gap</b> next year. Two of you face <b>re-election</b> in the spring."],
+["Lumen Data · VP of Site Development","The company","You want approval as proposed, including the 10-year tax break. Stress jobs, investment and the community fund.","Public position: approve as proposed.","Lumen <b>can</b> accept a closed-loop cooling system (uses about 80% less water, costs 8% more) — but <b>only if the tax break stays</b>. The rival town's offer is real, but its power lines are weaker."],
+["Harbor Bay Residents' Association","Diffused / community","You represent households. Members worry about water during dry summers and about higher electricity bills.","Public position: worried.","Your members are <b>split</b>: young families want the jobs; retirees fear the bills. You would accept a <b>guarantee that residential electricity rates won't rise</b> because of the center."],
+["Valley Farmers' Cooperative","Functional (water users)","You represent 60 family farms that depend on the same water supply.","Public position: opposed.","Your members' wells were low last summer. You would <b>support</b> the project if Lumen funds a <b>water-recycling plant</b> that the farms can also use."],
+["Building Trades Union","Functional (labor)","You represent electricians, builders and plumbers. 1,500 construction jobs would be a huge opportunity.","Public position: strongly support.","You need a <b>written promise that at least 50% of construction jobs go to local workers</b>. Without it, outside contractors may take most of the jobs."],
+["Harbor Bay Water Utility","Functional / public service","You run the town's water system. You give technical information when asked.","Public position: technical, neutral.","You can supply 2 million liters a day in a normal year — but only <b>0.8 million in a drought year</b>. Nobody has asked you directly. You may answer honestly if asked."],
+["River Keepers (environmental NGO)","Diffused","You protect the Harbor River and its wildlife. You speak for those who can't speak: the river, the fish, the wetlands.","Public position: reject or delay.","You have legal advice that a <b>lawsuit could delay the project two years</b>. You would prefer a <b>binding agreement</b> (water cap, monitoring) to a lawsuit."],
+["Main Street Business Owners","Functional / community","You own cafés, shops and small hotels in town.","Public position: cautiously support.","Construction workers would fill your businesses. But if <b>electricity rates rise</b>, your costs rise too. You want both."],
+["Youth Climate Council","Diffused / speaks for future residents","You are 16–22. Many of you can't vote yet. You will live with this decision longest.","Public position: concerned.","You want the agreement <b>reviewed every five years</b>, so future residents can change it. You'd support approval with a review clause."],
+["Harbor Bay Gazette (press)","Diffused / media","You report on the hearing. You may ask one question after any opening statement. At the end, you read a two-sentence headline and story.","Public position: report and question.","A source says Lumen <b>already owns an option on land in the rival town</b>. You may ask about it <b>once</b>, at any time."]];
+const card=r=>`<div class="cut role"><div class="cat">${r[1]}</div><h3>${r[0]}</h3>${r[2]} <i>${r[3]}</i><div class="sec"><b>SECRET:</b> ${r[4]}</div></div>`;
+$('roles1').innerHTML=R.slice(0,5).map(card).join('');$('roles2').innerHTML=R.slice(5).map(card).join('');
+$('slips').innerHTML=`<div class="cut slip"><b>DEAL SLIP</b><br>___________ agrees to ____________________<br>if ___________ agrees to ____________________<br>Signed: ________________ · ________________</div>`.repeat(4);
+$('exits').innerHTML=`<div class="cut" style="padding:8px 11px;font-size:10.5pt"><b style="color:#143865">Exit ticket · Class 1</b> &nbsp;Name: ________________<div class="lbl" style="font-size:10pt">1. A voiceless stakeholder in Harbor Bay — and who could speak for them</div><div class="line"></div><div class="line"></div><div class="lbl" style="font-size:10pt">2. Ethical minimum vs. maximum, with an example</div><div class="line"></div><div class="line"></div><div class="lbl" style="font-size:10pt">3. One question I still have</div><div class="line"></div></div>`.repeat(6);
+const pages=[...document.querySelectorAll('.page')];
+$('toggles').innerHTML=pages.map((p,k)=>`<label><input type="checkbox" checked data-p="${k}"> ${p.dataset.name}</label>`).join('');
+document.querySelectorAll('[data-p]').forEach(c=>c.addEventListener('change',()=>pages[c.dataset.p].classList.toggle('off',!c.checked)));
+</script>
+</body>
+</html>

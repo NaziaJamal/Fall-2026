@@ -1,0 +1,617 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Slides · Week 3 · Ethics in a Global World</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+:root{--navy:#143865;--blue:#1c4f8f;--gold:#d39f10;--gold-d:#8c7535;--sky:#c1cddd;--sky2:#e1e8f2;--sky3:#edf2f9;--cream:#efe9d9;--ink:#1a2233;--muted:#4a5568}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:#0b1d36;overflow:hidden;font-family:"Source Sans 3",system-ui,sans-serif;color:var(--ink)}
+#stage{position:fixed;inset:0;display:flex;align-items:center;justify-content:center}
+#deck{width:1280px;height:720px;position:relative;transform-origin:center center;flex:none}
+.slide{position:absolute;inset:0;background:#fbfaf6;padding:56px 76px 70px;display:none;flex-direction:column;overflow:hidden}
+.slide.on{display:flex}
+.slide.dark{background:var(--navy);color:#fff}
+.slide.cream{background:var(--cream)}
+.slide::after{content:"";position:absolute;left:0;right:0;bottom:0;height:8px;background:var(--gold)}
+.foot{position:absolute;left:76px;right:76px;bottom:22px;display:flex;justify-content:space-between;font-size:15px;color:var(--muted);letter-spacing:.04em}
+.dark .foot{color:var(--sky)}
+.kick{font-size:18px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-d);margin-bottom:10px}
+.dark .kick{color:var(--gold)}
+h1{font-family:"Libre Baskerville",serif;font-size:56px;line-height:1.12;margin:0 0 16px;color:var(--navy)}
+.dark h1{color:#fff}
+h2{font-family:"Libre Baskerville",serif;font-size:40px;line-height:1.18;margin:0 0 18px;color:var(--navy)}
+.dark h2{color:#fff}
+p,li{font-size:27px;line-height:1.4;margin:0 0 10px}
+ul,ol{margin:0;padding-left:34px}
+.big{font-size:34px;line-height:1.35}
+.q{font-family:"Libre Baskerville",serif;font-size:36px;line-height:1.35;color:var(--navy)}
+.dark .q{color:#fff}
+.muted{color:var(--muted)}.dark .muted{color:var(--sky)}
+.gold{color:var(--gold-d)}.dark .gold{color:var(--gold)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.cols3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px}
+.cols4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.box{background:#fff;border:2px solid var(--sky);border-top:6px solid var(--blue);border-radius:12px;padding:16px 20px}
+.box h3{font-family:"Libre Baskerville",serif;margin:0 0 6px;font-size:24px;color:var(--navy)}
+.box p,.box li{font-size:21px}
+.dark .box{background:#1c4673;border-color:#2c5b8c;border-top-color:var(--gold);color:#fff}
+.dark .box h3{color:var(--gold)}
+.lang{margin-top:auto;background:var(--sky3);border-left:6px solid var(--gold);padding:10px 18px;border-radius:8px;font-size:20px;color:var(--navy)}
+.lang b{color:var(--gold-d)}
+.dark .lang{background:#1c4673;color:#fff}
+.dark .lang b{color:var(--gold)}
+table{border-collapse:collapse;width:100%;font-size:21px;background:#fff}
+th,td{border:2px solid var(--sky);padding:8px 12px;text-align:left;vertical-align:top}
+th{background:var(--sky2);color:var(--navy)}
+.mean{display:flex;align-items:center;justify-content:center;gap:24px;font-size:34px;margin:24px 0}
+.mean .v{background:var(--navy);color:#fff;padding:12px 26px;border-radius:10px;font-weight:700}
+.mean .x{color:var(--gold-d);font-weight:700}
+.tag{display:inline-block;background:var(--navy);color:#fff;font-size:16px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border-radius:5px;margin-bottom:12px}
+.tag.s{background:var(--blue)}.tag.a{background:var(--gold-d)}.tag.b{background:#5a6b84}
+.step{opacity:0;transform:translateY(8px);transition:opacity .3s,transform .3s}
+.step.shown{opacity:1;transform:none}
+.timechip{display:inline-block;background:var(--gold);color:var(--navy);font-weight:700;padding:3px 12px;border-radius:20px;font-size:18px;margin-left:10px;vertical-align:middle}
+.brand{display:flex;align-items:center;gap:16px;margin-bottom:auto}
+.brand img{height:74px}
+.brand .w{font-family:"Libre Baskerville",serif;color:var(--gold);letter-spacing:.14em;font-size:22px;line-height:1.1}
+.brand .w small{display:block;font-size:13px;letter-spacing:.03em;color:#e6d8a8}
+#qr{background:#fff;padding:10px;border-radius:10px;width:max-content}
+#qr img,#qr canvas{display:block;width:170px!important;height:170px!important}
+.warn{background:#fbf1dc;border-left:6px solid var(--gold);padding:10px 16px;border-radius:8px;font-size:20px;margin-bottom:12px}
+#timer{position:fixed;right:18px;top:18px;background:var(--gold);color:var(--navy);font:700 46px "Source Sans 3",sans-serif;padding:6px 20px;border-radius:12px;display:none;z-index:10;box-shadow:0 6px 20px rgba(0,0,0,.3);cursor:pointer}
+#timer.done{background:#a33a2a;color:#fff;animation:pulse 1s infinite}
+@keyframes pulse{50%{opacity:.6}}
+#help{position:fixed;left:14px;bottom:12px;color:#7f93ad;font-size:13px;z-index:10}
+#prog{position:fixed;left:0;top:0;height:4px;background:var(--gold);z-index:11;transition:width .2s}
+@media print{html,body{overflow:visible;background:#fff;height:auto}#stage{position:static;display:block}#deck{transform:none!important;width:auto;height:auto}.slide{display:flex!important;position:relative;width:1280px;height:720px;break-after:page}.step{opacity:1;transform:none}#timer,#help,#prog{display:none}}
+
+.corners{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:10px}
+.corners div{border-radius:12px;padding:18px 22px;font-size:30px;font-weight:700;color:#fff}
+.c1{background:#1c4f8f}.c2{background:#8c3a2a}.c3{background:#8c7535}.c4{background:#4a5f7a}
+.matrix{display:grid;grid-template-columns:60px 1fr 1fr;grid-template-rows:1fr 1fr 40px;gap:8px;height:420px}
+.matrix .q{border-radius:10px;padding:14px 18px;font-size:22px;background:var(--sky3);border:2px solid var(--sky)}
+.matrix .q b{display:block;font-size:24px;color:var(--navy)}
+.matrix .q.key{background:var(--navy);color:#fff;border-color:var(--navy)}
+.matrix .q.key b{color:var(--gold)}
+.matrix .ax{display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--gold-d);font-size:18px;letter-spacing:.08em}
+.matrix .ay{writing-mode:vertical-rl;transform:rotate(180deg)}
+.therm{display:grid;grid-template-columns:repeat(4,1fr);margin:18px 0;border-radius:10px;overflow:hidden;font-size:22px;font-weight:700;text-align:center}
+.therm div{padding:16px 8px}
+.paper{background:#f8f5ec;border:2px solid #2b2b2b;padding:22px 30px;font-family:"Libre Baskerville",serif;color:#1a1a1a;box-shadow:6px 6px 0 rgba(0,0,0,.15)}
+.paper .mast{text-align:center;font-size:44px;font-weight:700;border-bottom:4px double #1a1a1a;padding-bottom:6px;letter-spacing:.04em}
+.paper .date{display:flex;justify-content:space-between;font-family:"Source Sans 3",sans-serif;font-size:15px;border-bottom:1px solid #1a1a1a;padding:4px 0;margin-bottom:14px}
+.paper .head{font-size:44px;line-height:1.15;font-weight:700;margin:6px 0 10px}
+.paper p{font-family:"Source Sans 3",sans-serif;font-size:22px}
+.lie{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px}
+.lie div{background:#fff;border:2px solid var(--sky);border-radius:12px;padding:14px 18px;font-size:23px;line-height:1.35}
+.lie b{color:var(--gold-d);font-size:26px;margin-right:6px}
+.ev{background:#fff;border:3px dashed var(--gold-d);border-radius:14px;padding:30px 36px;font-size:36px;line-height:1.35;font-family:"Libre Baskerville",serif;color:var(--navy);margin:12px 0}
+</style>
+</head>
+<body>
+<div id="prog"></div>
+<div id="stage"><div id="deck">
+
+<!-- 1 -->
+<section class="slide dark">
+  <div class="brand"><img src="logo.png" alt="" onerror="this.remove()"><div class="w">APPROACH<small>International Student Center</small></div></div>
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:40px">
+    <div><div class="kick">Ethics in a Global World · Week 3</div>
+    <h1>Defining and Prioritizing<br>Stakeholders</h1>
+    <p class="muted">Chapter 3 · Who gets a say — and whose claim wins? · Quiz 1</p></div>
+    <div style="text-align:center"><div id="qr"></div><p style="font-size:16px;margin-top:8px" class="muted">Scan for your worksheet</p></div>
+  </div>
+  <div class="foot"><span>Week 3</span><span>1</span></div>
+</section>
+
+<!-- 2 -->
+<section class="slide">
+  <div class="kick">Today</div>
+  <h2>Who gets a say? Whose claim wins?</h2>
+  <div class="cols3" style="margin-top:10px">
+    <div class="box"><h3>Class 1 · 9:00–10:40</h3><p><b>Who Gets a Say?</b></p><p>Trolleys, stakeholders, and a map of a town's big decision</p></div>
+    <div class="box" style="border-top-color:var(--gold)"><h3>Break · 10:40–11:10</h3><p>Read your secret role card</p></div>
+    <div class="box"><h3>Class 2 · 11:10–12:50</h3><p><b>Whose Claim Wins?</b></p><p>Town hall role-play · review game · <b>Quiz 1</b></p></div>
+  </div>
+  <p style="margin-top:26px" class="muted">Please hand in <b>Ethics Journal #2</b> now.</p>
+  <div class="foot"><span>Week 3 · Overview</span><span>2</span></div>
+</section>
+
+<!-- 3 -->
+<section class="slide">
+  <span class="tag">Engage</span>
+  <h2>Trolley Problem: four corners</h2>
+  <p>For each scenario, <b>walk to a corner</b>. Then agree on your <b>best reason</b> with a partner.</p>
+  <div class="corners"><div class="c1">ACT</div><div class="c2">DON'T ACT</div><div class="c3">IT DEPENDS</div><div class="c4">I NEED MORE INFORMATION</div></div>
+  <div class="lang"><b>Try:</b> "I'd pull the lever, on the grounds that…" · "I'm in the 'it depends' corner because…" · "Before deciding, I'd need to know…"</div>
+  <div class="foot"><span>Class 1 · Engage</span><span>3</span></div>
+</section>
+
+<!-- 4 -->
+<section class="slide dark" data-t="4">
+  <div class="kick">Round 1 · The switch</div>
+  <p class="q" style="margin-top:20px">A runaway trolley will kill <b class="gold">five workers</b> on the track.</p>
+  <p class="q">You can pull a switch to send it onto a side track, where it will kill <b class="gold">one worker</b>.</p>
+  <p class="big" style="margin-top:30px">Do you pull the switch? <span class="timechip">Go to a corner</span></p>
+  <div class="foot"><span>Class 1 · Trolley</span><span>4</span></div>
+</section>
+
+<!-- 5 -->
+<section class="slide dark" data-t="4">
+  <div class="kick">Round 2 · The footbridge</div>
+  <p class="q" style="margin-top:20px">Same trolley. Same five workers.</p>
+  <p class="q">You're on a bridge next to a man with a heavy backpack. Pushing him onto the track will stop the trolley and <b class="gold">save the five</b>.</p>
+  <p class="big" style="margin-top:30px">Do you push him? <span class="timechip">Go to a corner</span></p>
+  <div class="foot"><span>Class 1 · Trolley</span><span>5</span></div>
+</section>
+
+<!-- 6 -->
+<section class="slide">
+  <span class="tag">Engage</span>
+  <h2>Five vs. one — both times. So what changed?</h2>
+  <div class="cols" style="margin-top:14px">
+    <div class="box step"><h3>Round 1 · The switch</h3><p>Most people pull it.</p><p><b>Utilitarian</b>: five lives &gt; one life. (Bentham)</p></div>
+    <div class="box step"><h3>Round 2 · The footbridge</h3><p>Most people refuse.</p><p><b>Kant</b>: you'd be using a person <b>merely as a means</b>.</p></div>
+  </div>
+  <p class="step q" style="margin-top:24px">The numbers didn't change. <span class="gold">Our relationship to the people did.</span></p>
+  <div class="foot"><span>Class 1 · Trolley</span><span>6</span></div>
+</section>
+
+<!-- 7 -->
+<section class="slide dark" data-t="4">
+  <div class="kick">Round 3 · The self-driving car</div>
+  <p class="q" style="margin-top:14px">You design the software. The car's brakes fail.</p>
+  <div class="cols" style="margin-top:14px">
+    <div class="box"><h3>Stay in lane</h3><p class="big">hit <b>five pedestrians</b></p></div>
+    <div class="box"><h3>Swerve into a wall</h3><p class="big">kill its <b>one passenger</b></p></div>
+  </div>
+  <p class="big" style="margin-top:22px">What should the code do? <span class="gold">Would you buy that car?</span></p>
+  <div class="foot"><span>Class 1 · Trolley</span><span>7</span></div>
+</section>
+
+<!-- 8 -->
+<section class="slide">
+  <span class="tag s">The real world</span>
+  <h2>The Moral Machine (MIT)</h2>
+  <div class="cols" style="align-items:start">
+    <div>
+      <p class="big"><b class="gold">40 million</b> decisions</p>
+      <p class="big"><b class="gold">233</b> countries and territories</p>
+      <p class="muted" style="font-size:20px">Awad et al., <i>Nature</i>, 2018. Volunteers, not a random sample.</p>
+    </div>
+    <ul style="font-size:24px">
+      <li class="step">Countries formed three broad clusters: <b>West, East, South</b>.</li>
+      <li class="step">China and Japan: less likely to spare the <b>young</b> over the <b>old</b>.</li>
+      <li class="step">UK and US: more weight on saving <b>more lives</b>.</li>
+    </ul>
+  </div>
+  <p class="step q" style="margin-top:16px;font-size:30px">A company sells one car in 50 countries. <span class="gold">Whose ethics does it program?</span></p>
+  <div class="foot"><span>Class 1 · Trolley · Outside source</span><span>8</span></div>
+</section>
+
+<!-- 9 -->
+<section class="slide dark" data-t="4">
+  <div class="kick">Round 4 · The layoff trolley</div>
+  <p class="q" style="margin-top:20px">Your company is losing money.</p>
+  <p class="q">If you lay off <b class="gold">50 people now</b>, your forecast says you will avoid laying off <b class="gold">500 people next year</b>.</p>
+  <p class="q">The forecast is <b class="gold">70%</b> likely to be right.</p>
+  <p class="big" style="margin-top:20px">Do you do it? <span class="timechip">Go to a corner</span></p>
+  <div class="foot"><span>Class 1 · Trolley</span><span>9</span></div>
+</section>
+
+<!-- 10 -->
+<section class="slide dark">
+  <div class="kick">Today's question</div>
+  <h1 class="step">A trolley problem has two groups on the tracks.</h1>
+  <h1 class="step gold">A real business decision has ten.</h1>
+  <p class="step big" style="margin-top:16px">And some of them aren't even in the room.</p>
+  <div class="foot"><span>Class 1 · Bridge</span><span>10</span></div>
+</section>
+
+<!-- 11 -->
+<section class="slide" data-t="3">
+  <span class="tag s">Study</span>
+  <h2>Stakeholder race <span class="timechip">3 min</span></h2>
+  <div class="box" style="border-top-color:var(--gold)"><p style="font-size:24px">In May 2018, two Black men were arrested while waiting for a friend in a Philadelphia Starbucks. Starbucks then closed about <b>8,000 U.S. stores</b> for an afternoon of racial-bias training, and changed its policy so people can use its stores and restrooms <b>without buying anything</b>.</p><p class="muted" style="font-size:18px">Chapter 3 introduction</p></div>
+  <p class="q" style="margin-top:20px;font-size:30px">List <b>every</b> person or group affected by this decision.</p>
+  <p class="muted">1 point for each stakeholder no other team has.</p>
+  <div class="foot"><span>Class 1 · Study</span><span>11</span></div>
+</section>
+
+<!-- 12 -->
+<section class="slide">
+  <span class="tag s">Study</span>
+  <h2>Stakeholder ≠ stockholder</h2>
+  <div class="cols">
+    <div class="box"><h3>Stakeholder</h3><p class="big">anyone with an <b>interest</b> in how a business makes its profit</p></div>
+    <div class="box" style="border-top-color:var(--gold)"><h3>Stockholder / shareholder</h3><p class="big">someone who <b>owns shares</b></p></div>
+  </div>
+  <div class="cols" style="margin-top:20px">
+    <p><b>Internal:</b> board, CEO, employees<br><b>External:</b> customers, suppliers, governments</p>
+    <p class="step">One person can wear <b>several hats</b>: an employee who is also a customer <i>and</i> a shareholder. (3.1)</p>
+  </div>
+  <div class="foot"><span>Class 1 · Study</span><span>12</span></div>
+</section>
+
+<!-- 13 -->
+<section class="slide" data-t="4">
+  <span class="tag s">Study</span>
+  <h2>Four kinds of stakeholders (3.2) <span class="timechip">sort · 4 min</span></h2>
+  <table>
+    <tr><th style="width:18%">Category</th><th style="width:36%">Meaning</th><th>Starbucks</th></tr>
+    <tr><td><b>Enabling</b></td><td>allow the firm to exist and operate</td><td class="step">shareholders, board, regulators, lawmakers</td></tr>
+    <tr><td><b>Functional</b></td><td>inputs and outputs</td><td class="step">baristas, coffee growers, milk producers, customers</td></tr>
+    <tr><td><b>Normative</b></td><td>shape the industry's norms</td><td class="step">other coffee chains, industry associations</td></tr>
+    <tr><td><b>Diffused</b></td><td>less direct ties, real potential impact</td><td class="step">media, NGOs, civil-rights groups, voters</td></tr>
+  </table>
+  <p class="step q" style="margin-top:14px;font-size:26px">Who did <b>no</b> team list? Why are the people who lose the most often the easiest to forget?</p>
+  <div class="foot"><span>Class 1 · Study</span><span>13</span></div>
+</section>
+
+<!-- 14 -->
+<section class="slide" data-t="8">
+  <span class="tag s">Study</span>
+  <h2>The ethics thermometer <span class="timechip">8 min</span></h2>
+  <div class="therm"><div style="background:#cfe0f3">❄ Below the law</div><div style="background:#e8eef5">Legal minimum</div><div style="background:#fbf1dc">Beyond the law</div><div style="background:#f6c9a4">Ethical maximum 🔥</div></div>
+  <div class="cols">
+    <p><b>Ethical minimum</b> = the least a company can do while still obeying the law.<br><b>Ethical maximum</b> = the strongest ethical action possible. (3.1)</p>
+    <p><b>Normative</b> = stakeholders matter in themselves.<br><b>Instrumental</b> = treat them well because it pays. (3.2)</p>
+  </div>
+  <p style="font-size:22px">Place the <b>six case cards</b>. Then decide each motive: normative or instrumental?</p>
+  <div class="foot"><span>Class 1 · Study</span><span>14</span></div>
+</section>
+
+<!-- 15 -->
+<section class="slide cream">
+  <span class="tag s">Thermometer line</span>
+  <h2>Objection!</h2>
+  <ul>
+    <li>Each group places one card on the board.</li>
+    <li>Disagree? Say <b>"Objection!"</b> and give a reason.</li>
+  </ul>
+  <ul style="margin-top:18px">
+    <li class="step">J&amp;J's market share recovered. Does that make its decision <b>instrumental</b>? Can it be both?</li>
+    <li class="step">Overbooking is legal. Why did people react to United as if it wasn't?</li>
+    <li class="step">Week 1 flashback: "The law is only the ethical ___."</li>
+  </ul>
+  <div class="lang"><b>Try:</b> "Strictly speaking, it was legal; however…" · "Objection! I'd put it lower, since…" · "Their motive seems instrumental rather than normative."</div>
+  <div class="foot"><span>Class 1 · Study</span><span>15</span></div>
+</section>
+
+<!-- 16 -->
+<section class="slide">
+  <span class="tag s">Study</span>
+  <h2>The power–interest matrix (Figure 3.5)</h2>
+  <div class="matrix">
+    <div class="ax ay">POWER ↑</div>
+    <div class="q"><b>Keep satisfied</b>meet their needs<br><span class="muted">high power · low interest</span></div>
+    <div class="q key"><b>Manage closely</b>keep them engaged — <i>key stakeholders</i><br><span style="color:#c1cddd">high power · high interest</span></div>
+    <div class="ax ay">&nbsp;</div>
+    <div class="q"><b>Monitor lightly</b><br><span class="muted">low power · low interest</span></div>
+    <div class="q"><b>Keep informed</b>respect their interests<br><span class="muted">low power · high interest</span></div>
+    <div></div><div class="ax" style="grid-column:2/4">INTEREST →</div>
+  </div>
+  <div class="foot"><span>Class 1 · Study</span><span>16</span></div>
+</section>
+
+<!-- 17 -->
+<section class="slide" data-t="4">
+  <span class="tag s">Study</span>
+  <h2>Two more tests (3.3) <span class="timechip">café drill · 4 min</span></h2>
+  <div class="cols">
+    <div class="box"><h3>Survival test</h3><p class="big">Could the firm survive without them — or replace them easily?</p></div>
+    <div class="box"><h3>Exigency</h3><p class="big">How <b>urgent</b> is their claim right now?</p></div>
+  </div>
+  <p style="margin-top:22px">Worksheet §4: place six stakeholders of a café chain on the matrix.</p>
+  <div class="foot"><span>Class 1 · Study</span><span>17</span></div>
+</section>
+
+<!-- 18 -->
+<section class="slide">
+  <span class="tag s">Study</span>
+  <h2>Stakeholders move</h2>
+  <p class="q">A small farmer sells vegetables to local shops each season.</p>
+  <p class="q step">Then the farmer sells a <b>whole crop</b> to Kroger.</p>
+  <p class="step big" style="margin-top:18px">→ <b>Low power, high interest.</b> The farmer will likely make <b>price concessions</b>. (3.3)</p>
+  <p class="step q" style="margin-top:20px;font-size:28px">What could move a stakeholder <span class="gold">up</span> in power?</p>
+  <p class="step muted">organizing · media attention · a new law · a lawsuit · a vote</p>
+  <div class="foot"><span>Class 1 · Study</span><span>18</span></div>
+</section>
+
+<!-- 19 -->
+<section class="slide">
+  <span class="tag a">Activate</span>
+  <h2>Harbor Bay <span class="muted" style="font-size:22px;font-family:'Source Sans 3'">(fictional)</span></h2>
+  <p style="font-size:24px"><b>Lumen Data</b> wants to build an AI data center on farmland outside <b>Harbor Bay</b> (pop. 18,000), a coastal town with dry summers.</p>
+  <div class="cols" style="gap:10px 28px">
+    <ul style="font-size:22px"><li><b>$1.2 billion</b> investment</li><li><b>1,500</b> construction jobs (2 years), then <b>120</b> permanent jobs</li><li>Wants a <b>10-year tax break</b>; then ~$9 million/year in taxes</li></ul>
+    <ul style="font-size:22px"><li>Up to <b>2 million liters</b> of water a day</li><li>Electricity of a small city — bills <b>may rise</b></li><li>Offers a <b>$500,000/year</b> community fund</li></ul>
+  </div>
+  <p class="q" style="font-size:26px;margin-top:10px">The Council will vote: approve · approve with conditions · delay · reject.</p>
+  <div class="foot"><span>Class 1 · Activate</span><span>19</span></div>
+</section>
+
+<!-- 20 -->
+<section class="slide" data-t="10">
+  <span class="tag a">Activate</span>
+  <h2>Map Harbor Bay <span class="timechip">10 + 4 min</span></h2>
+  <ol>
+    <li>One stakeholder per sticky note. Place it on the matrix.</li>
+    <li>Two colors: <b>can speak for themselves</b> · <b>voiceless</b> (a river? future residents?)</li>
+    <li>Label each one <b>E · F · N · D</b>.</li>
+    <li><b>Circle</b> the key stakeholders.</li>
+  </ol>
+  <div class="lang"><b>Try:</b> "We'd place ___ in the top right because…" · "Nobody is speaking for…" · "Their power comes from…"</div>
+  <div class="foot"><span>Class 1 · Activate</span><span>20</span></div>
+</section>
+
+<!-- 21-25 events -->
+<section class="slide cream" data-t="2"><span class="tag a">Event card 1</span><div class="ev">The state declares a <b>drought warning</b> for the region.</div><p class="big">Who moves on your map? Where? <span class="timechip">2 min</span></p><div class="foot"><span>Class 1 · Event cards</span><span>21</span></div></section>
+<section class="slide cream" data-t="2"><span class="tag a">Event card 2</span><div class="ev">The <i>Harbor Bay Gazette</i> publishes the water figures. <b>Residents had not known.</b></div><p class="big">Who moves? <span class="muted">Hint: latent → aware → active public (3.2)</span></p><div class="foot"><span>Class 1 · Event cards</span><span>22</span></div></section>
+<section class="slide cream" data-t="2"><span class="tag a">Event card 3</span><div class="ev">The building-trades union endorses the project and promises <b>300 members</b> at the vote.</div><p class="big">Who moves? <span class="timechip">2 min</span></p><div class="foot"><span>Class 1 · Event cards</span><span>23</span></div></section>
+<section class="slide cream" data-t="2"><span class="tag a">Event card 4</span><div class="ev">A town 40 km away offers Lumen <b>free land</b>.</div><p class="big">Who gains power? Who loses it? <span class="timechip">2 min</span></p><div class="foot"><span>Class 1 · Event cards</span><span>24</span></div></section>
+<section class="slide cream" data-t="2"><span class="tag a">Event card 5</span><div class="ev">River Keepers, an environmental group, files a complaint <b>"on behalf of the river."</b></div><p class="big">A voiceless stakeholder gets a voice. <span class="muted">("Should Trees Have Standing?" — Stone, 1972, in 3.2)</span></p><div class="foot"><span>Class 1 · Event cards</span><span>25</span></div></section>
+
+<!-- 26 -->
+<section class="slide">
+  <span class="tag a">Debrief</span>
+  <h2>Look at another group's map</h2>
+  <ul>
+    <li>Which stakeholder moved the <b>most</b>? Which <b>never</b> moved?</li>
+    <li>Who was <b>voiceless</b> on your first map? Did anyone gain a voice? How?</li>
+    <li><b>Survival test:</b> who could Lumen not do without? Who could the <i>town</i> not do without?</li>
+    <li>Is the matrix <b>descriptive</b>, <b>instrumental</b> or <b>normative</b>?</li>
+  </ul>
+  <div class="foot"><span>Class 1 · Debrief</span><span>26</span></div>
+</section>
+
+<!-- 27 -->
+<section class="slide dark" data-t="4">
+  <div class="kick">Before the break</div>
+  <h2>Exit ticket <span class="timechip">4 min</span></h2>
+  <ol>
+    <li>One stakeholder in Harbor Bay with <b>no voice</b> — and who could speak for them.</li>
+    <li>Ethical minimum vs. maximum — with an example.</li>
+    <li>One question you still have.</li>
+  </ol>
+  <p class="big gold" style="margin-top:24px">Then draw a role card. Read it over the break. Keep your secret.</p>
+  <div class="foot"><span>Class 1 · Exit ticket</span><span>27</span></div>
+</section>
+
+<!-- 28 -->
+<section class="slide dark">
+  <div class="kick">Break · 10:40–11:10</div>
+  <h1>After the break, you are no longer students.</h1>
+  <p class="big gold">You are the person on your card.</p>
+  <p class="muted">Harbor Bay town hall · 11:10</p>
+  <div class="foot"><span>Break</span><span>28</span></div>
+</section>
+
+<!-- 29 -->
+<section class="slide dark">
+  <div class="brand"><img src="logo.png" alt="" onerror="this.remove()"><div class="w">APPROACH<small>International Student Center</small></div></div>
+  <div class="kick">Class 2 · 11:10–12:50</div>
+  <h1>Whose Claim Wins?</h1>
+  <p class="muted">Town hall role-play · Lie Detector · Quiz 1</p>
+  <div class="foot"><span>Week 3 · Class 2</span><span>29</span></div>
+</section>
+
+<!-- 30 -->
+<section class="slide" style="background:#ddd8cb">
+  <div class="paper">
+    <div class="mast">The Harbor Bay Gazette</div>
+    <div class="date"><span>Est. 1911</span><span>Today's edition · Late news</span><span>50¢</span></div>
+    <div class="head">TOWN HALL TODAY: COUNCIL TO DECIDE ON $1.2 BILLION DATA CENTER</div>
+    <p>Jobs, water, power bills and a river at stake as Lumen Data seeks approval and a 10-year tax break. Farmers, unions, residents and environmental groups prepare to speak.</p>
+  </div>
+  <p style="margin-top:20px;font-size:24px">Find your role group. <span class="muted">(Same card = same group.)</span></p>
+  <div class="foot"><span>Class 2 · Bridge</span><span>30</span></div>
+</section>
+
+<!-- 31 -->
+<section class="slide">
+  <span class="tag">Bridge</span>
+  <h2>The Council will ask: whose claim comes first?</h2>
+  <div class="cols4" style="margin-top:14px">
+    <div class="box"><h3>Survival</h3><p>Who can't we do without?</p></div>
+    <div class="box"><h3>Urgency</h3><p>Whose claim is most urgent?</p></div>
+    <div class="box"><h3>Power &amp; interest</h3><p>Who are the key stakeholders?</p></div>
+    <div class="box" style="border-top-color:var(--gold)"><h3>The voiceless</h3><p>Who isn't in this room?</p></div>
+  </div>
+  <div class="foot"><span>Class 2 · Bridge</span><span>31</span></div>
+</section>
+
+<!-- 32 -->
+<section class="slide" data-t="7">
+  <span class="tag a">Town hall</span>
+  <h2>Prepare <span class="timechip">7 min</span></h2>
+  <div class="cols">
+    <ul style="font-size:24px">
+      <li>Our <b>position</b></li><li>What we <b>need most</b></li><li>Our <b>bottom line</b></li><li>One <b>concession</b> we could offer</li><li>A <b>45-second</b> opening statement</li>
+    </ul>
+    <div class="box"><h3>Council</h3><p>Prepare <b>three questions</b>.</p><p>Agree <b>how</b> you will decide: which test will you use?</p></div>
+  </div>
+  <div class="lang"><b>Try:</b> "On behalf of ___, we'd like to…" · "We could support the proposal <b>provided that</b>…" · "Our bottom line is…"</div>
+  <div class="foot"><span>Class 2 · Town hall</span><span>32</span></div>
+</section>
+
+<!-- 33 -->
+<section class="slide dark" data-t="12">
+  <div class="kick">Round 1 · Opening statements</div>
+  <h2>45 seconds each <span class="timechip">12 min</span></h2>
+  <p class="big">The Chair calls each group. The bell means stop.</p>
+  <p class="big">The <i>Gazette</i> may ask one question after any statement.</p>
+  <div class="lang"><b>Try:</b> "With respect, that doesn't address…" · "Could you clarify what you mean by…?" · "No one here is speaking for…"</div>
+  <div class="foot"><span>Class 2 · Town hall</span><span>33</span></div>
+</section>
+
+<!-- 34 -->
+<section class="slide cream" data-t="10">
+  <span class="tag a">Round 2</span>
+  <h2>The lobby <span class="timechip">10 min</span></h2>
+  <ul>
+    <li>Move around. <b>Make deals.</b> "We'll support you if…"</li>
+    <li>Every deal is written on a slip and <b>signed by both groups</b>.</li>
+    <li>The Council listens — but <b>can't</b> make deals.</li>
+  </ul>
+  <div class="lang"><b>Try:</b> "Would you be willing to…?" · "What if we agreed to…?" · "We're prepared to compromise on ___, but not on…" · "That's non-negotiable for us."</div>
+  <div class="foot"><span>Class 2 · Town hall</span><span>34</span></div>
+</section>
+
+<!-- 35 -->
+<section class="slide dark" data-t="5">
+  <div class="kick">Rounds 3 &amp; 4</div>
+  <h2>Final offers → the Council decides <span class="timechip">4 + 5 min</span></h2>
+  <ol>
+    <li><b>Final offers:</b> 20 seconds per group. Announce your deals.</li>
+    <li><b>Fishbowl:</b> the Council deliberates in the middle. Everyone else is silent. The Council must name:
+      <ul><li>the <b>key stakeholders</b></li><li>the <b>test</b> it used</li><li>one <b>voiceless</b> stakeholder it considered</li></ul></li>
+    <li>Vote. Announce the decision and conditions. Then: the <i>Gazette's</i> headline.</li>
+  </ol>
+  <div class="foot"><span>Class 2 · Town hall</span><span>35</span></div>
+</section>
+
+<!-- 36 -->
+<section class="slide">
+  <span class="tag b">Debrief</span>
+  <h2>Step out of role. Whose claim won — and why?</h2>
+  <ul>
+    <li class="step">Read your <b>secrets</b> aloud. Which changed the outcome? Which never came out?</li>
+    <li class="step">Were the key stakeholders the ones you put top right this morning?</li>
+    <li class="step">Which <b>test</b> did the Council use? Was that ethical — or just practical?</li>
+    <li class="step">Who spoke for the river and for future residents? Was it enough?</li>
+    <li class="step">Which Week 2 framework does the decision reflect: utilitarian, Kantian, Rawlsian?</li>
+  </ul>
+  <div class="foot"><span>Class 2 · Debrief</span><span>36</span></div>
+</section>
+
+<!-- 37 -->
+<section class="slide dark">
+  <div class="kick">Review game</div>
+  <h1>Lie Detector</h1>
+  <p class="big">Four statements. <b class="gold">Three are true. One is a lie.</b></p>
+  <p class="big">60 seconds: write the letter of the lie — and correct it.</p>
+  <p class="muted">1 point for the lie · 1 bonus point for the correction</p>
+  <div class="foot"><span>Class 2 · Review</span><span>37</span></div>
+</section>
+
+<!-- 38-43 rounds -->
+<section class="slide" data-t="1"><span class="tag s">Round 1 · Chapter 1</span><h2>Find the lie</h2><div class="lie">
+<div><b>A</b>Integrity means unity between what we say and what we do.</div>
+<div><b>B</b>The law sets the highest standard of ethical behavior.</div>
+<div><b>C</b>The textbook uses "ethics" and "morals" interchangeably.</div>
+<div><b>D</b>Something can be legal but still unethical.</div></div>
+<p class="step big" style="margin-top:16px">Lie: <b class="gold">B</b> — the law is the <b>minimum</b>; ethics goes beyond it.</p>
+<div class="foot"><span>Lie Detector</span><span>38</span></div></section>
+
+<section class="slide" data-t="1"><span class="tag s">Round 2 · Chapter 1</span><h2>Find the lie</h2><div class="lie">
+<div><b>A</b>A stockholder and a stakeholder are the same thing.</div>
+<div><b>B</b>Milton Friedman (1970) argued that business should focus on profits for its shareholders.</div>
+<div><b>C</b>Ethical relativism says right and wrong depend on the culture or situation.</div>
+<div><b>D</b>The textbook argues for one consistent ethical standard.</div></div>
+<p class="step big" style="margin-top:16px">Lie: <b class="gold">A</b> — stockholders <b>own shares</b>; stakeholders are anyone with an interest.</p>
+<div class="foot"><span>Lie Detector</span><span>39</span></div></section>
+
+<section class="slide" data-t="1"><span class="tag s">Round 3 · Chapter 2</span><h2>Find the lie</h2><div class="lie">
+<div><b>A</b>Aristotle saw practical wisdom (<i>phrónēsis</i>) as the most important intellectual virtue.</div>
+<div><b>B</b>Confucius rejected blind loyalty.</div>
+<div><b>C</b>For Confucius, the family is the school of character.</div>
+<div><b>D</b>Aristotle condemned all profit.</div></div>
+<p class="step big" style="margin-top:16px">Lie: <b class="gold">D</b> — he condemned <b>greed</b>, not profit.</p>
+<div class="foot"><span>Lie Detector</span><span>40</span></div></section>
+
+<section class="slide" data-t="1"><span class="tag s">Round 4 · Chapter 2</span><h2>Find the lie</h2><div class="lie">
+<div><b>A</b>Bentham: the greatest happiness for the greatest number.</div>
+<div><b>B</b>Rawls: choose the rules behind a veil of ignorance.</div>
+<div><b>C</b>Kant judged actions only by their consequences.</div>
+<div><b>D</b>Mill: limit someone's freedom only to prevent harm to others.</div></div>
+<p class="step big" style="margin-top:16px">Lie: <b class="gold">C</b> — Kant judged <b>motive and duty</b>; Bentham judged consequences.</p>
+<div class="foot"><span>Lie Detector</span><span>41</span></div></section>
+
+<section class="slide" data-t="1"><span class="tag s">Round 5 · Chapter 3</span><h2>Find the lie</h2><div class="lie">
+<div><b>A</b>All stakeholder claims must be given equal weight.</div>
+<div><b>B</b>J&amp;J pulled all Tylenol from the U.S. market in 1982.</div>
+<div><b>C</b>The ethical minimum means complying with the law.</div>
+<div><b>D</b>One person can be several stakeholders at once.</div></div>
+<p class="step big" style="margin-top:16px">Lie: <b class="gold">A</b> — all claims deserve acknowledgment, but <b>not equal weight</b>.</p>
+<div class="foot"><span>Lie Detector</span><span>42</span></div></section>
+
+<section class="slide" data-t="1"><span class="tag s">Round 6 · Chapter 3</span><h2>Find the lie</h2><div class="lie">
+<div><b>A</b>Key stakeholders have high power and high interest.</div>
+<div><b>B</b>Exigency means urgency.</div>
+<div><b>C</b>A latent public has a problem but doesn't recognize it yet.</div>
+<div><b>D</b>Diffused stakeholders, like regulators, allow the firm to operate.</div></div>
+<p class="step big" style="margin-top:16px">Lie: <b class="gold">D</b> — regulators are <b>enabling</b>; diffused = media, NGOs, voters.</p>
+<div class="foot"><span>Lie Detector</span><span>43</span></div></section>
+
+<!-- 44 -->
+<section class="slide dark" data-t="27">
+  <div class="kick">Assessment</div>
+  <h1>Quiz 1 <span class="timechip">27 min</span></h1>
+  <p class="big">Chapters 1–3 · 30 points</p>
+  <ul>
+    <li>Part A · Multiple choice (10)</li>
+    <li>Part B · Matching (8)</li>
+    <li>Part C · Short case analysis (12)</li>
+  </ul>
+  <p class="muted" style="margin-top:16px">Phones away. Work alone. Read every question twice.</p>
+  <div class="foot"><span>Class 2 · Quiz 1</span><span>44</span></div>
+</section>
+
+<!-- 45 -->
+<section class="slide dark">
+  <div class="kick">Before next week</div>
+  <h2>Homework</h2>
+  <ol>
+    <li><b>Ethics Journal #3</b> (150–200 words) — choose one: <span class="muted">Amazon's pace · Malaysia Airlines · Friedman vs. Stout</span></li>
+    <li>Finish <b>Chapter 3</b> (especially 3.4, CSR). Preview <b>Chapter 4</b>.</li>
+    <li><b class="gold">Bring</b> one example of a company that <i>says</i> it is green or socially responsible.</li>
+  </ol>
+  <p class="muted" style="margin-top:20px">Don't forget: <b>Download</b> your worksheet.</p>
+  <div class="foot"><span>Week 3 · Homework</span><span>45</span></div>
+</section>
+
+</div></div>
+<div id="timer" title="Click to pause; double-click to hide"></div>
+<div id="help">← → or tap · T timer · F fullscreen</div>
+<script>
+const slides=[...document.querySelectorAll('.slide')];
+let i=0;
+function fit(){const s=Math.min(innerWidth/1280,innerHeight/720);document.getElementById('deck').style.transform=`scale(${s})`}
+addEventListener('resize',fit);fit();
+function show(n,back){
+  i=Math.max(0,Math.min(slides.length-1,n));
+  slides.forEach((s,k)=>s.classList.toggle('on',k===i));
+  slides[i].querySelectorAll('.step').forEach(e=>e.classList.toggle('shown',!!back));
+  document.getElementById('prog').style.width=((i+1)/slides.length*100)+'%';
+  try{history.replaceState(null,'','#'+(i+1))}catch(e){}
+}
+function next(){const h=slides[i].querySelector('.step:not(.shown)');if(h){h.classList.add('shown');return}if(i<slides.length-1)show(i+1)}
+function prev(){const s=[...slides[i].querySelectorAll('.step.shown')];if(s.length){s[s.length-1].classList.remove('shown');return}if(i>0)show(i-1,true)}
+addEventListener('keydown',e=>{
+  if(['ArrowRight','PageDown',' ','Enter'].includes(e.key)){e.preventDefault();next()}
+  else if(['ArrowLeft','PageUp','Backspace'].includes(e.key)){e.preventDefault();prev()}
+  else if(e.key==='t'||e.key==='T')startTimer();
+  else if(e.key==='f'||e.key==='F'){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen?.()}
+  else if(e.key==='Home')show(0);else if(e.key==='End')show(slides.length-1);
+});
+document.getElementById('stage').addEventListener('click',e=>{if(e.clientX<innerWidth/3)prev();else next()});
+let tx=null;addEventListener('touchstart',e=>{tx=e.touches[0].clientX},{passive:true});
+addEventListener('touchend',e=>{if(tx===null)return;const dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>50){dx<0?next():prev();e.preventDefault()}tx=null});
+/* timer */
+const T=document.getElementById('timer');let left=0,run=null,paused=false;
+function fmt(s){return Math.floor(s/60)+':'+String(s%60).padStart(2,'0')}
+function startTimer(){const m=+(slides[i].dataset.t||5);left=m*60;paused=false;T.classList.remove('done');T.style.display='block';T.textContent=fmt(left);clearInterval(run);run=setInterval(()=>{if(paused)return;left--;T.textContent=fmt(Math.max(0,left));if(left<=0){clearInterval(run);T.classList.add('done');T.textContent="Time!"}},1000)}
+T.addEventListener('click',e=>{e.stopPropagation();paused=!paused;T.style.opacity=paused?.6:1});
+T.addEventListener('dblclick',e=>{e.stopPropagation();clearInterval(run);T.style.display='none'});
+/* QR */
+try{const url=location.href.split('#')[0].replace(/slides\.html.*$/,'worksheet.html');if(window.QRCode&&/^https?:/.test(url))new QRCode(document.getElementById('qr'),{text:url,width:170,height:170,colorDark:'#143865',colorLight:'#ffffff'});else document.getElementById('qr').closest('div[style]').style.display='none'}catch(e){}
+show(Math.max(0,(parseInt(location.hash.slice(1))||1)-1));
+</script>
+</body>
+</html>
