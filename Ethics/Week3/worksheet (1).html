@@ -1,0 +1,492 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Week 3 Worksheet · Ethics in a Global World</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#143865;--blue:#1c4f8f;--gold:#d39f10;--gold-d:#8c7535;--sky:#c1cddd;--sky2:#e1e8f2;--sky3:#edf2f9;--cream:#efe9d9;--ink:#1a2233;--muted:#4a5568;--bg:#f6f4ee;--ok:#2f6b2f;--no:#a33a2a}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Source Sans 3",system-ui,sans-serif;color:var(--ink);background:var(--bg);font-size:17px;line-height:1.55}
+header.top{background:var(--navy);color:#fff;border-bottom:4px solid var(--gold)}
+.top .in{max-width:860px;margin:0 auto;padding:20px 16px 24px;display:flex;gap:14px;align-items:center}
+.top img{width:60px;height:60px;border-radius:8px;flex:none}
+.top .w{font-family:"Libre Baskerville",serif;color:var(--gold);letter-spacing:.12em;font-size:16px;line-height:1.1;flex:none}
+.top .w small{display:block;letter-spacing:.02em;font-size:10px;color:#e6d8a8}
+.top h1{font-family:"Libre Baskerville",serif;margin:0;font-size:clamp(20px,4.5vw,28px);line-height:1.2}
+.top p{margin:3px 0 0;color:var(--sky);font-size:14.5px}
+.bar{position:sticky;top:0;z-index:5;background:#fff;border-bottom:1px solid var(--sky);box-shadow:0 2px 8px rgba(20,56,101,.06)}
+.bar .in{max-width:860px;margin:0 auto;padding:8px 16px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.bar input{flex:1;min-width:160px}
+.btn{background:var(--navy);color:#fff;border:0;border-radius:6px;padding:8px 13px;font:inherit;font-weight:700;font-size:14.5px;cursor:pointer;white-space:nowrap}
+.btn.gold{background:var(--gold);color:var(--navy)}
+.btn.ghost{background:#fff;color:var(--navy);border:1px solid var(--sky)}
+.btn.sm{padding:6px 11px;font-size:14px}
+#saved{font-size:13px;color:var(--muted);min-width:70px}
+main{max-width:860px;margin:0 auto;padding:10px 16px 60px}
+.part{font-family:"Libre Baskerville",serif;color:var(--gold-d);font-size:14px;letter-spacing:.12em;text-transform:uppercase;margin:34px 0 0;border-top:2px solid var(--gold);padding-top:12px}
+section.card{background:#fff;border:1px solid var(--sky);border-radius:12px;padding:16px 18px 18px;margin:16px 0}
+section.card h2{font-family:"Libre Baskerville",serif;color:var(--navy);font-size:21px;margin:0 0 4px}
+.sub{color:var(--muted);font-size:14.5px;margin:0 0 10px}
+label{display:block;font-weight:600;margin:12px 0 4px;color:var(--navy)}
+input[type=text],textarea,select{width:100%;font:inherit;font-size:16px;border:1px solid var(--sky);border-radius:7px;padding:8px 10px;background:#fbfcfe;color:var(--ink)}
+textarea{min-height:64px;resize:vertical}
+textarea.big{min-height:180px}
+input:focus,textarea:focus,select:focus{outline:2px solid var(--gold);border-color:var(--gold)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.opts{display:flex;flex-wrap:wrap;gap:6px 14px;margin:4px 0}
+.opts label{display:flex;gap:6px;align-items:center;font-weight:400;margin:0;color:var(--ink)}
+details{border:1px solid var(--sky);border-radius:9px;margin:10px 0;background:var(--sky3)}
+details>summary{cursor:pointer;padding:9px 12px;font-weight:700;color:var(--navy);list-style:none}
+details>summary::before{content:"▸ ";color:var(--gold-d)}
+details[open]>summary::before{content:"▾ "}
+details>div{padding:2px 14px 12px;background:#fff;border-radius:0 0 9px 9px}
+.box{background:var(--cream);border-left:4px solid var(--gold-d);padding:10px 14px;border-radius:6px;margin:10px 0;font-size:16px}
+.tip{background:var(--sky3);border-left:4px solid var(--blue);padding:8px 12px;border-radius:6px;margin:10px 0;font-size:15px}
+table{width:100%;border-collapse:collapse;font-size:15.5px;margin:8px 0}
+th,td{border:1px solid var(--sky);padding:6px 8px;text-align:left;vertical-align:top}
+th{background:var(--sky2);color:var(--navy)}
+.gm{display:grid;grid-template-columns:1fr auto 1fr;gap:8px;align-items:center;margin:8px 0}
+.gm .v{font-weight:700;color:var(--navy);text-align:center;background:var(--cream);border-radius:6px;padding:6px 10px;min-width:110px}
+.fb{font-size:14.5px;margin-top:6px;font-weight:600}
+.ok{color:var(--ok)}.no{color:var(--no)}
+select.ok{border-color:var(--ok);background:#eef6ec}select.no{border-color:var(--no);background:#fbefec}
+.hidden{display:none}
+.key{background:#eef6ec;border:1px solid #b9d3b1;border-radius:8px;padding:8px 12px;margin-top:8px;font-size:15px}
+.grid3{display:grid;grid-template-columns:120px 1fr 1fr 1fr;gap:6px;align-items:start}
+.grid3 .h{font-weight:700;color:var(--navy);font-size:14.5px;background:var(--sky2);border-radius:5px;padding:5px 7px}
+.grid3 textarea{min-height:58px;font-size:15px}
+.grid2{display:grid;grid-template-columns:140px 1fr 1fr;gap:6px;align-items:start}
+.grid2 .h{font-weight:700;color:var(--navy);font-size:14.5px;background:var(--sky2);border-radius:5px;padding:5px 7px}
+.grid2 textarea{min-height:58px;font-size:15px}
+.tl{display:grid;grid-template-columns:150px 90px 1fr;gap:6px;align-items:center;margin:6px 0}
+.tl b{color:var(--navy)}
+.wc{font-size:14px;color:var(--muted);margin-top:4px}
+.slider{display:grid;grid-template-columns:120px 1fr 34px;gap:10px;align-items:center;margin:6px 0}
+.slider input{width:100%}
+ul.lb li{margin:3px 0}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;font-size:13px;color:#6b7280}
+@media (max-width:640px){
+  .row2{grid-template-columns:1fr}
+  .gm{grid-template-columns:1fr}.gm .v{order:-1}
+  .grid3,.grid2{grid-template-columns:1fr}
+  .grid3 .h.c,.grid2 .h.c,.hdr{display:none}
+  .grid3 textarea::placeholder,.grid2 textarea::placeholder{color:#7a8597}
+  .tl{grid-template-columns:1fr 80px}.tl select.idea{grid-column:1/-1}
+  .slider{grid-template-columns:90px 1fr 30px}
+}
+@media print{
+  body{background:#fff;font-size:11.5pt}
+  .bar,.noprint,button{display:none!important}
+  section.card{break-inside:avoid;border-color:#bbb}
+  details>div{display:block!important}
+  details{background:#fff}
+  textarea{border:1px solid #bbb;overflow:hidden}
+  header.top{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+
+.pick{display:grid;grid-template-columns:1fr 190px;gap:8px;align-items:center;margin:6px 0;padding:4px 0;border-bottom:1px dashed var(--sky2)}
+.thermo{display:flex;justify-content:space-between;font-size:13.5px;font-weight:700;color:var(--navy);background:linear-gradient(90deg,#cfe0f3,#fbf1dc,#f6c9a4);border-radius:6px;padding:6px 10px;margin:6px 0}
+.case{border:1px solid var(--sky);border-radius:9px;padding:10px 12px;margin:10px 0;background:#fff}
+.case h3{margin:0 0 4px;font-size:16.5px;color:var(--navy)}
+.case p{margin:0 0 6px;font-size:15.5px}
+.case .row2 select{font-size:15px}
+.map{width:100%;border-collapse:collapse;font-size:14.5px}
+.map td,.map th{padding:4px}
+.map input[type=text]{font-size:15px;padding:6px}
+.map select{font-size:14.5px;padding:6px 4px}
+.mx{display:grid;grid-template-columns:1fr 1fr;gap:4px;font-size:13.5px;text-align:center;margin:8px 0}
+.mx div{background:var(--sky3);border-radius:6px;padding:8px}
+.mx .k{background:var(--navy);color:#fff}
+details.book{border-color:var(--gold-d);background:var(--cream)}
+details.book>summary::before{content:"\25B8  Book · "}
+details.book[open]>summary::before{content:"\25BE  Book · "}
+.pg{display:inline-block;background:var(--navy);color:#fff;border-radius:4px;padding:0 6px;font-size:13px;font-weight:700;margin-left:4px}
+@media (max-width:640px){.pick{grid-template-columns:1fr}.map thead{display:none}.map tr{display:grid;grid-template-columns:1fr 1fr;gap:4px;border-bottom:2px solid var(--sky);padding:6px 0}.map td{border:0}.map td:first-child{grid-column:1/-1}}
+</style>
+</head>
+<body>
+<header class="top"><div class="in">
+  <img src="logo.png" alt="Approach International Student Center" onload="this.nextElementSibling.remove()" onerror="this.remove()"><div class="w">APPROACH<small>International Student Center</small></div>
+  <div><h1>Week 3 Worksheet · Defining and Prioritizing Stakeholders</h1><p>Ethics in a Global World · Chapter 3 · Class 1 and Class 2</p></div>
+</div></header>
+
+<div class="bar"><div class="in">
+  <input type="text" id="sname" data-k="name" placeholder="Your name" aria-label="Your name">
+  <span id="saved">Saved</span>
+  <button class="btn gold" onclick="downloadAnswers()">Download</button>
+  <button class="btn" onclick="window.print()">Print / PDF</button>
+  <button class="btn ghost sm" onclick="clearAll()">Clear</button>
+</div></div>
+
+<main>
+<p class="tip">Your answers save automatically <b>on this device</b>. Before you leave class, tap <b>Download</b> to keep a copy.</p>
+
+<section class="card">
+<h2>This week's reading · Chapter 3</h2>
+<p class="sub"><i>Business Ethics</i> (OpenStax), Chapter 3: Defining and Prioritizing Stakeholders. Page numbers are the printed page numbers in the OpenStax PDF. Tap a section to read it online.</p>
+<table>
+<tr><th>Section</th><th>Pages</th><th>We use it in</th></tr>
+<tr><td><a href="https://openstax.org/books/business-ethics/pages/3-introduction" target="_blank" rel="noopener">Chapter 3 introduction</a> (Starbucks)</td><td>p. 67</td><td>§2</td></tr>
+<tr><td><a href="https://openstax.org/books/business-ethics/pages/3-1-adopting-a-stakeholder-orientation" target="_blank" rel="noopener">3.1 Adopting a Stakeholder Orientation</a></td><td>pp. 68–71</td><td>§2, §3 · Journal A and C</td></tr>
+<tr><td><a href="https://openstax.org/books/business-ethics/pages/3-2-weighing-stakeholder-claims" target="_blank" rel="noopener">3.2 Weighing Stakeholder Claims</a></td><td>pp. 72–77</td><td>§2, §3, §5</td></tr>
+<tr><td><a href="https://openstax.org/books/business-ethics/pages/3-3-ethical-decision-making-and-prioritizing-stakeholders" target="_blank" rel="noopener">3.3 Ethical Decision-Making and Prioritizing Stakeholders</a></td><td>pp. 78–82</td><td>§4, §5, §7 · Journal B</td></tr>
+<tr><td><a href="https://openstax.org/books/business-ethics/pages/3-4-corporate-social-responsibility-csr" target="_blank" rel="noopener">3.4 Corporate Social Responsibility (CSR)</a></td><td>from p. 83</td><td>Homework (for Week 4)</td></tr>
+<tr><td>Key Terms, Summary, Assessment Questions</td><td>end of chapter (to p. 92)</td><td>Quiz 1 review</td></tr>
+</table>
+<p class="tip" style="margin-bottom:0"><b>Quiz 1</b> covers Chapter 1 (from p. 7), Chapter 2 (pp. 27–66) and Chapter 3 (pp. 67–92).</p>
+</section>
+
+<div class="part">Class 1 · Who Gets a Say?</div>
+
+<!-- 1 -->
+<section class="card">
+<h2>1 · Trolley Problem variations</h2>
+<p class="sub">For each round, walk to a corner. Then record your choice and your best reason.</p>
+<details class="book"><summary>Where is this in the book?</summary><div>
+<p>The trolley problem is <b>not in Chapter 3</b>. A streetcar version is in the "Link to Learning" box in <a href="https://openstax.org/books/business-ethics/pages/2-4-utilitarianism-the-greatest-good-for-the-greatest-number" target="_blank" rel="noopener">Section 2.4</a> (Chapter 2, pp. 44–49). The Moral Machine study is an <b>outside source</b> (Awad et al., <i>Nature</i>, 2018), not from the textbook.</p>
+</div></details>
+<div id="trolley"></div>
+<label>Rounds 1 and 2 have the same numbers (five vs. one). Why did many people change their answer?</label>
+<textarea data-k="t_change"></textarea>
+<div class="box"><b>The Moral Machine.</b> MIT researchers collected <b>40 million decisions</b> from people in <b>233 countries and territories</b> about self-driving car dilemmas. Preferences differed between regions: for example, participants from China and Japan were less likely to spare young people over old people, and participants from the UK and US gave more weight to saving more lives. <i>(Awad et al., Nature, 2018. Participants were volunteers, not a random sample.)</i></div>
+<label>A car company sells the same self-driving car in 50 countries. Whose ethics should the software follow? Why?</label>
+<textarea data-k="t_mm"></textarea>
+</section>
+
+<!-- 2 -->
+<section class="card">
+<h2>2 · Starbucks stakeholder race</h2>
+<details class="book"><summary>Chapter 3 intro, 3.1 and 3.2 <span class="pg">pp. 67–77</span></summary><div>
+<p><b>Read:</b> the <a href="https://openstax.org/books/business-ethics/pages/3-introduction" target="_blank" rel="noopener">Chapter 3 introduction</a> (p. 67: the Starbucks story); <a href="https://openstax.org/books/business-ethics/pages/3-1-adopting-a-stakeholder-orientation" target="_blank" rel="noopener">3.1</a> "Stakeholder Relationships" (from p. 68); <a href="https://openstax.org/books/business-ethics/pages/3-2-weighing-stakeholder-claims" target="_blank" rel="noopener">3.2</a> "Defining Stakeholder Categories" and <b>Figure 3.4</b> (pp. 72–77).</p>
+<p><b>Before you read:</b> Who is affected when one coffee shop calls the police?</p>
+<p><b>Glossary:</b> <i>stakeholder</i> — anyone with an interest in how a business operates · <i>internal / external</i> — inside / outside the company · <i>enabling, functional, normative, diffused</i> — the four categories · <i>linkage</i> — a connection</p>
+<p><b>Look for:</b> Which stakeholders does the introduction name? What is the difference between internal and external stakeholders? What are the four categories, and which ones are "constant"?</p>
+</div></details>
+<div class="box">In May 2018, two Black men were arrested while waiting for a friend in a Philadelphia Starbucks. Starbucks then closed about 8,000 U.S. stores for an afternoon of racial-bias training, and changed its policy so people can use its stores and restrooms without buying anything. <i>(Chapter 3 introduction)</i></div>
+<label>Our team's list: every person or group affected by Starbucks's decision</label>
+<textarea data-k="s2_list" placeholder="customers, baristas, …"></textarea>
+<details><summary>The four stakeholder categories (Section 3.2)</summary><div>
+<p><b>Enabling</b> — allow the firm to exist and operate (shareholders, board, regulators, lawmakers)<br>
+<b>Functional</b> — inputs and outputs: who supplies it and who buys from it (employees, suppliers, unions, customers, distributors)<br>
+<b>Normative</b> — shape the industry's norms (competitors, professional associations)<br>
+<b>Diffused</b> — less direct ties but real potential impact (media, NGOs, voters, the public)</p>
+<p>Stakeholders can also be <b>internal</b> (board, CEO, employees) or <b>external</b> (customers, suppliers, governments). One person can be several stakeholders: an employee who is also a customer and a shareholder.</p>
+</div></details>
+<p class="sub" style="margin-top:10px">Sort these Starbucks stakeholders.</p>
+<div id="sortRows"></div>
+<button class="btn sm" onclick="checkSort()">Check</button>
+<div id="sortFb" class="fb"></div>
+<label>Which stakeholder did no team list? Why might the people who lose the most be the easiest to forget?</label>
+<textarea data-k="s2_forgot"></textarea>
+</section>
+
+<!-- 3 -->
+<section class="card">
+<h2>3 · Ethics thermometer</h2>
+<p class="sub"><b>Ethical minimum</b> = the least a company can do while still obeying the law. <b>Ethical maximum</b> = the strongest ethical action possible in the situation. (3.1)<br>
+<b>Normative</b> motive = stakeholders matter in themselves. <b>Instrumental</b> motive = treating stakeholders well because it's good for profit. (3.2)</p>
+<details class="book"><summary>3.1 and 3.2 <span class="pg">pp. 68–77</span></summary><div>
+<p><b>Read:</b> <a href="https://openstax.org/books/business-ethics/pages/3-1-adopting-a-stakeholder-orientation" target="_blank" rel="noopener">3.1</a> "Ethical Responsibilities Often Extend Beyond Legal Requirements" (Samsung; ethical minimum and maximum) and the box <b>Cases from the Real World: "Amazon Sets a Demanding Pace on the Job"</b> (pp. 68–71). <a href="https://openstax.org/books/business-ethics/pages/3-2-weighing-stakeholder-claims" target="_blank" rel="noopener">3.2</a> "The Ethical Basis of Stakeholders' Claims" (descriptive, instrumental, normative), the <b>Link to Learning</b> on United Airlines, the box <b>Cases from the Real World</b> on the Chicago Tylenol murders, and the Volkswagen example (pp. 72–77).</p>
+<p><b>Before you read:</b> If something is legal, is it automatically ethical?</p>
+<p><b>Glossary:</b> <i>ethical minimum</i> — the least a company can do while obeying the law · <i>ethical maximum</i> — the strongest ethical action possible · <i>recall</i> — asking buyers to return a product · <i>credo</i> — a company's statement of beliefs · <i>tamper</i> — to change something secretly to cause harm</p>
+<p><b>Look for:</b> Why wasn't Samsung's first warning enough? Which three approaches do Donaldson and Preston describe, and which one do they prefer? What did J&amp;J do, and what happened to its market share?</p>
+</div></details>
+<div class="thermo"><span>❄ Below the law</span><span>Legal minimum</span><span>Beyond the law</span><span>Ethical maximum 🔥</span></div>
+<div id="cases"></div>
+<button class="btn sm" onclick="toggle('thKey')">Compare with the suggested placements</button>
+<div id="thKey" class="key hidden">
+<p>Only two placements are clear. <b>Volkswagen</b> is below the law (illegal). <b>Johnson &amp; Johnson</b> is the textbook's model of an ethical maximum. Common placements for the others: <b>United</b> and <b>Amazon</b> at the legal minimum (debatable), <b>Samsung</b> beyond the law (partly instrumental: it limited its legal risk), and <b>Starbucks</b> beyond the law, near the maximum. Your <i>reasons</i> matter more than your placement.</p>
+</div>
+<label>J&amp;J's market share recovered within a year. Does that make its decision instrumental? Can a decision be both?</label>
+<textarea data-k="s3_both"></textarea>
+</section>
+
+<!-- 4 -->
+<section class="card">
+<h2>4 · The power–interest matrix</h2>
+<details class="book"><summary>3.3 <span class="pg">pp. 78–82</span></summary><div>
+<p><b>Read:</b> <a href="https://openstax.org/books/business-ethics/pages/3-3-ethical-decision-making-and-prioritizing-stakeholders" target="_blank" rel="noopener">3.3</a> "Stakeholder Prioritization" and <b>Figure 3.5</b> (the power–interest matrix), including the small farmer and Kroger example and the Amazon and Whole Foods example.</p>
+<p><b>Before you read:</b> At work, whose emails do you answer first? Why?</p>
+<p><b>Glossary:</b> <i>prioritize</i> — decide what comes first · <i>key stakeholder</i> — high power and high interest · <i>survival test</i> — could the firm survive without them? · <i>exigency</i> — urgency · <i>concession</i> — something you give up</p>
+<p><b>Look for:</b> What are the four quadrants of the matrix, and what should a firm do in each? Why does the farmer move after selling to Kroger? Which stakeholders should take priority, according to the text?</p>
+</div></details>
+<div class="mx">
+<div><b>High power · low interest</b><br>Keep satisfied, meet needs</div>
+<div class="k"><b>High power · high interest</b><br>Keep engaged, manage closely<br><i>= key stakeholders</i></div>
+<div><b>Low power · low interest</b><br>Monitor lightly</div>
+<div><b>Low power · high interest</b><br>Keep informed, respect interests</div>
+</div>
+<p class="sub">Two more tests from 3.3: the <b>survival test</b> (could the firm survive without them, or replace them easily?) and <b>exigency</b> (how urgent is their claim right now?).</p>
+<p class="sub" style="margin-top:8px"><b>Practice:</b> a neighborhood café chain. Place each stakeholder.</p>
+<div id="mxRows"></div>
+<button class="btn sm" onclick="checkMx()">Check</button>
+<div id="mxFb" class="fb"></div>
+<label>A small farmer sells vegetables to local shops each season. Then the farmer sells a whole crop to Kroger, a huge supermarket chain. Where does the farmer move on Kroger's matrix — and what will Kroger probably ask for?</label>
+<textarea data-k="s4_farmer"></textarea>
+<button class="btn sm" onclick="toggle('farmKey')">Check with the book</button>
+<div id="farmKey" class="key hidden">From low power and low interest to <b>low power, high interest</b>: Kroger now matters enormously to the farmer, but the farmer has little power over Kroger. The farmer will likely have to make <b>price concessions</b>. (3.3)</div>
+</section>
+
+<!-- 5 -->
+<section class="card">
+<h2>5 · Map Harbor Bay</h2>
+<details class="book"><summary>3.2 and 3.3 <span class="pg">pp. 72–82</span></summary><div>
+<p><b>Read:</b> <a href="https://openstax.org/books/business-ethics/pages/3-2-weighing-stakeholder-claims" target="_blank" rel="noopener">3.2</a> Grunig and Hunt's four publics (nonpublic, latent, aware, active) and "Assigning Weight to Claims" — direct and "voiceless" claims, and Christopher Stone's 1972 article "Should Trees Have Standing?" (pp. 72–77). <a href="https://openstax.org/books/business-ethics/pages/3-3-ethical-decision-making-and-prioritizing-stakeholders" target="_blank" rel="noopener">3.3</a> "Managing Stakeholder Expectations" (pp. 78–82).</p>
+<p><b>Note:</b> Harbor Bay and Lumen Data are <b>fictional</b>. They are not in the book — the book gives you the tools to analyze them.</p>
+<p><b>Glossary:</b> <i>latent public</i> — people affected by a problem who don't know it yet · <i>active public</i> — people who know and organize · <i>voiceless claim</i> — a claim from someone who can't easily speak (the environment, future generations) · <i>standing</i> — the legal right to bring a case</p>
+<p><b>Look for:</b> How does a public move from latent to active? Why are some claims "voiceless"? Who could speak for them?</p>
+</div></details>
+<div class="box"><b>Lumen Data</b> <i>(fictional)</i>, a technology company, wants to build a large AI data center on farmland outside <b>Harbor Bay</b> (population 18,000), a coastal town with dry summers.<br><br>
+• A $1.2 billion investment; about 1,500 construction jobs for two years, then 120 permanent jobs.<br>
+• In return: a 10-year property-tax break. After that, about $9 million a year in local taxes.<br>
+• Cooling would use up to 2 million liters of water a day from the town's supply.<br>
+• It would use as much electricity as a small city; residents' electricity rates may rise.<br>
+• Lumen offers a $500,000-a-year community fund.<br><br>
+The Town Council will vote: <b>approve</b>, <b>approve with conditions</b>, <b>delay</b> for an independent study, or <b>reject</b>.</div>
+<p class="sub">List the stakeholders your group put on the matrix. Tick ☑ if they are <b>voiceless</b> (affected but unable to speak for themselves).</p>
+<table class="map">
+<thead><tr><th>Stakeholder</th><th>Category</th><th>Power</th><th>Interest</th><th>Voiceless?</th></tr></thead>
+<tbody id="mapRows"></tbody>
+</table>
+<div class="box" style="margin-top:12px"><b>Event cards.</b> After each card, who moves on your map, and where?</div>
+<div id="events"></div>
+<label>Survival test: which stakeholders could Lumen not do without? Which could the town not do without?</label>
+<textarea data-k="s5_survival"></textarea>
+</section>
+
+<!-- 6 -->
+<section class="card">
+<h2>6 · Exit ticket</h2>
+<label>One stakeholder in Harbor Bay with no voice — and who could speak for them</label>
+<textarea data-k="s6_voice"></textarea>
+<label>The difference between an ethical minimum and an ethical maximum, with an example</label>
+<textarea data-k="s6_minmax"></textarea>
+<label>One question I still have</label>
+<input type="text" data-k="s6_q">
+</section>
+
+<div class="part">Class 2 · Whose Claim Wins?</div>
+
+<!-- 7 -->
+<section class="card">
+<h2>7 · The Harbor Bay town hall</h2>
+<p class="sub">You drew a role card. Keep your secret! Prepare with your role group.</p>
+<details class="book"><summary>3.3 <span class="pg">pp. 78–82</span></summary><div>
+<p><b>Read:</b> <a href="https://openstax.org/books/business-ethics/pages/3-3-ethical-decision-making-and-prioritizing-stakeholders" target="_blank" rel="noopener">3.3</a> "Managing Stakeholder Expectations" and the end of the section: no stakeholder group should be treated better than another, yet limited resources force a firm to prioritize; stakeholders should make their preferences known.</p>
+<p><b>Use it in the town hall:</b> the survival test, exigency (urgency) and the power–interest matrix are the tests the Council may use. The town hall itself is a fictional simulation.</p>
+</div></details>
+<label>My role</label>
+<select data-k="s7_role"><option value="">— choose —</option><option>Town Council</option><option>Lumen Data</option><option>Residents' Association</option><option>Valley Farmers' Cooperative</option><option>Building Trades Union</option><option>Harbor Bay Water Utility</option><option>River Keepers (environmental NGO)</option><option>Main Street Business Owners</option><option>Youth Climate Council</option><option>Harbor Bay Gazette (press)</option></select>
+<details><summary>Who's in the room (public positions only)</summary><div>
+<table>
+<tr><th>Role</th><th>Public position</th></tr>
+<tr><td>Town Council</td><td>Neutral. Runs the hearing and votes.</td></tr>
+<tr><td>Lumen Data</td><td>Approve as proposed.</td></tr>
+<tr><td>Residents' Association</td><td>Worried about water and electricity bills.</td></tr>
+<tr><td>Valley Farmers' Cooperative</td><td>Opposed.</td></tr>
+<tr><td>Building Trades Union</td><td>Strongly support.</td></tr>
+<tr><td>Water Utility</td><td>Technical; neutral.</td></tr>
+<tr><td>River Keepers</td><td>Reject or delay.</td></tr>
+<tr><td>Main Street Business Owners</td><td>Cautiously support.</td></tr>
+<tr><td>Youth Climate Council</td><td>Concerned; speaks for future residents.</td></tr>
+<tr><td>Harbor Bay Gazette</td><td>Reports and asks questions.</td></tr>
+</table></div></details>
+<details><summary>How the town hall works</summary><div>
+<p><b>Prep</b> 7 min · <b>Round 1</b> Opening statements, 45 seconds each · <b>Round 2</b> The lobby: make deals; write them on a slip, both groups sign · <b>Round 3</b> Final offers, 20 seconds · <b>Round 4</b> Council deliberates in the middle; everyone listens · <b>Gazette</b> reads its headline</p>
+<p>The Council must say: (1) who the key stakeholders are, (2) which test it used to prioritize, (3) which voiceless stakeholder it considered.</p>
+</div></details>
+<label>Our position</label><textarea data-k="s7_pos"></textarea>
+<div class="row2">
+<div><label>What we need most</label><textarea data-k="s7_need"></textarea></div>
+<div><label>Our bottom line (we won't accept less than…)</label><textarea data-k="s7_bottom"></textarea></div>
+</div>
+<label>One concession we could offer</label><textarea data-k="s7_conc"></textarea>
+<label>Our 45-second opening statement</label>
+<textarea class="big" data-k="s7_open" placeholder="On behalf of ___, we'd like to… We could support the proposal provided that…"></textarea>
+<label>Notes on other groups (what they want, possible deals)</label>
+<textarea data-k="s7_notes"></textarea>
+<label>Deals we made</label>
+<textarea data-k="s7_deals"></textarea>
+<label>The Council's decision</label>
+<div class="opts">
+  <label><input type="radio" name="s7_dec" data-k="s7_dec" value="Approve"> Approve</label>
+  <label><input type="radio" name="s7_dec" data-k="s7_dec" value="Approve with conditions"> Approve with conditions</label>
+  <label><input type="radio" name="s7_dec" data-k="s7_dec" value="Delay"> Delay</label>
+  <label><input type="radio" name="s7_dec" data-k="s7_dec" value="Reject"> Reject</label>
+</div>
+<label>Conditions, if any</label>
+<textarea data-k="s7_cond"></textarea>
+<label>The Gazette's headline</label>
+<input type="text" data-k="s7_headline">
+</section>
+
+<!-- 8 -->
+<section class="card">
+<h2>8 · Debrief: whose claim won?</h2>
+<label>Who turned out to be the key stakeholders? Were they the ones you placed top right this morning?</label>
+<textarea data-k="s8_key"></textarea>
+<label>Which secret changed the outcome — or never came out? What does that tell you about real public hearings?</label>
+<textarea data-k="s8_secret"></textarea>
+<label>Which test did the Council really use?</label>
+<div class="opts">
+  <label><input type="checkbox" data-k="s8_t1" value="Survival test"> Survival test</label>
+  <label><input type="checkbox" data-k="s8_t2" value="Urgency (exigency)"> Urgency (exigency)</label>
+  <label><input type="checkbox" data-k="s8_t3" value="Power and interest"> Power and interest</label>
+  <label><input type="checkbox" data-k="s8_t4" value="Protecting the voiceless"> Protecting the voiceless</label>
+</div>
+<label>Which Week 2 framework did the decision reflect — utilitarian, Kantian or Rawlsian? Why?</label>
+<textarea data-k="s8_fw"></textarea>
+</section>
+
+<div class="part">Homework</div>
+
+<section class="card">
+<h2>Ethics Journal #3</h2>
+<p class="sub">150–200 words. Choose one prompt. Structure: <b>Opinion → Reasons → Framework or stakeholder tool → Counterargument → Conclusion</b>.</p>
+<select data-k="j_prompt"><option value="">— choose a prompt —</option>
+<option>A · Amazon's pace: Is it a reasonable expectation? Should applicants be told? Should customers keep buying?</option>
+<option>B · Malaysia Airlines: pilgrims' affordable travel or the government's demand for profit?</option>
+<option>C · Friedman vs. Stout: would your business be driven by economics or by a social mission?</option></select>
+<details><summary>The three cases</summary><div>
+<p><b>A · Amazon</b> — <a href="https://openstax.org/books/business-ethics/pages/3-1-adopting-a-stakeholder-orientation" target="_blank" rel="noopener">3.1</a>, box <i>Cases from the Real World: "Amazon Sets a Demanding Pace on the Job"</i> <span class="pg">pp. 68–71</span><br> Business students toured an Amazon distribution center. The manager said "pickers" walk 8–9 miles per shift at the "Amazon Pace," and those who can't keep up are usually let go. Is this a reasonable expectation? Should applicants be told before they're hired? Is it ethical for customers to keep buying from the company?</p>
+<p><b>B · Malaysia Airlines</b> — <a href="https://openstax.org/books/business-ethics/pages/3-3-ethical-decision-making-and-prioritizing-stakeholders" target="_blank" rel="noopener">3.3</a>, box <i>What Would You Do?</i> <span class="pg">pp. 78–82</span><br> The Malaysian government and individual investors own the airline. It has lost money and gone through three CEOs. The CEO, Peter Bellew, must cut costs and raise revenue. His plan targets Malaysian Muslims — more than 60% of the population — with charter flights for the hajj pilgrimage. Should he prioritize pilgrims' demand for easy, affordable travel or the government's demand for profitable operations?</p>
+<p><b>C · Two views</b> — <a href="https://openstax.org/books/business-ethics/pages/3-1-adopting-a-stakeholder-orientation" target="_blank" rel="noopener">3.1</a>, box <i>What Would You Do? "The Social Responsibility of Business"</i> and the <i>Link to Learning</i> on Milton Friedman <span class="pg">pp. 68–71</span><br> The <b>shareholder-focused view</b> (Milton Friedman, 1970): a business should act ethically but serve only its shareholders. The <b>social responsibility view</b>: stakeholders are ends in themselves, so responsibility to them should be central to the mission. The late law professor Lynn Stout argued that shareholders as a group actually want companies to treat stakeholders well. If you started a business, which would drive it?</p>
+</div></details>
+<textarea class="big" id="journal" data-k="journal" placeholder="I think…"></textarea>
+<div class="wc" id="wc">0 words · target 150–200</div>
+<details><summary>Model journal (Prompt A)</summary><div>
+<p>I think walking eight or nine miles a shift can be a reasonable expectation, but only if the company is honest about it before people accept the job. Many jobs are physically demanding, such as nursing or construction, and workers choose them knowingly. The ethical problem is not the distance; it is whether applicants know what they are agreeing to and whether those who can't keep up are treated fairly. From a Kantian perspective, hiding the pace would treat workers merely as a means to fast delivery. In stakeholder terms, pickers are functional stakeholders with low individual power but very high interest, so the company should "keep them informed and respect their interests." One could argue that the company is only meeting the legal minimum and that customers want fast delivery. That is true, but the legal minimum is not the ethical maximum. In conclusion, the pace is acceptable only if it is disclosed, safe, and supported by fair treatment — and customers share some responsibility for the speed they demand.</p>
+</div></details>
+<details><summary>How your journal is marked (12 points)</summary><div>
+<table>
+<tr><th>Criterion</th><th>3 points</th></tr>
+<tr><td>Position</td><td>Clear, specific answer to the prompt</td></tr>
+<tr><td>Tools</td><td>A stakeholder concept and a framework, used accurately</td></tr>
+<tr><td>Counterargument</td><td>A strong opposing view, stated fairly and answered</td></tr>
+<tr><td>Language</td><td>Course vocabulary; conditionals and hedging mostly accurate</td></tr>
+</table></div></details>
+<p class="tip"><b>Also:</b> finish Chapter 3 — especially <a href="https://openstax.org/books/business-ethics/pages/3-4-corporate-social-responsibility-csr" target="_blank" rel="noopener">3.4 Corporate Social Responsibility</a> (from p. 83) — and preview Chapter 4 (from p. 93). <b>Bring one example of a company that says it is green or socially responsible.</b></p>
+</section>
+
+<section class="card">
+<h2>Language bank</h2>
+<details><summary>Key words in simple English</summary><div>
+<ul class="lb">
+<li><b>stakeholder</b> — anyone affected by, or with an interest in, a business</li>
+<li><b>stockholder / shareholder</b> — someone who owns shares (≠ stakeholder!)</li>
+<li><b>claim</b> — what a stakeholder wants from a company</li>
+<li><b>prioritize</b> — decide what comes first</li>
+<li><b>key stakeholder</b> — high power + high interest</li>
+<li><b>exigency</b> — urgency</li>
+<li><b>ethical minimum / maximum</b> — the least the law allows / the best possible action</li>
+<li><b>voiceless</b> — affected but unable to speak (a river, future generations)</li>
+<li><b>latent → aware → active public</b> — doesn't know → knows → organizes</li>
+<li><b>concession</b> — something you give up in a negotiation</li>
+<li><b>bottom line</b> — (1) profit; (2) the minimum you'll accept</li>
+<li><b>stake</b> — an interest or share ("We have a stake in this"), not a steak!</li>
+<li><b>normative</b> — two meanings this week: <i>normative stakeholders</i> (competitors who set norms) and the <i>normative approach</i> (stakeholders matter in themselves)</li>
+</ul></div></details>
+<details><summary>Negotiation phrases for the town hall</summary><div>
+<ul class="lb">
+<li>On behalf of ___, we'd like to…</li>
+<li>We could support it <b>provided that / as long as / on condition that</b>…</li>
+<li>We won't support it <b>unless</b>…</li>
+<li>Would you be willing to…? / What if we agreed to…?</li>
+<li>We're prepared to compromise on ___, but not on…</li>
+<li>That's non-negotiable for us.</li>
+<li>With respect, that doesn't address…</li>
+<li>No one here is speaking for…</li>
+</ul></div></details>
+<details><summary>Pronunciation</summary><div>
+<p>STAKEholder · priORitize · PRIority · EXigency · conCESSion · neGOtiate · COMpromise · susTAINability</p>
+</div></details>
+</section>
+</main>
+<footer>Textbook content summarized from Byars &amp; Stanberry, <em>Business Ethics</em>, OpenStax (CC BY-NC-SA 4.0). Access for free at https://openstax.org/books/business-ethics/pages/3-introduction · Moral Machine: Awad et al., Nature (2018) · Harbor Bay and Lumen Data are fictional.</footer>
+
+<script>
+const KEY='ethics-w3-worksheet-v1';
+let data={};
+try{data=JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){data={}}
+const $=s=>document.querySelector(s);
+
+/* builders */
+const TR=[["Round 1 · The switch","A runaway trolley will kill five workers. You can pull a switch to send it onto a side track, where it will kill one worker. Do you pull it?"],["Round 2 · The footbridge","You're on a bridge next to a man with a heavy backpack. Pushing him onto the track will stop the trolley and save the five. Do you push him?"],["Round 3 · The self-driving car","Your car's brakes fail. The software can stay in lane and hit five pedestrians, or swerve into a wall and kill its one passenger. What should the code do? Would you buy that car?"],["Round 4 · The layoff trolley","Laying off 50 people now will — according to a forecast that is 70% likely to be right — avoid laying off 500 next year. Do you do it?"]];
+const CORNERS=["Act","Don't act","It depends","I need more information"];
+$('#trolley').innerHTML=TR.map((t,i)=>`<div class="case"><h3>${t[0]}</h3><p>${t[1]}</p><div class="opts">${CORNERS.map(c=>`<label><input type="radio" name="tr${i}" data-k="tr${i}" value="${c}"> ${c}</label>`).join('')}</div><textarea data-k="tr${i}r" aria-label="${t[0]} — my reason" placeholder="My reason…"></textarea></div>`).join('');
+
+const SORT=[["Shareholders","E"],["Board of directors","E"],["Government regulators","E"],["Baristas","F"],["Coffee and tea growers","F"],["Customers","F"],["Other coffee chains","N"],["Restaurant industry associations","N"],["News media","D"],["Civil-rights groups","D"]];
+const CAT='<option value="">—</option><option value="E">Enabling</option><option value="F">Functional</option><option value="N">Normative</option><option value="D">Diffused</option>';
+$('#sortRows').innerHTML=SORT.map((s,i)=>`<div class="pick"><span>${s[0]}</span><select data-k="so${i}" aria-label="Category for ${s[0]}">${CAT}</select></div>`).join('');
+
+const CASES=[["Volkswagen (3.2)","Diesel engines exceeded U.S. emissions standards. Instead of redesigning them, engineers installed a device that made the cars appear to pass the tests. Fines and costs exceeded $30 billion by September 2017; some employees went to jail."],["United Airlines (3.2)","The airline removed ticketed, seated passengers from a flight to make room for four of its employees who needed to fly to another airport. Overbooking flights avoids unsold seats."],["Amazon (3.1)","At a distribution center, “pickers” walk 8–9 miles per shift at the “Amazon Pace.” Those who can't keep up are usually let go."],["Samsung (3.1)","2017: a spin-cycle problem in some washing machines. A warning wasn't enough. The final fix: a full refund for about 3 million washers ($450–$1,500 each) with free pickup. It cost billions and limited the company's legal exposure."],["Starbucks (Ch. 3 intro)","2018: after the Philadelphia arrests, Starbucks closed about 8,000 U.S. stores for an afternoon of racial-bias training and changed its store-use policy. It was costly. The company “believed it was the right thing to do.”"],["Johnson & Johnson (3.2)","1982: seven people near Chicago died after someone put cyanide in Tylenol capsules in stores. J&J pulled all Tylenol from the U.S. market — about 30 million bottles, worth over $100 million — guided by its credo. Market share fell from 37% to 7%, then recovered to 30% within a year."]];
+const SCALE='<option value="">— place it —</option><option>Below the law</option><option>Legal minimum</option><option>Beyond the law</option><option>Ethical maximum</option>';
+const MOT='<option value="">— motive —</option><option>Normative</option><option>Instrumental</option><option>Both</option>';
+$('#cases').innerHTML=CASES.map((c,i)=>`<div class="case"><h3>${c[0]}</h3><p>${c[1]}</p><div class="row2"><select data-k="th${i}" aria-label="${c[0]} — placement">${SCALE}</select><select data-k="tm${i}" aria-label="${c[0]} — motive">${MOT}</select></div><textarea data-k="tr_${i}" aria-label="${c[0]} — reason" placeholder="Because…" style="margin-top:6px;min-height:50px"></textarea></div>`).join('');
+
+const MX=[["The bank that lent the café its money","HL"],["The head barista","LH"],["The city health inspector","HL"],["Regular customers","LH"],["The main investor","HH"],["A tourist who visits once","LL"]];
+const Q='<option value="">—</option><option value="HH">High power · high interest</option><option value="HL">High power · low interest</option><option value="LH">Low power · high interest</option><option value="LL">Low power · low interest</option>';
+$('#mxRows').innerHTML=MX.map((m,i)=>`<div class="pick"><span>${m[0]}</span><select data-k="mx${i}" aria-label="Quadrant for ${m[0]}">${Q}</select></div>`).join('');
+
+const HL=l=>`<option value="">${l} —</option><option>High</option><option>Low</option>`;
+const CAT2='<option value="">Category —</option><option>Enabling</option><option>Functional</option><option>Normative</option><option>Diffused</option>';
+let rows='';for(let i=0;i<10;i++){rows+=`<tr><td><input type="text" data-k="m${i}n" aria-label="Stakeholder ${i+1}" placeholder="Stakeholder ${i+1}"></td><td><select data-k="m${i}c" aria-label="Stakeholder ${i+1} category">${CAT2}</select></td><td><select data-k="m${i}p" aria-label="Stakeholder ${i+1} power">${HL('Power')}</select></td><td><select data-k="m${i}i" aria-label="Stakeholder ${i+1} interest">${HL('Interest')}</select></td><td><label style="font-weight:400;margin:0;display:flex;gap:4px;align-items:center"><input type="checkbox" data-k="m${i}v" value="Voiceless"> voiceless</label></td></tr>`}
+$('#mapRows').innerHTML=rows;
+
+const EV=["The state declares a drought warning for the region.","The Harbor Bay Gazette publishes the water figures. Residents had not known.","The building-trades union endorses the project and promises 300 members at the vote.","A town 40 km away offers Lumen free land.","River Keepers, an environmental group, files a complaint “on behalf of the river.”"];
+$('#events').innerHTML=EV.map((e,i)=>`<label>Event ${i+1}: ${e}</label><textarea data-k="ev${i}" style="min-height:50px" placeholder="___ moves from ___ to ___ because…"></textarea>`).join('');
+
+/* save / load */
+const status=$('#saved');let tmr;
+function save(){try{localStorage.setItem(KEY,JSON.stringify(data));status.textContent='Saved ✓'}catch(e){status.textContent='Not saved — use Download'}}
+function bind(el){
+  const k=el.dataset.k;
+  if(el.type==='radio'){if(data[k]===el.value)el.checked=true;el.addEventListener('change',()=>{data[k]=el.value;save()});return}
+  if(el.type==='checkbox'){if(data[k])el.checked=true;el.addEventListener('change',()=>{if(el.checked)data[k]=el.value;else delete data[k];save()});return}
+  if(data[k]!==undefined)el.value=data[k];
+  el.addEventListener('input',()=>{data[k]=el.value;status.textContent='Saving…';clearTimeout(tmr);tmr=setTimeout(save,400);if(el.id==='journal')wc()});
+  if(el.tagName==='SELECT')el.addEventListener('change',()=>{data[k]=el.value;save()});
+}
+document.querySelectorAll('[data-k]').forEach(bind);
+function wc(){const n=($('#journal').value.trim().match(/\S+/g)||[]).length;const w=$('#wc');w.textContent=n+' words · target 150–200';w.className='wc '+(n>=150&&n<=200?'ok':n>200?'no':'')}
+wc();
+function toggle(id){document.getElementById(id).classList.toggle('hidden')}
+
+/* checks */
+function mark(el,ok){el.classList.remove('ok','no');if(el.value)el.classList.add(ok?'ok':'no')}
+function checkSort(){let c=0;SORT.forEach((s,i)=>{const e=$(`[data-k="so${i}"]`);mark(e,e.value===s[1]);if(e.value===s[1])c++});$('#sortFb').innerHTML=`${c} / ${SORT.length} correct.`+(c===SORT.length?' <span class="ok">Excellent!</span>':' Red boxes need another look.')}
+function checkMx(){let c=0;MX.forEach((m,i)=>{const e=$(`[data-k="mx${i}"]`);mark(e,e.value===m[1]);if(e.value===m[1])c++});$('#mxFb').innerHTML=`${c} / ${MX.length} correct.`+(c<MX.length?' <span class="muted">Tip: a health inspector has high power, but interest rises only when there is a problem — that\'s exigency.</span>':' <span class="ok">Excellent!</span>')}
+
+/* download / clear / print */
+function esc(s){return String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]))}
+function labelFor(el){
+  if(el.type==='radio'){const o=el.closest('.opts');const p=o&&o.previousElementSibling;if(p&&p.tagName==='LABEL')return p.textContent;const c=el.closest('.case');return c?c.querySelector('h3').textContent:el.dataset.k}
+  if(el.type==='checkbox'){const o=el.closest('.opts');const p=o&&o.previousElementSibling;if(p&&p.tagName==='LABEL')return p.textContent;return el.closest('tr')?'Voiceless':el.dataset.k}
+  if(el.getAttribute('aria-label'))return el.getAttribute('aria-label');
+  const p=el.previousElementSibling;if(p&&p.tagName==='LABEL')return p.textContent;
+  const pk=el.closest('.pick');if(pk)return pk.firstElementChild.textContent;
+  return el.placeholder||el.dataset.k;
+}
+function downloadAnswers(){
+  let html='';
+  document.querySelectorAll('section.card').forEach(sec=>{
+    let body='';
+    sec.querySelectorAll('[data-k]').forEach(el=>{
+      if((el.type==='radio'||el.type==='checkbox')&&!el.checked)return;
+      const v=el.value;if(!v)return;
+      body+=`<p><b>${esc(labelFor(el))}</b><br>${esc(v).replace(/\n/g,'<br>')}</p>`;
+    });
+    if(body)html+=`<h2>${esc(sec.querySelector('h2').textContent)}</h2>${body}`;
+  });
+  const name=$('#sname').value||'student';
+  const doc=`<!doctype html><meta charset="utf-8"><title>Week 3 answers · ${esc(name)}</title><body style="font-family:system-ui,sans-serif;max-width:760px;margin:30px auto;padding:0 16px;line-height:1.5"><h1 style="color:#143865">Ethics in a Global World · Week 3 answers</h1><p><b>Name:</b> ${esc(name)} · ${new Date().toLocaleString()}</p>${html||'<p>No answers yet.</p>'}</body>`;
+  const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([doc],{type:'text/html'}));a.download='week3-answers-'+name.replace(/\W+/g,'-').toLowerCase()+'.html';document.body.appendChild(a);a.click();a.remove();
+}
+function clearAll(){if(!confirm('Clear ALL your answers on this device? This cannot be undone.'))return;data={};try{localStorage.removeItem(KEY)}catch(e){}location.reload()}
+window.addEventListener('beforeprint',()=>{document.querySelectorAll('textarea').forEach(t=>{t.style.height='auto';t.style.height=(t.scrollHeight+4)+'px'});document.querySelectorAll('details').forEach(d=>d.setAttribute('open',''))});
+</script>
+</body>
+</html>
