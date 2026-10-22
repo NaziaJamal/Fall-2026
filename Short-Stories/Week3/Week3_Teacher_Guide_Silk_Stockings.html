@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Week 3 Teacher Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#143865; --blue:#1c4f8f; --gold-dk:#8c7535; --gold:#d39f10;
+    --sky-dk:#c1cddd; --sky-md:#e1e8f2; --sky-lt:#edf2f9; --warm:#efe9d9;
+    --ink:#1b2430; --muted:#55606e; --alert:#8a2d2d;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--sky-lt);font-family:"Source Sans 3",Arial,sans-serif;color:var(--ink);font-size:16px;line-height:1.55}
+  .page{max-width:1000px;margin:0 auto;background:#fff;box-shadow:0 4px 30px rgba(20,56,101,.12);padding-bottom:40px}
+  header.mast{background:var(--navy);color:#fff;padding:26px 40px 22px;border-bottom:6px solid var(--gold)}
+  .brand{display:flex;flex-direction:column;line-height:1.05;margin-bottom:12px}
+  .brand b{font-family:"Libre Baskerville",Georgia,serif;letter-spacing:.14em;color:var(--gold);font-size:1.25rem}
+  .brand span{font-family:"Libre Baskerville",Georgia,serif;font-size:.75rem;color:var(--warm)}
+  header h1{font-family:"Libre Baskerville",Georgia,serif;margin:.1em 0 .2em;font-size:1.9rem}
+  header .sub{color:var(--sky-dk)}
+  .wrap{padding:0 40px}
+  nav.toc{background:var(--warm);border-radius:8px;padding:12px 18px;margin:22px 0;font-size:.95rem}
+  nav.toc b{color:var(--navy)}
+  nav.toc a{color:var(--blue);text-decoration:none;margin-right:14px;white-space:nowrap;font-weight:600}
+  h2{font-family:"Libre Baskerville",Georgia,serif;color:var(--navy);font-size:1.35rem;border-bottom:2px solid var(--navy);padding-bottom:6px;margin:36px 0 12px}
+  h3{color:var(--navy);margin:20px 0 6px;font-size:1.08rem}
+  table{width:100%;border-collapse:collapse;margin:8px 0 14px;font-size:.94rem}
+  th,td{border:1px solid var(--sky-dk);padding:7px 9px;vertical-align:top;text-align:left}
+  th{background:var(--navy);color:#fff;font-weight:600}
+  tr.stage-E td:first-child, tr.stage-S td:first-child, tr.stage-A td:first-child{font-weight:700}
+  .E{background:#fff6dc} .S{background:var(--sky-lt)} .A{background:#e6efe7}
+  .pill{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border-radius:999px;padding:2px 9px;margin:2px 0}
+  .pE{background:var(--gold);color:var(--navy)} .pS{background:var(--blue);color:#fff} .pA{background:#2f6b45;color:#fff} .pX{background:var(--sky-dk);color:var(--navy)}
+  .box{background:var(--sky-lt);border-left:5px solid var(--blue);border-radius:6px;padding:12px 16px;margin:12px 0}
+  .box.gold{background:var(--warm);border-left-color:var(--gold)}
+  .box.alert{background:#f7eaea;border-left-color:var(--alert)}
+  .box h3{margin-top:0}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .kv td:first-child{width:30%;font-weight:600;color:var(--navy);background:var(--sky-lt)}
+  ul,ol{margin:.3em 0 .6em}
+  li{margin-bottom:4px}
+  a{color:var(--blue)}
+  .btn{border:none;border-radius:8px;padding:9px 16px;font:700 .95rem "Source Sans 3",sans-serif;cursor:pointer;background:var(--gold);color:var(--navy)}
+  .src{font-size:.85rem;color:var(--muted)}
+  .legend{display:flex;gap:10px;flex-wrap:wrap;font-size:.85rem;margin:6px 0 4px}
+  @media (max-width:700px){ .wrap,header.mast{padding-left:16px;padding-right:16px} .grid2{grid-template-columns:1fr} table{font-size:.85rem} }
+  @media print{
+    @page{margin:13mm}
+    body{background:#fff;font-size:10.5pt}
+    .page{box-shadow:none;max-width:none}
+    .btn,nav.toc{display:none}
+    header.mast,th,.E,.S,.A,.pill,.box{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    h2{page-break-after:avoid}
+    tr{page-break-inside:avoid}
+  }
+.logo{width:72px;height:72px;border-radius:8px;display:block;margin-bottom:10px}
+@media (max-width:640px){ table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch} .meta div,.idrow label{min-width:0} input[type=text]{min-width:0;max-width:100%} select{max-width:100%} nav.toc a{white-space:normal;display:inline-block} }
+</style>
+</head>
+<body>
+<div class="page">
+<header class="mast">
+  <img src="data:image/png;base64,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" alt="Approach International Student Center" class="logo">
+  <div class="sub">Reading &amp; Critical Thinking — Proficient Level: American Short Fiction · Teacher’s Guide</div>
+  <h1>Week 3: “A Pair of Silk Stockings” by Kate Chopin</h1>
+  <div class="sub">Unit II · New American Voices &nbsp;|&nbsp; Literary Lens: Turning Point &nbsp;|&nbsp; Author’s Style: Interior Monologue &nbsp;|&nbsp; 2 × 100-minute classes</div>
+</header>
+
+<div class="wrap">
+  <p style="margin-top:18px"><button class="btn" onclick="window.print()">Print / Save as PDF</button></p>
+  <nav class="toc"><b>Contents:</b>
+    <a href="#glance">At a glance</a><a href="#adapt">Adaptation</a><a href="#content">Content note</a>
+    <a href="#objectives">Objectives</a><a href="#prep">Prep &amp; links</a><a href="#background">Background</a>
+    <a href="#classA">Class A</a><a href="#classB">Class B</a><a href="#key">Answer key</a>
+    <a href="#rubrics">Rubrics</a><a href="#diff">Differentiation</a><a href="#hw">Homework</a>
+  </nav>
+
+  <h2 id="glance">1. The story at a glance</h2>
+  <table class="kv">
+    <tr><td>Story</td><td>“A Pair of Silk Stockings,” Kate Chopin (1850–1904)</td></tr>
+    <tr><td>First published</td><td><i>Vogue</i>, September 16, 1897 (written April 1896). Public domain.</td></tr>
+    <tr><td>Syllabus placement</td><td>Week 3, Unit II “New American Voices (1860s–1910s).” The syllabus pairs Twain’s “The Celebrated Jumping Frog of Calaveras County” with this story. <b>This week uses Chopin only</b> (see the note on the Literary Lens below).</td></tr>
+    <tr><td>Literary Lens and style</td><td>Syllabus: Frame Narrator &amp; Turning Point. Because Twain is not taught this week, the lens is <b>Turning Point</b> (the anthology’s own lens for this story), and the Author’s Style focus is <b>Interior Monologue</b>, which matches the syllabus homework question “How does Chopin use interior monologue?” Frame narration can be taught later in the course; an optional Twain extension is in section 12.</td></tr>
+    <tr><td>Class text</td><td><b>Approach lightly adapted version</b>, §1–§8, ≈ 1,950 words (original ≈ 2,000).</td></tr>
+    <tr><td>Reading time (B2)</td><td>Reading 1 (§1–§3, ≈ 800 words): 8–10 min. Reading 2 (§4–§8, ≈ 1,150 words): 11–13 min. <b>The whole story is read in Class A</b>, so Class B is free for analysis.</td></tr>
+    <tr><td>Difficulty for B2–B2+</td><td><b>Moderate.</b> The language is clear and concrete; the challenge is inference: what Chopin does <i>not</i> say about Mrs. Sommers’s past, her husband, and the end of her day.</td></tr>
+    <tr><td>Plot in brief</td><td>Mrs. Sommers, a poor mother who once knew “better days,” unexpectedly receives $15 and carefully plans to spend it on her children. Exhausted and hungry at a department store, her hand rests on a pile of silk stockings. She buys a pair for herself and, guided by an “impulse” she does not question, spends the afternoon on boots, gloves, magazines, a fine lunch, and a theater matinee. On the cable car home, a stranger cannot read her face, which hides a longing that the ride would never end.</td></tr>
+    <tr><td>Why it fits Week 3</td><td>It has a clear, debatable turning point; Chopin moves smoothly between reporting actions and entering her character’s mind; and it opens the syllabus focus on women’s autonomy in 19th-century America. It also mirrors Week 2: a character leaves home for a short time and returns changed, which gives students their first cross-text synthesis.</td></tr>
+  </table>
+  <div class="box gold">
+    <h3>Section numbers (§)</h3>
+    <p>§1 fifteen dollars · §2 at the counter · §3 the silk stockings · STOP &amp; PREDICT · §4 the impulse (stockings on; boots) · §5 gloves and magazines · §6 the restaurant · §7 the theater · §8 the cable car</p>
+  </div>
+
+  <h2 id="adapt">2. Adaptation strategy</h2>
+  <div class="grid2">
+    <div class="box">
+      <h3>Preserved (almost word for word)</h3>
+      <ul>
+        <li>The plot, every purchase, the order of events, and the ending.</li>
+        <li>Key lines: “luckily tomorrow never comes” · “glide serpent-like through her fingers” · “She was not thinking at all” · “some mechanical impulse that directed her actions and freed her of responsibility” · “How good was the touch of the raw silk to her flesh!” · “a feeling of assurance, a sense of belonging” · “as before a princess of royal blood” · “It was like a dream ended.”</li>
+        <li>The final sentence, with one word changed (<i>poignant</i> → “deep, painful”).</li>
+        <li>All interior monologue markers (exclamations, “no! when she came to think of it”).</li>
+      </ul>
+    </div>
+    <div class="box gold">
+      <h3>Changed or explained</h3>
+      <ul>
+        <li><i>porte-monnaie → purse; percale → cotton cloth; shirt waists → shirts; darning → mending; luncheon → lunch; placard → sign; tiara → crown of diamonds; parcel → package; damask → white tablecloths; blue-points → oysters; crème frappée → a frozen dessert; Rhine wine → German white wine.</i></li>
+        <li><i>morbid retrospection → gloomy looking back; consternation → alarm; preposterous → ridiculous; decipher → understand.</i></li>
+        <li>“besieging breastworks of shirting and figured lawn” → “attacking walls of shirt cloth and printed cotton like soldiers attacking a fort” (the battle metaphor is kept and made explicit).</li>
+        <li>“Two hectic blotches” → “Two bright red spots.”</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2 id="content">3. Content note</h2>
+  <div class="box alert">
+    <ul>
+      <li><b>Money and poverty:</b> the Engage task (Part 1) is <b>hypothetical</b>. Never ask students about their own income, debts, or family finances. Some adult students may support families at home on limited money; keep the discussion about the character and about cultural expectations in general.</li>
+      <li><b>Gender and parenting:</b> Part 6 asks whether a mother may spend on herself. Expect strong, culturally varied views; the goal is to examine the <i>standard</i> students use, not to decide who is right.</li>
+      <li>The story mentions wine at lunch; nothing else in it is sensitive.</li>
+    </ul>
+  </div>
+
+  <h2 id="objectives">4. Learning objectives and syllabus alignment</h2>
+  <p>By the end of Week 3, students will be able to:</p>
+  <ol>
+    <li>Read and understand a complete, authentic 19th-century American story with only light adaptation (SLO 23).</li>
+    <li>Define <b>turning point</b>, distinguish it from the climax, and defend a choice of turning point with evidence (SLOs 24, 32).</li>
+    <li>Distinguish narrator report, interior monologue, and another character’s perspective, and explain the effect of each (SLOs 24, 25).</li>
+    <li>Evaluate Chopin’s choice to end through a stranger’s eyes (SLO 30).</li>
+    <li>Make and grade the certainty of inferences about what the text does not say (SLO 32).</li>
+    <li>Connect the story to women’s economic lives in the 1890s and to today’s debates about self-care and consumerism (SLO 29).</li>
+    <li>Write a short creative-analytical scene consistent with textual evidence, and two 3-sentence analytical responses (SLO 26).</li>
+    <li>Compare Weeks 2 and 3 in a first synthesis discussion (SLO 28).</li>
+  </ol>
+  <table>
+    <tr><th style="width:30%">Syllabus requirement</th><th>Where it is met</th></tr>
+    <tr><td>Literary Lens: Turning Point (Frame Narrator: see note)</td><td>Part 3 Stop &amp; Predict · Part 5 mood graph and Four Corners · Homework A2</td></tr>
+    <tr><td>Voice</td><td>Part 7 (whose voice?) · Part 9 hot seat (other voices)</td></tr>
+    <tr><td>Women’s autonomy in 19th-century America</td><td>Parts 1, 6, 8 (context box) · Speed seminar Rounds 1 and 3</td></tr>
+    <tr><td>Regionalism</td><td>Light here (an unnamed city); addressed through the author background and the optional Twain extension.</td></tr>
+    <tr><td>Close reading · Seminar · Discussion</td><td>Parts 4, 7, 8 · Part 10 speed seminar and synthesis</td></tr>
+    <tr><td>HW: Reading journal + 3-sentence responses</td><td>Part 12. The Twain question (“How does Twain’s frame narrator create irony?”) is replaced by “Where is the turning point, and how does Chopin show the change?”</td></tr>
+  </table>
+
+  <h2 id="prep">5. Preparation, materials, and links</h2>
+  <div class="grid2">
+    <div>
+      <h3>Before class</h3>
+      <ul>
+        <li>Print the <b>Student Reading Packet</b> or share the HTML file. <b>Do not</b> send it in advance this week: the Stop &amp; Predict activity depends on students not knowing what happens after §3. If you print, consider giving out §1–§3 and §4–§8 as two separate handouts.</li>
+        <li>Print the student worksheet, or share it for laptops. On a laptop, the Part 1 budget adds itself up and the Part 5 mood graph draws itself.</li>
+        <li>Test the <b>Vocabulary Cards</b> audio on the classroom computer.</li>
+        <li>Make four corner signs (A, B, C, D) for Part 5B and a 1–5 line on the floor or wall for Part 6 (tape or paper signs).</li>
+        <li>Prepare six role cards for Part 9 and clear space for two circles of chairs for Part 10.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Links</h3>
+      <ul>
+        <li><a href="https://www.katechopin.org/?p=82" target="_blank" rel="noopener">Kate Chopin International Society: the story and its publication</a></li>
+        <li><a href="https://www.literaryladiesguide.com/?p=24725" target="_blank" rel="noopener">Original full text (Literary Ladies Guide)</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/A_Pair_of_Silk_Stockings" target="_blank" rel="noopener">About the story</a> · <a href="https://en.wikipedia.org/wiki/Kate_Chopin" target="_blank" rel="noopener">About Kate Chopin</a></li>
+        <li><a href="https://www.officialdata.org/us/inflation/1897?amount=15" target="_blank" rel="noopener">$15 in 1897 in today’s dollars (inflation calculator)</a></li>
+        <li><a href="https://dictionary.cambridge.org/" target="_blank" rel="noopener">Cambridge Dictionary</a> · <a href="https://youglish.com/" target="_blank" rel="noopener">YouGlish</a> (pronunciation)</li>
+      </ul>
+    </div>
+  </div>
+  <p><b>Files for this week:</b> Student Reading Packet (lightly adapted text) · Student Worksheet (fillable and printable) · Vocabulary Cards (slides with audio) · this Teacher’s Guide.</p>
+
+  <h2 id="background">6. Background notes for the teacher</h2>
+  <table>
+    <tr><th style="width:26%">Item</th><th>What students need to know</th></tr>
+    <tr><td>Kate Chopin</td><td>Born in St. Louis in 1850 (some older sources, including the anthology, give 1851). Widowed in her early thirties with six children, she began writing in St. Louis. <i>The Awakening</i> (1899) was condemned by many reviewers, and her reputation declined until it was rediscovered in the 20th century.</td></tr>
+    <tr><td>The value of $15</td><td>One 1897 dollar ≈ $40 today, so $15 ≈ $600 and the stockings ($1.98) ≈ $80. This is an estimate; prices for goods were very different, but it helps students feel the scale.</td></tr>
+    <tr><td>Department stores</td><td>Large city department stores grew quickly in the late 1800s. They offered bargain counters for working-class shoppers and elegant departments, waiting rooms, and restaurants for wealthier women: two worlds in one building, which is exactly Mrs. Sommers’s journey from the bargain counter to the upper floor.</td></tr>
+    <tr><td>Women and money</td><td>Most married women had no independent income. A mother’s spending on herself could be seen as selfish. Chopin never names Mr. Sommers or the source of the $15; do not let students treat their guesses as facts (Part 8).</td></tr>
+    <tr><td><i>Vogue</i> in 1897</td><td>A New York society and fashion magazine. Chopin published nineteen stories there. Publishing a story about the pleasure of shopping in a fashion magazine adds an ironic layer (Speed seminar, Round 3).</td></tr>
+    <tr><td>Author’s style</td><td>The anthology notes that Chopin’s third-person narrators reveal feelings through key actions and interactions, that her stories are concise and rich in imagery, and that, influenced by Maupassant, she often ends with an ironic twist.</td></tr>
+  </table>
+
+  <h2 id="classA">7. Class A (100 minutes): Engage, vocabulary, the whole story, turning point</h2>
+  <div class="legend"><span class="pill pE">Engage</span><span class="pill pS">Study</span><span class="pill pA">Activate</span><span class="pill pX">Logistics</span></div>
+  <p><b>Objectives:</b> understand the whole story with evidence · use 7 story words with correct stress · make and check a prediction · identify and defend a turning point.</p>
+  <table>
+    <tr><th style="width:9%">Time</th><th style="width:15%">Stage / grouping</th><th style="width:30%">Teacher does</th><th style="width:27%">Students do</th><th>Output</th></tr>
+    <tr class="X"><td>0–5</td><td><span class="pill pX">Launch</span><br>Whole class</td><td>Introduce Unit II and the big questions. Link to Week 2: “Last week, a man left home for one night. This week, a woman leaves home for one afternoon.”</td><td>Read the big questions.</td><td>—</td></tr>
+    <tr class="E"><td>5–17</td><td><span class="pill pE">Engage</span><br>Individual → pairs</td><td>Part 1: students divide $600 (5 min; on laptops, the total updates itself), then compare and discuss Q1–Q2 (5 min). Take 2 quick shares. Reveal: “In today’s story, a mother receives about this much money.”</td><td>Make a budget; justify choices; discuss cultural expectations.</td><td>Part 1 budget and notes</td></tr>
+    <tr class="S"><td>17–29</td><td><span class="pill pS">Study</span><br>Whole class → individual</td><td>Vocabulary Cards 1–7 in Guess-first mode, with audio and choral stress. Then Part 2A (meaning in context) and 2B (stress), with self-checks.</td><td>Predict, listen, repeat; complete 2A and 2B.</td><td>2A, 2B</td></tr>
+    <tr class="S"><td>29–33</td><td><span class="pill pS">Study</span><br>Whole class</td><td>Context brief with the packet’s Before You Read page: Chopin, 1890s department stores, women and money, the value of $15.</td><td>Read along; ask questions.</td><td>Background knowledge</td></tr>
+    <tr class="S"><td>33–43</td><td><span class="pill pS">Study</span><br>Teacher → individual</td><td><b>Reading 1:</b> read §1 aloud (≈3 min), stressing the careful, practical tone of her plans. Students read §2–§3 silently.</td><td>Read and annotate: <b>?</b> confusing · <b>!</b> surprising · <b>★</b> important · <b>T</b> thought (her voice).</td><td>Annotated §1–§3</td></tr>
+    <tr class="A"><td>43–48</td><td><span class="pill pA">Activate</span><br>Individual → pairs</td><td><b>Stop &amp; Predict</b> (Part 3): 3 min writing, 2 min comparing. Collect 3 predictions on the board without comment.</td><td>Predict with a clue; rate confidence.</td><td>Part 3 prediction</td></tr>
+    <tr class="S"><td>48–61</td><td><span class="pill pS">Study</span><br>Individual</td><td><b>Reading 2:</b> students read §4–§8 silently. Early finishers complete the last row of Part 3 and the end-of-story checkpoint.</td><td>Read and annotate; check the prediction.</td><td>Annotated §4–§8</td></tr>
+    <tr class="A"><td>61–72</td><td><span class="pill pA">Activate</span><br>Individual → pairs</td><td>Part 4: 4A sequence (self-check, 3 min); 4B plan vs. day in pairs (5 min); quick check of 4C orally (3 min). Push the key question: “Who disappears from the second list?”</td><td>Order events; compare plan and reality; answer with §.</td><td>Part 4</td></tr>
+    <tr class="S"><td>72–76</td><td><span class="pill pS">Study</span><br>Whole class</td><td>Mini-lesson: turning point vs. climax (card 13 + Part 5 box). Test question: “What is true before this moment that is not true after it?”</td><td>Listen; note the test question.</td><td>—</td></tr>
+    <tr class="A"><td>76–94</td><td><span class="pill pA">Activate</span><br>Pairs → Four Corners</td><td>Part 5A mood graph in pairs (6 min). Then <b>Four Corners</b> (12 min): students stand at A, B, C, or D; each corner prepares its best evidence (4 min); each corner gives a 1-minute argument; then corners respond to one another (4 min). Students may change corners at the end and must say why.</td><td>Rate mood with evidence; argue for a turning point; respond to another corner.</td><td>Mood graph; Part 5B notes</td></tr>
+    <tr class="X"><td>94–100</td><td>Exit ticket<br>Individual</td><td>On a slip: (1) a newspaper headline for Mrs. Sommers’s day (8 words maximum); (2) one word for how she feels on the cable car. Read 3 headlines aloud at the start of Class B.</td><td>Write a headline and one word.</td><td>Formative check of overall understanding</td></tr>
+  </table>
+
+  <h2 id="classB">8. Class B (100 minutes): Values, voice, inference, perspective, seminar, writing</h2>
+  <p><b>Objectives:</b> evaluate choices and examine assumptions · distinguish narrator, interior monologue, and outside views · grade inferences · take perspectives · synthesize Weeks 2–3 · write a scene consistent with evidence.</p>
+  <table>
+    <tr><th style="width:9%">Time</th><th style="width:15%">Stage / grouping</th><th style="width:30%">Teacher does</th><th style="width:27%">Students do</th><th>Output</th></tr>
+    <tr class="E"><td>0–10</td><td><span class="pill pE">Engage</span><br>Individual → human scale</td><td>Read 3 exit-ticket headlines. Part 6: students rate the six choices (4 min). Then the <b>human scale</b> for the stockings and the restaurant: students stand at 1–5; ask one person at each end to justify (4 min). Finish with the “Check your assumptions” question (2 min).</td><td>Rate; stand; justify; examine their own standard.</td><td>Part 6</td></tr>
+    <tr class="S"><td>10–16</td><td><span class="pill pS">Study</span><br>Whole class</td><td>Vocabulary Cards 8–12: impulse, fastidious, assurance, crave, longing. Point out that “fastidious” is ironic for a bargain shopper. Assign 2C.</td><td>Predict, listen, repeat.</td><td>5 words reviewed</td></tr>
+    <tr class="S"><td>16–20</td><td><span class="pill pS">Study</span><br>Whole class</td><td>Mini-lesson: interior monologue (card 14 + Part 7 box). Read §4’s “How good was the touch…!” aloud twice, once as narrator report and once as her inner voice.</td><td>Note the clues.</td><td>—</td></tr>
+    <tr class="A"><td>20–30</td><td><span class="pill pA">Activate</span><br>Pairs</td><td>Part 7A sort (self-check), then discuss any disagreements. Accept #8 as N if students argue well; the point is the blending.</td><td>Classify 8 sentences; justify.</td><td>7A</td></tr>
+    <tr class="A"><td>30–38</td><td><span class="pill pA">Activate</span><br>Individual → pairs</td><td>Part 7B: students do items 1–2 individually, item 3 in pairs; take two answers for item 4 (evaluation).</td><td>Rewrite voice; write missing monologue; evaluate Chopin’s ending.</td><td>7B</td></tr>
+    <tr class="A"><td>38–50</td><td><span class="pill pA">Activate</span><br>Pairs</td><td>Part 8 detective file (8 min); then read the context box together and discuss “freedom or escape?” (4 min). Correct over-certain inferences: “Where exactly does the text say that?”</td><td>Infer from clues; grade certainty; discuss context.</td><td>Part 8</td></tr>
+    <tr class="S"><td>50–52</td><td><span class="pill pS">Study</span><br>Whole class</td><td>Card 15 (irony): the expert in bargains spends almost everything on herself in one afternoon.</td><td>Listen.</td><td>—</td></tr>
+    <tr class="A"><td>52–64</td><td><span class="pill pA">Activate</span><br>Groups → hot seat</td><td>Part 9: hand out role cards; groups prepare (4 min). Then 6 hot-seat turns of about 80 seconds each: class asks, character answers <i>in character</i>. Stop any answer that contradicts the text.</td><td>Prepare a role; question and answer in character.</td><td>Hot-seat notes</td></tr>
+    <tr class="A"><td>64–78</td><td><span class="pill pA">Activate</span><br>Speed seminar → whole class</td><td>Part 10: two facing circles; 3 rounds × 4 minutes, with the outer circle moving one place each round. Then whole-class synthesis of Weeks 2–3 (2 min). Listen in and note strong evidence use for the seminar rubric.</td><td>Discuss with rotating partners; note ideas; compare Hawthorne and Chopin.</td><td>Seminar notes; synthesis</td></tr>
+    <tr class="A"><td>78–96</td><td><span class="pill pA">Activate</span><br>Individual → pairs</td><td>Part 11: write the missing scene (9 min), add two pieces of evidence (3 min), exchange for Two Stars and a Wish (4 min), and 2 volunteers read aloud (2 min).</td><td>Write, justify, give and receive feedback.</td><td>Scene + evidence + peer feedback</td></tr>
+    <tr class="X"><td>96–100</td><td>Close</td><td>Assign Part 12 (two 3-sentence responses and the Reading Journal) and 2C. Show the 3-sentence pattern once.</td><td>Note homework.</td><td>—</td></tr>
+  </table>
+
+  <h2 id="key">9. Answer key and model answers</h2>
+  <div class="grid2">
+    <div>
+      <h3>2A Meaning in context</h3>
+      <p>1 things bought cheaply · 2 giving it all her attention · 3 wise and sensible · 4 allow herself to enjoy · 5 calming and comfortable · 6 great comfort and pleasure · 7 worn out from long use</p>
+      <h3>2B Word stress</h3>
+      <p>ab-<b>SORBED</b> · ju-<b>DI</b>-cious · in-<b>DULGE</b> · <b>LUX</b>-u-ry · <b>IM</b>-pulse · fas-<b>TID</b>-i-ous · as-<b>SUR</b>-ance · <b>MON</b>-o-logue</p>
+    </div>
+    <div>
+      <h3>2C Word families</h3>
+      <p>luxurious · indulgence · impulsive · assure · craving · tempt · persistent · fastidiously</p>
+      <h3>4A Sequence (in the order shown on the worksheet)</h3>
+      <p>boots 5 · plans 1 · play 8 · stockings 3 · gloves 6 · sits down 2 · restaurant 7 · changes stockings 4</p>
+    </div>
+  </div>
+
+  <h3>4B The plan vs. the day</h3>
+  <table>
+    <tr><th style="width:50%">Planned (§1)</th><th>Actual (§3–§8)</th></tr>
+    <tr><td>Better shoes for Janie · cloth for new shirts for the boys, Janie, and Mag · a new dress for Mag · new stockings, two pairs each · caps for the boys, sailor hats for the girls</td><td>Black silk stockings · stylish boots · fitted kid gloves · two expensive magazines · lunch with oysters, a chop, dessert, wine, coffee, and a tip · a theater matinee · the cable car home</td></tr>
+  </table>
+  <p><b>Who disappears:</b> the children. Spending moves from <i>their needs</i> to <i>her pleasures</i>, and from things to experiences. Also notice the shift from bargains to full price (“The price of it made no difference,” §6).</p>
+  <p><b>4C:</b> (1) She forgot to eat because she was feeding the children and cleaning; her life is devoted to others, and she neglects herself. (2) The idea of buying luxury is so far from her life that the clerk’s question feels like a joke or a dream; it also shows secret pleasure at being treated as a customer who could afford it. (3) They give her “assurance” and “a sense of belonging to the well-dressed crowd”: clothes change how she carries herself and which social class she feels part of.</p>
+
+  <h3>Part 5 Turning point</h3>
+  <p><b>Mood graph (model):</b> §1 ≈ 7 (“a feeling of importance,” but “gaunt monster”) · §2 ≈ 2–3 (“faint and tired,” “all-gone, limp feeling”) · §3 ≈ 6–7 (“two bright red spots”) · §4–5 ≈ 8 (“How good…!”, “assurance”) · §6 ≈ 9 (“very agreeable”) · §7 ≈ 9–10 (“absorbed it and enjoyed it”) · §8 ≈ 3–5 (“a dream ended,” “longing”). The sharpest changes are §2 → §3 and §7 → §8.</p>
+  <table>
+    <tr><th style="width:12%">Corner</th><th>Strengths and limits</th></tr>
+    <tr><td>A (touch)</td><td>Strong: the change begins in her body before her mind decides (“her hand had touched something very soothing,” §2). Before: tired bargain hunter; after: a woman responding to pleasure.</td></tr>
+    <tr><td>B (“I’ll take this pair”)</td><td>Strong: the first decision and the first money spent on herself. Before: all money is for the children.</td></tr>
+    <tr><td>C (the impulse)</td><td>Strong: the point of no return. “Mrs. Sommers did not move in the direction of the bargain counter” and “She was not thinking at all” (§4).</td></tr>
+    <tr><td>D (the cable car)</td><td>Weaker as a <i>turning</i> point: it is the ending or climax, where the dream ends. Use it to teach the difference between a turning point and the climax/resolution.</td></tr>
+  </table>
+  <p>Accept A, B, or C when the “before/after” test is answered clearly.</p>
+
+  <h3>Part 7 Interior monologue</h3>
+  <p><b>7A:</b> 1 M · 2 N · 3 M · 4 O · 5 M · 6 N · 7 O · 8 M (accept N with a good argument: the narrator and her mind blend here).</p>
+  <p><b>7B models:</b> (1) “I mustn’t rush. What if I buy the wrong thing and regret it?” (2) “The raw silk felt pleasant against her skin.” What is lost: the intensity, the exclamation, her physical pleasure, and her own voice. (3) Any answer consistent with §8. (4) The stranger “saw nothing”: her inner life is invisible to the world, the ending stays open, and the reader, who <i>can</i> guess her longing, feels the irony. Students may also argue that the choice is frustrating; accept evaluation with reasons.</p>
+
+  <h3>Part 8 Detective file (model inferences)</h3>
+  <table>
+    <tr><th style="width:24%">Clue</th><th>Inference</th><th style="width:14%">Certainty</th></tr>
+    <tr><td>“better days” (§1)</td><td>She once lived more comfortably, probably before marriage.</td><td>Likely</td></tr>
+    <tr><td>Magazines “such as she had been used to” (§5)</td><td>She once had money and leisure for reading; she may have been educated and middle class.</td><td>Likely / Certain</td></tr>
+    <tr><td>The elegant meal (§6)</td><td>She knows what to order and how to behave in a fine restaurant: experience from her past.</td><td>Likely</td></tr>
+    <tr><td>“gaunt monster” (§1)</td><td>She fears the future (poverty, aging, the children’s needs) and survives by not thinking about it.</td><td>Certain (fear) / Possible (reasons)</td></tr>
+    <tr><td>No husband, no source</td><td>The husband may be dead, absent, or poor; we cannot know where the money came from.</td><td>Possible only</td></tr>
+  </table>
+
+  <h3>Part 9 Hot seat: listen for the limits of each perspective</h3>
+  <ul>
+    <li><b>Mrs. Sommers:</b> pleasure, perhaps guilt; how much money is left is never stated.</li>
+    <li><b>Janie:</b> knows nothing of the plan; sees only her mother come home (she can guess, not know).</li>
+    <li><b>The neighbor:</b> knows gossip about “better days”; may judge her.</li>
+    <li><b>The glove clerk:</b> sees an ordinary customer; knows nothing of her poverty.</li>
+    <li><b>The gaudy woman:</b> sees a sensitive companion who cries at the tragedy.</li>
+    <li><b>The man on the cable car:</b> “saw nothing,” only a small, pale face. He represents the outside world.</li>
+  </ul>
+
+  <h3>Part 10 Seminar guidance</h3>
+  <ol>
+    <li><b>Selfish or reclaiming?</b> Evidence on both sides: the plan in §1 and the vanished children vs. “better days,” her self-neglect (§2), and the brief, modest pleasures.</li>
+    <li><b>Hopeful or sad?</b> “luckily tomorrow never comes” is ironic: tomorrow <i>will</i> come. The longing in §8 suggests that she knows the dream must end.</li>
+    <li><b>Criticism or celebration?</b> Both readings are possible: consumer pleasure gives her dignity and joy, but only for one afternoon. Link to “self-care” marketing and impulse buying today.</li>
+    <li><b>Synthesis:</b> Brown’s night ends in lifelong gloom; Mrs. Sommers’s day ends in longing. Chopin lets us inside her mind; Hawthorne keeps Brown’s experience uncertain. Who is freer: the one who resisted, or the one who gave in?</li>
+  </ol>
+
+  <h3>Homework model answers (3 sentences each)</h3>
+  <p><b>1. Interior monologue:</b> Chopin uses interior monologue to let readers feel Mrs. Sommers’s pleasure from the inside instead of judging her from outside. When she changes into the stockings, the text exclaims, “How good was the touch of the raw silk to her flesh!” (§4). Because the exclamation is her own feeling, we share her rare moment of physical comfort and understand why she cannot stop.</p>
+  <p><b>2. Turning point:</b> The turning point comes when Mrs. Sommers’s tired hand accidentally touches the silk stockings. Chopin writes that her hand “had touched something very soothing” (§2), and moments later “two bright red spots came suddenly into her pale cheeks” (§3). The change begins in her body before her mind decides, which suggests that her desire for pleasure is a sudden awakening rather than a planned choice.</p>
+
+  <h2 id="rubrics">10. Rubrics</h2>
+  <h3>Part 11 The Missing Scene (formative, 3-level)</h3>
+  <table>
+    <tr><th style="width:22%">Criterion</th><th>3 · Strong</th><th>2 · Developing</th><th>1 · Beginning</th></tr>
+    <tr><td>Consistency with the text</td><td>Fits all the evidence; nothing contradicts §1–§8</td><td>Mostly consistent; one questionable detail</td><td>Contradicts the story</td></tr>
+    <tr><td>Interior monologue</td><td>At least one clear, natural sentence of her inner voice</td><td>Present but unclear or mixed with narrator</td><td>Missing</td></tr>
+    <tr><td>Showing, not telling</td><td>An action reveals a feeling without naming it</td><td>Feeling partly named</td><td>Only states feelings</td></tr>
+    <tr><td>Justification</td><td>Two relevant quotations with §, clearly explained</td><td>One good piece of evidence</td><td>No real evidence</td></tr>
+  </table>
+  <h3>Homework 3-sentence responses (quick scoring)</h3>
+  <p>For each response: claim (1) + quotation with § (1) + “so what?” analysis (1) = 3 points. Do not score agreement with your interpretation; score the reasoning.</p>
+  <h3>Seminar (same as Weeks 1–2)</h3>
+  <table>
+    <tr><th style="width:22%">Criterion</th><th>3 · Strong</th><th>2 · Developing</th><th>1 · Beginning</th></tr>
+    <tr><td>Textual evidence</td><td>Cites specific § and words; explains them</td><td>Refers to events generally</td><td>Opinion without evidence</td></tr>
+    <tr><td>Depth of analysis</td><td>Interprets turning point, voice, or context; sees more than one side</td><td>Some interpretation, mostly summary</td><td>Summary only</td></tr>
+    <tr><td>Building on others</td><td>Names and extends or challenges a partner’s idea</td><td>Responds but does not develop</td><td>Isolated comments</td></tr>
+    <tr><td>Academic register</td><td>Uses turning point, interior monologue, irony, inference accurately</td><td>Some terms, some errors</td><td>Informal only</td></tr>
+  </table>
+
+  <h2 id="diff">11. Differentiation</h2>
+  <div class="grid2">
+    <div class="box">
+      <h3>B2 support</h3>
+      <ul>
+        <li>Read §1 and the first half of §4 aloud; keep the word notes visible.</li>
+        <li>For 4B, allow students to highlight items in the text first, then list them.</li>
+        <li>In Four Corners, give each corner one starter quotation.</li>
+        <li>For Part 11, offer a first line: “When the cable car stopped at her corner, Mrs. Sommers…”</li>
+        <li>Give the 3-sentence frame for homework: <i>Chopin uses… · For example, “…” (§ ) · This shows/suggests…</i></li>
+      </ul>
+    </div>
+    <div class="box gold">
+      <h3>B2+ extension</h3>
+      <ul>
+        <li><b>Style comparison (SLO 30):</b> read the original §2–§3 online. How do words like “besieging breastworks” and “hectic blotches” change the tone? Was the adaptation a loss?</li>
+        <li><b>Chopin pair (SLO 28):</b> read Chopin’s very short “The Story of an Hour” (1894). Compare its turning point and ironic ending with this story’s.</li>
+        <li><b>Twain extension (syllabus):</b> read the opening frame of “The Celebrated Jumping Frog of Calaveras County” (the first two paragraphs) and answer the syllabus question: “How does Twain’s frame narrator create irony?” Compare a frame narrator with Chopin’s close third-person narrator.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2 id="hw">12. Homework and assessment links</h2>
+  <ul>
+    <li><b>Two 3-sentence analytical responses</b> (worksheet Part 12A). The syllabus Twain question is replaced by a turning-point question; B2+ students may answer the Twain question as an extension.</li>
+    <li><b>Reading Journal</b> (Part 12B) in the syllabus format, with turning point as the Literary Lens concept.</li>
+    <li><b>Part 2C</b> word families, if not finished.</li>
+    <li>There is no quiz or essay this week. Quiz 2 and Author’s Style Analysis 1 come in Week 4; Part 7 prepares students for the style analysis.</li>
+  </ul>
+  <p class="src">Sources: <a href="https://www.katechopin.org/?p=82" target="_blank" rel="noopener">Kate Chopin International Society</a> (publication date, setting) · <a href="https://en.wikipedia.org/wiki/A_Pair_of_Silk_Stockings" target="_blank" rel="noopener">Wikipedia: A Pair of Silk Stockings</a> · <a href="https://www.officialdata.org/us/inflation/1897?amount=15" target="_blank" rel="noopener">officialdata.org inflation calculator</a> · the course anthology <i>American Short Stories</i>, “Before You Read” and “The Author’s Style” for Chopin. Word counts and reading times are estimates.</p>
+</div>
+</div>
+</body>
+</html>
