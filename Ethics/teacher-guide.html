@@ -1,0 +1,554 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Week 3 Teacher Guide · Ethics in a Global World</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#143865;--blue:#1c4f8f;--gold:#d39f10;--gold-d:#8c7535;--sky:#c1cddd;--sky2:#e1e8f2;--sky3:#edf2f9;--cream:#efe9d9;--ink:#1a2233;--muted:#4a5568;--bg:#fbfaf6}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Source Sans 3",system-ui,sans-serif;color:var(--ink);background:var(--bg);font-size:16.5px;line-height:1.55}
+header.top{background:var(--navy);color:#fff;border-bottom:4px solid var(--gold)}
+.top .in{max-width:1180px;margin:0 auto;padding:18px 16px 20px;display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.top img{width:56px;height:56px;border-radius:8px;flex:none}
+.top .w{font-family:"Libre Baskerville",serif;color:var(--gold);letter-spacing:.12em;font-size:16px;line-height:1.1;flex:none}
+.top .w small{display:block;letter-spacing:.02em;font-size:10px;color:#e6d8a8}
+.top .grow{flex:1;min-width:220px}
+.top h1{font-family:"Libre Baskerville",serif;margin:0;font-size:clamp(19px,3.6vw,26px);line-height:1.2}
+.top p{margin:3px 0 0;color:var(--sky);font-size:14.5px}
+.btn{display:inline-block;background:var(--gold);color:var(--navy);border:0;border-radius:6px;padding:8px 14px;font:inherit;font-weight:700;font-size:14px;cursor:pointer;text-decoration:none}
+.btn.ghost{background:transparent;color:#fff;border:1px solid var(--sky)}
+.layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:230px 1fr;gap:28px;padding:0 16px}
+.toc{position:sticky;top:0;align-self:start;max-height:100vh;overflow:auto;padding:22px 0;font-size:14px}
+.toc b{display:block;margin:14px 0 4px;color:var(--gold-d);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.toc a{display:block;color:var(--navy);text-decoration:none;padding:2px 0}
+.toc a:hover{text-decoration:underline}
+main{padding:10px 0 60px;min-width:0}
+section{padding-top:8px}
+h2{font-family:"Libre Baskerville",serif;color:var(--navy);font-size:24px;margin:34px 0 10px;padding-bottom:6px;border-bottom:3px solid var(--gold)}
+h3{font-family:"Libre Baskerville",serif;color:var(--navy);font-size:19px;margin:28px 0 8px}
+h4{margin:18px 0 6px;color:var(--blue);font-size:16.5px}
+.lead{font-size:18.5px;color:var(--navy)}
+.meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin:14px 0}
+.meta>div{background:#fff;border:1px solid var(--sky);border-left:5px solid var(--gold);border-radius:8px;padding:12px 14px}
+.meta b{display:block;color:var(--navy)}
+table{width:100%;border-collapse:collapse;margin:10px 0 16px;background:#fff;font-size:15px}
+th,td{border:1px solid var(--sky);padding:7px 9px;text-align:left;vertical-align:top}
+th{background:var(--sky2);color:var(--navy)}
+.tw{overflow-x:auto}
+.act{background:#fff;border:1px solid var(--sky);border-radius:10px;padding:4px 18px 14px;margin:18px 0}
+.act h3{margin-top:14px}
+.tag{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:2px 8px;border-radius:4px;background:var(--navy);color:#fff;margin-right:6px;vertical-align:middle}
+.tag.s{background:var(--blue)}.tag.a{background:var(--gold-d)}.tag.b{background:#5a6b84}
+.kv{display:grid;grid-template-columns:130px 1fr;gap:4px 12px;font-size:15px;margin:8px 0 10px}
+.kv b{color:var(--navy)}
+.say{background:var(--cream);border-left:4px solid var(--gold-d);padding:9px 14px;border-radius:6px;margin:10px 0;font-style:italic}
+.note{background:var(--sky3);border-left:4px solid var(--blue);padding:9px 14px;border-radius:6px;margin:10px 0;font-size:15px}
+.warn{background:#fbf1dc;border-left:4px solid var(--gold);padding:9px 14px;border-radius:6px;margin:10px 0;font-size:15px}
+.lang{background:#fff;border:1px dashed var(--gold-d);border-radius:8px;padding:8px 14px;margin:10px 0;font-size:15px}
+.lang b{color:var(--gold-d)}
+ol li,ul li{margin:3px 0}
+.time{font-weight:700;color:var(--gold-d)}
+footer{font-size:13px;color:#6b7280;border-top:1px solid var(--sky);margin-top:40px;padding-top:12px}
+@media (max-width:860px){.layout{grid-template-columns:1fr}.toc{position:static;max-height:none;padding:10px 0 0;columns:2}.kv{grid-template-columns:1fr}}
+@media print{
+  body{font-size:11.5pt;background:#fff}
+  .noprint,.toc{display:none!important}
+  .layout{display:block;padding:0}
+  header.top{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .act,table,.say,.note,.warn,.lang{break-inside:avoid}
+  h2{break-before:page}
+  section:first-of-type h2{break-before:auto}
+  a{color:inherit;text-decoration:none}
+}
+</style>
+</head>
+<body>
+<header class="top"><div class="in">
+  <img src="logo.png" alt="Approach International Student Center" onload="this.nextElementSibling.remove()" onerror="this.remove()"><div class="w">APPROACH<small>International Student Center</small></div>
+  <div class="grow"><h1>Week 3 Teacher Guide · Defining and Prioritizing Stakeholders</h1><p>Ethics in a Global World · Chapter 3 · Quiz 1 · 9:00 am–12:50 pm</p></div>
+  <div class="noprint"><button class="btn" onclick="print()">Print / Save PDF</button> <a class="btn ghost" href="index.html">All files</a></div>
+</div></header>
+
+<div class="layout">
+<nav class="toc" aria-label="Contents">
+  <b>Overview</b>
+  <a href="#overview">Goals &amp; concepts</a>
+  <a href="#materials">Materials &amp; sources</a>
+  <a href="#prep">Prep checklist</a>
+  <b>Class 1 · 9:00–10:40</b>
+  <a href="#c1">Timing</a>
+  <a href="#c1-a">Trolley four corners</a>
+  <a href="#c1-b">Stakeholder race</a>
+  <a href="#c1-c">Ethics thermometer</a>
+  <a href="#c1-d">Power–interest matrix</a>
+  <a href="#c1-e">Map Harbor Bay</a>
+  <a href="#c1-f">Exit ticket &amp; role draw</a>
+  <b>Class 2 · 11:10–12:50</b>
+  <a href="#c2">Timing</a>
+  <a href="#c2-a">Bridge: breaking news</a>
+  <a href="#c2-b">Town hall role-play</a>
+  <a href="#c2-c">Debrief: whose claim won?</a>
+  <a href="#c2-d">Lie Detector review</a>
+  <a href="#c2-e">Quiz 1</a>
+  <a href="#c2-f">Homework</a>
+  <b>Support</b>
+  <a href="#lang">Language support</a>
+  <a href="#hw">Homework &amp; rubric</a>
+  <a href="#assess">Checks for understanding</a>
+  <a href="#align">Assessment links</a>
+  <a href="#flags">Open questions</a>
+</nav>
+
+<main>
+
+<section id="overview">
+<h2>Week 3 at a glance</h2>
+<p class="lead">In Weeks 1–2, students judged single decisions. This week they learn that every real decision has a crowd of people standing around it — and that someone has to decide whose claim comes first. They leave able to say <em>"The key stakeholder here is X, because…, but we can't ignore Y, who has no voice."</em></p>
+<div class="meta">
+  <div><b>Class 1 · "Who Gets a Say?"</b>Trolley variations → Starbucks stakeholder race → ethics thermometer (6 real cases) → power–interest matrix → map a fictional data-center decision.</div>
+  <div><b>Class 2 · "Whose Claim Wins?"</b>Breaking-news bridge → Harbor Bay town hall role-play → debrief → Lie Detector review game → Quiz 1 (Chapters 1–3).</div>
+  <div><b>The thread</b>A trolley problem has two groups on the tracks. A real business decision has ten. The map from Class 1 becomes the town hall in Class 2.</div>
+</div>
+
+<h3>Learning goals</h3>
+<p>By the end of Week 3, students can:</p>
+<ol>
+<li>Identify the stakeholders in a business decision and classify them as internal/external and as enabling, functional, normative or diffused.</li>
+<li>Distinguish an ethical <strong>minimum</strong> (legal compliance) from an ethical <strong>maximum</strong>, with real examples.</li>
+<li>Place stakeholders on a power–interest matrix and explain how their position can change.</li>
+<li>Prioritize competing stakeholder claims using the survival test, urgency (exigency) and power–interest — and recognize "voiceless" stakeholders.</li>
+<li>Negotiate a position, propose conditions and make concessions using B2+ language: <em>"We could support it provided that…"</em></li>
+</ol>
+
+<h3>Key concepts (all from Chapter 3)</h3>
+<div class="tw"><table>
+<tr><th>Section</th><th>Core ideas students need</th><th>Examples in the text</th></tr>
+<tr><td>Intro</td><td>A company affects many stakeholders beyond investors and customers</td><td>Starbucks, May 2018: two Black men arrested while waiting in a Philadelphia store; Starbucks closed about 8,000 U.S. stores for racial-bias training and changed its policy</td></tr>
+<tr><td>3.1 Stakeholder orientation</td><td>Stakeholders; internal vs. external; one person in many roles; implicit social contract; <strong>ethical minimum</strong> (comply with the law) vs. <strong>ethical maximum</strong>; shareholder-focused view (Friedman) vs. social responsibility view (Lynn Stout)</td><td>Samsung washers 2017 (full refund on ~3 million); Amazon distribution center (8–9 miles per shift)</td></tr>
+<tr><td>3.2 Weighing claims</td><td>Claims vary in importance; Donaldson &amp; Preston: <strong>descriptive, instrumental, normative</strong> (normative = stakeholders matter in themselves); four categories: <strong>enabling, functional, normative, diffused</strong>; Grunig &amp; Hunt's publics: nonpublic, latent, aware, active; direct vs. "voiceless" claims; "Should Trees Have Standing?" (Stone, 1972)</td><td>"Big box" store; United Airlines removing seated passengers; Ford Edsel (1958); Tylenol (1982); Volkswagen emissions; Scarlett Johansson casting (2018)</td></tr>
+<tr><td>3.3 Prioritizing</td><td>Stakeholder management; prioritization; establish membership; the firm's need; <strong>survival test</strong>; <strong>exigency</strong> (urgency); <strong>power–interest matrix</strong> (Figure 3.5); key stakeholder = high power + high interest</td><td>Small farmer selling to Kroger; Amazon + Whole Foods; Malaysia Airlines and hajj flights; IKEA king-size beds (U.S.) and napping (China)</td></tr>
+<tr><td>3.4 CSR</td><td>CSR; sustainability; <strong>triple bottom line</strong> (people, planet, profit — Elkington, 1994); greenwashing</td><td>Ben &amp; Jerry's; Coca-Cola water use — <em>saved for Week 4</em></td></tr>
+</table></div>
+
+<h3>Big ethical questions</h3>
+<ul>
+<li>Is it ever right to sacrifice one group's interests for a larger group's benefit?</li>
+<li>Do all stakeholders deserve <em>equal</em> consideration, or only <em>some</em> consideration?</li>
+<li>Who speaks for those with no voice — the environment, future generations, people far away?</li>
+<li>Is treating stakeholders well ethical if you only do it because it's profitable?</li>
+<li>When the law allows something, why should a company do more?</li>
+</ul>
+</section>
+
+<section id="materials">
+<h2>Materials &amp; sources</h2>
+<div class="tw"><table>
+<tr><th>Source</th><th>What we use</th><th>Type</th></tr>
+<tr><td><a href="https://openstax.org/books/business-ethics/pages/3-introduction">OpenStax Ch. 3 intro</a></td><td>Starbucks 2018 (stakeholder race)</td><td>Textbook</td></tr>
+<tr><td><a href="https://openstax.org/books/business-ethics/pages/3-1-adopting-a-stakeholder-orientation">OpenStax 3.1</a></td><td>Ethical min/max; Samsung; Amazon; Friedman vs. Stout (journal)</td><td>Textbook</td></tr>
+<tr><td><a href="https://openstax.org/books/business-ethics/pages/3-2-weighing-stakeholder-claims">OpenStax 3.2</a></td><td>Four categories; publics; Tylenol; VW; United; voiceless claims</td><td>Textbook</td></tr>
+<tr><td><a href="https://openstax.org/books/business-ethics/pages/3-3-ethical-decision-making-and-prioritizing-stakeholders">OpenStax 3.3</a></td><td>Power–interest matrix; survival test; exigency; Malaysia Airlines (journal)</td><td>Textbook</td></tr>
+<tr><td><a href="https://www.media.mit.edu/publications/the-moral-machine-experiment">Awad et al., "The Moral Machine experiment," <em>Nature</em>, 2018</a>; <a href="https://www.technologyreview.com/s/612341/a-global-ethics-study-aims-to-help-ai-solve-the-self-driving-trolley-problem/">MIT Technology Review</a></td><td>Self-driving trolley: 40 million decisions from 233 countries and territories; cultural differences</td><td>Outside source</td></tr>
+<tr><td>Harbor Bay data center case, role cards, event cards; Maple &amp; Co. quiz case</td><td>Class 1 mapping; Class 2 town hall; Quiz 1</td><td>Teacher-made (fictional)</td></tr>
+</table></div>
+<div class="note"><b>Why a data center?</b> AI data centers are a current, global decision with every stakeholder type from Chapter 3: investors, a town council, workers, farmers, water, electricity bills, an NGO, the media — and "voiceless" claims (a river, future residents). The case is fictional so no student needs outside knowledge, and nobody is defending a real company.</div>
+</section>
+
+<section id="prep">
+<h2>Prep checklist</h2>
+<ul>
+<li>☐ Upload the <code>week3</code> folder to GitHub; check the worksheet QR code on slide 1.</li>
+<li>☐ Print from <strong>handouts.html</strong>: four corner signs (tape in the room corners), thermometer case cards (1 set per group, cut) and scale strip, power–interest matrix (1 per group, A3 if you can), Harbor Bay brief (1 per student), event cards (1 set, cut), role cards (cut; 1 per student or pair), town hall agenda and council sheet, exit tickets.</li>
+<li>☐ Print <strong>quiz.html</strong> (student version, 1 per student). Print the key separately for yourself.</li>
+<li>☐ Sticky notes in two colors (for mapping) and markers.</li>
+<li>☐ Arrange the room for the town hall in Class 2: council table at the front, stakeholder groups facing it, a "press" seat at the side.</li>
+<li>☐ A small bell or timer for the town hall rounds.</li>
+<li>☐ Collect Ethics Journal #2 at the start of Class 1.</li>
+</ul>
+</section>
+
+<!-- CLASS 1 -->
+<section id="c1">
+<h2>Class 1 · "Who Gets a Say?" · 9:00–10:40</h2>
+<div class="tw"><table>
+<tr><th>Clock</th><th>Min</th><th>Stage</th><th>Activity</th></tr>
+<tr><td>9:00–9:20</td><td>20</td><td><span class="tag">Engage</span></td><td>Trolley Problem variations: four corners</td></tr>
+<tr><td>9:20–9:32</td><td>12</td><td><span class="tag s">Study</span></td><td>Starbucks stakeholder race</td></tr>
+<tr><td>9:32–9:52</td><td>20</td><td><span class="tag s">Study</span></td><td>Ethics thermometer: minimum or maximum?</td></tr>
+<tr><td>9:52–10:02</td><td>10</td><td><span class="tag s">Study</span></td><td>The power–interest matrix</td></tr>
+<tr><td>10:02–10:32</td><td>30</td><td><span class="tag a">Activate</span></td><td>Map Harbor Bay (stakeholder mapping + event cards)</td></tr>
+<tr><td>10:32–10:40</td><td>8</td><td><span class="tag b">Reflect</span></td><td>Exit ticket + role draw for the town hall</td></tr>
+</table></div>
+</section>
+
+<div class="act" id="c1-a">
+<h3><span class="tag">Engage</span> 9:00–9:20 · Trolley Problem variations: four corners</h3>
+<div class="kv"><b>Purpose</b><span>Syllabus case study. Students physically commit to a choice, see the class split, and discover that small changes to a scenario change their answer. It reactivates Week 2's frameworks and sets up the week's question: who counts, and how much?</span>
+<b>Grouping</b><span>Whole class, moving; pairs inside each corner</span>
+<b>Materials</b><span>Four corner signs (handouts p.1–2): <b>ACT</b> · <b>DON'T ACT</b> · <b>IT DEPENDS</b> · <b>I NEED MORE INFORMATION</b>; slides 3–9; worksheet §1</span></div>
+<p><b>Procedure (about 4 minutes per round):</b> Show the scenario. Students walk to a corner. Inside each corner, pairs agree on their single best reason (1 min). Take one reason from each corner. Then ask: "Who wants to move after hearing that?"</p>
+<div class="tw"><table>
+<tr><th>Round</th><th>Scenario (on the slide)</th><th>What usually happens / what to draw out</th></tr>
+<tr><td>1 · The switch</td><td>A runaway trolley will kill five workers on the track. You can pull a switch to send it onto a side track, where it will kill one worker. Do you pull it?</td><td>Most go to ACT. Name it: "That's a <strong>utilitarian</strong> answer: five lives are more than one."</td></tr>
+<tr><td>2 · The footbridge</td><td>Same trolley. You're on a bridge next to a man with a heavy backpack. Pushing him onto the track will stop the trolley and save the five. Do you push him?</td><td>Most move to DON'T ACT. The numbers didn't change. Ask: "What changed?" Draw out <strong>Kant</strong>: you're using him <em>merely as a means</em>.</td></tr>
+<tr><td>3 · The self-driving car</td><td>You design the software for a self-driving car. Its brakes fail. It can stay in its lane and hit five pedestrians, or swerve into a wall and kill its one passenger. What should the code do? Would <em>you</em> buy that car?</td><td>Students often split between "save five" and "would never buy it." That's the gap between ethics and the market — a <strong>stakeholder</strong> problem: passengers are customers, pedestrians aren't.</td></tr>
+<tr><td>4 · The layoff trolley</td><td>Your company is losing money. If you lay off 50 people now, your forecast says you will avoid laying off 500 people next year. The forecast is 70% likely to be right. Do you do it?</td><td>Uncertainty sends people to IT DEPENDS and NEED MORE INFO. Reward this: "Real business trolleys never come with certainty — or with only two tracks."</td></tr>
+</table></div>
+<h4>Cross-cultural reveal (3 min · slide 8)</h4>
+<p>MIT's <strong>Moral Machine</strong> experiment collected <strong>40 million decisions</strong> from people in <strong>233 countries and territories</strong> about self-driving car dilemmas (Awad et al., <em>Nature</em>, 2018). Countries formed three broad clusters (West, East, South). For example, participants from collectivist cultures such as China and Japan were less likely to spare the young over the old; participants from individualistic cultures such as the UK and US placed more weight on sparing more lives. Caveat: participants were self-selected, internet-connected volunteers.</p>
+<div class="say">"Who should the car protect? It depends on where the programmer grew up. Now — if a company sells that car in 50 countries, whose ethics does it program? That's a stakeholder question."</div>
+<div class="warn"><b>Avoid stereotyping:</b> These are statistical tendencies in volunteer data, not facts about any student. Ask "Does this match what you'd expect from where you've lived or worked?" — never "Is this true of your country?"</div>
+<h4>Bridge to the week (1 min)</h4>
+<div class="say">"Every trolley problem has two groups on the tracks. Real decisions have ten — and some of them aren't even in the room. Today: how to see all of them, and how to decide whose claim comes first."</div>
+<div class="lang"><b>Language:</b> "I'd pull the lever, on the grounds that…" · "What changed for me is…" · "I'm in the 'it depends' corner because…" · "Before deciding, I'd need to know…" · "I've moved because ___ made a good point about…"</div>
+</div>
+
+<div class="act" id="c1-b">
+<h3><span class="tag s">Study</span> 9:20–9:32 · Starbucks stakeholder race</h3>
+<div class="kv"><b>Purpose</b><span>Students define "stakeholder" by finding them, then learn the textbook categories by sorting their own list.</span>
+<b>Grouping</b><span>Teams of 3–4</span>
+<b>Materials</b><span>Slide 10 (the case); worksheet §2 (self-check sort); paper</span></div>
+<ol>
+<li><span class="time">(1 min)</span> Read the case on the slide (from the Chapter 3 introduction): <em>In May 2018, two Black men were arrested while waiting for a friend in a Philadelphia Starbucks. Starbucks then closed about 8,000 U.S. stores for an afternoon of racial-bias training, and changed its policy so people can use its stores and restrooms without buying anything.</em></li>
+<li><span class="time">(3 min)</span> <strong>Race:</strong> "List every person or group affected by Starbucks's decision. One point per stakeholder no other team has."</li>
+<li><span class="time">(2 min)</span> Teams read lists; others call out duplicates. Award points.</li>
+<li><span class="time">(2 min)</span> Mini-input (slide 11): <strong>stakeholder</strong> = anyone with an interest in how a business makes its profit (≠ <strong>stockholder/shareholder</strong>, who owns shares). Internal vs. external. One person can hold several roles: an employee who is also a customer and a shareholder (3.1).</li>
+<li><span class="time">(4 min)</span> Teach the four categories (Figure 3.4) and have teams sort their lists (worksheet §2):</li>
+</ol>
+<div class="tw"><table>
+<tr><th>Category</th><th>Meaning (3.2)</th><th>Starbucks examples</th></tr>
+<tr><td><strong>Enabling</strong></td><td>Allow the firm to exist and operate</td><td>Shareholders, board of directors, regulators, legislators</td></tr>
+<tr><td><strong>Functional</strong></td><td>Inputs (supply it) and outputs (buy from it)</td><td>Baristas, coffee and tea growers, milk producers, distributors, customers</td></tr>
+<tr><td><strong>Normative</strong></td><td>Shape the industry's norms</td><td>Competitors (other coffee chains), industry/professional associations</td></tr>
+<tr><td><strong>Diffused</strong></td><td>Less direct ties, but real potential impact</td><td>Media, NGOs and civil-rights groups, voters, social-media users, the Philadelphia community</td></tr>
+</table></div>
+<p><b>Debrief:</b> Which stakeholder did <em>no</em> team list? (Often: growers, the two men's families, other customers of color, police.) Why might the people who lose the most be the easiest to forget?</p>
+<div class="note"><b>Sensitivity:</b> The case involves racial bias and police. Keep the focus on the company's decision and its stakeholders, not on individual experiences of policing. Don't call on students to share personal experiences of discrimination.</div>
+</div>
+
+<div class="act" id="c1-c">
+<h3><span class="tag s">Study</span> 9:32–9:52 · Ethics thermometer: minimum or maximum?</h3>
+<div class="kv"><b>Purpose</b><span>Teach the ethical minimum/maximum (3.1) and normative vs. instrumental motives (3.2) through six real textbook cases. Students argue placement on a scale rather than memorize definitions.</span>
+<b>Grouping</b><span>Groups of 3–4</span>
+<b>Materials</b><span>Six case cards + scale strip (handouts p.3); worksheet §3</span></div>
+<p><b>The scale:</b> ❄ Below the law → Legal minimum → Beyond the law → 🔥 Ethical maximum</p>
+<ol>
+<li><span class="time">(1 min)</span> Define the two ends (slide 12): <strong>ethical minimum</strong> = the least a company can do while still complying with the law; <strong>ethical maximum</strong> = the strongest possible ethical action in the situation.</li>
+<li><span class="time">(8 min)</span> Groups read the six cards and place each on the scale. For each, they also decide: <strong>normative</strong> (stakeholders matter in themselves) or <strong>instrumental</strong> (good stakeholder treatment because it's good for profit)?</li>
+<li><span class="time">(6 min)</span> <strong>Thermometer line:</strong> Put the scale on the board. One group places a card; any group that disagrees must say "Objection!" and give a reason. Move cards only if the class agrees.</li>
+<li><span class="time">(5 min)</span> Debrief.</li>
+</ol>
+<h4>Case cards and suggested placement</h4>
+<div class="tw"><table>
+<tr><th>Case (textbook)</th><th>Facts on the card</th><th>Suggested placement</th></tr>
+<tr><td>Volkswagen (3.2)</td><td>Diesel engines exceeded U.S. emissions standards. Instead of redesigning them, engineers installed a device that made the cars appear to pass. Fines and costs exceeded $30 billion by Sept. 2017; some employees went to jail.</td><td>❄ Below the law</td></tr>
+<tr><td>United Airlines (3.2)</td><td>Removed ticketed, seated passengers from a flight to make room for four employees who needed to fly to another airport. Overbooking avoids unsold seats.</td><td>Legal minimum (or below — debate it)</td></tr>
+<tr><td>Amazon (3.1)</td><td>At a distribution center, "pickers" walk 8–9 miles per shift at the "Amazon Pace." Those who can't keep up are usually let go.</td><td>Legal minimum (debatable: are applicants told?)</td></tr>
+<tr><td>Samsung (3.1)</td><td>2017: a spin-cycle problem in washers. A warning wasn't enough. Final fix: full refund for about 3 million washers ($450–$1,500) with free pickup. Cost billions; limited its legal exposure.</td><td>Beyond the law (motive partly instrumental)</td></tr>
+<tr><td>Starbucks (Ch. 3 intro)</td><td>2018: closed about 8,000 U.S. stores for an afternoon of racial-bias training; changed its store-use policy. Costly; "believed it was the right thing to do."</td><td>Beyond the law → near maximum</td></tr>
+<tr><td>Johnson &amp; Johnson (3.2)</td><td>1982: seven people in the Chicago area died after someone put cyanide in Tylenol capsules in stores. J&amp;J pulled <em>all</em> Tylenol from the U.S. market — about 30 million bottles, over $100 million — guided by its credo. Market share fell from 37% to 7%, then recovered to 30% within a year.</td><td>🔥 Ethical maximum — the textbook's model case</td></tr>
+</table></div>
+<p><b>Debrief questions:</b></p>
+<ul>
+<li>J&amp;J's market share recovered. Does that make its decision <em>instrumental</em>? Can a decision be both?</li>
+<li>Which case was hardest to place? What would you need to know?</li>
+<li>United's overbooking is legal. Why did the public react as if it wasn't?</li>
+<li>"The law is only the ethical minimum." Where did you hear that idea before? (Week 1: legal vs. ethical.)</li>
+</ul>
+<div class="note"><b>Answer note:</b> There is no single right placement except VW (illegal) and J&amp;J (the textbook presents it as the model of enlightened stakeholder management). Grade the reasoning, not the position.</div>
+<div class="lang"><b>Language:</b> "This sits just above the legal minimum because…" · "Strictly speaking, it was legal; however…" · "Objection! I'd put it lower, since…" · "Their motive seems instrumental rather than normative."</div>
+</div>
+
+<div class="act" id="c1-d">
+<h3><span class="tag s">Study</span> 9:52–10:02 · The power–interest matrix</h3>
+<div class="kv"><b>Purpose</b><span>Give students the main tool for prioritizing (Figure 3.5), and show that positions move.</span>
+<b>Grouping</b><span>Pairs</span>
+<b>Materials</b><span>Slides 15–17; worksheet §4 (self-check)</span></div>
+<ol>
+<li><span class="time">(3 min)</span> Teach the matrix:
+<div class="tw"><table>
+<tr><th></th><th>Low interest</th><th>High interest</th></tr>
+<tr><td><b>High power</b></td><td>Keep satisfied, meet needs</td><td><b>Keep engaged, manage closely</b> — key stakeholders</td></tr>
+<tr><td><b>Low power</b></td><td>Monitor lightly</td><td>Keep informed, respect interests</td></tr>
+</table></div>
+Add the two tests from 3.3: <strong>survival test</strong> (can the firm survive without them, or replace them easily?) and <strong>exigency</strong> (how urgent is the claim right now?).</li>
+<li><span class="time">(4 min)</span> Pairs place six stakeholders of a neighborhood café chain (worksheet self-check): bank that lent the money (high power, low interest) · head barista (low power, high interest) · city health inspector (high power, low interest) · regular customers (low power, high interest) · main investor (high power, high interest) · a tourist who visits once (low, low).</li>
+<li><span class="time">(3 min)</span> <strong>Movement (3.3):</strong> A small farmer sells seasonally to local shops — low power, low interest. Then the farmer sells a whole crop to Kroger. Where does the farmer move? (Low power, <strong>high interest</strong>: Kroger matters enormously to the farmer, so the farmer will likely make price concessions.) Ask: "What could move a stakeholder <em>up</em> in power?" (organizing, media attention, a law, a lawsuit).</li>
+</ol>
+<div class="note"><b>Answer note:</b> Reasonable students will disagree about the health inspector (power is high, interest rises when there's a problem). That's the point of <em>exigency</em>.</div>
+</div>
+
+<div class="act" id="c1-e">
+<h3><span class="tag a">Activate</span> 10:02–10:32 · Map Harbor Bay</h3>
+<div class="kv"><b>Purpose</b><span>Syllabus stakeholder-mapping activity, on a realistic case. Event cards make the map move, showing that stakeholder priority is not fixed.</span>
+<b>Grouping</b><span>Groups of 4</span>
+<b>Materials</b><span>Harbor Bay brief (handouts p.5); blank matrix (handouts p.4, A3 if possible); sticky notes; event cards (handouts p.6); worksheet §5</span></div>
+<h4>The case (fictional)</h4>
+<p><strong>Lumen Data</strong>, a technology company, wants to build a large AI data center on farmland outside <strong>Harbor Bay</strong> (population 18,000), a coastal town with dry summers. Its proposal:</p>
+<ul>
+<li>A $1.2 billion investment; about 1,500 construction jobs for two years, then 120 permanent jobs.</li>
+<li>In return: a 10-year property-tax break. After that, about $9 million a year in local taxes.</li>
+<li>The cooling system would use up to 2 million liters of water a day from the town's water supply.</li>
+<li>The center would use as much electricity as a small city. The utility says this may raise residents' electricity rates.</li>
+<li>Lumen offers a $500,000-a-year community fund.</li>
+</ul>
+<p>The Town Council will vote next week: <strong>approve</strong>, <strong>approve with conditions</strong>, <strong>delay</strong> for an independent study, or <strong>reject</strong>.</p>
+<ol>
+<li><span class="time">(10 min)</span> Groups list every stakeholder on sticky notes (one per note) and place them on the matrix. Use one color for <em>stakeholders who can speak for themselves</em> and another for <em>voiceless</em> ones (the river, wildlife, future residents, people who will pay higher electricity bills but don't know yet).</li>
+<li><span class="time">(4 min)</span> Label each note E / F / N / D (enabling, functional, normative, diffused). Circle the key stakeholders.</li>
+<li><span class="time">(10 min)</span> <strong>Event cards.</strong> Read one card every 2 minutes (slides 20–24). After each, groups move their notes. They write the move in worksheet §5.</li>
+<li><span class="time">(6 min)</span> Quick gallery: groups look at one other group's map. Debrief.</li>
+</ol>
+<h4>Event cards</h4>
+<div class="tw"><table>
+<tr><th>#</th><th>Event</th><th>Expected move</th></tr>
+<tr><td>1</td><td>The state declares a drought warning for the region.</td><td>Farmers and water utility: interest ↑. Water becomes urgent (exigency).</td></tr>
+<tr><td>2</td><td>The <em>Harbor Bay Gazette</em> publishes the water figures. Residents had not known.</td><td>Residents move from a <strong>latent</strong> public to an <strong>aware</strong>, then <strong>active</strong> public (Grunig &amp; Hunt): interest ↑, power ↑ (they vote and organize).</td></tr>
+<tr><td>3</td><td>The building-trades union endorses the project and promises 300 members at the vote.</td><td>Union: power ↑. Construction workers become a key stakeholder.</td></tr>
+<tr><td>4</td><td>A town 40 km away offers Lumen free land.</td><td>Lumen's bargaining power ↑ — a credible threat to leave. The council's power ↓.</td></tr>
+<tr><td>5</td><td>River Keepers, an environmental group, files a complaint "on behalf of the river."</td><td>A voiceless stakeholder gains a voice ("Should Trees Have Standing?" — Stone, 1972, in 3.2). NGO: power ↑.</td></tr>
+</table></div>
+<p><b>Debrief questions:</b></p>
+<ul>
+<li>Which stakeholder moved the most? Which never moved?</li>
+<li>Who was voiceless on your first map? Did anyone gain a voice? How?</li>
+<li>Apply the survival test: which stakeholders could Lumen <em>not</em> do without? Which could the <em>town</em> not do without?</li>
+<li>Is the power–interest matrix descriptive, instrumental or normative? (It describes; used only to manage the powerful, it becomes instrumental.)</li>
+</ul>
+<div class="lang"><b>Language:</b> "We'd place ___ in the top right because…" · "After the drought warning, the farmers move up/across…" · "Nobody is speaking for…" · "Their power comes from…"</div>
+</div>
+
+<div class="act" id="c1-f">
+<h3><span class="tag b">Reflect</span> 10:32–10:40 · Exit ticket &amp; role draw</h3>
+<ol>
+<li><span class="time">(4 min)</span> Exit ticket (worksheet §6 or slip): (1) One stakeholder in Harbor Bay with no voice, and who could speak for them. (2) One difference between an ethical minimum and an ethical maximum, with an example. (3) One question.</li>
+<li><span class="time">(4 min)</span> <strong>Role draw.</strong> Students draw a role card for the town hall (handouts p.7–8). They read it over the break and must not show it to anyone.</li>
+</ol>
+<div class="say">"After the break, Harbor Bay holds its town hall. You are no longer students — you are the people on your card. Read your card over the break. Keep your secret."</div>
+</div>
+
+<!-- CLASS 2 -->
+<section id="c2">
+<h2>Class 2 · "Whose Claim Wins?" · 11:10–12:50</h2>
+<div class="tw"><table>
+<tr><th>Clock</th><th>Min</th><th>Stage</th><th>Activity</th></tr>
+<tr><td>11:10–11:16</td><td>6</td><td><span class="tag">Engage</span></td><td>Bridge: breaking news</td></tr>
+<tr><td>11:16–11:56</td><td>40</td><td><span class="tag a">Activate</span></td><td>Harbor Bay town hall role-play</td></tr>
+<tr><td>11:56–12:06</td><td>10</td><td><span class="tag b">Reflect</span></td><td>Debrief: whose claim won, and why?</td></tr>
+<tr><td>12:06–12:18</td><td>12</td><td><span class="tag s">Review</span></td><td>Lie Detector: Chapters 1–3 review game</td></tr>
+<tr><td>12:18–12:45</td><td>27</td><td><span class="tag b">Assess</span></td><td>Quiz 1 (Chapters 1–3)</td></tr>
+<tr><td>12:45–12:50</td><td>5</td><td><span class="tag b">Close</span></td><td>Homework</td></tr>
+</table></div>
+</section>
+
+<div class="act" id="c2-a">
+<h3><span class="tag">Engage</span> 11:10–11:16 · Bridge: breaking news</h3>
+<p>Slide 27 shows a mock front page of the <em>Harbor Bay Gazette</em>: <strong>"TOWN HALL TONIGHT: COUNCIL TO DECIDE ON $1.2 BILLION DATA CENTER."</strong></p>
+<ol>
+<li><span class="time">(3 min)</span> Students find their role group (same card = same group; 2–3 per group).</li>
+<li><span class="time">(3 min)</span> Quick reminder of the three priority tests the Council will be asked to use (slide 28): <strong>survival</strong> · <strong>urgency (exigency)</strong> · <strong>power and interest</strong> — plus the question <em>"Who has no voice in this room?"</em></li>
+</ol>
+</div>
+
+<div class="act" id="c2-b">
+<h3><span class="tag a">Activate</span> 11:16–11:56 · Harbor Bay town hall</h3>
+<div class="kv"><b>Purpose</b><span>Syllabus role-play on competing stakeholder interests. Students argue, negotiate conditions and compromise in role, then the Council must justify whose claims it prioritized.</span>
+<b>Grouping</b><span>10 roles; 2–3 students per role (fewer roles with a small class — see note)</span>
+<b>Materials</b><span>Role cards (handouts p.7–8); town hall agenda and Council decision sheet (handouts p.9); worksheet §7; bell</span></div>
+<h4>Roles</h4>
+<div class="tw"><table>
+<tr><th>Role</th><th>Category</th><th>Public position</th><th>Secret (on the card only)</th></tr>
+<tr><td><b>Town Council</b> (chair + members)</td><td>Enabling</td><td>Neutral; runs the hearing; votes</td><td>The town's budget has a $4 million gap next year. Two members face re-election.</td></tr>
+<tr><td><b>Lumen Data</b> (VP of Site Development)</td><td>The firm</td><td>Approve as proposed</td><td>Lumen can accept a closed-loop cooling system (uses ~80% less water, costs 8% more) — but only if the tax break stays. The rival town's offer is real but has weaker power lines.</td></tr>
+<tr><td><b>Harbor Bay Residents' Association</b></td><td>Diffused / community</td><td>Worried about water and electricity bills</td><td>Members are split: young families want jobs; retirees fear bills. You'd accept a guarantee that residential electricity rates won't rise because of the center.</td></tr>
+<tr><td><b>Valley Farmers' Cooperative</b></td><td>Functional (water users)</td><td>Opposed</td><td>Your members' wells were low last summer. You would support the project if Lumen funds a water-recycling plant the farms can also use.</td></tr>
+<tr><td><b>Building Trades Union</b></td><td>Functional (labor)</td><td>Strongly support</td><td>You need a written promise that at least 50% of construction jobs go to local workers. Without it, your members get few of the jobs.</td></tr>
+<tr><td><b>Harbor Bay Water Utility</b></td><td>Functional / public service</td><td>Technical; neutral</td><td>You can supply 2 million liters a day in a normal year — but only 0.8 million in a drought year. Nobody has asked you directly.</td></tr>
+<tr><td><b>River Keepers</b> (environmental NGO)</td><td>Diffused</td><td>Reject or delay</td><td>You have legal advice that a lawsuit could delay the project two years. You'd prefer a binding agreement to a lawsuit.</td></tr>
+<tr><td><b>Main Street Business Owners</b></td><td>Functional / community</td><td>Cautiously support</td><td>Construction workers would fill your cafés and shops. But if electricity rates rise, your costs rise too.</td></tr>
+<tr><td><b>Youth Climate Council</b> (speaking for future residents)</td><td>Diffused / voiceless</td><td>Concerned</td><td>You are 16–22 and can't all vote yet. You want the agreement reviewed every five years, so future residents can change it.</td></tr>
+<tr><td><b><i>Harbor Bay Gazette</i></b> (press)</td><td>Diffused / media</td><td>Report and question</td><td>A source tells you Lumen already owns an option on land in the rival town. You may ask about it once. At the end you write a 2-sentence headline and story.</td></tr>
+</table></div>
+<div class="note"><b>Smaller class?</b> Essential roles: Council (2), Lumen (2), Residents, Farmers, Union, River Keepers. Add Water Utility, Main Street, Youth Council and Gazette as numbers allow. With 8 students: Council 2, Lumen 1, Residents, Farmers, Union, River Keepers, Gazette.</div>
+<h4>Procedure</h4>
+<ol>
+<li><span class="time">(7 min) Prep.</span> Each group completes worksheet §7: our position · what we most need · our bottom line · one concession we could offer · a 45-second opening statement. The Council prepares three questions and agrees on how it will decide.</li>
+<li><span class="time">(12 min) Round 1 — Opening statements.</span> Chair calls each group: 45 seconds each, strictly timed (bell). The Gazette may ask one question after any statement.</li>
+<li><span class="time">(10 min) Round 2 — The lobby.</span> Free negotiation. Groups move around the room to make deals ("We'll support you if…"). Any agreement must be written on a slip and signed by both groups. The Council listens but may not make deals.</li>
+<li><span class="time">(4 min) Round 3 — Final offers.</span> Each group gives a 20-second final statement, announcing any deals.</li>
+<li><span class="time">(5 min) Round 4 — Council deliberation (fishbowl).</span> The Council deliberates aloud in the middle; everyone else listens silently. They must name (1) the key stakeholders, (2) the test they used to prioritize, (3) one voiceless stakeholder they considered. Then they vote and announce the decision with conditions.</li>
+<li><span class="time">(2 min)</span> The Gazette reads its headline and story.</li>
+</ol>
+<div class="warn"><b>Teacher role:</b> You are the "state observer." Don't decide anything. Intervene only to keep time, or with one surprise if the room goes quiet: "The Water Utility has just been asked for its drought figures." This reveals the secret if nobody has found it.</div>
+<div class="lang"><b>Language for the town hall:</b> "On behalf of ___, we'd like to…" · "We could support the proposal provided that…" · "We're prepared to compromise on ___, but not on…" · "With respect, that doesn't address…" · "Would you be willing to…?" · "Our bottom line is…" · "Let me put it another way…"</div>
+</div>
+
+<div class="act" id="c2-c">
+<h3><span class="tag b">Reflect</span> 11:56–12:06 · Debrief: whose claim won, and why?</h3>
+<p><b>Out of role first:</b> "Take off your role. Back to yourself." (This matters after an emotional role-play.)</p>
+<ul>
+<li>Which stakeholders turned out to be the <strong>key stakeholders</strong>? Were they the ones you put top right on your map this morning?</li>
+<li>Reveal the secrets: each group reads its secret aloud. Which secrets changed the outcome? Which never came out? What does that say about real hearings?</li>
+<li>Did the Council use the <strong>survival test</strong>, <strong>urgency</strong>, or <strong>power</strong>? Was that ethical, or just practical?</li>
+<li>Who spoke for the river and for future residents? Was that enough?</li>
+<li>Week 2 link: Which framework did the Council's decision reflect — utilitarian (most benefit), Kantian (no one used merely as a means), or Rawlsian (protect the most vulnerable)?</li>
+</ul>
+<p><b>Expected outcome:</b> Most councils approve with conditions (closed-loop cooling, local hiring, a rate guarantee, a review clause). Point out that this is the textbook's normative ideal in action: balancing claims rather than simply obeying the most powerful.</p>
+</div>
+
+<div class="act" id="c2-d">
+<h3><span class="tag s">Review</span> 12:06–12:18 · Lie Detector</h3>
+<div class="kv"><b>Purpose</b><span>A fast, competitive review of Chapters 1–3 just before the quiz.</span>
+<b>Grouping</b><span>Teams of 3–4 with mini-whiteboards or paper</span>
+<b>Materials</b><span>Slides 31–36</span></div>
+<p>Each round, the slide shows four statements. <strong>Three are true; one is a lie.</strong> Teams have 60 seconds to write the letter of the lie and correct it. 1 point for the lie, 1 bonus point for a correct correction.</p>
+<div class="tw"><table>
+<tr><th>Round</th><th>The lie</th><th>Correction</th></tr>
+<tr><td>1 · Chapter 1</td><td>"The law sets the highest standard of ethical behavior."</td><td>The law is the <em>minimum</em>; ethics goes beyond it.</td></tr>
+<tr><td>2 · Chapter 1</td><td>"A stockholder and a stakeholder are the same thing."</td><td>Stockholders own shares; stakeholders are anyone with an interest in the business.</td></tr>
+<tr><td>3 · Chapter 2</td><td>"Aristotle condemned all profit."</td><td>He condemned greed, not profit.</td></tr>
+<tr><td>4 · Chapter 2</td><td>"Kant judged actions only by their consequences."</td><td>Kant judged motive and duty; Bentham judged consequences.</td></tr>
+<tr><td>5 · Chapter 3</td><td>"All stakeholder claims must be given equal weight."</td><td>All deserve acknowledgment, but not equal weight; firms must prioritize.</td></tr>
+<tr><td>6 · Chapter 3</td><td>"Diffused stakeholders, like regulators, allow the firm to operate."</td><td>Regulators are <em>enabling</em>; diffused stakeholders include media, NGOs, voters.</td></tr>
+</table></div>
+</div>
+
+<div class="act" id="c2-e">
+<h3><span class="tag b">Assess</span> 12:18–12:45 · Quiz 1 (Chapters 1–3)</h3>
+<ul>
+<li>Print <strong>quiz.html</strong> (student version). 30 points: Part A multiple choice (10), Part B matching (8), Part C short case analysis (12).</li>
+<li>No phones or notes. Allow a bilingual paper dictionary if that's your program's policy.</li>
+<li>Give a 5-minute warning at 12:40.</li>
+<li>The answer key and rubric for Part C are in quiz.html (tap <strong>Show teacher key</strong>).</li>
+</ul>
+<div class="note"><b>Why the end of Class 2?</b> Quiz 1 includes Chapter 3, which is taught this week. Placing it last means students have used every Chapter 3 concept twice (map + town hall) and reviewed just before. If you prefer, give the quiz at the start of Week 4 instead and use these 27 minutes to extend the town hall.</div>
+</div>
+
+<div class="act" id="c2-f">
+<h3><span class="tag b">Close</span> 12:45–12:50 · Homework</h3>
+<p>Ethics Journal #3; finish reading Chapter 3 (especially 3.4 on CSR); preview Chapter 4; bring an example of a company that <em>claims</em> to be green or socially responsible (for Week 4's "CSR or greenwashing?" card sort).</p>
+</div>
+
+<section id="lang">
+<h2>Language support</h2>
+<h3>Essential vocabulary</h3>
+<div class="tw"><table>
+<tr><th>Word</th><th>Simple meaning</th><th>Example</th></tr>
+<tr><td>stakeholder</td><td>anyone affected by, or with an interest in, a business</td><td>Farmers are stakeholders in the data center.</td></tr>
+<tr><td>stockholder / shareholder</td><td>someone who owns shares in a company</td><td>Shareholders want a return on their investment.</td></tr>
+<tr><td>claim</td><td>what a stakeholder wants or asks from a company</td><td>The union's claim is for local jobs.</td></tr>
+<tr><td>prioritize / priority</td><td>decide what comes first</td><td>The council had to prioritize water over jobs.</td></tr>
+<tr><td>key stakeholder</td><td>a stakeholder with high power and high interest</td><td>The investors are key stakeholders.</td></tr>
+<tr><td>exigency /ˈek.sɪ.dʒən.si/</td><td>urgency</td><td>The drought increased the exigency of the farmers' claim.</td></tr>
+<tr><td>ethical minimum / maximum</td><td>the least a company can legally do / the best it could do</td><td>J&amp;J chose the ethical maximum.</td></tr>
+<tr><td>implicit social contract</td><td>an unwritten promise between a company and society</td><td>Breaking the social contract damages trust.</td></tr>
+<tr><td>enabling / functional / normative / diffused</td><td>the four stakeholder categories</td><td>The media are diffused stakeholders.</td></tr>
+<tr><td>voiceless</td><td>affected, but unable to speak for themselves</td><td>Future generations are voiceless stakeholders.</td></tr>
+<tr><td>latent / aware / active (public)</td><td>doesn't know / knows / organizes and acts</td><td>The article turned a latent public into an active one.</td></tr>
+<tr><td>recall</td><td>when a company asks buyers to return a product</td><td>J&amp;J recalled 30 million bottles.</td></tr>
+<tr><td>concession</td><td>something you give up in a negotiation</td><td>Lumen made a concession on water use.</td></tr>
+<tr><td>bottom line</td><td>(1) profit; (2) the minimum you will accept</td><td>Our bottom line is local jobs.</td></tr>
+<tr><td>triple bottom line</td><td>measuring people, planet and profit</td><td>(Introduced this week; developed in Week 4.)</td></tr>
+</table></div>
+<h3>Useful collocations</h3>
+<p>have a stake in · a competing / conflicting claim · weigh the claims · give priority to · strike a deal · reach a compromise · make a concession · meet someone halfway · raise concerns · voice opposition · put pressure on · bear the cost · a binding agreement · on behalf of</p>
+<h3>Words students may misunderstand</h3>
+<ul>
+<li><b>stake</b> — here, an interest or share (as in "have a stake in"), not a steak, a wooden post, or only a bet.</li>
+<li><b>stakeholder vs. stockholder</b> — the most common confusion on the quiz.</li>
+<li><b>interest</b> — concern or involvement, not bank interest.</li>
+<li><b>claim</b> — a demand or request, not only an insurance claim or a statement.</li>
+<li><b>bottom line</b> — has two meanings (profit; your minimum position).</li>
+<li><b>normative</b> — used twice in Chapter 3: a <em>normative stakeholder</em> (competitors who set norms) and the <em>normative approach</em> (stakeholders matter in themselves). Point this out!</li>
+</ul>
+<h3>Pronunciation</h3>
+<p><b>Stress:</b> STAKEholder · priORitize · PRIority · EXigency (not exIGency) · conCESSion · neGOtiate · COMpromise · enVIRonmental · susTAINability</p>
+<p><b>Linking in fast speech:</b> "on behalf of" /ɒn bɪˈhɑːf əv/ · "provided that" /prəˈvaɪdɪd ðət/</p>
+<h3>Grammar in use: conditions and proposals</h3>
+<ul>
+<li><b>Conditions:</b> "We'll support it <em>provided that / as long as / on condition that</em> 50% of jobs are local." · "We won't support it <em>unless</em> water use is capped."</li>
+<li><b>Polite proposals:</b> "<em>Would you be willing to</em> fund a recycling plant?" · "<em>What if</em> we agreed to a five-year review?"</li>
+<li><b>Hypothetical (second conditional):</b> "If the council <em>rejected</em> the project, the town <em>would lose</em> $9 million a year."</li>
+<li><b>Reporting (passive):</b> "<em>It has been reported that</em> Lumen owns land in another town."</li>
+</ul>
+<h3>Negotiation language (B2+)</h3>
+<div class="tw"><table>
+<tr><th>Function</th><th>Language</th></tr>
+<tr><td>Stating a position</td><td>Our position is clear: … · What matters most to us is…</td></tr>
+<tr><td>Proposing a deal</td><td>We'd be prepared to ___ if you… · How about we…?</td></tr>
+<tr><td>Conceding</td><td>We could live with… · That's a reasonable point; we'll…</td></tr>
+<tr><td>Holding firm</td><td>That's non-negotiable for us. · We can't accept ___ without…</td></tr>
+<tr><td>Challenging politely</td><td>With respect, that doesn't address… · Could you clarify what you mean by…?</td></tr>
+<tr><td>Speaking for the voiceless</td><td>No one here is speaking for… · We have to consider those who aren't in this room.</td></tr>
+</table></div>
+</section>
+
+<section id="hw">
+<h2>Homework</h2>
+<h3>1 · Ethics Journal #3 (150–200 words)</h3>
+<p>Choose <strong>one</strong> prompt. Use <em>Opinion → Reasons → Framework or stakeholder tool → Counterargument → Conclusion</em>.</p>
+<ol type="A">
+<li><b>Amazon's pace (3.1):</b> Is walking 8–9 miles a shift at a fast pace a reasonable expectation? Should applicants be told beforehand? Is it ethical for customers to keep buying from the company?</li>
+<li><b>Malaysia Airlines (3.3):</b> The government-owned airline is losing money. The CEO plans affordable charter flights for Malaysian Muslims going on the hajj. Should he prioritize pilgrims' demand for easy, affordable travel or the government's demand for profit?</li>
+<li><b>Friedman vs. Stout (3.1):</b> If you started a business, would it be driven mainly by economics (the shareholder view) or by a social mission (the social responsibility view)? Why?</li>
+</ol>
+<h3>2 · Reading and preparation</h3>
+<p>Finish Chapter 3 (especially 3.4, Corporate Social Responsibility). Preview Chapter 4. Bring one example of a company that <em>says</em> it is green or socially responsible.</p>
+<h3>Model journal (Prompt A, ~180 words)</h3>
+<div class="say" style="font-style:normal">I think walking eight or nine miles a shift can be a reasonable expectation, but only if the company is honest about it before people accept the job. Many jobs are physically demanding, such as nursing or construction, and workers choose them knowingly. The ethical problem is not the distance; it is whether applicants know what they are agreeing to and whether those who can't keep up are treated fairly. From a Kantian perspective, hiding the pace would treat workers merely as a means to fast delivery. In stakeholder terms, pickers are functional stakeholders with low individual power but very high interest, so the company should "keep them informed and respect their interests." One could argue that the company is only meeting the legal minimum and that customers want fast delivery. That is true, but the legal minimum is not the ethical maximum. In conclusion, the pace is acceptable only if it is disclosed, safe, and supported by fair treatment — and customers share some responsibility for the speed they demand.</div>
+<h3>Journal rubric (4 × 3 = 12 points)</h3>
+<div class="tw"><table>
+<tr><th>Criterion</th><th>3</th><th>2</th><th>1</th></tr>
+<tr><td>Position</td><td>Clear, specific answer to the prompt</td><td>Present but vague</td><td>No clear position</td></tr>
+<tr><td>Tools</td><td>Uses a stakeholder concept and a framework accurately</td><td>Uses one accurately</td><td>Named but not applied</td></tr>
+<tr><td>Counterargument</td><td>Stated fairly and answered</td><td>Mentioned, not answered</td><td>Missing</td></tr>
+<tr><td>Language</td><td>Course vocabulary; conditionals and hedging mostly accurate</td><td>Some vocabulary; errors rarely block meaning</td><td>Errors often block meaning</td></tr>
+</table></div>
+</section>
+
+<section id="assess">
+<h2>Checks for understanding</h2>
+<ul>
+<li><b>Four corners:</b> can students name the framework behind a move? (Week 2 retention.)</li>
+<li><b>Stakeholder race sort</b> (self-check) — the four categories.</li>
+<li><b>Thermometer</b> — reasoning about minimum/maximum and normative/instrumental.</li>
+<li><b>Café matrix drill</b> (self-check) — matrix quadrants.</li>
+<li><b>Harbor Bay map</b> — collect one photo per group; check for voiceless stakeholders and categories.</li>
+<li><b>Exit ticket</b> — individual evidence.</li>
+<li><b>Town hall</b> — the Council's justification (key stakeholders, test, voiceless) is a strong speaking assessment for participation.</li>
+<li><b>Quiz 1</b> — individual, formal.</li>
+</ul>
+</section>
+
+<section id="align">
+<h2>How Week 3 builds toward the assessments</h2>
+<div class="tw"><table>
+<tr><th>Assessment</th><th>This week's practice</th></tr>
+<tr><td>Quiz 1 (this week)</td><td>Lie Detector review; quiz.html with key</td></tr>
+<tr><td>Written assignments</td><td>Journal #3 — now combining stakeholder tools with frameworks</td></tr>
+<tr><td>Midterm (Week 6)</td><td>Stakeholder identification and prioritization on a case (map, quiz Part C)</td></tr>
+<tr><td>Personal Code of Ethics (Weeks 8–9)</td><td>"Who are <em>my</em> stakeholders at work?" (exit ticket thinking)</td></tr>
+<tr><td>Final assessment</td><td>Analyzing a case through stakeholders + frameworks</td></tr>
+<tr><td>Participation</td><td>Four corners reasons; town hall statements, negotiation and Council deliberation</td></tr>
+</table></div>
+</section>
+
+<section id="flags">
+<h2>Open questions &amp; flags</h2>
+<ol>
+<li><strong>Quiz timing:</strong> I placed Quiz 1 at the end of Class 2 (12:18–12:45). Move it to the start of Week 4 if you'd rather extend the town hall.</li>
+<li><strong>Section 3.4 overlap:</strong> CSR, greenwashing, Ben &amp; Jerry's and Coca-Cola fit the Week 4 "CSR or greenwashing?" card sort better. This week only introduces the triple bottom line; 3.4 is homework reading.</li>
+<li><strong>Trolley Problem:</strong> The syllabus names it, but Chapter 3 doesn't contain it. (Section 2.4 links a streetcar video.) I used it as the Engage activity and connected it to stakeholders.</li>
+<li><strong>Textbook figure:</strong> The Chapter 3 intro says Starbucks has "more than 300,000" employees; the Figure 3.1 caption says "more than 250,000." The materials avoid the number.</li>
+<li><strong>Quiz content from Chapter 1:</strong> Quiz items on Chapter 1 follow the Week 1 materials (legal vs. ethical, stakeholder vs. stockholder, Friedman, relativism, the front-page test). Check them against what you actually covered.</li>
+</ol>
+</section>
+
+<footer>Textbook content summarized from Byars &amp; Stanberry, <em>Business Ethics</em>, OpenStax (CC BY-NC-SA 4.0). Access for free at https://openstax.org/books/business-ethics/pages/3-introduction · Moral Machine: Awad et al., <em>Nature</em> 563 (2018); MIT Technology Review (Oct 2018). Harbor Bay, Lumen Data and Maple &amp; Co. are fictional.</footer>
+</main>
+</div>
+</body>
+</html>
