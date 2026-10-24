@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Week 3 Task Cards</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0f2340; --blue:#143865; --blue-2:#1c4f8f; --gold:#8c7535; --gold-2:#d39f10;
+    --sky:#c1cddd; --sky-2:#e1e8f2; --sky-3:#edf2f9; --warm:#efe9d9; --paper:#fbf9f3;
+    --ink:#14213a; --soft:#3f4b5e; --muted:#5b6b82; --ok:#1f8a5b; --ok-bg:#e3f4ec; --red:#a91512;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0; background:var(--sky-3); color:var(--ink); font-family:Inter, system-ui, sans-serif; font-size:16px; line-height:1.55}
+  a{color:var(--blue-2)}
+  .page{max-width:920px; margin:0 auto; padding:20px 16px 60px}
+
+  .top{background:var(--blue); color:#fff; border-radius:18px; padding:22px 26px; position:relative; overflow:hidden}
+  .top::after{content:""; position:absolute; right:-40px; top:-40px; width:180px; height:180px; border:14px solid var(--gold-2); border-radius:50%; opacity:.25}
+  .school{font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--gold-2); font-weight:700}
+  h1{font-family:Lora, serif; font-size:clamp(26px,4.4vw,38px); margin:4px 0 2px}
+  .top p{margin:0; color:var(--sky)}
+
+  nav{position:sticky; top:0; z-index:10; display:flex; flex-wrap:wrap; gap:6px; align-items:center; background:#fff; border:1px solid var(--sky); border-radius:14px; padding:10px 12px; margin:14px 0 18px; box-shadow:0 6px 18px rgba(20,56,101,.08)}
+  nav a{text-decoration:none; font-weight:700; font-size:14px; color:var(--blue); background:var(--sky-3); border-radius:8px; padding:5px 10px}
+  nav a:hover{background:var(--sky-2)}
+  nav .sp{flex:1}
+  .btn{font:inherit; font-weight:700; font-size:14px; border:none; border-radius:10px; padding:8px 14px; background:var(--gold-2); color:var(--ink); cursor:pointer}
+
+  .card{background:#fff; border:1px solid var(--sky); border-radius:20px; margin-bottom:22px; overflow:hidden; scroll-margin-top:70px}
+  .card-head{display:flex; align-items:center; gap:14px; padding:16px 22px; background:var(--paper); border-bottom:1px solid var(--sky); flex-wrap:wrap}
+  .num{width:46px; height:46px; border-radius:12px; background:var(--navy); color:var(--gold-2); font-family:Lora, serif; font-weight:700; font-size:24px; display:flex; align-items:center; justify-content:center; flex:none}
+  .card-head h2{margin:0; font-family:Lora, serif; color:var(--blue); font-size:24px; flex:1; min-width:200px; line-height:1.2}
+  .meta{display:flex; gap:6px; flex-wrap:wrap}
+  .chip{font-size:12px; font-weight:800; letter-spacing:.06em; text-transform:uppercase; border-radius:999px; padding:4px 10px; background:var(--sky-2); color:var(--blue)}
+  .chip.t{background:var(--blue); color:#fff}
+  .body{padding:18px 22px}
+  .goal{font-size:15px; color:var(--muted); margin:0 0 14px}
+  .goal b{color:var(--ink)}
+
+  h3{font-size:16px; letter-spacing:.06em; text-transform:uppercase; color:var(--gold); margin:18px 0 8px}
+  h3:first-child{margin-top:0}
+  ol.steps{counter-reset:s; list-style:none; padding:0; margin:0}
+  ol.steps li{counter-increment:s; position:relative; padding:7px 0 7px 42px}
+  ol.steps li::before{content:counter(s); position:absolute; left:0; top:6px; width:28px; height:28px; border-radius:8px; background:var(--sky-2); color:var(--blue); font-weight:800; font-size:14px; display:flex; align-items:center; justify-content:center}
+  ol.steps .t{font-size:12px; font-weight:800; color:var(--blue-2); background:var(--sky-3); border-radius:6px; padding:0 6px; margin-left:6px; white-space:nowrap}
+  ul{margin:4px 0; padding-left:22px}
+  li{margin:3px 0}
+
+  .grid2{display:grid; grid-template-columns:1fr 1fr; gap:14px}
+  .grid3{display:grid; grid-template-columns:repeat(3,1fr); gap:12px}
+  .box{border:1px solid var(--sky); border-radius:14px; padding:12px 14px; background:#fff}
+  .box h4{margin:0 0 6px; color:var(--blue); font-size:16px}
+  .box.navy{background:var(--blue); border-color:var(--blue); color:#e7eef8}
+  .box.navy h4{color:var(--gold-2)}
+  .box.warm{background:var(--warm); border-color:#e2d6b4}
+  .frames{background:var(--paper); border-left:5px solid var(--gold-2); border-radius:0 12px 12px 0; padding:10px 14px}
+  .frames p{margin:3px 0; font-style:italic}
+  .ex{background:var(--ok-bg); border-radius:12px; padding:10px 14px; font-size:15px}
+  .ex b{color:var(--ok)}
+  .b2p{background:#fbf3df; border:1px solid #ecdcae; border-radius:12px; padding:10px 14px; font-size:15px; margin-top:12px}
+  .b2p b{color:var(--gold)}
+  .no{background:#fbe7e4; border-radius:12px; padding:10px 14px; font-size:15px}
+  table{width:100%; border-collapse:collapse; font-size:15px}
+  th{background:var(--blue); color:#fff; text-align:left; padding:8px 10px}
+  td{padding:8px 10px; border-bottom:1px solid var(--sky-2); vertical-align:top}
+  .go{display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; padding-top:12px; border-top:1px dashed var(--sky)}
+  .go a{text-decoration:none; font-weight:700; font-size:14px; border:2px solid var(--sky); border-radius:999px; padding:5px 12px; color:var(--blue)}
+  .go a.vid{background:var(--blue); border-color:var(--blue); color:#fff}
+  .go a:hover{border-color:var(--gold-2)}
+  .gloss{display:grid; grid-template-columns:1fr 1fr; gap:4px 18px; font-size:15px}
+  footer{text-align:center; color:var(--muted); font-size:12px; margin-top:24px}
+
+  @media (max-width:700px){
+    .grid2,.grid3,.gloss{grid-template-columns:1fr}
+  }
+  @media print{
+    @page{margin:12mm}
+    body{background:#fff; font-size:12.5px}
+    .page{max-width:none; padding:0}
+    nav, .go{display:none}
+    .top{background:#fff; color:var(--ink); border:2px solid var(--blue); padding:10px 14px}
+    .top::after{display:none}
+    .top p{color:var(--muted)}
+    .card{break-inside:avoid; border:2px dashed #999; border-radius:12px}
+    .card + .card{break-before:page}
+    .box.navy{background:#fff; color:var(--ink); border:2px solid var(--blue)}
+    .box.navy h4{color:var(--blue)}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="top">
+    <div class="school">Approach International Student Center</div>
+    <h1>Week 3 · Task Cards</h1>
+    <p>TED Talks: Ideas Worth Sharing · Traps and Throughline · What to do in each activity</p>
+  </header>
+
+  <nav>
+    <a href="#t1">1 Warm-up</a><a href="#t2">2 Words</a><a href="#t3">3 Reading</a><a href="#t4">4 Video</a><a href="#t5">5 Signposts</a><a href="#t6">6 Talk Map</a><a href="#t7">7 Outline</a>
+    <span class="sp"></span>
+    <a href="week3-worksheet.html">Worksheet</a>
+    <button class="btn" onclick="window.print()">Print cards</button>
+  </nav>
+
+<section class="card" id="t1">
+  <div class="card-head"><span class="num">1</span><h2>Warm-up: Gift or Ask?</h2><div class="meta"><span class="chip t">15 min</span><span class="chip">Pairs → Class</span><span class="chip">Worksheet A1</span></div></div>
+  <div class="body">
+    <p class="goal"><b>Goal:</b> notice what makes a talk feel like a gift, and what makes it feel like an ask.</p>
+    <ol class="steps">
+      <li>Listen to each talk opening your teacher shows.</li>
+      <li>With your partner, decide: is the speaker <b>giving</b> you something, or <b>asking</b> for something (your money, attention or applause)?</li>
+      <li>Say what is wrong and how you would fix it.</li>
+      <li>Vote with your hand: one hand up = Gift, two hands up = Ask.</li>
+    </ol>
+    <div class="frames" style="margin-top:10px"><p>I think it's an ask, because the speaker only talks about…</p><p>It feels like a gift because it promises…</p><p>A better opening would be…</p></div>
+    <div class="go"><a href="week3-warmup-gift-or-ask.html">Gift or Ask? openings</a><a href="week3-worksheet.html#partA">Worksheet A1</a></div>
+  </div>
+</section>
+
+<section class="card" id="t2">
+  <div class="card-head"><span class="num">2</span><h2>Vocabulary: 14 words for today</h2><div class="meta"><span class="chip t">15 min</span><span class="chip">Pairs</span><span class="chip">Worksheet A2–A3</span></div></div>
+  <div class="body">
+    <div class="grid2">
+      <div class="box"><h4>From the book (Ch. 3–4)</h4>steer clear of · takeaway · wing it · ramble · self-serving · credibility · encapsulate</div>
+      <div class="box"><h4>From the talk (Matt Cutts)</h4>stuck in a rut · follow in someone's footsteps · from scratch · sleep-deprived · sustainable · stick · give it a shot</div>
+    </div>
+    <ol class="steps" style="margin-top:8px">
+      <li>Listen and repeat. Notice the stressed syllable.</li>
+      <li>Match each word to its meaning (A2). Press <b>Check answers</b>.</li>
+      <li>Finish two sentences about <b>you</b> (A3) and read them to your partner.</li>
+    </ol>
+    <div class="go"><a href="week3-vocabulary-matching.html">Matching game</a><a href="week3-worksheet.html#vocab">Worksheet A2</a></div>
+  </div>
+</section>
+
+<section class="card" id="t3">
+  <div class="card-head"><span class="num">3</span><h2>Reading: the Four Traps jigsaw</h2><div class="meta"><span class="chip t">40 min</span><span class="chip">Groups</span><span class="chip">Worksheet B1–B5</span></div></div>
+  <div class="body">
+    <p class="goal"><b>Goal:</b> learn four ways talks go wrong, so you can avoid them in yours.</p>
+    <div class="grid2">
+      <div class="box"><h4>1 · The Sales Pitch</h4>Selling yourself or your business.</div>
+      <div class="box"><h4>2 · The Ramble</h4>No preparation, no direction.</div>
+      <div class="box"><h4>3 · The Org Bore</h4>All about your organization.</div>
+      <div class="box"><h4>4 · The Inspiration Performance</h4>Acting inspiring, with little substance.</div>
+    </div>
+    <h3>Steps</h3>
+    <ol class="steps">
+      <li><b>Predict:</b> what makes a talk bad? <span class="t">3 min</span></li>
+      <li><b>Expert group:</b> read your trap card and complete the expert card. <span class="t">10 min</span></li>
+      <li><b>Teaching group:</b> join one expert from each trap. Teach your trap in 2–3 minutes, <b>without reading</b>. <span class="t">12 min</span></li>
+      <li><b>Spot the trap:</b> worksheet B4. <span class="t">5 min</span></li>
+      <li><b>Bad Talk Charades:</b> draw a card with a secret trap and a topic. Plan a 30-second <b>terrible</b> talk, perform it, the class guesses, then give a <b>fixed</b> opening line. <span class="t">10 min</span></li>
+    </ol>
+    <div class="go"><a href="week3-worksheet.html#partB">Worksheet B1–B5</a></div>
+  </div>
+</section>
+
+<section class="card" id="t4">
+  <div class="card-head"><span class="num">4</span><h2>Video: Matt Cutts, "Try something new for 30 days"</h2><div class="meta"><span class="chip t">30 min</span><span class="chip">Pairs → Groups → Class</span><span class="chip">Worksheet C1–C6</span></div></div>
+  <div class="body">
+    <p class="goal"><b>Goal:</b> find a short talk's throughline and map its outline.</p>
+    <div class="grid3">
+      <div class="box"><h4>Viewing 1</h4>Choose the throughline (a–d). Write it in 15 words or fewer.</div>
+      <div class="box"><h4>Viewing 2</h4>Put the 7 parts of the talk in order. This is his outline.</div>
+      <div class="box"><h4>Viewing 3</h4>Fill in the 10 one-word gaps. Then check.</div>
+    </div>
+    <h3>Groups</h3>
+    <p>Use Anderson's checklist: Is it curious? A gift? Possible in the time? Does he have credibility? Does he avoid the traps? Give <b>evidence</b>.</p>
+    <h3>Class discussion</h3>
+    <p>What would <b>you</b> try for 30 days? A small, sustainable change, or a big, crazy challenge?</p>
+    <div class="go"><a class="vid" href="https://www.ted.com/talks/matt_cutts_try_something_new_for_30_days" target="_blank" rel="noopener">Watch on TED.com</a><a href="week3-worksheet.html#partC">Worksheet C1–C6</a></div>
+  </div>
+</section>
+
+<section class="card" id="t5">
+  <div class="card-head"><span class="num">5</span><h2>Language: signposting</h2><div class="meta"><span class="chip t">35 min</span><span class="chip">Individual → Pairs</span><span class="chip">Worksheet D1–D5</span></div></div>
+  <div class="body">
+    <p class="goal"><b>Goal:</b> use short phrases that show your audience where you are in your talk.</p>
+    <table>
+      <tr><th style="width:30%">Job</th><th>Example</th></tr>
+      <tr><td>Introduce your idea</td><td>Today I want to talk about… · The idea is simple: …</td></tr>
+      <tr><td>Preview</td><td>I'll share three things I learned.</td></tr>
+      <tr><td>Order and add points</td><td>First, … · I also noticed… · Here's one last thing…</td></tr>
+      <tr><td>Example</td><td>For example, …</td></tr>
+      <tr><td>Move on</td><td>That brings me to… · Now let's look at…</td></tr>
+      <tr><td>End</td><td>So, to sum up, … · So here's my question to you: …</td></tr>
+    </table>
+    <h3>Steps</h3>
+    <ol class="steps">
+      <li><b>Notice</b> the signposts in the Cutts talk (D1).</li>
+      <li><b>Choose</b> the best signpost in a mini-talk (D3).</li>
+      <li><b>Fix the ramble</b>: add at least four signposts (D4).</li>
+      <li><b>Write</b> four signposts for your own talk (D5).</li>
+    </ol>
+    <div class="b2p"><b>B2+ challenge:</b> use a cleft to emphasize your key point: "What really matters is…"</div>
+    <div class="go"><a href="week3-signposting-study-notes.html">Study notes</a><a href="week3-worksheet.html#partD">Worksheet D1–D5</a></div>
+  </div>
+</section>
+
+<section class="card" id="t6">
+  <div class="card-head"><span class="num">6</span><h2>Speaking: Talk Map trios</h2><div class="meta"><span class="chip t">35 min</span><span class="chip">Groups of 3</span><span class="chip">Worksheet E1–E3</span></div></div>
+  <div class="body">
+    <p class="goal"><b>Goal:</b> give a 90-second mini-talk so clear that your listener can draw its map.</p>
+    <div class="grid3">
+      <div class="box navy"><h4>Speaker</h4>Give your 90-second talk: throughline, 2–3 points, ending. Use signposts.</div>
+      <div class="box"><h4>Mapper</h4>Draw the talk map: throughline, points in order, signposts heard.</div>
+      <div class="box"><h4>Listener</h4>Ask one question. Check for traps.</div>
+    </div>
+    <ol class="steps" style="margin-top:8px">
+      <li>Plan your mini-talk (E1). <span class="t">5 min</span></li>
+      <li>Round 1: each person speaks once; roles rotate. <span class="t">15 min</span></li>
+      <li>Compare the map with your plan. Fix one thing (E3). <span class="t">3 min</span></li>
+      <li>Round 2 in a new trio, a little shorter and clearer. <span class="t">12 min</span></li>
+    </ol>
+    <div class="grid2" style="margin-top:8px">
+      <div class="frames"><p style="font-style:normal"><b>Map check</b></p><p>Your throughline was clear when you said…</p><p>I could follow you because you said "…"</p><p>I got lost after…</p></div>
+      <div class="frames"><p style="font-style:normal"><b>Trap check</b></p><p>I didn't hear any traps.</p><p>This part felt a little like a ramble because…</p><p>One signpost that would help is…</p></div>
+    </div>
+    <div class="go"><a href="week3-worksheet.html#partE">Worksheet E1–E3</a></div>
+  </div>
+</section>
+
+<section class="card" id="t7">
+  <div class="card-head"><span class="num">7</span><h2>Build your talk: Throughline + Outline</h2><div class="meta"><span class="chip t">30 min</span><span class="chip">Individual → Pairs</span><span class="chip">Worksheet F · Milestone</span></div></div>
+  <div class="body">
+    <p class="goal"><b>Goal:</b> leave with a throughline of 15 words or fewer and a first outline. <b>Due at the start of Week 4.</b></p>
+    <table>
+      <tr><th style="width:34%">Section</th><th>Think about…</th></tr>
+      <tr><td><b>1</b> Throughline</td><td>15 words or fewer. The word counter helps.</td></tr>
+      <tr><td><b>2</b> Checklist</td><td>Tick the questions you can honestly say yes to.</td></tr>
+      <tr><td><b>3</b> My one listener</td><td>A real person: curious, smart, not an expert, someone you like.</td></tr>
+      <tr><td><b>4</b> Outline</td><td>Opening · Point 1 · Point 2 · (Point 3 for B2+) · Ending, each with a signpost.</td></tr>
+      <tr><td><b>5</b> Trap check</td><td>No pitch, no ramble, no org bore, no performance.</td></tr>
+    </table>
+    <h3>A model</h3>
+    <div class="ex"><b>Throughline:</b> Asking for help is a skill, not a weakness. (9 words)<br>
+      <b>Opening:</b> "On my first day at college, I sat alone for two hours." · <b>Point 1</b> (First,) why we don't ask · <b>Point 2</b> (I also noticed…) what changed when I asked · <b>Ending</b> (So here's my question to you:) who will you ask this week?</div>
+    <h3>Exit ticket</h3>
+    <div class="frames"><p>1. My throughline is…</p><p>2. The trap I need to watch out for is… because…</p></div>
+    <h3>Before next class</h3>
+    <ul><li>Say your throughline out loud to one person. What was clear? What was missing?</li><li>Bring your outline to Week 4. You will add a story.</li></ul>
+    <div class="go"><a href="week3-worksheet.html#partF">Worksheet F</a></div>
+  </div>
+</section>
+
+<footer>Approach International Student Center · TED Talks: Ideas Worth Sharing · Week 3 Task Cards</footer>
+</div>
+</body>
+</html>

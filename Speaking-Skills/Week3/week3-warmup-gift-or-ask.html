@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gift or Ask?</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,600;0,700;1,500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{ --navy:#0f2340; --blue:#143865; --blue-2:#1c4f8f; --gold:#8c7535; --gold-2:#d39f10; --gold-3:#e2c27a; --cream:#f6f2e7; --warm:#efe9d9; --muted:#9fb0c8; --ink:#14213a; --green:#1f6b48; --red:#a91512; }
+  *{box-sizing:border-box}
+  html,body{margin:0; height:100%}
+  body{background:radial-gradient(ellipse at top, #1b3560 0%, var(--navy) 55%, #081428 100%); color:var(--cream); font-family:Inter, system-ui, sans-serif; display:flex; flex-direction:column; min-height:100vh}
+  button{font-family:inherit; cursor:pointer}
+  header{display:flex; align-items:center; justify-content:space-between; gap:12px; padding:14px clamp(16px,3vw,40px); border-bottom:1px solid rgba(211,159,16,.25)}
+  .brand b{display:block; font-family:Lora, serif; font-size:clamp(18px,1.8vw,26px); color:var(--gold-3)}
+  .brand span{font-size:clamp(11px,1vw,14px); color:var(--muted); letter-spacing:.08em; text-transform:uppercase}
+  .hbtn{background:rgba(255,255,255,.06); color:var(--cream); border:1px solid rgba(255,255,255,.18); border-radius:10px; padding:9px 14px; font-size:14px; font-weight:600}
+  .hbtn:hover{border-color:var(--gold-2); color:var(--gold-3)}
+  main{flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:clamp(14px,2.5vw,36px)}
+  .intro{text-align:center; max-width:1100px}
+  .intro h1{font-family:Lora, serif; font-size:clamp(44px,6vw,96px); margin:0 0 10px}
+  .intro h1 em{font-style:normal; color:var(--gold-2)}
+  .intro p{font-size:clamp(20px,2.2vw,32px); color:#dfe6f0; margin:0 0 28px; line-height:1.4}
+  .vote{display:flex; justify-content:center; gap:24px; margin-bottom:34px; flex-wrap:wrap}
+  .vote div{border:2px solid rgba(255,255,255,.25); border-radius:18px; padding:18px 28px; font-size:clamp(18px,1.8vw,26px)}
+  .vote b{display:block; font-family:Lora, serif; font-size:clamp(28px,3vw,44px)}
+  .vote .g b{color:#7fd3a8} .vote .a b{color:#ff9c93}
+  .big{background:var(--gold-2); color:var(--ink); border:none; border-radius:16px; padding:16px 36px; font-size:clamp(18px,1.8vw,24px); font-weight:800}
+  .stage{width:100%; max-width:1300px; display:grid; grid-template-columns:auto 1fr auto; gap:clamp(10px,2vw,26px); align-items:center}
+  .arrow{width:clamp(52px,5vw,74px); height:clamp(52px,5vw,74px); border-radius:50%; background:rgba(255,255,255,.07); border:2px solid rgba(255,255,255,.2); color:var(--cream); font-size:clamp(20px,2.2vw,30px)}
+  .arrow:disabled{opacity:.25; cursor:default}
+  .card{background:linear-gradient(160deg, var(--cream) 0%, var(--warm) 100%); color:var(--ink); border-radius:28px; padding:clamp(26px,3.5vw,56px); min-height:62vh; display:flex; flex-direction:column; gap:clamp(16px,2vw,26px); box-shadow:0 30px 60px rgba(0,0,0,.35)}
+  .count{font-weight:800; letter-spacing:.12em; text-transform:uppercase; color:var(--gold); font-size:clamp(13px,1.2vw,17px)}
+  .q{font-family:Lora, serif; font-style:italic; font-size:clamp(28px,3.4vw,54px); line-height:1.25; color:var(--blue); margin:0}
+  .ask{font-size:clamp(18px,1.8vw,26px); color:#4a5568; margin-top:auto}
+  .reveal{display:none; border-radius:18px; padding:clamp(14px,1.8vw,24px); font-size:clamp(18px,1.8vw,26px); line-height:1.4}
+  .reveal.on{display:block}
+  .reveal.Gift{background:#e3f4ec; border-left:8px solid var(--green)}
+  .reveal.Ask{background:#fbe7e4; border-left:8px solid var(--red)}
+  .reveal b.v{display:block; font-family:Lora, serif; font-size:clamp(28px,3vw,44px)}
+  .reveal.Gift b.v{color:var(--green)} .reveal.Ask b.v{color:var(--red)}
+  .reveal .fix{margin-top:8px; color:var(--ink)}
+  .reveal .fix i{color:var(--blue)}
+  .controls{display:flex; gap:12px; justify-content:center; margin-top:clamp(14px,2vw,24px); flex-wrap:wrap; align-items:center}
+  .dots{display:flex; gap:8px}
+  .dot{width:14px; height:14px; border-radius:50%; border:none; padding:0; background:rgba(255,255,255,.2)}
+  .dot.on{background:var(--gold-2); transform:scale(1.3)}
+  .keys{font-size:13px; color:var(--muted); text-align:center; margin-top:10px}
+  .hidden{display:none !important}
+  @media (max-width:800px){ .stage{grid-template-columns:1fr} .stage .arrow{display:none} }
+</style>
+</head>
+<body>
+<header>
+  <div class="brand"><b>TED Talks: Ideas Worth Sharing</b><span>Week 3 · Warm-up · Gift or Ask?</span></div>
+  <button class="hbtn" id="fsBtn">Fullscreen</button>
+</header>
+
+<main>
+  <section class="intro" id="intro">
+    <h1>Gift or <em>Ask?</em></h1>
+    <p>You'll hear 8 talk openings. Is the speaker <b>giving</b> you something, or <b>asking</b> you for something?</p>
+    <div class="vote">
+      <div class="g"><b>Gift</b>one hand up</div>
+      <div class="a"><b>Ask</b>two hands up</div>
+    </div>
+    <p style="font-size:clamp(17px,1.6vw,22px)">Then tell your partner: What's wrong? How would you fix it?</p>
+    <button class="big" id="start">Start</button>
+  </section>
+
+  <section class="hidden" id="game" style="width:100%">
+    <div class="stage">
+      <button class="arrow" id="prev" aria-label="Previous">&#9664;</button>
+      <article class="card">
+        <span class="count" id="count"></span>
+        <p class="q" id="q"></p>
+        <p class="ask">Gift or ask? What's wrong? How would you fix it?</p>
+        <div class="reveal" id="reveal"></div>
+      </article>
+      <button class="arrow" id="next" aria-label="Next">&#9654;</button>
+    </div>
+    <div class="controls">
+      <button class="big" id="revealBtn">Reveal</button>
+      <div class="dots" id="dots"></div>
+    </div>
+    <p class="keys">Arrow keys: move · Space: reveal · F: fullscreen</p>
+  </section>
+</main>
+
+<script>
+const items = [
+  {q:"Thank you for having me. Before I start, let me tell you about my company. We were founded in 1998 in Chicago, and today we have offices in twelve countries…", v:"Ask", why:"It's all about the speaker's organization, not about anything useful for us.", fix:"Start with the idea: \"Here's something we discovered that could save you time every day.\""},
+  {q:"Tonight, one in three adults in this room will sleep less than six hours. I want to show you one small change that fixed my sleep, and might fix yours.", v:"Gift", why:"It makes us curious and promises something useful for us.", fix:""},
+  {q:"So… I didn't really prepare anything. I thought I'd just share some thoughts as they come to me…", v:"Ask", why:"The speaker didn't prepare: it tells us our time doesn't matter.", fix:"Prepare one clear idea: \"I want to share one thing I learned this year.\""},
+  {q:"Everything I'm going to talk about is in my new online course. It's 50% off this week only, and the link is on the screen…", v:"Ask", why:"It's selling, not sharing.", fix:"Give the best idea away for free, and leave the course out."},
+  {q:"Three years ago, I couldn't order a coffee in English. Today I'll share the one habit that changed that.", v:"Gift", why:"A personal story and a clear promise of something useful.", fix:""},
+  {q:"Stand up! Close your eyes! Believe, really believe, that you can change the world! Can I get a yes?! Thank you, thank you…", v:"Ask", why:"It asks for applause and emotion, but gives no real content.", fix:"Earn it: share a real experience and what you learned from it."},
+  {q:"Why do we remember some days forever, but forget whole months? The answer surprised me.", v:"Gift", why:"A curious question that makes us want to know the answer.", fix:""},
+  {q:"Our team is truly amazing. Let me introduce each of them: this is Maria from accounting, this is Tom from IT…", v:"Ask", why:"Interesting for the team, but boring for the audience.", fix:"Talk about the work the team did and why it matters to us."}
+];
+const $ = id => document.getElementById(id);
+let i = 0, shown = false;
+$("dots").innerHTML = items.map((_,k)=>`<button class="dot" aria-label="Opening ${k+1}"></button>`).join("");
+[...$("dots").children].forEach((d,k)=>d.onclick=()=>go(k));
+function render(){
+  const it = items[i]; shown = false;
+  $("count").textContent = `Opening ${i+1} of ${items.length}`;
+  $("q").textContent = `"${it.q}"`;
+  const r = $("reveal"); r.className = "reveal " + it.v;
+  r.innerHTML = `<b class="v">${it.v}</b>${it.why}${it.fix ? `<div class="fix"><b>Better:</b> <i>${it.fix}</i></div>` : ""}`;
+  $("revealBtn").textContent = "Reveal";
+  $("prev").disabled = i === 0; $("next").disabled = i === items.length-1;
+  [...$("dots").children].forEach((d,k)=>d.classList.toggle("on",k===i));
+}
+function go(n){ if(n<0||n>=items.length) return; i=n; render(); }
+function toggle(){ shown = !shown; $("reveal").classList.toggle("on", shown); $("revealBtn").textContent = shown ? "Hide" : "Reveal"; }
+$("start").onclick = () => { $("intro").classList.add("hidden"); $("game").classList.remove("hidden"); render(); };
+$("prev").onclick = () => go(i-1); $("next").onclick = () => go(i+1); $("revealBtn").onclick = toggle;
+function fs(){ if(!document.fullscreenElement) document.documentElement.requestFullscreen?.(); else document.exitFullscreen?.(); }
+$("fsBtn").onclick = fs;
+document.addEventListener("keydown", e => {
+  const k = e.key.toLowerCase();
+  if(k === "f") return fs();
+  if($("game").classList.contains("hidden")){ if(k===" "||k==="enter"){ e.preventDefault(); $("start").click(); } return; }
+  if(k === "arrowright") go(i+1); else if(k === "arrowleft") go(i-1); else if(k === " "){ e.preventDefault(); toggle(); }
+});
+</script>
+</body>
+</html>

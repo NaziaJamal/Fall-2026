@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Week 3 Vocabulary Cards</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0f2340; --blue:#143865; --blue-2:#1c4f8f; --gold:#8c7535; --gold-2:#d39f10; --gold-3:#e2c27a;
+    --cream:#f6f2e7; --warm:#efe9d9; --sky:#c1cddd; --muted:#9fb0c8; --ink:#14213a;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0; height:100%}
+  body{background:radial-gradient(ellipse at top, #1b3560 0%, var(--navy) 55%, #081428 100%); color:var(--cream);
+       font-family:Inter, system-ui, sans-serif; display:flex; flex-direction:column; min-height:100vh}
+  button{font-family:inherit; cursor:pointer}
+
+  header{display:flex; align-items:center; justify-content:space-between; gap:12px; padding:14px clamp(16px,3vw,40px); border-bottom:1px solid rgba(211,159,16,.25)}
+  .brand b{display:block; font-family:Lora, serif; font-size:clamp(18px,1.8vw,26px); color:var(--gold-3)}
+  .brand span{font-size:clamp(11px,1vw,14px); color:var(--muted); letter-spacing:.08em; text-transform:uppercase}
+  .tools{display:flex; gap:8px; flex-wrap:wrap}
+  .hbtn{background:rgba(255,255,255,.06); color:var(--cream); border:1px solid rgba(255,255,255,.18); border-radius:10px; padding:9px 14px; font-size:14px; font-weight:600}
+  .hbtn:hover, .hbtn.on{border-color:var(--gold-2); color:var(--gold-3)}
+
+  main{flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:clamp(14px,2.5vw,36px)}
+  .stage{width:100%; max-width:1400px; display:grid; grid-template-columns:auto 1fr auto; gap:clamp(10px,2vw,28px); align-items:center}
+  .arrow{width:clamp(52px,5vw,76px); height:clamp(52px,5vw,76px); border-radius:50%; background:rgba(255,255,255,.07); border:2px solid rgba(255,255,255,.2); color:var(--cream); font-size:clamp(22px,2.4vw,34px)}
+  .arrow:hover{border-color:var(--gold-2); color:var(--gold-3)}
+  .arrow:disabled{opacity:.25; cursor:default}
+
+  .card{background:linear-gradient(160deg, var(--cream) 0%, var(--warm) 100%); color:var(--ink); border-radius:28px;
+        padding:clamp(24px,3.4vw,54px); box-shadow:0 30px 60px rgba(0,0,0,.35); min-height:66vh;
+        display:grid; grid-template-columns:1fr 1.15fr; gap:clamp(20px,3vw,52px); animation:in .35s ease}
+  @keyframes in{from{opacity:0; transform:translateY(10px)}}
+  .left{display:flex; flex-direction:column; gap:clamp(12px,1.6vw,22px); border-right:2px solid rgba(20,56,101,.12); padding-right:clamp(16px,2.6vw,44px)}
+  .count{font-weight:800; font-size:clamp(13px,1.2vw,17px); letter-spacing:.12em; text-transform:uppercase; color:var(--gold)}
+  .word{font-family:Lora, serif; font-weight:700; font-size:clamp(40px,5vw,84px); line-height:1.05; color:var(--blue); word-break:normal; overflow-wrap:normal; hyphens:none}
+  .pos{align-self:flex-start; background:var(--blue); color:var(--gold-3); border-radius:999px; padding:7px 18px; font-weight:700; font-style:italic; font-size:clamp(15px,1.5vw,21px)}
+  .sound{display:flex; gap:10px; flex-wrap:wrap}
+  .play{display:inline-flex; align-items:center; gap:8px; background:var(--gold-2); color:var(--ink); border:none; border-radius:14px; padding:12px 18px; font-weight:800; font-size:clamp(15px,1.4vw,19px)}
+  .play.ghost{background:#fff; border:2px solid var(--sky)}
+  .play.playing{outline:4px solid rgba(211,159,16,.35)}
+
+  .stress-box small, .label{display:block; font-weight:800; font-size:clamp(12px,1.05vw,15px); letter-spacing:.12em; text-transform:uppercase; color:var(--gold); margin-bottom:8px}
+  .syl{display:flex; flex-wrap:wrap; align-items:flex-end; gap:8px}
+  .syl span{font-weight:600; font-size:clamp(22px,2.4vw,36px); color:#6b7a90; padding:4px 10px; border-radius:10px; background:rgba(20,56,101,.06)}
+  .syl span.s{font-weight:800; font-size:clamp(30px,3.4vw,52px); color:#fff; background:var(--blue-2)}
+  .syl span.gap{background:none; padding:0 4px}
+  .ipa{margin-top:10px; font-size:clamp(17px,1.7vw,24px); color:var(--ink); font-family:"Lucida Sans Unicode","Arial Unicode MS",sans-serif}
+
+  .right{display:flex; flex-direction:column; gap:clamp(14px,1.8vw,26px)}
+  .def{font-size:clamp(24px,2.6vw,40px); line-height:1.25; font-weight:600; color:var(--ink); transition:filter .25s}
+  .hide .def, .hide .ex p{filter:blur(12px); user-select:none}
+  .ex{display:flex; flex-direction:column; gap:12px}
+  .ex div{display:flex; gap:12px; align-items:flex-start; background:#fff; border-left:6px solid var(--gold-2); border-radius:12px; padding:14px 16px}
+  .ex p{margin:0; flex:1; font-size:clamp(18px,1.85vw,27px); line-height:1.35}
+  .ex b{color:var(--blue-2)}
+  .mini{flex:none; width:40px; height:40px; border-radius:50%; border:2px solid var(--sky); background:var(--sky-3, #edf2f9); font-size:17px}
+  .mini.playing{background:var(--gold-2); border-color:var(--gold-2)}
+  .talk{margin-top:auto; background:rgba(20,56,101,.07); border-radius:12px; padding:12px 16px; font-size:clamp(15px,1.4vw,19px); color:#3f4b5e}
+  .talk em{font-style:normal; font-weight:700; color:var(--blue-2)}
+  .talk .t{display:inline-block; font-weight:800; font-size:.85em; background:var(--blue); color:var(--gold-3); border-radius:6px; padding:0 7px; margin-right:6px}
+  .talk[hidden]{display:none}
+
+  .nav{display:flex; align-items:center; justify-content:center; gap:10px; flex-wrap:wrap; margin-top:clamp(14px,2vw,26px)}
+  .dot{width:14px; height:14px; border-radius:50%; border:none; padding:0; background:rgba(255,255,255,.2)}
+  .dot.on{background:var(--gold-2); transform:scale(1.35)}
+  .dot.seen{background:rgba(211,159,16,.5)}
+  .keys{font-size:13px; color:var(--muted); text-align:center; margin-top:10px}
+  kbd{background:#081428; border:1px solid rgba(255,255,255,.25); border-radius:5px; padding:1px 6px; color:var(--cream); font-family:inherit}
+
+  @media (max-width:900px){
+    .card{grid-template-columns:1fr; min-height:auto}
+    .left{border-right:none; border-bottom:2px solid rgba(20,56,101,.12); padding-right:0; padding-bottom:18px}
+    .stage{grid-template-columns:1fr}
+    .stage .arrow{display:none}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <b>TED Talks: Ideas Worth Sharing</b>
+    <span>Week 3 · Traps and Throughline · Vocabulary cards</span>
+  </div>
+  <div class="tools">
+    <button class="hbtn" id="hideBtn" title="Hide meaning and examples (H)">Hide meaning</button>
+    <button class="hbtn" id="talkBtn" title="Show the line from the book or talk (T)">Where it comes from</button>
+    <button class="hbtn" id="fsBtn" title="Fullscreen (F)">Fullscreen</button>
+  </div>
+</header>
+
+<main>
+  <div class="stage">
+    <button class="arrow" id="prev" aria-label="Previous word">◂</button>
+    <article class="card" id="card"></article>
+    <button class="arrow" id="next" aria-label="Next word">▸</button>
+  </div>
+  <div class="nav" id="dots"></div>
+  <div class="keys"><kbd>←</kbd> <kbd>→</kbd> move · <kbd>Space</kbd> say the word · <kbd>H</kbd> hide meaning · <kbd>T</kbd> where it comes from · <kbd>F</kbd> fullscreen</div>
+</main>
+
+<script>
+/* Words 1–7: Anderson, Ch. 3–4 · Words 8–14: Matt Cutts (TED-Ed transcript times)
+   syl: syllables; "|" marks a space between words; stressed syllable starts with "*" */
+const W = [
+  { w:"steer clear of", say:"steer clear of", pos:"phrasal verb",
+    syl:["steer","|","*CLEAR","|","of"], ipa:"/stɪr klɪr əv/",
+    def:"to avoid something or someone",
+    ex:["Speakers should <b>steer clear of</b> long lists of numbers on their slides.",
+        "I try to <b>steer clear of</b> coffee after 4 p.m."],
+    t:"Ch. 3", line:"Four talk styles to <em>steer clear of</em>." },
+  { w:"takeaway", say:"takeaway", pos:"noun",
+    syl:["*TAKE","a","way"], ipa:"/ˈteɪkəweɪ/",
+    def:"a useful idea or lesson you remember after a talk, meeting or class",
+    ex:["The main <b>takeaway</b> from her talk was: start small.",
+        "What's one <b>takeaway</b> from today's class?"],
+    t:"Ch. 3 · Sales Pitch", line:"…so that we've got a <em>takeaway</em>." },
+  { w:"wing it", say:"wing it", pos:"idiom (informal)",
+    syl:["*WING","|","it"], ipa:"/wɪŋ ɪt/",
+    def:"to do something without preparing",
+    ex:["I didn't have time to prepare, so I had to <b>wing it</b>.",
+        "Never <b>wing it</b> in a job interview."],
+    t:"Ch. 3 · Ramble", line:"…you really can't just <em>wing it</em>." },
+  { w:"ramble", say:"ramble", pos:"verb / noun",
+    syl:["*RAM","ble"], ipa:"/ˈræmbəl/",
+    def:"to talk for a long time without a clear point",
+    ex:["He <b>rambled</b> for twenty minutes and nobody knew his main idea.",
+        "Sorry, I'm <b>rambling</b>. Let me get to the point."],
+    t:"Ch. 3 · Ramble", line:"<em>Rambling</em> is not an option." },
+  { w:"self-serving", say:"self-serving", pos:"adjective",
+    syl:["self","*SERV","ing"], ipa:"/ˌself ˈsɜrvɪŋ/",
+    def:"helping only yourself, not other people",
+    ex:["The speech felt <b>self-serving</b>: it was really an ad for his company.",
+        "Good advice is about the listener, not <b>self-serving</b>."],
+    t:"Ch. 3 · Org Bore", line:"The other is lazily <em>self-serving</em>." },
+  { w:"credibility", say:"credibility", pos:"noun",
+    syl:["cred","i","*BIL","i","ty"], ipa:"/ˌkredəˈbɪləti/",
+    def:"the quality that makes people believe and trust you",
+    ex:["A personal story gives you <b>credibility</b> on the topic.",
+        "If your facts are wrong, you lose <b>credibility</b>."],
+    t:"Ch. 4 · Checklist", line:"Do I have the <em>credibility</em> to take on this topic?" },
+  { w:"encapsulate", say:"encapsulate", pos:"verb",
+    syl:["en","*CAP","su","late"], ipa:"/ɪnˈkæpsəleɪt/",
+    def:"to express the main idea of something in a short form",
+    ex:["Can you <b>encapsulate</b> your talk in one sentence?",
+        "This photo <b>encapsulates</b> the whole trip."],
+    t:"Ch. 4 · Checklist", line:"…the fifteen words that <em>encapsulate</em> my talk?" },
+  { w:"stuck in a rut", say:"stuck in a rut", pos:"idiom",
+    syl:["stuck","|","in","|","a","|","*RUT"], ipa:"/stʌk ɪn ə rʌt/",
+    def:"bored because your life or work is always the same",
+    ex:["I was <b>stuck in a rut</b>, so I signed up for a dance class.",
+        "Many people feel <b>stuck in a rut</b> in winter."],
+    t:"0:15", line:"I felt like I was <em>stuck in a rut</em>…" },
+  { w:"follow in someone's footsteps", say:"follow in his footsteps", pos:"idiom",
+    syl:["fol","low","|","in","|","his","|","*FOOT","steps"], ipa:"/ˈfɑːloʊ ɪn ... ˈfʊtsteps/",
+    def:"to do the same thing that someone did before you",
+    ex:["She <b>followed in her mother's footsteps</b> and became a nurse.",
+        "I want to <b>follow in the footsteps</b> of great speakers."],
+    t:"0:20", line:"…I decided to <em>follow in the footsteps</em> of… Morgan Spurlock" },
+  { w:"from scratch", say:"from scratch", pos:"idiom",
+    syl:["from","|","*SCRATCH"], ipa:"/frəm skrætʃ/",
+    def:"from the very beginning, with nothing prepared before",
+    ex:["She learned English <b>from scratch</b> at 40.",
+        "I made the cake <b>from scratch</b>, not from a box."],
+    t:"1:44", line:"…their own 50,000-word novel, <em>from scratch</em>, in 30 days." },
+  { w:"sleep-deprived", say:"sleep deprived", pos:"adjective",
+    syl:["*SLEEP","|","de","prived"], ipa:"/ˈsliːp dɪˌpraɪvd/",
+    def:"very tired because you haven't had enough sleep",
+    ex:["New parents are often <b>sleep-deprived</b>.",
+        "I was so <b>sleep-deprived</b> that I forgot my keys."],
+    t:"2:04", line:"You might be <em>sleep-deprived</em>, but you'll finish your novel." },
+  { w:"sustainable", say:"sustainable", pos:"adjective",
+    syl:["sus","*TAIN","a","ble"], ipa:"/səˈsteɪnəbəl/",
+    def:"able to continue for a long time",
+    ex:["Walking 20 minutes a day is a <b>sustainable</b> habit.",
+        "Crash diets are not <b>sustainable</b>."],
+    t:"2:35", line:"…when I made small, <em>sustainable</em> changes…" },
+  { w:"stick", say:"stick", pos:"verb (informal)",
+    syl:["*STICK"], ipa:"/stɪk/",
+    def:"(a habit or change) to last and continue",
+    ex:["New Year's resolutions rarely <b>stick</b>.",
+        "Practice every day so the new words <b>stick</b>."],
+    t:"2:40", line:"…they were more likely to <em>stick</em>." },
+  { w:"give it a shot", say:"give it a shot", pos:"idiom (informal)",
+    syl:["give","|","it","|","a","|","*SHOT"], ipa:"/ɡɪv ɪt ə ʃɑːt/",
+    def:"to try something",
+    ex:["I've never done public speaking, but I'll <b>give it a shot</b>.",
+        "Why not <b>give it a shot</b> for 30 days?"],
+    t:"3:11", line:"…something you have always wanted to try and <em>give it a shot</em>!" }
+];
+
+const $ = id => document.getElementById(id);
+let i = 0, hidden = false, showTalk = false;
+const seen = new Set();
+
+/* ---------- audio ---------- */
+const canSpeak = "speechSynthesis" in window;
+let voice = null;
+function pickVoice(){
+  const vs = canSpeak ? speechSynthesis.getVoices() : [];
+  voice = vs.find(v => v.lang === "en-US" && /Google|Samantha|Aria|Jenny|Natural/i.test(v.name))
+       || vs.find(v => v.lang === "en-US") || vs.find(v => v.lang && v.lang.startsWith("en")) || null;
+}
+if(canSpeak){ pickVoice(); speechSynthesis.onvoiceschanged = pickVoice; }
+function speak(text, rate, btn){
+  if(!canSpeak) return;
+  speechSynthesis.cancel();
+  document.querySelectorAll(".playing").forEach(b => b.classList.remove("playing"));
+  const u = new SpeechSynthesisUtterance(text.replace(/<[^>]+>/g,"").replace(/[“”]/g,""));
+  u.lang = "en-US"; u.rate = rate; if(voice) u.voice = voice;
+  if(btn){ btn.classList.add("playing"); u.onend = u.onerror = () => btn.classList.remove("playing"); }
+  speechSynthesis.speak(u);
+}
+
+/* ---------- render ---------- */
+function sylHTML(s){
+  return s.map(x => x === "|" ? '<span class="gap"></span>'
+    : x.startsWith("*") ? `<span class="s">${x.slice(1)}</span>` : `<span>${x}</span>`).join("");
+}
+function render(){
+  const c = W[i]; seen.add(i);
+  $("card").className = "card" + (hidden ? " hide" : "");
+  $("card").innerHTML = `
+    <div class="left">
+      <span class="count">Word ${i+1} of ${W.length}</span>
+      <div class="word">${c.w}</div>
+      <span class="pos">${c.pos}</span>
+      <div class="sound">
+        ${canSpeak ? `<button class="play" id="sayN">Listen</button><button class="play ghost" id="sayS">Slowly</button>` : ""}
+      </div>
+      <div class="stress-box">
+        <small>Stressed syllable</small>
+        <div class="syl">${sylHTML(c.syl)}</div>
+        <div class="ipa">${c.ipa}</div>
+      </div>
+    </div>
+    <div class="right">
+      <div><span class="label">Meaning</span><div class="def">${c.def}</div></div>
+      <div class="ex">
+        <span class="label">Examples</span>
+        ${c.ex.map((e,k) => `<div>${canSpeak ? `<button class="mini" data-k="${k}" aria-label="Listen to example">&#9654;</button>` : ""}<p>${e}</p></div>`).join("")}
+      </div>
+      <div class="talk" ${showTalk ? "" : "hidden"}><span class="t">${c.t}</span>${c.line}</div>
+    </div>`;
+  if(canSpeak){
+    $("sayN").onclick = e => speak(c.say, .85, e.currentTarget);
+    $("sayS").onclick = e => speak(c.say, .5, e.currentTarget);
+    document.querySelectorAll(".mini").forEach(b => b.onclick = () => speak(c.ex[+b.dataset.k], .9, b));
+  }
+  $("prev").disabled = i === 0;
+  $("next").disabled = i === W.length - 1;
+  [...$("dots").children].forEach((d, k) => { d.classList.toggle("on", k === i); d.classList.toggle("seen", seen.has(k) && k !== i); });
+  requestAnimationFrame(fitWord);
+}
+
+function fitWord(){
+  const el = document.querySelector(".word"); if(!el) return;
+  el.style.fontSize = "";
+  let size = parseFloat(getComputedStyle(el).fontSize);
+  while(el.scrollWidth > el.clientWidth + 1 && size > 24){ size -= 2; el.style.fontSize = size + "px"; }
+}
+window.addEventListener("resize", fitWord);
+function go(n){ if(n < 0 || n >= W.length) return; i = n; if(canSpeak) speechSynthesis.cancel(); render(); }
+
+$("dots").innerHTML = W.map((c, k) => `<button class="dot" title="${c.w}" aria-label="Go to ${c.w}"></button>`).join("");
+[...$("dots").children].forEach((d, k) => d.onclick = () => go(k));
+$("prev").onclick = () => go(i-1);
+$("next").onclick = () => go(i+1);
+
+function toggleHide(){ hidden = !hidden; $("hideBtn").classList.toggle("on", hidden); $("hideBtn").textContent = hidden ? "Show meaning" : "Hide meaning"; render(); }
+function toggleTalk(){ showTalk = !showTalk; $("talkBtn").classList.toggle("on", showTalk); render(); }
+function toggleFS(){ if(!document.fullscreenElement) document.documentElement.requestFullscreen?.(); else document.exitFullscreen?.(); }
+$("hideBtn").onclick = toggleHide;
+$("talkBtn").onclick = toggleTalk;
+$("fsBtn").onclick = toggleFS;
+
+document.addEventListener("keydown", e => {
+  const k = e.key.toLowerCase();
+  if(k === "arrowright") go(i+1);
+  else if(k === "arrowleft") go(i-1);
+  else if(k === " "){ e.preventDefault(); speak(W[i].say, .85, document.getElementById("sayN")); }
+  else if(k === "h") toggleHide();
+  else if(k === "t") toggleTalk();
+  else if(k === "f") toggleFS();
+});
+
+render();
+</script>
+</body>
+</html>

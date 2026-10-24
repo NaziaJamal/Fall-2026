@@ -1,0 +1,755 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Week 3 Worksheet · Traps and Throughline</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0f2340; --blue:#143865; --blue-2:#1c4f8f; --gold:#8c7535; --gold-2:#d39f10;
+    --sky:#c1cddd; --sky-2:#e1e8f2; --sky-3:#edf2f9; --warm:#efe9d9; --paper:#fbf9f3;
+    --ink:#14213a; --muted:#5b6b82; --ok:#1f8a5b; --ok-bg:#e3f4ec; --no:#c0392b; --no-bg:#fbe7e4;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0; background:var(--sky-3); color:var(--ink); font-family:Inter, system-ui, sans-serif; font-size:16px; line-height:1.55}
+  .page{max-width:960px; margin:0 auto; padding:20px 16px 60px}
+
+  .top{background:var(--blue); color:#fff; border-radius:18px; padding:22px 26px; position:relative; overflow:hidden}
+  .top::after{content:""; position:absolute; right:-40px; top:-40px; width:180px; height:180px; border:14px solid var(--gold-2); border-radius:50%; opacity:.25}
+  .school{font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--gold-2); font-weight:700}
+  h1{font-family:Lora, serif; font-size:clamp(26px,4.4vw,38px); margin:4px 0 2px}
+  .top p{margin:0; color:var(--sky)}
+  .goal{margin-top:12px; display:inline-block; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.25); border-radius:12px; padding:6px 14px; font-size:14px}
+
+  .toolbar{position:sticky; top:0; z-index:20; display:flex; flex-wrap:wrap; gap:8px; align-items:center; background:#fff; border:1px solid var(--sky); border-radius:14px; padding:10px 12px; margin:14px 0; box-shadow:0 6px 18px rgba(20,56,101,.08)}
+  .toolbar nav{display:flex; gap:4px; flex-wrap:wrap}
+  .toolbar nav a{text-decoration:none; font-weight:800; color:var(--blue); background:var(--sky-3); border-radius:8px; padding:5px 10px; font-size:14px}
+  .toolbar nav a:hover{background:var(--sky-2)}
+  .toolbar .sp{flex:1}
+  .saved{font-size:13px; color:var(--muted)}
+  .btn{font:inherit; font-weight:700; border-radius:10px; padding:8px 14px; border:2px solid var(--blue); background:var(--blue); color:#fff; cursor:pointer; font-size:14px}
+  .btn:hover{background:var(--blue-2); border-color:var(--blue-2)}
+  .btn.ghost{background:#fff; color:var(--blue)}
+  .btn.gold{background:var(--gold-2); border-color:var(--gold-2); color:var(--ink)}
+
+  .info{display:grid; grid-template-columns:2fr 1fr 1fr; gap:10px; margin-bottom:6px}
+  .info label{display:flex; align-items:center; gap:8px; background:#fff; border:1px solid var(--sky); border-radius:12px; padding:8px 12px; font-weight:600; color:var(--muted)}
+  .info input, .info select{flex:1; border:none; border-bottom:1px solid var(--sky); font:inherit; color:var(--ink); padding:4px; min-width:0; background:transparent}
+
+  .part{margin-top:28px; scroll-margin-top:80px}
+  .part-head{display:flex; align-items:center; gap:14px; margin-bottom:12px}
+  .part-letter{width:52px; height:52px; border-radius:14px; background:var(--navy); color:var(--gold-2); font-family:Lora, serif; font-weight:700; font-size:28px; display:flex; align-items:center; justify-content:center; flex:none}
+  .part-head h2{margin:0; font-family:Lora, serif; color:var(--blue); font-size:26px; line-height:1.15}
+  .part-head p{margin:2px 0 0; color:var(--muted); font-size:14px}
+
+  .task{background:#fff; border:1px solid var(--sky); border-radius:16px; padding:18px 20px; margin-bottom:14px}
+  .task-head{display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin-bottom:6px}
+  .task-head h3{margin:0; font-size:18px; color:var(--blue); flex:1; min-width:200px}
+  .tag{font-size:11px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; border-radius:999px; padding:3px 9px}
+  .t-ind{background:#eef0f4; color:#4a5568}
+  .t-pair{background:#e6f0fb; color:var(--blue-2)}
+  .t-grp{background:#fdf1d2; color:#7a5a00}
+  .t-cls{background:var(--ok-bg); color:var(--ok)}
+  .t-b2p{background:var(--navy); color:var(--gold-2)}
+  .instr{color:var(--muted); margin:0 0 12px; font-size:15px}
+
+  .q{margin:12px 0}
+  .q > label, .ql{display:block; font-weight:600; margin-bottom:5px}
+  textarea, input.line{width:100%; font:inherit; color:var(--ink); border:1px solid var(--sky); border-radius:10px; padding:9px 12px; background:var(--paper); resize:vertical}
+  textarea{min-height:64px}
+  textarea.tall{min-height:100px}
+  textarea:focus, input.line:focus, .gap:focus, select:focus{outline:2px solid var(--gold-2); outline-offset:1px}
+  .frame{font-size:13px; color:var(--gold); font-weight:700; margin-bottom:4px}
+
+  details.help{margin:8px 0; background:#eef5ff; border:1px solid #cfe0f5; border-radius:10px; padding:8px 12px; font-size:14px}
+  details.help summary{cursor:pointer; font-weight:700; color:var(--blue-2)}
+  .gloss{display:grid; grid-template-columns:1fr 1fr; gap:4px 18px; margin-top:6px}
+
+  /* matching */
+  .match{display:grid; grid-template-columns:1.1fr 1fr; gap:18px; align-items:start}
+  .mrow{display:grid; grid-template-columns:24px 36px 1fr 66px; gap:8px; align-items:center; padding:7px 6px; border-bottom:1px solid var(--sky-2); border-radius:8px}
+  .mnum{font-weight:800; color:var(--gold)}
+  .say{width:34px; height:34px; border-radius:50%; border:2px solid var(--sky); background:var(--sky-3); cursor:pointer; font-size:15px}
+  .say.playing{background:var(--gold-2); border-color:var(--gold-2)}
+  .mword{font-weight:700; color:var(--blue)}
+  .pos{display:inline-block; font-size:11px; font-weight:700; font-style:italic; color:var(--gold); background:var(--warm); border-radius:999px; padding:0 8px}
+  select{font:inherit; font-weight:700; border:2px solid var(--sky); border-radius:8px; padding:5px; background:var(--sky-3); color:var(--blue)}
+  .defs{background:var(--sky-3); border-radius:12px; padding:10px 14px; font-size:15px}
+  .def{display:flex; gap:8px; padding:5px 0; border-bottom:1px dashed var(--sky)}
+  .def:last-child{border-bottom:none}
+  .def b{color:var(--gold); min-width:14px}
+
+  /* list items */
+  .item{display:grid; grid-template-columns:28px 1fr auto; gap:10px; align-items:start; padding:9px 6px; border-bottom:1px solid var(--sky-2); border-radius:8px}
+  .item:last-child{border-bottom:none}
+  .n{font-weight:800; color:var(--gold)}
+  .tf{display:flex; gap:6px}
+  .tf label, .mc label{cursor:pointer}
+  .tf input, .mc input{position:absolute; opacity:0; pointer-events:none}
+  .tf span{display:inline-flex; width:40px; height:34px; align-items:center; justify-content:center; border:2px solid var(--sky); border-radius:8px; font-weight:800; color:var(--blue); background:#fff}
+  .tf input:checked + span{background:var(--blue); border-color:var(--blue); color:#fff}
+  .tf input:focus-visible + span, .mc input:focus-visible + span{outline:2px solid var(--gold-2)}
+  .mc{display:flex; flex-direction:column; gap:8px}
+  .mc span{display:block; border:2px solid var(--sky); border-radius:10px; padding:9px 12px; background:#fff}
+  .mc input:checked + span{border-color:var(--blue); background:#eef5ff; font-weight:600}
+  .gap{font:inherit; font-weight:600; color:var(--blue); border:none; border-bottom:2px solid var(--blue-2); background:var(--sky-3); padding:1px 6px; width:8.5em; max-width:100%; border-radius:4px 4px 0 0}
+  .time{display:inline-block; font-size:12px; font-weight:800; color:var(--blue-2); background:var(--sky-2); border-radius:6px; padding:0 6px; margin-right:6px}
+
+  .ok{background:var(--ok-bg) !important}
+  .no{background:var(--no-bg) !important}
+  .gap.ok{border-color:var(--ok)} .gap.no{border-color:var(--no)}
+  select.ok{border-color:var(--ok)} select.no{border-color:var(--no)}
+  .fixnote{grid-column:2 / -1; font-size:13px; color:var(--no); font-weight:600}
+  .checkbar{display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-top:12px}
+  .score{font-weight:800; color:var(--blue); margin-left:auto}
+  .model{display:none; font-size:14px; color:var(--ok); font-weight:600; margin-top:4px}
+  .show-models .model{display:block}
+
+  table.grid{width:100%; border-collapse:collapse; font-size:15px}
+  table.grid th{background:var(--blue); color:#fff; text-align:left; padding:8px 10px}
+  table.grid td{border-bottom:1px solid var(--sky-2); padding:8px 10px; vertical-align:top}
+  table.grid td textarea{min-height:44px}
+  .ref{background:var(--paper); border:1px solid #e6dcbf; border-radius:12px; padding:12px 14px; font-size:15px}
+  .ref table{width:100%; border-collapse:collapse}
+  .ref td,.ref th{padding:6px 8px; border-bottom:1px solid #eee3c6; text-align:left; vertical-align:top}
+  .ref th{color:var(--gold); font-size:12px; letter-spacing:.08em; text-transform:uppercase}
+  .quote{border-left:4px solid var(--gold-2); padding:6px 12px; margin:8px 0; background:var(--paper); border-radius:0 8px 8px 0; font-style:italic}
+  .scale{display:flex; flex-wrap:wrap; gap:6px}
+  .scale label span{display:inline-block; border:2px solid var(--sky); border-radius:999px; padding:5px 12px; font-size:14px; font-weight:600; background:#fff; cursor:pointer}
+  .scale input{position:absolute; opacity:0}
+  .scale input:checked + span{background:var(--blue); color:#fff; border-color:var(--blue)}
+  .checks{display:flex; flex-wrap:wrap; gap:8px 18px}
+  .checks label{display:flex; gap:6px; align-items:center; font-weight:500}
+  .checks input{width:18px; height:18px; accent-color:var(--blue)}
+
+  .bp{border:2px solid var(--blue); border-radius:16px; padding:16px 18px; background:#fff}
+  .bp h3{font-family:Lora, serif; color:var(--blue); margin:0 0 4px}
+  footer{text-align:center; color:var(--muted); font-size:12px; margin-top:28px}
+
+  @media (max-width:720px){
+    .info{grid-template-columns:1fr}
+    .match{grid-template-columns:1fr}
+    .defs{order:-1}
+    .gloss{grid-template-columns:1fr}
+    .item{grid-template-columns:24px 1fr}
+    .item > .tf{grid-column:2}
+    table.grid, table.grid tbody, table.grid tr, table.grid td{display:block; width:100%}
+    table.grid tr:first-child{display:none}
+    table.grid td{border:none; padding:4px 0}
+    table.grid tr{border-bottom:1px solid var(--sky); padding:8px 0}
+  }
+
+  @media print{
+    @page{margin:11mm}
+    body{background:#fff; font-size:11.5px}
+    .page{max-width:none; padding:0}
+    .toolbar, .checkbar, .say, .no-print{display:none !important}
+    .top{background:#fff; color:var(--ink); border:2px solid var(--blue); padding:10px 14px}
+    .top::after{display:none}
+    .top p, .goal{color:var(--muted); border-color:#999; background:none}
+    .task{border-color:#999; break-inside:avoid; padding:10px 12px}
+    .part{break-before:page; margin-top:0}
+    #partA{break-before:auto}
+    textarea, input.line{background:#fff; border:none; border-bottom:1px solid #777; border-radius:0; resize:none}
+    textarea{min-height:46px}
+    textarea.tall{min-height:72px}
+    .ok, .no{background:none !important}
+    details.help{border-color:#bbb; background:none}
+    details.help:not([open]){display:none}
+    .model{display:none !important}
+  }
+</style>
+<style>
+  .inline-sel{font:inherit; font-weight:600; font-size:15px; padding:2px 4px; border-radius:6px; border:2px solid var(--sky); background:var(--sky-3); color:var(--blue); max-width:100%}
+  .para{background:var(--paper); border:1px solid #e6dcbf; border-radius:12px; padding:14px 16px; line-height:2.1}
+  .wc{font-size:13px; font-weight:700; margin-top:4px}
+  .wc.good{color:var(--ok)} .wc.bad{color:var(--no)}
+  .opening{background:var(--paper); border-left:5px solid var(--gold-2); border-radius:0 10px 10px 0; padding:8px 12px; font-style:italic; margin-bottom:6px}
+  .ga{display:grid; grid-template-columns:28px 1fr; gap:8px; padding:10px 6px; border-bottom:1px solid var(--sky-2)}
+  .ga:last-child{border-bottom:none}
+  .ga .ctrl{display:flex; flex-wrap:wrap; gap:8px; align-items:center}
+  .ga input.line{flex:1; min-width:180px}
+  .outline td:first-child{font-weight:700; color:var(--blue); width:24%}
+  @media print{ .inline-sel{border:none; border-bottom:1px solid #333; border-radius:0; background:none} .para{background:none} .wc{display:none} }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="top">
+    <div class="school">Approach International Student Center</div>
+    <h1>Week 3 · Traps and Throughline</h1>
+    <p>TED Talks: Ideas Worth Sharing · B2 · B2+ · Student Worksheet</p>
+    <span class="goal">Today's goal: avoid the four traps, and build your talk around one throughline of 15 words or fewer.</span>
+  </header>
+
+  <div class="toolbar">
+    <nav>
+      <a href="#partA">A</a><a href="#partB">B</a><a href="#partC">C</a><a href="#partD">D</a><a href="#partE">E</a><a href="#partF">F</a>
+    </nav>
+    <span class="sp"></span>
+    <span class="saved" id="saved">Your answers save on this device.</span>
+    <button class="btn ghost" id="dl">Download answers</button>
+    <button class="btn gold" onclick="window.print()">Print / Save PDF</button>
+  </div>
+
+  <div class="info">
+    <label>Name <input type="text" data-k="name" data-label="Name"></label>
+    <label>Date <input type="text" data-k="date" data-label="Date"></label>
+    <label>Level <select data-k="level" data-label="Level"><option value="">–</option><option>B2</option><option>B2+</option></select></label>
+  </div>
+
+<!-- ======================= PART A ======================= -->
+<section class="part" id="partA">
+  <div class="part-head"><div class="part-letter">A</div><div><h2>Warm-up and Vocabulary</h2><p>Is a talk a gift, or an ask?</p></div></div>
+
+  <div class="task" id="giftask">
+    <div class="task-head"><h3>A1 · Gift or Ask?</h3><span class="tag t-pair">Pairs</span><span class="tag t-cls">Then class</span></div>
+    <p class="instr">Read (or listen to) each talk opening. Is the speaker <b>giving</b> the audience something, or <b>asking</b> for something (attention, money, applause)? Choose, then say what is wrong and how to fix it.</p>
+    <div id="gaItems"></div>
+    <div class="checkbar"><button class="btn" data-check="giftask">Check</button><button class="btn ghost" data-reset="giftask">Reset</button><span class="score"></span></div>
+  </div>
+
+  <div class="task" id="vocab">
+    <div class="task-head"><h3>A2 · Match the words</h3><span class="tag t-pair">Pairs</span><span class="tag t-ind">Controlled</span></div>
+    <p class="instr">Press the speaker button to hear the word. Words 1–7 are from the book; 8–14 are from the Matt Cutts talk. Choose the meaning (a–n).</p>
+    <div class="match">
+      <div id="mwords"></div>
+      <div class="defs" id="mdefs"></div>
+    </div>
+    <div class="checkbar"><button class="btn" data-check="vocab">Check answers</button><button class="btn ghost" data-reset="vocab">Reset</button><span class="score"></span></div>
+  </div>
+
+  <div class="task">
+    <div class="task-head"><h3>A3 · Use the words</h3><span class="tag t-ind">Semi-controlled</span><span class="tag t-pair">Then share</span></div>
+    <p class="instr">Complete the sentences about <b>you</b>. Read two of them to your partner.</p>
+    <div class="q"><div class="frame">I felt stuck in a rut when…</div><input class="line" data-k="a3_1" data-label="A3.1 stuck in a rut"></div>
+    <div class="q"><div class="frame">Something I learned from scratch is…</div><input class="line" data-k="a3_2" data-label="A3.2 from scratch"></div>
+    <div class="q"><div class="frame">One time I had to wing it was…</div><input class="line" data-k="a3_3" data-label="A3.3 wing it"></div>
+    <div class="q"><div class="frame">A sustainable habit I'd like to start is…</div><input class="line" data-k="a3_4" data-label="A3.4 sustainable"></div>
+  </div>
+</section>
+
+<!-- ======================= PART B ======================= -->
+<section class="part" id="partB">
+  <div class="part-head"><div class="part-letter">B</div><div><h2>Guided Reading · The Four Traps</h2><p>Chris Anderson, <i>TED Talks</i>, Ch. 3 "Common Traps"</p></div></div>
+
+  <div class="task">
+    <div class="task-head"><h3>B1 · Predict</h3><span class="tag t-pair">Pairs</span></div>
+    <p class="instr">The chapter is called <b>"Common Traps: Four Talk Styles to Avoid."</b></p>
+    <div class="q"><label>What do you think the four traps are? Think about the worst talks you have seen.</label><textarea data-k="b1" data-label="B1 Prediction"></textarea></div>
+  </div>
+
+  <div class="task">
+    <div class="task-head"><h3>B2 · Expert group</h3><span class="tag t-grp">Groups</span></div>
+    <p class="instr">Your group reads <b>one trap card</b>. Prepare to teach it in 2 minutes, <b>without reading from the card</b>.</p>
+    <div class="q"><label>My trap:</label>
+      <select data-k="b2_trap" data-label="B2 My trap">
+        <option value="">– choose –</option><option>1 · The Sales Pitch</option><option>2 · The Ramble</option><option>3 · The Org Bore</option><option>4 · The Inspiration Performance</option>
+      </select>
+    </div>
+    <div class="q"><label>1. What is this trap, in one sentence?</label><input class="line" data-k="b2_1" data-label="B2.1 What"></div>
+    <div class="q"><label>2. Anderson's example (who? what happened?)</label><textarea data-k="b2_2" data-label="B2.2 Example"></textarea></div>
+    <div class="q"><label>3. Why does it fail?</label><input class="line" data-k="b2_3" data-label="B2.3 Why it fails"></div>
+    <div class="q"><label>4. What should a speaker do instead?</label><input class="line" data-k="b2_4" data-label="B2.4 Instead"></div>
+  </div>
+
+  <div class="task">
+    <div class="task-head"><h3>B3 · Teaching group</h3><span class="tag t-grp">Groups of 4</span></div>
+    <p class="instr">Each expert teaches their trap (2–3 minutes). Complete the table.</p>
+    <table class="grid">
+      <tr><th style="width:22%">Trap</th><th>What it is</th><th>What to do instead</th></tr>
+      <tr><td><b>1</b> The Sales Pitch</td><td><textarea data-k="b3_1a" data-label="B3 Sales Pitch: what"></textarea></td><td><textarea data-k="b3_1b" data-label="B3 Sales Pitch: instead"></textarea></td></tr>
+      <tr><td><b>2</b> The Ramble</td><td><textarea data-k="b3_2a" data-label="B3 Ramble: what"></textarea></td><td><textarea data-k="b3_2b" data-label="B3 Ramble: instead"></textarea></td></tr>
+      <tr><td><b>3</b> The Org Bore</td><td><textarea data-k="b3_3a" data-label="B3 Org Bore: what"></textarea></td><td><textarea data-k="b3_3b" data-label="B3 Org Bore: instead"></textarea></td></tr>
+      <tr><td><b>4</b> The Inspiration Performance</td><td><textarea data-k="b3_4a" data-label="B3 Inspiration: what"></textarea></td><td><textarea data-k="b3_4b" data-label="B3 Inspiration: instead"></textarea></td></tr>
+    </table>
+  </div>
+
+  <div class="task" id="spot">
+    <div class="task-head"><h3>B4 · Spot the trap</h3><span class="tag t-ind">Controlled</span></div>
+    <p class="instr">Which trap is each speaker falling into? Choose 1–4.</p>
+    <div id="spotItems"></div>
+    <div class="checkbar"><button class="btn" data-check="spot">Check answers</button><button class="btn ghost" data-reset="spot">Reset</button><span class="score"></span></div>
+  </div>
+
+  <div class="task">
+    <div class="task-head"><h3>B5 · Bad Talk Charades</h3><span class="tag t-grp">Groups</span><span class="tag t-cls">Perform</span></div>
+    <p class="instr">Your group gets a <b>secret trap</b> and a <b>topic</b>. Plan a 30-second <b>terrible</b> talk in that style. The class guesses the trap. Then give the <b>fixed</b> version: one good opening line.</p>
+    <div class="q"><label>Our topic and secret trap:</label><input class="line" data-k="b5_1" data-label="B5 Topic and trap"></div>
+    <div class="q"><label>Our terrible version (key words):</label><textarea data-k="b5_2" data-label="B5 Terrible version"></textarea></div>
+    <div class="q"><label>Our fixed opening line (a gift, not an ask):</label><input class="line" data-k="b5_3" data-label="B5 Fixed opening"></div>
+  </div>
+</section>
+
+<!-- ======================= PART C ======================= -->
+<section class="part" id="partC">
+  <div class="part-head"><div class="part-letter">C</div><div><h2>Watch and Analyze</h2><p>Matt Cutts, "Try something new for 30 days" (TED, about 3.5 minutes)</p></div></div>
+
+  <div class="task">
+    <div class="task-head"><h3>C1 · Before you watch</h3><span class="tag t-pair">Pairs</span></div>
+    <div class="q"><label>The title is "Try something new for 30 days." What might the speaker have tried? Why 30 days?</label><textarea data-k="c1" data-label="C1 Prediction"></textarea></div>
+  </div>
+
+  <div class="task" id="mc">
+    <div class="task-head"><h3>C2 · Viewing 1: the big picture</h3><span class="tag t-ind">Controlled</span><span class="tag t-pair">Then compare</span></div>
+    <p class="instr">Which sentence is closest to the <b>throughline</b> of the talk?</p>
+    <div class="mc ck" data-ans="c" data-k="c2mc" data-label="C2 Throughline (choice)">
+      <label><input type="radio" name="mc1" value="a"><span>a) Everyone should try to write a novel in November.</span></label>
+      <label><input type="radio" name="mc1" value="b"><span>b) Big, crazy challenges are the best way to build new habits.</span></label>
+      <label><input type="radio" name="mc1" value="c"><span>c) Trying something new for 30 days is a simple way to change your life.</span></label>
+      <label><input type="radio" name="mc1" value="d"><span>d) Computer scientists should spend more time outdoors.</span></label>
+    </div>
+    <div class="checkbar"><button class="btn" data-check="mc">Check</button><span class="score"></span></div>
+    <div class="q"><label>Now write his throughline <b>in your own words</b> (15 words or fewer):</label><input class="line wcount" data-k="c2" data-label="C2 Throughline in my words"><div class="wc"></div></div>
+  </div>
+
+  <div class="task" id="seq">
+    <div class="task-head"><h3>C3 · Viewing 2: map the talk</h3><span class="tag t-ind">Controlled</span></div>
+    <p class="instr">Put the parts of the talk in order (1–7). This is the talk's <b>outline</b>.</p>
+    <div id="seqItems"></div>
+    <div class="checkbar"><button class="btn" data-check="seq">Check order</button><button class="btn ghost" data-reset="seq">Reset</button><span class="score"></span></div>
+  </div>
+
+  <div class="task" id="gaps">
+    <div class="task-head"><h3>C4 · Viewing 3: listen for the words</h3><span class="tag t-ind">Controlled</span></div>
+    <p class="instr">Write <b>one word</b> in each gap. Times are from the TED-Ed transcript.</p>
+    <div id="gapItems"></div>
+    <div class="checkbar"><button class="btn" data-check="gaps">Check answers</button><button class="btn ghost" data-reset="gaps">Reset</button><span class="score"></span></div>
+  </div>
+
+  <div class="task">
+    <div class="task-head"><h3>C5 · Does Cutts pass the checklist?</h3><span class="tag t-grp">Groups</span></div>
+    <p class="instr">Use questions from Anderson's checklist. Mark each one and give evidence from the talk.</p>
+    <table class="grid">
+      <tr><th style="width:38%">Question</th><th style="width:15%">Yes?</th><th>Evidence</th></tr>
+      <tr><td>Does it make people curious?</td><td><select data-k="c5_1p" data-label="C5.1"><option value="">–</option><option>Yes</option><option>Partly</option><option>No</option></select></td><td><textarea data-k="c5_1e" data-label="C5.1 Evidence"></textarea></td></tr>
+      <tr><td>Is it a gift, not an ask?</td><td><select data-k="c5_2p" data-label="C5.2"><option value="">–</option><option>Yes</option><option>Partly</option><option>No</option></select></td><td><textarea data-k="c5_2e" data-label="C5.2 Evidence"></textarea></td></tr>
+      <tr><td>Can he explain it, with examples, in the time?</td><td><select data-k="c5_3p" data-label="C5.3"><option value="">–</option><option>Yes</option><option>Partly</option><option>No</option></select></td><td><textarea data-k="c5_3e" data-label="C5.3 Evidence"></textarea></td></tr>
+      <tr><td>Does he have the credibility to talk about it?</td><td><select data-k="c5_4p" data-label="C5.4"><option value="">–</option><option>Yes</option><option>Partly</option><option>No</option></select></td><td><textarea data-k="c5_4e" data-label="C5.4 Evidence"></textarea></td></tr>
+      <tr><td>Does he avoid all four traps?</td><td><select data-k="c5_5p" data-label="C5.5"><option value="">–</option><option>Yes</option><option>Partly</option><option>No</option></select></td><td><textarea data-k="c5_5e" data-label="C5.5 Evidence"></textarea></td></tr>
+    </table>
+  </div>
+
+  <div class="task">
+    <div class="task-head"><h3>C6 · Your 30-day challenge</h3><span class="tag t-cls">Class discussion</span></div>
+    <div class="q"><label>What would you try for 30 days? Would it be a small, sustainable change or a big, crazy challenge?</label><textarea data-k="c6" data-label="C6 My 30-day challenge"></textarea></div>
+  </div>
+</section>
+
+<!-- ======================= PART D ======================= -->
+<section class="part" id="partD">
+  <div class="part-head"><div class="part-letter">D</div><div><h2>Language Focus · Signposting</h2><p>Show your audience where you are going</p></div></div>
+
+  <div class="task" id="notice">
+    <div class="task-head"><h3>D1 · Notice: Cutts's signposts</h3><span class="tag t-pair">Pairs</span><span class="tag t-ind">Controlled</span></div>
+    <p class="instr">These phrases are from the talk. What job does each one do? Choose a–f.</p>
+    <div class="defs" style="margin-bottom:10px">
+      <div class="def"><b>a</b><span>introduces the main idea</span></div>
+      <div class="def"><b>b</b><span>tells you a list is coming</span></div>
+      <div class="def"><b>c</b><span>starts the first point</span></div>
+      <div class="def"><b>d</b><span>adds another point</span></div>
+      <div class="def"><b>e</b><span>introduces the final point</span></div>
+      <div class="def"><b>f</b><span>moves to the ending / talks to the audience directly</span></div>
+    </div>
+    <div id="noticeItems"></div>
+    <div class="checkbar"><button class="btn" data-check="notice">Check answers</button><button class="btn ghost" data-reset="notice">Reset</button><span class="score"></span></div>
+  </div>
+
+  <div class="task">
+    <div class="task-head"><h3>D2 · Signposting toolkit</h3><span class="tag t-cls">Reference</span></div>
+    <div class="ref">
+      <table>
+        <tr><th style="width:26%">Job</th><th>Useful phrases</th></tr>
+        <tr><td><b>Introduce the topic</b></td><td>Today I want to talk about… · The idea is simple: …</td></tr>
+        <tr><td><b>Preview the structure</b></td><td>I'll share three things I learned. · There are two reasons…</td></tr>
+        <tr><td><b>Order your points</b></td><td>First, … · The second thing is… · Finally, … / Here's one last thing…</td></tr>
+        <tr><td><b>Add a point</b></td><td>I also noticed… · On top of that, … · What's more, …</td></tr>
+        <tr><td><b>Give an example</b></td><td>For example, … · Let me give you an example. · Take…</td></tr>
+        <tr><td><b>Contrast</b></td><td>But here's the surprising part… · On the other hand, …</td></tr>
+        <tr><td><b>Move on</b></td><td>Now let's look at… · That brings me to… · So, …</td></tr>
+        <tr><td><b>Emphasize</b></td><td>Here's the key point. · What really matters is… (cleft!)</td></tr>
+        <tr><td><b>Sum up and end</b></td><td>So, to sum up, … · Here's my question to you: … · So why not…?</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="task" id="choose">
+    <div class="task-head"><h3>D3 · Choose the best signpost</h3><span class="tag t-ind">Controlled</span></div>
+    <p class="instr">Read this mini-talk. Choose the best signpost for each gap.</p>
+    <div class="para" id="chooseText"></div>
+    <div class="checkbar"><button class="btn" data-check="choose">Check answers</button><button class="btn ghost" data-reset="choose">Reset</button><span class="score"></span></div>
+  </div>
+
+  <div class="task">
+    <div class="task-head"><h3>D4 · Fix the ramble</h3><span class="tag t-ind">Semi-controlled</span><span class="tag t-pair">Then compare</span></div>
+    <p class="instr">This speaker is rambling. Rewrite it with <b>at least four signposts</b> so the audience can follow. You can change the order.</p>
+    <div class="ref" style="font-style:italic">"Libraries are great. They have free classes. When I moved here I didn't know anyone. You can borrow movies. I made friends in the conversation group. It's free. My English got better. Also there's free Wi-Fi. I think everyone should go."</div>
+    <div class="q"><label>Your version:</label><textarea class="tall" data-k="d4" data-label="D4 Fixed ramble"></textarea></div>
+    <div class="checkbar"><button class="btn ghost" id="showD4">Show a model answer</button></div>
+    <div class="model" id="d4model" style="display:none">Model: "Today I want to talk about a place most people forget: the public library. I'll share three reasons it changed my life here. First, it's free: free classes, free movies, even free Wi-Fi. Second, it helped my English. When I moved here, I didn't know anyone, so I joined the conversation group. That brings me to the third reason: I made real friends there. So here's my question to you: when will you visit your library?"</div>
+  </div>
+
+  <div class="task">
+    <div class="task-head"><h3>D5 · Signpost your own talk</h3><span class="tag t-ind">Freer</span></div>
+    <p class="instr">Write one signpost you will use in <b>your</b> talk for each job.</p>
+    <div class="q"><div class="frame">Introduce your idea</div><input class="line" data-k="d5_1" data-label="D5 Introduce"></div>
+    <div class="q"><div class="frame">Preview your points</div><input class="line" data-k="d5_2" data-label="D5 Preview"></div>
+    <div class="q"><div class="frame">Move to your last point</div><input class="line" data-k="d5_3" data-label="D5 Last point"></div>
+    <div class="q"><div class="frame">End / talk to the audience</div><input class="line" data-k="d5_4" data-label="D5 End"></div>
+  </div>
+</section>
+
+<!-- ======================= PART E ======================= -->
+<section class="part" id="partE">
+  <div class="part-head"><div class="part-letter">E</div><div><h2>Speaking · Talk Map Trios</h2><p>Can your listeners draw the map of your talk?</p></div></div>
+
+  <div class="task">
+    <div class="task-head"><h3>E1 · Plan a 90-second mini-talk</h3><span class="tag t-ind">Individual</span></div>
+    <p class="instr">Use your idea from Week 2. Key words only. Use signposts from D5.</p>
+    <div class="q"><label>My throughline (draft):</label><input class="line wcount" data-k="e1_0" data-label="E1 Throughline draft"><div class="wc"></div></div>
+    <div class="q"><label>Point 1</label><input class="line" data-k="e1_1" data-label="E1 Point 1"></div>
+    <div class="q"><label>Point 2</label><input class="line" data-k="e1_2" data-label="E1 Point 2"></div>
+    <div class="q"><label>Point 3 (optional)</label><input class="line" data-k="e1_3" data-label="E1 Point 3"></div>
+    <div class="q"><label>Ending</label><input class="line" data-k="e1_4" data-label="E1 Ending"></div>
+  </div>
+
+  <div class="task">
+    <div class="task-head"><h3>E2 · Talk map (for the mapper)</h3><span class="tag t-grp">Trios</span></div>
+    <p class="instr">Roles: <b>Speaker</b> (90 seconds) · <b>Listener</b> (asks one question, checks for traps) · <b>Mapper</b> (draws the talk map). Rotate roles three times. Write the maps you draw for the others below.</p>
+    <table class="grid">
+      <tr><th style="width:18%">Speaker</th><th>Throughline I heard</th><th>Points I heard (in order)</th><th style="width:20%">Signposts heard</th></tr>
+      <tr><td><input class="line" data-k="e2_1n" data-label="E2 Map 1 speaker"></td><td><textarea data-k="e2_1t" data-label="E2 Map 1 throughline"></textarea></td><td><textarea data-k="e2_1p" data-label="E2 Map 1 points"></textarea></td><td><textarea data-k="e2_1s" data-label="E2 Map 1 signposts"></textarea></td></tr>
+      <tr><td><input class="line" data-k="e2_2n" data-label="E2 Map 2 speaker"></td><td><textarea data-k="e2_2t" data-label="E2 Map 2 throughline"></textarea></td><td><textarea data-k="e2_2p" data-label="E2 Map 2 points"></textarea></td><td><textarea data-k="e2_2s" data-label="E2 Map 2 signposts"></textarea></td></tr>
+    </table>
+    <details class="help" open><summary>Feedback frames</summary>
+      <div class="gloss">
+        <div><b>Map check</b><br>· Your throughline was clear when you said…<br>· I could follow you from ___ to ___ because you said "…"<br>· I got lost after…</div>
+        <div><b>Trap check</b><br>· I didn't hear any traps.<br>· This part felt a little like a ___ (ramble / sales pitch…).<br>· One signpost that would help is…</div>
+      </div>
+    </details>
+  </div>
+
+  <div class="task">
+    <div class="task-head"><h3>E3 · What changed?</h3><span class="tag t-ind">Reflection</span></div>
+    <div class="q"><label>Compare your map (drawn by your mapper) with your plan. What will you change?</label><textarea data-k="e3" data-label="E3 What will I change"></textarea></div>
+  </div>
+</section>
+
+<!-- ======================= PART F ======================= -->
+<section class="part" id="partF">
+  <div class="part-head"><div class="part-letter">F</div><div><h2>Build Your Talk · Throughline + Outline</h2><p>Week 3 milestone · due at the start of Week 4</p></div></div>
+
+  <div class="bp">
+    <h3>1 · My throughline</h3>
+    <p class="instr">15 words or fewer. It connects every part of your talk.</p>
+    <input class="line wcount" data-k="f1" data-label="F1 Throughline"><div class="wc"></div>
+
+    <h3 style="margin-top:16px">2 · Throughline checklist</h3>
+    <div class="checks" data-k="f2" data-label="F2 Checklist" data-type="checks" style="flex-direction:column">
+      <label><input type="checkbox" value="I care about it">I really care about this topic.</label>
+      <label><input type="checkbox" value="curious">It will make people curious.</label>
+      <label><input type="checkbox" value="difference">Knowing this will make a difference to my audience.</label>
+      <label><input type="checkbox" value="gift">It's a gift, not an ask.</label>
+      <label><input type="checkbox" value="fresh">It's fresh, not something everyone has heard.</label>
+      <label><input type="checkbox" value="time">I can explain it, with examples, in my time (B2: 4–5 min · B2+: 6–7 min).</label>
+      <label><input type="checkbox" value="know enough">I know enough about it.</label>
+      <label><input type="checkbox" value="credibility">I have the credibility to talk about it.</label>
+      <label><input type="checkbox" value="15 words">I can say it in 15 words.</label>
+      <label><input type="checkbox" value="persuade">Those 15 words would make someone want to listen.</label>
+    </div>
+
+    <h3 style="margin-top:16px">3 · My one listener</h3>
+    <p class="instr">Elizabeth Gilbert's tip: prepare your talk for one real person: curious, smart, not an expert, and someone you like.</p>
+    <input class="line" data-k="f3" data-label="F3 My one listener" placeholder="Who? Why this person?">
+
+    <h3 style="margin-top:16px">4 · My outline</h3>
+    <table class="grid outline">
+      <tr><th>Part</th><th>What I'll say (key words)</th><th style="width:28%">Signpost</th></tr>
+      <tr><td>Opening / hook</td><td><textarea data-k="f4_o" data-label="F4 Opening"></textarea></td><td><input class="line" data-k="f4_os" data-label="F4 Opening signpost"></td></tr>
+      <tr><td>Point 1</td><td><textarea data-k="f4_1" data-label="F4 Point 1"></textarea></td><td><input class="line" data-k="f4_1s" data-label="F4 Point 1 signpost"></td></tr>
+      <tr><td>Point 2</td><td><textarea data-k="f4_2" data-label="F4 Point 2"></textarea></td><td><input class="line" data-k="f4_2s" data-label="F4 Point 2 signpost"></td></tr>
+      <tr><td>Point 3 <span class="tag t-b2p">B2+</span></td><td><textarea data-k="f4_3" data-label="F4 Point 3"></textarea></td><td><input class="line" data-k="f4_3s" data-label="F4 Point 3 signpost"></td></tr>
+      <tr><td>Ending</td><td><textarea data-k="f4_e" data-label="F4 Ending"></textarea></td><td><input class="line" data-k="f4_es" data-label="F4 Ending signpost"></td></tr>
+    </table>
+    <h3 style="margin-top:16px">5 · Trap check</h3>
+    <div class="checks" data-k="f5" data-label="F5 Trap check" data-type="checks">
+      <label><input type="checkbox" value="no pitch">No sales pitch</label>
+      <label><input type="checkbox" value="no ramble">No ramble: every part links to my throughline</label>
+      <label><input type="checkbox" value="no org">No org bore</label>
+      <label><input type="checkbox" value="no performance">No inspiration performance</label>
+    </div>
+  </div>
+
+  <div class="task" style="margin-top:14px; border:2px dashed var(--gold-2)">
+    <div class="task-head"><h3>Exit ticket</h3><span class="tag t-ind">Individual</span></div>
+    <div class="q"><label>1. My throughline is…</label><input class="line" data-k="x1" data-label="Exit 1 Throughline"></div>
+    <div class="q"><label>2. The trap I need to watch out for is… because…</label><input class="line" data-k="x2" data-label="Exit 2 Trap"></div>
+  </div>
+
+  <div class="task">
+    <div class="task-head"><h3>Before next class</h3></div>
+    <ul style="margin:0">
+      <li>Say your throughline out loud to one person. What was clear? What was missing?</li>
+      <li>Finish your outline and bring it to Week 4. You will add a <b>story</b> to it.</li>
+    </ul>
+  </div>
+</section>
+
+<footer>Approach International Student Center · TED Talks: Ideas Worth Sharing · Week 3</footer>
+</div>
+
+<script>
+const $ = s => document.querySelector(s);
+const $$ = s => [...document.querySelectorAll(s)];
+
+/* ---------------- DATA ---------------- */
+const openings = [
+  ["Thank you for having me. Before I start, let me tell you about my company. We were founded in 1998 in Chicago, and today we have offices in twelve countries…","Ask"],
+  ["Tonight, one in three adults in this room will sleep less than six hours. I want to show you one small change that fixed my sleep, and might fix yours.","Gift"],
+  ["So… I didn't really prepare anything. I thought I'd just share some thoughts as they come to me…","Ask"],
+  ["Everything I'm going to talk about is in my new online course. It's 50% off this week only, and the link is on the screen…","Ask"],
+  ["Three years ago, I couldn't order a coffee in English. Today I'll share the one habit that changed that.","Gift"],
+  ["Stand up! Close your eyes! Believe, really believe, that you can change the world! Can I get a yes?! Thank you, thank you…","Ask"],
+  ["Why do we remember some days forever, but forget whole months? The answer surprised me.","Gift"],
+  ["Our team is truly amazing. Let me introduce each of them: this is Maria from accounting, this is Tom from IT…","Ask"]
+];
+const vocab = [
+  {w:"steer clear of",  say:"steer clear of",  pos:"phrasal verb", ans:"c"},
+  {w:"takeaway",        say:"takeaway",        pos:"noun",         ans:"d"},
+  {w:"wing it",         say:"wing it",         pos:"idiom",        ans:"e"},
+  {w:"ramble",          say:"ramble",          pos:"verb",         ans:"f"},
+  {w:"self-serving",    say:"self-serving",    pos:"adjective",    ans:"h"},
+  {w:"credibility",     say:"credibility",     pos:"noun",         ans:"j"},
+  {w:"encapsulate",     say:"encapsulate",     pos:"verb",         ans:"l"},
+  {w:"stuck in a rut",  say:"stuck in a rut",  pos:"idiom",        ans:"g"},
+  {w:"follow in someone's footsteps", say:"follow in his footsteps", pos:"idiom", ans:"k"},
+  {w:"from scratch",    say:"from scratch",    pos:"idiom",        ans:"a"},
+  {w:"sleep-deprived",  say:"sleep deprived",  pos:"adjective",    ans:"m"},
+  {w:"sustainable",     say:"sustainable",     pos:"adjective",    ans:"b"},
+  {w:"stick",           say:"stick",           pos:"verb",         ans:"n"},
+  {w:"give it a shot",  say:"give it a shot",  pos:"idiom",        ans:"i"}
+];
+const defs = [
+  ["a","from the very beginning, with nothing prepared before"],
+  ["b","able to continue for a long time"],
+  ["c","to avoid something or someone"],
+  ["d","a useful idea or lesson you remember afterward"],
+  ["e","to do something without preparing"],
+  ["f","to talk for a long time without a clear point"],
+  ["g","bored because your life or work is always the same"],
+  ["h","helping only yourself, not other people"],
+  ["i","to try something"],
+  ["j","the quality that makes people believe and trust you"],
+  ["k","to do the same thing someone did before you"],
+  ["l","to express the main idea in a short form"],
+  ["m","very tired because you haven't had enough sleep"],
+  ["n","(a habit or change) to last and continue"]
+];
+const spots = [
+  ["A speaker shows a slide with the cover of her new book and its price.","1"],
+  ["A speaker says, \"I'll just talk about whatever comes to mind.\"","2"],
+  ["A CEO spends ten minutes showing photos of his offices and his team.","3"],
+  ["A speaker keeps pausing for applause and ends with arms open, shouting \"Dream big!\", but shares no real evidence.","4"],
+  ["A speaker jumps from topic to topic and runs over time.","2"],
+  ["A consultant only talks about companies that became successful after hiring him.","1"],
+  ["A manager explains the history of her department, year by year, since 2005.","3"],
+  ["A speaker copies jokes and moves from famous TED Talks to look inspiring.","4"]
+];
+const seq = [
+  ["He says he felt stuck in a rut, so he tried something new for 30 days.",1],
+  ["He explains the idea: add (or remove) a habit for 30 days.",2],
+  ["Lesson: time became more memorable (a photo every day).",3],
+  ["Lesson: his self-confidence grew (biking to work, Kilimanjaro).",4],
+  ["Lesson: you can do anything for 30 days (writing a novel).",5],
+  ["Lesson: small, sustainable changes are more likely to stick (giving up sugar).",6],
+  ["He asks the audience: \"What are you waiting for?\"",7]
+];
+const seqShown = [4,1,6,0,3,5,2];
+const gaps = [
+  ["0:15","I felt like I was stuck in a ___.",["rut"]],
+  ["0:28","The idea is actually pretty ___.",["simple"]],
+  ["0:40","…to add a new habit or ___ a habit…",["subtract"]],
+  ["0:54","…the time was much more ___.",["memorable"]],
+  ["1:10","…my self-confidence ___.",["grew"]],
+  ["1:44","…their own 50,000-word novel, from ___…",["scratch"]],
+  ["2:04","You might be sleep-___, but you'll finish your novel.",["deprived"]],
+  ["2:35","…when I made small, ___ changes…",["sustainable"]],
+  ["2:40","…they were more likely to ___.",["stick"]],
+  ["3:11","…something you have always wanted to try and give it a ___!",["shot"]]
+];
+const notice = [
+  ["\"The idea is actually pretty simple.\"","a"],
+  ["\"There's a few things I learned while doing these 30-day challenges.\"","b"],
+  ["\"The first was, …\"","c"],
+  ["\"I also noticed that…\"","d"],
+  ["\"So here's one last thing I'd like to mention.\"","e"],
+  ["\"So here's my question to you: …\"","f"]
+];
+/* D3: [text before, options, answer] */
+const choose = [
+  ["", ["Today I want to talk about","For example,","Finally,"], "Today I want to talk about", " something simple: cooking for yourself. "],
+  ["", ["On the other hand,","I'll share three things I learned.","To sum up,"], "I'll share three things I learned.", " "],
+  ["", ["First,","Finally,","However,"], "First,", " cooking at home saves a lot of money. "],
+  ["", ["In contrast,","The second thing is that","So here's my question:"], "The second thing is that", " it helps you make friends. "],
+  ["", ["For example,","First,","To sum up,"], "For example,", " I invited my neighbors for dinner, and now we cook together every Friday. "],
+  ["", ["That brings me to the last point:","Let me give you an example:","Today I want to talk about"], "That brings me to the last point:", " it made this city feel like home. "],
+  ["", ["For example,","So, to sum up,","The first was"], "So, to sum up,", " a kitchen can be a bridge to a new country. "],
+  ["", ["Here's my question to you:","Second,","For instance,"], "Here's my question to you:", " what will you cook this week?"]
+];
+
+/* ---------------- BUILD ---------------- */
+$("#gaItems").innerHTML = openings.map((o,i)=>`
+  <div class="ga"><span class="n">${i+1}</span>
+    <div><div class="opening">"${o[0]}"</div>
+      <div class="ctrl">
+        <select class="ck" data-ans="${o[1]}" data-k="ga${i}" data-label="A1.${i+1} Gift or Ask"><option value="">Gift or Ask?</option><option>Gift</option><option>Ask</option></select>
+        <input class="line" data-k="ga${i}w" data-label="A1.${i+1} Why / fix" placeholder="What's wrong? How would you fix it?">
+      </div>
+    </div>
+  </div>`).join("");
+
+$("#mwords").innerHTML = vocab.map((v,i)=>`
+  <div class="mrow">
+    <span class="mnum">${i+1}</span>
+    <button class="say no-print" data-say="${v.say}" aria-label="Listen to ${v.w}">&#9654;</button>
+    <div><div class="mword">${v.w}</div><span class="pos">${v.pos}</span></div>
+    <select class="ck" data-ans="${v.ans}" data-k="v${i}" data-label="A2 ${v.w}"><option value="">–</option>${defs.map(d=>`<option>${d[0]}</option>`).join("")}</select>
+  </div>`).join("");
+$("#mdefs").innerHTML = defs.map(d=>`<div class="def"><b>${d[0]}</b><span>${d[1]}</span></div>`).join("");
+
+const trapName = {"1":"The Sales Pitch","2":"The Ramble","3":"The Org Bore","4":"The Inspiration Performance"};
+$("#spotItems").innerHTML = spots.map((t,i)=>`
+  <div class="item"><span class="n">${i+1}</span><div>${t[0]}</div>
+    <select class="ck" data-ans="${t[1]}" data-k="sp${i}" data-label="B4.${i+1}"><option value="">Trap</option><option value="1">1 Sales Pitch</option><option value="2">2 Ramble</option><option value="3">3 Org Bore</option><option value="4">4 Inspiration</option></select>
+  </div>`).join("");
+
+$("#seqItems").innerHTML = seqShown.map(ix=>`
+  <div class="item"><span class="n">•</span><div>${seq[ix][0]}</div>
+    <select class="ck" data-ans="${seq[ix][1]}" data-k="seq${ix}" data-label="C3 ${seq[ix][0]}"><option value="">#</option>${[1,2,3,4,5,6,7].map(n=>`<option>${n}</option>`).join("")}</select>
+  </div>`).join("");
+
+$("#gapItems").innerHTML = gaps.map((g,i)=>{
+  const [b,a] = g[1].split("___");
+  return `<div class="item"><span class="n">${i+1}</span>
+    <div><span class="time">${g[0]}</span>${b}<input class="gap ck" data-ans="${g[2].join("|")}" data-k="g${i}" data-label="C4.${i+1}" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Gap ${i+1}">${a}</div><span></span></div>`;
+}).join("");
+
+$("#noticeItems").innerHTML = notice.map((t,i)=>`
+  <div class="item"><span class="n">${i+1}</span><div><i>${t[0]}</i></div>
+    <select class="ck" data-ans="${t[1]}" data-k="nt${i}" data-label="D1.${i+1}"><option value="">–</option>${"abcdef".split("").map(l=>`<option>${l}</option>`).join("")}</select>
+  </div>`).join("");
+
+$("#chooseText").innerHTML = choose.map((c,i)=>`<b style="color:var(--gold)">${i+1}</b> <select class="inline-sel ck" data-ans="${c[2]}" data-k="ch${i}" data-label="D3.${i+1}"><option value="">choose…</option>${c[1].map(o=>`<option>${o}</option>`).join("")}</select>${c[3]}`).join("");
+
+$("#showD4").onclick = e => { const m = $("#d4model"); const on = m.style.display === "none"; m.style.display = on ? "block" : "none"; e.target.textContent = on ? "Hide the model answer" : "Show a model answer"; };
+
+/* word counter */
+function countWords(el){
+  const n = el.value.trim() ? el.value.trim().split(/\s+/).length : 0;
+  const box = el.nextElementSibling;
+  if(!box || !box.classList.contains("wc")) return;
+  box.textContent = n ? `${n} word${n===1?"":"s"}${n<=15 ? " · good" : " · too long, cut it to 15"}` : "";
+  box.className = "wc " + (n && n<=15 ? "good" : n ? "bad" : "");
+}
+$$(".wcount").forEach(el => el.addEventListener("input", () => countWords(el)));
+
+/* ---------------- CHECKING ---------------- */
+const norm = s => (s||"").toLowerCase().trim().replace(/[.,!?;:"'’]/g,"").replace(/\s+/g," ");
+function valueOf(el){
+  if(el.matches("select, input")) return el.value;
+  const r = el.querySelector("input[type=radio]:checked"); return r ? r.value : "";
+}
+function rowOf(el){ return el.closest(".item, .mrow, .ga") || el; }
+function answerText(box, el){
+  const a = el.dataset.ans.split("|")[0];
+  if(box.id === "vocab") return a + " = " + defs.find(d=>d[0]===a)[1];
+  if(box.id === "spot") return a + " " + trapName[a];
+  return a;
+}
+$$("[data-check]").forEach(btn => btn.onclick = () => {
+  const box = document.getElementById(btn.dataset.check);
+  const items = [...box.querySelectorAll(".ck")];
+  let n = 0;
+  box.querySelectorAll(".fixnote").forEach(x => x.remove());
+  items.forEach(el => {
+    const row = rowOf(el), v = norm(valueOf(el));
+    [el,row].forEach(x => x.classList.remove("ok","no"));
+    if(!v) return;
+    const good = el.dataset.ans.split("|").map(norm).includes(v);
+    (el.matches(".gap, select") ? el : row).classList.add(good ? "ok" : "no");
+    if(el.matches(".mc")) el.querySelectorAll("input").forEach(r => { r.nextElementSibling.classList.toggle("ok", r.checked && good); r.nextElementSibling.classList.toggle("no", r.checked && !good); });
+    if(good) n++;
+    else if(!["seq","mc","choose"].includes(box.id)){
+      const note = document.createElement("div"); note.className = "fixnote";
+      note.textContent = "Answer: " + answerText(box, el);
+      row.appendChild(note);
+    }
+  });
+  const s = btn.parentElement.querySelector(".score"); if(s) s.textContent = `Score: ${n} / ${items.length}`;
+});
+$$("[data-reset]").forEach(btn => btn.onclick = () => {
+  const box = document.getElementById(btn.dataset.reset);
+  box.querySelectorAll(".ok,.no").forEach(x => x.classList.remove("ok","no"));
+  box.querySelectorAll(".fixnote").forEach(x => x.remove());
+  box.querySelectorAll(".ck").forEach(el => { if(el.matches("select, input")) el.value = ""; else el.querySelectorAll("input").forEach(r => r.checked = false); });
+  const s = btn.parentElement.querySelector(".score"); if(s) s.textContent = "";
+  save();
+});
+
+/* ---------------- AUDIO ---------------- */
+const canSpeak = "speechSynthesis" in window;
+let voice = null;
+function pickVoice(){ const vs = canSpeak ? speechSynthesis.getVoices() : []; voice = vs.find(v=>v.lang==="en-US" && /Google|Samantha|Aria|Jenny|Natural/i.test(v.name)) || vs.find(v=>v.lang==="en-US") || vs.find(v=>v.lang && v.lang.startsWith("en")) || null; }
+if(canSpeak){ pickVoice(); speechSynthesis.onvoiceschanged = pickVoice; } else $$(".say").forEach(b => b.style.display = "none");
+$$(".say").forEach(b => b.onclick = () => {
+  speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(b.dataset.say);
+  u.lang = "en-US"; u.rate = .8; if(voice) u.voice = voice;
+  b.classList.add("playing"); u.onend = u.onerror = () => b.classList.remove("playing");
+  speechSynthesis.speak(u);
+});
+
+/* ---------------- SAVE / RESTORE / DOWNLOAD ---------------- */
+const KEY = "ted-b2-week3-worksheet";
+const fields = () => $$("[data-k]");
+function getVal(el){
+  const t = el.dataset.type;
+  if(t === "checks") return [...el.querySelectorAll("input:checked")].map(i=>i.value).join(", ");
+  if(t === "radio" || el.matches(".tf, .mc")) { const r = el.querySelector("input:checked"); return r ? r.value : ""; }
+  return el.value;
+}
+function setVal(el, v){
+  const t = el.dataset.type;
+  if(t === "checks"){ const set = v.split(", "); el.querySelectorAll("input").forEach(i => i.checked = set.includes(i.value)); }
+  else if(t === "radio" || el.matches(".tf, .mc")) el.querySelectorAll("input").forEach(i => i.checked = i.value === v);
+  else el.value = v;
+}
+function save(){
+  const data = {}; fields().forEach(el => data[el.dataset.k] = getVal(el));
+  try{ localStorage.setItem(KEY, JSON.stringify(data)); $("#saved").textContent = "Saved on this device " + new Date().toLocaleTimeString([], {hour:"2-digit", minute:"2-digit"}); }
+  catch(e){ $("#saved").textContent = "Use Download to keep your answers."; }
+}
+try{ const d = JSON.parse(localStorage.getItem(KEY) || "{}"); fields().forEach(el => { if(d[el.dataset.k] != null) setVal(el, d[el.dataset.k]); }); }catch(e){}
+$$(".wcount").forEach(countWords);
+let tmr; document.addEventListener("input", () => { clearTimeout(tmr); tmr = setTimeout(save, 400); });
+document.addEventListener("change", () => { clearTimeout(tmr); tmr = setTimeout(save, 200); });
+
+$("#dl").onclick = () => {
+  let out = "TED Talks: Ideas Worth Sharing · Week 3 · Traps and Throughline\n";
+  const head = ["name","date","level"].map(k => { const el = document.querySelector(`[data-k="${k}"]`); return el.dataset.label + ": " + (getVal(el)||"—"); }).join("\n");
+  $$("section.part").forEach(sec => {
+    out += "\n==== " + sec.querySelector("h2").textContent.toUpperCase() + " ====\n";
+    sec.querySelectorAll("[data-k]").forEach(el => { out += el.dataset.label + ": " + (getVal(el) || "—") + "\n"; });
+  });
+  const blob = new Blob([head + "\n\n" + out], {type:"text/plain"});
+  const a = document.createElement("a");
+  const nm = (getVal(document.querySelector('[data-k="name"]')) || "student").replace(/[^\w-]+/g,"_");
+  a.href = URL.createObjectURL(blob); a.download = `Week3_${nm}.txt`; a.click();
+  setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+};
+</script>
+</body>
+</html>

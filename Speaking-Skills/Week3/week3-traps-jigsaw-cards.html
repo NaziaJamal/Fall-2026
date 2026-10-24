@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Week 3 Four Traps Jigsaw</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0f2340; --blue:#143865; --blue-2:#1c4f8f; --gold:#8c7535; --gold-2:#d39f10; --red:#a91512;
+    --sky:#c1cddd; --sky-2:#e1e8f2; --sky-3:#edf2f9; --warm:#efe9d9; --paper:#fbf9f3;
+    --ink:#14213a; --soft:#3f4b5e; --muted:#5b6b82;
+  }
+  *{box-sizing:border-box}
+  body{margin:0; background:#dfe5ee; color:var(--ink); font-family:Inter, system-ui, sans-serif; line-height:1.55}
+  .bar{position:sticky; top:0; z-index:5; display:flex; flex-wrap:wrap; gap:8px; align-items:center; justify-content:center; background:var(--navy); color:#fff; padding:10px 16px}
+  .bar b{font-family:Lora, serif; color:var(--gold-2); margin-right:auto}
+  .bar a{color:#fff; text-decoration:none; font-weight:700; font-size:14px; border:1px solid rgba(255,255,255,.3); border-radius:8px; padding:5px 10px}
+  .bar button{font:inherit; font-weight:800; border:none; border-radius:8px; padding:7px 14px; background:var(--gold-2); color:var(--ink); cursor:pointer}
+
+  /* one printed page per .sheet (US Letter) */
+  .sheet{width:8.5in; min-height:11in; margin:20px auto; background:#fff; padding:.5in .55in; box-shadow:0 6px 24px rgba(0,0,0,.12); position:relative}
+  .cut{border:2px dashed #9aa7b8; border-radius:16px; padding:22px 26px; position:relative}
+  .cut + .cut{margin-top:18px}
+  .scissors{position:absolute; top:-13px; left:18px; background:#fff; padding:0 6px; font-size:16px; color:#9aa7b8}
+
+  .head{display:flex; align-items:center; gap:16px; margin-bottom:12px}
+  .letter{width:64px; height:64px; border-radius:16px; color:#fff; font-family:Lora, serif; font-weight:700; font-size:40px; display:flex; align-items:center; justify-content:center; flex:none}
+  .A .letter{background:var(--blue)} .B .letter{background:var(--gold-2); color:var(--ink)} .C .letter{background:var(--red)}
+  .A .cut{border-color:var(--blue)} .B .cut{border-color:var(--gold-2)} .C .cut{border-color:var(--red)}
+  .head h2{margin:0; font-family:Lora, serif; font-size:26px; line-height:1.15; color:var(--blue)}
+  .head p{margin:2px 0 0; font-size:13px; color:var(--muted); font-weight:600; letter-spacing:.04em; text-transform:uppercase}
+  .lvl{margin-left:auto; font-size:12px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; border:2px solid currentColor; border-radius:999px; padding:3px 10px; color:var(--muted); white-space:nowrap}
+
+  .text p{margin:0 0 9px; font-size:15px; text-align:left}
+  .text p:last-child{margin-bottom:0}
+  .text sup{font-size:10px; font-weight:800; color:var(--gold)}
+  .quote{margin:14px 0; padding:10px 16px; border-left:5px solid var(--gold-2); background:var(--paper); border-radius:0 10px 10px 0; font-family:Lora, serif; font-style:italic; font-size:16.5px}
+  .quote small{display:block; font-family:Inter, sans-serif; font-style:normal; font-size:11px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; color:var(--gold); margin-bottom:2px}
+  .gloss{margin-top:12px; border-top:1px solid var(--sky); padding-top:10px; display:grid; grid-template-columns:1fr 1fr; gap:3px 18px; font-size:13px; color:var(--soft)}
+  .gloss b{color:var(--ink)}
+  .gloss .t{grid-column:1 / -1; font-size:11px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; color:var(--muted)}
+  .source{margin-top:10px; font-size:11px; color:var(--muted)}
+
+  /* task cards */
+  .task h3{margin:0 0 8px; font-family:Lora, serif; font-size:21px; color:var(--blue)}
+  .task ol{margin:0; padding-left:22px}
+  .task li{margin:0 0 6px; font-size:15px}
+  .lines{display:block; border-bottom:1px solid #b7c2d1; height:26px}
+  .task .rule{margin-top:10px; font-weight:800; color:var(--red); font-size:14px}
+  .two{display:grid; grid-template-columns:1fr 1fr; gap:18px}
+  table{width:100%; border-collapse:collapse; font-size:14px}
+  th{background:var(--blue); color:#fff; text-align:left; padding:7px 9px}
+  td{border-bottom:1px solid var(--sky-2); padding:7px 9px; vertical-align:top}
+  td.write{height:72px}
+
+  /* teacher page */
+  .teacher h1{font-family:Lora, serif; color:var(--blue); font-size:26px; margin:0 0 2px}
+  .teacher .sub{color:var(--muted); margin:0 0 8px; font-size:13px}
+  .teacher h3{font-size:13px; letter-spacing:.08em; text-transform:uppercase; color:var(--gold); margin:10px 0 4px}
+  .teacher li, .teacher p{font-size:13px; margin:3px 0}
+  .teacher table{font-size:12.5px}
+  .teacher td, .teacher th{padding:5px 8px}
+  .teacher ol{margin:4px 0}
+  .pill{display:inline-block; font-size:12px; font-weight:800; border-radius:999px; padding:2px 9px; color:#fff}
+  .pA{background:var(--blue)} .pB{background:var(--gold-2); color:var(--ink)} .pC{background:var(--red)}
+
+  @media print{
+    @page{size:letter; margin:0}
+    body{background:#fff}
+    .bar{display:none}
+    .sheet{margin:0; box-shadow:none; width:8.5in; height:10.5in; min-height:0; padding:.4in .5in; overflow:hidden; break-inside:avoid}
+    .sheet + .sheet{break-before:page}
+    *{-webkit-print-color-adjust:exact; print-color-adjust:exact}
+  }
+  @media (max-width:860px){
+    .sheet{width:auto; min-height:0; margin:12px; padding:20px}
+    .two,.gloss{grid-template-columns:1fr}
+  }
+</style>
+<style>
+  .D .letter{background:var(--green, #1f6b48)} .D .cut{border-color:#1f6b48}
+  .half + .half{margin-top:16px}
+  .half .text p{font-size:14.5px; margin:0 0 7px}
+  .half .quote{margin:8px 0; font-size:15px}
+  .half .gloss{margin-top:8px}
+  .pD{background:#1f6b48}
+  .charades{display:grid; grid-template-columns:1fr 1fr; gap:14px}
+  .chcard{border:2px dashed #9aa7b8; border-radius:14px; padding:14px 16px; text-align:center; position:relative}
+  .chcard small{display:block; font-size:11px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:var(--muted)}
+  .chcard b{display:block; font-family:Lora, serif; font-size:20px; color:var(--blue); margin:4px 0 8px}
+  .chcard .topic{font-size:14px; color:var(--soft)}
+  .chcard .topic strong{color:var(--ink)}
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <b>Week 3 · Four Traps Jigsaw</b>
+  <a href="#teacher">Teacher page</a><a href="#p12">Traps 1–2</a><a href="#p34">Traps 3–4</a><a href="#tasks">Task sheet</a><a href="#charades">Charades cards</a>
+  <button onclick="window.print()">Print</button>
+</div>
+
+<!-- TEACHER -->
+<section class="sheet teacher" id="teacher">
+  <h1>Four Traps Jigsaw · Teacher page</h1>
+  <p class="sub">Week 3 · Chris Anderson, <i>TED Talks</i>, Ch. 3 "Common Traps" · 40 minutes · <b>Don't hand this page to students</b></p>
+  <h3>What to print</h3>
+  <table>
+    <tr><th>Page</th><th>What it is</th><th>How many</th></tr>
+    <tr><td>2</td><td><span class="pill pA">1</span> Sales Pitch + <span class="pill pB">2</span> Ramble (cut in half)</td><td>One card per student in groups 1 and 2</td></tr>
+    <tr><td>3</td><td><span class="pill pC">3</span> Org Bore + <span class="pill pD">4</span> Inspiration Performance (cut in half)</td><td>One card per student in groups 3 and 4</td></tr>
+    <tr><td>4</td><td>Expert card + teaching-group notes (cut in half)</td><td>One per student</td></tr>
+    <tr><td>5</td><td>Bad Talk Charades cards (cut into 8)</td><td>One per group</td></tr>
+  </table>
+  <p style="margin-top:6px">Card 4 is the hardest: give it to B2+. Each card is a summary in simpler English with one short quote from Anderson.</p>
+  <h3>Steps (40 min)</h3>
+  <ol>
+    <li><b>Predict (3 min).</b> "What makes a talk bad?" Pairs list ideas (worksheet B1).</li>
+    <li><b>Expert groups (10 min).</b> Groups 1–4 read their card and fill in the top half of page 4.</li>
+    <li><b>Teaching groups (12 min).</b> New groups of four (one from each trap). Each expert teaches for 2–3 minutes; others fill in the notes table.</li>
+    <li><b>Spot the trap (5 min).</b> Worksheet B4, then check.</li>
+    <li><b>Bad Talk Charades (10 min).</b> Each teaching group draws a card, plans a 30-second terrible talk (3 min), performs it, the class guesses the trap, and the group gives a fixed opening line.</li>
+  </ol>
+  <h3>Key points</h3>
+  <table>
+    <tr><th style="width:24%">Trap</th><th>What it is</th><th style="width:36%">Do instead</th></tr>
+    <tr><td><span class="pill pA">1</span> Sales Pitch</td><td>Using the talk to sell yourself, your book or your business.</td><td>Give, don't take. Generosity gets a better response.</td></tr>
+    <tr><td><span class="pill pB">2</span> Ramble</td><td>An unprepared, unfocused talk with no clear direction.</td><td>Prepare. The audience's time is precious.</td></tr>
+    <tr><td><span class="pill pC">3</span> Org Bore</td><td>A talk about your organization: history, structure, team, products.</td><td>Talk about the work and the ideas behind it.</td></tr>
+    <tr><td><span class="pill pD">4</span> Inspiration Performance</td><td>Trying to look inspiring with emotion and applause, but with little substance.</td><td>Earn inspiration with real work and honest wisdom.</td></tr>
+  </table>
+  <p class="source">Cards summarize Chris Anderson, <i>TED Talks: The Official TED Guide to Public Speaking</i> (2016), Ch. 3, in simpler English. Short quotes are marked.</p>
+</section>
+
+<!-- CARDS 1-2 -->
+<section class="sheet" id="p12">
+  <div class="cut half A">
+    <span class="scissors">✂</span>
+    <div class="head"><div class="letter">1</div><div><h2>The Sales Pitch</h2><p>Trap card · Expert group 1</p></div><span class="lvl">B2</span></div>
+    <div class="text">
+      <p><b>The trap.</b> Using a talk to <b>take</b> (sell yourself, your book, your business) instead of to give.</p>
+      <p><b>The story.</b> A famous consultant promised TED a talk on creative thinking, then only listed companies that did well after hiring him. Anderson interrupted and asked him to share the actual method. The audience cheered, and the speaker finally did. The talk was never posted.</p>
+      <p><b>Why it fails.</b> The audience feels used, and the speaker loses respect. Even small "ads" are risky.</p>
+      <p><b>Do instead.</b> Be generous. Bryan Stevenson never asked for money in his TED talk, yet the audience gave his organization over $1.3 million.</p>
+    </div>
+    <div class="quote"><small>Anderson's words</small>"Give, don't take."</div>
+    <div class="gloss"><span class="t">Word help</span><div><b>consultant</b>: an expert companies pay for advice</div><div><b>restless</b>: unable to sit still, impatient</div><div><b>generous</b>: happy to give</div><div><b>injustice</b>: unfair treatment</div></div>
+  </div>
+
+  <div class="cut half B">
+    <span class="scissors">✂</span>
+    <div class="head"><div class="letter">2</div><div><h2>The Ramble</h2><p>Trap card · Expert group 2</p></div><span class="lvl">B2</span></div>
+    <div class="text">
+      <p><b>The trap.</b> An unprepared talk that wanders with no clear direction.</p>
+      <p><b>The story.</b> One early TED speaker admitted he'd planned his talk on the drive there, then shared loose thoughts about the future. People clapped politely, but nobody learned anything.</p>
+      <p><b>Why it fails.</b> It tells the audience their time doesn't matter. Their time and attention are precious, and you can't give them back.</p>
+      <p><b>Do instead.</b> Prepare. A great idea needs preparation time. After that talk, TED worked much harder with its speakers.</p>
+    </div>
+    <div class="quote"><small>Anderson's words</small>"Rambling is not an option."</div>
+    <div class="gloss"><span class="t">Word help</span><div><b>wander</b>: move without a clear direction</div><div><b>boast</b>: talk proudly about yourself</div><div><b>improvise</b>: do it without preparing</div><div><b>precious</b>: very valuable</div></div>
+  </div>
+</section>
+
+<!-- CARDS 3-4 -->
+<section class="sheet" id="p34">
+  <div class="cut half C">
+    <span class="scissors">✂</span>
+    <div class="head"><div class="letter">3</div><div><h2>The Org Bore</h2><p>Trap card · Expert group 3</p></div><span class="lvl">B2</span></div>
+    <div class="text">
+      <p><b>The trap.</b> A talk about your <b>organization</b>: its history, structure, team and products.</p>
+      <p><b>Why it fails.</b> Your organization is fascinating to the people inside it, and boring to almost everyone else.</p>
+      <p><b>Compare.</b> Boring: <i>"In 2005 we opened a new department and put a vice president in charge of energy costs…"</i> Interesting: <i>"In 2005 we found a way for an ordinary office to cut energy costs by 60%. Here's how…"</i></p>
+      <p><b>Do instead.</b> Talk about the work and the ideas behind it, not the organization.</p>
+    </div>
+    <div class="quote"><small>Anderson's words</small>"One mode is a gift. The other is lazily self-serving."</div>
+    <div class="gloss"><span class="t">Word help</span><div><b>organization (org)</b>: a company or group</div><div><b>NGO</b>: a nonprofit, non-government group</div><div><b>praise</b>: say good things about</div><div><b>self-serving</b>: helping only yourself</div></div>
+  </div>
+
+  <div class="cut half D">
+    <span class="scissors">✂</span>
+    <div class="head"><div class="letter">4</div><div><h2>The Inspiration Performance</h2><p>Trap card · Expert group 4</p></div><span class="lvl">B2+</span></div>
+    <div class="text">
+      <p><b>The trap.</b> Trying to <b>look</b> inspiring with big emotion and applause, but with little real content.</p>
+      <p><b>The story.</b> A TED fan copied the "best bits" of famous talks. He paused for applause, used weak evidence and an edited photo, ran over time, and ended talking about dreams. Some people stood up, but later the audience said they felt manipulated.</p>
+      <p><b>Why it fails.</b> Inspiration must be earned. Chasing it makes people pull back.</p>
+      <p><b>Do instead.</b> Do real, meaningful work, then share what you learned with humility.</p>
+    </div>
+    <div class="quote"><small>Anderson's words</small>"Inspiration can't be performed."</div>
+    <div class="gloss"><span class="t">Word help</span><div><b>prop</b>: an object a speaker shows</div><div><b>manipulated</b>: controlled unfairly</div><div><b>earned</b>: deserved through effort</div><div><b>humility</b>: not thinking you're better than others</div></div>
+  </div>
+</section>
+
+<!-- TASK SHEET -->
+<section class="sheet" id="tasks">
+  <div class="cut task">
+    <span class="scissors">✂</span>
+    <h3>Expert card · Prepare to teach your trap</h3>
+    <p style="margin:0 0 8px;font-size:14px;color:var(--muted)">My trap (circle): <b style="font-size:16px">1 · 2 · 3 · 4</b> &nbsp;·&nbsp; 10 minutes with your expert group</p>
+    <ol>
+      <li>The trap in one sentence: <span class="lines"></span></li>
+      <li>Anderson's example (who? what happened?) <span class="lines"></span><span class="lines"></span></li>
+      <li>Why it fails: <span class="lines"></span></li>
+      <li>What to do instead: <span class="lines"></span></li>
+    </ol>
+    <p class="rule">Rule: teach your trap without reading from the card.</p>
+  </div>
+  <div class="cut task">
+    <span class="scissors">✂</span>
+    <h3>Teaching group · Notes</h3>
+    <table>
+      <tr><th style="width:26%">Trap</th><th>What it is</th><th style="width:34%">Do instead</th></tr>
+      <tr><td><b>1</b> Sales Pitch</td><td class="write" style="height:62px"></td><td></td></tr>
+      <tr><td><b>2</b> Ramble</td><td class="write" style="height:62px"></td><td></td></tr>
+      <tr><td><b>3</b> Org Bore</td><td class="write" style="height:62px"></td><td></td></tr>
+      <tr><td><b>4</b> Inspiration Performance</td><td class="write" style="height:62px"></td><td></td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- CHARADES -->
+<section class="sheet" id="charades">
+  <h2 style="font-family:Lora,serif;color:var(--blue);margin:0 0 4px">Bad Talk Charades · Cut-out cards</h2>
+  <p style="margin:0 0 14px;color:var(--muted);font-size:14px">Each group draws one card. Keep the trap secret. Plan a 30-second terrible talk, perform it, let the class guess, then give a fixed opening line.</p>
+  <div class="charades">
+    <div class="chcard"><small>Secret trap</small><b>The Sales Pitch</b><div class="topic">Topic: <strong>How to sleep better</strong></div></div>
+    <div class="chcard"><small>Secret trap</small><b>The Ramble</b><div class="topic">Topic: <strong>Why everyone should learn to cook</strong></div></div>
+    <div class="chcard"><small>Secret trap</small><b>The Org Bore</b><div class="topic">Topic: <strong>Saving water at home</strong></div></div>
+    <div class="chcard"><small>Secret trap</small><b>The Inspiration Performance</b><div class="topic">Topic: <strong>Learning a new language</strong></div></div>
+    <div class="chcard"><small>Secret trap</small><b>The Sales Pitch</b><div class="topic">Topic: <strong>Staying healthy at work</strong></div></div>
+    <div class="chcard"><small>Secret trap</small><b>The Ramble</b><div class="topic">Topic: <strong>Why reading matters</strong></div></div>
+    <div class="chcard"><small>Secret trap</small><b>The Org Bore</b><div class="topic">Topic: <strong>Making friends in a new city</strong></div></div>
+    <div class="chcard"><small>Secret trap</small><b>The Inspiration Performance</b><div class="topic">Topic: <strong>Spending less time on your phone</strong></div></div>
+  </div>
+  <p class="source" style="margin-top:14px">Topics are suggestions; groups may choose their own.</p>
+</section>
+
+</body>
+</html>

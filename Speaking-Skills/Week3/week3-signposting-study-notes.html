@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Signposting Study Notes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0f2340; --blue:#143865; --blue-2:#1c4f8f; --gold:#8c7535; --gold-2:#d39f10; --red:#a91512;
+    --sky:#c1cddd; --sky-2:#e1e8f2; --sky-3:#edf2f9; --warm:#efe9d9; --paper:#fbf9f3;
+    --ink:#14213a; --soft:#3f4b5e; --muted:#5b6b82; --ok:#1f8a5b; --ok-bg:#e3f4ec; --no-bg:#fbe7e4;
+  }
+  *{box-sizing:border-box}
+  body{margin:0; background:var(--sky-3); color:var(--ink); font-family:Inter, system-ui, sans-serif; font-size:16px; line-height:1.55}
+  .page{max-width:900px; margin:0 auto; padding:20px 16px 60px}
+  .top{background:var(--blue); color:#fff; border-radius:18px; padding:22px 26px; position:relative; overflow:hidden}
+  .top::after{content:""; position:absolute; right:-40px; top:-40px; width:180px; height:180px; border:14px solid var(--gold-2); border-radius:50%; opacity:.25}
+  .school{font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--gold-2); font-weight:700}
+  h1{font-family:Lora, serif; font-size:clamp(28px,4.6vw,40px); margin:4px 0 2px}
+  .top p{margin:0; color:var(--sky)}
+  .tools{display:flex; justify-content:flex-end; gap:8px; margin:12px 0}
+  .btn{font:inherit; font-weight:700; font-size:14px; border-radius:10px; padding:8px 14px; border:2px solid var(--blue); background:#fff; color:var(--blue); cursor:pointer}
+  .btn.gold{background:var(--gold-2); border-color:var(--gold-2); color:var(--ink)}
+
+  section{background:#fff; border:1px solid var(--sky); border-radius:18px; padding:20px 22px; margin-bottom:16px}
+  h2{font-family:Lora, serif; color:var(--blue); font-size:23px; margin:0 0 10px; display:flex; align-items:center; gap:10px}
+  h2 .n{width:34px; height:34px; border-radius:10px; background:var(--navy); color:var(--gold-2); font-size:18px; display:inline-flex; align-items:center; justify-content:center; flex:none}
+  h3{font-size:14px; letter-spacing:.08em; text-transform:uppercase; color:var(--gold); margin:16px 0 6px}
+  p{margin:6px 0}
+  ul{margin:6px 0; padding-left:22px} li{margin:4px 0}
+  .focus{background:#fff3cf; border-radius:4px; padding:0 4px; font-weight:700}
+  .pause{color:var(--gold-2); font-weight:800; padding:0 4px}
+  .compare{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+  .box{border:1px solid var(--sky); border-radius:12px; padding:12px 14px}
+  .box.plain{background:var(--sky-3)}
+  .box.cleft{background:var(--blue); border-color:var(--blue); color:#eef3fa}
+  .box.cleft .focus{background:var(--gold-2); color:var(--ink)}
+  .box small{display:block; font-size:11px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; margin-bottom:4px; color:var(--muted)}
+  .box.cleft small{color:var(--gold-2)}
+  .big{font-family:Lora, serif; font-size:20px}
+
+  .pattern{border:1px solid var(--sky); border-radius:14px; margin:12px 0; overflow:hidden}
+  .pattern .ph{background:var(--paper); padding:10px 14px; display:flex; flex-wrap:wrap; gap:8px 16px; align-items:center; border-bottom:1px solid var(--sky)}
+  .pattern .ph b{font-size:17px; color:var(--blue)}
+  .formula{font-family:ui-monospace, Menlo, Consolas, monospace; font-size:14px; background:#fff; border:1px solid #e6dcbf; border-radius:8px; padding:3px 8px}
+  .pattern .pb{padding:10px 14px}
+  .pattern .use{font-size:14px; color:var(--muted)}
+  .ex{margin:6px 0; padding-left:14px; border-left:4px solid var(--sky)}
+  .ex.talk{border-color:var(--gold-2)}
+  .ex .src{font-size:12px; font-weight:700; color:var(--gold)}
+
+  table{width:100%; border-collapse:collapse; font-size:15px}
+  th{background:var(--blue); color:#fff; text-align:left; padding:8px 10px}
+  td{border-bottom:1px solid var(--sky-2); padding:8px 10px; vertical-align:top}
+  td.bad{background:var(--no-bg)} td.good{background:var(--ok-bg)}
+  .steps{counter-reset:s; list-style:none; padding:0}
+  .steps li{counter-increment:s; position:relative; padding:6px 0 6px 40px}
+  .steps li::before{content:counter(s); position:absolute; left:0; top:5px; width:28px; height:28px; border-radius:8px; background:var(--sky-2); color:var(--blue); font-weight:800; display:flex; align-items:center; justify-content:center; font-size:14px}
+  .tip{background:var(--paper); border-left:5px solid var(--gold-2); border-radius:0 10px 10px 0; padding:10px 14px; margin-top:10px}
+  .b2p{background:#fbf3df; border:1px solid #ecdcae; border-radius:12px; padding:10px 14px; margin-top:10px}
+  .b2p b.t{color:var(--gold)}
+
+  .q{display:grid; grid-template-columns:26px 1fr; gap:8px; padding:8px 0; border-bottom:1px dashed var(--sky)}
+  .q:last-child{border-bottom:none}
+  .q .num{font-weight:800; color:var(--gold)}
+  .q input{width:100%; font:inherit; border:1px solid var(--sky); border-radius:8px; padding:6px 10px; margin-top:4px; background:var(--paper)}
+  .ans{display:none; color:var(--ok); font-weight:600; font-size:14px; margin-top:4px}
+  .show .ans{display:block}
+  footer{text-align:center; color:var(--muted); font-size:12px; margin-top:20px}
+
+  @media (max-width:640px){ .compare{grid-template-columns:1fr} table{font-size:14px} }
+  @media print{
+    @page{margin:12mm}
+    body{background:#fff; font-size:12px}
+    .page{max-width:none; padding:0}
+    .tools{display:none}
+    .top{background:#fff; color:var(--ink); border:2px solid var(--blue); padding:10px 14px}
+    .top::after{display:none} .top p{color:var(--muted)}
+    section{break-inside:avoid; padding:12px 14px; border-color:#999}
+    .box.cleft{background:#fff; color:var(--ink); border:2px solid var(--blue)}
+    .box.cleft small{color:var(--gold)}
+    .q input{border:none; border-bottom:1px solid #777; border-radius:0; background:none}
+    *{-webkit-print-color-adjust:exact; print-color-adjust:exact}
+  }
+</style>
+<style>
+  .map{display:flex; flex-wrap:wrap; align-items:stretch; gap:6px; margin-top:8px}
+  .map .stop{flex:1; min-width:110px; border:1px solid var(--sky); border-radius:10px; padding:8px 10px; background:var(--sky-3); font-size:13.5px}
+  .map .stop b{display:block; color:var(--blue); font-size:13px}
+  .map .stop i{color:var(--gold); font-style:normal; font-weight:700; font-size:12.5px}
+  .map .arrow{align-self:center; color:var(--gold-2); font-weight:800}
+  td i{color:var(--soft)}
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="top">
+  <div class="school">Approach International Student Center · TED Talks: Ideas Worth Sharing</div>
+  <h1>Signposting · Study Notes</h1>
+  <p>Week 3 · Traps and Throughline · How to help your audience follow your talk</p>
+</header>
+
+<div class="tools">
+  <button class="btn" id="toggle">Show answers</button>
+  <button class="btn gold" onclick="window.print()">Print / Save PDF</button>
+</div>
+
+<section>
+  <h2><span class="n">1</span>What is signposting?</h2>
+  <p>Signposts are short words and phrases that tell the audience <b>where you are</b> in your talk and <b>where you are going next</b>, like road signs on a highway.</p>
+  <div class="compare">
+    <div class="box plain"><small>Without signposts</small><span class="big">Cooking saves money. You make friends. It feels like home.</span></div>
+    <div class="box cleft"><small>With signposts</small><span class="big"><span class="focus">First,</span> cooking saves money. <span class="focus">Second,</span> you make friends. <span class="focus">And finally,</span> it feels like home.</span></div>
+  </div>
+  <div class="tip"><b>Why it matters:</b> a reader can look back at a page; a listener can't. Signposts are how listeners stay on your <b>throughline</b>. Without them, even a good talk can sound like a ramble.</div>
+</section>
+
+<section>
+  <h2><span class="n">2</span>A model: how Matt Cutts signposts his talk</h2>
+  <p>His talk is only about 3.5 minutes, but you always know where you are:</p>
+  <div class="map">
+    <div class="stop"><b>Main idea</b><i>"The idea is actually pretty simple."</i></div><span class="arrow">→</span>
+    <div class="stop"><b>Preview</b><i>"There's a few things I learned…"</i></div><span class="arrow">→</span>
+    <div class="stop"><b>Point 1</b><i>"The first was, …"</i></div><span class="arrow">→</span>
+    <div class="stop"><b>Points 2–3</b><i>"I also noticed…" / "I also figured out…"</i></div><span class="arrow">→</span>
+    <div class="stop"><b>Last point</b><i>"So here's one last thing I'd like to mention."</i></div><span class="arrow">→</span>
+    <div class="stop"><b>Ending</b><i>"So here's my question to you: …"</i></div>
+  </div>
+  <p class="use" style="font-size:14px;color:var(--muted);margin-top:8px">His throughline: trying something new for 30 days is a simple way to change your life.</p>
+</section>
+
+<section>
+  <h2><span class="n">3</span>The signposting toolkit</h2>
+  <table>
+    <tr><th style="width:24%">Job</th><th>Useful phrases</th></tr>
+    <tr><td><b>Introduce your idea</b></td><td>Today I want to talk about… · The idea is simple: … · I'd like to share…</td></tr>
+    <tr><td><b>Preview the structure</b></td><td>I'll share three things I learned. · There are two reasons… · Let me show you how.</td></tr>
+    <tr><td><b>Order your points</b></td><td>First, … · The first thing is… · Second, … · Next, … · Finally, … · Here's one last thing…</td></tr>
+    <tr><td><b>Add a point</b></td><td>I also noticed… · On top of that, … · What's more, … · Another thing is…</td></tr>
+    <tr><td><b>Give an example</b></td><td>For example, … · Let me give you an example. · Take my neighbor, for instance.</td></tr>
+    <tr><td><b>Contrast / surprise</b></td><td>But here's the surprising part… · On the other hand, … · However, …</td></tr>
+    <tr><td><b>Move on</b></td><td>Now let's look at… · That brings me to… · So, … · Which leads to my next point.</td></tr>
+    <tr><td><b>Emphasize</b></td><td>Here's the key point. · This is important. · What really matters is… <i>(a cleft from Week 2)</i></td></tr>
+    <tr><td><b>Sum up</b></td><td>So, to sum up, … · In short, … · So what does all this mean?</td></tr>
+    <tr><td><b>End / talk to the audience</b></td><td>So here's my question to you: … · So why not…? · Next time you…, remember…</td></tr>
+  </table>
+</section>
+
+<section>
+  <h2><span class="n">4</span>Tips for spoken signposts</h2>
+  <ul>
+    <li><b>Preview, then follow it.</b> If you say "three things", give three, and number them.</li>
+    <li><b>Pause</b> after a signpost so the audience can catch it: <i>"Second, <span class="pause">|</span> it helps you make friends."</i></li>
+    <li><b>Keep them short and natural.</b> Spoken signposts are simpler than written ones. <i>"So, …"</i> and <i>"Now, …"</i> are fine in a talk.</li>
+    <li><b>Don't overdo it.</b> Every sentence doesn't need a signpost; use them at the <b>turns</b> of your talk.</li>
+    <li><b>Mix them.</b> Not "and then… and then… and then…".</li>
+  </ul>
+  <h3>Common mistakes</h3>
+  <table>
+    <tr><th style="width:50%">✗ Avoid</th><th>✓ Better</th></tr>
+    <tr><td class="bad">Firstly, … Secondly, … Thirdly, … (too formal for a talk)</td><td class="good">First, … The second thing is… And finally, …</td></tr>
+    <tr><td class="bad">In conclusion, I would like to conclude by concluding…</td><td class="good">So, to sum up, …</td></tr>
+    <tr><td class="bad">I'll talk about three things. (then only two)</td><td class="good">Count your points before you preview them.</td></tr>
+    <tr><td class="bad">Finally, … (in the middle of the talk)</td><td class="good">Use "finally" only for the last point.</td></tr>
+  </table>
+</section>
+
+<section id="check">
+  <h2><span class="n">5</span>Check yourself</h2>
+  <p>Choose or write the best signpost. Press <b>Show answers</b> at the top when you finish.</p>
+  <div class="q"><span class="num">1</span><div>(Start the talk) "_____ something that changed my life: walking to work."<input aria-label="1"><div class="ans">Today I want to talk about…</div></div></div>
+  <div class="q"><span class="num">2</span><div>(Tell them a list is coming) "_____ that walking gave me."<input aria-label="2"><div class="ans">I'll share three things… / There are three gifts…</div></div></div>
+  <div class="q"><span class="num">3</span><div>(Add a point) "It saves money. _____, it clears my head."<input aria-label="3"><div class="ans">On top of that, / What's more, / I also noticed that</div></div></div>
+  <div class="q"><span class="num">4</span><div>(Give an example) "I meet interesting people. _____, last week I met a retired pilot."<input aria-label="4"><div class="ans">For example, / For instance,</div></div></div>
+  <div class="q"><span class="num">5</span><div>(Last point) "_____: I sleep better."<input aria-label="5"><div class="ans">Finally, / Here's one last thing:</div></div></div>
+  <div class="q"><span class="num">6</span><div>(End and speak to the audience) "_____ what if you walked just one day this week?"<input aria-label="6"><div class="ans">So here's my question to you: / So why not try it?</div></div></div>
+  <div class="q"><span class="num">7</span><div><b>Your turn:</b> write the signpost you'll use to move to the <b>last point</b> of your own talk.<input aria-label="Your turn"><div class="ans">Check: is it short, natural, and only used once?</div></div></div>
+</section>
+
+<footer>Approach International Student Center · TED Talks: Ideas Worth Sharing · Week 3</footer>
+</div>
+<script>
+document.getElementById("toggle").onclick = e => {
+  const on = document.getElementById("check").classList.toggle("show");
+  e.target.textContent = on ? "Hide answers" : "Show answers";
+};
+</script>
+</body>
+</html>
