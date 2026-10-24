@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Week 3 Reading Summary</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0f2340; --blue:#143865; --blue-2:#1c4f8f; --gold:#8c7535; --gold-2:#d39f10; --red:#a91512; --green:#1f6b48;
+    --sky:#c1cddd; --sky-2:#e1e8f2; --sky-3:#edf2f9; --warm:#efe9d9; --paper:#fbf9f3;
+    --ink:#14213a; --soft:#3f4b5e; --muted:#5b6b82;
+  }
+  *{box-sizing:border-box}
+  body{margin:0; background:var(--sky-3); color:var(--ink); font-family:Inter, system-ui, sans-serif; font-size:15.5px; line-height:1.5}
+  .page{max-width:900px; margin:0 auto; padding:20px 16px 50px}
+  .top{background:var(--blue); color:#fff; border-radius:18px; padding:20px 24px; position:relative; overflow:hidden}
+  .top::after{content:""; position:absolute; right:-40px; top:-40px; width:170px; height:170px; border:14px solid var(--gold-2); border-radius:50%; opacity:.25}
+  .school{font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--gold-2); font-weight:700}
+  h1{font-family:Lora, serif; font-size:clamp(26px,4.4vw,36px); margin:4px 0 2px}
+  .top p{margin:0; color:var(--sky)}
+  .tools{display:flex; justify-content:flex-end; margin:10px 0}
+  .btn{font:inherit; font-weight:700; font-size:14px; border:none; border-radius:10px; padding:8px 14px; background:var(--gold-2); color:var(--ink); cursor:pointer}
+
+  .big-idea{background:#fff; border:1px solid var(--sky); border-left:6px solid var(--gold-2); border-radius:14px; padding:14px 18px; margin-bottom:14px}
+  .big-idea b.l{display:block; font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--gold)}
+  .big-idea p{margin:4px 0 0; font-family:Lora, serif; font-size:19px; color:var(--blue)}
+
+  h2{font-family:Lora, serif; color:var(--blue); font-size:22px; margin:20px 0 10px}
+  h2 small{font-family:Inter, sans-serif; font-size:13px; font-weight:600; color:var(--muted); margin-left:6px}
+
+  .traps{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+  .trap{background:#fff; border:1px solid var(--sky); border-radius:14px; overflow:hidden; display:flex; flex-direction:column}
+  .trap .th{display:flex; align-items:center; gap:10px; padding:10px 14px; background:var(--paper); border-bottom:1px solid var(--sky)}
+  .trap .n{width:30px; height:30px; border-radius:8px; background:var(--red); color:#fff; font-weight:800; display:flex; align-items:center; justify-content:center; flex:none}
+  .trap h3{margin:0; font-size:18px; color:var(--blue)}
+  .trap .tb{padding:10px 14px; display:flex; flex-direction:column; gap:7px; flex:1}
+  .row{display:grid; grid-template-columns:82px 1fr; gap:8px; font-size:14.5px}
+  .row b{font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); padding-top:2px}
+  .row.do b{color:var(--green)}
+  .row.do span{color:var(--green); font-weight:600}
+  .q{font-family:Lora, serif; font-style:italic; font-size:15px; color:var(--blue); border-left:3px solid var(--gold-2); padding-left:10px; margin-top:auto}
+
+  .card{background:#fff; border:1px solid var(--sky); border-radius:14px; padding:14px 18px}
+  ol.check{margin:4px 0 0; padding-left:24px; columns:2; column-gap:28px}
+  ol.check li{margin:0 0 6px; break-inside:avoid}
+  .tips{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+  .tip h3{margin:0 0 4px; font-size:16px; color:var(--blue)}
+  .tip p{margin:0; font-size:14.5px}
+  .tools5{display:flex; flex-wrap:wrap; gap:8px; margin-top:6px}
+  .tools5 span{background:var(--blue); color:#fff; border-radius:999px; padding:4px 14px; font-weight:700; font-size:14px}
+  .gloss{display:grid; grid-template-columns:repeat(3,1fr); gap:3px 16px; font-size:13.5px; color:var(--soft)}
+  .gloss b{color:var(--ink)}
+  .think{border:2px dashed var(--sky); border-radius:14px; padding:12px 16px; margin-top:12px}
+  .think h3{margin:0 0 6px; font-size:16px; color:var(--blue)}
+  .lines{display:block; border-bottom:1px solid #b7c2d1; height:24px}
+  .source{font-size:11.5px; color:var(--muted); margin-top:14px}
+
+  @media (max-width:700px){ .traps,.tips{grid-template-columns:1fr} ol.check{columns:1} .gloss{grid-template-columns:1fr} }
+  @media print{
+    @page{size:letter; margin:9mm 10mm}
+    body{background:#fff; font-size:11px; line-height:1.4}
+    .page{max-width:none; padding:0}
+    .tools{display:none}
+    .top{background:#fff; color:var(--ink); border:2px solid var(--blue); padding:8px 12px; border-radius:12px}
+    .top::after{display:none} .top p{color:var(--muted)}
+    h1{font-size:22px; margin:2px 0}
+    .big-idea{padding:8px 12px; margin:8px 0}
+    .big-idea p{font-size:14px}
+    .trap,.card,.big-idea{break-inside:avoid}
+    .traps{gap:8px}
+    .trap .th{padding:6px 10px} .trap h3{font-size:14px} .trap .n{width:24px; height:24px; font-size:12px}
+    .trap .tb{padding:7px 10px; gap:4px}
+    .row{font-size:10.8px; grid-template-columns:62px 1fr; gap:6px} .row b{font-size:9px}
+    .q{font-size:11.5px}
+    h2{margin:10px 0 6px; font-size:16px}
+    .card{padding:9px 12px}
+    ol.check li{margin:0 0 3px}
+    .tip p{font-size:11px} .tip h3{font-size:13px}
+    .gloss{font-size:10.5px}
+    .think{padding:8px 12px; margin-top:8px}
+    .lines{height:20px}
+    .source{margin-top:8px; font-size:9.5px}
+    .p2{break-before:page}
+    *{-webkit-print-color-adjust:exact; print-color-adjust:exact}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="top">
+  <div class="school">Approach International Student Center · TED Talks: Ideas Worth Sharing</div>
+  <h1>Week 3 · Reading Summary</h1>
+  <p>Chris Anderson, <i>TED Talks</i> · Ch. 3 "Common Traps" + Ch. 4 "The Checklist"</p>
+</header>
+
+<div class="tools"><button class="btn" onclick="window.print()">Print / Save PDF</button></div>
+
+<div class="big-idea">
+  <b class="l">The big idea</b>
+  <p>A talk should give something to the audience, not take from them. Avoid four common traps, then test your throughline with a checklist.</p>
+</div>
+
+<h2>Part 1 · Four traps to avoid <small>Ch. 3</small></h2>
+<div class="traps">
+
+  <div class="trap">
+    <div class="th"><span class="n">1</span><h3>The Sales Pitch</h3></div>
+    <div class="tb">
+      <div class="row"><b>What</b><span>The speaker uses the talk to sell something: a service, a book, a company.</span></div>
+      <div class="row"><b>Example</b><span>A famous consultant promised a talk on creative thinking, but only listed companies that succeeded after hiring him. Anderson interrupted him on stage, and the talk was never posted online.</span></div>
+      <div class="row"><b>Why bad</b><span>The audience feels used, and the speaker loses respect. Even small "ads" (a book cover on a slide) are risky.</span></div>
+      <div class="row do"><b>Instead</b><span>Give, don't take. Generosity gets a better response: Bryan Stevenson never asked for money in his talk, and the audience gave over $1.3 million.</span></div>
+      <p class="q">"Give, don't take."</p>
+    </div>
+  </div>
+
+  <div class="trap">
+    <div class="th"><span class="n">2</span><h3>The Ramble</h3></div>
+    <div class="tb">
+      <div class="row"><b>What</b><span>An unprepared talk that wanders with no clear direction.</span></div>
+      <div class="row"><b>Example</b><span>A speaker began by saying he had thought about what to say on his drive to the event. He listed random thoughts about the future. People clapped politely but learned nothing.</span></div>
+      <div class="row"><b>Why bad</b><span>It tells the audience their time doesn't matter. Their time and attention are a precious gift to the speaker.</span></div>
+      <div class="row do"><b>Instead</b><span>Prepare. If you want to give people an idea, you have to put in the preparation time first.</span></div>
+      <p class="q">"Rambling is not an option."</p>
+    </div>
+  </div>
+
+  <div class="trap">
+    <div class="th"><span class="n">3</span><h3>The Org Bore</h3></div>
+    <div class="tb">
+      <div class="row"><b>What</b><span>A talk about your organization: its history, structure, team and products.</span></div>
+      <div class="row"><b>Example</b><span>"In 2005 we opened a new department in Dallas, and I put a vice president in charge…" (boring) vs. "In 2005 we discovered an office can cut its energy costs by 60%. Here's how…" (interesting).</span></div>
+      <div class="row"><b>Why bad</b><span>Your organization is fascinating to you and your team, but boring to almost everyone else.</span></div>
+      <div class="row do"><b>Instead</b><span>Talk about the work and the ideas behind it, not the organization itself.</span></div>
+      <p class="q">"One mode is a gift. The other is lazily self-serving."</p>
+    </div>
+  </div>
+
+  <div class="trap">
+    <div class="th"><span class="n">4</span><h3>The Inspiration Performance</h3></div>
+    <div class="tb">
+      <div class="row"><b>What</b><span>A speaker tries hard to <i>look</i> inspiring, with big emotion, jokes and applause, but with little real content.</span></div>
+      <div class="row"><b>Example</b><span>A TED fan copied the "best bits" of famous talks, waited for applause, used weak evidence and even an edited photo, and ran over time. Some people stood up, but later the audience said they felt manipulated.</span></div>
+      <div class="row"><b>Why bad</b><span>Inspiration can't be faked. When people notice, they pull back, like when someone chases love too hard.</span></div>
+      <div class="row do"><b>Instead</b><span>Earn it. Do real, meaningful work, then share what you learned with humility.</span></div>
+      <p class="q">"Inspiration can't be performed."</p>
+    </div>
+  </div>
+</div>
+
+<div class="p2">
+<h2>Part 2 · Test your throughline <small>Ch. 4, "The Checklist"</small></h2>
+<div class="card">
+  <p style="margin:0">Before you build your talk, ask yourself:</p>
+  <ol class="check">
+    <li>Do I really care about this topic?</li>
+    <li>Will it make people curious?</li>
+    <li>Will knowing this make a difference to my audience?</li>
+    <li>Is my talk a <b>gift</b> or an <b>ask</b>?</li>
+    <li>Is the information new, or has everyone heard it before?</li>
+    <li>Can I explain it well, with examples, in the time I have?</li>
+    <li>Do I know enough to make it worth the audience's time?</li>
+    <li>Am I the right person to talk about this?</li>
+    <li>What are the <b>15 words</b> that sum up my talk?</li>
+    <li>Would those 15 words make someone want to hear my talk?</li>
+  </ol>
+</div>
+
+<h2>Two tips from the experts</h2>
+<div class="tips">
+  <div class="card tip">
+    <h3>Say it out loud</h3>
+    <p>Speaking coach Abigail Tenembaum suggests testing your throughline on a typical audience member by <b>saying it</b>, not writing it. Speaking it shows you what is clear, what is missing, and how to make it sharper.</p>
+  </div>
+  <div class="card tip">
+    <h3>Talk to one person</h3>
+    <p>Author Elizabeth Gilbert suggests preparing your talk for <b>one real person</b> you like: curious and smart, but not an expert in your field. And choose a topic you truly know and love, not one you picked just because it sounds new.</p>
+  </div>
+</div>
+
+<h2>What comes next</h2>
+<div class="card">
+  <p style="margin:0">Once you have a throughline, you build your talk with five tools. You can use one, several, or all five:</p>
+  <div class="tools5"><span>Connection</span><span>Narration</span><span>Explanation</span><span>Persuasion</span><span>Revelation</span></div>
+</div>
+
+<h2>Word help</h2>
+<div class="card gloss">
+  <div><b>trap</b>: a mistake that's easy to fall into</div>
+  <div><b>pitch</b>: words used to sell something</div>
+  <div><b>takeaway</b>: a useful idea you remember</div>
+  <div><b>ramble</b>: talk for a long time without a clear point</div>
+  <div><b>wing it</b>: do something without preparing</div>
+  <div><b>self-serving</b>: helping only yourself</div>
+  <div><b>manipulate</b>: control people in an unfair way</div>
+  <div><b>earn</b>: get something because you deserve it</div>
+  <div><b>throughline</b>: the one idea that connects the whole talk</div>
+</div>
+
+<div class="think">
+  <h3>Think about your talk</h3>
+  <p style="margin:0 0 4px">1. Which trap do you think is the easiest for <b>you</b> to fall into? Why?</p>
+  <span class="lines"></span>
+  <p style="margin:8px 0 4px">2. Write your idea in 15 words or fewer. Is it a gift or an ask?</p>
+  <span class="lines"></span><span class="lines"></span>
+</div>
+
+<p class="source">Summarized in simpler English from Chris Anderson, <i>TED Talks: The Official TED Guide to Public Speaking</i> (2016), Ch. 3–4. Short quotes are from the book.</p>
+</div>
+
+</div>
+</body>
+</html>
