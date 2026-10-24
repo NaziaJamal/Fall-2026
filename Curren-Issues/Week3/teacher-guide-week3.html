@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Teacher Guide · Week 3 · Banknotes</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#143865;--deep:#0c2340;--blue:#1c4f8f;--gold:#8c7535;--gold-bright:#d39f10;--sky-dark:#c1cddd;--sky-med:#e1e8f2;--sky-light:#edf2f9;--warm:#efe9d9;--ink:#1b2433;--muted:#5a6578;--ok:#1e7a46;--bg:#f2f4f8}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);font-family:"Source Sans 3",Arial,sans-serif;color:var(--ink);font-size:16.5px;line-height:1.5}
+h1,h2,h3{font-family:"Source Serif 4",Georgia,serif;color:var(--navy);line-height:1.2}
+.toolbar{position:sticky;top:0;z-index:20;background:var(--deep)}
+.toolbar .in{max-width:940px;margin:0 auto;padding:8px 16px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.toolbar img{height:34px}
+.toolbar .bt{font-family:"Source Serif 4",Georgia,serif;color:var(--gold-bright);font-weight:700;letter-spacing:.05em;margin-right:auto}
+.toolbar a{color:#fff;text-decoration:none;font-size:14px;font-weight:600;opacity:.85;padding:4px 8px;border-radius:6px}
+.toolbar a:hover{background:rgba(255,255,255,.12)}
+.toolbar button{font:inherit;font-size:14px;font-weight:700;border:0;border-radius:7px;padding:7px 12px;cursor:pointer;background:#fff;color:var(--navy)}
+.toolbar button.gold{background:var(--gold-bright);color:var(--deep)}
+.hero{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff}
+.hero .in{max-width:940px;margin:0 auto;padding:22px 16px}
+.hero h1{color:#fff;font-size:32px}
+.hero p{opacity:.92}
+main{max-width:940px;margin:0 auto;padding:16px 16px 60px}
+section.card{background:#fff;border:1px solid var(--sky-dark);border-radius:14px;padding:18px 22px;margin-bottom:16px}
+section.card > h2{font-size:24px;margin-bottom:10px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.kv{background:var(--sky-light);border-radius:10px;padding:10px 14px}
+.kv b{display:block;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold)}
+ul.check{list-style:none;display:grid;gap:5px}
+ul.check li{display:flex;gap:8px;align-items:flex-start}
+ul.check input{margin-top:5px;accent-color:var(--ok)}
+table{width:100%;border-collapse:collapse;font-size:15px}
+th{background:var(--navy);color:#fff;text-align:left;padding:7px 9px;font-weight:600}
+td{border-bottom:1px solid var(--sky-dark);padding:6px 9px;vertical-align:top}
+tr:nth-child(even) td{background:var(--sky-light)}
+td.t{white-space:nowrap;font-weight:700;color:var(--navy);text-align:right}
+tr.tot td{background:var(--warm)!important;font-weight:700}
+tr.brk td{background:#fffaf0!important;color:var(--gold);font-weight:700;text-align:center}
+.esa{display:inline-block;font-size:11px;font-weight:700;border-radius:6px;padding:1px 6px;margin-right:4px}
+.E{background:#fdf1d0;color:#7a5a00}.S{background:var(--sky-med);color:var(--navy)}.A{background:#e3f4ea;color:var(--ok)}.R{background:#efe3f4;color:#6b2c86}
+.classhead{display:flex;align-items:center;gap:12px;margin:26px 0 12px;font-family:"Source Serif 4",Georgia,serif;font-weight:700;font-size:22px;color:var(--gold)}
+.classhead::after{content:"";flex:1;height:2px;background:var(--gold-bright);opacity:.6}
+details.act{background:#fff;border:1px solid var(--sky-dark);border-radius:14px;margin-bottom:10px;overflow:hidden}
+details.act summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:34px 1fr auto;gap:10px;align-items:center;padding:12px 16px}
+details.act summary::-webkit-details-marker{display:none}
+details.act summary .n{width:30px;height:30px;border-radius:50%;background:var(--navy);color:#fff;display:grid;place-items:center;font-weight:700;font-size:14px}
+details.act summary .ti{font-family:"Source Serif 4",Georgia,serif;font-weight:700;font-size:19px;color:var(--navy)}
+details.act summary .ti small{display:block;font-family:"Source Sans 3",Arial,sans-serif;font-weight:400;font-size:14px;color:var(--muted)}
+details.act summary .mn{font-weight:700;color:var(--gold);white-space:nowrap}
+details.act[open] summary{background:var(--sky-light);border-bottom:1px solid var(--sky-dark)}
+.actbody{padding:14px 18px 16px;display:grid;gap:10px}
+.meta{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.meta div{background:var(--sky-light);border-radius:8px;padding:6px 10px;font-size:14.5px}
+.meta b{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold)}
+.field b.lab{display:block;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:2px}
+.field ol,.field ul{padding-left:20px}
+.field li{margin-bottom:3px}
+.say{background:var(--deep);color:#fff;border-radius:8px;padding:8px 12px;font-family:"Source Serif 4",Georgia,serif}
+.say b{color:var(--gold-bright)}
+.diff{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.diff div{border-radius:8px;padding:6px 10px;font-size:14.5px;border:1px solid var(--sky-dark)}
+.diff b{display:block;font-size:12px;letter-spacing:.06em;color:var(--navy)}
+.ans{background:#e9f6ee;border:1px solid #bfe2cc;border-radius:8px;padding:8px 12px;font-size:15px}
+.ans b.lab{color:var(--ok)}
+.warn{background:#fff6e5;border:1px solid #f1d28e;border-radius:8px;padding:8px 12px;font-size:15px}
+.qc{columns:2;column-gap:24px}
+.qc li{break-inside:avoid;margin-bottom:4px}
+.foot{text-align:center;font-size:12.5px;color:var(--muted);margin-top:10px}
+@media (max-width:700px){.grid2,.meta,.diff{grid-template-columns:1fr}.qc{columns:1}.hero h1{font-size:26px}section.card{padding:14px}.toolbar a{display:none}}
+@media print{
+  @page{margin:12mm}
+  body{background:#fff;font-size:10.5pt;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .toolbar{display:none}
+  .hero{background:none;color:var(--ink);border-bottom:3px solid var(--gold-bright)}
+  .hero h1{color:var(--navy)} .hero .in{padding:0 0 8px}
+  main{padding:6px 0 0}
+  section.card,details.act{border:1px solid var(--sky-dark);break-inside:auto}
+  .classhead{break-after:avoid}
+  details.act summary{break-after:avoid}
+  .meta,.diff,.ans,.say{break-inside:avoid}
+  details.act summary{background:var(--sky-light)!important}
+  .actbody{display:grid!important}
+}
+</style>
+</head>
+<body>
+<div class="toolbar"><div class="in">
+  <img src="data:image/png;base64,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" alt="Approach logo"><span class="bt">TEACHER GUIDE</span>
+  <a href="#overview">Overview</a><a href="#prep">Prep</a><a href="#timing">Timing</a><a href="#c1">Class 1</a><a href="#c2">Class 2</a><a href="#keys">Answer keys</a>
+  <button type="button" id="openAll">Open all</button>
+  <button type="button" class="gold" id="printBtn">Print</button>
+</div></div>
+
+<div class="hero"><div class="in">
+  <h1>Week 3 Teacher Guide · A New Look for Banknotes</h1>
+  <p>Current Issues · Basic Level (A1–A2+) · Two 100-minute classes + 30-minute break · ESA</p>
+</div></div>
+
+<main>
+
+<section class="card" id="overview">
+  <h2>Overview</h2>
+  <div class="grid2">
+    <div class="kv"><b>Syllabus focus</b>News vocabulary and word families</div>
+    <div class="kv"><b>Language focus</b>Nouns, verbs, people, and adjectives: help / helper / helpful · vote / voter · design / designer · replace / replacement</div>
+    <div class="kv"><b>SLO (Week 3)</b>Students use at least 6 new words from the article in their own sentences.</div>
+    <div class="kv"><b>Article</b>“A New Look for Banknotes” · ESL News Stories · Level 2 (A2) · Oct 11, 2026 · Audio: British narrator</div>
+  </div>
+  <h3 style="margin:14px 0 6px;font-size:18px">The story in short</h3>
+  <p>The Bank of England will put four animals — a puffin, a barn owl, a bumblebee, and a hedgehog — on its new £5, £10, £20, and £50 notes. They will replace famous people like Winston Churchill. Almost 500,000 people voted for their favorite animals. The king stays on the other side. The new notes are not ready; designing, testing, and printing could take years. They must be durable, easy to use, and difficult to counterfeit.</p>
+  <h3 style="margin:14px 0 6px;font-size:18px">Why this article works</h3>
+  <ul style="padding-left:20px">
+    <li>Money is universal — every student can talk about the money in their country (11 countries in class).</li>
+    <li>Strong word families appear naturally: <i>vote → voter, design → designer, replace → replacement</i>.</li>
+    <li>Numbers (£5–£50, 500,000) preview Week 4 (numbers and prices).</li>
+    <li><b>Watch for:</b> British English — <i>note / banknote</i> = US <i>bill</i>; <i>pounds (£)</i>. Point it out early.</li>
+  </ul>
+</section>
+
+<section class="card" id="prep">
+  <h2>Before Class: Checklist</h2>
+  <div class="grid2">
+    <div>
+      <h3 style="font-size:17px;margin-bottom:6px">Files (same GitHub folder)</h3>
+      <ul class="check">
+        <li><input type="checkbox" id="p1"><label for="p1"><b>week3-slides.html</b> — slides for both classes</label></li>
+        <li><input type="checkbox" id="p2"><label for="p2"><b>worksheet-week3.html</b> — student link (share the link or a QR code)</label></li>
+        <li><input type="checkbox" id="p3"><label for="p3"><b>money-lineup-cards.html</b> — print and cut 14 cards</label></li>
+        <li><input type="checkbox" id="p4"><label for="p4">Article page open: eslnewsstories.com (reading + audio)</label></li>
+      </ul>
+    </div>
+    <div>
+      <h3 style="font-size:17px;margin-bottom:6px">Classroom</h3>
+      <ul class="check">
+        <li><input type="checkbox" id="p5"><label for="p5">Test the word recordings (press Listen on each word slide)</label></li>
+        <li><input type="checkbox" id="p6"><label for="p6">Test the article audio and speakers</label></li>
+        <li><input type="checkbox" id="p7"><label for="p7">Optional: add photos of banknotes to Guess the Money slides</label></li>
+        <li><input type="checkbox" id="p8"><label for="p8">Paper + colored pens (Design a Banknote)</label></li>
+        <li><input type="checkbox" id="p9"><label for="p9">Sticky notes (A2+ line-up, voting)</label></li>
+        <li><input type="checkbox" id="p10"><label for="p10">Optional: ask students to bring a bill or coin from home</label></li>
+      </ul>
+    </div>
+  </div>
+  <div class="warn" style="margin-top:12px"><b>Slide controls:</b> arrows = move · <b>T</b> = start/stop timer · <b>R</b> = reveal answers · <b>N</b> = teacher notes · <b>F</b> = full screen. Team scores are shared between Guess the Money and Animal Charades; use <b>Reset scores for Class 2</b> on the Charades slide.</div>
+</section>
+
+<section class="card" id="timing">
+  <h2>Timing at a Glance</h2>
+  <table id="timeTable"></table>
+</section>
+
+<div class="classhead" id="c1">Class 1 · 100 minutes</div>
+<div id="acts1"></div>
+
+<div class="classhead">30-Minute Break</div>
+<p style="margin:-4px 0 10px;color:var(--muted)">Press <b>Start break timer</b> on the Break slide — it shows the return time.</p>
+
+<div class="classhead" id="c2">Class 2 · 100 minutes</div>
+<div id="acts2"></div>
+
+<section class="card" id="keys">
+  <h2>Answer Keys</h2>
+  <div class="grid2">
+    <div class="ans"><b class="lab">Worksheet 2 · Key words</b><br>1 banknote · 2 wildlife · 3 replace · 4 vote · 5 popular · 6 design · 7 famous · 8 counterfeit</div>
+    <div class="ans"><b class="lab">Worksheet 3 · Animals</b><br>puffin = sea bird, colorful beak · barn owl = white heart-shaped face, hunts at night · bumblebee = big, hairy, black-and-yellow bee · hedgehog = spines on its back</div>
+    <div class="ans"><b class="lab">Worksheet 4 · Main idea</b><br>a — The Bank of England will put pictures of animals on its new banknotes.</div>
+    <div class="ans"><b class="lab">Worksheet 5 · 5 Ws (sample)</b><br>Who: the Bank of England · What: notes with a puffin, barn owl, bumblebee, hedgehog · Where: the UK · When: not ready — could take years · Why: people voted for them</div>
+    <div class="ans"><b class="lab">Worksheet 6 · True / False</b><br>1 T · 2 F (the king stays on the back) · 3 F (almost 500,000) · 4 F (could take years) · 5 T · 6 T</div>
+    <div class="ans"><b class="lab">Worksheet 7 · Numbers</b><br>1 four · 2 £5, £10, £20, £50 · 3 almost 500,000 · 4 maybe years</div>
+    <div class="ans"><b class="lab">Worksheet 8 · Word families table</b><br>voter · designer · use / user / useful · replacement · paint · collection / collector</div>
+    <div class="ans"><b class="lab">Worksheet 8 · Choose the form</b><br>1 voters · 2 designer · 3 use · 4 useful · 5 replace · 6 helpful</div>
+    <div class="ans"><b class="lab">Word Family Race (slide)</b><br>voter · designer · painter · collector · helpful · useful · replacement · payment</div>
+    <div class="ans"><b class="lab">Money Line-Up (least → most)</b><br>10 afghanis · 25¢ · 2 reais · 20 baht · $1 · 20 bolivianos · 10 soles · 20,000 pesos · 500,000 dong · £20 · 2,000 denari · 100,000 won · $100 · 1,000 reais</div>
+  </div>
+</section>
+
+<section class="card">
+  <h2>Quality Check</h2>
+  <ul class="qc">
+    <li>Follows the syllabus: Week 3 vocabulary + word families</li>
+    <li>SLO addressed directly: My 6 Words + writing</li>
+    <li>ESA: Engage (money, animals) → Study (words, reading, word families) → Activate (speaking, design, writing)</li>
+    <li>Both classes exactly 100 minutes; 30-minute break included</li>
+    <li>Interaction: individual, pairs, teams, groups, whole class</li>
+    <li>Movement: Guess the Money teams, Line-Up, Charades, T/F race</li>
+    <li>Productive outcome: a group banknote design + a 5–7 sentence paragraph</li>
+    <li>Class 2 builds on Class 1 (new tasks, no re-reading)</li>
+    <li>A1 support (frames, choices, hint lines) and A2+ challenge (experts, presenter role, extra facts)</li>
+    <li>Adult-appropriate: real money, real countries, real decisions</li>
+  </ul>
+</section>
+
+<p class="foot">Week 3 Teacher Guide · Current Issues · Basic Level · Story: ESL News Stories (eslnewsstories.com) · Exchange rates: UK government, October 2026</p>
+</main>
+
+<script>
+/* ---------- activities ---------- */
+const A1=[
+ {t:"Welcome & Goals",s:"E",m:3,slide:"Slides 2–3",inter:"Whole class",mat:"Slides",
+  goal:"Students know today's goals and plan.",
+  teach:["Greet students; point to the 5 goals and read them quickly.","Students repeat the key words: <i>word family, vote → voter</i>.","Show the agenda and point to the break."],
+  stud:"Listen and repeat the goals.",out:"Students can say what they will do today.",
+  diff:["Point and gesture.","Read one goal aloud.","Explain one goal in their own words."]},
+ {t:"Guess the Money!",s:"E",m:15,slide:"Slides 4–16",inter:"3 teams",mat:"Slides (11 country rounds + winners); optional banknote photos",
+  goal:"Activate background knowledge about money and build curiosity about the story.",
+  teach:["Make 3 mixed-level teams. Start the 15-minute timer (T) on the intro slide — a game clock then shows on every round.","On each round, click <b>Next clue</b> to reveal clues one at a time. Teams raise hands to guess.","Click a team's button to add points: guessing after clue 1 = 3 points, clue 2 = 2, clue 3 = 1.","Students from that country stay quiet as <b>experts</b>. After <b>Show answer</b>, they tell the class one fact.","On the winners slide, bridge: “Some countries have animals on their money. Today's story: a country will <b>replace</b> people with animals.”"],
+  stud:"Read the clues with your team. Guess the country.",say:"I think it's from <b>___</b> because <b>___</b>.",
+  out:"About 1 minute per country; experts share one fact each.",
+  diff:["Listen to clue 3 (easiest); say the country.","Explain the guess with <i>because</i>.","Be an expert: add a fact about your country's money."],
+  ans:"Order: Brazil, South Korea, Peru, Afghanistan, USA, Vietnam, Colombia, North Macedonia, Thailand, Bolivia, El Salvador (surprise: uses the US dollar)."},
+ {t:"Think Ahead",s:"E",m:7,slide:"Slide 17",inter:"Whole class → pairs",mat:"Slides; article photo (optional)",
+  goal:"Predict the story from the photo.",
+  teach:["Quick hands-up poll: cash, card, or phone? (1 min)","Pairs describe the article photo and predict the story (4 min).","3–4 students share (2 min). Don't confirm — reading will check.","Point out: US <b>bill</b> = UK <b>note / banknote</b>."],
+  stud:"Answer the poll. Describe the photo with a partner.",say:"I can see <b>___</b>. I think the story is about <b>___</b>.",
+  out:"One prediction sentence per pair.",
+  diff:["Name things in the photo.","Full prediction sentence.","Give two reasons for the prediction."]},
+ {t:"8 Key Words + Quick Check",s:"S",m:20,slide:"Slides 18–27",inter:"Whole class → choral",mat:"Word slides with real recordings (Listen / Slow)",
+  goal:"Pre-teach 8 high-value words: meaning, stress, and use.",
+  teach:["Elicit before showing (“What's another word for paper money?”).","Press <b>Listen</b> → class repeats → rows → individuals. Clap the stress.","Read the two example sentences: one from the story, one from life.","Ask the check questions (see table below and slide notes). About 2 minutes per word.","Quick Check slide (4 min): read a meaning, class says the word, then reveal (R)."],
+  stud:"Listen, repeat, and answer the questions.",
+  out:"Students recognize and say all 8 words with correct stress.",
+  diff:["Repeat, point, and match meaning.","Answer check questions in full sentences.","Make their own sentence with each word; define <i>design</i> and <i>banknote</i> in the Quick Check."],
+  vocab:true},
+ {t:"Meet the Animals",s:"S",m:6,slide:"Slide 28",inter:"Pairs",mat:"Slide; Worksheet Section 3",
+  goal:"Learn the 4 animal names before reading.",
+  teach:["Pairs match the clues to the animals (3 min).","Reveal (R) and check (1 min).","Ask: “Do these animals live in your country? Which is your favorite?” (2 min)","Optional: show a quick image search for each animal."],
+  stud:"Read the clue. Choose the animal.",out:"4 correct matches.",
+  diff:["Use the word list at the bottom.","Read the clues aloud.","Describe an animal from their country the same way."],
+  ans:"1 puffin · 2 barn owl · 3 bumblebee · 4 hedgehog"},
+ {t:"First Reading: Main Idea",s:"S",m:10,slide:"Slide 29",inter:"Individual → pairs",mat:"Article on eslnewsstories.com; Worksheet Section 4",
+  goal:"Identify the main idea quickly.",
+  teach:["Students open the story; silent reading, 4 minutes.","They choose a, b, or c alone, then compare with a partner (2 min).","Check (R) (2 min), then ask why B and C are wrong (2 min): people <i>voted</i>, they didn't buy notes; Churchill will <i>leave</i> the notes.","Tip on the slide: the headline and first sentence usually show the main idea."],
+  stud:"Read fast. Choose the main idea.",out:"Correct answer + one reason.",
+  diff:["Read the first paragraph only.","Read the whole story.","Explain why B and C are wrong."],ans:"a"},
+ {t:"Second Reading: 5 Ws",s:"S",m:15,slide:"Slide 30",inter:"Individual → pairs → whole class",mat:"Worksheet Section 5",
+  goal:"Find key facts (recycles Week 2).",
+  teach:["Individual work, 6 minutes.","Pairs compare, 4 minutes.","Check together with Reveal (R), 5 minutes.","A2+ extras: almost 500,000 voted; the puffin represents sea animals; the king stays on the back."],
+  stud:"Read again. Write short answers.",out:"A completed 5 Ws chart.",
+  diff:["Who and What only; copy words from the story.","All 5 Ws.","Add one extra fact to each W."]},
+ {t:"True or False Race",s:"A",m:6,slide:"Slide 31",inter:"Teams of 3",mat:"Slide; Worksheet Section 6",
+  goal:"Check detailed understanding with movement.",
+  teach:["Read each statement. Teams stand up for TRUE, stay seated for FALSE (10 seconds).","1 point for the right answer; bonus point for correcting a false sentence.","Reveal (R) at the end."],
+  stud:"Decide with your team. Correct the false sentences.",out:"6 decisions + corrections.",
+  diff:["Stand or sit with the team.","Say the correction.","Correct with a full sentence from the story."]},
+ {t:"Listen for Numbers",s:"S",m:12,slide:"Slide 32",inter:"Individual → pairs",mat:"Article audio; Worksheet Section 7",
+  goal:"Listen for numbers (preview of Week 4).",
+  teach:["Students read the 4 questions (2 min).","Listen 1: choose answers (3 min). Compare with a partner (2 min).","Listen 2: check (3 min). Practice saying the numbers: <i>five pounds, five hundred thousand</i> (2 min).","Note: the narrator has a British accent."],
+  stud:"Listen. Choose the correct numbers.",out:"4 correct answers; students can say the numbers.",
+  diff:["Circle the answers.","Say the numbers aloud.","Write one sentence with each number."]},
+ {t:"Wrap-up: 3 Sentences",s:"R",m:6,slide:"Slide 33",inter:"Pairs → whole class",mat:"Slide frames",
+  goal:"Retell the story with key words before the break.",
+  teach:["Pairs complete the 3 frames (3 min).","3–4 pairs share (3 min). Listen for correct use of <i>replace</i> and <i>voted</i>."],
+  stud:"Tell the story in 3 sentences.",say:"The Bank of England will <b>replace</b> ___ with ___. Almost 500,000 people <b>voted</b> for ___. It could take ___.",
+  out:"A 3-sentence summary.",diff:["Fill in the frames.","Say it without looking.","Add a fourth sentence."]}
+];
+const A2=[
+ {t:"Money Line-Up",s:"E",m:8,slide:"Slide 36",inter:"Whole class, mingle",mat:"14 printed cards (money-lineup-cards.html)",
+  goal:"Energize after the break; practice amounts and comparison.",
+  teach:["Hand out one card per student (1 min).","Students mingle and line up from least money (left) to most money (right) — English only (4 min).","Each student says their amount, left to right; reveal the order (R) and check (3 min).","Bridge: “The UK will change the pictures on its money. Let's remember the words!”"],
+  stud:"Talk to classmates. Make a line from least to most money.",say:"I have <b>___</b>. What do you have? · Is that <b>more</b> or <b>less</b> than ___? · I think you go <b>before / after</b> me.",
+  out:"A correct line of 14 students.",
+  diff:["Use the hint line on the card.","Explain their place with <i>more / less</i>.","Cover the hint with a sticky note and ask the experts."],
+  ans:"10 afghanis · 25¢ · 2 reais · 20 baht · $1 · 20 bolivianos · 10 soles · 20,000 pesos · 500,000 dong · £20 · 2,000 denari · 100,000 won · $100 · 1,000 reais"},
+ {t:"Animal Charades",s:"E",m:7,slide:"Slide 37",inter:"Teams",mat:"Charades slide (15 cards)",
+  goal:"Review the animal words with movement.",
+  teach:["Press <b>Reset scores for Class 2</b> first.","Press <b>New card</b>: class closes eyes; the actor sees the animal for 4 seconds.","Press <b>Start acting</b> (45 seconds). No words, no sounds. Teams ask yes/no questions.","Press <b>Reveal</b> — it shows which banknote the animal is on. About 5 turns."],
+  stud:"Act or guess the animal.",say:"Is it a <b>bird</b>? Does it <b>fly</b>? · I think it's a <b>___</b>!",
+  out:"About 5 animals guessed; yes/no questions.",
+  diff:["Guess the animal name.","Ask yes/no questions.","Be the actor; explain the banknote link."]},
+ {t:"Back to the Board",s:"S",m:7,slide:"Slide 38",inter:"Two teams",mat:"Whiteboard",
+  goal:"Review the 8 key words.",
+  teach:["One player sits with their back to the board; you write a word.","The team explains it without saying it; 60 seconds per turn.","Words: banknote, wildlife, replace, vote, popular, design, famous, counterfeit (+ the 4 animals)."],
+  stud:"Explain the word. Don't say it!",say:"It's a verb. You do this when… · It's an animal. It lives…",
+  out:"About 6 words reviewed.",diff:["Mime or give examples.","Explain with one sentence.","Explain with two sentences and no gestures."]},
+ {t:"Word Families",s:"S",m:20,slide:"Slides 39–41",inter:"Whole class → teams → individual",mat:"Slides; Worksheet Section 8",
+  goal:"Understand and build word families (syllabus language focus).",
+  teach:["<b>Rule (5 min):</b> elicit: “A person who votes is a…?” Show the endings: <b>-er/-or</b> = person, <b>-ful</b> = describes, <b>-ment/-tion</b> = thing.","Point out: <i>vote</i> and <i>design</i> are both verbs and nouns.","<b>Race (10 min):</b> teams write the word on paper and hold it up; spelling counts; bonus point for a sentence. Reveal (R).","<b>Worksheet (5 min):</b> students complete the table and choose the form; press Check; fix with a partner."],
+  stud:"Find the person, the thing, and the describing word.",
+  out:"A completed table + 6 sentences.",
+  diff:["Use the endings box; choose from the dropdowns.","Spell the words correctly in the race.","Make sentences with 3 word-family forms."]},
+ {t:"My 6 Words (SLO)",s:"A",m:10,slide:"Slide 42",inter:"Individual → pairs",mat:"Worksheet Section 9",
+  goal:"Use at least 6 new words in their own sentences (Week 3 SLO).",
+  teach:["Students write 6 sentences about their own life; the key words light up on the worksheet as they use them (6 min).","Partners read their 3 best sentences; the partner asks one question about each (4 min).","Word-family forms count (voter, designer, replaced)."],
+  stud:"Write 6 true sentences. Use a different key word in each.",
+  out:"6 sentences with 6 different key words.",
+  diff:["4–6 short sentences using the examples.","6 sentences, different words.","Add a word-family form and a reason with because."]},
+ {t:"Speed Chat",s:"A",m:10,slide:"Slide 43",inter:"Pairs (two lines)",mat:"Slide questions",
+  goal:"Fluent speaking about the topic with reasons.",
+  teach:["Two lines facing each other; one line moves every 2 minutes (4 rounds = 8 min).","2-minute share: “My partner said…”","The starred question is for A2+ pairs."],
+  stud:"Answer the questions. Give a reason with because.",out:"4 short conversations.",
+  diff:["Questions 1 and 4; short answers.","All questions with because.","The starred question; ask follow-up questions."]},
+ {t:"Design a Banknote (group task)",s:"A",m:20,slide:"Slides 44–45",inter:"Groups of 3–4",mat:"Paper, colored pens, sticky notes",
+  goal:"Produce English collaboratively: plan, describe, and justify a design.",
+  teach:["<b>Plan and draw (12 min):</b> groups design a banknote for the class: animal on the front, value, and 2 reasons. Roles: Designer, Writer, Presenter, Timekeeper. Use at least 3 key words.","<b>Present and vote (8 min):</b> 1 minute per group with the timer; listeners ask one question; hang designs on the wall; vote with sticky dots (not your own group).","Connect: “500,000 people voted in the UK — now you are the voters!”"],
+  stud:"Design a banknote with your group. Present it. Vote.",say:"Our banknote is a <b>___</b> note. On the front, there is a <b>___</b>. We chose it because <b>___</b>.",
+  out:"A drawn banknote + a 1-minute presentation per group.",
+  diff:["Draw and say one sentence.","Write the reasons.","Presenter role; answer questions."]},
+ {t:"Writing: My Banknote",s:"A",m:15,slide:"Slide 46",inter:"Individual → pairs",mat:"Worksheet Section 10",
+  goal:"Write 5–7 sentences using key words and a word-family form.",
+  teach:["Students find the key words in the model (2 min).","Write (10 min). The worksheet counts words and sentences.","Swap with a partner and check the list (3 min).","Homework: post on Approach's Community (Copy answers button)."],
+  stud:"Design a banknote for your country. Write 5–7 sentences.",
+  out:"A 5–7 sentence paragraph.",
+  diff:["5 sentences using the frames.","6–7 sentences, 3+ key words.","Add a second reason and a word-family form."]},
+ {t:"Exit Ticket",s:"R",m:3,slide:"Slide 47",inter:"Individual",mat:"Slide; sticky notes",
+  goal:"Check learning before students leave.",
+  teach:["Students say or write: the main idea in one sentence, one word family, and a favorite new word with a sentence.","Collect at the door."],
+  stud:"Answer the 3 questions.",out:"3 answers per student.",
+  diff:["Main idea + one word.","All 3 answers.","Use 2 word families."]}
+];
+const VOCAB=[
+ ["banknote","noun","BANK·note","paper or plastic money (US: bill)","Is a banknote paper money or a coin? What do Americans call it?"],
+ ["wildlife","noun","WILD·life","animals and birds living in nature","Is a pet dog wildlife? Is an owl in the forest wildlife?"],
+ ["replace","verb","re·PLACE","put a new thing in the place of an old thing","If I replace my phone, do I have two phones?"],
+ ["vote","verb / noun","VOTE","choose, together with many people","Do many people vote, or only one? Do people vote in elections?"],
+ ["popular","adjective","POP·u·lar","liked by many people","If a song is popular, do many people like it?"],
+ ["design","noun / verb","de·SIGN","a plan or drawing for how something will look","Do you make a design before or after you build something?"],
+ ["famous","adjective","FA·mous","known by many people","Do many people know a famous person? Is your neighbor famous?"],
+ ["counterfeit","adjective / verb","COUN·ter·feit","fake; a copy made to trick people","Is counterfeit money real? Is it legal to make it?"]
+];
+function vocabTable(){
+  return `<table><tr><th>Word</th><th>Stress</th><th>Meaning</th><th>Check question</th></tr>${VOCAB.map(v=>`<tr><td><b>${v[0]}</b> <span style="color:var(--muted);font-size:13px">${v[1]}</span></td><td>${v[2]}</td><td>${v[3]}</td><td>${v[4]}</td></tr>`).join("")}</table>`;
+}
+function act(a,i){
+  return `<details class="act"><summary><span class="n">${i}</span><span class="ti"><span class="esa ${a.s}">${a.s}</span>${a.t}<small>${a.slide} · ${a.inter}</small></span><span class="mn">${a.m} min</span></summary>
+  <div class="actbody">
+    <div class="meta"><div><b>Goal</b>${a.goal}</div><div><b>Interaction</b>${a.inter}</div><div><b>Materials</b>${a.mat}</div></div>
+    <div class="field"><b class="lab">Teacher instructions</b><ol>${a.teach.map(x=>`<li>${x}</li>`).join("")}</ol></div>
+    <div class="field"><b class="lab">Student instructions</b>${a.stud}</div>
+    ${a.say?`<div class="say">${a.say}</div>`:""}
+    ${a.vocab?vocabTable():""}
+    <div class="field"><b class="lab">Expected output</b>${a.out}</div>
+    <div class="diff"><div><b>A1</b>${a.diff[0]}</div><div><b>A2</b>${a.diff[1]}</div><div><b>A2+</b>${a.diff[2]}</div></div>
+    ${a.ans?`<div class="ans"><b class="lab">Answers:</b> ${a.ans}</div>`:""}
+  </div></details>`;
+}
+document.getElementById("acts1").innerHTML=A1.map((a,i)=>act(a,i+1)).join("");
+document.getElementById("acts2").innerHTML=A2.map((a,i)=>act(a,A1.length+i+1)).join("");
+
+/* timing table + check */
+const sum=l=>l.reduce((s,a)=>s+a.m,0);
+let t=`<tr><th>#</th><th>Stage</th><th>Activity</th><th>Interaction</th><th style="text-align:right">Min</th></tr>`;
+let k=1;
+A1.forEach(a=>t+=`<tr><td>${k++}</td><td><span class="esa ${a.s}">${a.s}</span></td><td>${a.t}</td><td>${a.inter}</td><td class="t">${a.m}</td></tr>`);
+t+=`<tr class="tot"><td></td><td></td><td>Class 1 total</td><td></td><td class="t">${sum(A1)}</td></tr>`;
+t+=`<tr class="brk"><td colspan="5">30-minute break</td></tr>`;
+A2.forEach(a=>t+=`<tr><td>${k++}</td><td><span class="esa ${a.s}">${a.s}</span></td><td>${a.t}</td><td>${a.inter}</td><td class="t">${a.m}</td></tr>`);
+t+=`<tr class="tot"><td></td><td></td><td>Class 2 total</td><td></td><td class="t">${sum(A2)}</td></tr>`;
+document.getElementById("timeTable").innerHTML=t;
+
+/* controls */
+document.getElementById("openAll").onclick=e=>{ const ds=[...document.querySelectorAll("details.act")]; const open=!ds.every(d=>d.open); ds.forEach(d=>d.open=open); e.target.textContent=open?"Close all":"Open all"; };
+document.getElementById("printBtn").onclick=()=>{ document.querySelectorAll("details.act").forEach(d=>d.open=true); setTimeout(()=>window.print(),100); };
+addEventListener("beforeprint",()=>document.querySelectorAll("details.act").forEach(d=>d.open=true));
+/* save checklist */
+const KEY="approach-w3-teacher-guide";
+let st={}; try{st=JSON.parse(localStorage.getItem(KEY))||{};}catch(e){}
+document.querySelectorAll("ul.check input").forEach(c=>{ c.checked=!!st[c.id]; c.onchange=()=>{ st[c.id]=c.checked; try{localStorage.setItem(KEY,JSON.stringify(st));}catch(e){} }; });
+</script>
+</body>
+</html>
