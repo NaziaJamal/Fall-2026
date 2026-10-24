@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Week 3 Slides · Banknotes</title>
+<link rel="icon" href="data:image/png;base64,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">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#143865; --deep:#0c2340; --blue:#1c4f8f; --gold:#8c7535; --gold-bright:#d39f10;
+  --sky-dark:#c1cddd; --sky-med:#e1e8f2; --sky-light:#edf2f9; --warm:#efe9d9;
+  --ink:#1b2433; --muted:#5a6578; --ok:#1e7a46; --red:#b3261e; --brown:#5b3a24;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:#07142a;overflow:hidden;font-family:"Source Sans 3",Arial,sans-serif;color:var(--ink)}
+svg.i{width:1em;height:1em;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;vertical-align:-.12em}
+#viewport{position:fixed;inset:0;display:grid;place-items:center}
+#stage{width:1280px;height:720px;position:relative;flex:none;transform-origin:center}
+.slide{position:absolute;inset:0;background:#fff;display:none;flex-direction:column;overflow:hidden;border-radius:4px}
+.slide.active{display:flex}
+
+.top{height:80px;background:var(--deep);display:flex;align-items:center;padding:0 22px 0 18px;gap:14px;flex:none}
+.top img{height:48px}
+.top h2{font-family:"Source Serif 4",Georgia,serif;color:#fff;font-size:34px;line-height:1.1}
+.stage-tag{margin-left:auto;font-size:14px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 14px;border-radius:16px}
+.e .stage-tag{background:#fdf1d0;color:#7a5a00}
+.s .stage-tag{background:var(--sky-med);color:var(--navy)}
+.a .stage-tag{background:#e3f4ea;color:var(--ok)}
+.r .stage-tag{background:#efe3f4;color:#6b2c86}
+.goldline{height:6px;background:var(--gold-bright);flex:none}
+.body{flex:1;padding:22px 48px 64px;display:flex;flex-direction:column;justify-content:center;gap:16px;font-size:27px;line-height:1.35;min-height:0}
+.foot{position:absolute;left:0;right:0;bottom:0;height:46px;display:flex;align-items:center;padding:0 24px;font-size:15px;color:var(--muted);border-top:1px solid var(--sky-med);background:#fff}
+.foot .cls{font-weight:700;color:var(--gold);margin-right:6px}
+
+.cols{display:grid;gap:20px;grid-template-columns:1fr 1fr;align-items:start}
+.cols.three{grid-template-columns:repeat(3,1fr)}
+.cols.w60{grid-template-columns:1.4fr 1fr}
+.box{background:var(--sky-light);border:2px solid var(--sky-dark);border-radius:16px;padding:16px 22px}
+.box h3{font-family:"Source Serif 4",Georgia,serif;color:var(--navy);font-size:27px;margin-bottom:6px}
+.box.gold{background:#fffaf0;border-color:var(--gold-bright)}
+.box.navy{background:var(--navy);border-color:var(--navy);color:#fff}
+.box.navy h3{color:var(--gold-bright)}
+.steps{display:grid;gap:11px}
+.step{display:flex;gap:16px;align-items:center;background:var(--sky-light);border-radius:14px;padding:11px 18px}
+.step .n{width:44px;height:44px;border-radius:50%;background:var(--navy);color:#fff;display:grid;place-items:center;font-weight:700;font-size:22px;flex:none}
+.step .t{font-size:26px}
+.step .t small{display:block;font-size:19px;color:var(--muted)}
+.frame{background:var(--deep);color:#fff;border-radius:14px;padding:12px 22px;font-family:"Source Serif 4",Georgia,serif;font-size:28px;line-height:1.45}
+.frame b{color:var(--gold-bright)}
+.bl{display:inline-block;min-width:110px;border-bottom:3px solid var(--gold-bright);height:1em;vertical-align:-.1em}
+.hl{background:#fdf1d0;color:#7a5a00;font-weight:700;border-radius:6px;padding:0 6px}
+.mini{font-size:20px;color:var(--muted)}
+.center{text-align:center}
+.who{font-size:19px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.06em}
+
+/* reveal */
+.reveal{transition:.3s}
+.reveal.hidden{opacity:0;pointer-events:none}
+.revbtn{position:absolute;right:22px;bottom:56px;font:inherit;font-size:17px;font-weight:700;background:var(--gold-bright);color:var(--deep);border:0;border-radius:22px;padding:8px 18px;cursor:pointer;z-index:3}
+.ans{color:var(--ok);font-weight:700}
+
+/* timer */
+.timer{margin-left:14px;font:inherit;font-weight:700;font-size:20px;background:rgba(255,255,255,.12);color:#fff;border:2px solid rgba(255,255,255,.35);border-radius:24px;padding:6px 16px;cursor:pointer;min-width:120px;display:flex;gap:8px;align-items:center;justify-content:center;font-variant-numeric:tabular-nums}
+.timer.run{background:var(--gold-bright);color:var(--deep);border-color:var(--gold-bright)}
+.timer.end{background:var(--red);color:#fff;border-color:var(--red);animation:pulse 1s 4}
+@keyframes pulse{50%{transform:scale(1.07)}}
+
+/* cover / divider */
+.cover{background:radial-gradient(circle at 75% 30%,#1c4f8f 0%,#0c2340 62%);color:#fff;align-items:center;justify-content:center;text-align:center;gap:16px}
+.cover img{height:140px}
+.cover h1{font-family:"Source Serif 4",Georgia,serif;font-size:62px;line-height:1.1}
+.cover h1 span{color:var(--gold-bright)}
+.cover p{font-size:27px;opacity:.9}
+.cover .line{width:120px;height:5px;background:var(--gold-bright);border-radius:3px}
+.divider{background:var(--navy);color:#fff;justify-content:center;padding:0 90px;gap:14px}
+.divider .k{color:var(--gold-bright);font-weight:700;letter-spacing:.14em;font-size:22px}
+.divider h1{font-family:"Source Serif 4",Georgia,serif;font-size:72px}
+.divider p{font-size:27px;opacity:.9;max-width:980px}
+
+/* agenda */
+.ag{border-radius:16px;border:2px solid var(--sky-dark);overflow:hidden;background:#fff;font-size:21px}
+.ag h3{background:var(--navy);color:#fff;font-family:"Source Serif 4",Georgia,serif;padding:8px 18px;font-size:24px;display:flex;justify-content:space-between}
+.ag h3 span{color:var(--gold-bright);font-size:18px;align-self:center}
+.ag .it{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;padding:6px 18px;border-bottom:1px solid var(--sky-med)}
+.ag .it:nth-child(even){background:var(--sky-light)}
+.ag .it span{font-size:17px;color:var(--muted);white-space:nowrap}
+.esa{font-size:12px;font-weight:700;border-radius:8px;padding:2px 7px;width:26px;text-align:center}
+.esa.E{background:#fdf1d0;color:#7a5a00}.esa.S{background:var(--sky-med);color:var(--navy)}.esa.A{background:#e3f4ea;color:var(--ok)}.esa.R{background:#efe3f4;color:#6b2c86}
+
+/* vocab slide */
+.vocab{flex:1;display:grid;grid-template-columns:1.5fr 1fr;gap:28px;padding:22px 44px 62px;min-height:0}
+.listen{background:var(--deep);color:#fff;border-radius:20px;padding:22px 24px;display:flex;flex-direction:column;gap:14px;align-self:stretch;justify-content:center}
+.listen .lt{font-size:15px;font-weight:700;letter-spacing:.14em;color:var(--gold-bright)}
+.play{display:flex;align-items:center;gap:16px;font:inherit;font-size:30px;font-weight:700;border:0;border-radius:18px;background:var(--gold-bright);color:var(--deep);padding:16px 22px;cursor:pointer;text-align:left}
+.play svg{width:44px;height:44px;flex:none}
+.play.slow{font-size:22px;padding:11px 20px;background:rgba(255,255,255,.12);color:#fff;border:2px solid rgba(255,255,255,.3)}
+.play.slow svg{width:30px;height:30px}
+.play:hover{filter:brightness(1.07)}
+.play.on{outline:4px solid #fff;outline-offset:2px}
+.acc{font-size:17px;opacity:.85}
+.acc b{color:var(--gold-bright)}
+.drill{display:flex;gap:8px}
+.drill span{flex:1;text-align:center;border:2px dashed rgba(255,255,255,.35);border-radius:10px;padding:6px 4px;font-size:16px;font-weight:700}
+.dicts{display:flex;gap:8px;flex-wrap:wrap;font-size:15px}
+.dicts a{color:#fff;opacity:.85;border-bottom:1px solid rgba(255,255,255,.4);text-decoration:none}
+.dicts a:hover{opacity:1}
+.astatus{font-size:14px;color:#f3c9c4;min-height:1em}
+.vleft{display:flex;flex-direction:column;gap:12px;min-height:0}
+.vword{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap}
+.vword .w{font-family:"Source Serif 4",Georgia,serif;font-size:76px;font-weight:700;color:var(--deep);line-height:1}
+.vword .pos{font-size:22px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.06em}
+.stress{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.syl{display:flex;gap:6px;align-items:flex-end}
+.syl span{font-size:34px;font-weight:600;color:var(--muted);padding:0 4px;border-bottom:4px solid var(--sky-dark)}
+.syl span.st{color:var(--red);font-weight:700;font-size:44px;border-bottom-color:var(--red)}
+.dots{display:flex;gap:10px;align-items:center}
+.dots i{width:16px;height:16px;border-radius:50%;background:var(--sky-dark);display:block}
+.dots i.st{width:30px;height:30px;background:var(--red)}
+.ipa{font-size:24px;color:var(--muted);font-family:"Source Sans 3",Arial,sans-serif}
+.say{border:0;background:var(--navy);color:#fff;border-radius:50%;width:48px;height:48px;cursor:pointer;display:grid;place-items:center;font-size:22px}
+.say:hover{background:var(--blue)}
+.def{background:var(--warm);border-radius:12px;padding:10px 18px;font-size:27px}
+.def b{color:var(--gold)}
+.ex{display:grid;gap:10px}
+.ex div{border-left:6px solid var(--gold-bright);background:var(--sky-light);border-radius:0 12px 12px 0;padding:9px 16px;font-size:25px;line-height:1.35}
+.ex div small{display:block;font-size:14px;font-weight:700;color:var(--muted);letter-spacing:.08em}
+.ex u{text-decoration:none;font-weight:700;color:var(--deep);background:#fdf1d0;border-radius:4px;padding:0 4px}
+.tip{font-size:19px;color:var(--red);font-weight:600}
+.photo{position:relative;border-radius:18px;overflow:hidden;background:var(--sky-light);border:3px dashed var(--sky-dark);display:grid;place-items:center;cursor:pointer;min-height:0}
+.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.photo.has{border:0}
+.photo.has .ph{display:none}
+.photo .ph{display:flex;flex-direction:column;align-items:center;gap:6px;color:var(--muted);font-size:18px;font-weight:600;pointer-events:none;text-align:center}
+.photo .ph svg{width:56px;height:56px;stroke-width:1.5;opacity:.55}
+.photo .pb{position:absolute;right:8px;bottom:8px;display:flex;gap:6px;opacity:0;transition:.2s;z-index:2}
+.photo:hover .pb{opacity:1}
+.photo.drag{outline:4px solid var(--gold-bright)}
+.pbtn{font:inherit;font-size:14px;font-weight:700;background:rgba(12,35,64,.85);color:#fff;border:0;border-radius:8px;padding:5px 10px;cursor:pointer}
+.vnum{position:absolute;top:24px;right:24px}
+
+/* headline */
+.news{border:3px solid var(--navy);border-radius:16px;overflow:hidden;background:#fff}
+.news .bar{background:var(--navy);color:var(--gold-bright);font-weight:700;letter-spacing:.12em;font-size:15px;padding:5px 16px}
+.news h3{font-family:"Source Serif 4",Georgia,serif;color:var(--navy);font-size:54px;padding:16px 22px;line-height:1.2;text-align:center}
+.blank{display:inline-block;min-width:240px;border-bottom:5px solid var(--gold-bright);color:var(--red);text-align:center;transition:.3s}
+.blank em{font-style:normal;opacity:0;transition:.4s}
+.shown .blank em{opacity:1}
+.score{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.pts{display:flex;align-items:center;gap:14px;background:var(--sky-light);border-radius:14px;padding:10px 18px;font-size:24px;font-weight:700;color:var(--navy)}
+.pts.g{background:#fffaf0;color:#7a5a00}
+.pts input{font:inherit;font-size:22px;font-weight:600;flex:1;min-width:0;border:2px solid var(--sky-dark);border-radius:10px;padding:4px 10px;color:var(--ink)}
+.guesses{display:flex;flex-wrap:wrap;gap:8px;min-height:44px}
+.guesses span{background:#fff;border:2px solid var(--sky-dark);border-radius:20px;padding:4px 14px;font-size:21px}
+.gin{display:flex;gap:10px}
+.gin input{flex:1;font:inherit;font-size:22px;border:2px solid var(--sky-dark);border-radius:10px;padding:6px 12px}
+.gin button{font:inherit;font-size:19px;font-weight:700;border:0;border-radius:10px;background:var(--navy);color:#fff;padding:0 18px;cursor:pointer}
+
+table.t{border-collapse:separate;border-spacing:0 7px;width:100%;font-size:25px}
+table.t th{background:var(--navy);color:#fff;text-align:left;padding:8px 16px;border-radius:10px 0 0 10px;width:150px;font-family:"Source Serif 4",Georgia,serif}
+table.t td{background:var(--sky-light);padding:8px 16px;border-radius:0 10px 10px 0}
+.tf{display:flex;gap:16px;align-items:center;padding:10px 18px;border-radius:12px;background:var(--sky-light);font-size:26px}
+.tf .k{font-weight:700;color:var(--navy);width:30px}
+.tf .a{margin-left:auto;font-weight:700;white-space:nowrap}
+.tf .a.T{color:var(--ok)} .tf .a.F{color:var(--red)}
+.conj{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.conj .box{text-align:center}
+.conj .w{font-family:"Source Serif 4",Georgia,serif;font-size:46px;font-weight:700;color:var(--deep)}
+.conj .m{font-size:20px;font-weight:700;color:var(--gold);letter-spacing:.08em;text-transform:uppercase}
+.conj p{font-size:21px;margin-top:6px;text-align:left}
+
+.breaks{background:linear-gradient(135deg,#8c7535,#d39f10);color:#fff;align-items:center;justify-content:center;text-align:center;gap:10px}
+.breaks h1{font-family:"Source Serif 4",Georgia,serif;font-size:78px}
+.breaks .clock{font-size:150px;font-weight:700;font-variant-numeric:tabular-nums;line-height:1}
+.breaks button{font:inherit;font-size:24px;font-weight:700;border:0;border-radius:30px;padding:10px 28px;background:var(--deep);color:#fff;cursor:pointer}
+.breaks p{font-size:28px}
+a.launch{display:inline-flex;align-items:center;gap:10px;background:var(--gold-bright);color:var(--deep);font-weight:700;font-size:26px;text-decoration:none;border-radius:40px;padding:12px 28px;align-self:flex-start}
+a.launch:hover{filter:brightness(1.05)}
+
+
+/* guess the money */
+.lineup-key{background:var(--sky-light);border:2px solid var(--gold-bright);border-radius:12px;padding:10px 14px;font-size:18px;line-height:1.5}
+.lineup-key b{color:var(--gold)}
+.mm{flex:1;display:grid;grid-template-columns:1.25fr 1fr;gap:24px;padding:20px 40px 62px;min-height:0}
+.mm-left{display:flex;flex-direction:column;gap:12px;min-height:0}
+.mm-title{font-family:"Source Serif 4",Georgia,serif;font-size:40px;font-weight:700;color:var(--deep)}
+.mm-title span{color:var(--gold)}
+.clue{display:flex;gap:14px;align-items:flex-start;background:var(--sky-light);border-radius:14px;padding:12px 16px;font-size:25px;line-height:1.3;transition:.3s}
+.clue .cn{flex:none;font-size:14px;font-weight:700;letter-spacing:.08em;color:#fff;background:var(--navy);border-radius:10px;padding:4px 10px;margin-top:4px;white-space:nowrap}
+.clue.hidden{opacity:.18;filter:blur(5px)}
+.mm-right{display:flex;flex-direction:column;gap:12px;min-height:0}
+.mm-right .photo{flex:1;min-height:0}
+.ans-box{background:var(--deep);color:#fff;border-radius:14px;padding:12px 18px;font-size:21px;line-height:1.35;transition:.3s}
+.ans-box .cty{font-family:"Source Serif 4",Georgia,serif;font-size:36px;font-weight:700;color:var(--gold-bright)}
+.ans-box.hidden{opacity:0;pointer-events:none}
+.mm-btns{display:flex;gap:10px;flex-wrap:wrap}
+.mmb{font:inherit;font-size:18px;font-weight:700;border:0;border-radius:10px;padding:9px 16px;cursor:pointer;background:var(--navy);color:#fff}
+.mmb.gold{background:var(--gold-bright);color:var(--deep)}
+.mmb.ghost{background:#fff;color:var(--navy);border:2px solid var(--sky-dark)}
+.pts-now{font-size:18px;font-weight:700;color:var(--gold);align-self:center}
+.teams{display:flex;gap:8px;align-items:center}
+.teams .lbl{font-size:14px;font-weight:700;letter-spacing:.08em;color:var(--muted)}
+.team{display:flex;align-items:center;border-radius:10px;overflow:hidden;border:2px solid var(--sky-dark);background:#fff}
+.team button{font:inherit;font-weight:700;border:0;background:none;cursor:pointer;padding:6px 10px;font-size:16px;color:var(--navy)}
+.team button.add{background:var(--sky-light)}
+.team b{min-width:30px;text-align:center;font-size:20px;color:var(--deep)}
+.podium{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:end}
+.pod{border-radius:16px 16px 0 0;background:var(--navy);color:#fff;text-align:center;padding:16px 10px}
+.pod .tn{font-family:"Source Serif 4",Georgia,serif;font-size:32px;font-weight:700}
+.pod .ts{font-size:58px;font-weight:700;color:var(--gold-bright);line-height:1}
+.pod.first{background:var(--gold-bright);color:var(--deep)}
+.pod.first .ts{color:var(--deep)}
+/* charades */
+.ch-wrap{display:grid;grid-template-columns:1.6fr 1fr;gap:22px;align-items:stretch}
+.ch-card{min-height:340px;border-radius:20px;background:var(--sky-light);border:3px dashed var(--sky-dark);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:10px;padding:20px;transition:.3s}
+.ch-card.secret{background:var(--deep);border:3px solid var(--gold-bright)}
+.ch-card.secret .ch-state{color:var(--gold-bright)}
+.ch-card.shown{background:#fffaf0;border:3px solid var(--gold-bright)}
+.ch-state{font-size:28px;color:var(--muted);font-weight:600}
+.ch-word{font-family:"Source Serif 4",Georgia,serif;font-size:96px;font-weight:700;color:#fff;line-height:1}
+.ch-card.shown .ch-word{color:var(--deep)}
+.ch-info{font-size:24px;color:var(--gold);font-weight:700}
+.ch-side{display:flex;flex-direction:column;gap:12px;justify-content:center}
+.chb{font:inherit;font-size:22px;font-weight:700;border:0;border-radius:14px;padding:13px 16px;cursor:pointer;background:var(--navy);color:#fff}
+.chb.gold{background:var(--gold-bright);color:var(--deep)}
+.chb.ghost{background:#fff;color:var(--navy);border:2px solid var(--sky-dark)}
+.ch-clock{font-size:64px;font-weight:700;text-align:center;color:var(--deep);font-variant-numeric:tabular-nums}
+.ch-clock.end{color:var(--red)}
+.ch-left{text-align:center;font-size:16px;color:var(--muted)}
+.gclock{margin-left:14px;font-weight:700;font-size:20px;color:var(--gold-bright);font-variant-numeric:tabular-nums;min-width:60px}
+.slide .teams.float{position:absolute;left:24px;bottom:54px;z-index:3}
+
+#progress{position:fixed;left:0;bottom:0;height:5px;background:var(--gold-bright);transition:.3s;z-index:9}
+#nav{position:fixed;right:12px;bottom:10px;display:flex;gap:6px;z-index:10;opacity:.2;transition:.2s}
+#nav:hover{opacity:1}
+#nav button,#nav select{font:inherit;font-size:14px;border:0;border-radius:8px;padding:7px 11px;background:#fff;color:var(--navy);font-weight:700;cursor:pointer}
+#notes{position:fixed;left:14px;right:14px;bottom:52px;max-width:900px;margin:0 auto;background:#fffdf3;border:2px solid var(--gold-bright);border-radius:12px;padding:12px 16px;font-size:16px;line-height:1.45;z-index:11;display:none;box-shadow:0 8px 24px rgba(0,0,0,.35);max-height:45vh;overflow:auto}
+#notes.show{display:block}
+#notes b.h{color:var(--gold);letter-spacing:.06em;font-size:13px;display:block;margin-bottom:3px}
+.notes{display:none}
+#help{position:fixed;top:12px;left:50%;transform:translateX(-50%);background:rgba(255,255,255,.94);color:var(--navy);font-size:14px;border-radius:20px;padding:6px 16px;z-index:12;transition:opacity 1s;white-space:nowrap}
+</style>
+</head>
+<body>
+<div id="viewport"><div id="stage">
+<!-- ================= COVER ================= -->
+<section class="slide cover" data-title="Cover">
+  <img src="LOGO_SRC" alt="Approach logo">
+  <div class="line"></div>
+  <h1>Current Issues · <span>Week 3</span></h1>
+  <p>A New Look for Banknotes</p>
+  <p style="font-size:22px;opacity:.75">Focus: News vocabulary and word families · vote → voter · design → designer</p>
+  <div class="notes">Have ready: worksheet-week3.html (same GitHub folder), the article audio on eslnewsstories.com, and paper + colored pens for the Class 2 banknote design task. Optional: ask students to bring a banknote or coin from their country.</div>
+</section>
+
+<!-- ================= CLASS 1 ================= -->
+<section class="slide e" data-title="Goals" data-class="Class 1" data-min="3">
+  <div class="top"><img src="LOGO_SRC" alt=""><h2>Today I can…</h2><span class="stage-tag">Goals</span></div><div class="goldline"></div>
+  <div class="body">
+    <ul style="list-style:none;display:grid;gap:14px;font-size:30px">
+      <li>&#10003;&nbsp; talk about the money in different countries.</li>
+      <li>&#10003;&nbsp; learn <b>8 new words</b> from the news.</li>
+      <li>&#10003;&nbsp; find the <b>main idea</b> and the <b>5 Ws</b>.</li>
+      <li>&#10003;&nbsp; build <b>word families</b>: <span class="hl">vote &rarr; voter</span>, <span class="hl">help &rarr; helpful</span>.</li>
+      <li>&#10003;&nbsp; use <b>6 new words</b> in my own sentences.</li>
+    </ul>
+  </div>
+  <div class="notes">Welcome + goals + agenda: 3 minutes. The last goal is the Week 3 SLO from the syllabus.</div>
+</section>
+
+<section class="slide s" data-title="Agenda" data-class="Class 1">
+  <div class="top"><img src="LOGO_SRC" alt=""><h2>Today's Plan</h2><span class="stage-tag">Agenda</span></div><div class="goldline"></div>
+  <div class="body" style="padding-top:16px">
+    <div style="display:grid;grid-template-columns:1fr 130px 1fr;gap:16px;align-items:stretch">
+      <div class="ag"><h3>Class 1 <span>100 min</span></h3>
+        <div class="it"><i class="esa E">E</i><b>Welcome & goals</b><span>3 min</span></div>
+        <div class="it"><i class="esa E">E</i><b>Guess the Money!</b><span>15 min</span></div>
+        <div class="it"><i class="esa E">E</i><b>Think Ahead</b><span>7 min</span></div>
+        <div class="it"><i class="esa S">S</i><b>8 Key Words</b><span>20 min</span></div>
+        <div class="it"><i class="esa S">S</i><b>Meet the Animals</b><span>6 min</span></div>
+        <div class="it"><i class="esa S">S</i><b>First Reading</b><span>10 min</span></div>
+        <div class="it"><i class="esa S">S</i><b>Second Reading: 5 Ws</b><span>15 min</span></div>
+        <div class="it"><i class="esa S">S</i><b>True / False Race</b><span>6 min</span></div>
+        <div class="it"><i class="esa S">S</i><b>Listen for Numbers</b><span>12 min</span></div>
+        <div class="it"><i class="esa R">R</i><b>Wrap-up</b><span>6 min</span></div>
+      </div>
+      <div style="border:3px dashed var(--gold);border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:var(--gold);font-weight:700;font-size:22px;background:#fffaf0">30-minute<br>break</div>
+      <div class="ag"><h3>Class 2 <span>100 min</span></h3>
+        <div class="it"><i class="esa E">E</i><b>Money Line-Up</b><span>8 min</span></div>
+        <div class="it"><i class="esa E">E</i><b>Animal Charades</b><span>7 min</span></div>
+        <div class="it"><i class="esa S">S</i><b>Back to the Board</b><span>7 min</span></div>
+        <div class="it"><i class="esa S">S</i><b>Word Families</b><span>20 min</span></div>
+        <div class="it"><i class="esa A">A</i><b>My 6 Words</b><span>10 min</span></div>
+        <div class="it"><i class="esa A">A</i><b>Speed Chat</b><span>10 min</span></div>
+        <div class="it"><i class="esa A">A</i><b>Design a Banknote</b><span>20 min</span></div>
+        <div class="it"><i class="esa A">A</i><b>Writing</b><span>15 min</span></div>
+        <div class="it"><i class="esa R">R</i><b>Exit Ticket</b><span>3 min</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="notes">E = Engage · S = Study · A = Activate · R = Reflect.</div>
+</section>
+
+<section class="slide e" data-title="Guess the Money" data-class="Class 1" data-min="15">
+  <div class="top"><img src="LOGO_SRC" alt=""><h2>Warm-up: Guess the Money!</h2><span class="stage-tag">Engage</span></div><div class="goldline"></div>
+  <div class="body">
+    <div class="cols w60">
+      <div class="steps">
+        <div class="step"><div class="n">1</div><div class="t">Make <b>3 teams</b>.</div></div>
+        <div class="step"><div class="n">2</div><div class="t">Read the clues. Which country is it?</div></div>
+        <div class="step"><div class="n">3</div><div class="t">Guess early = more points!<small>Clue 1 = 3 points · Clue 2 = 2 points · Clue 3 = 1 point</small></div></div>
+        <div class="step"><div class="n">4</div><div class="t">Is it <b>your</b> money? Shh! You are the <b>expert</b>.<small>After the answer, tell the class one fact.</small></div></div>
+      </div>
+      <div style="display:grid;gap:16px">
+        <div class="frame center" style="font-size:30px">I think it's from <b>___</b><br>because <b>___</b>.</div>
+        <div class="box gold" style="font-size:22px"><b>11 countries:</b> Afghanistan · Bolivia · Brazil · Colombia · El Salvador · North Macedonia · Peru · South Korea · Thailand · USA · Vietnam</div>
+      </div>
+    </div>
+  </div>
+  <div class="notes"><b>15 min total</b> (this timer covers the whole game): about 1 minute per country. Click “Next clue” to show clues one by one; teams raise hands to guess. Click the team buttons to add points (the score stays on every slide). Students from that country don't answer — after the reveal, they tell one fact about their money (“In my country, the 50 note has…”). You can add a photo of each note in the photo box (click or drop).</div>
+</section>
+
+<!-- MONEY_SLIDES -->
+
+<section class="slide e" data-title="Money Winners" data-class="Class 1">
+  <div class="top"><img src="LOGO_SRC" alt=""><h2>And the Winner Is…</h2><span class="stage-tag">Engage</span></div><div class="goldline"></div>
+  <div class="body">
+    <div class="podium" id="podium"></div>
+    <div class="frame center" style="font-size:27px">Many countries have <b>people</b> on their money. Some have <b>animals</b>. Today's story: a country will <b>replace</b> people with animals!</div>
+  </div>
+  <div class="notes">Bridge to the story: “Which countries have animals on their money?” (Brazil, Peru, Bolivia, Colombia's bumblebee). “Today, read about a country that will change its money.”</div>
+</section>
+
+<section class="slide e" data-title="Think Ahead" data-class="Class 1" data-min="7">
+  <div class="top"><img src="LOGO_SRC" alt=""><h2>Think Ahead</h2><span class="stage-tag">Engage</span></div><div class="goldline"></div>
+  <div class="body">
+    <div class="cols" style="grid-template-columns:1fr 1fr;align-items:stretch">
+      <div style="display:grid;gap:12px">
+        <p style="font-size:28px"><b>How do you usually pay for small things?</b></p>
+        <div class="tf" style="font-size:25px"><span class="k">a</span>Cash</div>
+        <div class="tf" style="font-size:25px"><span class="k">b</span>A bank card</div>
+        <div class="tf" style="font-size:25px"><span class="k">c</span>A phone</div>
+        <div class="box gold" style="font-size:23px"><b>Look at the photo.</b> What do you see? What is the story about?</div>
+      </div>
+      <div class="photo" data-photo="think3" style="min-height:360px"><div class="ph"><svg class="i" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.8"/><path d="M21 16l-5-5-9 9"/></svg><span>Click or drop the article photo</span></div><div class="pb"><button class="pbtn" data-clear>Remove</button></div><input type="file" accept="image/*" hidden></div>
+    </div>
+    <div class="frame" style="font-size:25px;padding:8px 20px">I can see <b>___</b>. I think the story is about <b>___</b>.</div>
+  </div>
+  <div class="notes"><b>7 min:</b> quick hands-up poll (a/b/c, 1 min) → pairs describe the photo and predict the story (4 min) → 3–4 students share (2 min). Add the article photo (animal pictures around four blank cards) to the box. Note: in the US people say <b>bill</b>; in the UK, <b>note</b> or <b>banknote</b>.</div>
+</section>
+
+<section class="slide divider" data-title="Key Words" data-class="Class 1" data-min="16">
+  <div class="k">KEY WORDS · 20 MINUTES</div>
+  <h1>8 Words for Today's Story</h1>
+  <p>banknote · wildlife · replace · vote · popular · design · famous · counterfeit</p>
+  <div class="notes">Elicit first, then show. On each slide: press Listen (real recording), students repeat 3 times (class → rows → individuals), clap the stress, read the two sentences, ask the check question (in notes). About 2 minutes per word + 4 minutes for the quick check. Tell students: listen for word families (vote → voter, design → designer) — that's Class 2.</div>
+</section>
+
+<!-- VOCAB_SLIDES -->
+
+<section class="slide a" data-title="Word Check" data-class="Class 1" data-min="4">
+  <div class="top"><img src="LOGO_SRC" alt=""><h2>Quick Check: Which Word?</h2><span class="stage-tag">Practice</span></div><div class="goldline"></div>
+  <div class="body" style="gap:10px">
+    <p class="mini" style="font-size:22px">Say the word together. Fast!</p>
+    <div class="tf"><span class="k">1</span>Animals and birds that live in nature. <span class="a T reveal hidden">wildlife</span></div>
+    <div class="tf"><span class="k">2</span>Liked by many people. <span class="a T reveal hidden">popular</span></div>
+    <div class="tf"><span class="k">3</span>Fake money, made to trick people. <span class="a T reveal hidden">counterfeit</span></div>
+    <div class="tf"><span class="k">4</span>To choose, together with many other people. <span class="a T reveal hidden">vote</span></div>
+    <div class="tf"><span class="k">5</span>To put a new thing in the place of an old thing. <span class="a T reveal hidden">replace</span></div>
+    <div class="tf"><span class="k">6</span>Known by many people. <span class="a T reveal hidden">famous</span></div>
+  </div>
+  <button class="revbtn" data-rev>Show answers</button>
+  <div class="notes">Fast whole-class choral check. Missing on purpose: banknote, design (ask A2+ students to define them).</div>
+</section>
+
+<section class="slide s" data-title="Meet the Animals" data-class="Class 1" data-min="6">
+  <div class="top"><img src="LOGO_SRC" alt=""><h2>Meet the Animals</h2><span class="stage-tag">Study</span></div><div class="goldline"></div>
+  <div class="body">
+    <p style="font-size:25px">Four animals will be on the new notes. Read the clue. Which animal is it?</p>
+    <div class="cols" style="gap:14px">
+      <div class="tf" style="font-size:23px"><span class="k">1</span>A black-and-white sea bird with a big, colorful beak.<span class="a T reveal hidden">puffin</span></div>
+      <div class="tf" style="font-size:23px"><span class="k">2</span>A bird with a white, heart-shaped face. It hunts at night.<span class="a T reveal hidden">barn owl</span></div>
+      <div class="tf" style="font-size:23px"><span class="k">3</span>A big, hairy, black-and-yellow bee.<span class="a T reveal hidden">bumblebee</span></div>
+      <div class="tf" style="font-size:23px"><span class="k">4</span>A small animal with spines on its back.<span class="a T reveal hidden">hedgehog</span></div>
+    </div>
+    <div class="frame center" style="font-size:26px">puffin · barn owl · bumblebee · hedgehog</div>
+  </div>
+  <button class="revbtn" data-rev>Show answers</button>
+  <div class="notes"><b>6 min:</b> pairs match (3 min), check (1 min), then ask: “Do these animals live in your country? Which one is your favorite?” (2 min). Tip: show a quick image search for each animal — these are picture words, not key words. Students can also do Worksheet Section 3.</div>
+</section>
+
+<section class="slide s" data-title="First Reading" data-class="Class 1" data-min="10">
+  <div class="top"><img src="LOGO_SRC" alt=""><h2>First Reading: The Main Idea</h2><span class="stage-tag">Study</span></div><div class="goldline"></div>
+  <div class="body">
+    <p style="font-size:29px"><b>Read quickly (4 minutes).</b> What is the story mainly about?</p>
+    <div class="steps">
+      <div class="step"><div class="n">A</div><div class="t">The Bank of England will put pictures of animals on its new banknotes. <span class="ans reveal hidden">&#10003;</span></div></div>
+      <div class="step"><div class="n">B</div><div class="t">Almost 500,000 people bought new banknotes last week.</div></div>
+      <div class="step"><div class="n">C</div><div class="t">Winston Churchill designed the new banknotes.</div></div>
+    </div>
+    <div class="box gold" style="font-size:22px">Tip: the <b>headline</b> and the <b>first sentence</b> usually tell you the main idea.</div>
+  </div>
+  <button class="revbtn" data-rev>Show answer</button>
+  <div class="notes"><b>10 min:</b> silent reading 4 min → answer alone → compare (2 min) → check (2 min) → ask why B and C are wrong (2 min): B — people <i>voted</i>, they didn't buy notes; C — Churchill is a famous person who will <i>leave</i> the notes. Worksheet Section 4.</div>
+</section>
+
+<section class="slide s" data-title="5 Ws" data-class="Class 1" data-min="15">
+  <div class="top"><img src="LOGO_SRC" alt=""><h2>Second Reading: The 5 Ws</h2><span class="stage-tag">Study</span></div><div class="goldline"></div>
+  <div class="body" style="gap:4px">
+    <p style="font-size:24px">Read again carefully. Write short answers (Worksheet Section 5).</p>
+    <table class="t">
+      <tr><th>Who?</th><td>Who is making the new notes? <span class="ans reveal hidden">&rarr; the Bank of England</span></td></tr>
+      <tr><th>What?</th><td>What will be on the notes? <span class="ans reveal hidden">&rarr; a puffin, a barn owl, a bumblebee, a hedgehog</span></td></tr>
+      <tr><th>Where?</th><td>Which country is it? <span class="ans reveal hidden">&rarr; the UK (Britain)</span></td></tr>
+      <tr><th>When?</th><td>When will the notes be ready? <span class="ans reveal hidden">&rarr; not yet — it could take years</span></td></tr>
+      <tr><th>Why?</th><td>Why these animals? <span class="ans reveal hidden">&rarr; people voted for them</span></td></tr>
+    </table>
+  </div>
+  <button class="revbtn" data-rev>Show answers</button>
+  <div class="notes"><b>15 min:</b> individual 6 min → pairs compare 4 min → check together 5 min. A2+ extras: almost 500,000 people voted; the puffin was chosen for sea animals; the king stays on the other side.</div>
+</section>
+
+<section class="slide a" data-title="True or False" data-class="Class 1" data-min="6">
+  <div class="top"><img src="LOGO_SRC" alt=""><h2>True or False Race</h2><span class="stage-tag">Teams</span></div><div class="goldline"></div>
+  <div class="body" style="gap:9px">
+    <p class="mini" style="font-size:22px">Teams of 3. Stand up for TRUE. Stay seated for FALSE. If it's false, correct it!</p>
+    <div class="tf"><span class="k">1</span>There will be pictures of animals on the new notes. <span class="a T reveal hidden">TRUE</span></div>
+    <div class="tf"><span class="k">2</span>The king's picture will not be on the new notes. <span class="a F reveal hidden">FALSE &rarr; he stays on the back</span></div>
+    <div class="tf"><span class="k">3</span>About 5,000 people voted. <span class="a F reveal hidden">FALSE &rarr; almost 500,000</span></div>
+    <div class="tf"><span class="k">4</span>The new notes are ready now. <span class="a F reveal hidden">FALSE &rarr; it could take years</span></div>
+    <div class="tf"><span class="k">5</span>The puffin was chosen to show animals of the sea. <span class="a T reveal hidden">TRUE</span></div>
+    <div class="tf"><span class="k">6</span>The new notes must be difficult to counterfeit. <span class="a T reveal hidden">TRUE</span></div>
+  </div>
+  <button class="revbtn" data-rev>Show answers</button>
+  <div class="notes"><b>6 min.</b> 1 point for the right answer, 1 bonus point for a correct sentence for FALSE items. Same items as Worksheet Section 6.</div>
+</section>
+
+<section class="slide s" data-title="Listen for Numbers" data-class="Class 1" data-min="12">
+  <div class="top"><img src="LOGO_SRC" alt=""><h2>Listen for Numbers</h2><span class="stage-tag">Study</span></div><div class="goldline"></div>
+  <div class="body">
+    <div class="cols" style="grid-template-columns:1.15fr 1fr">
+      <div class="steps">
+        <div class="step"><div class="n">1</div><div class="t">Worksheet <b>Section 7</b>. Read the 4 questions.</div></div>
+        <div class="step"><div class="n">2</div><div class="t">Listen 1: choose the answers.</div></div>
+        <div class="step"><div class="n">3</div><div class="t">Compare with a partner.</div></div>
+        <div class="step"><div class="n">4</div><div class="t">Listen 2: check. Press <b>Check</b>.</div></div>
+      </div>
+      <div style="display:grid;gap:12px">
+        <div class="box gold" style="font-size:23px"><h3>Say it!</h3>£5 = five <b>pounds</b><br>£50 = fifty pounds<br>500,000 = five hundred <b>thousand</b></div>
+        <a class="launch" href="https://eslnewsstories.com/articles/2026-10-11-a-new-look-for-banknotes/" target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24"><path d="M3 10v4h4l5 4V6L7 10z"/><path d="M16 9a4 4 0 0 1 0 6"/></svg> Open the audio</a>
+      </div>
+    </div>
+  </div>
+  <div class="notes"><b>12 min:</b> read questions 2 → listen 3 → compare 2 → listen again 3 → check + say the numbers 2. Answers: four · £5, £10, £20, £50 · almost 500,000 · maybe years. This previews Week 4 (numbers, prices). The narrator has a British accent — point out “pounds” (£).</div>
+</section>
+
+<section class="slide r" data-title="Wrap-up" data-class="Class 1" data-min="6">
+  <div class="top"><img src="LOGO_SRC" alt=""><h2>Wrap-up: Tell the Story in 3 Sentences</h2><span class="stage-tag">Reflect</span></div><div class="goldline"></div>
+  <div class="body">
+    <p style="font-size:27px">With a partner, tell the story. Use the key words. Then tell the class.</p>
+    <div class="frame" style="font-size:29px;line-height:1.7">
+      The Bank of England will <b>replace</b> <span class="bl"></span> with <span class="bl"></span>.<br>
+      Almost 500,000 people <b>voted</b> for <span class="bl"></span>.<br>
+      The new notes are not ready. It could take <span class="bl"></span>.
+    </div>
+  </div>
+  <div class="notes"><b>6 min:</b> pairs 3 min, 3–4 pairs share. Listen for the key words used correctly.</div>
+</section>
+
+<section class="slide breaks" data-title="Break">
+  <h1>30-Minute Break</h1>
+  <div class="clock" id="breakClock">30:00</div>
+  <button type="button" id="breakBtn">Start break timer</button>
+  <p>See you back here at <b id="backAt">—</b></p>
+  <div class="notes">Press “Start break timer” — it shows the return time.</div>
+</section>
+
+<!-- ================= CLASS 2 ================= -->
+<section class="slide divider" data-title="Class 2">
+  <div class="k">CLASS 2 · 100 MINUTES</div>
+  <h1>Welcome back!</h1>
+  <p>Same story, new challenges: a money line-up, animal charades, <b>word families</b>, your own sentences, speaking, and designing a banknote.</p>
+</section>
+
+<section class="slide e" data-title="Money Line-Up" data-class="Class 2" data-min="8">
+  <div class="top"><img src="LOGO_SRC" alt=""><h2>Money Line-Up</h2><span class="stage-tag">Engage</span></div><div class="goldline"></div>
+  <div class="body" style="gap:14px">
+    <div class="cols w60">
+      <div class="steps">
+        <div class="step"><div class="n">1</div><div class="t">Take one money card.</div></div>
+        <div class="step"><div class="n">2</div><div class="t">Stand up. Talk to your classmates.<small>Is it your country's money? You are the <b>expert</b>!</small></div></div>
+        <div class="step"><div class="n">3</div><div class="t">Make a line: <b>least</b> money &rarr; <b>most</b> money.</div></div>
+        <div class="step"><div class="n">4</div><div class="t">Say your amount. Are you in the right place?</div></div>
+      </div>
+      <div style="display:grid;gap:12px">
+        <div class="frame" style="font-size:25px;line-height:1.6">I have <b>___</b>. What do you have?<br>Is that <b>more</b> or <b>less</b> than ___?<br>I think you go <b>before / after</b> me.</div>
+        <div class="lineup-key reveal hidden"><b>LEAST</b> 10 afghanis · 25 cents · 2 reais · 20 baht · $1 · 20 bolivianos · 10 soles · 20,000 pesos · 500,000 dong · £20 · 2,000 denari · 100,000 won · $100 · 1,000 reais <b>MOST</b></div>
+      </div>
+    </div>
+    <div class="box gold center" style="font-size:22px;padding:10px 18px"><b>LEFT</b> = least money &nbsp;&larr;&nbsp; &nbsp;&nbsp;&rarr;&nbsp; <b>RIGHT</b> = most money</div>
+  </div>
+  <button class="revbtn" data-rev>Show the order</button>
+  <div class="notes"><b>8 min:</b> hand out cards (1 min) → mingle and line up (4 min) → each student says their amount left to right, then check with the answer (3 min). Cards and the full answer key with dollar values: money-lineup-cards.html. A2+: cover the hint line on the card with a sticky note. Bridge: “The UK will change the pictures on its money. Let's remember the words from the story!”</div>
+</section>
+
+<section class="slide e" data-title="Animal Charades" data-class="Class 2" data-min="7">
+  <div class="top"><img src="LOGO_SRC" alt=""><h2>Animal Charades</h2><span class="stage-tag">Engage</span></div><div class="goldline"></div>
+  <div class="body" style="gap:14px">
+    <div class="ch-wrap">
+      <div class="ch-card" id="chCard">
+        <div class="ch-state" id="chState">Press <b>New card</b>. The actor comes to the front.</div>
+        <div class="ch-word" id="chWord"></div>
+        <div class="ch-info" id="chInfo"></div>
+      </div>
+      <div class="ch-side">
+        <button type="button" class="chb gold" id="chNew">New card</button>
+        <button type="button" class="chb" id="chGo">Start acting (45 sec)</button>
+        <button type="button" class="chb ghost" id="chReveal">Reveal</button>
+        <div class="ch-clock" id="chClock">0:45</div>
+        <div class="ch-left" id="chLeft"></div>
+        <button type="button" class="chb ghost" id="chReset" style="font-size:15px;padding:6px">Reset scores for Class 2</button>
+      </div>
+    </div>
+    <div class="frame center" style="font-size:24px;padding:8px 18px">Is it a <b>bird</b>? Does it <b>fly</b>? Does it live in the <b>sea</b>? &nbsp;·&nbsp; I think it's a <b>___</b>!</div>
+  </div>
+  <div class="notes"><b>7 min (about 5 turns):</b> teams take turns. One actor per turn: press <b>New card</b> — the screen says “Class, close your eyes!” and shows the animal for 4 seconds. The actor acts with no words and no sounds. Teams may ask yes/no questions. Correct guess = 1 point (use the team buttons). <b>Reveal</b> shows which banknote the animal is on. Cards: the 4 story animals + animals from your students' countries.</div>
+</section>
+
+<section class="slide e" data-title="Back to the Board" data-class="Class 2" data-min="7">
+  <div class="top"><img src="LOGO_SRC" alt=""><h2>Back to the Board</h2><span class="stage-tag">Review</span></div><div class="goldline"></div>
+  <div class="body">
+    <div class="steps">
+      <div class="step"><div class="n">1</div><div class="t">Two teams. One player sits with their <b>back to the board</b>.</div></div>
+      <div class="step"><div class="n">2</div><div class="t">The teacher writes a word. The team explains it. <b>Don't say the word!</b></div></div>
+      <div class="step"><div class="n">3</div><div class="t">The player guesses. Correct = 1 point. Change players.</div></div>
+    </div>
+    <div class="frame center">It's an animal. It lives… · It's a verb. You do this when… · It's the opposite of…</div>
+  </div>
+  <div class="notes"><b>7 min.</b> Words: banknote, wildlife, replace, vote, popular, design, famous, counterfeit + puffin, barn owl, bumblebee, hedgehog. 60 seconds per turn. A1 students can mime.</div>
+</section>
+
+<section class="slide s" data-title="Word Families" data-class="Class 2" data-min="5">
+  <div class="top"><img src="LOGO_SRC" alt=""><h2>Word Families</h2><span class="stage-tag">Study</span></div><div class="goldline"></div>
+  <div class="body">
+    <p style="font-size:26px">One word can have many forms. The <b>ending</b> tells you the job of the word.</p>
+    <div class="conj">
+      <div class="box"><div class="m">A person</div><div class="w">-er / -or</div><p>help &rarr; help<b>er</b><br>vote &rarr; vot<b>er</b><br>design &rarr; design<b>er</b></p></div>
+      <div class="box gold"><div class="m">Describes</div><div class="w">-ful</div><p>help &rarr; help<b>ful</b><br>use &rarr; use<b>ful</b><br>color &rarr; color<b>ful</b></p></div>
+      <div class="box"><div class="m">A thing</div><div class="w">-ment / -tion</div><p>replace &rarr; replace<b>ment</b><br>collect &rarr; collec<b>tion</b><br>pay &rarr; pay<b>ment</b></p></div>
+    </div>
+    <div class="frame center" style="font-size:24px">Almost 500,000 <b>voters</b> chose the animals. · A <b>designer</b> will draw the notes. · The notes must be <b>useful</b>.</div>
+  </div>
+  <div class="notes"><b>Word families block = 20 min:</b> this slide 5 → race 10 → worksheet 5. Elicit: “A person who votes is a…?” “A person who teaches?” Some words are the same as a verb and a noun: <i>vote</i> (v) / a <i>vote</i> (n), <i>design</i> (v) / a <i>design</i> (n).</div>
+</section>
+
+<section class="slide a" data-title="Word Family Race" data-class="Class 2" data-min="10">
+  <div class="top"><img src="LOGO_SRC" alt=""><h2>Word Family Race</h2><span class="stage-tag">Teams</span></div><div class="goldline"></div>
+  <div class="body" style="gap:9px">
+    <p class="mini" style="font-size:22px">Teams write the new word on paper. Hold it up! First correct team = 1 point.</p>
+    <div class="cols" style="gap:10px">
+      <div class="tf" style="font-size:24px"><span class="k">1</span><span>a person who <b>votes</b></span> <span class="a T reveal hidden">voter</span></div>
+      <div class="tf" style="font-size:24px"><span class="k">2</span><span>a person who <b>designs</b></span> <span class="a T reveal hidden">designer</span></div>
+      <div class="tf" style="font-size:24px"><span class="k">3</span><span>a person who <b>paints</b></span> <span class="a T reveal hidden">painter</span></div>
+      <div class="tf" style="font-size:24px"><span class="k">4</span><span>a person who <b>collects</b> money or stamps</span> <span class="a T reveal hidden">collector</span></div>
+      <div class="tf" style="font-size:24px"><span class="k">5</span><span>describes something that <b>helps</b></span> <span class="a T reveal hidden">helpful</span></div>
+      <div class="tf" style="font-size:24px"><span class="k">6</span><span>describes something you can <b>use</b> a lot</span> <span class="a T reveal hidden">useful</span></div>
+      <div class="tf" style="font-size:24px"><span class="k">7</span><span>the noun of <b>replace</b></span> <span class="a T reveal hidden">replacement</span></div>
+      <div class="tf" style="font-size:24px"><span class="k">8</span><span>the noun of <b>pay</b></span> <span class="a T reveal hidden">payment</span></div>
+    </div>
+  </div>
+  <button class="revbtn" data-rev>Show answers</button>
+  <div class="notes"><b>10 min.</b> Read one clue at a time. Spelling counts! Bonus point for a correct sentence with the word. Next slide: Worksheet Section 8.</div>
+</section>
+
+<section class="slide a" data-title="Worksheet: Word Families" data-class="Class 2" data-min="5">
+  <div class="top"><img src="LOGO_SRC" alt=""><h2>Your Turn: Word Families</h2><span class="stage-tag">Practice</span></div><div class="goldline"></div>
+  <div class="body">
+    <div class="steps">
+      <div class="step"><div class="n">1</div><div class="t">Worksheet <b>Section 8</b>: complete the table.</div></div>
+      <div class="step"><div class="n">2</div><div class="t">Choose the correct form for 6 sentences.</div></div>
+      <div class="step"><div class="n">3</div><div class="t">Press <b>Check</b>. Fix your mistakes with a partner.</div></div>
+    </div>
+    <div class="frame center" style="font-size:26px">-er / -or = <b>person</b> &nbsp;·&nbsp; -ful = <b>describes</b> &nbsp;·&nbsp; -ment / -tion = <b>thing</b></div>
+  </div>
+  <div class="notes"><b>5 min.</b> Answers — table: voter, designer, use / user / useful, replacement, paint, collection / collector. Sentences: voters, designer, use, useful, replace, helpful.</div>
+</section>
+
+<section class="slide a" data-title="My 6 Words" data-class="Class 2" data-min="10">
+  <div class="top"><img src="LOGO_SRC" alt=""><h2>My 6 Words</h2><span class="stage-tag">Activate</span></div><div class="goldline"></div>
+  <div class="body">
+    <p style="font-size:27px">Write <b>6 sentences about your life</b>. Use a different key word in each one. (Worksheet Section 9)</p>
+    <div class="frame center" style="font-size:26px">banknote · wildlife · replace · vote · popular · design · famous · counterfeit</div>
+    <div class="cols" style="gap:16px;font-size:23px">
+      <div class="box"><h3>Examples</h3>I want to <b>replace</b> my old laptop.<br>Tacos are very <b>popular</b> in my city.</div>
+      <div class="box gold"><h3>Then</h3>Read your 3 best sentences to a partner. Your partner says one <b>question</b> about each.</div>
+    </div>
+  </div>
+  <div class="notes"><b>10 min:</b> write 6 min (the words light up on the worksheet when used) → partner share 4 min. This is the Week 3 SLO: “use at least 6 new words in their own sentences.” Word family forms count (voter, designer, replaced).</div>
+</section>
+
+<section class="slide a" data-title="Speed Chat" data-class="Class 2" data-min="10">
+  <div class="top"><img src="LOGO_SRC" alt=""><h2>Speed Chat</h2><span class="stage-tag">Activate</span></div><div class="goldline"></div>
+  <div class="body" style="gap:9px">
+    <p class="mini" style="font-size:22px">New partner every 2 minutes! Give a reason with <b>because</b>.</p>
+    <div class="tf" style="font-size:24px"><span class="k">1</span>Who or what is on the money in your country?</div>
+    <div class="tf" style="font-size:24px"><span class="k">2</span>Do you like animals or famous people on money? Why?</div>
+    <div class="tf" style="font-size:24px"><span class="k">3</span>Which animal would you choose for your country's money?</div>
+    <div class="tf" style="font-size:24px"><span class="k">4</span>Do you use cash or a card more? Why?</div>
+    <div class="tf" style="font-size:24px;background:#fffaf0"><span class="k" style="color:var(--gold)">&#9733;</span>Why must banknotes be difficult to counterfeit?</div>
+  </div>
+  <div class="notes"><b>10 min:</b> two lines facing each other; one line moves every 2 minutes (4 rounds = 8 min) → 2 min share: “My partner said…”. Starred question for A2+ pairs.</div>
+</section>
+
+<section class="slide a" data-title="Design a Banknote" data-class="Class 2" data-min="12">
+  <div class="top"><img src="LOGO_SRC" alt=""><h2>Design a Banknote</h2><span class="stage-tag">Groups</span></div><div class="goldline"></div>
+  <div class="body" style="gap:12px">
+    <div class="box navy" style="font-size:24px"><h3>Your mission</h3>You are <b>designers</b>. Design a new banknote for our class. The class will <b>vote</b> for the best one!</div>
+    <div class="cols three" style="gap:12px;font-size:22px">
+      <div class="box"><h3>Front</h3>Which animal? <span class="mini">(wildlife from one of your countries)</span></div>
+      <div class="box"><h3>Value</h3>How much is it? <span class="mini">($5? $20? $100?)</span></div>
+      <div class="box gold"><h3>Why?</h3>Give 2 reasons for your design.</div>
+    </div>
+    <div class="mini" style="font-size:20px"><b>Roles:</b> Designer (draws) · Writer · Presenter · Timekeeper</div>
+  </div>
+  <div class="notes"><b>20 min total:</b> plan and draw 12 min (this slide) → present and vote 8 min (next slide). Mixed-level groups of 3–4, paper and colored pens. Give A2+ students the Presenter role. Remind them to use at least 3 key words.</div>
+</section>
+
+<section class="slide a" data-title="Present and Vote" data-class="Class 2" data-min="8">
+  <div class="top"><img src="LOGO_SRC" alt=""><h2>Present and Vote</h2><span class="stage-tag">Present</span></div><div class="goldline"></div>
+  <div class="body" style="gap:12px">
+    <div class="frame" style="font-size:26px;line-height:1.65">
+      Our banknote is a <b>___</b> note.<br>
+      On the front, there is a <b>___</b>. It is <b>popular</b> in <b>___</b>.<br>
+      We chose it because <b>___</b>.
+    </div>
+    <div class="steps">
+      <div class="step"><div class="n">1</div><div class="t">Each group: <b>1 minute</b>. <small style="display:inline">Listeners: ask one question.</small></div></div>
+      <div class="step"><div class="n">2</div><div class="t"><b>Vote!</b> You can't vote for your own group.</div></div>
+    </div>
+  </div>
+  <div class="notes">1 minute per group — use the timer. Hang the designs on the wall; students vote with sticky dots or hands. Connect to the story: “Almost 500,000 people voted in the UK — now you are the voters!”</div>
+</section>
+
+<section class="slide a" data-title="Writing" data-class="Class 2" data-min="15">
+  <div class="top"><img src="LOGO_SRC" alt=""><h2>Write: My Banknote</h2><span class="stage-tag">Activate</span></div><div class="goldline"></div>
+  <div class="body" style="gap:12px">
+    <p style="font-size:25px">Design a new banknote for <b>your country</b>. Write <b>5–7 sentences</b>. (Worksheet Section 10)</p>
+    <div class="frame" style="font-size:23px;line-height:1.55">My new banknote is for Colombia. It is a 20,000 peso note. It has a picture of a hummingbird on it. I think it is a good <b>design</b> because hummingbirds are small, colorful, and very <b>popular</b> in my country. Many people would <b>vote</b> for it!</div>
+    <div class="cols" style="font-size:21px;gap:14px">
+      <div class="box">&#10003; 5–7 sentences &nbsp; &#10003; 3+ key words</div>
+      <div class="box">&#10003; a word family form (designer, voter…) &nbsp; &#10003; because</div>
+    </div>
+  </div>
+  <div class="notes"><b>15 min:</b> find the key words in the model (2 min) → write (10 min) → swap with a partner and check the list (3 min). Students post on Community as homework (“Copy answers” button on the worksheet).</div>
+</section>
+
+<section class="slide r" data-title="Exit Ticket" data-class="Class 2" data-min="3">
+  <div class="top"><img src="LOGO_SRC" alt=""><h2>Exit Ticket</h2><span class="stage-tag">Reflect</span></div><div class="goldline"></div>
+  <div class="body">
+    <div class="steps">
+      <div class="step"><div class="n">1</div><div class="t">The main idea of today's story in <b>one sentence</b>.</div></div>
+      <div class="step"><div class="n">2</div><div class="t">One word family: <b>___ &rarr; ___</b> (example: vote &rarr; voter)</div></div>
+      <div class="step"><div class="n">3</div><div class="t">Your favorite new word + a sentence.</div></div>
+    </div>
+    <div class="box gold center" style="font-size:24px"><b>Homework:</b> Post your paragraph on Approach's Community. &nbsp;·&nbsp; <b>Next week:</b> numbers, prices, and dates in the news.</div>
+  </div>
+  <div class="notes">3 min. Students tell you their answers at the door or write them on a sticky note.</div>
+</section>
+
+</div></div>
+
+<div id="progress"></div>
+<div id="notes"></div>
+<div id="help">Arrows: move · T: timer · R: reveal · N: teacher notes · F: full screen</div>
+<div id="nav">
+  <button id="prev" aria-label="Previous slide">&lsaquo;</button>
+  <select id="jump" aria-label="Go to slide"></select>
+  <button id="next" aria-label="Next slide">&rsaquo;</button>
+  <button id="notesBtn">Notes</button>
+  <button id="fsBtn">Full screen</button>
+</div>
+
+<script>
+/* ================== VOCABULARY (edit here) ==================
+   syl: syllables, stress = index of the stressed syllable
+   audio: real recordings of native speakers from Wikimedia Commons
+          (the free audio library used by Wiktionary): [mp3, ogg]
+   ============================================================ */
+const VOCAB = [
+  {w:"banknote", audio:["https://upload.wikimedia.org/wikipedia/commons/transcoded/1/1b/LL-Q1860_%28eng%29-Wodencafe-banknote.wav/LL-Q1860_%28eng%29-Wodencafe-banknote.wav.mp3", "https://upload.wikimedia.org/wikipedia/commons/transcoded/1/1b/LL-Q1860_%28eng%29-Wodencafe-banknote.wav/LL-Q1860_%28eng%29-Wodencafe-banknote.wav.ogg"], accent:"English speaker (Lingua Libre)", pos:"noun", syl:["bank", "note"], stress:0, ipa:"/ˈbæŋk.noʊt/", tip:"In the US, people usually say “bill.”", def:"paper or plastic money", ex:["A puffin will be on one of the new <u>banknotes</u>.", "I have a $20 <u>banknote</u> in my wallet."], ccq:"Is a banknote paper money or a coin? (paper) · What do Americans call it? (a bill)"},
+  {w:"wildlife", audio:["https://upload.wikimedia.org/wikipedia/commons/transcoded/e/e9/En-au-wildlife.ogg/En-au-wildlife.ogg.mp3", "https://upload.wikimedia.org/wikipedia/commons/e/e9/En-au-wildlife.ogg"], accent:"Australia", pos:"noun", syl:["wild", "life"], stress:0, ipa:"/ˈwaɪld.laɪf/", def:"animals and birds that live in nature", ex:["The new banknotes will show British <u>wildlife</u>.", "There is a lot of <u>wildlife</u> in the national park."], ccq:"Is a pet dog wildlife? (no) · Is an owl in the forest wildlife? (yes)"},
+  {w:"replace", audio:["https://upload.wikimedia.org/wikipedia/commons/transcoded/e/e5/En-us-replace.ogg/En-us-replace.ogg.mp3", "https://upload.wikimedia.org/wikipedia/commons/e/e5/En-us-replace.ogg"], accent:"US", pos:"verb", syl:["re", "place"], stress:1, ipa:"/rɪˈpleɪs/", tip:"word family: replace → replacement", def:"to put a new thing in the place of an old thing", ex:["Animals will <u>replace</u> famous people on the notes.", "My phone is old. I want to <u>replace</u> it."], ccq:"If I replace my phone, do I have two phones? (no — a new one instead of the old one)"},
+  {w:"vote", audio:["https://upload.wikimedia.org/wikipedia/commons/transcoded/9/9e/En-us-vote.ogg/En-us-vote.ogg.mp3", "https://upload.wikimedia.org/wikipedia/commons/9/9e/En-us-vote.ogg"], accent:"US · General American", pos:"verb / noun", syl:["vote"], stress:0, ipa:"/voʊt/", tip:"word family: vote → voter (a person who votes)", def:"to choose, together with many other people", ex:["Almost 500,000 people <u>voted</u> for their favorite animals.", "In our class, we <u>voted</u> for the best idea."], ccq:"Do many people vote or only one person? (many) · Do people vote in elections? (yes)"},
+  {w:"popular", audio:["https://upload.wikimedia.org/wikipedia/commons/transcoded/4/47/En-us-popular.ogg/En-us-popular.ogg.mp3", "https://upload.wikimedia.org/wikipedia/commons/4/47/En-us-popular.ogg"], accent:"US", pos:"adjective", syl:["pop", "u", "lar"], stress:0, ipa:"/ˈpɑː.pjə.lɚ/", def:"liked by many people", ex:["The barn owl was the most <u>popular</u> bird.", "Soccer is very <u>popular</u> in Brazil."], ccq:"If a song is popular, do many people like it? (yes) · Is a song that nobody likes popular? (no)"},
+  {w:"design", audio:["https://upload.wikimedia.org/wikipedia/commons/transcoded/7/74/En-us-design.ogg/En-us-design.ogg.mp3", "https://upload.wikimedia.org/wikipedia/commons/7/74/En-us-design.ogg"], accent:"US · California", pos:"noun / verb", syl:["de", "sign"], stress:1, ipa:"/dɪˈzaɪn/", tip:"the g is silent · design → designer", def:"a plan or drawing for how something will look", ex:["The new <u>designs</u> are not ready yet.", "She <u>designs</u> clothes for a big store."], ccq:"Do you make a design before or after you build something? (before) · Who makes designs? (a designer)"},
+  {w:"famous", audio:["https://upload.wikimedia.org/wikipedia/commons/transcoded/8/89/En-us-famous.ogg/En-us-famous.ogg.mp3", "https://upload.wikimedia.org/wikipedia/commons/8/89/En-us-famous.ogg"], accent:"US", pos:"adjective", syl:["fa", "mous"], stress:0, ipa:"/ˈfeɪ.məs/", def:"known by many people", ex:["<u>Famous</u> people, like Winston Churchill, will not be on the new notes.", "The Statue of Liberty is a <u>famous</u> place in New York."], ccq:"Do many people know a famous person? (yes) · Is your neighbor famous? (probably not!)"},
+  {w:"counterfeit", audio:["https://upload.wikimedia.org/wikipedia/commons/transcoded/d/d9/LL-Q1860_%28eng%29-Vealhurl-counterfit.wav/LL-Q1860_%28eng%29-Vealhurl-counterfit.wav.mp3", "https://upload.wikimedia.org/wikipedia/commons/transcoded/d/d9/LL-Q1860_%28eng%29-Vealhurl-counterfit.wav/LL-Q1860_%28eng%29-Vealhurl-counterfit.wav.ogg"], accent:"UK · Southern England", pos:"adjective / verb", syl:["coun", "ter", "feit"], stress:0, ipa:"/ˈkaʊn.tɚ.fɪt/", tip:"Challenge word · counterfeit = fake", def:"fake; a copy made to trick people", ex:["The new notes must be difficult to <u>counterfeit</u>.", "The store found a <u>counterfeit</u> $100 bill."], ccq:"Is counterfeit money real? (no) · Is it legal to make counterfeit money? (no)"}
+];
+const LOGO="data:image/png;base64,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";
+const KEY="approach-ci-week3-slides";
+const IMG_ICON='<svg class="i" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.8"/><path d="M21 16l-5-5-9 9"/></svg>';
+const SPK='<svg class="i" viewBox="0 0 24 24"><path d="M3 10v4h4l5 4V6L7 10z"/><path d="M16 9a4 4 0 0 1 0 6M19 6a8 8 0 0 1 0 12"/></svg>';
+
+/* build vocab slides */
+const stageEl=document.getElementById("stage");
+const marker=[...stageEl.childNodes].find(n=>n.nodeType===8 && n.nodeValue.trim()==="VOCAB_SLIDES");
+VOCAB.forEach((v,i)=>{
+  const s=document.createElement("section");
+  s.className="slide s"; s.dataset.title="Word: "+v.w; s.dataset.class="Class 1";
+  s.innerHTML=`
+  <div class="top"><img src="${LOGO}" alt=""><h2>Key Words</h2><span class="stage-tag">Word ${i+1} of ${VOCAB.length}</span></div><div class="goldline"></div>
+  <div class="vocab">
+    <div class="vleft">
+      <div class="vword"><span class="w">${v.w}</span><span class="pos">${v.pos}</span></div>
+      <div class="stress">
+        <div class="syl">${v.syl.map((x,k)=>`<span class="${k===v.stress?"st":""}">${k===v.stress?x.toUpperCase():x}</span>`).join("")}</div>
+        <div class="dots">${v.syl.map((x,k)=>`<i class="${k===v.stress?"st":""}"></i>`).join("")}</div>
+        <span class="ipa">${v.ipa}${v.alt?` · ${v.alt}`:""}</span>
+      </div>
+      ${v.tip?`<div class="tip">${v.tip}</div>`:""}
+      <div class="def"><b>Meaning:</b> ${v.def}</div>
+      <div class="ex">
+        <div><small>FROM THE STORY</small>${v.ex[0]}</div>
+        <div><small>IN MY LIFE</small>${v.ex[1]}</div>
+      </div>
+    </div>
+    <div class="listen">
+      <div class="lt">LISTEN AND REPEAT</div>
+      <button class="play" data-audio="${i}" data-rate="1"><svg class="i" viewBox="0 0 24 24"><path d="M3 10v4h4l5 4V6L7 10z"/><path d="M16 9a4 4 0 0 1 0 6M19 6a8 8 0 0 1 0 12"/></svg><span>Listen</span></button>
+      <button class="play slow" data-audio="${i}" data-rate="0.65"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2M9 2h6"/></svg><span>Slow</span></button>
+      <div class="acc">Real voice · <b>${v.accent}</b></div>
+      <div class="drill"><span>1 · class</span><span>2 · rows</span><span>3 · you</span></div>
+      <div class="dicts">More voices: <a href="https://dictionary.cambridge.org/us/dictionary/english/${v.w}" target="_blank" rel="noopener">Cambridge</a> · <a href="https://www.merriam-webster.com/dictionary/${v.w}" target="_blank" rel="noopener">Merriam-Webster</a></div>
+      <div class="astatus"></div>
+    </div>
+  </div>
+  <div class="notes"><b>Check questions:</b> ${v.ccq}<br><b>Drill:</b> press Listen (or Slow), then class → rows → individuals repeat; clap the stress: ${v.syl.map((x,k)=>k===v.stress?x.toUpperCase():x).join("·")}.</div>`;
+  stageEl.insertBefore(s, marker);
+});
+
+
+/* ================== GUESS THE MONEY (edit here) ================== */
+const MONEY = [
+  {c:"Brazil", cur:"real (R$)", clues:["On the back of these notes there are animals: a jaguar, a macaw, and a wolf.","The money is called the real.","People in this country speak Portuguese."], fact:"50 reais: a jaguar · 10 reais: a green-winged macaw · 200 reais: a maned wolf"},
+  {c:"South Korea", cur:"won (₩)", clues:["The 10,000 note shows King Sejong. He created the country's alphabet.","The 50,000 note shows a famous woman artist, Shin Saimdang.","The money is called the won. The capital is Seoul."], fact:"1,000 won: Yi Hwang · 5,000 won: Yi I · 10,000 won: King Sejong the Great"},
+  {c:"Peru", cur:"sol (S/)", clues:["The new notes show animals: a vicuña, an Andean condor, and a jaguar.","The money is called the sol. It means “sun.”","Machu Picchu is in this country."], fact:"10 soles: a vicuña · 20 soles: an Andean condor · 50 soles: a jaguar"},
+  {c:"Afghanistan", cur:"afghani (؋)", clues:["These notes show beautiful old mosques and buildings.","The name of the money is almost the same as the name of the country.","The capital is Kabul."], fact:"100 afghanis: Pul-e Khishti Mosque · 500 afghanis: the Great Mosque of Herat"},
+  {c:"the USA", cur:"dollar ($)", clues:["Most notes show presidents. The $100 note shows Benjamin Franklin. He was not a president!","All the notes are the same size and mostly green.","You use this money every day!"], fact:"$1 George Washington · $5 Abraham Lincoln · $20 Andrew Jackson · $100 Benjamin Franklin"},
+  {c:"Vietnam", cur:"dong (₫)", clues:["The 200,000 note shows a famous bay with many small islands.","The same man is on the front of every note.","The money is called the dong."], fact:"Every note: Ho Chi Minh · 200,000 dong: Ha Long Bay"},
+  {c:"Colombia", cur:"peso ($)", clues:["The 5,000 note has a bumblebee on the back, like in today's story!","The famous writer Gabriel García Márquez is on the 50,000 note.","The capital is Bogotá."], fact:"5,000 pesos: a bumblebee and the páramo mountains · 50,000 pesos: Gabriel García Márquez"},
+  {c:"North Macedonia", cur:"denar (ден)", clues:["These notes show very old art: mosaics, church paintings, and a gold mask.","The money is called the denar.","Lake Ohrid is in this country."], fact:"500 denari: a gold mask from Ohrid and a poppy flower · 2,000 denari: peacocks"},
+  {c:"Thailand", cur:"baht (฿)", clues:["The king is on the front of every note.","The money is called the baht.","The capital is Bangkok."], fact:"Every note: King Vajiralongkorn on the front; kings from history on the back"},
+  {c:"Bolivia", cur:"boliviano (Bs)", clues:["The 10 note shows a giant hummingbird and a famous salt flat.","The money has almost the same name as the country.","La Paz is one of its cities. It is one of the highest cities in the world."], fact:"10 bolivianos: a giant hummingbird and the Uyuni salt flat"},
+  {c:"El Salvador", cur:"US dollar ($)", clues:["Surprise! This country uses money from another country.","This money is green, and George Washington is on the $1 note.","This country is in Central America. Its capital is San Salvador."], fact:"El Salvador has used the US dollar since 2001. Before that, the money was the colón."}
+];
+const ANIMALS = [
+  {w:"puffin", info:"In today's story: a new UK banknote"},
+  {w:"barn owl", info:"In today's story: a new UK banknote"},
+  {w:"bumblebee", info:"In today's story — and on Colombia's 5,000 pesos"},
+  {w:"hedgehog", info:"In today's story: a new UK banknote"},
+  {w:"jaguar", info:"Brazil 50 reais · Peru 50 soles"},
+  {w:"macaw", info:"Brazil 10 reais"},
+  {w:"condor", info:"Peru 20 soles"},
+  {w:"hummingbird", info:"Bolivia 10 bolivianos"},
+  {w:"wolf", info:"Brazil 200 reais (a maned wolf)"},
+  {w:"peacock", info:"North Macedonia 2,000 denari"},
+  {w:"eagle", info:"USA $1 — on the back, in the Great Seal"},
+  {w:"elephant", info:"The national animal of Thailand"},
+  {w:"tiger", info:"A national symbol of South Korea"},
+  {w:"water buffalo", info:"An important farm animal in Vietnam"},
+  {w:"snow leopard", info:"Lives in the high mountains of Afghanistan"}
+];
+const TEAMS=["Team A","Team B","Team C"];
+const TEAM_HTML='<div class="teams"><span class="lbl">SCORE</span>'+TEAMS.map((t,k)=>`<div class="team" data-team="${k}"><button class="minus" title="minus 1">−</button><b>0</b><button class="add" title="Add points">+ ${t}</button></div>`).join("")+'</div>';
+(function(){
+  const mk=[...stageEl.childNodes].find(n=>n.nodeType===8 && n.nodeValue.trim()==="MONEY_SLIDES");
+  MONEY.forEach((m,i)=>{
+    const s=document.createElement("section");
+    s.className="slide e money"; s.dataset.title="Money "+(i+1); s.dataset.class="Class 1"; s.dataset.round=i;
+    s.innerHTML=`<div class="top"><img src="${LOGO}" alt=""><h2>Guess the Money!</h2><span class="stage-tag">Country ${i+1} of ${MONEY.length}</span><span class="gclock" title="Game time left (started on the first Guess the Money slide)"></span></div><div class="goldline"></div>
+    <div class="mm">
+      <div class="mm-left">
+        <div class="mm-title">Mystery Money <span>#${i+1}</span></div>
+        ${m.clues.map((c,k)=>`<div class="clue ${k?"hidden":""}"><span class="cn">CLUE ${k+1} · ${3-k} PTS</span><span>${c}</span></div>`).join("")}
+        <div class="mm-btns"><button class="mmb" data-next>Next clue</button><button class="mmb gold" data-answer>Show answer</button><span class="pts-now">Now: 3 points</span></div>
+        ${TEAM_HTML}
+      </div>
+      <div class="mm-right">
+        <div class="photo" data-photo="money${i}"><div class="ph">${IMG_ICON}<span>Click or drop a photo of the money</span></div><div class="pb"><button class="pbtn" data-clear>Remove</button></div><input type="file" accept="image/*" hidden></div>
+        <div class="ans-box hidden"><div class="cty">${m.c}</div><div><b>Money:</b> the ${m.cur}</div><div style="opacity:.9;margin-top:4px">${m.fact}</div></div>
+      </div>
+    </div>
+    <div class="notes">Answer: <b>${m.c}</b> — ${m.cur}. ${m.fact}. Expert students from this country tell one more fact after the reveal.</div>`;
+    stageEl.insertBefore(s, mk);
+  });
+  // add team score bar to charades slide
+  const ch=[...stageEl.querySelectorAll(".slide")].find(x=>x.dataset.title==="Animal Charades");
+  if(ch){ const t=document.createElement("div"); t.innerHTML=TEAM_HTML; t.firstChild.classList.add("float"); ch.append(t.firstChild); }
+})();
+
+/* logos */
+document.querySelectorAll('img[src="LOGO_SRC"]').forEach(im=>im.src=LOGO);
+
+const slides=[...document.querySelectorAll(".slide")];
+let cur=0;
+const jump=document.getElementById("jump");
+
+/* footer + timers */
+slides.forEach((s,i)=>{
+  if(s.dataset.class){
+    const f=document.createElement("div"); f.className="foot";
+    f.innerHTML=`<span class="cls">${s.dataset.class}</span> · Current Issues · Basic Level · Week 3 · ${i+1} / ${slides.length}`;
+    s.append(f);
+  }
+  if(s.dataset.min){
+    const b=document.createElement("button"); b.className="timer"; b.type="button";
+    b.dataset.sec=s.dataset.min*60; b.textContent=`${s.dataset.min}:00`; b.title="Start / stop timer (T)";
+    (s.querySelector(".top")||s).append(b); b.onclick=()=>toggleTimer(b);
+  }
+  const o=document.createElement("option"); o.value=i; o.textContent=`${i+1}. ${s.dataset.title||"Slide"}`; jump.append(o);
+});
+
+/* saved state */
+let saved={}; try{ saved=JSON.parse(localStorage.getItem(KEY))||{}; }catch(e){}
+saved.imgs=saved.imgs||{};
+const persist=()=>{ try{ localStorage.setItem(KEY,JSON.stringify(saved)); return true; }catch(e){ return false; } };
+
+/* timers */
+let tInt=null,tBtn=null,tLeft=0;
+const fmt=s=>`${Math.floor(s/60)}:${String(s%60).padStart(2,"0")}`;
+function stopTimer(){ clearInterval(tInt); tInt=null; if(tBtn){ tBtn.classList.remove("run","end"); tBtn.textContent=fmt(+tBtn.dataset.sec);} tBtn=null; }
+function toggleTimer(b){
+  if(tBtn===b){ stopTimer(); return; }
+  stopTimer(); tBtn=b; tLeft=+b.dataset.sec; b.classList.add("run"); b.textContent=fmt(tLeft);
+  tInt=setInterval(()=>{ tLeft--; const g=b.closest('.slide').dataset.title==='Guess the Money'; if(g) document.querySelectorAll('.gclock').forEach(x=>x.textContent=tLeft>0?fmt(tLeft):'Time!'); if(tLeft<=0){ clearInterval(tInt); b.classList.remove("run"); b.classList.add("end"); b.textContent="Time!"; beep(); return; } b.textContent=fmt(tLeft); },1000);
+}
+function beep(){ try{ const c=new (window.AudioContext||window.webkitAudioContext)(); [0,.35,.7].forEach(d=>{ const o=c.createOscillator(),g=c.createGain(); o.frequency.value=880; o.connect(g); g.connect(c.destination); g.gain.setValueAtTime(.22,c.currentTime+d); g.gain.exponentialRampToValueAtTime(.001,c.currentTime+d+.3); o.start(c.currentTime+d); o.stop(c.currentTime+d+.3); }); }catch(e){} }
+
+/* break timer */
+let bInt=null; const breakBtn=document.getElementById("breakBtn"), breakClock=document.getElementById("breakClock"), backAt=document.getElementById("backAt");
+breakBtn.onclick=()=>{
+  if(bInt){ clearInterval(bInt); bInt=null; breakClock.textContent="30:00"; breakBtn.textContent="Start break timer"; backAt.textContent="—"; return; }
+  let left=1800; backAt.textContent=new Date(Date.now()+left*1000).toLocaleTimeString([],{hour:"numeric",minute:"2-digit"});
+  breakBtn.textContent="Reset";
+  bInt=setInterval(()=>{ left--; breakClock.textContent=fmt(Math.max(left,0)); if(left<=0){ clearInterval(bInt); bInt=null; beep(); } },1000);
+};
+
+/* reveal */
+function revealToggle(s){
+  const items=s.querySelectorAll(".reveal"); if(!items.length) return;
+  const hide=![...items].some(x=>x.classList.contains("hidden"));
+  items.forEach(x=>x.classList.toggle("hidden",hide));
+  const b=s.querySelector("[data-rev]"); if(b) b.textContent=hide?b.textContent.replace("Hide","Show"):b.textContent.replace("Show","Hide");
+}
+document.querySelectorAll("[data-rev]").forEach(b=>b.onclick=()=>revealToggle(b.closest(".slide")));
+
+
+/* ---------- team scores (shared by money + charades) ---------- */
+saved.score=saved.score||[0,0,0];
+function paintScores(){ document.querySelectorAll(".team").forEach(t=>t.querySelector("b").textContent=saved.score[+t.dataset.team]); }
+document.addEventListener("click",e=>{
+  const t=e.target.closest(".team"); if(!t) return;
+  const k=+t.dataset.team, sl=t.closest(".slide");
+  let pts=1;
+  if(sl && sl.classList.contains("money")){ pts=Math.max(1,3-[...sl.querySelectorAll(".clue")].filter(c=>!c.classList.contains("hidden")).length+1); }
+  if(e.target.closest(".minus")) saved.score[k]=Math.max(0,saved.score[k]-1);
+  else if(e.target.closest(".add")) saved.score[k]+=pts;
+  persist(); paintScores(); buildPodium();
+});
+function buildPodium(){
+  const pd=document.getElementById("podium"); if(!pd) return;
+  const best=Math.max(...saved.score);
+  pd.innerHTML=TEAMS.map((t,k)=>`<div class="pod ${saved.score[k]===best&&best>0?"first":""}" style="height:${120+saved.score[k]*8}px"><div class="tn">${t}</div><div class="ts">${saved.score[k]}</div></div>`).join("")+
+   `<div style="grid-column:1/-1;text-align:right"><button class="tbtn" id="resetScore" style="font:inherit;font-size:15px;font-weight:700;border:2px solid var(--sky-dark);background:#fff;color:var(--navy);border-radius:18px;padding:4px 12px;cursor:pointer">Reset scores</button></div>`;
+  document.getElementById("resetScore").onclick=()=>{ if(confirm("Reset all team scores to 0?")){ saved.score=[0,0,0]; persist(); paintScores(); buildPodium(); } };
+}
+paintScores(); buildPodium();
+
+/* ---------- guess the money ---------- */
+function moneyNext(sl){ const h=sl.querySelector(".clue.hidden"); if(h){ h.classList.remove("hidden"); } const shown=[...sl.querySelectorAll(".clue")].filter(c=>!c.classList.contains("hidden")).length; sl.querySelector(".pts-now").textContent=`Now: ${Math.max(1,4-shown)} point${4-shown===1?"":"s"}`; if(!sl.querySelector(".clue.hidden")) sl.querySelector("[data-next]").disabled=true; }
+function moneyAnswer(sl){ sl.querySelectorAll(".clue").forEach(c=>c.classList.remove("hidden")); sl.querySelector(".ans-box").classList.toggle("hidden"); }
+document.addEventListener("click",e=>{
+  const sl=e.target.closest(".slide.money"); if(!sl) return;
+  if(e.target.closest("[data-next]")) moneyNext(sl);
+  if(e.target.closest("[data-answer]")) moneyAnswer(sl);
+});
+
+/* ---------- animal charades ---------- */
+(function(){
+  const card=document.getElementById("chCard"); if(!card) return;
+  const st=document.getElementById("chState"), wd=document.getElementById("chWord"), inf=document.getElementById("chInfo"), clk=document.getElementById("chClock"), left=document.getElementById("chLeft");
+  let deck=[], cur=null, tm=null, sec=45, hideT=null;
+  const shuffle=a=>a.map(v=>[Math.random(),v]).sort((x,y)=>x[0]-y[0]).map(v=>v[1]);
+  const refill=()=>{ deck=shuffle(ANIMALS.slice()); };
+  const showLeft=()=>{ left.textContent=`${deck.length} cards left`; };
+  refill(); showLeft();
+  document.getElementById('chReset').onclick=()=>{ if(confirm('Reset all team scores to 0?')){ saved.score=[0,0,0]; persist(); paintScores(); buildPodium(); } };
+  const stopClock=()=>{ clearInterval(tm); tm=null; };
+  document.getElementById("chNew").onclick=()=>{
+    stopClock(); clearTimeout(hideT); clk.classList.remove("end"); clk.textContent="0:45";
+    if(!deck.length) refill();
+    cur=deck.pop(); showLeft();
+    card.className="ch-card secret"; inf.textContent=""; wd.textContent="";
+    let n=3; st.innerHTML=`Class, close your eyes! <br>Actor: look in ${n}…`;
+    const iv=setInterval(()=>{ n--; if(n>0){ st.innerHTML=`Class, close your eyes! <br>Actor: look in ${n}…`; return; }
+      clearInterval(iv); st.textContent="ACTOR ONLY"; wd.textContent=cur.w;
+      hideT=setTimeout(()=>{ wd.textContent=""; st.innerHTML="Class, open your eyes! <br>Press <b>Start acting</b>."; card.className="ch-card"; },4000);
+    },1000);
+  };
+  document.getElementById("chGo").onclick=()=>{
+    if(tm){ stopClock(); return; }
+    sec=45; clk.classList.remove("end"); st.innerHTML="Act! No words. No sounds."; wd.textContent="";
+    tm=setInterval(()=>{ sec--; clk.textContent=`0:${String(Math.max(sec,0)).padStart(2,"0")}`; if(sec<=0){ stopClock(); clk.classList.add("end"); beep(); st.textContent="Time! Any last guesses?"; } },1000);
+  };
+  document.getElementById("chReveal").onclick=()=>{
+    if(!cur) return; stopClock(); clearTimeout(hideT);
+    card.className="ch-card shown"; st.textContent="The animal is…"; wd.textContent=cur.w; inf.textContent=cur.info;
+  };
+})();
+
+/* pronunciation */
+/* pronunciation: real recordings (Wikimedia Commons) */
+const player=new Audio(); player.preload="none";
+let playingBtn=null;
+function playWord(btn){
+  const v=VOCAB[+btn.dataset.audio], rate=+btn.dataset.rate, st=btn.closest(".listen").querySelector(".astatus");
+  st.textContent="";
+  document.querySelectorAll(".play.on").forEach(b=>b.classList.remove("on"));
+  const srcs=v.audio.filter(u=>player.canPlayType(u.endsWith(".mp3")?"audio/mpeg":"audio/ogg")!=="");
+  let k=0;
+  const tryNext=()=>{
+    if(k>=srcs.length){ btn.classList.remove("on"); st.textContent="Recording not available (check the internet). Use the Cambridge or Merriam-Webster link."; return; }
+    player.src=srcs[k++]; player.playbackRate=rate; player.preservesPitch=true;
+    player.play().then(()=>{ btn.classList.add("on"); playingBtn=btn; }).catch(tryNext);
+  };
+  player.onerror=tryNext;
+  player.onended=()=>btn.classList.remove("on");
+  tryNext();
+}
+document.addEventListener("click",e=>{ const b=e.target.closest("[data-audio]"); if(b) playWord(b); });
+
+/* photos */
+function setPhoto(box,src){ box.querySelector("img")?.remove(); if(src){ const im=new Image(); im.src=src; im.alt=""; box.prepend(im); box.classList.add("has"); } else box.classList.remove("has"); }
+function shrink(file,cb){ const r=new FileReader(); r.onload=()=>{ const im=new Image(); im.onload=()=>{ const sc=Math.min(1,900/Math.max(im.width,im.height)); const c=document.createElement("canvas"); c.width=Math.round(im.width*sc); c.height=Math.round(im.height*sc); c.getContext("2d").drawImage(im,0,0,c.width,c.height); cb(c.toDataURL("image/jpeg",.8)); }; im.src=r.result; }; r.readAsDataURL(file); }
+document.querySelectorAll(".photo").forEach(box=>{
+  const k=box.dataset.photo, cfg=box.dataset.cfg||"", input=box.querySelector("input");
+  setPhoto(box, saved.imgs[k]||cfg);
+  box.addEventListener("click",e=>{ if(e.target.closest("[data-clear]")) return; input.click(); });
+  box.querySelector("[data-clear]").addEventListener("click",e=>{ e.stopPropagation(); delete saved.imgs[k]; persist(); setPhoto(box,cfg); });
+  const use=f=>{ if(!f||!f.type.startsWith("image/")) return; shrink(f,url=>{ setPhoto(box,url); saved.imgs[k]=url; if(!persist()){ delete saved.imgs[k]; flash("Photo shown, but too big to save here. Use the img path in the file for permanent photos."); } }); };
+  input.addEventListener("change",()=>{ use(input.files[0]); input.value=""; });
+  box.addEventListener("dragover",e=>{ e.preventDefault(); box.classList.add("drag"); });
+  box.addEventListener("dragleave",()=>box.classList.remove("drag"));
+  box.addEventListener("drop",e=>{ e.preventDefault(); box.classList.remove("drag"); use(e.dataTransfer.files[0]); });
+});
+
+/* navigation */
+const notes=document.getElementById("notes"), progress=document.getElementById("progress");
+function show(i){
+  cur=Math.max(0,Math.min(slides.length-1,i));
+  slides.forEach((s,j)=>s.classList.toggle("active",j===cur));
+  progress.style.width=((cur+1)/slides.length*100)+"%";
+  jump.value=cur;
+  const n=slides[cur].querySelector(".notes");
+  notes.innerHTML=`<b class="h">TEACHER NOTES · SLIDE ${cur+1}</b>`+(n?n.innerHTML:"No notes.");
+  try{ history.replaceState(null,"","#"+(cur+1)); }catch(e){}
+}
+document.getElementById("prev").onclick=()=>show(cur-1);
+document.getElementById("next").onclick=()=>show(cur+1);
+jump.onchange=()=>show(+jump.value);
+document.getElementById("notesBtn").onclick=()=>notes.classList.toggle("show");
+const fsBtn=document.getElementById("fsBtn");
+fsBtn.onclick=()=>{ if(!document.fullscreenElement) document.documentElement.requestFullscreen().catch(()=>{}); else document.exitFullscreen(); };
+document.addEventListener("keydown",e=>{
+  if(["INPUT","SELECT","TEXTAREA"].includes(e.target.tagName)) return;
+  const k=e.key;
+  if(["ArrowRight","PageDown"," "].includes(k)){ e.preventDefault(); show(cur+1); }
+  else if(["ArrowLeft","PageUp"].includes(k)){ e.preventDefault(); show(cur-1); }
+  else if(k==="Home") show(0); else if(k==="End") show(slides.length-1);
+  else if(k==="n"||k==="N") notes.classList.toggle("show");
+  else if(k==="r"||k==="R") revealToggle(slides[cur]);
+  else if(k==="f"||k==="F") fsBtn.click();
+  else if(k==="t"||k==="T"){ const b=slides[cur].querySelector(".timer"); if(b) toggleTimer(b); }
+});
+let sx=null; document.addEventListener("touchstart",e=>sx=e.touches[0].clientX,{passive:true});
+document.addEventListener("touchend",e=>{ if(sx===null)return; const d=e.changedTouches[0].clientX-sx; if(Math.abs(d)>60) show(cur+(d<0?1:-1)); sx=null; });
+
+function flash(m){ const h=document.getElementById("help"); h.textContent=m; h.style.opacity=1; setTimeout(()=>h.style.opacity=0,4500); }
+const stage=document.getElementById("stage");
+function fit(){ stage.style.transform=`scale(${Math.min(innerWidth/1280,innerHeight/720)})`; }
+addEventListener("resize",fit); fit();
+setTimeout(()=>document.getElementById("help").style.opacity=0,5000);
+show(Math.max(0,(parseInt(location.hash.slice(1))||1)-1));
+</script>
+</body>
+</html>
