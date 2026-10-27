@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tribunal Printables · Week 4</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Public+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0c2340;--gold:#d39f10;--gold-dark:#8c7535;--warm:#efe9d9;--ink:#1d2b44;--muted:#4f5f78;--cut:#9aa6b8;
+  --serif:'Libre Baskerville',Georgia,serif;--sans:'Public Sans',Arial,sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:#d9dee6;font-family:var(--sans);color:var(--ink)}
+.bar{position:sticky;top:0;background:var(--navy);color:#fff;padding:12px 20px;display:flex;gap:16px;align-items:center;flex-wrap:wrap;font-size:15px;z-index:2}
+.bar button{font:700 15px var(--sans);background:var(--gold);color:var(--navy);border:none;border-radius:8px;padding:9px 16px;cursor:pointer}
+.bar label{display:flex;gap:6px;align-items:center}
+.page{width:8.5in;height:11in;margin:24px auto;background:#fff;padding:.35in;box-shadow:0 4px 18px rgba(0,0,0,.18);display:grid;gap:0;position:relative}
+.ptitle{position:absolute;top:.1in;left:.35in;font-size:10px;color:var(--cut);letter-spacing:.08em;text-transform:uppercase}
+.cutbox{border:2px dashed var(--cut);margin:-1px;position:relative}
+/* tent placards: 2 per page, fold on the middle line */
+.tents{grid-template-rows:1fr 1fr}
+.tent{display:grid;grid-template-rows:1fr 1fr}
+.tent .half{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center;padding:16px}
+.tent .half.flip{transform:rotate(180deg);border-top:2px dotted var(--cut)}
+.tent .role{font:700 46px var(--serif);color:var(--navy);line-height:1.1}
+.tent .sub{font-size:17px;color:var(--muted);max-width:5.8in}
+.tent .bandn{background:var(--navy)}.tent .bandn .role{color:#fff}.tent .bandn .sub{color:#c1cddd}
+.fold{position:absolute;right:6px;font-size:10px;color:var(--cut)}
+/* ballots: 4 per page */
+.ballots{grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr}
+.ballot{padding:.22in .25in;display:flex;flex-direction:column;gap:9px}
+.ballot h3{margin:0;font:700 19px var(--serif);color:var(--navy);border-bottom:4px solid var(--gold);padding-bottom:6px;display:flex;justify-content:space-between;align-items:baseline}
+.ballot h3 small{font:600 11px var(--sans);color:var(--muted);letter-spacing:.1em;text-transform:uppercase}
+.ballot .row{font-size:13px;font-weight:600;color:var(--navy)}
+.ballot .line{border-bottom:1px solid #9aa6b8;height:22px}
+.ballot .opts{display:flex;gap:12px;font-size:13px;flex-wrap:wrap}
+.ballot .opts span::before{content:"";display:inline-block;width:13px;height:13px;border:1.5px solid var(--navy);border-radius:3px;margin-right:5px;vertical-align:-2px}
+.ballot .scale{display:flex;gap:8px;font-size:13px}
+.ballot .scale span{width:24px;height:24px;border:1.5px solid var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center}
+/* time cards: 2 per page */
+.times{grid-template-rows:1fr 1fr}
+.tcard{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center}
+.tcard b{font:700 120px var(--serif);line-height:1}
+.tcard span{font-size:22px;letter-spacing:.12em;text-transform:uppercase}
+.tcard.navy{background:var(--navy);color:#fff}.tcard.navy span{color:var(--gold)}
+.tcard.gold{background:var(--gold);color:var(--navy)}
+.tcard.red{background:#b0451a;color:#fff}
+.tcard.white{color:var(--navy)}.tcard.white span{color:var(--gold-dark)}
+/* debate cards: 3 per page */
+.debates{grid-template-rows:repeat(3,1fr)}
+.dcard{display:flex;flex-direction:column;justify-content:center;gap:12px;padding:.3in .5in}
+.dcard .n{font-size:14px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-dark)}
+.dcard p{margin:0;font:700 30px var(--serif);color:var(--navy);line-height:1.3}
+.dcard .tip{font-size:14px;color:var(--muted)}
+body.nocolor .tent .bandn,body.nocolor .tcard.navy,body.nocolor .tcard.gold,body.nocolor .tcard.red{background:#fff !important;color:var(--navy) !important}
+body.nocolor .tent .bandn .role,body.nocolor .tent .bandn .sub,body.nocolor .tcard span{color:var(--navy) !important}
+.hide{display:none !important}
+@page{size:letter;margin:0}
+@media print{
+  body{background:#fff}
+  .bar{display:none}
+  .page{margin:0;box-shadow:none;break-after:page}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+<div class="bar">
+  <strong>Week 4 · Tribunal printables</strong>
+  <label><input type="checkbox" class="sec" data-s="tents" checked> Role placards (2 pages)</label>
+  <label><input type="checkbox" class="sec" data-s="ballots" checked> Jury ballots (1 page = 4)</label>
+  <label>copies <input type="number" id="bcopies" value="5" min="1" max="12" style="width:52px"> pages</label>
+  <label><input type="checkbox" class="sec" data-s="times" checked> Time cards (2 pages)</label>
+  <label><input type="checkbox" class="sec" data-s="debates" checked> Debate cards (2 pages)</label>
+  <label><input type="checkbox" id="nocolor"> Save ink (no color blocks)</label>
+  <button type="button" onclick="window.print()">Print</button>
+</div>
+<main id="pages"></main>
+<script>
+(function(){
+  var m=document.getElementById('pages');
+  function page(cls,title,html,sec){ var p=document.createElement('section'); p.className='page '+cls; p.setAttribute('data-sec',sec); p.innerHTML='<div class="ptitle">'+title+'</div>'+html; m.appendChild(p); }
+  // placards
+  var ROLES=[
+    ['Expert Witnesses','The presenting team · 5 minutes, then answer every question',false],
+    ['Opposing Counsel','Questions only · 3 minutes · argue the opposite verdict',true],
+    ['The Jury','Listen · judge the evidence · fill in your ballot',false],
+    ['The Judge','Keeps time · keeps order · grades',true]
+  ];
+  for(var i=0;i<ROLES.length;i+=2){
+    var html='';
+    [ROLES[i],ROLES[i+1]].forEach(function(r){
+      var cls=r[2]?' bandn':'';
+      html+='<div class="cutbox tent"><div class="half flip'+cls+'"><div class="role">'+r[0]+'</div><div class="sub">'+r[1]+'</div></div><div class="half'+cls+'"><div class="role">'+r[0]+'</div><div class="sub">'+r[1]+'</div></div></div>';
+    });
+    page('tents','Role placards · cut on the dashed line, fold on the dotted line to stand on a table',html,'tents');
+  }
+  // ballots
+  function ballot(){
+    return '<div class="cutbox ballot"><h3>Jury ballot <small>Apology Tribunal</small></h3>'+
+      '<div class="row">Hearing # ____ &nbsp; Team / case</div><div class="line"></div>'+
+      '<div class="row">Their verdict</div><div class="opts"><span>Success</span><span>Failure</span><span>Mixed</span></div>'+
+      '<div class="row">My verdict, after hearing both sides</div><div class="opts"><span>Success</span><span>Failure</span><span>Mixed</span></div>'+
+      '<div class="row">How persuaded was I?</div><div class="scale"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div>'+
+      '<div class="row">The strongest evidence</div><div class="line"></div>'+
+      '<div class="row">The best cross-examination question</div><div class="line"></div><div class="line"></div></div>';
+  }
+  function buildBallots(){
+    m.querySelectorAll('[data-sec=ballots]').forEach(function(p){ p.remove(); });
+    var n=Math.max(1,Math.min(12,+document.getElementById('bcopies').value||1));
+    var anchor=m.querySelector('[data-sec=times]');
+    for(var k=0;k<n;k++){
+      var p=document.createElement('section'); p.className='page ballots'; p.setAttribute('data-sec','ballots');
+      p.innerHTML='<div class="ptitle">Jury ballots · 4 per page · cut on the dashed lines</div>'+ballot()+ballot()+ballot()+ballot();
+      m.insertBefore(p,anchor);
+    }
+    applyVis();
+  }
+  // time cards
+  var TIMES=[['5:00','Presentation','navy'],['1 MINUTE','left','gold'],['STOP','time is up','red'],['3:00','Cross-examination','white']];
+  for(var t=0;t<TIMES.length;t+=2){
+    var h='';
+    [TIMES[t],TIMES[t+1]].forEach(function(c){ h+='<div class="cutbox tcard '+c[2]+'"><b>'+c[0]+'</b><span>'+c[1]+'</span></div>'; });
+    page('times','Time cards · hold up during each hearing',h,'times');
+  }
+  // debate cards
+  var ST=['A company should never apologize before all the facts are known.','Humor has no place in a corporate apology.','An apology without compensation is worthless.','The CEO should always be the one who apologizes.','Apologizing for something you didn\'t cause makes a company look weak.'];
+  for(var d=0;d<ST.length;d+=3){
+    var hh='';
+    ST.slice(d,d+3).forEach(function(s,j){ hh+='<div class="cutbox dcard"><div class="n">Speed debate · statement '+(d+j+1)+'</div><p>'+s+'</p><div class="tip">Line A agrees · Line B disagrees · 45 seconds each · B starts: "That\'s a fair point. However…"</div></div>'; });
+    if(ST.slice(d,d+3).length<3) hh+='<div></div>';
+    page('debates','Speed debate statement cards (optional backup to the slides)',hh,'debates');
+  }
+  function applyVis(){
+    document.querySelectorAll('.sec').forEach(function(cb){ m.querySelectorAll('[data-sec='+cb.getAttribute('data-s')+']').forEach(function(p){ p.classList.toggle('hide',!cb.checked); }); });
+  }
+  document.querySelectorAll('.sec').forEach(function(cb){ cb.addEventListener('change',applyVis); });
+  document.getElementById('bcopies').addEventListener('change',buildBallots);
+  document.getElementById('nocolor').addEventListener('change',function(){ document.body.classList.toggle('nocolor',this.checked); });
+  buildBallots();
+})();
+</script>
+</body>
+</html>
