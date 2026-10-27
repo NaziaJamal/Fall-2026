@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>American Education — Week 4 Slides</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1B1F4B;--navy-d:#12153A;--red:#990011;--gold:#D9A441;--cream:#FBF6F1;--ink:#2A2D44;--gray:#5B5B66;--lav:#E4E4F0;--true:#1d7a46}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:#0a0c22;overflow:hidden}
+body{font-family:"Source Sans 3",Calibri,Arial,sans-serif;color:var(--ink)}
+#viewport{position:fixed;inset:0;display:flex;align-items:center;justify-content:center}
+#stage{width:1280px;height:720px;position:relative;flex:none}
+.slide{position:absolute;inset:0;display:none;overflow:hidden;background:var(--cream)}
+.slide.active{display:block}
+.slide.navy{background:var(--navy);color:#fff}
+.slide.red{background:var(--red);color:#fff}
+.slide.white{background:#fff}
+.pad{position:absolute;inset:0;padding:42px 60px 40px}
+h1,h2,h3{font-family:"Source Serif 4",Cambria,Georgia,serif;line-height:1.15;color:var(--navy)}
+.navy h1,.navy h2,.navy h3,.red h1,.red h2,.red h3{color:#fff}
+.kicker{font-weight:700;font-size:18px;letter-spacing:.16em;text-transform:uppercase;color:var(--red)}
+.navy .kicker,.red .kicker{color:var(--gold)}
+h2.t{font-size:50px;font-weight:700;margin-top:4px}
+.sub{font-size:26px;color:var(--gray);margin-top:6px}
+.navy .sub,.red .sub{color:rgba(255,255,255,.82)}
+.hl{color:var(--red);font-weight:700}
+.navy .hl,.red .hl,.onred .hl{color:var(--gold)}
+.ic{display:inline-flex;align-items:center;justify-content:center;border-radius:50%;flex:none;width:62px;height:62px;background:var(--red)}
+.ic.navy{background:var(--navy)} .ic.gold{background:var(--gold)}
+.ic svg{width:32px;height:32px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ic.big{width:170px;height:170px}.ic.big svg{width:86px;height:86px}
+.row{display:flex;gap:22px}
+.card{border-radius:12px;padding:24px 26px;flex:1;background:#fff;box-shadow:0 2px 0 rgba(27,31,75,.08);border:1px solid #e2dfe8}
+.card.n{background:var(--navy);color:#fff;border:0}
+.card.r{background:var(--red);color:#fff;border:0}
+.card h3{font-size:31px;margin:14px 0 8px}
+.card.n h3,.card.r h3{color:#fff}
+.card p{font-size:25px;line-height:1.38}
+.list{display:flex;flex-direction:column;gap:22px;margin-top:30px}
+.li{display:flex;gap:24px;align-items:center;font-size:28px;line-height:1.35}
+.talk{border-radius:12px;padding:18px 24px;background:var(--navy);color:#fff;font-size:26px;line-height:1.4}
+.talk b{display:block;color:var(--gold);font-size:17px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:4px}
+.split{position:absolute;inset:0;display:grid;grid-template-columns:42% 58%}
+.split > div{position:relative;padding:48px 52px}
+.tag{display:inline-block;font-weight:700;font-size:16px;letter-spacing:.14em;text-transform:uppercase;padding:6px 14px;border-radius:30px;background:var(--gold);color:var(--navy)}
+/* activity badge */
+.act-badge{position:absolute;top:30px;right:40px;display:flex;gap:10px}
+.act-badge span{font:700 16px "Source Sans 3",sans-serif;letter-spacing:.1em;text-transform:uppercase;padding:7px 14px;border-radius:30px;background:var(--gold);color:var(--navy)}
+.act-badge span.g{background:var(--navy);color:#fff}
+.slide.navy .act-badge span.g,.slide.red .act-badge span.g{background:#fff;color:var(--navy)}
+/* timer widget */
+.timer{display:inline-flex;align-items:center;gap:12px;font:700 34px "Source Sans 3",sans-serif;background:#fff;color:var(--navy);border:3px solid var(--navy);border-radius:50px;padding:6px 22px 6px 10px;cursor:pointer;user-select:none}
+.timer .dot{width:40px;height:40px;border-radius:50%;background:var(--navy);display:flex;align-items:center;justify-content:center}
+.timer .dot svg{width:20px;height:20px;fill:#fff}
+.timer.run{border-color:var(--red);color:var(--red)}.timer.run .dot{background:var(--red)}
+.timer.done{background:var(--red);color:#fff;border-color:var(--red);animation:pulse 1s ease 3}
+.timer small{font-size:15px;font-weight:600;color:var(--gray);letter-spacing:.04em}
+@keyframes pulse{50%{transform:scale(1.06)}}
+.navy .timer small,.red .timer small{color:var(--gray)}
+/* reveal tiles */
+.reveal{cursor:pointer;position:relative}
+.reveal .ans{visibility:hidden}
+.reveal .q{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;font:700 74px "Source Serif 4",serif;color:var(--gold)}
+.reveal .q small{font:600 17px "Source Sans 3",sans-serif;color:rgba(255,255,255,.7);letter-spacing:.08em;margin-top:6px}
+.reveal.open .ans{visibility:visible;animation:pop .4s ease}
+.reveal.open .q{display:none}
+@keyframes pop{from{transform:scale(.9);opacity:0}to{transform:none;opacity:1}}
+.stat{background:var(--navy-d);border-radius:14px;padding:26px 20px;text-align:center;color:#fff;flex:1;min-height:300px;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:12px}
+.stat .num{font:700 62px "Source Serif 4",serif;color:var(--gold)}
+.stat p{font-size:24px;line-height:1.3}
+.stat .clue{font-size:24px;color:#fff;font-weight:600;line-height:1.3}
+/* WYR */
+.wyr{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr}
+.wyr > div.l,.wyr > div.r{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 96px;text-align:center;gap:22px}
+.wyr .l{background:var(--navy);color:#fff}.wyr .r{background:var(--red);color:#fff}
+.wyr .dir{font:700 24px "Source Sans 3",sans-serif;letter-spacing:.14em;color:var(--gold)}
+.wyr h2{color:#fff;font-size:50px}
+.wyr .or{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:110px;height:110px;border-radius:50%;background:var(--gold);color:var(--navy);font:700 38px "Source Serif 4",serif;display:flex;align-items:center;justify-content:center;border:6px solid #fff}
+.wyr .head{position:absolute;top:30px;left:0;right:0;text-align:center}
+.wyr .foot{position:absolute;bottom:32px;left:0;right:0;display:flex;justify-content:center}
+/* grades */
+.grades{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:28px}
+.grades div{background:var(--navy);color:#fff;border-radius:12px;padding:22px 10px;text-align:center}
+.grades div.f{background:var(--red)}
+.grades b{display:block;font:700 66px "Source Serif 4",serif}
+.grades span{display:block;font-size:24px;color:var(--gold);font-weight:700}
+.grades i{display:block;font-size:21px;font-style:normal;margin-top:4px;opacity:.85}
+/* report card */
+.rc{background:#fff;border-radius:12px;border:2px solid var(--navy);overflow:hidden;font-size:26px}
+.rc .h{background:var(--navy);color:#fff;padding:12px 22px;font-weight:700;font-size:26px}
+.rc table{width:100%;border-collapse:collapse}
+.rc td{padding:9px 22px;border-bottom:1px solid var(--lav)}
+.rc td:last-child{text-align:right;font-weight:700;color:var(--red);font-size:30px}
+.gpa-ans{margin-top:16px;background:var(--gold);color:var(--navy);border-radius:12px;padding:14px 18px;text-align:center;font-size:24px;min-height:96px;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.gpa-ans .ans{display:none;font-size:23px}
+.gpa-ans.open .ans{display:block}.gpa-ans.open .q{display:none}
+.gpa-ans .q{font-weight:700}
+/* vocab */
+.vgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px 22px;margin-top:24px}
+.vgrid div{background:#fff;border-left:7px solid var(--red);border-radius:6px;padding:12px 20px}
+.vgrid div:nth-child(even){border-left-color:var(--navy)}
+.vgrid b{display:block;font:700 30px "Source Serif 4",serif;color:var(--navy)}
+.vgrid span{font-size:23px;color:var(--gray)}
+/* FSW */
+.fsw{display:grid;grid-template-columns:1fr 1fr;gap:12px 18px;margin-top:22px}
+.fsw div{background:#fff;border-radius:10px;padding:12px 18px;font-size:25px;display:flex;gap:14px;align-items:center;border:1px solid #e2dfe8}
+.fsw b{width:40px;height:40px;border-radius:50%;background:var(--red);color:#fff;display:flex;align-items:center;justify-content:center;flex:none;font:700 21px "Source Serif 4",serif}
+.fsw div:nth-child(even) b{background:var(--navy)}
+/* roulette */
+.wheel{margin:26px auto 0;max-width:1000px;min-height:250px;background:#fff;border-radius:16px;border:4px solid var(--gold);display:flex;align-items:center;justify-content:center;text-align:center;padding:30px 46px}
+.wheel h3{font-size:44px;color:var(--navy)}
+.wheel.spin h3{color:var(--gray);opacity:.6}
+.btn{font:700 24px "Source Sans 3",sans-serif;border:0;border-radius:50px;padding:14px 32px;cursor:pointer;background:var(--gold);color:var(--navy)}
+.btn.n{background:var(--navy);color:#fff}
+.roles{display:flex;gap:14px;justify-content:center;margin-top:22px}
+.roles span{background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.3);border-radius:30px;padding:8px 18px;font-size:21px}
+.roles span b{color:var(--gold)}
+/* ui */
+#ui{position:fixed;right:0;bottom:0;display:flex;align-items:center;gap:8px;padding:8px;opacity:.3;transition:opacity .2s;z-index:5}
+#ui:hover,#ui:focus-within{opacity:1}
+#ui button{font:600 14px "Source Sans 3",sans-serif;background:var(--navy);color:#fff;border:1px solid #fff;border-radius:6px;padding:7px 12px;cursor:pointer;min-height:36px}
+#count{color:#fff;font:600 14px "Source Sans 3",sans-serif;min-width:64px;text-align:center;text-shadow:0 0 4px #000}
+#progress{position:fixed;left:0;top:0;height:4px;background:var(--gold);z-index:6;transition:width .2s}
+.pnum{position:absolute;left:26px;bottom:12px;font-size:14px;color:var(--gray);letter-spacing:.08em}
+.navy .pnum,.red .pnum{color:rgba(255,255,255,.5)}
+@media print{
+  html,body{overflow:visible;background:#fff}
+  #ui,#progress{display:none}
+  #viewport{position:static;display:block}#stage{transform:none!important}
+  .slide{display:block!important;position:relative;width:1280px;height:720px;break-after:page}
+  .reveal .ans{visibility:visible}.reveal .q{display:none}.gpa-ans .ans{display:block}.gpa-ans .q{display:none}
+  @page{size:1280px 720px;margin:0}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute"><defs>
+  <symbol id="i-cap" viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/><path d="M22 9v6"/></symbol>
+  <symbol id="i-school" viewBox="0 0 24 24"><path d="M3 21h18M5 21V10l7-5 7 5v11"/><path d="M10 21v-5h4v5"/><path d="M12 5V2h3"/></symbol>
+  <symbol id="i-people" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2 20c0-3.5 3-6 7-6s7 2.5 7 6"/><circle cx="17" cy="9" r="2.5"/><path d="M17 14c3 0 5 2 5 5"/></symbol>
+  <symbol id="i-q" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.6V14"/><path d="M12 17.5h.01"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-6.4A8 8 0 1 1 21 12z"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/></symbol>
+  <symbol id="i-gavel" viewBox="0 0 24 24"><path d="M14 4l6 6M11 7l6 6M12.5 5.5l-6 6M18.5 11.5l-6 6"/><path d="M8 13l-6 6 2 2 6-6"/></symbol>
+  <symbol id="i-pillar" viewBox="0 0 24 24"><path d="M2 10l10-6 10 6z"/><path d="M5 10v9M9.5 10v9M14.5 10v9M19 10v9M3 21h18"/></symbol>
+  <symbol id="i-bus" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="15" rx="3"/><path d="M4 11h16M8 18v3M16 18v3"/><circle cx="8" cy="14.5" r="1"/><circle cx="16" cy="14.5" r="1"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11l9-8 9 8"/><path d="M5 10v11h14V10"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2l3 6.5 7 .8-5.2 4.8 1.5 7L12 17.6 5.7 21l1.5-7L2 9.3l7-.8z"/></symbol>
+  <symbol id="i-snow" viewBox="0 0 24 24"><path d="M12 2v20M4.5 6.5l15 11M19.5 6.5l-15 11"/><path d="M9 4l3 2 3-2M9 20l3-2 3 2"/></symbol>
+  <symbol id="i-ball" viewBox="0 0 24 24"><ellipse cx="12" cy="12" rx="10" ry="6" transform="rotate(-45 12 12)"/><path d="M9 15l6-6M10.5 10.5l3 3M8.5 12.5l3 3M12.5 8.5l3 3"/></symbol>
+  <symbol id="i-trophy" viewBox="0 0 24 24"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M7 6H4a3 3 0 0 0 3 4M17 6h3a3 3 0 0 1-3 4"/></symbol>
+  <symbol id="i-music" viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5z"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 15v3M12 10v8M17 6v12"/></symbol>
+  <symbol id="i-dollar" viewBox="0 0 24 24"><path d="M12 2v20M17 6H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></symbol>
+  <symbol id="i-card" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></symbol>
+  <symbol id="i-food" viewBox="0 0 24 24"><path d="M7 2v20M4 2v6a3 3 0 0 0 6 0V2M17 2c-2 0-3 3-3 7h3v13"/></symbol>
+  <symbol id="i-flag" viewBox="0 0 24 24"><path d="M4 22V3M4 4h14l-2.5 4.5L18 13H4"/></symbol>
+  <symbol id="i-bulb" viewBox="0 0 24 24"><path d="M9 18h6M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/></symbol>
+  <symbol id="i-coffee" viewBox="0 0 24 24"><path d="M17 8h1a4 4 0 0 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4z"/><path d="M6 2v3M10 2v3M14 2v3"/></symbol>
+  <symbol id="i-pen" viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M14 6l4 4"/></symbol>
+  <symbol id="i-calc" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 6h8M8 11h.01M12 11h.01M16 11h.01M8 15h.01M12 15h.01M16 15h.01M8 19h8"/></symbol>
+  <symbol id="i-walk" viewBox="0 0 24 24"><circle cx="13" cy="4" r="2"/><path d="M10 22l2-7 3 3v6M8 12l3-4 4 2 2 4"/></symbol>
+  <symbol id="play" viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z"/></symbol>
+  <symbol id="pause" viewBox="0 0 24 24"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></symbol>
+</defs></svg>
+
+<div id="progress"></div>
+<div id="viewport"><div id="stage">
+
+<!-- 1 Title -->
+<section class="slide navy"><div class="pad" style="padding:96px 80px">
+  <div style="position:absolute;width:460px;height:460px;border-radius:50%;background:var(--red);right:-110px;top:-150px"></div>
+  <div class="kicker">Stars, Stripes &amp; Schoolyards &nbsp;|&nbsp; Week 4</div>
+  <h1 style="font-size:76px;margin-top:20px">The American<br>Education System</h1>
+  <p class="sub" style="font-size:30px;margin-top:22px;font-style:italic">A journey through school life, traditions &amp; curiosities in the USA</p>
+  <div class="row" style="align-items:center;margin-top:56px;gap:16px;font-size:24px"><span class="ic"><svg><use href="#i-cap"/></svg></span>American Culture &nbsp;&bull;&nbsp; Culture &amp; Vocabulary Lesson</div>
+</div></section>
+
+<!-- 2 Goals -->
+<section class="slide"><div class="split">
+  <div style="background:var(--navy);color:#fff"><div class="kicker" style="color:var(--gold)">Today's Goals</div><h2 style="color:#fff;font-size:54px;margin-top:14px">What We Will Explore Together</h2>
+    <div style="margin-top:50px;font-size:24px;line-height:1.7;color:rgba(255,255,255,.88)"><b style="color:var(--gold)">Part 1</b> &nbsp;2:00 – 3:40<br><b style="color:var(--gold)">Break</b> &nbsp;3:40 – 4:10<br><b style="color:var(--gold)">Part 2</b> &nbsp;4:10 – 5:50</div></div>
+  <div><div class="list" style="margin-top:6px;gap:28px">
+    <div class="li"><span class="ic"><svg><use href="#i-school"/></svg></span><div><b style="color:var(--navy)">Structure</b><br><span style="font-size:24px;color:var(--gray)">How American schools are organized, from kindergarten to college.</span></div></div>
+    <div class="li"><span class="ic navy"><svg><use href="#i-people"/></svg></span><div><b style="color:var(--navy)">Culture</b><br><span style="font-size:24px;color:var(--gray)">Traditions, habits, and everyday school life in the U.S.</span></div></div>
+    <div class="li"><span class="ic"><svg><use href="#i-q"/></svg></span><div><b style="color:var(--navy)">Curiosities</b><br><span style="font-size:24px;color:var(--gray)">Fun and surprising facts that make great conversation topics.</span></div></div>
+    <div class="li"><span class="ic navy"><svg><use href="#i-chat"/></svg></span><div><b style="color:var(--navy)">Vocabulary</b><br><span style="font-size:24px;color:var(--gray)">Key words you'll need to talk about school in English.</span></div></div>
+  </div></div>
+</div></section>
+
+<!-- 3 Find Someone Who (NEW) -->
+<section class="slide"><div class="pad">
+  <div class="act-badge"><span>Warm-Up</span><span class="g">Whole Class · Move</span></div>
+  <div class="kicker">Activity &nbsp;|&nbsp; Worksheet: Warm-Up</div>
+  <h2 class="t">Find Someone Who…</h2>
+  <p class="sub">Walk around. Ask: <b style="color:var(--navy)">"Did you ever…?"</b> Write a name and one detail. One name per box!</p>
+  <div class="fsw">
+    <div><b>1</b>…wore a uniform to school</div>
+    <div><b>2</b>…rode a bus to school</div>
+    <div><b>3</b>…had classes on Saturday</div>
+    <div><b>4</b>…ate lunch at school every day</div>
+    <div><b>5</b>…went on a school field trip</div>
+    <div><b>6</b>…played on a school sports team</div>
+    <div><b>7</b>…had more than 40 students in a class</div>
+    <div><b>8</b>…still remembers a favorite teacher's name</div>
+  </div>
+  <div style="margin-top:22px;display:flex;align-items:center;gap:26px"><span class="timer" data-sec="600"></span><span style="font-size:23px;color:var(--gray)">Follow-up: <i>"Where was that?" "Did you like it?"</i></span></div>
+</div></section>
+
+<!-- 4 Big picture -->
+<section class="slide white"><div class="pad">
+  <div class="kicker">The Big Picture</div>
+  <h2 class="t">How American School Is Organized</h2>
+  <div class="row" style="margin-top:34px;gap:16px;align-items:stretch">
+    <div class="card n"><div style="font:700 44px 'Source Serif 4',serif;color:var(--gold)">1</div><h3>Elementary School</h3><p style="color:var(--gold);font-weight:700">Ages 5–10</p><p>Kindergarten – Grade 5</p></div>
+    <div class="card r"><div style="font:700 44px 'Source Serif 4',serif;color:var(--gold)">2</div><h3>Middle School</h3><p style="color:var(--gold);font-weight:700">Ages 11–13</p><p>Grades 6 – 8</p></div>
+    <div class="card n"><div style="font:700 44px 'Source Serif 4',serif;color:var(--gold)">3</div><h3>High School</h3><p style="color:var(--gold);font-weight:700">Ages 14–18</p><p>Grades 9 – 12</p></div>
+    <div class="card r"><div style="font:700 44px 'Source Serif 4',serif;color:var(--gold)">4</div><h3>College / University</h3><p style="color:var(--gold);font-weight:700">Ages 18+</p><p>Optional, 2–4+ years</p></div>
+  </div>
+  <p style="font-size:26px;margin-top:28px;color:var(--navy)"><b>Public education is free</b> for all students, K–12 (Kindergarten through Grade 12).</p>
+</div></section>
+
+<!-- 5 One-room schoolhouse -->
+<section class="slide"><div class="split">
+  <div style="background:var(--navy);color:#fff"><div class="kicker" style="color:var(--gold)">A Look Back</div><h2 style="color:#fff;font-size:56px;margin-top:14px">The One-Room Schoolhouse</h2>
+    <div class="row" style="align-items:center;gap:18px;position:absolute;bottom:52px;left:52px;font-size:24px"><span class="ic"><svg><use href="#i-pillar"/></svg></span>1600s – early 1900s</div></div>
+  <div style="display:flex;flex-direction:column;gap:22px;justify-content:center">
+    <p style="font-size:28px;line-height:1.45">In early America, <span class="hl">one teacher taught students of all ages</span>, from 6 to 16, in a single room — often heated by a wood stove.</p>
+    <p style="font-size:28px;line-height:1.45">In 1837, <span class="hl">Horace Mann</span> led the "Common School Movement," arguing every child — rich or poor — deserved a free public education.</p>
+    <div class="talk"><b>Talk about it · Pairs</b>Did your country ever have small, one-teacher schools? How has education changed there?</div>
+    <span class="timer" data-sec="180" style="align-self:flex-start"></span>
+  </div>
+</div></section>
+
+<!-- 6 Equal schools -->
+<section class="slide navy"><div class="pad">
+  <div class="kicker">A Look Back</div>
+  <h2 class="t">The Fight for Equal Schools</h2>
+  <div class="list" style="gap:30px;margin-top:40px">
+    <div class="li"><span class="ic"><svg><use href="#i-gavel"/></svg></span><span>Until the 1950s, many states forced Black and white students to attend separate schools — a system called <span class="hl">segregation</span>.</span></div>
+    <div class="li"><span class="ic"><svg><use href="#i-pillar"/></svg></span><span>In 1954, the Supreme Court case <i class="hl">Brown v. Board of Education</i> ruled that segregated public schools were unconstitutional.</span></div>
+    <div class="li"><span class="ic"><svg><use href="#i-people"/></svg></span><span>The ruling was a landmark step in the <span class="hl">Civil Rights Movement</span> and still shapes conversations about equality in schools today.</span></div>
+  </div>
+</div></section>
+
+<!-- 7 By the numbers: guess first (interactive) -->
+<section class="slide navy"><div class="pad">
+  <div class="act-badge"><span>Guess First!</span><span class="g">Pairs</span></div>
+  <div class="kicker">By the Numbers</div>
+  <h2 class="t">A Typical School Day &amp; Year</h2>
+  <p class="sub">With a partner, guess each number. Then click a card to reveal it.</p>
+  <div class="row" style="margin-top:26px;gap:16px">
+    <div class="stat reveal"><span class="ic"><svg><use href="#i-clock"/></svg></span><div class="clue">How many hours in a school day?</div><div class="ans"><div class="num">~7</div><p>roughly 8 AM – 3 PM</p></div><div class="q" style="top:auto;bottom:24px;height:110px">?<small>CLICK TO REVEAL</small></div></div>
+    <div class="stat reveal"><span class="ic"><svg><use href="#i-cal"/></svg></span><div class="clue">How many days in a school year?</div><div class="ans"><div class="num">180</div><p>about September to June</p></div><div class="q" style="top:auto;bottom:24px;height:110px">?<small>CLICK TO REVEAL</small></div></div>
+    <div class="stat reveal"><span class="ic"><svg><use href="#i-bus"/></svg></span><div class="clue">How many students ride a school bus every day?</div><div class="ans"><div class="num">25M</div><p>about 25 million students</p></div><div class="q" style="top:auto;bottom:24px;height:110px">?<small>CLICK TO REVEAL</small></div></div>
+    <div class="stat reveal"><span class="ic"><svg><use href="#i-people"/></svg></span><div class="clue">How many students are in public K–12 schools?</div><div class="ans"><div class="num">~50M</div><p>about 50 million nationwide</p></div><div class="q" style="top:auto;bottom:24px;height:110px">?<small>CLICK TO REVEAL</small></div></div>
+  </div>
+</div></section>
+
+<!-- 8 Types of schools -->
+<section class="slide white"><div class="pad">
+  <div class="kicker">Types of Schools</div>
+  <h2 class="t">Public, Private &amp; Homeschool</h2>
+  <div class="row" style="margin-top:30px">
+    <div class="card"><span class="ic navy"><svg><use href="#i-school"/></svg></span><h3>Public School</h3><p>Funded by the government — free for all students. <b>Most</b> American children (more than 8 in 10) attend public school.</p></div>
+    <div class="card"><span class="ic"><svg><use href="#i-pillar"/></svg></span><h3>Private School</h3><p>Paid for with tuition; often religious or independent. <b>Fewer than 1 in 10</b> students attend, and many wear uniforms.</p></div>
+    <div class="card"><span class="ic navy"><svg><use href="#i-home"/></svg></span><h3>Homeschool</h3><p>Children are taught at home by parents or tutors. A growing option for <b>about 3 million</b> U.S. students.</p></div>
+  </div>
+  <div class="talk" style="margin-top:24px"><b>Quick class vote</b>Hands up: Which one would you choose for your child? Why?</div>
+</div></section>
+
+<!-- 9 Reading time -->
+<section class="slide red"><div class="pad" style="padding:80px">
+  <div class="act-badge"><span>Worksheet</span><span class="g">Individual → Pairs</span></div>
+  <span class="ic big" style="background:var(--navy);position:absolute;right:100px;top:150px"><svg><use href="#i-book"/></svg></span>
+  <div class="kicker">Reading Time</div>
+  <h1 style="font-size:66px;margin-top:16px">Worksheet Exercise 4</h1>
+  <div style="margin-top:34px;font-size:30px;line-height:1.6;max-width:760px">
+    1. Read the passage on your own.<br>2. Answer questions 1–5 in complete sentences.<br>3. Compare answers with a partner.<br>4. Click <b style="color:var(--gold)">Check</b> to see the key points.
+  </div>
+  <div style="margin-top:34px"><span class="timer" data-sec="1200"></span></div>
+</div></section>
+
+<!-- 10 Break -->
+<section class="slide navy"><div class="pad" style="display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center">
+  <span class="ic big"><svg><use href="#i-coffee"/></svg></span>
+  <div class="kicker" style="margin-top:30px">Break &nbsp;|&nbsp; 30 Minutes</div>
+  <h1 style="font-size:80px;margin-top:12px">Break Time</h1>
+  <p style="font-size:36px;color:var(--gold);margin-top:16px">3:40 – 4:10 PM</p>
+  <p style="font-size:28px;margin-top:24px;color:rgba(255,255,255,.85)">After the break we will play <b style="color:#fff">Would You Rather</b> — be ready to move!</p>
+</div></section>
+
+<!-- 11 WYR intro -->
+<section class="slide red"><div class="pad" style="padding:76px 80px">
+  <div class="act-badge"><span>After the Break</span><span class="g">Whole Class · Move</span></div>
+  <div class="kicker">Activity</div>
+  <h1 style="font-size:74px;margin-top:14px">Would You Rather… <span style="color:var(--gold)">School Edition</span></h1>
+  <div class="row" style="margin-top:40px;gap:20px">
+    <div class="card" style="background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.3);color:#fff"><div style="font:700 40px 'Source Serif 4',serif;color:var(--gold)">1</div><p>Stand up. Read the two choices.</p></div>
+    <div class="card" style="background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.3);color:#fff"><div style="font:700 40px 'Source Serif 4',serif;color:var(--gold)">2</div><p>Move to the <b>LEFT</b> or <b>RIGHT</b> side of the room.</p></div>
+    <div class="card" style="background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.3);color:#fff"><div style="font:700 40px 'Source Serif 4',serif;color:var(--gold)">3</div><p>Explain your choice to someone on <b>your side</b> (1 min).</p></div>
+    <div class="card" style="background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.3);color:#fff"><div style="font:700 40px 'Source Serif 4',serif;color:var(--gold)">4</div><p>Each side shares <b>one</b> reason with the class.</p></div>
+  </div>
+  <p style="font-size:26px;margin-top:30px;color:rgba(255,255,255,.9)">Useful language: <i>"I'd rather … because …"</i> &nbsp;·&nbsp; <i>"I prefer … to …"</i></p>
+</div></section>
+
+<!-- 12-15 WYR prompts (generated) -->
+<div id="wyr-slot"></div>
+
+<!-- 16 Buses -->
+<section class="slide"><div class="split">
+  <div style="background:var(--cream)"><div class="kicker">Did You Know?</div><h2 style="font-size:56px;margin-top:14px">Why Are School Buses Yellow?</h2>
+    <span class="ic big" style="position:absolute;bottom:52px;left:52px;width:130px;height:130px"><svg style="width:64px;height:64px"><use href="#i-bus"/></svg></span></div>
+  <div class="onred" style="background:var(--red);color:#fff;display:flex;flex-direction:column;gap:22px;justify-content:center">
+    <p style="font-size:28px;line-height:1.45">In 1939, a national conference chose <span class="hl">"National School Bus Glossy Yellow"</span> as the standard color for school buses.</p>
+    <p style="font-size:28px;line-height:1.45">Yellow is <span class="hl">easy to see</span> in early morning light and fog, and black letters show up well on it — keeping children safer.</p>
+    <div class="talk"><b>Talk about it · Pairs</b>How did students get to school in your country — walk, bus, or car?</div>
+  </div>
+</div></section>
+
+<!-- 17 Traditions -->
+<section class="slide"><div class="pad">
+  <div class="kicker">School Traditions</div>
+  <h2 class="t">Prom, Homecoming &amp; Yearbooks</h2>
+  <div class="row" style="margin-top:34px">
+    <div class="card n"><span class="ic"><svg><use href="#i-star"/></svg></span><h3>Homecoming</h3><p>A fall tradition welcoming back former students (alumni), with a football game, a parade, and a dance.</p></div>
+    <div class="card r"><span class="ic navy"><svg><use href="#i-people"/></svg></span><h3>Prom</h3><p>A formal dance for older students (usually juniors &amp; seniors), famous for fancy dresses, tuxedos, and a creative invitation called a "promposal."</p></div>
+    <div class="card n"><span class="ic"><svg><use href="#i-book"/></svg></span><h3>Yearbook</h3><p>A printed book of photos and memories from the school year, signed by classmates.</p></div>
+  </div>
+</div></section>
+
+<!-- 18 Snow day -->
+<section class="slide"><div class="split" style="grid-template-columns:62% 38%">
+  <div class="onred" style="background:var(--red);color:#fff;display:flex;flex-direction:column;justify-content:center;gap:24px">
+    <div class="kicker" style="color:var(--gold)">Did You Know?</div>
+    <h2 style="color:#fff;font-size:54px">School Can Close for Snow</h2>
+    <p style="font-size:28px;line-height:1.45">In snowy parts of the U.S., schools sometimes cancel classes for a <span class="hl">"snow day"</span> when roads are too dangerous.</p>
+    <p style="font-size:28px;line-height:1.45">Many students hope for one by <span class="hl">wearing pajamas inside-out</span> or <span class="hl">putting a spoon under their pillow</span> — a popular superstition!</p>
+    <div class="talk"><b>Talk about it · Pairs</b>Do students in your country have any school superstitions?</div>
+  </div>
+  <div style="background:var(--navy);display:flex;align-items:center;justify-content:center"><span class="ic big"><svg><use href="#i-snow"/></svg></span></div>
+</div></section>
+
+<!-- 19 Sports -->
+<section class="slide navy"><div class="pad">
+  <div class="kicker">School Life</div>
+  <h2 class="t">Sports Are a Very Big Deal</h2>
+  <div class="list" style="gap:30px;margin-top:38px">
+    <div class="li"><span class="ic"><svg><use href="#i-ball"/></svg></span><span>Unlike in many countries, American schools have <span class="hl">their own sports teams</span> — football, basketball, baseball, track.</span></div>
+    <div class="li"><span class="ic"><svg><use href="#i-trophy"/></svg></span><span>Big high school football games can draw <span class="hl">thousands of fans</span>, with marching bands, cheerleaders, and a school mascot.</span></div>
+    <div class="li"><span class="ic"><svg><use href="#i-music"/></svg></span><span>Students also join clubs like <span class="hl">band, debate, robotics, or student government</span> — these matter a lot for college applications.</span></div>
+  </div>
+</div></section>
+
+<!-- 20 Mascot -->
+<section class="slide white"><div class="pad">
+  <div class="kicker">School Life</div>
+  <h2 class="t">Every School Has a Mascot</h2>
+  <div class="row" style="margin-top:34px">
+    <div class="card"><span class="ic navy"><svg><use href="#i-shield"/></svg></span><h3>Team Spirit</h3><p>Schools choose an animal or character (Eagles, Tigers, Bulldogs) to represent their teams.</p></div>
+    <div class="card"><span class="ic"><svg><use href="#i-star"/></svg></span><h3>School Colors</h3><p>Every school has official colors, worn proudly on T-shirts, banners, and face paint at games.</p></div>
+    <div class="card"><span class="ic navy"><svg><use href="#i-people"/></svg></span><h3>Spirit Days</h3><p>Students dress up in themed outfits (Pajama Day, Twin Day) to show school pride together.</p></div>
+  </div>
+</div></section>
+
+<!-- 21 Design your school (NEW) -->
+<section class="slide"><div class="pad">
+  <div class="act-badge"><span>Group Challenge</span><span class="g">Groups of 3–4</span></div>
+  <div class="kicker">Activity &nbsp;|&nbsp; Worksheet: Group Activity</div>
+  <h2 class="t">Design Your Dream School!</h2>
+  <p class="sub">Your group is opening a new American high school. Decide together:</p>
+  <div class="row" style="margin-top:22px;gap:14px">
+    <div class="card" style="padding:18px 20px"><b style="font:700 26px 'Source Serif 4',serif;color:var(--red)">1. Name</b><p style="font-size:24px;margin-top:6px">What is your school called?</p></div>
+    <div class="card" style="padding:18px 20px"><b style="font:700 26px 'Source Serif 4',serif;color:var(--red)">2. Mascot</b><p style="font-size:24px;margin-top:6px">Animal or character? Why?</p></div>
+    <div class="card" style="padding:18px 20px"><b style="font:700 26px 'Source Serif 4',serif;color:var(--red)">3. Colors</b><p style="font-size:24px;margin-top:6px">Two school colors</p></div>
+    <div class="card" style="padding:18px 20px"><b style="font:700 26px 'Source Serif 4',serif;color:var(--red)">4. Spirit Day</b><p style="font-size:24px;margin-top:6px">A fun theme for a dress-up day</p></div>
+    <div class="card" style="padding:18px 20px"><b style="font:700 26px 'Source Serif 4',serif;color:var(--red)">5. New Rule</b><p style="font-size:24px;margin-top:6px">One rule from your home country</p></div>
+  </div>
+  <div class="talk" style="margin-top:22px"><b>Then: 1-minute pitch</b>Each group presents. The class votes for the best school (you can't vote for your own!).<br><i style="color:var(--gold)">"Our school is called… Our mascot is… because…"</i></div>
+  <div style="margin-top:18px"><span class="timer" data-sec="600"></span></div>
+</div></section>
+
+<!-- 22 Grades -->
+<section class="slide white"><div class="pad">
+  <div class="kicker">How Students Are Graded</div>
+  <h2 class="t">Letter Grades &amp; the GPA</h2>
+  <div class="grades">
+    <div><b>A</b><span>90–100%</span><i>GPA 4.0</i></div>
+    <div><b>B</b><span>80–89%</span><i>GPA 3.0</i></div>
+    <div><b>C</b><span>70–79%</span><i>GPA 2.0</i></div>
+    <div><b>D</b><span>60–69%</span><i>GPA 1.0</i></div>
+    <div class="f"><b>F</b><span style="color:#fff">Below 60%</span><i>GPA 0.0</i></div>
+  </div>
+  <div class="li" style="margin-top:30px;background:var(--navy);color:#fff;border-radius:12px;padding:20px 24px;font-size:26px"><span class="ic"><svg><use href="#i-chart"/></svg></span><span><b style="color:var(--gold)">GPA</b> (Grade Point Average) is one number, usually 0.0–4.0, that summarizes a student's grades. Colleges use it to compare applicants.</span></div>
+  <p style="font-size:19px;color:var(--gray);margin-top:10px">Grading scales can vary slightly from school to school.</p>
+</div></section>
+
+<!-- 23 GPA challenge (NEW) -->
+<section class="slide"><div class="pad">
+  <div class="act-badge"><span>Pair Challenge</span><span class="g">Pairs · 5 min</span></div>
+  <div class="kicker">Activity</div>
+  <h2 class="t">GPA Challenge: Who Has the Higher GPA?</h2>
+  <p class="sub">Change each letter to points (A=4, B=3, C=2, D=1, F=0). Add them up and divide by the number of classes.</p>
+  <div class="row" style="margin-top:20px;gap:30px">
+    <div style="flex:1"><div class="rc"><div class="h">Alex's Report Card</div><table>
+      <tr><td>English</td><td>A</td></tr><tr><td>Math</td><td>B</td></tr><tr><td>Science</td><td>B</td></tr><tr><td>History</td><td>C</td></tr><tr><td>Art</td><td>A</td></tr></table></div>
+      <div class="gpa-ans"><span class="q">Click to check Alex's GPA</span><span class="ans">(4 + 3 + 3 + 2 + 4) ÷ 5 = <b style="font-size:30px">3.2</b></span></div></div>
+    <div style="flex:1"><div class="rc" style="border-color:var(--red)"><div class="h" style="background:var(--red)">Maria's Report Card</div><table>
+      <tr><td>English</td><td>B</td></tr><tr><td>Math</td><td>A</td></tr><tr><td>Science</td><td>A</td></tr><tr><td>History</td><td>B</td></tr></table></div>
+      <div class="gpa-ans"><span class="q">Click to check Maria's GPA</span><span class="ans">(3 + 4 + 4 + 3) ÷ 4 = <b style="font-size:30px">3.5</b> — Maria wins!</span></div></div>
+  </div>
+</div></section>
+
+<!-- 24 Higher ed -->
+<section class="slide white"><div class="pad">
+  <div class="kicker">After High School</div>
+  <h2 class="t">Higher Education Choices</h2>
+  <div class="list" style="gap:26px;margin-top:36px">
+    <div class="li"><span class="ic"><svg><use href="#i-school"/></svg></span><div><b style="color:var(--navy)">Community College</b><br><span style="font-size:25px;color:var(--gray)">2-year programs (Associate's Degree). Affordable — many students transfer to a 4-year university later.</span></div></div>
+    <div class="li"><span class="ic navy"><svg><use href="#i-cap"/></svg></span><div><b style="color:var(--navy)">College / University</b><br><span style="font-size:25px;color:var(--gray)">4-year programs leading to a Bachelor's Degree — the most common path after high school.</span></div></div>
+    <div class="li"><span class="ic"><svg><use href="#i-book"/></svg></span><div><b style="color:var(--navy)">Graduate School</b><br><span style="font-size:25px;color:var(--gray)">Optional further study for a Master's or Doctoral (PhD) degree, usually 2+ more years.</span></div></div>
+  </div>
+</div></section>
+
+<!-- 25 Cost -->
+<section class="slide"><div class="pad">
+  <div class="kicker">Did You Know?</div>
+  <h2 class="t">College Can Be Expensive</h2>
+  <div class="row" style="margin-top:30px;gap:16px">
+    <div class="card r" style="text-align:center"><span class="ic navy"><svg><use href="#i-dollar"/></svg></span><div style="font:700 48px 'Source Serif 4',serif;margin:14px 0 6px">$45,000</div><p style="font-size:23px">average yearly tuition at a private university (2025–26)</p></div>
+    <div class="card r" style="text-align:center"><span class="ic navy"><svg><use href="#i-pillar"/></svg></span><div style="font:700 48px 'Source Serif 4',serif;margin:14px 0 6px">$12,000</div><p style="font-size:23px">average yearly tuition at a public university, for in-state students</p></div>
+    <div class="card r" style="text-align:center"><span class="ic navy"><svg><use href="#i-card"/></svg></span><div style="font:700 48px 'Source Serif 4',serif;margin:14px 0 6px">42 million</div><p style="font-size:23px">Americans have federal student loans — about 1 in 6 adults</p></div>
+    <div class="card r" style="text-align:center"><span class="ic navy"><svg><use href="#i-trophy"/></svg></span><div style="font:700 44px 'Source Serif 4',serif;margin:14px 0 6px">Scholarships</div><p style="font-size:23px">money for good grades, sports, or special talents</p></div>
+  </div>
+  <div class="talk" style="margin-top:22px"><b>Talk about it · Pairs</b>Is university free or expensive in your country? Who pays?</div>
+</div></section>
+
+<!-- 26 Cafeteria -->
+<section class="slide navy"><div class="pad">
+  <div class="kicker">Did You Know?</div>
+  <h2 class="t">Lunch Trays &amp; the Cafeteria</h2>
+  <div class="list" style="gap:30px;margin-top:38px">
+    <div class="li"><span class="ic"><svg><use href="#i-food"/></svg></span><span>Most students eat lunch at school in a large room called the <span class="hl">cafeteria</span>, often carrying a tray with sections.</span></div>
+    <div class="li"><span class="ic"><svg><use href="#i-dollar"/></svg></span><span>Students buy a hot lunch or bring one from home in a <span class="hl">"brown bag" or lunchbox</span> — some get free or reduced-price meals.</span></div>
+    <div class="li"><span class="ic"><svg><use href="#i-people"/></svg></span><span>Where you sit matters! Cafeteria tables and <span class="hl">friend groups</span> are famous in American school movies and TV shows.</span></div>
+  </div>
+</div></section>
+
+<!-- 27 Pledge -->
+<section class="slide"><div class="split" style="grid-template-columns:62% 38%">
+  <div class="onred" style="background:var(--red);color:#fff;display:flex;flex-direction:column;justify-content:center;gap:24px">
+    <div class="kicker" style="color:var(--gold)">Did You Know?</div>
+    <h2 style="color:#fff;font-size:54px">Mornings Start With a Pledge</h2>
+    <p style="font-size:28px;line-height:1.45">Many U.S. classrooms begin the day by standing, facing the flag, and saying the <span class="hl">"Pledge of Allegiance,"</span> a short promise of loyalty to the country.</p>
+    <p style="font-size:28px;line-height:1.45">Other traditions include <span class="hl">morning announcements</span>, spirit days, and the <span class="hl">national anthem</span> at sports events.</p>
+  </div>
+  <div style="background:var(--navy);display:flex;align-items:center;justify-content:center"><span class="ic big"><svg><use href="#i-flag"/></svg></span></div>
+</div></section>
+
+<!-- 28 Vocab -->
+<section class="slide"><div class="pad">
+  <div class="act-badge"><span>Worksheet</span><span class="g">Exercises 2 &amp; 3</span></div>
+  <div class="kicker">Vocabulary Spotlight</div>
+  <h2 class="t">Key Words for Talking About School</h2>
+  <div class="vgrid">
+    <div><b>Freshman</b><span>1st-year high school or college student</span></div>
+    <div><b>Sophomore</b><span>2nd-year student</span></div>
+    <div><b>Junior</b><span>3rd-year student</span></div>
+    <div><b>Senior</b><span>4th (final) year student</span></div>
+    <div><b>Major</b><span>a student's main subject of study</span></div>
+    <div><b>Recess</b><span>a break for play at elementary school</span></div>
+    <div><b>Locker</b><span>a small personal storage cabinet at school</span></div>
+    <div><b>Field trip</b><span>an educational class outing outside school</span></div>
+  </div>
+</div></section>
+
+<!-- 29 Discussion roulette (NEW) -->
+<section class="slide navy"><div class="pad">
+  <div class="act-badge"><span>Group Discussion</span><span class="g">Groups of 4</span></div>
+  <div class="kicker">Let's Discuss!</div>
+  <h2 class="t">Discussion Roulette</h2>
+  <p class="sub">Click <b style="color:var(--gold)">Spin</b> for a question. Every person in the group answers. Then spin again!</p>
+  <div class="wheel" id="wheel"><h3 id="wq">Press Spin to get your first question</h3></div>
+  <div style="display:flex;justify-content:center;gap:20px;margin-top:20px;align-items:center">
+    <button class="btn" id="spin">Spin</button>
+    <span class="timer" data-sec="180"></span>
+  </div>
+  <div class="roles"><span><b>Leader:</b> reads the question</span><span><b>Timekeeper:</b> watches the time</span><span><b>Reporter:</b> shares the best answer</span><span><b>Encourager:</b> asks "What do you think?"</span></div>
+</div></section>
+
+<!-- 30 Thank you -->
+<section class="slide red"><div class="pad" style="display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center">
+  <div style="position:absolute;width:420px;height:420px;border-radius:50%;background:var(--navy);left:-150px;bottom:-170px"></div>
+  <span class="ic big" style="background:var(--navy)"><svg><use href="#i-cap"/></svg></span>
+  <h1 style="font-size:82px;margin-top:28px">Thank You!</h1>
+  <p class="sub" style="font-size:30px;margin-top:12px;font-style:italic">Great job exploring American school life and culture today.</p>
+  <p style="font-size:26px;margin-top:24px;color:var(--gold)">Homework: Worksheet Exercise 5 — Discussion &amp; Short Writing</p>
+</div></section>
+
+</div></div>
+
+<div id="ui">
+  <button id="prev" aria-label="Previous slide">&#9664;</button>
+  <span id="count"></span>
+  <button id="next" aria-label="Next slide">&#9654;</button>
+  <button id="fs">Full screen</button>
+  <button id="pr">Print</button>
+</div>
+
+<script>
+/* Would You Rather prompts — edit here */
+const WYR = [
+  ["Wear a school uniform", "Wear your own clothes"],
+  ["Have a shorter summer vacation", "Have shorter school days"],
+  ["Eat lunch in the school cafeteria", "Bring lunch from home"],
+  ["Go to a big school with many sports and clubs", "Go to a small school with small classes"]
+];
+/* Discussion Roulette questions — edit here */
+const QUESTIONS = [
+  "How is the school system in your country similar to or different from the U.S.?",
+  "Would you rather attend public school, private school, or homeschool? Why?",
+  "Do you think school sports should be this important? Why or why not?",
+  "What is one American school tradition you find interesting or strange?",
+  "Is the letter grade (A–F) system used in your country? What's different?",
+  "Has education in your country changed a lot over the last 100 years? How?",
+  "Should university be free for everyone? Why or why not?",
+  "Who was your favorite teacher? What made them special?"
+];
+
+const slot=document.getElementById('wyr-slot');
+WYR.forEach((p,i)=>{
+  const s=document.createElement('section'); s.className='slide';
+  s.innerHTML=`<div class="wyr"><div class="l"><span class="dir">&larr; MOVE LEFT</span><h2>${p[0]}</h2></div><div class="r"><span class="dir">MOVE RIGHT &rarr;</span><h2>${p[1]}</h2></div>
+  <div class="or">OR</div><div class="head"><span class="kicker" style="color:var(--gold)">Would You Rather… &nbsp;|&nbsp; ${i+1} of ${WYR.length}</span></div>
+  <div class="foot"><span class="timer" data-sec="60"></span></div></div>`;
+  slot.before(s);
+});
+slot.remove();
+
+/* deck */
+const slides=[...document.querySelectorAll('.slide')];
+slides.forEach((s,i)=>{const n=document.createElement('span');n.className='pnum';n.textContent=`${String(i+1).padStart(2,'0')} / ${slides.length}`;s.appendChild(n);});
+const stage=document.getElementById('stage'); let cur=0;
+function fit(){const s=Math.min(innerWidth/1280,innerHeight/720);stage.style.transform=`scale(${s})`;}
+function show(n){cur=Math.max(0,Math.min(slides.length-1,n));slides.forEach((s,i)=>s.classList.toggle('active',i===cur));
+  document.getElementById('count').textContent=`${cur+1} / ${slides.length}`;document.getElementById('progress').style.width=((cur+1)/slides.length*100)+'%';
+  try{history.replaceState(null,'','#'+(cur+1));}catch(e){}}
+addEventListener('resize',fit);
+addEventListener('keydown',e=>{
+  if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();show(cur+1)}
+  else if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();show(cur-1)}
+  else if(e.key==='Home')show(0); else if(e.key==='End')show(slides.length-1);
+  else if(e.key==='f'||e.key==='F')toggleFs();
+});
+document.getElementById('prev').onclick=()=>show(cur-1);
+document.getElementById('next').onclick=()=>show(cur+1);
+function toggleFs(){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen().catch(()=>{});}
+document.getElementById('fs').onclick=toggleFs;
+document.getElementById('pr').onclick=()=>print();
+let tx=null;
+addEventListener('touchstart',e=>tx=e.touches[0].clientX,{passive:true});
+addEventListener('touchend',e=>{if(tx==null)return;const d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>60)show(cur+(d<0?1:-1));tx=null;});
+
+/* sound */
+let ac=null;
+function chime(){try{ac=ac||new (window.AudioContext||window.webkitAudioContext)();
+  [784,784,1046].forEach((f,i)=>{const o=ac.createOscillator(),g=ac.createGain();o.frequency.value=f;o.connect(g);g.connect(ac.destination);
+  const t=ac.currentTime+i*.35;g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(.4,t+.02);g.gain.exponentialRampToValueAtTime(.0001,t+.32);o.start(t);o.stop(t+.34);});}catch(e){}}
+
+/* timers: click = start/pause, double-click = reset */
+const fmt=s=>`${Math.floor(s/60)}:${String(s%60).padStart(2,'0')}`;
+document.querySelectorAll('.timer').forEach(t=>{
+  const total=+t.dataset.sec; let left=total, id=null;
+  const draw=()=>{t.innerHTML=`<span class="dot"><svg><use href="#${id?'pause':'play'}"/></svg></span>${fmt(left)}<small>${id?'click to pause':left===total?'click to start':left===0?'double-click to reset':'click to resume'}</small>`;};
+  t.title='Click: start / pause. Double-click: reset.';
+  t.addEventListener('click',()=>{
+    if(left===0) return;
+    if(id){clearInterval(id);id=null;t.classList.remove('run');}
+    else{t.classList.add('run');t.classList.remove('done');id=setInterval(()=>{left--;if(left<=0){left=0;clearInterval(id);id=null;t.classList.remove('run');t.classList.add('done');chime();}draw();},1000);}
+    draw();
+  });
+  t.addEventListener('dblclick',()=>{clearInterval(id);id=null;left=total;t.classList.remove('run','done');draw();});
+  draw();
+});
+/* reveals */
+document.querySelectorAll('.reveal,.gpa-ans').forEach(r=>r.addEventListener('click',()=>r.classList.toggle('open')));
+/* roulette */
+let pool=[];
+document.getElementById('spin').onclick=()=>{
+  if(!pool.length) pool=QUESTIONS.slice().sort(()=>Math.random()-.5);
+  const final=pool.pop(); const w=document.getElementById('wheel'), q=document.getElementById('wq');
+  w.classList.add('spin'); let n=0;
+  const iv=setInterval(()=>{q.textContent=QUESTIONS[Math.floor(Math.random()*QUESTIONS.length)];
+    if(++n>12){clearInterval(iv);q.textContent=final;w.classList.remove('spin');}},90);
+};
+fit(); show((parseInt(location.hash.slice(1))||1)-1);
+</script>
+</body>
+</html>

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bonus Activities — Week 4</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1B1F4B;--red:#990011;--gold:#D9A441;--cream:#FBF6F1;--ink:#2A2D44;--gray:#5B5B66;--lav:#E4E4F0;--line:#d8d6e2;--field:#fdfcfa;--ok:#1d7a46;--okbg:#e7f5ec;--badbg:#fbeaea}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);font:18px/1.55 "Source Sans 3",Calibri,Arial,sans-serif}
+.page{max-width:900px;margin:0 auto;background:#fff;padding:32px 44px 60px;border-top:6px solid var(--navy)}
+h1,h2,h3{font-family:"Source Serif 4",Cambria,Georgia,serif;color:var(--navy);line-height:1.2}
+h1{font-size:34px;margin:4px 0}
+.kicker{font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
+.subt{font-style:italic;color:var(--gray);margin:0 0 18px}
+.act{margin-top:46px}
+.ahead{display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding-bottom:10px;border-bottom:3px solid var(--gold)}
+.ahead .n{width:52px;height:52px;border-radius:50%;background:var(--red);color:#fff;display:flex;align-items:center;justify-content:center;font:700 26px "Source Serif 4",serif;flex:none}
+.act:nth-of-type(2) .ahead .n{background:var(--navy)}
+.ahead h2{font-size:27px;margin:0;flex:1;min-width:220px}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chip{font:700 12px "Source Sans 3",sans-serif;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:20px;background:var(--gold);color:var(--navy)}
+.chip.dk{background:var(--navy);color:#fff}
+.steps{background:var(--cream);border-radius:8px;padding:12px 18px 12px 38px;margin:14px 0}
+.steps li{margin:4px 0}
+.lang{background:#f1f1f8;border-left:5px solid var(--navy);border-radius:0 8px 8px 0;padding:10px 16px;margin:14px 0;font-size:16.5px}
+.lang b{display:block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--red);margin-bottom:4px}
+.lang i{color:var(--navy)}
+input[type=text],textarea,select{font:inherit;color:var(--navy);width:100%;border:1.5px solid var(--line);border-radius:6px;padding:8px 11px;background:var(--field);min-height:42px}
+textarea{min-height:70px;resize:vertical}
+input:focus,textarea:focus,select:focus{outline:2px solid var(--navy);outline-offset:1px;background:#fff}
+label{font-weight:600;color:var(--navy)}
+.idrow{display:grid;grid-template-columns:2fr 1fr;gap:12px}
+.idrow label{font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+.ideas{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 14px}
+.ideas span{background:#fdf3df;border:1px dashed var(--gold);border-radius:20px;padding:3px 12px;font-size:15.5px}
+/* two truths */
+.tt{display:grid;grid-template-columns:40px 1fr 120px;gap:10px;align-items:center;margin:8px 0}
+.tt b{width:36px;height:36px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center}
+.lie{display:flex;align-items:center;gap:6px;font-size:15px;font-weight:600;color:var(--gray);cursor:pointer;justify-content:center;border:1.5px solid var(--line);border-radius:30px;padding:6px 10px}
+.lie input{accent-color:var(--red);width:17px;height:17px}
+.lie:has(input:checked){border-color:var(--red);color:var(--red);background:var(--badbg)}
+.hidebtn{margin-top:6px}
+.secret .tt input[type=text]{color:var(--navy)}
+.secret .lie:not(:has(input:checked)){opacity:.4}
+.covered .lie{visibility:hidden}
+.score{display:flex;align-items:center;gap:14px;flex-wrap:wrap;background:var(--navy);color:#fff;border-radius:10px;padding:12px 18px;margin:14px 0}
+.score b{font:700 30px "Source Serif 4",serif;color:var(--gold);min-width:40px;text-align:center}
+.score button{font:700 15px "Source Sans 3",sans-serif;border:0;border-radius:6px;padding:8px 12px;cursor:pointer;background:var(--gold);color:var(--navy);min-height:38px}
+.score button.g{background:#fff}
+.guessrow{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+/* rank */
+.rank{list-style:none;padding:0;margin:12px 0}
+.rank li{display:grid;grid-template-columns:44px 1fr auto;gap:12px;align-items:center;background:#fff;border:1.5px solid var(--line);border-radius:10px;padding:8px 10px;margin:8px 0;transition:transform .15s}
+.rank li .pos{width:40px;height:40px;border-radius:50%;background:var(--lav);color:var(--navy);display:flex;align-items:center;justify-content:center;font:700 20px "Source Serif 4",serif}
+.rank li:nth-child(1) .pos{background:var(--gold)}
+.rank li:nth-child(2) .pos,.rank li:nth-child(3) .pos{background:#f2deb2}
+.rank li:nth-last-child(1) .pos{background:var(--badbg);color:var(--red)}
+.rank li .t{font-size:18px}
+.rank li .t small{display:block;color:var(--gray);font-size:14.5px}
+.mv{display:flex;gap:6px}
+.mv button{width:42px;height:42px;border-radius:8px;border:1.5px solid var(--navy);background:#fff;color:var(--navy);font-size:20px;cursor:pointer}
+.mv button:disabled{opacity:.25;cursor:default}
+.rank li.flash{transform:scale(1.02);border-color:var(--gold)}
+/* opinion */
+.op{border:1.5px solid var(--line);border-radius:10px;padding:14px 16px;margin:12px 0}
+.op h3{font-size:20px;margin:0 0 10px}
+.scale{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.scale label{font-weight:600;font-size:14px;text-align:center;border:1.5px solid var(--line);border-radius:8px;padding:8px 4px;cursor:pointer;color:var(--gray);line-height:1.2}
+.scale input{position:absolute;opacity:0;pointer-events:none}
+.scale label span{display:block;font:700 22px "Source Serif 4",serif;color:var(--navy)}
+.scale label:has(input:checked){background:var(--navy);color:#fff;border-color:var(--navy)}
+.scale label:has(input:checked) span{color:var(--gold)}
+.scale label:has(input:focus-visible){outline:2px solid var(--gold)}
+.op .why{margin-top:10px}
+.mind{display:flex;gap:10px;align-items:center;margin-top:10px;flex-wrap:wrap;font-size:15.5px}
+.mind label{font-weight:400;display:flex;gap:6px;align-items:center;cursor:pointer}
+.line-diagram{display:flex;justify-content:space-between;align-items:center;background:linear-gradient(90deg,var(--red),#d6a1a8 35%,#cfd0e6 65%,var(--navy));color:#fff;border-radius:30px;padding:10px 18px;font-weight:700;font-size:15px;margin:10px 0}
+/* timer */
+.timer{display:inline-flex;align-items:center;gap:10px;font:700 22px "Source Sans 3",sans-serif;background:#fff;color:var(--navy);border:2px solid var(--navy);border-radius:40px;padding:4px 16px 4px 6px;cursor:pointer;user-select:none}
+.timer .dot{width:32px;height:32px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px}
+.timer.run{border-color:var(--red);color:var(--red)}.timer.run .dot{background:var(--red)}
+.timer.done{background:var(--red);color:#fff;border-color:var(--red)}
+.timer small{font-size:12.5px;font-weight:600;color:var(--gray)}
+.timer.done small{color:#fff}
+.toolbar{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);margin:-32px -44px 22px;padding:10px 44px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.btn{font:700 15px "Source Sans 3",sans-serif;border-radius:8px;padding:7px 14px;cursor:pointer;border:2px solid var(--navy);background:var(--navy);color:#fff;min-height:40px}
+.btn.ghost{background:#fff;color:var(--navy)}
+#saved{font-size:14px;color:var(--gray);margin-left:auto}
+footer{margin-top:40px;font-size:13px;color:var(--gray);text-align:center}
+@media (max-width:640px){
+  body{font-size:17px}
+  .page{padding:20px 16px 40px}
+  .toolbar{margin:-20px -16px 16px;padding:8px 16px}
+  .idrow,.guessrow{grid-template-columns:1fr}
+  .tt{grid-template-columns:36px 1fr;}
+  .tt .lie{grid-column:2}
+  .scale label{font-size:11.5px;padding:6px 2px}
+  h1{font-size:27px}
+}
+@media print{
+  body{background:#fff;font-size:13px}
+  .page{padding:0;max-width:none;border:0}
+  .toolbar,.timer,.mv,.hidebtn,.score button{display:none!important}
+  .covered .lie{visibility:visible}
+  input[type=text],textarea,select{border:0;border-bottom:1px solid #999;border-radius:0;background:transparent!important;min-height:0;padding:2px 4px}
+  .act,.op,.rank li{break-inside:avoid}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+<main class="page">
+<div class="toolbar">
+  <button class="btn" onclick="print()">Print / Save as PDF</button>
+  <button class="btn ghost" id="clear">Clear my answers</button>
+  <span id="saved">Your answers save automatically on this device.</span>
+</div>
+
+<div class="kicker">American Culture &nbsp;|&nbsp; Week 4 &nbsp;|&nbsp; Bonus Activities</div>
+<h1>School Talk: Bonus Round!</h1>
+<p class="subt">Three extra activities about school life — with a partner, in a group, and with the whole class.</p>
+<div class="idrow">
+  <div><label for="name">Name</label><input type="text" id="name" autocomplete="name"></div>
+  <div><label for="date">Date</label><input type="text" id="date"></div>
+</div>
+
+<!-- ACTIVITY 1: PAIRS -->
+<section class="act" id="a1">
+  <div class="ahead"><span class="n">1</span><h2>Two Truths and a Lie: School Days</h2><div class="chips"><span class="chip">Pairs</span><span class="chip dk">10–12 min</span></div></div>
+  <ol class="steps">
+    <li>Write <b>three</b> sentences about your own school days. <b>Two are true. One is a lie!</b></li>
+    <li>Mark which one is the lie, then click <b>Hide my lie</b> before you show your partner.</li>
+    <li>Read your sentences to your partner. Your partner asks <b>up to 3 questions</b>, then guesses the lie.</li>
+    <li>Switch roles. Play two rounds — keep score below!</li>
+  </ol>
+  <p style="margin:0;font-size:16px;color:var(--gray)">Need ideas? Start with:</p>
+  <div class="ideas"><span>"When I was in school, I…"</span><span>"My favorite subject was…"</span><span>"I once got in trouble for…"</span><span>"My school had…"</span><span>"Every day, I…"</span></div>
+  <div id="ttbox">
+    <div class="tt"><b>1</b><input type="text" aria-label="Statement 1"><label class="lie"><input type="radio" name="lie" value="1">Lie</label></div>
+    <div class="tt"><b>2</b><input type="text" aria-label="Statement 2"><label class="lie"><input type="radio" name="lie" value="2">Lie</label></div>
+    <div class="tt"><b>3</b><input type="text" aria-label="Statement 3"><label class="lie"><input type="radio" name="lie" value="3">Lie</label></div>
+  </div>
+  <button class="btn ghost hidebtn" id="hideLie">Hide my lie</button>
+  <div class="lang"><b>Useful language</b>
+    <i>"Really? When did that happen?"</i> · <i>"What was your teacher's name?"</i> · <i>"I think number 2 is the lie because…"</i> · <i>"You got me!"</i> · <i>"Nope — that one is true!"</i></div>
+  <div class="guessrow">
+    <div><label for="pq">My partner's most surprising true fact</label><input type="text" id="pq"></div>
+    <div><label for="pq2">A question I asked my partner</label><input type="text" id="pq2"></div>
+  </div>
+  <div class="score">
+    <span>My points</span><b id="s1">0</b><button data-s="s1" data-d="1">+1</button><button class="g" data-s="s1" data-d="-1">−1</button>
+    <span style="margin-left:18px">Partner's points</span><b id="s2">0</b><button data-s="s2" data-d="1">+1</button><button class="g" data-s="s2" data-d="-1">−1</button>
+    <span style="font-size:14px;opacity:.8;flex-basis:100%">1 point if you guess the lie · 1 point if your partner can't find your lie</span>
+  </div>
+  <span class="timer" data-sec="600"></span>
+</section>
+
+<!-- ACTIVITY 2: GROUP -->
+<section class="act" id="a2">
+  <div class="ahead"><span class="n">2</span><h2>Rank It! What Makes a Great School?</h2><div class="chips"><span class="chip">Groups of 3–4</span><span class="chip dk">15 min</span></div></div>
+  <ol class="steps">
+    <li>Read the 8 school features below.</li>
+    <li>As a group, put them in order from <b>most important (1)</b> to <b>least important (8)</b>. Use the arrows to move them.</li>
+    <li>You must <b>all agree</b> — discuss, disagree politely, and decide!</li>
+    <li>Compare your top 3 and your number 8 with another group. What's different?</li>
+  </ol>
+  <ol class="rank" id="rank"></ol>
+  <div class="lang"><b>Useful language for agreeing &amp; disagreeing</b>
+    <i>"I think ___ should be number one because…"</i> · <i>"I see your point, but…"</i> · <i>"I agree with you."</i> · <i>"What about ___?"</i> · <i>"Can we agree on…?"</i> · <i>"OK, let's compromise."</i></div>
+  <div class="guessrow">
+    <div><label for="r1">Why is our number 1 the most important?</label><textarea id="r1"></textarea></div>
+    <div><label for="r2">What did the other group rank differently?</label><textarea id="r2"></textarea></div>
+  </div>
+  <div style="margin-top:12px"><span class="timer" data-sec="900"></span></div>
+</section>
+
+<!-- ACTIVITY 3: CLASS -->
+<section class="act" id="a3">
+  <div class="ahead"><span class="n">3</span><h2>The Opinion Line</h2><div class="chips"><span class="chip">Whole Class</span><span class="chip dk">15 min · Move!</span></div></div>
+  <ol class="steps">
+    <li>For each statement, choose your opinion from 1 to 5 and write one reason.</li>
+    <li>Your teacher reads a statement. <b>Stand on the line</b> in the room where your opinion is:</li>
+  </ol>
+  <div class="line-diagram"><span>&larr; 1 Strongly disagree</span><span>3 Not sure</span><span>Strongly agree 5 &rarr;</span></div>
+  <ol class="steps" start="3" style="margin-top:0">
+    <li>Talk to the people <b>next to you</b>: are your reasons the same?</li>
+    <li>The teacher asks someone from each end to explain. Listen — <b>you can move</b> if you change your mind!</li>
+  </ol>
+  <div class="lang"><b>Useful language</b>
+    <i>"I strongly agree / disagree because…"</i> · <i>"In my country, …"</i> · <i>"That's a good point."</i> · <i>"I'm not sure, but…"</i> · <i>"I changed my mind because…"</i></div>
+  <div id="ops"></div>
+  <span class="timer" data-sec="900"></span>
+</section>
+
+<footer>American Culture — Bonus Activities &nbsp;|&nbsp; Week 4: The American Education System</footer>
+</main>
+
+<script>
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const KEY='ac-week4-bonus-v1';
+let store={}; try{store=JSON.parse(localStorage.getItem(KEY)||'{}');}catch(e){}
+function persist(){try{localStorage.setItem(KEY,JSON.stringify(store));const s=$('#saved');s.textContent='✓ Saved on this device';clearTimeout(persist.t);persist.t=setTimeout(()=>s.textContent='Your answers save automatically on this device.',2000);}catch(e){}}
+
+/* ---------- Rank It ---------- */
+const FEATURES=[
+ ["Small classes","fewer than 20 students in each class"],
+ ["Free lunch for everyone","a hot meal every day at no cost"],
+ ["Sports teams and clubs","football, music, robotics, debate…"],
+ ["A field trip every month","museums, parks, companies"],
+ ["No homework","all work is done at school"],
+ ["School uniforms","everyone wears the same clothes"],
+ ["A later start time","school starts at 10:00 AM"],
+ ["A free laptop for every student","to keep for the whole year"]
+];
+let order = Array.isArray(store.rank)&&store.rank.length===FEATURES.length ? store.rank : FEATURES.map((_,i)=>i);
+function drawRank(flash){
+  const ul=$('#rank');
+  ul.innerHTML=order.map((fi,pos)=>`<li data-i="${fi}" class="${flash===fi?'flash':''}"><span class="pos">${pos+1}</span><span class="t">${FEATURES[fi][0]}<small>${FEATURES[fi][1]}</small></span>
+    <span class="mv"><button aria-label="Move ${FEATURES[fi][0]} up" data-up="${pos}" ${pos===0?'disabled':''}>&#9650;</button><button aria-label="Move ${FEATURES[fi][0]} down" data-down="${pos}" ${pos===order.length-1?'disabled':''}>&#9660;</button></span></li>`).join('');
+}
+$('#rank').addEventListener('click',e=>{
+  const u=e.target.closest('[data-up]'), d=e.target.closest('[data-down]');
+  if(!u&&!d) return;
+  const p=+(u?u.dataset.up:d.dataset.down), q=u?p-1:p+1;
+  [order[p],order[q]]=[order[q],order[p]];
+  store.rank=order; persist(); drawRank(order[q]);
+  const btn=$(`#rank [data-${u?'up':'down'}="${q}"]`); (btn&&!btn.disabled?btn:$(`#rank li:nth-child(${q+1}) button:not([disabled])`))?.focus();
+});
+drawRank();
+
+/* ---------- Opinion Line ---------- */
+const OPS=[
+ "Students should wear school uniforms.",
+ "Elementary school students should not get homework.",
+ "School sports are just as important as math and English.",
+ "University should be free for everyone.",
+ "Phones should not be allowed in the classroom.",
+ "School should start later in the morning."
+];
+const LAB=["Strongly disagree","Disagree","Not sure","Agree","Strongly agree"];
+$('#ops').innerHTML=OPS.map((s,i)=>`<div class="op"><h3>${i+1}. "${s}"</h3>
+  <div class="scale" role="radiogroup" aria-label="Opinion on statement ${i+1}">${LAB.map((l,k)=>`<label><input type="radio" name="op${i}" value="${k+1}"><span>${k+1}</span>${l}</label>`).join('')}</div>
+  <div class="why"><input type="text" aria-label="Reason for statement ${i+1}" placeholder="My reason: I think… because…"></div>
+  <div class="mind">After the discussion, did you change your mind?
+    <label><input type="radio" name="mind${i}" value="no"> No, I didn't</label>
+    <label><input type="radio" name="mind${i}" value="yes"> Yes, I moved!</label></div></div>`).join('');
+
+/* ---------- Two Truths: hide lie, score ---------- */
+$('#hideLie').onclick=()=>{const box=$('#ttbox');box.classList.toggle('covered');$('#hideLie').textContent=box.classList.contains('covered')?'Show my lie':'Hide my lie';};
+function drawScore(){$('#s1').textContent=store.s1||0;$('#s2').textContent=store.s2||0;}
+$$('[data-s]').forEach(b=>b.onclick=()=>{const k=b.dataset.s;store[k]=Math.max(0,(store[k]||0)+(+b.dataset.d));persist();drawScore();});
+drawScore();
+
+/* ---------- autosave fields ---------- */
+const fields=$$('input[type=text],textarea,input[type=radio]');
+fields.forEach((f,i)=>{const v=store['f'+i]; if(v!==undefined){ if(f.type==='radio') f.checked=!!v; else f.value=v; }
+  ['input','change'].forEach(ev=>f.addEventListener(ev,()=>{ if(f.type==='radio') $$(`input[name="${f.name}"]`).forEach(r=>store['f'+fields.indexOf(r)]=r.checked); else store['f'+i]=f.value; persist(); }));});
+$('#clear').onclick=()=>{ if(!confirm('Clear ALL your answers? This cannot be undone.')) return;
+  store={}; try{localStorage.removeItem(KEY);}catch(e){}
+  fields.forEach(f=>{if(f.type==='radio')f.checked=false;else f.value='';}); order=FEATURES.map((_,i)=>i); drawRank(); drawScore(); };
+
+/* ---------- timers: click start/pause, double-click reset ---------- */
+let ac=null;
+function chime(){try{ac=ac||new (window.AudioContext||window.webkitAudioContext)();[784,784,1046].forEach((f,i)=>{const o=ac.createOscillator(),g=ac.createGain();o.frequency.value=f;o.connect(g);g.connect(ac.destination);const t=ac.currentTime+i*.35;g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(.35,t+.02);g.gain.exponentialRampToValueAtTime(.0001,t+.32);o.start(t);o.stop(t+.34);});}catch(e){}}
+const fmt=s=>`${Math.floor(s/60)}:${String(s%60).padStart(2,'0')}`;
+$$('.timer').forEach(t=>{
+  const total=+t.dataset.sec; let left=total, id=null;
+  const draw=()=>{t.innerHTML=`<span class="dot">${id?'&#10073;&#10073;':'&#9654;'}</span>${fmt(left)}<small>${id?'tap to pause':left===total?'tap to start timer':left===0?"time's up! double-tap to reset":'tap to resume'}</small>`;};
+  t.setAttribute('role','button'); t.tabIndex=0;
+  const toggle=()=>{ if(left===0) return;
+    if(id){clearInterval(id);id=null;t.classList.remove('run');}
+    else{t.classList.add('run');t.classList.remove('done');id=setInterval(()=>{left--;if(left<=0){left=0;clearInterval(id);id=null;t.classList.remove('run');t.classList.add('done');chime();}draw();},1000);}
+    draw(); };
+  t.addEventListener('click',toggle);
+  t.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();toggle();}});
+  t.addEventListener('dblclick',()=>{clearInterval(id);id=null;left=total;t.classList.remove('run','done');draw();});
+  draw();
+});
+</script>
+</body>
+</html>

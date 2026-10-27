@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>American Education — Week 4 Worksheet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1B1F4B;--red:#990011;--gold:#D9A441;--cream:#FBF6F1;--ink:#2A2D44;--gray:#5B5B66;--lav:#E4E4F0;--line:#d8d6e2;--field:#fdfcfa;
+  --ok:#1d7a46;--okbg:#e7f5ec;--bad:#b3261e;--badbg:#fbeaea;--warnbg:#fff4dc}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);font:18px/1.55 "Source Sans 3",Calibri,Arial,sans-serif}
+.page{max-width:900px;margin:0 auto;background:#fff;padding:32px 44px 60px;border-top:6px solid var(--navy)}
+h1,h2,h3{font-family:"Source Serif 4",Cambria,Georgia,serif;color:var(--navy);line-height:1.2}
+h1{font-size:34px;margin:4px 0}
+.kicker{font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
+.subt{font-style:italic;color:var(--gray);margin:0 0 18px}
+h2.ex{font-size:24px;margin:46px 0 8px;padding-bottom:8px;border-bottom:3px solid var(--gold);display:flex;gap:12px;align-items:baseline;flex-wrap:wrap}
+h2.ex small{font:700 13px "Source Sans 3",sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#fff;background:var(--red);padding:3px 10px;border-radius:20px}
+h2.ex small.act{background:var(--navy)}
+.hint{color:var(--gray);font-size:16.5px;margin:4px 0 12px}
+input[type=text],textarea,select{font:inherit;color:var(--navy);width:100%;border:1.5px solid var(--line);border-radius:6px;padding:8px 11px;background:var(--field);min-height:42px}
+textarea{min-height:84px;resize:vertical;line-height:1.5}
+input:focus,textarea:focus,select:focus{outline:2px solid var(--navy);outline-offset:1px;background:#fff}
+label{font-weight:600;color:var(--navy)}
+.idrow{display:grid;grid-template-columns:2fr 1fr;gap:12px}
+.idrow label{font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+table{width:100%;border-collapse:collapse}
+th{background:var(--navy);color:#fff;text-align:left;padding:8px 10px;font-size:14px}
+td{border-bottom:1px solid var(--line);padding:7px 8px;vertical-align:middle}
+.tablewrap{overflow-x:auto}
+.match{display:grid;grid-template-columns:1fr 1.25fr;gap:22px;align-items:start}
+.mrow{display:grid;grid-template-columns:1fr 92px 26px;gap:10px;align-items:center;padding:6px 0;border-bottom:1px solid var(--line)}
+.mrow b{color:var(--navy)}
+.defs{background:var(--cream);border-radius:8px;padding:12px 16px}
+.defs p{margin:5px 0;font-size:16.5px}
+.defs b{color:var(--red);margin-right:6px}
+.box{display:flex;flex-wrap:wrap;gap:8px;background:#fdf3df;border:1px dashed var(--gold);border-radius:8px;padding:10px 14px;margin:10px 0 14px}
+.box span{background:#fff;border:1px solid #ecd6a6;border-radius:20px;padding:2px 12px;font-weight:600;color:var(--navy)}
+.box span.used{opacity:.4;text-decoration:line-through}
+.fill p{margin:12px 0;line-height:2.1}
+input[type=text].blank{display:inline-block;width:190px;max-width:100%;vertical-align:middle;min-height:38px;padding:4px 9px}
+.mark{display:inline-block;width:24px;text-align:center;font-weight:700}
+.fill .mark:empty,.tf .mark:empty{width:0}
+.mark.ok{color:var(--ok)}.mark.bad{color:var(--bad)}
+input.ok,select.ok{border-color:var(--ok);background:var(--okbg)}
+input.bad,select.bad{border-color:var(--bad);background:var(--badbg)}
+.tf .row{display:grid;grid-template-columns:1fr auto 26px;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
+.seg{display:inline-flex;border:1.5px solid var(--navy);border-radius:30px;overflow:hidden}
+.seg label{font-weight:700;font-size:15px;padding:7px 14px;cursor:pointer;color:var(--navy);min-width:70px;text-align:center}
+.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg label:has(input:checked){background:var(--navy);color:#fff}
+.seg label:has(input:focus-visible){outline:2px solid var(--gold)}
+.seg.ok{border-color:var(--ok)}.seg.ok label:has(input:checked){background:var(--ok)}
+.seg.bad{border-color:var(--bad)}.seg.bad label:has(input:checked){background:var(--bad)}
+.passage{background:var(--cream);border-left:5px solid var(--navy);border-radius:0 8px 8px 0;padding:16px 22px;font-size:17.5px;line-height:1.7}
+.passage p{margin:0 0 10px}
+.q{margin:18px 0}
+.q > label{display:block;margin-bottom:6px}
+.points{font-size:15.5px;margin-top:6px}
+.points span{display:inline-block;margin:3px 6px 0 0;padding:2px 10px;border-radius:20px;background:#eee}
+.points span.ok{background:var(--okbg);color:var(--ok)}
+.points span.no{background:var(--badbg);color:var(--bad)}
+.counter{font-size:14px;color:var(--gray);text-align:right;margin-top:3px}
+.checkbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:16px 0 4px}
+.btn{font:700 16px "Source Sans 3",sans-serif;border-radius:8px;padding:10px 18px;cursor:pointer;border:2px solid var(--navy);background:var(--navy);color:#fff;min-height:44px}
+.btn.ghost{background:#fff;color:var(--navy)}
+.btn:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.fb{border-radius:8px;padding:12px 16px;margin-top:10px;font-size:17px;display:none}
+.fb.show{display:block}
+.fb.ok{background:var(--okbg);border:1px solid #a9d8b9}
+.fb.bad{background:var(--badbg);border:1px solid #efbcbc}
+.fb.warn{background:var(--warnbg);border:1px solid #f0d394}
+.fb h4{margin:0 0 6px;font:700 17px "Source Sans 3",sans-serif}
+.fb ul{margin:6px 0;padding-left:22px}
+.model{background:#fff;border:1px solid var(--line);border-radius:6px;padding:10px 14px;margin-top:8px}
+.model i{display:block}
+.fsw td:first-child{width:44%}
+.fsw td{font-size:16.5px}
+.design{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.design div.full{grid-column:1/-1}
+.design label{font-size:15px}
+.choose{display:flex;flex-direction:column;gap:10px;margin:10px 0}
+.choose label{border:1.5px solid var(--line);border-radius:8px;padding:12px 14px;font-weight:400;cursor:pointer;display:flex;gap:12px;align-items:flex-start}
+.choose input{margin-top:5px;width:18px;height:18px;accent-color:var(--navy);flex:none}
+.choose label:has(input:checked){border-color:var(--navy);background:#f1f1f8}
+.toolbar{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);margin:-32px -44px 22px;padding:10px 44px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.toolbar .btn{font-size:15px;padding:7px 14px;min-height:40px}
+#saved{font-size:14px;color:var(--gray);margin-left:auto}
+footer{margin-top:40px;font-size:13px;color:var(--gray);text-align:center}
+@media (max-width:640px){
+  body{font-size:17px}
+  .page{padding:20px 16px 40px}
+  .toolbar{margin:-20px -16px 16px;padding:8px 16px}
+  .idrow,.match,.design{grid-template-columns:1fr}
+  .mrow{grid-template-columns:1fr 84px 24px}
+  .tf .row{grid-template-columns:1fr;gap:6px}
+  h1{font-size:27px}
+  input[type=text].blank{width:100%;display:block;margin:4px 0}
+  .fill p{line-height:1.6}
+}
+@media print{
+  body{background:#fff;font-size:13px}
+  .page{padding:0;max-width:none;border:0}
+  .toolbar,.checkbar,.counter,.points{display:none}
+  .fb{display:none!important}
+  input[type=text],textarea,select{border:0;border-bottom:1px solid #999;border-radius:0;background:transparent!important;min-height:0;padding:2px 4px}
+  textarea{resize:none;overflow:hidden}
+  h2.ex{break-after:avoid}
+  .q,.mrow,.fill p,.tf .row,tr{break-inside:avoid}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+<main class="page">
+<div class="toolbar">
+  <button class="btn" onclick="print()">Print / Save as PDF</button>
+  <button class="btn ghost" id="clear">Clear my answers</button>
+  <span id="saved">Your answers save automatically on this device.</span>
+</div>
+
+<div class="kicker">American Culture &nbsp;|&nbsp; Week 4</div>
+<h1>The American Education System</h1>
+<p class="subt">Student Worksheet — Culture, History &amp; Vocabulary</p>
+<div class="idrow">
+  <div><label for="name">Name</label><input type="text" id="name" autocomplete="name"></div>
+  <div><label for="date">Date</label><input type="text" id="date"></div>
+</div>
+
+<!-- WARM-UP -->
+<section id="warm">
+<h2 class="ex"><small class="act">Warm-Up</small>Find Someone Who…</h2>
+<p class="hint">Walk around the room. Ask: "Did you ever…?" When someone says yes, write their name and one detail. Use a different name in each row.</p>
+<div class="tablewrap">
+<table class="fsw">
+<thead><tr><th>Find someone who…</th><th>Name</th><th>Detail (where? when? how?)</th></tr></thead>
+<tbody id="fswBody"></tbody>
+</table>
+</div>
+</section>
+
+<!-- EXERCISE 1 -->
+<section id="ex1">
+<h2 class="ex"><small>Exercise 1</small>Vocabulary Matching</h2>
+<p class="hint">Match each school-related term with its correct definition. Choose the letter.</p>
+<div class="match">
+  <div id="ex1terms"></div>
+  <div class="defs">
+    <p style="font-weight:700;color:var(--navy);margin-top:0">Definitions</p>
+    <p><b>a.</b>A break for play at elementary school</p>
+    <p><b>b.</b>A day school closes because of dangerous winter weather</p>
+    <p><b>c.</b>A small personal storage cabinet at school</p>
+    <p><b>d.</b>A number (usually 0.0–4.0) that summarizes a student's grades</p>
+    <p><b>e.</b>A 1st-year high school or college student</p>
+    <p><b>f.</b>An animal or character that represents a school's teams</p>
+    <p><b>g.</b>A student's main subject of study</p>
+    <p><b>h.</b>A 4th-year (final-year) student</p>
+    <p><b>i.</b>A large room where students eat lunch at school</p>
+    <p><b>j.</b>An educational class outing outside of school</p>
+  </div>
+</div>
+<div class="checkbar"><button class="btn" data-check="ex1">Check Exercise 1</button><button class="btn ghost" data-reset="ex1">Try again</button></div>
+<div class="fb" id="fb-ex1"></div>
+</section>
+
+<!-- EXERCISE 2 -->
+<section id="ex2" class="fill">
+<h2 class="ex"><small>Exercise 2</small>Fill in the Blanks</h2>
+<p class="hint">Complete each sentence with a word from the box. Use each word only once.</p>
+<div class="box" id="ex2box"><span>Pledge</span><span>segregated</span><span>Yellow</span><span>prom</span><span>GPA</span><span>snow day</span></div>
+<p>1. The color chosen for school buses in 1939 was "National School Bus Glossy <input type="text" class="blank" data-ans="yellow" aria-label="Blank 1"><span class="mark"></span>."</p>
+<p>2. Many U.S. classrooms begin the day by reciting the "<input type="text" class="blank" data-ans="pledge" aria-label="Blank 2"><span class="mark"></span> of Allegiance."</p>
+<p>3. In 1954, the Supreme Court case <i>Brown v. Board of Education</i> ruled that <input type="text" class="blank" data-ans="segregated" aria-label="Blank 3"><span class="mark"></span> public schools were unconstitutional.</p>
+<p>4. A student's overall grade average, usually between 0.0 and 4.0, is called their <input type="text" class="blank" data-ans="gpa" aria-label="Blank 4"><span class="mark"></span>.</p>
+<p>5. A formal dance for older students, where people often invite a date with a creative "promposal," is called <input type="text" class="blank" data-ans="prom" aria-label="Blank 5"><span class="mark"></span>.</p>
+<p>6. When schools close because of dangerous winter weather, it is called a <input type="text" class="blank" data-ans="snow day" aria-label="Blank 6"><span class="mark"></span>.</p>
+<div class="checkbar"><button class="btn" data-check="ex2">Check Exercise 2</button><button class="btn ghost" data-reset="ex2">Try again</button></div>
+<div class="fb" id="fb-ex2"></div>
+</section>
+
+<!-- EXERCISE 3 -->
+<section id="ex3" class="tf">
+<h2 class="ex"><small>Exercise 3</small>True or False</h2>
+<p class="hint">Read each statement about American schools. Choose TRUE or FALSE.</p>
+<div id="tfrows"></div>
+<div class="checkbar"><button class="btn" data-check="ex3">Check Exercise 3</button><button class="btn ghost" data-reset="ex3">Try again</button></div>
+<div class="fb" id="fb-ex3"></div>
+</section>
+
+<!-- EXERCISE 4 -->
+<section id="ex4">
+<h2 class="ex"><small>Exercise 4</small>Reading Comprehension</h2>
+<p class="hint">Read the passage, then answer the questions in complete sentences.</p>
+<div class="passage">
+<p>American schools have changed enormously over time. In the 1700s and 1800s, many children studied together in a single "one-room schoolhouse," where one teacher taught students of all ages — sometimes from six years old to sixteen. In 1837, an educator named Horace Mann began the "Common School Movement," arguing that every child, rich or poor, deserved a free public education. His ideas helped create the public school system Americans use today.</p>
+<p>But for many years, equal education was not available to everyone. In many states, Black and white students were forced to attend separate schools, a practice called segregation. This changed in 1954, when the Supreme Court decided the case <i>Brown v. Board of Education</i>, ruling that segregated public schools were unconstitutional. This decision was a major victory for the Civil Rights Movement and still influences conversations about equality in schools today.</p>
+<p style="margin:0">Today, American students move through several stages: Elementary School (Kindergarten–Grade 5), Middle School (Grades 6–8), and High School (Grades 9–12). After graduating high school, many students choose to continue their education at a community college, a four-year college or university, or move directly into the workforce.</p>
+</div>
+<div id="ex4qs"></div>
+<div class="checkbar"><button class="btn" data-check="ex4">Check Exercise 4</button></div>
+<div class="fb" id="fb-ex4"></div>
+</section>
+
+<!-- GROUP ACTIVITY -->
+<section id="design">
+<h2 class="ex"><small class="act">Group Activity</small>Design Your Dream School</h2>
+<p class="hint">Your group is opening a new American high school. Decide together, then present your school to the class in 1 minute.</p>
+<div class="design">
+  <div><label for="d1">School name</label><input type="text" id="d1"></div>
+  <div><label for="d2">Mascot (animal or character)</label><input type="text" id="d2"></div>
+  <div><label for="d3">School colors</label><input type="text" id="d3"></div>
+  <div><label for="d4">Spirit Day theme</label><input type="text" id="d4"></div>
+  <div class="full"><label for="d5">One new rule or tradition from your home country</label><input type="text" id="d5"></div>
+  <div class="full"><label for="d6">Our 1-minute pitch: "Our school is called… Our mascot is… because…"</label><textarea id="d6"></textarea></div>
+</div>
+</section>
+
+<!-- EXERCISE 5 -->
+<section id="ex5">
+<h2 class="ex"><small>Exercise 5</small>Discussion &amp; Short Writing</h2>
+<p class="hint">Choose ONE prompt. Write at least 4–5 sentences.</p>
+<div class="choose">
+  <label><input type="radio" name="prompt" value="1"><span><b>Prompt 1:</b> Compare the American school system to the school system in your country. Describe two similarities and two differences.</span></label>
+  <label><input type="radio" name="prompt" value="2"><span><b>Prompt 2:</b> Imagine you are a foreign exchange student spending one year at an American high school. Which American school tradition (prom, homecoming, school sports, spirit days) would you be most excited to try? Why?</span></label>
+</div>
+<textarea id="ex5text" style="min-height:190px" aria-label="Exercise 5 writing"></textarea>
+<div class="counter" id="ex5count"></div>
+<div class="checkbar"><button class="btn" data-check="ex5">Check Exercise 5</button></div>
+<div class="fb" id="fb-ex5"></div>
+</section>
+
+<footer>American Culture — Student Worksheet &nbsp;|&nbsp; Week 4: The American Education System</footer>
+</main>
+
+<script>
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');
+const norm=s=>s.toLowerCase().replace(/[^a-z ]/g,' ').replace(/\s+/g,' ').trim();
+const sentences=t=>t.split(/[.!?]+(?:\s|$)/).map(s=>s.trim()).filter(s=>s.split(/\s+/).filter(Boolean).length>=3);
+function show(id,cls,html){const f=$('#fb-'+id);f.className='fb show '+cls;f.innerHTML=html;f.scrollIntoView({behavior:'smooth',block:'nearest'});}
+
+/* ---------- build: warm-up ---------- */
+const FSW=["…wore a uniform to school","…rode a bus to school","…had classes on Saturday","…ate lunch at school every day","…went on a school field trip","…played on a school sports team","…had more than 40 students in a class","…still remembers a favorite teacher's name"];
+$('#fswBody').innerHTML=FSW.map((t,i)=>`<tr><td>${i+1}. ${t}</td><td><input type="text" aria-label="Name ${i+1}"></td><td><input type="text" aria-label="Detail ${i+1}"></td></tr>`).join('');
+
+/* ---------- build: Ex1 ---------- */
+const TERMS=[["Freshman","e"],["Senior","h"],["GPA","d"],["Locker","c"],["Recess","a"],["Field trip","j"],["Mascot","f"],["Cafeteria","i"],["Snow day","b"],["Major","g"]];
+$('#ex1terms').innerHTML=TERMS.map((t,i)=>`<div class="mrow"><b>${i+1}. ${t[0]}</b><select data-ans="${t[1]}" aria-label="Letter for ${t[0]}"><option value="">—</option>${'abcdefghij'.split('').map(l=>`<option>${l}</option>`).join('')}</select><span class="mark"></span></div>`).join('');
+
+/* ---------- build: Ex3 ---------- */
+const TF=[
+ ["American public education is free for all students from Kindergarten through Grade 12.",true,"Public school is free from K through Grade 12."],
+ ["Most American high schools do NOT have their own sports teams.",false,"Most American high schools have their own teams — football, basketball, baseball, and more."],
+ ["Homeschooling means a child is taught at home instead of at a school building.",true,"Parents or tutors teach the child at home."],
+ ["The letter grade \"F\" means a student scored between 70–79%.",false,"70–79% is a C. An F is below 60%."],
+ ["Horace Mann helped start the movement for free public schools in the 1830s.",true,"He began the Common School Movement in 1837."],
+ ["A \"yearbook\" is a printed book of photos and memories from the school year.",true,"Classmates often sign each other's yearbooks."]
+];
+$('#tfrows').innerHTML=TF.map((t,i)=>`<div class="row" data-ans="${t[1]?'T':'F'}"><span>${i+1}. ${esc(t[0])}</span>
+ <span class="seg" role="radiogroup" aria-label="Statement ${i+1}"><label><input type="radio" name="tf${i}" value="T">TRUE</label><label><input type="radio" name="tf${i}" value="F">FALSE</label></span><span class="mark"></span></div>`).join('');
+
+/* ---------- build: Ex4 ---------- */
+const RQ=[
+ {q:"1. What was a \"one-room schoolhouse,\" and who studied there?",
+  pts:[["one room / one teacher",/one.?room|single room|one classroom|one teacher|single teacher/],["students of all ages",/all ages|different ages|every age|six|sixteen|\b6\b|\b16\b|ages/]],
+  model:"A one-room schoolhouse was a small school with only one room and one teacher. Students of all ages, from about six to sixteen, studied there together."},
+ {q:"2. Who was Horace Mann, and what did he argue for?",
+  pts:[["he was an educator",/educator|teacher|reformer|leader/],["free public education",/free/],["for every child, rich or poor",/every child|all children|rich|poor|everyone|every student/]],
+  model:"Horace Mann was an educator who started the Common School Movement in 1837. He argued that every child, rich or poor, deserved a free public education."},
+ {q:"3. What did the Supreme Court decide in Brown v. Board of Education (1954)?",
+  pts:[["segregated / separate schools",/segregat|separate/],["unconstitutional",/unconstitutional|against the constitution|illegal|not legal|not allowed/]],
+  model:"The Supreme Court decided that segregated public schools, where Black and white students had to attend separate schools, were unconstitutional."},
+ {q:"4. List the three stages of American K–12 education mentioned in the passage, with their grade levels.",
+  pts:[["Elementary (K–5)",/elementary/],["Middle (6–8)",/middle/],["High (9–12)",/high/]],
+  model:"The three stages are Elementary School (Kindergarten–Grade 5), Middle School (Grades 6–8), and High School (Grades 9–12)."},
+ {q:"5. In your own words, why do you think the Brown v. Board decision was important?",
+  pts:[["give a reason (because / so …)",/because|so |since|this means|that is why|it helped|it gave|it made/]],
+  model:"I think the decision was important because it gave Black and white students the right to study in the same schools. It was a big step toward equality, and it helped the Civil Rights Movement."}
+];
+$('#ex4qs').innerHTML=RQ.map((r,i)=>`<div class="q"><label for="r${i}">${esc(r.q)}</label><textarea id="r${i}"></textarea><div class="points" id="pts${i}"></div></div>`).join('');
+
+/* ---------- checks ---------- */
+function scored(id){
+  const items=$$(`#${id} [data-ans]`); let right=0, empty=0;
+  items.forEach(el=>{
+    const mark=el.querySelector?.('.mark') && el.classList.contains('row') ? el.querySelector('.mark') : el.nextElementSibling;
+    let v, ok;
+    if(id==='ex3'){ const c=el.querySelector('input:checked'); v=c?c.value:''; ok=v===el.dataset.ans; el.querySelector('.seg').classList.remove('ok','bad'); }
+    else { v=id==='ex2'?norm(el.value):el.value; ok=v===el.dataset.ans || (id==='ex2' && (v==='a '+el.dataset.ans||v==='the '+el.dataset.ans)); el.classList.remove('ok','bad'); }
+    mark.className='mark'; mark.textContent='';
+    if(!v){empty++;return;}
+    const tgt=id==='ex3'?el.querySelector('.seg'):el;
+    if(ok){right++;tgt.classList.add('ok');mark.classList.add('ok');mark.textContent='✓';}
+    else{tgt.classList.add('bad');mark.classList.add('bad');mark.textContent='✗';}
+  });
+  const n=items.length;
+  if(empty===n){show(id,'warn','<h4>Please answer the questions first.</h4>');return;}
+  let msg=`<h4>You got ${right} out of ${n} correct.</h4>`;
+  if(right===n) msg+='<p>Excellent work! All your answers are correct.</p>';
+  else msg+=`<p>${empty?`You left ${empty} blank. `:''}Look at the answers marked ✗, change them, and click Check again.</p><button class="btn ghost" style="margin-top:6px" data-reveal="${id}">Show the correct answers</button>`;
+  if(id==='ex3' && right===n) msg+='<ul>'+TF.map((t,i)=>`<li><b>${i+1}. ${t[1]?'TRUE':'FALSE'}</b> — ${esc(t[2])}</li>`).join('')+'</ul>';
+  show(id,right===n?'ok':'bad',msg);
+}
+function reveal(id){
+  let list='';
+  if(id==='ex1') list=TERMS.map((t,i)=>`<li><b>${i+1}. ${t[0]}</b> — ${t[1]}</li>`).join('');
+  if(id==='ex2') list=$$('#ex2 [data-ans]').map((el,i)=>`<li><b>${i+1}.</b> ${({yellow:'Yellow',pledge:'Pledge',gpa:'GPA'})[el.dataset.ans]||el.dataset.ans}</li>`).join('');
+  if(id==='ex3') list=TF.map((t,i)=>`<li><b>${i+1}. ${t[1]?'TRUE':'FALSE'}</b> — ${esc(t[2])}</li>`).join('');
+  const f=$('#fb-'+id); f.querySelector('[data-reveal]')?.remove(); f.querySelector('ul')?.remove();
+  f.innerHTML+=`<div class="model"><b>Answer key</b><ul>${list}</ul></div>`;
+}
+function resetEx(id){
+  if(id==='ex3'){ $$('#ex3 input').forEach(i=>i.checked=false); $$('#ex3 .seg').forEach(s=>s.classList.remove('ok','bad')); }
+  else $$(`#${id} [data-ans]`).forEach(el=>{el.value='';el.classList.remove('ok','bad');});
+  $$(`#${id} .mark`).forEach(m=>{m.textContent='';m.className='mark';});
+  $('#fb-'+id).className='fb'; save(); usedWords();
+}
+function checkReading(){
+  let done=0, html='';
+  RQ.forEach((r,i)=>{
+    const v=$('#r'+i).value.trim(), box=$('#pts'+i);
+    if(!v){box.innerHTML='<span class="no">Not answered yet</span>';return;}
+    done++;
+    const low=v.toLowerCase();
+    box.innerHTML=r.pts.map(p=>`<span class="${p[1].test(low)?'ok':'no'}">${p[1].test(low)?'✓':'○'} ${esc(p[0])}</span>`).join('') + (sentences(v).length?'':'<span class="no">○ write a complete sentence</span>');
+  });
+  html+=`<h4>${done===RQ.length?'You answered all 5 questions.':`You answered ${done} of ${RQ.length} questions.`}</h4>`;
+  html+='<p>Under each answer, green ✓ shows the key points you included. ○ means you may be missing something, so check the passage again. Then compare with the sample answers:</p>';
+  html+='<div class="model">'+RQ.map((r,i)=>`<p style="margin:6px 0"><b>${i+1}.</b> <i style="display:inline">${esc(r.model)}</i></p>`).join('')+'</div>';
+  html+='<p style="margin-top:8px">Question 5 is your opinion, so your answer can be different. Just give a clear reason.</p>';
+  show('ex4',done===RQ.length?'ok':'warn',html);
+}
+function checkWriting(){
+  const p=$('input[name=prompt]:checked'), v=$('#ex5text').value.trim(), n=sentences(v).length, low=v.toLowerCase();
+  const probs=[];
+  if(!p) probs.push('Choose Prompt 1 or Prompt 2.');
+  if(n<4) probs.push(`Write at least 4 sentences (you have ${n}). End each sentence with a period.`);
+  const checks = p && p.value==='1'
+    ? [["comparison words (both, but, however, while, different, similar)",/\bboth\b|\bbut\b|however|while|different|similar|same|unlike|like the/],["the U.S. and your country",/u\.?s\.?|america/]]
+    : [["a tradition (prom, homecoming, sports, spirit day)",/prom|homecoming|sport|spirit|football|basketball|game/],["a reason (because / so)",/because|\bso\b|since|reason/]];
+  let html = probs.length?`<h4>Almost there!</h4><ul>${probs.map(x=>`<li>${x}</li>`).join('')}</ul>`:'<h4>Great job! Your writing is complete.</h4>';
+  if(p) html+='<p style="margin:8px 0 4px"><b>Checklist:</b></p><ul>'+checks.map(c=>`<li>${c[1].test(low)?'✓':'○'} ${esc(c[0])}</li>`).join('')+'</ul>';
+  const model = !p ? '' : p.value==='1'
+   ? "The American school system and the school system in my country have some things in common. In both countries, children start school at about five or six years old, and public school is free. However, American students usually change classes every hour, but in my country the teachers move between classrooms. Another difference is that American high schools have their own sports teams, while in my country students play sports at private clubs. Both systems prepare students for university, but the U.S. uses letter grades and a GPA."
+   : "If I were an exchange student in the U.S., I would be most excited to go to a high school football game. In my country, schools do not have their own teams, so it would be a completely new experience. I would love to see the marching band, the cheerleaders, and the school mascot. I would also wear the school colors to show school spirit. I think it would be a fun way to make new American friends.";
+  if(model) html+=`<p style="margin:10px 0 4px"><b>Sample answer:</b></p><div class="model"><i>${esc(model)}</i></div>`;
+  show('ex5',probs.length?'warn':'ok',html);
+}
+
+/* word box */
+function usedWords(){const vals=$$('#ex2 [data-ans]').map(i=>norm(i.value));$$('#ex2box span').forEach(s=>s.classList.toggle('used',vals.includes(norm(s.textContent))));}
+function counter(){const t=$('#ex5text').value;$('#ex5count').textContent=`${sentences(t).length} sentence(s) · ${t.trim()?t.trim().split(/\s+/).length:0} words`;}
+
+document.addEventListener('click',e=>{
+  const c=e.target.closest('[data-check]');
+  if(c){const id=c.dataset.check; if(id==='ex4')checkReading(); else if(id==='ex5')checkWriting(); else scored(id);}
+  const r=e.target.closest('[data-reset]'); if(r) resetEx(r.dataset.reset);
+  const v=e.target.closest('[data-reveal]'); if(v) reveal(v.dataset.reveal);
+});
+
+/* autosave */
+const KEY='ac-week4-worksheet-v1';
+const fields=$$('input[type=text],textarea,select,input[type=radio]');
+function load(){let d={};try{d=JSON.parse(localStorage.getItem(KEY)||'{}');}catch(e){}
+  fields.forEach((f,i)=>{const v=d['f'+i];if(v===undefined)return;if(f.type==='radio')f.checked=!!v;else f.value=v;});}
+let tm;function save(){const d={};fields.forEach((f,i)=>d['f'+i]=f.type==='radio'?f.checked:f.value);
+  try{localStorage.setItem(KEY,JSON.stringify(d));const s=$('#saved');s.textContent='✓ Saved on this device';clearTimeout(tm);tm=setTimeout(()=>s.textContent='Your answers save automatically on this device.',2000);}catch(e){}}
+fields.forEach(f=>['input','change'].forEach(ev=>f.addEventListener(ev,()=>{save();usedWords();counter();
+  if(f.type==='radio'){f.closest('.seg')?.classList.remove('ok','bad');} else f.classList.remove('ok','bad');})));
+$('#clear').onclick=()=>{if(!confirm('Clear ALL your answers? This cannot be undone.'))return;
+  try{localStorage.removeItem(KEY);}catch(e){}
+  fields.forEach(f=>{if(f.type==='radio')f.checked=false;else f.value='';f.classList.remove('ok','bad');});
+  $$('.seg').forEach(s=>s.classList.remove('ok','bad'));$$('.mark').forEach(m=>{m.textContent='';m.className='mark';});
+  $$('.points').forEach(p=>p.innerHTML='');$$('.fb').forEach(f=>f.className='fb');usedWords();counter();};
+load(); usedWords(); counter();
+addEventListener('beforeprint',()=>$$('textarea').forEach(a=>{a.style.height='auto';a.style.height=(a.scrollHeight+4)+'px';}));
+</script>
+</body>
+</html>
