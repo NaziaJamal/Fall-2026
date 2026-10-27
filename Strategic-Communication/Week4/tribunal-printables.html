@@ -20,7 +20,7 @@ body{margin:0;background:#d9dee6;font-family:var(--sans);color:var(--ink)}
 .tents{grid-template-rows:1fr 1fr}
 .tent{display:grid;grid-template-rows:1fr 1fr}
 .tent .half{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center;padding:16px}
-.tent .half.flip{transform:rotate(180deg);border-top:2px dotted var(--cut)}
+.tent .half.flip{transform:rotate(180deg);border-bottom:2px dotted var(--cut)}
 .tent .role{font:700 46px var(--serif);color:var(--navy);line-height:1.1}
 .tent .sub{font-size:17px;color:var(--muted);max-width:5.8in}
 .tent .bandn{background:var(--navy)}.tent .bandn .role{color:#fff}.tent .bandn .sub{color:#c1cddd}
@@ -45,6 +45,13 @@ body{margin:0;background:#d9dee6;font-family:var(--sans);color:var(--ink)}
 .tcard.gold{background:var(--gold);color:var(--navy)}
 .tcard.red{background:#b0451a;color:#fff}
 .tcard.white{color:var(--navy)}.tcard.white span{color:var(--gold-dark)}
+/* case cards: 3 per page */
+.cases{grid-template-rows:repeat(3,1fr)}
+.ccard{display:flex;flex-direction:column;justify-content:center;gap:10px;padding:.3in .45in}
+.ccard .n{font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-dark)}
+.ccard h4{margin:0;font:700 28px var(--serif);color:var(--navy)}
+.ccard p{margin:0;font-size:15px;line-height:1.45}
+.ccard .task{font-size:13px;color:var(--muted);border-top:1px solid #d6dde7;padding-top:8px}
 /* debate cards: 3 per page */
 .debates{grid-template-rows:repeat(3,1fr)}
 .dcard{display:flex;flex-direction:column;justify-content:center;gap:12px;padding:.3in .5in}
@@ -66,11 +73,12 @@ body.nocolor .tent .bandn .role,body.nocolor .tent .bandn .sub,body.nocolor .tca
 <body>
 <div class="bar">
   <strong>Week 4 · Tribunal printables</strong>
+  <label><input type="checkbox" class="sec" data-s="cases" checked> A2 case cards (2 pages)</label>
   <label><input type="checkbox" class="sec" data-s="tents" checked> Role placards (2 pages)</label>
   <label><input type="checkbox" class="sec" data-s="ballots" checked> Jury ballots (1 page = 4)</label>
   <label>copies <input type="number" id="bcopies" value="5" min="1" max="12" style="width:52px"> pages</label>
   <label><input type="checkbox" class="sec" data-s="times" checked> Time cards (2 pages)</label>
-  <label><input type="checkbox" class="sec" data-s="debates" checked> Debate cards (2 pages)</label>
+  <label><input type="checkbox" class="sec" data-s="debates"> Debate cards (2 pages, optional)</label>
   <label><input type="checkbox" id="nocolor"> Save ink (no color blocks)</label>
   <button type="button" onclick="window.print()">Print</button>
 </div>
@@ -79,6 +87,20 @@ body.nocolor .tent .bandn .role,body.nocolor .tent .bandn .sub,body.nocolor .tca
 (function(){
   var m=document.getElementById('pages');
   function page(cls,title,html,sec){ var p=document.createElement('section'); p.className='page '+cls; p.setAttribute('data-sec',sec); p.innerHTML='<div class="ptitle">'+title+'</div>'+html; m.appendChild(p); }
+  // case cards
+  var A2=[
+    ['A2-1','JetBlue (2007)','After an ice storm on Valentine\'s Day 2007, JetBlue passengers were stuck on planes at New York\'s JFK airport for hours. CEO David Neeleman apologized in full-page newspaper ads and an online video, and introduced a "Customer Bill of Rights".'],
+    ['A2-2','Volkswagen (2015)','VW admitted using software that cheated emissions tests in about 11 million diesel cars worldwide. At a US car launch, VW America\'s CEO Michael Horn said: "We have totally screwed up."'],
+    ['A2-3','Starbucks (2018)','Two Black men waiting for a business meeting were arrested in a Philadelphia Starbucks. CEO Kevin Johnson called it a "reprehensible outcome", met the men in person, and closed more than 8,000 US stores for an afternoon of racial-bias training.'],
+    ['A2-4','Southwest Airlines (2022)','Southwest canceled more than 15,000 flights over the December 2022 holidays. CEO Bob Jordan apologized in a letter and offered affected travelers 25,000 frequent-flyer points plus refunds.'],
+    ['A2-5','CrowdStrike (2024)','A faulty CrowdStrike software update crashed about 8.5 million Windows computers worldwide in July 2024. CEO George Kurtz apologized, and the company later sent some partners a $10 Uber Eats gift card.'],
+    ['A2-6','Your own case','A real public apology your team chooses, approved by your teacher. It must have an original statement you can find and reliable reports about what happened next.']
+  ];
+  for(var c=0;c<A2.length;c+=3){
+    var ch='';
+    A2.slice(c,c+3).forEach(function(x){ ch+='<div class="cutbox ccard"><div class="n">Assignment 2 · '+x[0]+'</div><h4>'+x[1]+'</h4><p>'+x[2]+'</p><div class="task">Your task: find the original apology and two reliable reports · score 4A and GAME · find outcome evidence · decide: success, failure or mixed.</div></div>'; });
+    page('cases','A2 case cards · one per team · cut on the dashed lines',ch,'cases');
+  }
   // placards
   var ROLES=[
     ['Expert Witnesses','The presenting team · 5 minutes, then answer every question',false],
@@ -123,11 +145,10 @@ body.nocolor .tent .bandn .role,body.nocolor .tent .bandn .sub,body.nocolor .tca
     page('times','Time cards · hold up during each hearing',h,'times');
   }
   // debate cards
-  var ST=['A company should never apologize before all the facts are known.','Humor has no place in a corporate apology.','An apology without compensation is worthless.','The CEO should always be the one who apologizes.','Apologizing for something you didn\'t cause makes a company look weak.'];
+  var ST=['A company should never apologize before all the facts are known.','Humor has no place in a corporate apology.','An apology without compensation is worthless.','The CEO should always be the one who apologizes.','Apologizing for something you didn\'t cause makes a company look weak.','Social media has made public apologies less sincere.'];
   for(var d=0;d<ST.length;d+=3){
     var hh='';
     ST.slice(d,d+3).forEach(function(s,j){ hh+='<div class="cutbox dcard"><div class="n">Speed debate · statement '+(d+j+1)+'</div><p>'+s+'</p><div class="tip">Line A agrees · Line B disagrees · 45 seconds each · B starts: "That\'s a fair point. However…"</div></div>'; });
-    if(ST.slice(d,d+3).length<3) hh+='<div></div>';
     page('debates','Speed debate statement cards (optional backup to the slides)',hh,'debates');
   }
   function applyVis(){

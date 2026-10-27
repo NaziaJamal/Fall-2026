@@ -1,0 +1,516 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Week 4 Teacher Guide · Strategic Communication</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Public+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0c2340; --navy-2:#143865; --blue:#1c4f8f; --gold:#d39f10; --gold-dark:#8c7535;
+  --sky:#edf2f9; --sky-2:#e1e8f2; --sky-3:#c1cddd; --warm:#efe9d9; --paper:#ffffff;
+  --ink:#1d2b44; --muted:#4f5f78; --line:#cfd9e6;
+  --engage:#1c4f8f; --study:#8c7535; --activate:#0c2340;
+  --key-bg:#eef7ee; --key-line:#2f7a45; --key-ink:#1d4a2b;
+  --serif:'Libre Baskerville', Georgia, serif; --sans:'Public Sans', Arial, sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--sky);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.5}
+a{color:var(--blue)}
+.wrap{max-width:1000px;margin:0 auto;padding:0 20px}
+.masthead{background:var(--navy);color:var(--sky);border-bottom:6px solid var(--gold)}
+.masthead .wrap{display:flex;gap:22px;align-items:center;padding-top:28px;padding-bottom:24px}
+.masthead img{width:84px;height:84px;flex:none;border-radius:6px}
+.eyebrow{margin:0 0 4px;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+.masthead h1{margin:0;font-family:var(--serif);font-size:30px;line-height:1.2;color:#f6f2e7}
+.masthead p{margin:6px 0 0;color:var(--sky-3)}
+.toolbar{position:sticky;top:0;z-index:10;background:var(--navy-2);color:var(--sky);box-shadow:0 2px 8px rgba(12,35,64,.25)}
+.toolbar .wrap{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding-top:8px;padding-bottom:8px}
+.clock{font:700 26px var(--sans);font-variant-numeric:tabular-nums;color:#fff;min-width:86px;text-align:center;background:#0a1c34;border-radius:8px;padding:2px 10px}
+.clock.low{color:var(--gold)}.clock.done{background:var(--gold);color:var(--navy)}
+.btn{font:600 14px var(--sans);border:1px solid #33598c;background:transparent;color:var(--sky);padding:6px 10px;border-radius:8px;cursor:pointer}
+.btn:hover{background:var(--gold);border-color:var(--gold);color:var(--navy)}
+.btn.primary{background:var(--gold);border-color:var(--gold);color:var(--navy)}
+.spacer{flex:1}
+.lbl{font-size:12px;color:var(--sky-3);text-transform:uppercase;letter-spacing:.1em}
+main{padding:24px 0 64px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin-bottom:16px}
+.card h2{font-family:var(--serif);font-size:21px;margin:0 0 10px;color:var(--navy)}
+.card p{margin:0 0 8px}
+.warn{background:#fff4e0;border:1px solid #f0d3a8;border-left:6px solid #c9771a;border-radius:10px;padding:12px 16px;color:#6b3d07;margin-bottom:16px}
+.starttime{display:flex;gap:10px;align-items:center;font-size:14px;color:var(--muted);margin-top:10px}
+input[type=time]{font:16px var(--sans);border:1px solid var(--sky-3);border-radius:8px;padding:6px 8px}
+table.tbl{width:100%;border-collapse:collapse;font-size:15px}
+.tbl th,.tbl td{border:1px solid var(--line);padding:7px 9px;vertical-align:top;text-align:left}
+.tbl th{background:var(--sky-2);color:var(--navy);font-size:13px}
+.tbl td.t{white-space:nowrap;font-variant-numeric:tabular-nums;font-weight:700;color:var(--navy)}
+.scroll{overflow-x:auto}
+.pill{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#fff;padding:3px 8px;border-radius:999px;white-space:nowrap}
+.pill.engage{background:var(--engage)}.pill.study{background:var(--study)}.pill.activate{background:var(--activate)}.pill.break{background:var(--gold);color:var(--navy)}
+.checklist{list-style:none;padding:0;margin:0;display:grid;gap:6px}
+.checklist label{display:flex;gap:10px;align-items:flex-start}.checklist input{margin-top:5px}
+.part-banner{margin:40px 0 0;padding:6px 0;font:700 13px var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--navy);border-bottom:3px solid var(--navy)}
+.stage{margin:16px 0 14px;border-radius:12px;padding:16px 20px;color:#fff;display:flex;flex-wrap:wrap;gap:6px 16px;align-items:baseline;scroll-margin-top:60px}
+.stage .name{font-family:var(--serif);font-size:26px;font-weight:700}
+.stage .seq{font-size:15px;opacity:.92}
+.stage .when{margin-left:auto;font-weight:700;font-variant-numeric:tabular-nums}
+.stage p{flex-basis:100%;margin:4px 0 0;font-size:15px;opacity:.95}
+.stage.engage{background:var(--engage)}.stage.study{background:var(--study)}.stage.activate{background:var(--activate)}.stage.break{background:var(--gold);color:var(--navy)}
+section.box{background:var(--paper);border:1px solid var(--line);border-radius:12px;margin:0 0 16px;overflow:hidden;scroll-margin-top:60px}
+.box > header{display:flex;gap:14px;align-items:center;padding:14px 18px;border-bottom:1px solid var(--line);background:#fbfcfe}
+.bn{flex:none;min-width:48px;height:40px;border-radius:8px;background:var(--navy);color:var(--gold);font:700 16px var(--serif);display:flex;align-items:center;justify-content:center;padding:0 8px}
+.box h2{margin:0;font-family:var(--serif);font-size:20px;line-height:1.3;color:var(--navy)}
+.box .meta{font-size:13px;color:var(--muted);margin-top:2px}
+.box .done{margin-left:auto;display:flex;gap:6px;align-items:center;font-size:13px;color:var(--muted);white-space:nowrap}
+.tag{font-weight:700;text-transform:uppercase;letter-spacing:.08em}
+.tag.engage{color:var(--engage)}.tag.study{color:var(--study)}.tag.activate{color:var(--activate)}
+.inner{padding:16px 18px;display:grid;gap:14px}
+.facts3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.facts3 div{background:var(--sky);border-radius:8px;padding:8px 12px;font-size:14px}
+.facts3 b{display:block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--blue)}
+h3.k{margin:0 0 6px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
+ol.steps{margin:0;padding-left:22px;display:grid;gap:6px}
+.say{display:block;margin-top:4px;padding:6px 12px;border-left:4px solid var(--gold);background:#fffaf0;font-style:italic;border-radius:0 6px 6px 0}
+.timers{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:14px;color:var(--muted)}
+.tbtn{font:600 13px var(--sans);border:1px solid var(--sky-3);background:#fff;color:var(--navy);padding:4px 10px;border-radius:999px;cursor:pointer}
+.tbtn:hover{background:var(--gold);border-color:var(--gold)}
+.key{background:var(--key-bg);border:1px solid #cfe5d4;border-left:6px solid var(--key-line);border-radius:10px;padding:12px 16px;color:var(--key-ink)}
+.key h3.k{color:var(--key-line)}
+.key p{margin:0 0 6px}.key p:last-child{margin:0}
+.key ul{margin:0;padding-left:20px}
+.key .tbl th{background:#dcefe0;color:var(--key-ink)}
+.lang{background:var(--warm);border-radius:10px;padding:12px 16px}
+.lang h3.k{color:var(--gold-dark)}
+.lang p{margin:0 0 4px;font-size:15px}
+.short{font-size:14px;color:var(--muted);border-top:1px dashed var(--line);padding-top:10px}
+.short b{color:var(--gold-dark)}
+.score input{width:100%;font:15px var(--sans);border:1px solid var(--sky-3);border-radius:6px;padding:4px 6px;text-align:center}
+.score input.name{text-align:left}
+.score td.tot{font-weight:700;text-align:center;color:var(--navy);font-variant-numeric:tabular-nums}
+.pcards{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.pcard{border:2px solid var(--navy);border-radius:10px;padding:14px 16px;background:#fff;break-inside:avoid}
+.pcard .c{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-dark)}
+.pcard h4{margin:4px 0;font-size:17px;color:var(--navy)}
+.pcard p,.pcard li{font-size:15px}
+.pcard p{margin:6px 0 0}
+.pcard ul{margin:6px 0 0;padding-left:18px}
+.timecard{border:3px solid var(--navy);border-radius:12px;display:flex;align-items:center;justify-content:center;min-height:160px;font:700 44px var(--serif);color:var(--navy);break-inside:avoid}
+.timecard.stop{background:var(--navy);color:var(--gold)}
+.pagebreak{break-before:page}
+footer{color:var(--muted);font-size:13px;padding:20px 0 40px;text-align:center}
+@media (max-width:720px){
+  .masthead .wrap{flex-direction:column;align-items:flex-start}
+  .facts3,.pcards{grid-template-columns:1fr}
+  .box > header{flex-wrap:wrap}
+}
+@media print{
+  body{background:#fff;font-size:11pt;color:#000}
+  .toolbar,.starttime,.timers,.no-print{display:none !important}
+  .masthead{background:#fff;color:#000;border-bottom:2px solid #000}
+  .masthead h1,.masthead p,.eyebrow{color:#000}
+  .stage{background:#fff !important;color:#000 !important;border:2px solid #000}
+  .bn{background:#fff;color:#000;border:2px solid #000}
+  .pill{background:#fff !important;color:#000 !important;border:1px solid #000}
+  .timecard.stop{background:#fff;color:#000}
+}
+</style>
+
+<style>
+.score input,.score select{width:100%;font:15px var(--sans);border:1px solid var(--sky-3);border-radius:6px;padding:4px 6px;text-align:center}
+.score input.name{text-align:left}
+.score td.tot{font-weight:700;text-align:center;color:var(--navy);font-variant-numeric:tabular-nums}
+.script{background:#fffaf0;border:1px solid #eadfbf;border-radius:10px;padding:12px 16px;font-style:italic}
+.court{display:grid;grid-template-columns:1fr 1.4fr 1fr;gap:8px;text-align:center;font-size:14px;font-weight:700;max-width:640px}
+.court div{border-radius:8px;padding:12px 6px}
+.court .scr{grid-column:1 / span 3;background:#e1e8f2;color:var(--navy)}
+.court .wit{grid-column:2;background:var(--navy);color:#fff}
+.court .opp{grid-column:3;grid-row:2 / span 2;background:#b0451a;color:#fff;display:flex;align-items:center;justify-content:center}
+.court .judge{grid-column:1;grid-row:2 / span 2;background:var(--gold);color:var(--navy);display:flex;align-items:center;justify-content:center}
+.court .jury{grid-column:2;background:#fff;border:2px dashed var(--sky-3);color:var(--muted)}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <img src="data:image/png;base64,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" alt="Approach International Student Center logo">
+    <div>
+      <p class="eyebrow">Strategic Communication · Week 4 · Teacher version</p>
+      <h1>The Apology Tribunal — Teacher Guide</h1>
+      <p>9:00–12:50 · Part A 9:00–10:40 · break 10:40–11:10 · Part B 11:10–12:50 · Assignment 2 launched, researched and presented today</p>
+    </div>
+  </div>
+</header>
+
+<div class="toolbar">
+  <div class="wrap">
+    <span class="lbl">Timer</span>
+    <span class="clock" id="clock">1:00</span>
+    <button class="btn primary" type="button" id="tStart">Start</button>
+    <button class="btn" type="button" id="tReset">Reset</button>
+    <button class="btn" type="button" data-sec="45">45s</button>
+    <button class="btn" type="button" data-sec="60">1 min</button>
+    <button class="btn" type="button" data-sec="180">3 min</button>
+    <button class="btn" type="button" data-sec="300">5 min</button>
+    <button class="btn" type="button" data-sec="600">10 min</button>
+    <span class="spacer"></span>
+    <button class="btn" type="button" onclick="window.print()">Print</button>
+  </div>
+</div>
+
+<main class="wrap">
+
+<div class="warn no-print"><b>Keep this page private.</b> It contains your Assignment 2 scoring sheet and the answer keys. Don't publish it in the same public GitHub repository as the student worksheet.</div>
+
+<div class="card">
+  <h2>Class overview</h2>
+  <div class="scroll"><table class="tbl">
+    <tr><th style="width:26%">Topic</th><td>The Art of the Apology (Classes 3–4, part 2 of 2) · Assignment 2 launched, researched and presented in one class</td></tr>
+    <tr><th>Main objective</th><td>Teams research a real public apology, judge it with GAME and 4A, and deliver and defend an evidence-based verdict (SLOs 7, 10).</td></tr>
+    <tr><th>Communication objective</th><td>Present for 5 minutes, then defend the verdict under 3 minutes of cross-examination; ask effective cross-examination questions as opposing counsel.</td></tr>
+    <tr><th>Language objectives</th><td>Open, closed and leading questions; negative questions and tag questions with falling vs. rising intonation; question chains; conceding, rebutting and refusing a premise; courtroom phrases; reporting verbs (review).</td></tr>
+    <tr><th>Strategic-thinking objective</th><td>Find and weigh evidence quickly; separate short-term from long-term outcomes; find patterns across cases (SLO 3).</td></tr>
+    <tr><th>Key vocabulary</th><td>tribunal · verdict · evidence · witness · cross-examination · leading question · premise · concede · rebut · primary source</td></tr>
+    <tr><th>Materials</th><td>Student worksheet (GitHub link) · <b>study-note.html</b> (cross-examination language) · Week 4 slides · this guide · <b>tribunal-printables.html</b>: A2 case cards, role placards, jury ballots, time cards, debate cards · students' own devices for research</td></tr>
+  </table></div>
+</div>
+
+<div class="card">
+  <h2>What changed from the first Week 4 plan</h2>
+  <ul>
+    <li>Assignment 2 is launched <b>today</b> (it didn't fit into Week 3): case cards, a 30-minute research sprint before the break, and 30 minutes of preparation after it.</li>
+    <li>The old "countdown / sparring" stage is gone. Stages 1–3 are longer (20 minutes each), with a sixth debate statement, a question-chain task, and a second fishbowl round with students as witnesses.</li>
+    <li>"The court is in session" is now a full briefing with roles, rules, procedure, grading and phrases on the students' worksheet (Stage 6).</li>
+    <li>The Verdict Matrix is shortened to 10 minutes; the word-hunt preview of Classes 5–6 is now one line in the exit ticket.</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h2>Run sheet</h2>
+  <div class="scroll"><table class="tbl">
+    <tr><th>Time</th><th>Stage</th><th>Activity</th><th>Slides</th><th>Students produce</th></tr>
+    <tr><td colspan="5" style="background:var(--sky);font-weight:700;letter-spacing:.1em;font-size:13px">PART A · PRACTICE AND RESEARCH</td></tr>
+    <tr><td class="t"><span data-at="0"></span>–<span data-at="20"></span></td><td><span class="pill engage">Engage</span></td><td><a href="#s1">1 · Speed Debate Lines</a> (movement)</td><td>3–4</td><td>Six 45-second arguments with concessions</td></tr>
+    <tr><td class="t"><span data-at="20"></span>–<span data-at="40"></span></td><td><span class="pill study">Study</span></td><td><a href="#s2">2 · The language of cross-examination</a></td><td>5–10</td><td>Question sort; leading questions; concede + rebut; a question chain</td></tr>
+    <tr><td class="t"><span data-at="40"></span>–<span data-at="60"></span></td><td><span class="pill activate">Activate</span></td><td><a href="#s3">3 · Fishbowl: two rounds</a></td><td>11–12</td><td>Live questions; student witnesses; observer checklist</td></tr>
+    <tr><td class="t"><span data-at="60"></span>–<span data-at="100"></span></td><td><span class="pill activate">Activate</span></td><td><a href="#s4">4 · A2 launch · research sprint</a></td><td>13–16</td><td>Case file: facts, quote, 4A, GAME, outcome evidence</td></tr>
+    <tr><td class="t"><span data-at="100"></span>–<span data-at="130"></span></td><td><span class="pill break">Break</span></td><td>Break</td><td>17</td><td>—</td></tr>
+    <tr><td colspan="5" style="background:var(--sky);font-weight:700;letter-spacing:.1em;font-size:13px">PART B · PREPARE AND PERFORM</td></tr>
+    <tr><td class="t"><span data-at="130"></span>–<span data-at="160"></span></td><td><span class="pill activate">Activate</span></td><td><a href="#s5">5 · Prepare for the Tribunal</a></td><td>18</td><td>Finished case file; running order; question arsenal; predicted answers</td></tr>
+    <tr><td class="t"><span data-at="160"></span>–<span data-at="165"></span></td><td><span class="pill engage">Engage</span></td><td><a href="#s6">6 · The court is in session</a></td><td>19–20</td><td>Roles confirmed; rules understood</td></tr>
+    <tr><td class="t"><span data-at="165"></span>–<span data-at="215"></span></td><td><span class="pill activate">Activate</span></td><td><a href="#s7">7 · The Apology Tribunal (A2)</a></td><td>21</td><td>Presentations; cross-examinations; jury ballots</td></tr>
+    <tr><td class="t"><span data-at="215"></span>–<span data-at="225"></span></td><td><span class="pill study">Study</span></td><td><a href="#s8">8 · Verdict Matrix · Our rules</a></td><td>22–23</td><td>Matrix; three class rules</td></tr>
+    <tr><td class="t"><span data-at="225"></span>–<span data-at="230"></span></td><td><span class="pill activate">Reflect</span></td><td><a href="#exit">Exit ticket</a></td><td>24</td><td>Three answers</td></tr>
+  </table></div>
+  <div class="starttime"><label for="start">Class starts at</label><input type="time" id="start" value="09:00" data-f="start"><span>— every time on this page updates to the clock.</span></div>
+</div>
+
+<div class="card">
+  <h2>How this class uses ESA</h2>
+  <p><b>Part A:</b> argue (Engage) → name the question and answer moves (Study) → try them in the fishbowl (Activate) → apply research skills to a real case (Activate). <b>Part B:</b> prepare (Activate) → a short Engage that turns the room into a courtroom → the performance (Activate) → a Study stage that turns the hearings into general rules.</p>
+  <p><b>Discover → React → Question → Name → Practice → Apply:</b> React (1) · Name (2) · Practice (3) · Apply (4, 5, 7) · Name again, at a higher level (8).</p>
+</div>
+
+<div class="card">
+  <h2>Before class</h2>
+  <ul class="checklist">
+    <li><label><input type="checkbox" data-f="prep1"> Post the Week 4 student worksheet and the study note on GitHub Pages.</label></li>
+    <li><label><input type="checkbox" data-f="prep2"> Print from <b>tribunal-printables.html</b>: A2 case cards (one per team), role placards, jury ballots, time cards. Debate cards are optional.</label></li>
+    <li><label><input type="checkbox" data-f="prep3"> Decide the A2 teams (3–4 students, mixed level), each team's case, and the pairings (who cross-examines whom: Team 1 ⇄ Team 2, Team 3 ⇄ Team 4, and so on). With an odd number of teams, use a triangle: 1 questions 2, 2 questions 3, 3 questions 1.</label></li>
+    <li><label><input type="checkbox" data-f="prep4"> Type the hearing order, cases and opponents into the docket on slide 21.</label></li>
+    <li><label><input type="checkbox" data-f="prep5"> Rehearse your 60-second Domino's verdict for the fishbowl (Stage 3).</label></li>
+    <li><label><input type="checkbox" data-f="prep6"> Check that students' devices can open news sites from the classroom network.</label></li>
+  </ul>
+</div>
+
+<!-- =========================== PART A =========================== -->
+<div class="part-banner">Part A · Practice and research</div>
+
+<section class="box" id="s1">
+  <header><div class="bn">1</div><div><h2>Stage 1 · Speed Debate Lines</h2><div class="meta"><span class="tag engage">Engage · React</span> · <span data-at="0"></span>–<span data-at="20"></span> · 20 min</div></div><label class="done no-print"><input type="checkbox" data-f="d1"> Done</label></header>
+  <div class="inner">
+    <div class="facts3"><div><b>Grouping</b>Two facing lines (odd number: you join a line)</div><div><b>Rhythm</b>Set-up 3 · 6 rounds × 2 min · debrief 5</div><div><b>Output</b>Six arguments, each answer opening with a concession</div></div>
+    <div class="timers no-print">Timers: <button class="tbtn" data-sec="45">45 s turn</button></div>
+    <ol class="steps">
+      <li><span class="say">"Two lines, facing each other. Line A agrees with the statement, Line B disagrees — whatever you really think. A speaks for 45 seconds; B answers for 45 seconds, starting with 'That's a fair point. However…'"</span> Model one concession before round 1.</li>
+      <li>Show each statement on slide 4 (Next statement). After each round, Line B moves one place left. The side labels on the slide swap automatically after rounds 2 and 4.</li>
+      <li><b>Debrief (5 min):</b> <span class="say">"Which statement was hardest to argue? Did arguing the other side change your mind? Who used a case from last week as evidence?"</span></li>
+    </ol>
+    <div class="key"><h3 class="k">Listen for</h3><ul>
+      <li>Answers that skip the concession. Model it: "That's a fair point — speed matters. However, a fast apology with wrong facts is worse than a slower, accurate one."</li>
+      <li>Good use of Week 3 evidence (KFC for humor, Tylenol for "not your fault", Domino's for speed). Praise it publicly: that's what the Tribunal needs.</li>
+    </ul></div>
+  </div>
+</section>
+
+<section class="box" id="s2">
+  <header><div class="bn">2</div><div><h2>Stage 2 · The Language of Cross-Examination</h2><div class="meta"><span class="tag study">Study · Name → Practice</span> · <span data-at="20"></span>–<span data-at="40"></span> · 20 min</div></div><label class="done no-print"><input type="checkbox" data-f="d2"> Done</label></header>
+  <div class="inner">
+    <div class="facts3"><div><b>Grouping</b>Pairs → class</div><div><b>Rhythm</b>Sort 4 · tags 3 · leading 4 · concede/rebut 4 · question chain 5</div><div><b>Output</b>Sorted questions; leading questions; a two-sentence answer; a 3-question chain</div></div>
+    <div class="timers no-print">Timers: <button class="tbtn" data-sec="240">4 min</button><button class="tbtn" data-sec="300">5 min</button></div>
+    <ol class="steps">
+      <li><b>Slide 5 (4 min):</b> pairs sort eight questions; click each to reveal the type. <span class="say">"Which type is best for cross-examination? Why?"</span></li>
+      <li><b>Slide 6 (3 min):</b> tag questions, falling vs. rising. Choral drill of the falling version.</li>
+      <li><b>Slide 7 (4 min):</b> turn closed questions into leading ones.</li>
+      <li><b>Slides 8–9 (4 min):</b> concede, rebut, refuse the premise; pairs answer the practice question; two pairs perform.</li>
+      <li><b>Slide 10 (5 min):</b> question chains. Model the example, then pairs write a chain against "Domino's was a success". They use it in the fishbowl.</li>
+      <li>Point students to the <b>study note</b> for the full explanation and the self-check.</li>
+    </ol>
+    <div class="key"><h3 class="k">Key</h3>
+      <p><b>Question sort:</b> 1 open · 2 closed · 3 leading · 4 open · 5 leading · 6 closed · 7 leading · 8 open.</p>
+      <p><b>Tags:</b> falling ↘ = "I'm sure; agree with me" · rising ↗ = a genuine question.</p>
+      <p><b>Leading versions:</b> "The CEO didn't apologize on the first day, did he?" · "Isn't it true that sales fell after the apology?" · "Wouldn't you agree that there was no compensation at all?"</p>
+      <p><b>Concede + rebut:</b> "That's true: the apology came after the video spread. However, it came within about two days, on the same channel, and the actions that followed rebuilt trust."</p>
+      <p><b>Sample chain (Domino's):</b> "The video was online for about two days before the president responded, correct?" → "And in those days, surveys showed Domino's reputation turned negative, didn't they?" → "So the apology didn't stop the damage, did it?"</p>
+    </div>
+  </div>
+</section>
+
+<section class="box" id="s3">
+  <header><div class="bn">3</div><div><h2>Stage 3 · Fishbowl: Two Rounds</h2><div class="meta"><span class="tag activate">Activate · Practice</span> · <span data-at="40"></span>–<span data-at="60"></span> · 20 min</div></div><label class="done no-print"><input type="checkbox" data-f="d3"> Done</label></header>
+  <div class="inner">
+    <div class="facts3"><div><b>Set-up</b>1 witness chair (2 in round 2) facing 4 chairs in a half-circle + 1 empty chair; everyone else in an outer ring</div><div><b>Rhythm</b>Set-up 2 · round 1: verdict 1 + questions 3 · feedback 2 · round 2: prep 2 + verdict 1 + questions 3 · debrief 5</div><div><b>Output</b>Live questions; observer checklists</div></div>
+    <div class="timers no-print">Timers: <button class="tbtn" data-sec="180">3 min</button><button class="tbtn" data-sec="120">2 min</button></div>
+    <ol class="steps">
+      <li><b>Set up (2 min).</b> If desks can't move: your chair at the front, four chairs facing you in the first row, everyone else at their desks.</li>
+      <li><b>Round 1 · you are the witness.</b> Deliver the 60-second verdict below. Four volunteers cross-examine for 3 minutes using their question chains. Outer students can tap a shoulder to swap in, or sit in the empty chair for one question. Concede once, refuse one premise, and give one deliberately bad, defensive answer.</li>
+      <li><b>Feedback (2 min):</b> <span class="say">"What did I do well? Where did I fail?"</span></li>
+      <li><b>Round 2 · students are the witnesses.</b> Two volunteers take the witness chairs and defend <b>"The Domino's apology was a failure"</b> (2 minutes to prepare with the outer circle's help, a 60-second verdict). Four new volunteers cross-examine for 3 minutes.</li>
+      <li><b>Debrief (5 min):</b> observers share the best question and the best answer from each round.</li>
+    </ol>
+    <div class="script"><b>Your 60-second verdict:</b> "Our case is Domino's, April 2009. Two employees at a franchise in North Carolina posted a video of themselves mishandling food. Within about two days, Patrick Doyle, president of Domino's USA, posted his own apology on YouTube, with the same title and tags so people searching for the prank would find it. On 4A: he acknowledged what happened and said the store had been closed and sanitized; he apologized; and he acted: the employees were fired and charged, and the company reviewed its hiring. Then, in December 2009, Domino's went further and admitted in its 'Pizza Turnaround' ads that customers thought its pizza was bad, and changed the recipe. In the first three months of 2010, same-store sales rose 14.3%. Our verdict: success."</div>
+    <div class="key"><h3 class="k">Expect these questions · model answers</h3><ul>
+      <li><b>"Isn't it true that Domino's reputation turned negative within days?"</b> → "Yes, in the short term. That's why we call the apology a first step. Our verdict rests on the long-term evidence."</li>
+      <li><b>"Didn't he blame 'two individuals' instead of accepting responsibility?"</b> → "That's a fair point; Accept is his weakest A. However, the company really didn't make the video, and it still acted."</li>
+      <li><b>"Wasn't the recipe change already planned before the prank?"</b> → Concede honestly: "Yes; the marketing chief had started that work in 2008. But it shows the same strategy: admit the problem and fix it."</li>
+      <li><b>"Can you prove the apology caused the sales increase?"</b> → "No, and we don't claim that." Afterwards: admitting a limit made the witness more credible.</li>
+      <li><b>Round 2 witnesses (failure)</b> should use: reputation turned negative within days; about 50% sales drops reported at some franchises near Charlotte; "isolated" and "two individuals" as weak Accept.</li>
+    </ul>
+    <p style="margin-top:8px"><b>Sources:</b> <a href="https://time.com/archive/6914398/dominos-youtube-crisis-5-ways-to-fight-back/" target="_blank" rel="noopener">TIME, 18 April 2009</a> · <a href="https://instituteforpr.org/wp-content/uploads/https___page.org_wp-content_uploads_2023_11_Dominos_Special_Delivery_B.pdf" target="_blank" rel="noopener">Domino's case study (page.org, via Institute for PR)</a> · <a href="https://business.columbia.edu/insights/brand-talk/dominos-wins-eating-little-humble-pie" target="_blank" rel="noopener">Columbia Business School</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="box" id="s4">
+  <header><div class="bn">4</div><div><h2>Stage 4 · Assignment 2 Launch · Research Sprint</h2><div class="meta"><span class="tag activate">Activate · Apply</span> · <span data-at="60"></span>–<span data-at="100"></span> · 40 min</div></div><label class="done no-print"><input type="checkbox" data-f="d4"> Done</label></header>
+  <div class="inner">
+    <div class="facts3"><div><b>Grouping</b>A2 teams of 3–4 (new mixes)</div><div><b>Rhythm</b>Brief 4 · cases and pairings 2 · research rules 2 · sprint 32</div><div><b>Output</b>Case file with sources (to be finished after the break)</div></div>
+    <div class="timers no-print">Timers: <button class="tbtn" data-sec="1920">32 min sprint</button></div>
+    <ol class="steps">
+      <li><b>Slide 13 · Brief (4 min).</b> <span class="say">"Last week you audited four famous apologies at the stations, and you heard the names of some of today's cases. Now each team gets one case to investigate in detail. After the break, you present your verdict to the Tribunal, and another team cross-examines you."</span> Show the format and the rubric.</li>
+      <li><b>Slide 14 · Cases and pairings (2 min).</b> Give each team a printed case card and read out the pairings. Students record their case, their opposing team and the team they will question.</li>
+      <li><b>Slide 15 · Research rules (2 min).</b> Original apology first; two reliable reports; a source for every number. If Week 3's "Investigate like a journalist" stage was skipped too, spend 2 extra minutes on the source ladder here.</li>
+      <li><b>Slide 16 · Research sprint (32 min).</b> <span class="say">"Split the work: one person finds the original apology, one finds what happened, one finds the outcome."</span> Visit every team twice: at about 10 minutes, <span class="say">"Have you found the original apology?"</span>; at about 25 minutes, <span class="say">"What's your best outcome fact, and where is it from?"</span></li>
+      <li>Remind them: <span class="say">"You have 12 more minutes after the break, so get facts and sources now."</span></li>
+    </ol>
+    <div class="key"><h3 class="k">A2 case bank · starter sources for you</h3>
+      <div class="scroll"><table class="tbl">
+        <tr><th style="width:16%">Case</th><th>Key facts to expect</th><th style="width:30%">Starter sources</th></tr>
+        <tr><td><b>A2-1 JetBlue 2007</b></td><td>Valentine's Day ice storm; passengers stuck on planes at JFK for up to 8 hours; apology ads ("We are sorry and embarrassed") and an online video; Customer Bill of Rights issued 21 February 2007.</td><td><a href="https://www.library.hbs.edu/working-knowledge/jetblues-valentines-day-crisis" target="_blank" rel="noopener">Harvard Business School</a> · <a href="https://cbsnews.com/news/jetblue-goes-on-the-apology-offensive" target="_blank" rel="noopener">CBS News</a> · <a href="https://money.cnn.com/2007/02/19/news/companies/jetblue/index.htm?cnn=yes" target="_blank" rel="noopener">CNN Money</a></td></tr>
+        <tr><td><b>A2-2 Volkswagen 2015</b></td><td>Cheating software in about 11 million diesel cars; Michael Horn: "We have totally screwed up"; in Congress he said "a couple of software engineers" were responsible and "This was not a corporate decision".</td><td><a href="https://www.nbcnews.com/news/us-news/volkswagen-u-s-boss-admits-we-have-totally-screwed-up-probe-n431406" target="_blank" rel="noopener">NBC News</a> · <a href="https://www.npr.org/sections/thetwo-way/2015/10/08/446861855/volkswagen-u-s-ceo-faces-questions-on-capitol-hill" target="_blank" rel="noopener">NPR</a> · <a href="https://autos.yahoo.com/vw-boss-famously-apologized-america-left-company-212628841.html" target="_blank" rel="noopener">Autoblog via Yahoo</a></td></tr>
+        <tr><td><b>A2-3 Starbucks 2018</b></td><td>Arrests on 12 April 2018; Kevin Johnson's statement ("reprehensible outcome"); met the men in person; more than 8,000 US stores closed on the afternoon of 29 May 2018 for racial-bias training.</td><td><a href="https://www.fox6now.com/news/reprehensible-outcome-starbucks-ceo-apologizes-after-2-black-men-arrested-in-incident-caught-on-camera" target="_blank" rel="noopener">FOX6</a> · <a href="https://abc7ny.com/philadelphia-starbucks-arrests-restroom-demonstration-protest/3356025/" target="_blank" rel="noopener">ABC7 New York</a></td></tr>
+        <tr><td><b>A2-4 Southwest 2022</b></td><td>More than 15,000 flights canceled, 22–30 December 2022; Bob Jordan's letter ("no amount of apologies can undo your experience"); 25,000 points for affected travelers.</td><td><a href="https://www.npr.org/2023/01/04/1146865858/southwest-airlines-apologizes-and-then-gives-its-customers-frequent-flyer-points" target="_blank" rel="noopener">NPR</a></td></tr>
+        <tr><td><b>A2-5 CrowdStrike 2024</b></td><td>Faulty update on 19 July 2024; about 8.5 million Windows devices crashed; Kurtz's apology; the $10 Uber Eats gift card, which some recipients found had been canceled.</td><td><a href="https://techcrunch.com/2024/07/24/crowdstrike-offers-a-10-apology-gift-card-to-say-sorry-for-outage" target="_blank" rel="noopener">TechCrunch</a></td></tr>
+      </table></div>
+      <p style="margin-top:8px"><b>Sensitivity:</b> A2-3 involves racial profiling. Give it to a team you trust to discuss it with care, and remind the class that the analysis is about the company's communication. <b>Own cases (A2-6):</b> approve only if the team can find the original statement within 5 minutes.</p>
+    </div>
+  </div>
+</section>
+
+<div class="stage break"><span class="name">BREAK</span><span class="seq">30 minutes</span><span class="when"><span data-at="100"></span>–<span data-at="130"></span></span><p>During the break: set up the courtroom (see Stage 6) so that Part B can move straight from preparation to the hearings.</p></div>
+
+<!-- =========================== PART B =========================== -->
+<div class="part-banner">Part B · Prepare and perform</div>
+
+<section class="box" id="s5">
+  <header><div class="bn">5</div><div><h2>Stage 5 · Prepare for the Tribunal</h2><div class="meta"><span class="tag activate">Activate · Apply</span> · <span data-at="130"></span>–<span data-at="160"></span> · 30 min</div></div><label class="done no-print"><input type="checkbox" data-f="d5"> Done</label></header>
+  <div class="inner">
+    <div class="facts3"><div><b>Grouping</b>A2 teams (sitting in their courtroom seats)</div><div><b>Rhythm</b>Finish 12 · plan 8 · opposing counsel 10</div><div><b>Output</b>Finished case file; running order; 5 questions; 3 predicted answers</div></div>
+    <div class="timers no-print">Timers: <button class="tbtn" data-sec="720">12 min</button><button class="tbtn" data-sec="480">8 min</button><button class="tbtn" data-sec="600">10 min</button></div>
+    <ol class="steps">
+      <li><b>Finish (12 min).</b> Teams complete the case file and tick the evidence locker. <span class="say">"If you can't find a source for a number, don't use the number."</span></li>
+      <li><b>Plan (8 min).</b> Teams fill in the running order (every member speaks) and say their opening sentence and verdict out loud once. Key words only, no scripts.</li>
+      <li><b>Opposing counsel (10 min).</b> Teams read the case card of the team they will question and look up one or two facts. They write five questions (mostly leading, one chain) and predict the three hardest questions they will face.</li>
+    </ol>
+    <div class="key"><h3 class="k">Quick fixes while you circulate</h3><ul>
+      <li><b>No original source:</b> send them to the company's newsroom or the earliest report that quotes the statement.</li>
+      <li><b>Verdict based on feelings ("it felt fake"):</b> ask for one number or one consequence that proves it.</li>
+      <li><b>One student doing everything:</b> reassign the running order now.</li>
+      <li><b>Weak questions:</b> turn open questions into leading ones; use the case card's numbers.</li>
+    </ul></div>
+  </div>
+</section>
+
+<section class="box" id="s6">
+  <header><div class="bn">6</div><div><h2>Stage 6 · The Court Is in Session</h2><div class="meta"><span class="tag engage">Engage</span> · <span data-at="160"></span>–<span data-at="165"></span> · 5 min (+ room set-up during the break)</div></div><label class="done no-print"><input type="checkbox" data-f="d6"> Done</label></header>
+  <div class="inner">
+    <div class="facts3"><div><b>Purpose</b>Everyone knows exactly what to do before the first hearing starts</div><div><b>Students see</b>Worksheet Stage 6: layout, roles, procedure, rules, grading, "my roles", courtroom phrases</div><div><b>Slides</b>19 (courtroom and roles) · 20 (procedure and rules)</div></div>
+    <h3 class="k">1 · Set up the room (during the break)</h3>
+    <div class="court" aria-label="Courtroom layout">
+      <div class="scr">Screen: docket and phase timer (slide 21)</div>
+      <div class="judge">Judge<br>(you, with this guide's scoring sheet)</div>
+      <div class="wit">Expert witnesses<br>front table, facing the jury</div>
+      <div class="opp">Opposing counsel<br>side table, angled toward the witnesses</div>
+      <div class="jury">Jury rows · everyone else, facing the front</div>
+    </div>
+    <ul style="margin-top:10px">
+      <li>Put the <b>Expert Witnesses</b> placard on the front table and the <b>Opposing Counsel</b> placard on the side table; the <b>Judge</b> placard at your seat.</li>
+      <li>Leave 3–4 chairs at each table; teams move there only for their own hearing and then return to the jury rows.</li>
+      <li>Place a pile of jury ballots on each row (or students use the worksheet).</li>
+      <li>Have the time cards (5:00, 1 MINUTE, STOP, 3:00) at your seat.</li>
+    </ul>
+    <h3 class="k">2 · The 5-minute briefing (slides 19–20)</h3>
+    <ol class="steps">
+      <li><b>Call order (30 s).</b> <span class="say">"The court is now in session. Everyone open Stage 6 on your worksheet."</span> A firm, formal tone helps; students enjoy the role-play.</li>
+      <li><b>Roles (1.5 min, slide 19).</b> <span class="say">"The expert witnesses present their verdict for five minutes. Opposing counsel argue the opposite verdict, but only through questions — no speeches. Everyone else is the jury: you listen in silence and fill in a ballot after each hearing. I am the judge: I keep time, keep order, and grade."</span></li>
+      <li><b>Procedure (1 min, slide 20).</b> Walk through one hearing: <span class="say">"Thirty seconds to sit down. Five minutes of presentation; I show '1 MINUTE' at four minutes and 'STOP' at five. Three minutes of cross-examination. Then one minute of silence while the jury fills in ballots."</span></li>
+      <li><b>Rules (1 min).</b> Read the five rules aloud. Stress two: <span class="say">"Every presenter answers at least one question — that's part of your individual grade. And when you see STOP, finish your sentence and stop."</span></li>
+      <li><b>My roles (30 s).</b> Read out the docket: who presents in which hearing and who questions them. Students write their hearing numbers in "My roles today".</li>
+      <li><b>Award (30 s).</b> <span class="say">"After the last hearing, the team the jury found most persuasive wins Most Persuasive Case. It doesn't change your grade — but it's yours for the week."</span></li>
+    </ol>
+    <div class="key"><h3 class="k">Check before you start hearing 1</h3><ul>
+      <li>Every student can tell you their hearing number for presenting and for questioning.</li>
+      <li>The first two teams are at the front and side tables with their notes.</li>
+      <li>The docket on slide 21 shows hearing 1 highlighted; your scoring sheet is open.</li>
+    </ul></div>
+  </div>
+</section>
+
+<section class="box" id="s7">
+  <header><div class="bn">7</div><div><h2>Stage 7 · The Apology Tribunal (Assignment 2)</h2><div class="meta"><span class="tag activate">Activate · Apply</span> · <span data-at="165"></span>–<span data-at="215"></span> · 50 min</div></div><label class="done no-print"><input type="checkbox" data-f="d7"> Done</label></header>
+  <div class="inner">
+    <div class="facts3"><div><b>Format</b>30 s seats · 5 min presentation · 3 min cross-examination · 1 min ballots</div><div><b>Fits</b>5 teams in 50 min · 4 teams leaves 10 min to spare · 6 teams: 4 + 2 + 1</div><div><b>Output</b>Graded presentations; jury ballots</div></div>
+    <ol class="steps">
+      <li>On slide 21, click the current hearing, then <b>Presentation 5:00</b> → <b>Cross-exam 3:00</b> → <b>Ballots 1:00</b>, then <b>Next hearing</b>. Show the 1 MINUTE and STOP cards as well.</li>
+      <li>Score the team criteria during the presentation and the individual criteria during cross-examination (sheet below).</li>
+      <li>If opposing counsel runs out of questions, ask one yourself, aimed at a student who hasn't answered yet. If someone starts a speech: <span class="say">"Your question, please?"</span></li>
+      <li><b>Most Persuasive Case (2 min, after the last hearing):</b> for each team, <span class="say">"Hands up if you gave this team a 4 or 5."</span> Count and announce the winner with one sentence of reason.</li>
+    </ol>
+    <div class="key"><h3 class="k">Judge's notes · what separates the scores</h3><ul>
+      <li><b>Top teams</b> quote the original apology, score each A with evidence, separate short- and long-term outcomes, and concede a fair point without dropping their verdict.</li>
+      <li><b>Middle teams</b> describe the case well but judge from impressions or use one source.</li>
+      <li><b>Be realistic about research time:</b> teams had about 45 minutes. Reward accurate, well-sourced basics over ambitious claims.</li>
+    </ul></div>
+  </div>
+</section>
+
+<div class="card" id="scoring">
+  <h2>Assignment 2 scoring sheet <span class="no-print" style="font:400 14px var(--sans);color:var(--muted)">(saves on this device)</span></h2>
+  <div class="scroll"><table class="tbl score" id="teamscore">
+    <tr><th style="width:24%">Team · case</th><th>Case + sources /2</th><th>4A audit /4</th><th>GAME /2</th><th>Verdict + evidence /3</th><th>Team /11</th><th style="width:22%">Notes</th></tr>
+  </table></div>
+  <h3 class="k" style="margin-top:14px">Individual points</h3>
+  <div class="scroll"><table class="tbl score" id="indscore">
+    <tr><th style="width:24%">Student</th><th>Team</th><th>Delivery /2</th><th>Cross-exam /2</th><th>Team /11</th><th>Total /15</th></tr>
+  </table></div>
+  <p class="note" style="margin-top:8px">Rubric: case and sources 2 · 4A audit 4 · GAME 2 · verdict and evidence 3 · delivery 2 (individual) · cross-examination 2 (individual). Students see the same rubric in Stage 6 of their worksheet.</p>
+</div>
+
+<section class="box" id="s8">
+  <header><div class="bn">8</div><div><h2>Stage 8 · Verdict Matrix · Our Rules of Apology</h2><div class="meta"><span class="tag study">Study · Name</span> · <span data-at="215"></span>–<span data-at="225"></span> · 10 min</div></div><label class="done no-print"><input type="checkbox" data-f="d8"> Done</label></header>
+  <div class="inner">
+    <ol class="steps">
+      <li><b>Slide 22 (5 min):</b> one spokesperson per team gives verdict, strongest A, weakest A and key outcome in one breath each; type them into the slide. Ask: <span class="say">"What pattern do you see?"</span></li>
+      <li><b>Slide 23 (5 min):</b> three teams each propose one rule starting with a verb; type them in. <span class="say">"We'll add to these rules after the next blocks and use them in the War Room in Class 11."</span></li>
+    </ol>
+    <div class="key"><h3 class="k">Patterns students usually find · sample rules</h3><ul>
+      <li><b>Most often missed:</b> Accept (blaming "a couple of software engineers", a supplier, or "isolated" individuals) and a specific Act.</li>
+      <li><b>Long-term successes</b> made a costly, visible change: a Customer Bill of Rights, store closures for training, a recall.</li>
+      <li><b>Compensation must match the harm:</b> CrowdStrike's $10 gift card is the class's favorite counterexample.</li>
+      <li><b>Sample rules:</b> "Name the harm in the first sentence." · "Take responsibility before you explain." · "Act visibly, with a date."</li>
+    </ul></div>
+  </div>
+</section>
+
+<section class="box" id="exit">
+  <header><div class="bn">✓</div><div><h2>Exit Ticket and Class 5 Bridge</h2><div class="meta"><span class="tag activate">Reflect</span> · <span data-at="225"></span>–<span data-at="230"></span> · 5 min</div></div><label class="done no-print"><input type="checkbox" data-f="dexit"> Done</label></header>
+  <div class="inner">
+    <ol class="steps">
+      <li>Students complete the exit ticket and download their answers.</li>
+      <li><span class="say">"Classes 5 and 6: When Words Are Weapons — how a single word does the persuading. The midterm is at the end of Class 6 and covers Classes 1 to 6. Before next class, notice one ad, headline or post that tries to make you afraid or make you want something."</span></li>
+    </ol>
+    <div class="key"><h3 class="k">Checkpoint · objective achieved if…</h3><ul>
+      <li>Every team quoted its original apology and named at least two sources.</li>
+      <li>Every student answered at least one cross-examination question.</li>
+      <li>Exit question 3 averages higher than the Week 2 exit ticket (same question).</li>
+    </ul></div>
+  </div>
+</section>
+
+<div class="card">
+  <h2>Differentiation</h2>
+  <table class="tbl">
+    <tr><th style="width:24%">Learner</th><th>What to do</th></tr>
+    <tr><td>Needs more language support</td><td>In research, they own "what happened" (dates, facts). In the presentation, they give "the apology itself" (quotable). Agree in advance which predicted question they will answer; as opposing counsel, they read a prepared leading question.</td></tr>
+    <tr><td>Stronger / needs challenge</td><td>A witness chair in fishbowl round 2. In research, they own the outcome evidence. In cross-examination, ask them the judge's follow-up question.</td></tr>
+    <tr><td>Quieter students</td><td>The empty fifth chair in the fishbowl lets them ask one question without being "on stage". In the Tribunal, agree with them which topic they will answer.</td></tr>
+    <tr><td>Students who dominate</td><td>Rule: once you've answered, the next answer comes from a teammate. Make them the team's timekeeper in Stage 5.</td></tr>
+  </table>
+</div>
+
+</main>
+<footer>Strategic Communication · Approach International Student Center · Week 4 · Teacher use only</footer>
+
+<script>
+(function(){
+  var ts=document.getElementById('teamscore'), is=document.getElementById('indscore');
+  for(var i=1;i<=6;i++){
+    ts.insertAdjacentHTML('beforeend','<tr><td><input class="name" data-f="ts'+i+'_n" aria-label="Team '+i+' name"></td><td><input type="number" min="0" max="2" step="0.5" data-f="ts'+i+'_a" aria-label="Team '+i+' case and sources"></td><td><input type="number" min="0" max="4" step="0.5" data-f="ts'+i+'_b" aria-label="Team '+i+' 4A"></td><td><input type="number" min="0" max="2" step="0.5" data-f="ts'+i+'_c" aria-label="Team '+i+' GAME"></td><td><input type="number" min="0" max="3" step="0.5" data-f="ts'+i+'_d" aria-label="Team '+i+' verdict"></td><td class="tot" id="tt'+i+'">–</td><td><input class="name" data-f="ts'+i+'_note" aria-label="Team '+i+' notes"></td></tr>');
+  }
+  for(var j=1;j<=20;j++){
+    is.insertAdjacentHTML('beforeend','<tr><td><input class="name" data-f="is'+j+'_n" aria-label="Student '+j+' name"></td><td><select data-f="is'+j+'_t" aria-label="Student '+j+' team"><option></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select></td><td><input type="number" min="0" max="2" step="0.5" data-f="is'+j+'_d" aria-label="Student '+j+' delivery"></td><td><input type="number" min="0" max="2" step="0.5" data-f="is'+j+'_q" aria-label="Student '+j+' cross-exam"></td><td class="tot" id="it'+j+'">–</td><td class="tot" id="itot'+j+'">–</td></tr>');
+  }
+  var KEY='sc-week4-teacher-v1', store={};
+  try{ store=JSON.parse(localStorage.getItem(KEY)||'{}')||{}; }catch(e){}
+  function persist(){ try{ localStorage.setItem(KEY, JSON.stringify(store)); }catch(e){} }
+  function num(k){ var v=parseFloat(store[k]); return isNaN(v)?null:v; }
+  function recalc(){
+    var team={};
+    for(var i=1;i<=6;i++){
+      var parts=['a','b','c','d'].map(function(x){return num('ts'+i+'_'+x);});
+      var t=parts.every(function(v){return v===null;})?null:parts.reduce(function(s,v){return s+(v||0);},0);
+      team[i]=t; document.getElementById('tt'+i).textContent=t===null?'–':t;
+    }
+    for(var j=1;j<=20;j++){
+      var tm=store['is'+j+'_t'], tv=tm?team[tm]:null, d=num('is'+j+'_d'), q=num('is'+j+'_q');
+      document.getElementById('it'+j).textContent=(tv===null||tv===undefined)?'–':tv;
+      document.getElementById('itot'+j).textContent=(d===null&&q===null&&(tv===null||tv===undefined))?'–':((tv||0)+(d||0)+(q||0));
+    }
+  }
+  document.querySelectorAll('[data-f]').forEach(function(el){
+    var k=el.getAttribute('data-f');
+    if(store.hasOwnProperty(k)){ if(el.type==='checkbox') el.checked=!!store[k]; else el.value=store[k]; }
+    var h=function(){ store[k]=(el.type==='checkbox')?el.checked:el.value; persist(); if(k==='start') updateTimes(); recalc(); };
+    el.addEventListener('change',h); el.addEventListener('input',h);
+  });
+  recalc();
+  function updateTimes(){
+    var s=document.getElementById('start').value, base=null;
+    if(/^\d{2}:\d{2}$/.test(s)){ var p=s.split(':'); base=(+p[0])*60+(+p[1]); }
+    document.querySelectorAll('[data-at]').forEach(function(el){
+      var m=+el.getAttribute('data-at');
+      if(base===null){ el.textContent=Math.floor(m/60)+':'+String(m%60).padStart(2,'0'); }
+      else{ var t=(base+m)%1440, h=Math.floor(t/60), mm=t%60; el.textContent=(((h+11)%12)+1)+':'+String(mm).padStart(2,'0'); }
+    });
+  }
+  updateTimes();
+  var clock=document.getElementById('clock'), startBtn=document.getElementById('tStart');
+  var total=60, left=60, running=false, iv=null, endAt=0;
+  function show(){ var s=Math.max(0,Math.ceil(left)); clock.textContent=Math.floor(s/60)+':'+String(s%60).padStart(2,'0'); clock.classList.toggle('low', s>0&&s<=10); clock.classList.toggle('done', s===0); }
+  function beep(){ try{ var c=new (window.AudioContext||window.webkitAudioContext)(), o=c.createOscillator(), g=c.createGain(); o.frequency.value=880; o.connect(g); g.connect(c.destination); g.gain.setValueAtTime(.25,c.currentTime); o.start(); o.stop(c.currentTime+.6); }catch(e){} }
+  function tick(){ left=(endAt-Date.now())/1000; if(left<=0){ left=0; stop(); beep(); } show(); }
+  function start(){ if(left<=0) left=total; endAt=Date.now()+left*1000; running=true; startBtn.textContent='Pause'; iv=setInterval(tick,200); }
+  function stop(){ running=false; startBtn.textContent='Start'; clearInterval(iv); }
+  function set(sec){ stop(); total=sec; left=sec; show(); }
+  startBtn.addEventListener('click',function(){ running?stop():start(); });
+  document.getElementById('tReset').addEventListener('click',function(){ set(total); });
+  document.querySelectorAll('[data-sec]').forEach(function(b){ b.addEventListener('click',function(){ set(+b.getAttribute('data-sec')); start(); }); });
+  set(60);
+})();
+</script>
+</body>
+</html>
