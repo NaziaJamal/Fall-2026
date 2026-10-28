@@ -1,0 +1,613 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Week 4 Teacher Guide · Ethics in a Global World</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#143865;--blue:#1c4f8f;--gold:#d39f10;--gold-d:#8c7535;--sky:#c1cddd;--sky2:#e1e8f2;--sky3:#edf2f9;--cream:#efe9d9;--ink:#1a2233;--muted:#4a5568;--bg:#fbfaf6}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Source Sans 3",system-ui,sans-serif;color:var(--ink);background:var(--bg);font-size:16.5px;line-height:1.55}
+header.top{background:var(--navy);color:#fff;border-bottom:4px solid var(--gold)}
+.top .in{max-width:1180px;margin:0 auto;padding:18px 16px 20px;display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.top img{width:56px;height:56px;border-radius:8px;flex:none}
+.top .w{font-family:"Libre Baskerville",serif;color:var(--gold);letter-spacing:.12em;font-size:16px;line-height:1.1;flex:none}
+.top .w small{display:block;letter-spacing:.02em;font-size:10px;color:#e6d8a8}
+.top .grow{flex:1;min-width:220px}
+.top h1{font-family:"Libre Baskerville",serif;margin:0;font-size:clamp(19px,3.6vw,26px);line-height:1.2}
+.top p{margin:3px 0 0;color:var(--sky);font-size:14.5px}
+.btn{display:inline-block;background:var(--gold);color:var(--navy);border:0;border-radius:6px;padding:8px 14px;font:inherit;font-weight:700;font-size:14px;cursor:pointer;text-decoration:none}
+.btn.ghost{background:transparent;color:#fff;border:1px solid var(--sky)}
+.layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:230px 1fr;gap:28px;padding:0 16px}
+.toc{position:sticky;top:0;align-self:start;max-height:100vh;overflow:auto;padding:22px 0;font-size:14px}
+.toc b{display:block;margin:14px 0 4px;color:var(--gold-d);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.toc a{display:block;color:var(--navy);text-decoration:none;padding:2px 0}
+.toc a:hover{text-decoration:underline}
+main{padding:10px 0 60px;min-width:0}
+section{padding-top:8px}
+h2{font-family:"Libre Baskerville",serif;color:var(--navy);font-size:24px;margin:34px 0 10px;padding-bottom:6px;border-bottom:3px solid var(--gold)}
+h3{font-family:"Libre Baskerville",serif;color:var(--navy);font-size:19px;margin:28px 0 8px}
+h4{margin:18px 0 6px;color:var(--blue);font-size:16.5px}
+.lead{font-size:18.5px;color:var(--navy)}
+.meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin:14px 0}
+.meta>div{background:#fff;border:1px solid var(--sky);border-left:5px solid var(--gold);border-radius:8px;padding:12px 14px}
+.meta b{display:block;color:var(--navy)}
+table{width:100%;border-collapse:collapse;margin:10px 0 16px;background:#fff;font-size:15px}
+th,td{border:1px solid var(--sky);padding:7px 9px;text-align:left;vertical-align:top}
+th{background:var(--sky2);color:var(--navy)}
+.tw{overflow-x:auto}
+.act{background:#fff;border:1px solid var(--sky);border-radius:10px;padding:4px 18px 14px;margin:18px 0}
+.act h3{margin-top:14px}
+.tag{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:2px 8px;border-radius:4px;background:var(--navy);color:#fff;margin-right:6px;vertical-align:middle}
+.tag.s{background:var(--blue)}.tag.a{background:var(--gold-d)}.tag.b{background:#5a6b84}
+.kv{display:grid;grid-template-columns:130px 1fr;gap:4px 12px;font-size:15px;margin:8px 0 10px}
+.kv b{color:var(--navy)}
+.say{background:var(--cream);border-left:4px solid var(--gold-d);padding:9px 14px;border-radius:6px;margin:10px 0;font-style:italic}
+.note{background:var(--sky3);border-left:4px solid var(--blue);padding:9px 14px;border-radius:6px;margin:10px 0;font-size:15px}
+.warn{background:#fbf1dc;border-left:4px solid var(--gold);padding:9px 14px;border-radius:6px;margin:10px 0;font-size:15px}
+.lang{background:#fff;border:1px dashed var(--gold-d);border-radius:8px;padding:8px 14px;margin:10px 0;font-size:15px}
+.lang b{color:var(--gold-d)}
+ol li,ul li{margin:3px 0}
+.time{font-weight:700;color:var(--gold-d)}
+footer{font-size:13px;color:#6b7280;border-top:1px solid var(--sky);margin-top:40px;padding-top:12px}
+@media (max-width:860px){.layout{grid-template-columns:1fr}.toc{position:static;max-height:none;padding:10px 0 0;columns:2}.kv{grid-template-columns:1fr}}
+@media print{
+  body{font-size:11.5pt;background:#fff}
+  .noprint,.toc{display:none!important}
+  .layout{display:block;padding:0}
+  header.top{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .act,table,.say,.note,.warn,.lang{break-inside:avoid}
+  h2{break-before:page}
+  section:first-of-type h2{break-before:auto}
+  a{color:inherit;text-decoration:none}
+}
+</style>
+</head>
+<body>
+<header class="top"><div class="in">
+  <img src="logo.png" alt="Approach International Student Center" onload="this.nextElementSibling.remove()" onerror="this.remove()"><div class="w">APPROACH<small>International Student Center</small></div>
+  <div class="grow"><h1>Week 4 Teacher Guide · Three Special Stakeholders: Society, the Environment, and Government</h1><p>Ethics in a Global World · Chapter 4 (from p. 93) · 9:00 am–12:50 pm</p></div>
+  <div class="noprint"><button class="btn" onclick="print()">Print / Save PDF</button> <a class="btn ghost" href="index.html">All files</a></div>
+</div></header>
+
+<div class="layout">
+<nav class="toc" aria-label="Contents">
+  <b>Overview</b>
+  <a href="#overview">Goals &amp; concepts</a>
+  <a href="#materials">Materials &amp; sources</a>
+  <a href="#book">Textbook map</a>
+  <a href="#prep">Prep checklist</a>
+  <b>Class 1 · 9:00–10:40</b>
+  <a href="#c1">Timing</a>
+  <a href="#c1-a">Fix the mistake (quiz review)</a>
+  <a href="#c1-b">The fishing game</a>
+  <a href="#c1-c">You be the judge</a>
+  <a href="#c1-d">Sustainability toolbox</a>
+  <a href="#c1-e">Gallery walk</a>
+  <a href="#c1-f">Exit ticket &amp; bridge</a>
+  <b>Class 2 · 11:10–12:50</b>
+  <a href="#c2">Timing</a>
+  <a href="#c2-a">Claim check</a>
+  <a href="#c2-b">Spotting greenwashing</a>
+  <a href="#c2-c">CSR or greenwashing? card sort</a>
+  <a href="#c2-d">The government toolbox</a>
+  <a href="#c2-e">Fishbowl seminar</a>
+  <a href="#c2-f">Reflection &amp; homework</a>
+  <b>Support</b>
+  <a href="#lang">Language support</a>
+  <a href="#hw">Homework &amp; rubric</a>
+  <a href="#assess">Checks for understanding</a>
+  <a href="#align">Assessment links</a>
+  <a href="#flags">Open questions</a>
+</nav>
+
+<main>
+
+<section id="overview">
+<h2>Week 4 at a glance</h2>
+<p class="lead">Last week students learned to see and rank stakeholders. This week they meet the three that are easiest to ignore and hardest to satisfy: <strong>society</strong>, the <strong>environment</strong> and <strong>government</strong>. They leave able to say <em>"That claim is greenwashing, because…"</em> and <em>"This problem needs the law, not just good intentions, because…"</em></p>
+<div class="meta">
+  <div><b>Class 1 · "Who Pays for the Planet?"</b>Quick quiz review → a fishing game (tragedy of the commons) → You be the judge: three real court cases → gallery walk of six global environmental cases.</div>
+  <div><b>Class 2 · "Green or Greenwash — and Who Decides?"</b>Students' own green claims → five red flags → CSR or greenwashing? card sort with an "EU inspector" round → government toolbox → fishbowl seminar.</div>
+  <div><b>The thread</b>Class 1 shows that free resources get overused. Class 2 asks who should stop that: companies themselves (CSR), customers, or governments (law).</div>
+</div>
+
+<h3>Learning goals</h3>
+<p>By the end of Week 4, students can:</p>
+<ol>
+<li>Explain the tension between <strong>shareholder primacy</strong> and corporate social responsibility, using one court case.</li>
+<li>Explain the <strong>tragedy of the commons</strong> and apply it to a real environmental case.</li>
+<li>Distinguish genuine CSR from <strong>greenwashing</strong>, using clear tests.</li>
+<li>Compare government tools (regulation, carbon tax, cap and trade, transparency laws, partnerships) and their risks (lobbying, the revolving door).</li>
+<li>Take part in a sustained academic discussion: build on others' points, ask follow-up questions, cite evidence.</li>
+</ol>
+
+<h3>Key concepts (Chapter 4, plus 3.4)</h3>
+<div class="tw"><table>
+<tr><th>Section</th><th>Core ideas students need</th><th>Examples in the text</th></tr>
+<tr><td>Ch. 4 intro (p. 93)</td><td>CSR built into long-term strategy; <em>nemawashi</em> (Japanese: "laying the groundwork")</td><td>—</td></tr>
+<tr><td>3.4 CSR (from p. 83, last week's homework)</td><td>CSR; sustainability; <strong>triple bottom line</strong> (people, planet, profit — Elkington, 1994); externalities; <strong>greenwashing</strong></td><td>Ben &amp; Jerry's and CAFOs; Coca-Cola water use in Chiapas, Mexico</td></tr>
+<tr><td>4.1 Corporate law (pp. 94–102)</td><td><strong>Limited liability</strong>; <strong>shareholder primacy</strong>; <strong>business judgment rule</strong>; <strong>fiduciary duty</strong>; moral minimum; <em>quid pro quo</em>; corporations "socialize" losses, so they owe something back; CSR does not necessarily lower profits</td><td><em>Dodge v. Ford</em> (1919); <em>Shlensky v. Wrigley</em> (1968); <em>eBay v. Newmark</em> (2010); Friedman vs. Stout; Unilever's Project Shakti (India); social index funds</td></tr>
+<tr><td>4.2 Sustainability (pp. 103–116)</td><td><strong>Corporate personhood</strong>; <strong>earth jurisprudence</strong> (rights of nature); <strong>tragedy of the commons</strong> (Hardin, 1968); sustainability as good business; <strong>carbon footprint</strong>; ISO 14000; LEED; cost of inaction; <strong>Pigovian tax</strong>; <strong>carbon tax</strong>; <strong>cap and trade</strong></td><td>Ecuador's 2008 constitution; cruise-ship sewage; Deepwater Horizon; Global 100; Dell, Cisco, Siemens; Houston flooding; toxic waste in Nigeria and Côte d'Ivoire; fracking in West Texas; Tesla and SpaceX</td></tr>
+<tr><td>4.3 Government (from p. 117)</td><td>Government–business partnerships; Clean Air Act (1970); public health as sustainability; the <strong>revolving door</strong>; states' rights vs. federal power (Commerce Clause); <em>Citizens United</em> (2010); <strong>Sarbanes-Oxley</strong> (2002)</td><td>Vopak penalty (2017); CVS tobacco (2014); Net-a-Porter fur ban; cage-free eggs; Deepwater Horizon shutoff valve; Keystone XL <em>(outdated — see flags)</em></td></tr>
+</table></div>
+
+<h3>Big ethical questions</h3>
+<ul>
+<li>Does a company owe anything to society beyond obeying the law and paying its shareholders?</li>
+<li>Who should pay for pollution: the company, the customer, the taxpayer, or future generations?</li>
+<li>Is it ethical to do abroad what is illegal at home?</li>
+<li>When a company does good <em>and</em> profits from it, does the motive matter?</li>
+<li>Should governments force businesses to be ethical, or trust them to regulate themselves?</li>
+</ul>
+</section>
+
+<section id="materials">
+<h2>Materials &amp; sources</h2>
+<div class="tw"><table>
+<tr><th>Source</th><th>What we use</th><th>Type</th></tr>
+<tr><td><a href="https://openstax.org/books/business-ethics/pages/4-1-corporate-law-and-corporate-responsibility">OpenStax 4.1</a> · pp. 94–102</td><td>You be the judge; Project Shakti (card sort, journal)</td><td>Textbook</td></tr>
+<tr><td><a href="https://openstax.org/books/business-ethics/pages/4-2-sustainability-business-and-the-environment">OpenStax 4.2</a> · pp. 103–116</td><td>Fishing game debrief; gallery stations A, B, C, E, F; toolbox; card sort; journal</td><td>Textbook</td></tr>
+<tr><td><a href="https://openstax.org/books/business-ethics/pages/4-3-government-and-the-private-sector">OpenStax 4.3</a> · from p. 117</td><td>Gallery station D; government toolbox; fishbowl evidence</td><td>Textbook</td></tr>
+<tr><td><a href="https://openstax.org/books/business-ethics/pages/3-4-corporate-social-responsibility-csr">OpenStax 3.4</a> · from p. 83</td><td>Greenwashing; triple bottom line; Ben &amp; Jerry's and Coca-Cola cards</td><td>Textbook</td></tr>
+<tr><td><a href="https://www.lw.com/en/insights/eu-empowering-consumers-directive-new-rules-on-green-claims-apply-from-27-september-2026">Latham &amp; Watkins: EU Empowering Consumers Directive</a>; <a href="https://climatefocus.com/publications/beyond-carbon-neutral-new-eu-rules-for-green-claims-apply-from-september-2026/">Climate Focus</a></td><td>New EU rules on green claims, in force since September 27, 2026 ("EU inspector" round)</td><td>Outside source</td></tr>
+<tr><td><a href="https://pgjonline.com/news/2021/june/tc-energy-terminates-keystone-xl-pipeline-project">Pipeline &amp; Gas Journal, June 2021</a></td><td>Update: Keystone XL was terminated in 2021 (the textbook case is outdated)</td><td>Outside source</td></tr>
+<tr><td>Fishing game; fictional claim cards (EcoNest, SkyHop, etc.); fishbowl evidence cards</td><td>Engage; card sort; seminar</td><td>Teacher-made</td></tr>
+</table></div>
+<div class="note"><b>Adapting the textbook:</b> Chapter 4 is long, U.S.-centered and partly dated (examples from 2014–2018). We keep the concepts and the strongest cases, turn the global cases into a gallery walk, and add one current, international development: the EU's ban on vague green claims. Students do not read the whole chapter in class; the gallery cards and card sort carry the key content, and the full chapter is homework before Quiz 2.</div>
+</section>
+
+<section id="book">
+<h2>Textbook map</h2>
+<p><i>Business Ethics</i> (OpenStax), Chapter 4: Three Special Stakeholders: Society, the Environment, and Government, <b>from p. 93</b>. Page numbers are the printed numbers in the OpenStax PDF.</p>
+<div class="tw"><table>
+<tr><th>Section</th><th>Pages</th><th>Parts we use (subheading or box)</th><th>Activity</th><th>Worksheet</th></tr>
+<tr><td><a href="https://openstax.org/books/business-ethics/pages/4-introduction">Chapter 4 introduction</a></td><td>p. 93</td><td><em>Nemawashi</em>; CSR as long-term strategy</td><td>Toolbox mini-input</td><td>§4</td></tr>
+<tr><td><a href="https://openstax.org/books/business-ethics/pages/4-1-corporate-law-and-corporate-responsibility">4.1 Corporate Law and Corporate Responsibility</a></td><td>pp. 94–102</td><td>"The Advantages of Corporate Status"; "Balancing the Many Responsibilities of a Corporation" (<em>Dodge v. Ford</em>, <em>Shlensky v. Wrigley</em>); "The Two Sides of the Corporate Responsibility Debate" (<em>eBay v. Newmark</em>, Friedman, Stout); <em>Cases from the Real World</em>: Unilever's Project Shakti</td><td>You be the judge; card sort; Journal C</td><td>§3, §6, Journal</td></tr>
+<tr><td><a href="https://openstax.org/books/business-ethics/pages/4-2-sustainability-business-and-the-environment">4.2 Sustainability: Business and the Environment</a></td><td>pp. 103–116</td><td>"Environmental Justice" (corporate personhood, Ecuador, earth jurisprudence, cruise ships, tragedy of the commons); "Why Sustainability Is Good for Business" (Global 100, Dell, Cisco, ISO 14000, LEED); "The High Cost of Inaction"; <em>What Would You Do?</em>: Houston flooding; <em>Ethics Across Time and Cultures</em>: toxic waste; "Environmental Economics and Policy" (fracking, Pigovian tax, carbon tax, cap and trade); <em>Cases from the Real World</em>: Tesla</td><td>Fishing game; toolbox; gallery walk; card sort; government toolbox; Journal A and B</td><td>§2, §4, §5, §6, §7, Journal</td></tr>
+<tr><td><a href="https://openstax.org/books/business-ethics/pages/4-3-government-and-the-private-sector">4.3 Government and the Private Sector</a></td><td>from p. 117</td><td>Clean Air Act and Vopak; "Public Health as a Sustainability Issue" (CVS, Net-a-Porter); "The Revolving Door"; "Government Regulation and the Constitution"; <em>Cases from the Real World</em>: BP Deepwater Horizon; <em>Citizens United</em>; Sarbanes-Oxley</td><td>Gallery station D; card sort; government toolbox; fishbowl</td><td>§5, §6, §7, §8</td></tr>
+<tr><td><a href="https://openstax.org/books/business-ethics/pages/3-4-corporate-social-responsibility-csr">3.4 Corporate Social Responsibility</a></td><td>from p. 83</td><td>CSR; triple bottom line (Figure 3.6); greenwashing; Ben &amp; Jerry's; Coca-Cola</td><td>Spotting greenwashing; card sort</td><td>§6</td></tr>
+<tr><td>Not in the textbook</td><td>—</td><td>Fishing game (teacher-made); EU green-claims rules (outside source); fictional claim cards</td><td>Engage; card sort</td><td>§2, §6</td></tr>
+</table></div>
+<p class="note"><b>Quiz 2 (next week)</b> covers Chapter 4 (from p. 93) and Chapter 5. Page numbers come from the PDF's table of contents. I could not check where Section 4.3 and the chapter review end, so confirm against your copy if you cite them to students.</p>
+</section>
+
+<section id="prep">
+<h2>Prep checklist</h2>
+<ul>
+<li>☐ Upload the <code>week4</code> folder to GitHub; check the worksheet QR code on slide 1.</li>
+<li>☐ Fishing game: 12 small tokens per group of 4 (paper clips, coins or torn paper) and a small cup or bowl as the "lake." Score slips (handouts p.1).</li>
+<li>☐ Print from <strong>handouts.html</strong>: judge cards (1 set per group), gallery station posters A–F (1 each, tape on walls around the room), CSR card sort (1 set per group, cut), red-flag strip (1 per group), government toolbox match (1 per pair), fishbowl evidence cards and observer sheets, exit tickets (p.12).</li>
+<li>☐ Sticky notes (about 20 per student) and markers for the gallery walk.</li>
+<li>☐ Room: Class 1 gallery posters spread out; Class 2 fishbowl = 6 chairs in an inner circle, the rest in an outer circle.</li>
+<li>☐ Remind students (by message, if possible) to bring the green or responsible company claim they found for homework.</li>
+<li>☐ Collect Ethics Journal #3. Return Quiz 1 with feedback.</li>
+</ul>
+</section>
+
+<!-- CLASS 1 -->
+<section id="c1">
+<h2>Class 1 · "Who Pays for the Planet?" · 9:00–10:40</h2>
+<div class="tw"><table>
+<tr><th>Clock</th><th>Min</th><th>Stage</th><th>Activity</th></tr>
+<tr><td>9:00–9:08</td><td>8</td><td><span class="tag s">Review</span></td><td>Fix the mistake (Quiz 1 review)</td></tr>
+<tr><td>9:08–9:22</td><td>14</td><td><span class="tag">Engage</span></td><td>The fishing game (tragedy of the commons)</td></tr>
+<tr><td>9:22–9:38</td><td>16</td><td><span class="tag s">Study</span></td><td>You be the judge: three court cases</td></tr>
+<tr><td>9:38–9:46</td><td>8</td><td><span class="tag s">Study</span></td><td>The sustainability toolbox (mini-input)</td></tr>
+<tr><td>9:46–10:30</td><td>44</td><td><span class="tag a">Activate</span></td><td>Gallery walk: global environmental ethics cases</td></tr>
+<tr><td>10:30–10:40</td><td>10</td><td><span class="tag b">Reflect</span></td><td>Exit ticket + bridge</td></tr>
+</table></div>
+</section>
+
+<div class="act" id="c1-a">
+<h3><span class="tag s">Review</span> 9:00–9:08 · Fix the mistake</h3>
+<div class="kv"><b>Purpose</b><span>Fix the two most common Quiz 1 errors without singling anyone out.</span>
+<b>Grouping</b><span>Pairs</span>
+<b>Materials</b><span>Slides 3–4; worksheet §1</span>
+<b>Book</b><span>Review of <a href="https://openstax.org/books/business-ethics/pages/3-1-adopting-a-stakeholder-orientation">3.1</a> (ethical minimum/maximum, pp. 68–71), <a href="https://openstax.org/books/business-ethics/pages/3-2-weighing-stakeholder-claims">3.2</a> (categories, pp. 72–77) and <a href="https://openstax.org/books/business-ethics/pages/3-3-ethical-decision-making-and-prioritizing-stakeholders">3.3</a> (matrix, pp. 78–82)</span></div>
+<p>Say: "On the quiz, many of you made the same two mistakes, so let's fix them together." Show four anonymous sentences "from a student." Pairs correct them (4 min), then check (4 min).</p>
+<div class="tw"><table>
+<tr><th>Mistake</th><th>Correction</th></tr>
+<tr><td>"The ethical minimum is to recall every crib and refund customers."</td><td>That is <strong>beyond</strong> the law. The ethical minimum = only what the law requires: keep selling, because the paint is legal at home.</td></tr>
+<tr><td>"The four stakeholder categories are high power/low interest, low power/high interest…"</td><td>Those are the <strong>matrix quadrants</strong>. The four <strong>categories</strong> are enabling, functional, normative and diffused.</td></tr>
+<tr><td>"Regulators are diffused stakeholders."</td><td>Regulators are <strong>enabling</strong>: they allow the company to operate.</td></tr>
+<tr><td>"A Kantian judges the result."</td><td>That's utilitarian. A Kantian judges <strong>duty and motive</strong>: never use people merely as a means.</td></tr>
+</table></div>
+<div class="say">"Two tools, both with four boxes — easy to mix up. Categories tell you <em>what kind</em> of stakeholder. The matrix tells you <em>how much attention</em> they get."</div>
+</div>
+
+<div class="act" id="c1-b">
+<h3><span class="tag">Engage</span> 9:08–9:22 · The fishing game</h3>
+<div class="kv"><b>Purpose</b><span>Students experience the <strong>tragedy of the commons</strong> before they learn the name, so the concept is felt, not memorized. It also previews the Class 2 question: can people regulate themselves, or do they need rules?</span>
+<b>Grouping</b><span>Groups of 4 ("fishing companies sharing one lake")</span>
+<b>Materials</b><span>12 tokens per group in a cup; score slips (handouts p.1); slides 5–7; worksheet §2</span>
+<b>Book</b><span><a href="https://openstax.org/books/business-ethics/pages/4-2-sustainability-business-and-the-environment">4.2</a> "Environmental Justice": tragedy of the commons, Hardin, Lloyd, cruise ships (pp. 103–116)</span></div>
+<h4>Rules (slide 5)</h4>
+<ul>
+<li>Each group shares a lake with <b>12 fish</b>. Each player is a fishing company.</li>
+<li>Each round, every player <b>secretly</b> writes how many fish they want: 0, 1, 2 or 3.</li>
+<li>Reveal. If the total is less than or equal to the fish in the lake, everyone takes their catch. If the total is <b>more</b> than the fish in the lake, the lake <b>collapses</b>: the game is over for that group.</li>
+<li>After each round, the fish left in the lake <b>double</b> (but never more than 12).</li>
+<li>Your score = your total fish. Play 4 rounds. <b>No talking in rounds 1–2.</b> In rounds 3–4, groups may talk and make agreements.</li>
+</ul>
+<ol>
+<li><span class="time">(2 min)</span> Explain and do a practice reveal.</li>
+<li><span class="time">(7 min)</span> Play 4 rounds. Walk around and note which lakes collapse and when.</li>
+<li><span class="time">(5 min)</span> Debrief.</li>
+</ol>
+<p><b>Debrief questions:</b></p>
+<ul>
+<li>Whose lake collapsed? When? Why did people take 3 fish when they knew it was risky?</li>
+<li>What changed when you were allowed to talk? Did anyone break an agreement?</li>
+<li>If you were the government, what one rule would you make for this lake?</li>
+</ul>
+<div class="say">"What you just played has a name: the <strong>tragedy of the commons</strong>. The idea goes back to the British economist William Forster Lloyd, and ecologist Garrett Hardin made it famous in 1968. When a resource is free and shared — a lake, the ocean, the air — each person gains by taking more, but everyone loses together. The textbook's example: cruise ships carry about 25 million passengers a year and dump about a billion gallons of sewage, often at night. Who owns the ocean?"</div>
+<div class="note"><b>Typical result:</b> one or two lakes collapse in round 1 or 2. Lakes that survive usually did so after talking (rounds 3–4) — that's your bridge to <em>agreements and rules</em>, i.e., government.</div>
+<div class="lang"><b>Language:</b> "I took more because I assumed others would…" · "If everyone had held back, …" · "We agreed to ___, but someone broke the deal." · "What we needed was a rule that…"</div>
+</div>
+
+<div class="act" id="c1-c">
+<h3><span class="tag s">Study</span> 9:22–9:38 · You be the judge</h3>
+<div class="kv"><b>Purpose</b><span>Teach the corporate-law vocabulary of 4.1 through three real court cases. Students rule first, then learn what the court decided.</span>
+<b>Grouping</b><span>Groups of 3 ("panels of judges")</span>
+<b>Materials</b><span>Judge cards (handouts p.2); slides 8–12; worksheet §3</span>
+<b>Book</b><span><a href="https://openstax.org/books/business-ethics/pages/4-1-corporate-law-and-corporate-responsibility">4.1</a> "Balancing the Many Responsibilities of a Corporation" and "The Two Sides of the Corporate Responsibility Debate" (pp. 94–102)</span></div>
+<ol>
+<li><span class="time">(3 min)</span> Mini-input (slide 8): a corporation gives owners <strong>limited liability</strong> — they can lose only what they invested. The textbook argues this means society shares the company's risk, so the company owes something back (<em>quid pro quo</em>). Then the big question: <strong>shareholder primacy</strong> (the company exists to make money for shareholders) vs. CSR.</li>
+<li><span class="time">(8 min)</span> Panels read each case and rule: <b>for the managers</b> or <b>for the shareholders</b>? One sentence of reasoning each (about 2.5 minutes per case).</li>
+<li><span class="time">(5 min)</span> Reveal each ruling (slides 9–11) and the key term it teaches. Count how many panels "agreed with the court."</li>
+</ol>
+<div class="tw"><table>
+<tr><th>Case (on the card)</th><th>What the court decided</th><th>Term it teaches</th></tr>
+<tr><td><b><em>Dodge v. Ford Motor Company</em> (1919).</b> Henry Ford wanted to keep profits in the company to expand and to lower car prices, instead of paying large dividends. Two shareholders, the Dodge brothers, sued.</td><td>The Michigan Supreme Court sided with the Dodge brothers: a company is run mainly for its shareholders. But it also said courts should not second-guess ordinary business decisions.</td><td><strong>Shareholder primacy</strong>; the <strong>business judgment rule</strong></td></tr>
+<tr><td><b><em>Shlensky v. Wrigley</em> (1968).</b> The owners of the Chicago Cubs baseball team refused to install lights for night games, partly out of concern for the neighborhood. A shareholder sued, saying the team was losing money.</td><td>The owners won. Their decision was reasonable and made in good faith, so the court would not interfere. (Lights were installed in 1988, after the team was sold.)</td><td><strong>Business judgment rule</strong></td></tr>
+<tr><td><b><em>eBay v. Newmark</em> (2010).</b> The founders of craigslist, a classifieds website, used special measures to stop eBay (a minority shareholder) from gaining more control, to protect craigslist's community-focused, not-very-profit-driven culture.</td><td>The Delaware court ruled for eBay: directors must promote value for stockholders and cannot defend a strategy that openly ignores it.</td><td><strong>Fiduciary duty</strong>; shareholder primacy</td></tr>
+</table></div>
+<div class="say">"So is the law clear? The textbook says no — the debate swings like a pendulum. Friedman said business should only make profit; Lynn Stout said shareholders as a group actually want companies to behave well. And the textbook's evidence: CSR does not necessarily reduce profits."</div>
+<div class="note"><b>Link to Week 3:</b> The textbook uses the term <strong>moral minimum</strong> — the basic level of ethical behavior a business must meet. It's the same idea as last week's <em>ethical minimum</em>.</div>
+<div class="note"><b>Left out on purpose:</b> <em>Burwell v. Hobby Lobby</em> (2014), also in 4.1, involves religion and contraception. It's a valid case but can derail the lesson; skip it unless your class is ready for it.</div>
+<div class="lang"><b>Language:</b> "We rule in favor of ___, on the grounds that…" · "The company has a duty to…" · "The court would be overstepping if…" · "Strictly speaking, the law requires…, but…"</div>
+</div>
+
+<div class="act" id="c1-d">
+<h3><span class="tag s">Study</span> 9:38–9:46 · The sustainability toolbox</h3>
+<div class="kv"><b>Purpose</b><span>Give students the five concepts they need for the gallery walk, briefly.</span>
+<b>Grouping</b><span>Whole class</span>
+<b>Materials</b><span>Slides 13–15; worksheet §4</span>
+<b>Book</b><span><a href="https://openstax.org/books/business-ethics/pages/4-introduction">Ch. 4 intro</a> (p. 93); <a href="https://openstax.org/books/business-ethics/pages/4-2-sustainability-business-and-the-environment">4.2</a> (pp. 103–116)</span></div>
+<ul>
+<li><strong>Sustainability</strong> — a long-term approach to how business affects the environment and other stakeholders.</li>
+<li><strong>Carbon footprint</strong> — the amount of carbon dioxide and other carbon compounds a person or company releases by using fossil fuels.</li>
+<li><strong>Corporate personhood</strong> — a corporation has some of the legal rights of a person (e.g., it can sue and be sued).</li>
+<li><strong>Earth jurisprudence</strong> — the idea that nature itself should have legal rights. Ecuador's 2008 constitution was the first to recognize "Rights for Nature." (Link to Week 3: "Should Trees Have Standing?")</li>
+<li><strong>Is sustainability good business?</strong> The textbook's evidence: companies on the Global 100 list of sustainable companies outperformed a typical index fund (2005–2015); Dell's flexible-work program avoids about 7,000 metric tons of emissions and saves about $12 million a year.</li>
+</ul>
+<div class="say">"If corporations can be 'persons' with rights, why can't a river? Keep that question in your head for the gallery walk."</div>
+</div>
+
+<div class="act" id="c1-e">
+<h3><span class="tag a">Activate</span> 9:46–10:30 · Gallery walk: global environmental ethics cases</h3>
+<div class="kv"><b>Purpose</b><span>Syllabus gallery walk. Students apply stakeholders, the minimum/maximum and the commons to six real cases from five regions, and build on each other's written ideas.</span>
+<b>Grouping</b><span>6 groups (2–4 students); one station each, then rotate</span>
+<b>Materials</b><span>Station posters A–F (handouts p.3–5) on the walls; sticky notes; worksheet §5</span>
+<b>Book</b><span><a href="https://openstax.org/books/business-ethics/pages/4-2-sustainability-business-and-the-environment">4.2</a> Environmental Justice; <em>Ethics Across Time and Cultures</em>: toxic waste; Environmental Economics and Policy (pp. 103–116); <a href="https://openstax.org/books/business-ethics/pages/4-3-government-and-the-private-sector">4.3</a> <em>Cases from the Real World</em>: Deepwater Horizon (from p. 117)</span></div>
+<h4>The six stations</h4>
+<div class="tw"><table>
+<tr><th>Station</th><th>Case (textbook facts on the poster)</th><th>Key idea to draw out</th></tr>
+<tr><td>A · Côte d'Ivoire, 2006</td><td>The energy company Trafigura dumped hundreds of tons of toxic waste near Abidjan after searching other countries for a place to dispose of it. Amnesty International reported more than 100,000 people sickened and 15 deaths.</td><td>Exploiting weak laws; voiceless victims</td></tr>
+<tr><td>B · Nigeria, mid-1990s</td><td>A reporter found about 10,000 barrels of toxic waste, including PCBs, stored near homes with children. Disposal cost about $3,000 per ton in the U.S. and Europe vs. about $3 per ton in West Africa.</td><td>Legal there ≠ ethical; ethical minimum vs. maximum</td></tr>
+<tr><td>C · Ecuador, 2008</td><td>Ecuador's constitution gives "Rights for Nature": an ecosystem can be a party in a lawsuit, and citizens can enforce its rights. The U.S. has not adopted this idea. Should the Gulf of Mexico have been able to sue BP?</td><td>Earth jurisprudence; voiceless stakeholders</td></tr>
+<tr><td>D · Gulf of Mexico, 2010</td><td>The Deepwater Horizon rig exploded: 11 workers killed, at least 5 million barrels of oil released. An inexpensive backup shutoff valve could likely have stopped the flow. The U.S. didn't require it, partly because of industry lobbying; Norway and Brazil do.</td><td>Government's role; lobbying; legal gaps</td></tr>
+<tr><td>E · The oceans</td><td>About 25 million people take cruises each year. Cruise ships dump about a billion gallons of sewage a year, often at night (Friends of the Earth, using EPA data).</td><td>Tragedy of the commons; "invisible" pollution</td></tr>
+<tr><td>F · West Texas</td><td>Fracking (breaking rock to release oil and gas) increased truck traffic tenfold, damaging roads that small towns cannot afford to repair. It can also pollute water, spill chemicals and may trigger earthquakes.</td><td>Externalities: who pays the cost?</td></tr>
+</table></div>
+<h4>Procedure</h4>
+<ol>
+<li><span class="time">(3 min)</span> Explain. Each poster has three questions: <b>(1) Who benefits, and who pays the cost?</b> (include the voiceless) <b>(2) Legal minimum or ethical maximum? Is there a gap in the law?</b> <b>(3) Who should fix it: the company, customers, government — or all three? How?</b></li>
+<li><span class="time">(24 min)</span> Groups rotate every 4 minutes (6 stations). At each station they read the case and add <b>at least two sticky notes</b>: one new idea and one reply to an existing note ("I agree, and…" / "But what about…?"). Ring a bell to rotate.</li>
+<li><span class="time">(7 min)</span> Groups return to their <b>first</b> station, read all the notes and prepare a 1-minute summary: the strongest idea, the biggest disagreement, and their answer to question 3.</li>
+<li><span class="time">(10 min)</span> Six 1-minute summaries + debrief.</li>
+</ol>
+<p><b>Debrief questions:</b></p>
+<ul>
+<li>Which cases are the tragedy of the commons? (E clearly; also F and D.)</li>
+<li>In A and B, the waste went where disposal was cheap and laws were weak. Is "legal there" an ethical defense?</li>
+<li>Which station needed government most? Which could a company fix on its own?</li>
+<li>Across all six, who was most often voiceless?</li>
+</ul>
+<div class="warn"><b>Sensitivity:</b> Stations A and B involve Africa, and the textbook mentions Nigeria's ranking on a corruption list. Keep the focus on the <em>companies'</em> choices, not on judging countries. Don't ask students from these countries to explain or defend them.</div>
+<div class="lang"><b>Language for sticky notes:</b> "The hidden cost here is…" · "This was legal, but…" · "Building on the note above, …" · "I'd push back: …" · "The voiceless stakeholder is…" · "A law requiring ___ would…"</div>
+</div>
+
+<div class="act" id="c1-f">
+<h3><span class="tag b">Reflect</span> 10:30–10:40 · Exit ticket &amp; bridge</h3>
+<ol>
+<li><span class="time">(6 min)</span> Exit ticket (worksheet §5 or slip): (1) Explain the tragedy of the commons with an example from today. (2) Which case should the government fix, and how? (3) One question.</li>
+<li><span class="time">(4 min)</span> Bridge: "Take out the company claim you brought for homework. Over the break, decide: do you believe it? After the break, we test it."</li>
+</ol>
+<p class="note">If students forgot their example, they can find one on any product package or company website during the break.</p>
+</div>
+
+<!-- CLASS 2 -->
+<section id="c2">
+<h2>Class 2 · "Green or Greenwash — and Who Decides?" · 11:10–12:50</h2>
+<div class="tw"><table>
+<tr><th>Clock</th><th>Min</th><th>Stage</th><th>Activity</th></tr>
+<tr><td>11:10–11:18</td><td>8</td><td><span class="tag">Engage</span></td><td>Claim check: students' own examples</td></tr>
+<tr><td>11:18–11:28</td><td>10</td><td><span class="tag s">Study</span></td><td>Spotting greenwashing: five red flags</td></tr>
+<tr><td>11:28–11:58</td><td>30</td><td><span class="tag a">Activate</span></td><td>CSR or greenwashing? card sort + EU inspector round</td></tr>
+<tr><td>11:58–12:08</td><td>10</td><td><span class="tag s">Study</span></td><td>The government toolbox</td></tr>
+<tr><td>12:08–12:42</td><td>34</td><td><span class="tag a">Activate</span></td><td>Fishbowl seminar: government's role in business ethics</td></tr>
+<tr><td>12:42–12:50</td><td>8</td><td><span class="tag b">Reflect</span></td><td>One-sentence position + homework</td></tr>
+</table></div>
+</section>
+
+<div class="act" id="c2-a">
+<h3><span class="tag">Engage</span> 11:10–11:18 · Claim check</h3>
+<div class="kv"><b>Purpose</b><span>Start with students' own real-world examples, so the card sort feels relevant.</span>
+<b>Grouping</b><span>Groups of 3–4</span>
+<b>Materials</b><span>Students' examples; worksheet §6; slide 23</span>
+<b>Book</b><span><a href="https://openstax.org/books/business-ethics/pages/3-4-corporate-social-responsibility-csr">3.4</a> (from p. 83)</span></div>
+<ol>
+<li><span class="time">(5 min)</span> Each student reads their claim aloud. The group gives it a "trust score" from 1 to 5 — gut feeling only.</li>
+<li><span class="time">(3 min)</span> Each group shares its highest and lowest score. Write the claims on the board; you'll return to them after the card sort.</li>
+</ol>
+</div>
+
+<div class="act" id="c2-b">
+<h3><span class="tag s">Study</span> 11:18–11:28 · Spotting greenwashing: five red flags</h3>
+<div class="kv"><b>Purpose</b><span>Turn "greenwashing" from a word into a usable test.</span>
+<b>Grouping</b><span>Whole class → pairs</span>
+<b>Materials</b><span>Slides 24–26; red-flag strip (handouts p.6); worksheet §6</span>
+<b>Book</b><span><a href="https://openstax.org/books/business-ethics/pages/3-4-corporate-social-responsibility-csr">3.4</a> "CSR as Public Relations Tool" (from p. 83). Red flags adapted from the EU rules (outside source).</span></div>
+<p><b>Recap (2 min):</b> <strong>CSR</strong> = responsibilities beyond products and profits. <strong>Triple bottom line</strong> = people, planet, profit. <strong>Greenwashing</strong> = CSR used as public relations to hide real problems. The textbook warns: don't "blindly accept" company websites or advertising.</p>
+<p><b>Five red flags (5 min).</b> Since <strong>September 27, 2026</strong>, new EU rules (the Empowering Consumers for the Green Transition Directive) ban several kinds of green claims aimed at EU consumers — including from non-EU companies that sell there. They make a good checklist:</p>
+<ol>
+<li><b>Vague words with no proof</b> — "eco-friendly," "green," "natural." (Banned in the EU unless the company can prove excellent environmental performance.)</li>
+<li><b>"Carbon neutral" because of offsets</b> — claiming a product is neutral because the company paid for trees or other offsets. (Banned in the EU.)</li>
+<li><b>Homemade labels</b> — a sustainability logo the company created itself, with no independent certification. (Banned in the EU.)</li>
+<li><b>One part presented as the whole</b> — a claim about one small feature presented as if it applied to the whole product or company. (Banned in the EU.)</li>
+<li><b>Future promises without a plan</b> — "Net zero by 2050" with no detailed, checkable plan. (Can be misleading under the EU rules.)</li>
+</ol>
+<p><b>Quick practice (3 min):</b> pairs apply the five flags to their own claims from 11:10.</p>
+<div class="note"><b>Source note:</b> The EU rules are an outside source, not in the textbook. A separate, broader "Green Claims Directive" was proposed and later withdrawn; the rules above are from the Empowering Consumers Directive, which does apply. They cover claims made to consumers, not company reports for investors.</div>
+</div>
+
+<div class="act" id="c2-c">
+<h3><span class="tag a">Activate</span> 11:28–11:58 · CSR or greenwashing? card sort</h3>
+<div class="kv"><b>Purpose</b><span>Syllabus group project. Students evaluate 16 claims, argue in groups, then test them against a real law.</span>
+<b>Grouping</b><span>Groups of 3–4</span>
+<b>Materials</b><span>16 claim cards (handouts p.7–8, cut); three pile labels: <b>Genuine CSR</b> · <b>Greenwashing</b> · <b>Need more information</b>; worksheet §6</span>
+<b>Book</b><span>Cards 1–8 from <a href="https://openstax.org/books/business-ethics/pages/3-4-corporate-social-responsibility-csr">3.4</a>, <a href="https://openstax.org/books/business-ethics/pages/4-1-corporate-law-and-corporate-responsibility">4.1</a>, <a href="https://openstax.org/books/business-ethics/pages/4-2-sustainability-business-and-the-environment">4.2</a>, <a href="https://openstax.org/books/business-ethics/pages/4-3-government-and-the-private-sector">4.3</a>; cards 9–16 are fictional</span></div>
+<ol>
+<li><span class="time">(12 min)</span> <b>Sort.</b> Groups place each card in a pile. Rule: you must agree, or the card goes to "Need more information" with a note saying <em>what</em> information.</li>
+<li><span class="time">(8 min)</span> <b>EU inspector round.</b> Each group becomes an EU consumer-protection inspector. For every card in "Greenwashing," which red flag (1–5) does it break? Which fictional claims would be illegal in the EU today?</li>
+<li><span class="time">(5 min)</span> <b>Your own claims.</b> Groups sort the claims they brought from home. Did any trust scores change?</li>
+<li><span class="time">(5 min)</span> Debrief.</li>
+</ol>
+<h4>Cards and suggested answers</h4>
+<div class="tw"><table>
+<tr><th>#</th><th>Card</th><th>Suggested pile</th><th>Why</th></tr>
+<tr><td>1</td><td>CVS, a U.S. pharmacy chain, stopped selling tobacco in 2014, giving up those sales. (4.3)</td><td>Genuine CSR</td><td>Real cost; consistent with its health mission.</td></tr>
+<tr><td>2</td><td>Dell's flexible-work program avoids about 7,000 metric tons of emissions and saves about $12 million a year. (4.2)</td><td>Genuine CSR</td><td>Measured results; also good business (instrumental and that's fine).</td></tr>
+<tr><td>3</td><td>Cisco requires its suppliers to follow a code of conduct: fair labor, safe conditions, lower carbon footprints. (4.2)</td><td>Genuine CSR / need more info</td><td>Good policy; how is it checked and enforced?</td></tr>
+<tr><td>4</td><td>Net-a-Porter, an online fashion retailer, banned fur after surveying its customers. (4.3)</td><td>Genuine CSR</td><td>Real change; customers drove it — stakeholder influence.</td></tr>
+<tr><td>5</td><td>The Empire State Building earned LEED Gold certification after a multimillion-dollar energy retrofit. (4.2)</td><td>Genuine CSR</td><td>Independent certification; real investment.</td></tr>
+<tr><td>6</td><td>Unilever's Project Shakti trains rural women in India to become small entrepreneurs selling its products; it has enlisted over 100,000 participants. (4.1)</td><td>Need more info / genuine</td><td>Mixed motives (helps women and sells products). The textbook asks: do mixed motives discredit it?</td></tr>
+<tr><td>7</td><td>Ben &amp; Jerry's has a "social mission," but as it grew, much of its milk came from large confined-animal feeding operations (CAFOs). (3.4)</td><td>Greenwashing concern</td><td>The image doesn't match the supply chain (red flag 4).</td></tr>
+<tr><td>8</td><td>Coca-Cola reports "ongoing stakeholder dialogue" and sustainability goals. The textbook says its bottling plant in Chiapas, Mexico, uses huge amounts of water while only about half the local population has running water. (3.4)</td><td>Greenwashing concern</td><td>Positive words vs. a serious local water issue.</td></tr>
+<tr><td>9</td><td><i>EcoNest</i> detergent: big label "Eco-friendly!" — no other information. (fictional)</td><td>Greenwashing</td><td>Red flag 1: vague claim — banned in the EU.</td></tr>
+<tr><td>10</td><td><i>SkyHop Airlines</i>: "Fly carbon neutral! Every ticket is 100% offset by tree planting." (fictional)</td><td>Greenwashing</td><td>Red flag 2: neutrality via offsets — banned in the EU.</td></tr>
+<tr><td>11</td><td><i>UrbanThread</i> jeans carry a green "Planet Hero" badge designed by the company's own marketing team. (fictional)</td><td>Greenwashing</td><td>Red flag 3: homemade label — banned in the EU.</td></tr>
+<tr><td>12</td><td><i>FreshBox</i> meal kits: "Made with recycled materials!" Only the cardboard sleeve (about 3% of the packaging) is recycled. (fictional)</td><td>Greenwashing</td><td>Red flag 4: part presented as the whole.</td></tr>
+<tr><td>13</td><td><i>Northline Energy</i>: "Net zero by 2050!" No plan published; the company is still opening new coal mines. (fictional)</td><td>Greenwashing</td><td>Red flag 5: future promise without a plan.</td></tr>
+<tr><td>14</td><td><i>Brightway Bank</i> publishes a yearly emissions report checked by an independent auditor, including the targets it missed. (fictional)</td><td>Genuine CSR</td><td>Independent checking; honest about failure.</td></tr>
+<tr><td>15</td><td><i>GreenLeaf Coffee</i> sells only beans certified by an independent fair-trade organization, which audits farms every year. (fictional)</td><td>Genuine CSR</td><td>Independent certification.</td></tr>
+<tr><td>16</td><td><i>AquaPure</i> water: "Our bottle now uses 30% less plastic than our 2020 bottle." (fictional)</td><td>Genuine (if true) / need more info</td><td>Specific and checkable — allowed if accurate. But it's still single-use plastic.</td></tr>
+</table></div>
+<p><b>Debrief questions:</b></p>
+<ul>
+<li>Which card caused the biggest argument in your group? Why?</li>
+<li>Is CSR that also makes money (Dell, Project Shakti) less ethical? (Link: Week 3's normative vs. instrumental.)</li>
+<li>Most fictional greenwashing cards are now illegal in the EU. Would those companies have changed without a law? → Bridge to the government toolbox.</li>
+</ul>
+<div class="lang"><b>Language:</b> "This sounds impressive, but…" · "The claim is too vague to verify." · "Who checks this?" · "It's specific and measurable, so…" · "We'd put it in 'need more information' until we know…"</div>
+</div>
+
+<div class="act" id="c2-d">
+<h3><span class="tag s">Study</span> 11:58–12:08 · The government toolbox</h3>
+<div class="kv"><b>Purpose</b><span>Give students the tools and risks they need to argue in the fishbowl.</span>
+<b>Grouping</b><span>Pairs</span>
+<b>Materials</b><span>Toolbox match (handouts p.9); worksheet §7 (self-check); slides 29–30</span>
+<b>Book</b><span><a href="https://openstax.org/books/business-ethics/pages/4-2-sustainability-business-and-the-environment">4.2</a> "Environmental Economics and Policy" (pp. 103–116); <a href="https://openstax.org/books/business-ethics/pages/4-3-government-and-the-private-sector">4.3</a> (from p. 117)</span></div>
+<p>Pairs match each tool to an example (5 min), then check and discuss risks (5 min). <b>Handout key:</b> 1-D · 2-F · 3-E · 4-B · 5-A · 6-C.</p>
+<div class="tw"><table>
+<tr><th>Tool</th><th>Example from the textbook</th></tr>
+<tr><td><b>Direct regulation</b> (rules and penalties)</td><td>Clean Air Act (1970); in 2017 the Houston company Vopak agreed to install pollution controls and pay a $2.5 million penalty for violations.</td></tr>
+<tr><td><b>Carbon tax / Pigovian tax</b> (pay to pollute)</td><td>Supported even by Exxon Mobil, Shell, BP and Total through the Climate Leadership Council. Named after economist A. C. Pigou.</td></tr>
+<tr><td><b>Cap and trade</b> (a limit + permits that can be bought and sold)</td><td>A cap limits total greenhouse gas emissions; companies that pollute less can sell their unused allowances.</td></tr>
+<tr><td><b>Transparency law</b> (companies must report honestly)</td><td>Sarbanes-Oxley Act (2002), passed after the Enron and WorldCom frauds. (Outside source: the EU's new green-claims rules.)</td></tr>
+<tr><td><b>Public-private partnership</b> (government and business work together)</td><td>NASA working with SpaceX.</td></tr>
+<tr><td><b>Voluntary standards</b> (self-regulation)</td><td>ISO 14000 environmental standards; LEED building certification.</td></tr>
+</table></div>
+<p><b>Three risks the textbook names:</b></p>
+<ul>
+<li><strong>Lobbying</strong> — industry pressure weakened safety rules before Deepwater Horizon.</li>
+<li><strong>The revolving door</strong> — people move from an industry into the government agency that regulates it, and back again ("the fox guarding the hen house").</li>
+<li><strong><em>Citizens United</em> (2010)</strong> — the U.S. Supreme Court allowed corporations to spend unlimited money on political advertising.</li>
+</ul>
+</div>
+
+<div class="act" id="c2-e">
+<h3><span class="tag a">Activate</span> 12:08–12:42 · Fishbowl seminar: government's role in business ethics</h3>
+<div class="kv"><b>Purpose</b><span>Syllabus discussion. A structured, sustained academic discussion in which students build on each other's ideas and cite evidence — a different skill from Week 2's debate and Week 3's role-play.</span>
+<b>Grouping</b><span>Inner circle of 5–6 + one empty "hot seat"; outer circle of observers. Swap halfway.</span>
+<b>Materials</b><span>Evidence cards (handouts p.10); observer sheets (handouts p.11); worksheet §8</span>
+<b>Book</b><span><a href="https://openstax.org/books/business-ethics/pages/4-1-corporate-law-and-corporate-responsibility">4.1</a> Friedman vs. CSR (pp. 94–102); <a href="https://openstax.org/books/business-ethics/pages/4-3-government-and-the-private-sector">4.3</a> (from p. 117)</span></div>
+<p><b>Central question:</b> <em>"Should governments force businesses to behave ethically — or should businesses be trusted to regulate themselves?"</em></p>
+<ol>
+<li><span class="time">(4 min)</span> Everyone prepares individually (worksheet §8): first position (1–10), two pieces of evidence from today, one question to ask.</li>
+<li><span class="time">(12 min)</span> <b>Round 1.</b> Inner circle discusses. No teacher, no hand-raising — speakers build on each other. An outer-circle student may sit in the <b>hot seat</b> to make one point, then leave. Each outer-circle student observes one inner partner and records: one argument with evidence, one good question, one strong phrase.</li>
+<li><span class="time">(2 min)</span> Observers give their partner quick feedback.</li>
+<li><span class="time">(12 min)</span> <b>Round 2.</b> Swap circles. New sub-question (see below).</li>
+<li><span class="time">(4 min)</span> Whole-class debrief.</li>
+</ol>
+<h4>Sub-questions (use if discussion slows)</h4>
+<ul>
+<li>Round 1: The fishing game: did your group need a rule, or did talking work? What does that say about companies?</li>
+<li>Round 1: Why would Exxon support a carbon tax? Is that ethics or strategy?</li>
+<li>Round 2: Norway and Brazil require the backup valve; the U.S. didn't. Who is responsible for the Deepwater Horizon deaths — BP, the government, or the lobbyists?</li>
+<li>Round 2: If the regulators come from the industry (the revolving door), can regulation be trusted?</li>
+<li>Round 2: Is it ethical for a company to follow weak laws in one country and strict laws in another? (Stations A and B; the EU rules.)</li>
+</ul>
+<h4>Evidence cards (from the textbook)</h4>
+<div class="tw"><table>
+<tr><th>Supports government regulation</th><th>Supports self-regulation / limits on government</th></tr>
+<tr><td>Deepwater Horizon: the U.S. didn't require a cheap backup valve, partly due to lobbying; Norway and Brazil do (4.3).</td><td>Friedman: CSR imposed from outside is unelected regulation; business should make profit within the law (4.1).</td></tr>
+<tr><td>Tragedy of the commons: free resources get overused without rules (4.2).</td><td>Global 100 companies outperformed a typical index fund — sustainability pays without force (4.2).</td></tr>
+<tr><td>Sarbanes-Oxley (2002) was passed after Enron and WorldCom showed self-regulation failed (4.3).</td><td>Dell, Cisco and CVS acted voluntarily, beyond the law (4.2, 4.3).</td></tr>
+<tr><td>Toxic waste moved to countries with weak laws (4.2).</td><td>The revolving door and lobbying mean regulators can be captured by industry (4.3).</td></tr>
+<tr><td>Vopak paid a $2.5 million penalty and installed controls only after enforcement (4.3).</td><td>Rules that change with each administration (U.S. auto emissions) create a "moving target" for business (4.3).</td></tr>
+</table></div>
+<div class="lang"><b>Seminar language:</b> "Building on what ___ said, …" · "Can I push back on that?" · "What's your evidence for…?" · "That's true for ___, but not necessarily for…" · "I'd like to bring in the example of…" · "So are you saying that…?" · "I've changed my mind slightly, because…"</div>
+<div class="note"><b>Your role:</b> silent facilitator. Intervene only to restart a stalled discussion with a sub-question, or to invite a quiet student ("___, what do you think of that?"). Note strong language and errors for 2 minutes of feedback in the debrief.</div>
+</div>
+
+<div class="act" id="c2-f">
+<h3><span class="tag b">Reflect</span> 12:42–12:50 · One-sentence position &amp; homework</h3>
+<ol>
+<li><span class="time">(4 min)</span> Worksheet §8: write your final position in one sentence beginning "Governments should…" plus "What changed my mind (or didn't):…"</li>
+<li><span class="time">(4 min)</span> Homework: Journal #4; read all of Chapter 4; preview Chapter 5. <b>Quiz 2 (Chapters 4–5) is next week.</b></li>
+</ol>
+</div>
+
+<section id="lang">
+<h2>Language support</h2>
+<h3>Essential vocabulary</h3>
+<div class="tw"><table>
+<tr><th>Word</th><th>Simple meaning</th><th>Example</th></tr>
+<tr><td>limited liability</td><td>owners can lose only what they invested</td><td>Limited liability makes investing less risky.</td></tr>
+<tr><td>shareholder primacy</td><td>the idea that a company exists mainly to make money for shareholders</td><td><em>Dodge v. Ford</em> supported shareholder primacy.</td></tr>
+<tr><td>fiduciary duty</td><td>a legal duty to act in the best interest of the people whose money you manage</td><td>Directors have a fiduciary duty to shareholders.</td></tr>
+<tr><td>business judgment rule</td><td>courts don't second-guess reasonable, good-faith business decisions</td><td>The Cubs' owners were protected by the business judgment rule.</td></tr>
+<tr><td>sustainability</td><td>using resources so they last for the long term</td><td>Sustainability can also save money.</td></tr>
+<tr><td>carbon footprint</td><td>the carbon dioxide a person or company releases</td><td>Remote work reduced Dell's carbon footprint.</td></tr>
+<tr><td>tragedy of the commons</td><td>shared free resources get overused because each person gains by taking more</td><td>Overfishing is a tragedy of the commons.</td></tr>
+<tr><td>externality</td><td>a cost or benefit that falls on people outside the deal</td><td>Damaged roads are an externality of fracking.</td></tr>
+<tr><td>earth jurisprudence</td><td>legal thinking that gives rights to nature</td><td>Ecuador's constitution reflects earth jurisprudence.</td></tr>
+<tr><td>greenwashing</td><td>misleading people about how environmentally friendly something is</td><td>"Eco-friendly!" with no proof is greenwashing.</td></tr>
+<tr><td>offset</td><td>paying for something (e.g., planting trees) to balance out your pollution</td><td>The airline claimed neutrality through offsets.</td></tr>
+<tr><td>carbon tax / cap and trade</td><td>pay a fee per unit of pollution / a pollution limit with tradable permits</td><td>Many economists favor a carbon tax.</td></tr>
+<tr><td>lobbying</td><td>trying to influence lawmakers</td><td>Oil companies lobbied against the valve rule.</td></tr>
+<tr><td>revolving door</td><td>moving between an industry and the agency that regulates it</td><td>The revolving door can create conflicts of interest.</td></tr>
+</table></div>
+<h3>Useful collocations</h3>
+<p>bear the cost · pass the cost on to · cut corners · comply with regulations · enforce a law · impose a tax · close a loophole · make a claim · back up a claim · independent verification · a level playing field · a race to the bottom · put profits before people · long-term vs. short-term thinking</p>
+<h3>Words students may misunderstand</h3>
+<ul>
+<li><b>commons</b> — shared land or resources, not "common" (ordinary) and not the British House of Commons.</li>
+<li><b>liability</b> — legal responsibility (often for debts or damage), not "reliability."</li>
+<li><b>green</b> — environmentally friendly, not only the color; also "green" = inexperienced.</li>
+<li><b>offset</b> — to balance out, not "set off" (start a journey or trigger).</li>
+<li><b>neutral</b> in "carbon neutral" — zero net emissions, not "having no opinion."</li>
+<li><b>person</b> in "corporate personhood" — a legal idea, not a human being.</li>
+</ul>
+<h3>Pronunciation</h3>
+<p>sus·TAIN·a·BIL·i·ty · fi·DU·ci·ar·y /fɪˈduː.ʃi.er.i/ · li·a·BIL·i·ty · ex·ter·nal·I·ty · ju·ris·PRU·dence · re·GU·la·to·ry (US: /ˈreɡ.jə.lə.tɔːr.i/) · Pi·GO·vi·an /paɪˈɡoʊ.vi.ən/</p>
+<h3>Grammar in use: hedging and claims</h3>
+<ul>
+<li><b>Hedging evidence:</b> "The data <em>suggest</em> that…" · "It <em>appears</em> that…" · "This <em>may</em> be greenwashing, but we'd need to know…"</li>
+<li><b>Passive for responsibility:</b> "The waste <em>was dumped</em> at night." — Ask: by whom? (Passive can hide the actor — a greenwashing trick, too!)</li>
+<li><b>Modals of obligation:</b> "Companies <em>should</em>…" (advice) vs. "Companies <em>must</em>…" (law) vs. "Companies <em>are required to</em>…" (rule).</li>
+</ul>
+<h3>Seminar &amp; discussion language (B2+)</h3>
+<div class="tw"><table>
+<tr><th>Function</th><th>Language</th></tr>
+<tr><td>Building on</td><td>Building on ___'s point, … · To add to that, …</td></tr>
+<tr><td>Challenging</td><td>Can I push back on that? · I'm not convinced that…</td></tr>
+<tr><td>Asking for evidence</td><td>What makes you say that? · Is there an example?</td></tr>
+<tr><td>Clarifying</td><td>So are you saying that…? · Just to clarify, …</td></tr>
+<tr><td>Conceding</td><td>That's a fair point. · I'd modify my view slightly: …</td></tr>
+<tr><td>Inviting others</td><td>___, what's your take on this? · We haven't heard from…</td></tr>
+</table></div>
+</section>
+
+<section id="hw">
+<h2>Homework</h2>
+<h3>1 · Ethics Journal #4 (150–200 words)</h3>
+<p>Choose <strong>one</strong> prompt. Use <em>Opinion → Reasons → Framework or stakeholder tool → Counterargument → Conclusion</em>.</p>
+<ol type="A">
+<li><b>Houston flooding (4.2, <em>What Would You Do?</em>):</b> You are on Houston's planning commission. Should developers be required to set aside green space at least equal to the land they cover with concrete, even though it raises costs? Who should pay for flood damage?</li>
+<li><b>Toxic waste (4.2, <em>Ethics Across Time and Cultures</em>):</b> Is it ethical for a company to dump waste in a country where it's legal or cheap? Would your answer change if it saved your company $1 million?</li>
+<li><b>Project Shakti (4.1, <em>Cases from the Real World</em>):</b> Unilever trains rural women in India to sell its products. Is it CSR, profit, or both? Do mixed motives discredit a good program?</li>
+</ol>
+<h3>2 · Reading and Quiz 2</h3>
+<p>Read all of Chapter 4 (from p. 93). Preview Chapter 5: The Impact of Culture and Time on Business Ethics. <b>Quiz 2 (Chapters 4–5) is next week.</b></p>
+<h3>Model journal (Prompt B, ~185 words)</h3>
+<div class="say" style="font-style:normal">I believe it is unethical for a company to dump toxic waste in a country simply because it is legal or cheap there. The main reason is that the harm to people is the same wherever the waste goes; only the price changes. In stakeholder terms, the local community is a voiceless stakeholder with very low power, so it cannot protect itself. A Kantian would say that choosing a place because its people are poor and its laws are weak treats them merely as a means to save money. Even a utilitarian would struggle to defend it: in Côte d'Ivoire, the textbook reports more than 100,000 people sickened and 15 deaths. One could argue that the company obeyed local law and that profits create jobs at home. That is true, but obeying a weak law is only the ethical minimum. If saving $1 million required harming others, I would still refuse, because a company's reputation and its duty to people are worth more. In conclusion, companies should apply their strictest standard everywhere.</div>
+<h3>Journal rubric (4 × 3 = 12 points)</h3>
+<div class="tw"><table>
+<tr><th>Criterion</th><th>3</th><th>2</th><th>1</th></tr>
+<tr><td>Position</td><td>Clear, specific answer to the prompt</td><td>Present but vague</td><td>No clear position</td></tr>
+<tr><td>Tools</td><td>A stakeholder or Chapter 4 concept and a framework, used accurately</td><td>One used accurately</td><td>Named but not applied</td></tr>
+<tr><td>Counterargument</td><td>Stated fairly and answered</td><td>Mentioned, not answered</td><td>Missing</td></tr>
+<tr><td>Language</td><td>Course vocabulary; hedging and modals mostly accurate</td><td>Some vocabulary; errors rarely block meaning</td><td>Errors often block meaning</td></tr>
+</table></div>
+</section>
+
+<section id="assess">
+<h2>Checks for understanding</h2>
+<ul>
+<li><b>Fix the mistake</b> — are the Quiz 1 confusions resolved?</li>
+<li><b>You be the judge</b> — can students use shareholder primacy and the business judgment rule correctly?</li>
+<li><b>Gallery sticky notes</b> — photograph them; look for stakeholder language, voiceless stakeholders, minimum vs. maximum.</li>
+<li><b>Exit ticket</b> — tragedy of the commons explained with an example.</li>
+<li><b>Card sort + EU round</b> — can groups name <em>which</em> red flag a claim breaks?</li>
+<li><b>Toolbox match</b> (self-check).</li>
+<li><b>Fishbowl observer sheets</b> — collect them; good evidence for participation grades.</li>
+</ul>
+<h3>Possible Quiz 2 items (Chapter 4)</h3>
+<ol>
+<li><em>Dodge v. Ford</em> (1919) supported which principle? <b>(shareholder primacy)</b></li>
+<li>The rule that courts won't second-guess reasonable, good-faith business decisions is the ___. <b>(business judgment rule)</b></li>
+<li>Explain the tragedy of the commons with one example. <b>(shared free resource overused because each user gains by taking more; e.g., cruise-ship sewage in the ocean, overfishing)</b></li>
+<li>Which country first recognized rights for nature in its constitution? <b>(Ecuador, 2008)</b></li>
+<li>What is the difference between a carbon tax and cap and trade? <b>(tax = fee per unit of emissions; cap and trade = total limit + tradable permits)</b></li>
+<li>What is the "revolving door"? <b>(people moving between an industry and the agency that regulates it)</b></li>
+<li>Which law was passed after Enron and WorldCom, and what does it require? <b>(Sarbanes-Oxley, 2002: transparent financial reporting, independent auditors, executive responsibility, whistleblower protection)</b></li>
+<li>Define greenwashing and give one sign of it. <b>(misleading environmental claims; e.g., vague "eco-friendly" with no proof)</b></li>
+</ol>
+</section>
+
+<section id="align">
+<h2>How Week 4 builds toward the assessments</h2>
+<div class="tw"><table>
+<tr><th>Assessment</th><th>This week's practice</th></tr>
+<tr><td>Quiz 2 (Week 5)</td><td>Key terms through use (judge cards, toolbox match); possible items above</td></tr>
+<tr><td>Written assignments</td><td>Journal #4; hedging and evidence language</td></tr>
+<tr><td>Midterm (Week 6)</td><td>Case analysis with stakeholders, minimum/maximum, and government's role (gallery cases)</td></tr>
+<tr><td>Personal Code of Ethics (Weeks 8–9)</td><td>"Would I do abroad what's illegal at home?" — a principle for the code</td></tr>
+<tr><td>Final assessment</td><td>Evaluating claims and evidence; comparing voluntary vs. legal solutions</td></tr>
+<tr><td>Participation</td><td>Fishing game, gallery notes, card sort, fishbowl (observer sheets)</td></tr>
+</table></div>
+</section>
+
+<section id="flags">
+<h2>Open questions &amp; flags</h2>
+<ol>
+<li><strong>Keystone XL is outdated.</strong> The textbook's <em>What Would You Do?</em> in 4.3 describes the pipeline as approved in 2017 and unresolved. In fact, the U.S. permit was revoked in 2021 and TC Energy terminated the project in June 2021. I left it out.</li>
+<li><strong>Other dated facts in Chapter 4:</strong> the Global 100 and ISO figures are from around 2015–2018; the Tesla prices and the statement about the Paris Climate Accord reflect 2017–2018. U.S. participation in the Paris Agreement has changed more than once since then — check current status before mentioning it.</li>
+<li><strong>Possible textbook date error:</strong> the book dates Cormac Cullinan's <em>Wild Law</em> to 1992; it was published in 2002. The materials don't use the date.</li>
+<li><strong>Sensitive topics left out:</strong> 4.1's <em>Hobby Lobby</em> case (religion and contraception) and 4.3's guns and opioids examples. They're valid but can derail a language class; use them only if you choose to.</li>
+<li><strong>Outside source:</strong> the EU green-claims rules (in force since September 27, 2026) are not in the textbook; they're marked as outside material on every student page.</li>
+<li><strong>Homework reminder:</strong> the card sort works best if students bring their own claims. If many forget, give the class 5 minutes at the start of Class 2 to find one online.</li>
+</ol>
+</section>
+
+<footer>Textbook content summarized from Byars &amp; Stanberry, <em>Business Ethics</em>, OpenStax (CC BY-NC-SA 4.0), Chapters 3.4 and 4. Outside sources: Latham &amp; Watkins and Climate Focus on the EU Empowering Consumers Directive (2026); Pipeline &amp; Gas Journal (June 2021). The fishing game and claim cards 9–16 are teacher-made and fictional.</footer>
+</main>
+</div>
+</body>
+</html>
