@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Boston Field Trip — Preparation Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1B1F4B;--red:#990011;--gold:#D9A441;--green:#2F6B4F;--cream:#FBF6F1;--ink:#2A2D44;--gray:#5B5B66;--line:#dcd9e4}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font:18px/1.6 "Source Sans 3",Calibri,Arial,sans-serif}
+.hero{background:var(--navy);color:#fff;padding:44px 24px 40px}
+.wrap{max-width:940px;margin:0 auto}
+.hero .kicker{color:var(--gold)}
+.kicker{font-weight:700;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--red)}
+h1,h2,h3,h4{font-family:"Source Serif 4",Cambria,Georgia,serif;line-height:1.2;color:var(--navy)}
+.hero h1{color:#fff;font-size:44px;margin:10px 0 12px}
+.hero p{font-size:20px;color:rgba(255,255,255,.88);margin:0;max-width:760px}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin-top:26px}
+.facts div{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:8px;padding:10px 14px;font-weight:600}
+.facts span{display:block;font-size:11px;letter-spacing:.12em;color:var(--gold);text-transform:uppercase}
+nav.jump{position:sticky;top:0;z-index:5;background:#fff;border-bottom:1px solid var(--line)}
+nav.jump .wrap{display:flex;gap:6px;overflow-x:auto;padding:10px 24px;-webkit-overflow-scrolling:touch}
+nav.jump a{flex:none;font-weight:700;font-size:14px;color:var(--navy);text-decoration:none;border:1.5px solid var(--navy);border-radius:20px;padding:5px 12px;white-space:nowrap}
+nav.jump a:hover{background:var(--navy);color:#fff}
+main{padding:10px 24px 60px}
+section{background:#fff;border-radius:12px;padding:28px 32px;margin:24px 0;border:1px solid var(--line)}
+h2{font-size:28px;margin:0 0 10px}
+h3{font-size:21px;margin:22px 0 6px}
+p{margin:8px 0}
+ul,ol{padding-left:22px;margin:8px 0}
+li{margin-bottom:5px}
+table{width:100%;border-collapse:collapse;font-size:16.5px;margin:10px 0}
+th{background:var(--navy);color:#fff;text-align:left;padding:8px 10px;font-size:14px}
+td{border-bottom:1px solid var(--line);padding:9px 10px;vertical-align:top}
+tr.walk td{color:var(--gray);font-style:italic;background:#faf9fc}
+tr.brk td{background:#fdf3df;font-weight:700;color:#7a5a12}
+.tw{overflow-x:auto}
+.grp{border-top:6px solid var(--red)}
+.grp.g2{border-top-color:var(--navy)}.grp.g3{border-top-color:var(--gold)}.grp.g4{border-top-color:var(--green)}.grp.g5{border-top-color:#6b4f8a}
+.ghead{display:flex;gap:16px;align-items:flex-start;flex-wrap:wrap}
+.gnum{width:58px;height:58px;border-radius:50%;background:var(--red);color:#fff;display:flex;align-items:center;justify-content:center;font:700 28px "Source Serif 4",serif;flex:none}
+.g2 .gnum{background:var(--navy)}.g3 .gnum{background:var(--gold);color:var(--navy)}.g4 .gnum{background:var(--green)}.g5 .gnum{background:#6b4f8a}
+.ghead h2{margin:2px 0}
+.meta{font-size:15.5px;color:var(--gray)}
+.meta b{color:var(--navy)}
+.big{background:var(--cream);border-radius:8px;padding:10px 16px;margin:14px 0;font-size:17px}
+.parts{display:grid;gap:14px;margin-top:14px}
+.part{border:1.5px solid var(--line);border-radius:10px;padding:16px 18px}
+.part h4{font-size:19px;margin:0 0 2px;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+.who{font:700 15px "Source Sans 3",sans-serif;letter-spacing:.02em;color:#fff;background:var(--navy);padding:3px 10px;border-radius:20px}
+.part .lab{display:block;font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--red);margin-top:10px}
+.part ul{margin:4px 0}
+.must li::marker{color:var(--red);font-weight:700}
+.src{font-size:15px;color:var(--gray);margin-top:12px}
+.src a{color:var(--navy);font-weight:600}
+.tip{background:#eef5f0;border-left:5px solid var(--green);border-radius:0 8px 8px 0;padding:10px 16px;margin:12px 0;font-size:16.5px}
+.warn{background:#fdf3df;border-left:5px solid var(--gold);border-radius:0 8px 8px 0;padding:10px 16px;margin:12px 0;font-size:16.5px}
+.frames{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.frames div{background:var(--cream);border-radius:8px;padding:10px 14px;font-size:16.5px}
+.frames b{display:block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
+.check label{display:flex;gap:10px;align-items:flex-start;padding:5px 0;cursor:pointer}
+.check input{width:20px;height:20px;margin-top:4px;accent-color:var(--navy);flex:none}
+.rub td:first-child{font-weight:700;color:var(--navy)}
+.pts{white-space:nowrap;font-weight:700;color:var(--red)}
+footer{text-align:center;font-size:13px;color:var(--gray);padding:20px}
+.printbtn{float:right;font:700 15px "Source Sans 3",sans-serif;border:2px solid #fff;background:transparent;color:#fff;border-radius:8px;padding:7px 14px;cursor:pointer}
+@media (max-width:640px){
+  body{font-size:17px}
+  .hero h1{font-size:32px}
+  section{padding:20px 16px}
+  main{padding:4px 12px 40px}
+  .frames{grid-template-columns:1fr}
+}
+@media print{
+  body{background:#fff;font-size:12.5px}
+  nav.jump,.printbtn{display:none}
+  .hero{background:#fff;color:var(--ink);padding:0 0 10px}.hero h1,.hero p{color:var(--navy)}
+  .facts div{border-color:#999;color:var(--ink)}
+  section{border:0;padding:8px 0;break-inside:auto}
+  .part,tr{break-inside:avoid}
+  .grp{break-before:page}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+  <button class="printbtn" onclick="print()">Print</button>
+  <div class="kicker">American Culture &nbsp;|&nbsp; Week 5 Midterm</div>
+  <h1>Walking Through History: Downtown Boston</h1>
+  <p>Next week, our class becomes the tour guide! Each group will teach the class about one famous Boston place — right where it is. Use this guide to prepare your part.</p>
+  <div class="facts">
+    <div><span>Day</span>Week 5 class</div>
+    <div><span>Time</span>2:00 PM start</div>
+    <div><span>Meet at</span>Boston Public Library, Copley Square</div>
+    <div><span>Walk</span>About 2 miles, 5 stops</div>
+    <div><span>Groups</span>5 groups of 3–4</div>
+  </div>
+</div></header>
+
+<nav class="jump" aria-label="Sections"><div class="wrap">
+  <a href="#plan">Route &amp; Times</a><a href="#g5">Boston Public Library</a><a href="#g1">Public Garden</a><a href="#g4">State House</a><a href="#g2">Freedom Trail</a><a href="#g3">Faneuil Hall</a><a href="#how">How to Present</a><a href="#rubric">Grading</a><a href="#check">Checklist</a>
+</div></nav>
+
+<main><div class="wrap">
+
+<section>
+  <h2>How the Midterm Works</h2>
+  <ol>
+    <li><b>Prepare your part</b> this week. Each student has their own topic (see your group below).</li>
+    <li><b>Present at the real place.</b> Your group speaks for about <b>10 minutes</b> (3 minutes each), then answers questions from the class.</li>
+    <li><b>Listen and take notes</b> on the <b>Field Trip Worksheet</b> when other groups present.</li>
+    <li><b>Write a short reflection</b> at the end of the trip.</li>
+  </ol>
+  <div class="tip"><b>Important:</b> The questions on the Field Trip Worksheet come from the <b>"Your talk must answer"</b> lists in this guide. Make sure your talk answers them clearly — your classmates need your answers!</div>
+</section>
+
+<section id="plan">
+  <h2>Route &amp; Timetable</h2>
+  <p>We walk from west to east and finish near Faneuil Hall (close to the State and Haymarket T stations). The sun sets around <b>4:30 PM</b>, so we will keep moving!</p>
+  <div class="tw"><table>
+    <thead><tr><th>Time</th><th>Stop</th><th>Presenting</th><th>Where we stand</th></tr></thead>
+    <tbody>
+      <tr><td>2:00–2:20</td><td><b>1. Boston Public Library</b></td><td>New, Hook, Raphaela</td><td>Front steps, Copley Square (Dartmouth St.)</td></tr>
+      <tr class="walk"><td>2:20–2:35</td><td colspan="3">Walk along Boylston Street to the Public Garden (about 0.5 mile)</td></tr>
+      <tr><td>2:35–2:55</td><td><b>2. Public Garden</b></td><td>Isabella, Beatriz, Wesley</td><td>George Washington statue (Arlington St. gate), then the Lagoon</td></tr>
+      <tr class="walk"><td>2:55–3:10</td><td colspan="3">Walk across Boston Common to Beacon Street</td></tr>
+      <tr><td>3:10–3:30</td><td><b>3. Massachusetts State House</b></td><td>Bobe, MiMi, Rachel</td><td>Beacon Street, in front of the gold dome</td></tr>
+      <tr><td>3:30–4:05</td><td><b>4. Freedom Trail</b> (walking talk)</td><td>Mina, Jihane, Keyla</td><td>Park Street Church → Old South Meeting House → Old State House</td></tr>
+      <tr class="walk"><td>4:05–4:10</td><td colspan="3">Short walk to Faneuil Hall</td></tr>
+      <tr><td>4:10–4:35</td><td><b>5. Faneuil Hall &amp; Quincy Market</b></td><td>Nicole, Esteban, Merve, Anastas</td><td>Samuel Adams statue, then Quincy Market</td></tr>
+      <tr class="brk"><td>4:35–5:05</td><td colspan="3">Break — food at Quincy Market</td></tr>
+      <tr><td>5:05–5:50</td><td colspan="3"><b>Finish the worksheet + write your reflection</b> (your teacher will tell you where)</td></tr>
+    </tbody>
+  </table></div>
+  <div class="warn"><b>Each group:</b> about 15 minutes total = 10 minutes of talking + 3–5 minutes of questions. Practice with a timer!</div>
+</section>
+
+<!-- GROUP 5: BPL -->
+<section class="grp g5" id="g5">
+  <div class="ghead"><span class="gnum">1</span><div><div class="kicker">Stop 1 · 2:00 PM</div><h2>Boston Public Library</h2><div class="meta">Group: <b>New, Hook, Raphaela</b> · Copley Square</div></div></div>
+  <div class="big"><b>Big idea:</b> Boston created one of America's first free public libraries — knowledge "Free to All." This connects to Week 4: free public education.</div>
+  <div class="parts">
+    <div class="part"><h4><span class="who">New</span>History: A Library Free to All</h4>
+      <span class="lab">Your talk must answer</span>
+      <ol class="must"><li>When was the Boston Public Library founded?</li><li>What "firsts" is it famous for?</li><li>What do the words "Free to All" on the building mean?</li></ol>
+      <span class="lab">Starter facts (check and add more)</span>
+      <ul><li>Founded in <b>1848</b>.</li><li>America's first large <b>free</b> city library, and the first public library to <b>lend books</b> to take home.</li><li>"Free to All" is carved on the front of the Central Library.</li></ul></div>
+    <div class="part"><h4><span class="who">Hook</span>The Building: A "Palace for the People"</h4>
+      <span class="lab">Your talk must answer</span>
+      <ol class="must"><li>Who designed the main building, and when did it open?</li><li>What is Bates Hall, and what does it look like?</li><li>Name one piece of art inside the library.</li></ol>
+      <span class="lab">Starter facts</span>
+      <ul><li>The McKim Building was designed by <b>Charles Follen McKim</b> and opened in <b>1895</b>.</li><li><b>Bates Hall</b> is the huge reading room with a high arched ceiling and green lamps.</li><li>Inside: famous murals (for example, by John Singer Sargent) and a quiet courtyard.</li></ul></div>
+    <div class="part"><h4><span class="who">Raphaela</span>The Library Today</h4>
+      <span class="lab">Your talk must answer</span>
+      <ol class="must"><li>What can people do at the library today (not only borrow books)?</li><li>Who can get a library card, and how much does it cost?</li><li>Compare: Are libraries free and popular in your country?</li></ol>
+      <span class="lab">Starter facts</span>
+      <ul><li>There is a newer building on Boylston Street (opened 1972, renovated 2016) and about 25 neighborhood branches.</li><li>Free events, computers, classes, and English-learning programs.</li><li>Check the BPL website for who can get a free card.</li></ul></div>
+  </div>
+  <p class="src">Sources: <a href="https://www.bpl.org/about/" target="_blank" rel="noopener">bpl.org/about</a> · <a href="https://bpl.org/bpl-history" target="_blank" rel="noopener">bpl.org/bpl-history</a></p>
+</section>
+
+<!-- GROUP 1: PUBLIC GARDEN -->
+<section class="grp" id="g1">
+  <div class="ghead"><span class="gnum">2</span><div><div class="kicker">Stop 2 · 2:35 PM</div><h2>The Public Garden</h2><div class="meta">Group: <b>Isabella, Beatriz, Wesley</b> · Arlington Street entrance</div></div></div>
+  <div class="big"><b>Big idea:</b> A swampy area became America's first public botanical garden — a beautiful place for everyone, full of history and stories.</div>
+  <div class="parts">
+    <div class="part"><h4><span class="who">Isabella</span>History of the Public Garden</h4>
+      <span class="lab">Your talk must answer</span>
+      <ol class="must"><li>When was the Public Garden created, and what makes it a "first"?</li><li>What was the land like before it became a garden?</li><li>How is the Public Garden different from Boston Common next door?</li></ol>
+      <span class="lab">Starter facts</span>
+      <ul><li>Created in <b>1837</b> — the first <b>public botanical garden</b> in the United States.</li><li>It was built on marshy land (wet, muddy land) near the Charles River that was filled in.</li><li>Boston Common (1634) is older and was used for cows and public events; the Garden is planned with flowers and trees.</li></ul></div>
+    <div class="part"><h4><span class="who">Beatriz</span>The George Washington Statue</h4>
+      <span class="lab">Your talk must answer</span>
+      <ol class="must"><li>Who was George Washington?</li><li>Who made this statue, and when?</li><li>What is Washington's connection to Boston?</li></ol>
+      <span class="lab">Starter facts</span>
+      <ul><li>Washington led the American army in the Revolution and became the first U.S. President.</li><li>The statue (Washington on a horse) is by <b>Thomas Ball</b> and was unveiled in <b>1869</b>.</li><li>In 1775–1776, Washington led the army that forced the British to leave Boston in March 1776.</li></ul></div>
+    <div class="part"><h4><span class="who">Wesley</span>The Lagoon: Swan Boats &amp; Ducklings</h4>
+      <span class="lab">Your talk must answer</span>
+      <ol class="must"><li>What are the Swan Boats, and how long have they been on the Lagoon?</li><li>What is <i>Make Way for Ducklings</i>?</li><li>Why do families and visitors love this part of the Garden?</li></ol>
+      <span class="lab">Starter facts</span>
+      <ul><li>The pedal-powered <b>Swan Boats</b> have run on the Lagoon since <b>1877</b>. They only run in spring and summer, so they will not be on the water during our trip — bring a photo!</li><li><i>Make Way for Ducklings</i> is a 1941 children's book by Robert McCloskey set in the Public Garden.</li><li>Bronze duckling statues (by Nancy Schön, 1987) are near the corner of Beacon and Charles Streets.</li></ul></div>
+  </div>
+  <p class="src">Sources: <a href="https://www.boston.gov/departments/parks-and-recreation" target="_blank" rel="noopener">City of Boston — Parks &amp; Recreation</a> · <a href="https://www.friendsofthepublicgarden.org/" target="_blank" rel="noopener">Friends of the Public Garden</a> · <a href="https://swanboats.com/" target="_blank" rel="noopener">swanboats.com</a></p>
+</section>
+
+<!-- GROUP 4: STATE HOUSE -->
+<section class="grp g4" id="g4">
+  <div class="ghead"><span class="gnum">3</span><div><div class="kicker">Stop 3 · 3:10 PM</div><h2>The Massachusetts State House</h2><div class="meta">Group: <b>Bobe, MiMi, Rachel</b> · Beacon Street</div></div></div>
+  <div class="big"><b>Big idea:</b> The building with the gold dome is the home of Massachusetts state government. This connects to Week 3: government offices.</div>
+  <div class="parts">
+    <div class="part"><h4><span class="who">Bobe</span>History &amp; the Golden Dome</h4>
+      <span class="lab">Your talk must answer</span>
+      <ol class="must"><li>Who designed the State House, and when was it finished?</li><li>Whose land was it built on?</li><li>What is the dome made of, and what happened to it during World War II?</li></ol>
+      <span class="lab">Starter facts</span>
+      <ul><li>Designed by <b>Charles Bulfinch</b>; finished in <b>1798</b>.</li><li>Built on land that was once <b>John Hancock's</b> cow pasture.</li><li>The dome was covered in copper by <b>Paul Revere's</b> company in 1802; today it is covered in <b>23-karat gold leaf</b>. In World War II it was painted gray so enemy planes could not see it.</li></ul></div>
+    <div class="part"><h4><span class="who">MiMi</span>What Happens Inside?</h4>
+      <span class="lab">Your talk must answer</span>
+      <ol class="must"><li>Who works in the State House?</li><li>What is the difference between <b>state</b> government and <b>city</b> government (City Hall)?</li><li>Can visitors go inside?</li></ol>
+      <span class="lab">Starter facts</span>
+      <ul><li>The <b>Governor's</b> office and the state legislature — the <b>House of Representatives</b> and the <b>Senate</b> — are here.</li><li>The state makes laws for all of Massachusetts; the city (Boston City Hall) runs local services.</li><li>Free tours are available on weekdays (check the official tours page).</li></ul></div>
+    <div class="part"><h4><span class="who">Rachel</span>Symbols &amp; Monuments</h4>
+      <span class="lab">Your talk must answer</span>
+      <ol class="must"><li>What is the "Sacred Cod," and why is a fish a symbol of Massachusetts?</li><li>What is the memorial across the street, and who does it honor?</li><li>Why is that memorial important for the history of civil rights?</li></ol>
+      <span class="lab">Starter facts</span>
+      <ul><li>The <b>Sacred Cod</b> is a wooden fish that hangs in the House of Representatives — fishing was very important to the state's economy.</li><li>The <b>Robert Gould Shaw and 54th Regiment Memorial</b> (by Augustus Saint-Gaudens, 1897) honors one of the first Black regiments to fight in the Civil War.</li><li>Connect to Week 4: the long fight for equal rights.</li></ul></div>
+  </div>
+  <p class="src">Sources: <a href="https://www.sec.state.ma.us/divisions/state-house-tours/did-you-know/State-House.htm" target="_blank" rel="noopener">Mass. Secretary of the Commonwealth — State House</a> · <a href="https://www.nps.gov/boaf/" target="_blank" rel="noopener">National Park Service — Boston African American Historic Site</a></p>
+</section>
+
+<!-- GROUP 2: FREEDOM TRAIL -->
+<section class="grp g2" id="g2">
+  <div class="ghead"><span class="gnum">4</span><div><div class="kicker">Stop 4 · 3:30 PM · Walking talk</div><h2>The Freedom Trail</h2><div class="meta">Group: <b>Mina, Jihane, Keyla</b> · Each person presents at a different place as we walk</div></div></div>
+  <div class="big"><b>Big idea:</b> A red line on the sidewalk connects the places where the American Revolution began. This connects to Week 2: from 13 colonies to a new country.</div>
+  <div class="parts">
+    <div class="part"><h4><span class="who">Mina</span>What Is the Freedom Trail? + Park Street &amp; School Street</h4>
+      <p class="meta">Where you present: <b>Park Street Church / Granary Burying Ground</b> (Tremont St.)</p>
+      <span class="lab">Your talk must answer</span>
+      <ol class="must"><li>What is the Freedom Trail? How long is it, and how many sites does it have?</li><li>Which famous Americans are buried in the Granary Burying Ground?</li><li>What school started on School Street, and why is it important? (Week 4!)</li></ol>
+      <span class="lab">Starter facts</span>
+      <ul><li>The Freedom Trail is about <b>2.5 miles</b> long and connects <b>16</b> historic sites. It was created in <b>1951</b>.</li><li>Granary Burying Ground: <b>Paul Revere, Samuel Adams, John Hancock</b>, and victims of the Boston Massacre.</li><li><b>Boston Latin School</b> (1635) — the first public school in America — started on what is now School Street.</li></ul></div>
+    <div class="part"><h4><span class="who">Jihane</span>Old South Meeting House &amp; the Boston Tea Party</h4>
+      <p class="meta">Where you present: <b>Old South Meeting House</b> (Washington St. &amp; Milk St.)</p>
+      <span class="lab">Your talk must answer</span>
+      <ol class="must"><li>What happened at the Old South Meeting House on December 16, 1773?</li><li>What was the Boston Tea Party, and why were people angry?</li><li>What did "No taxation without representation" mean?</li></ol>
+      <span class="lab">Starter facts</span>
+      <ul><li>Thousands of people met here to protest a British tax on tea.</li><li>That night, colonists dumped 342 chests of tea into Boston Harbor.</li><li>Colonists did not want to pay taxes to a government where they had no vote.</li></ul></div>
+    <div class="part"><h4><span class="who">Keyla</span>Old State House &amp; the Boston Massacre</h4>
+      <p class="meta">Where you present: <b>Old State House</b> (Washington St. &amp; State St.)</p>
+      <span class="lab">Your talk must answer</span>
+      <ol class="must"><li>What was the Boston Massacre? When did it happen, and how many people died?</li><li>Who was Crispus Attucks?</li><li>What important document was read from the Old State House balcony in 1776?</li></ol>
+      <span class="lab">Starter facts</span>
+      <ul><li>On <b>March 5, 1770</b>, British soldiers fired into a crowd; <b>five</b> colonists were killed.</li><li><b>Crispus Attucks</b>, a man of African and Native American heritage, is often called the first person killed in the Revolution.</li><li>On July 18, 1776, the <b>Declaration of Independence</b> was read to Bostonians from the balcony.</li></ul></div>
+  </div>
+  <div class="tip"><b>Tip:</b> Look down! Follow the <b>red brick line</b> on the sidewalk between your stops.</div>
+  <p class="src">Sources: <a href="https://www.thefreedomtrail.org/" target="_blank" rel="noopener">The Freedom Trail Foundation</a> · <a href="https://www.revolutionaryspaces.org/" target="_blank" rel="noopener">Revolutionary Spaces (Old South &amp; Old State House)</a> · <a href="https://www.nps.gov/bost/" target="_blank" rel="noopener">National Park Service — Boston National Historical Park</a></p>
+</section>
+
+<!-- GROUP 3: FANEUIL HALL -->
+<section class="grp g3" id="g3">
+  <div class="ghead"><span class="gnum">5</span><div><div class="kicker">Stop 5 · 4:10 PM</div><h2>Faneuil Hall &amp; Quincy Market</h2><div class="meta">Group: <b>Nicole, Esteban, Merve, Anastas</b> · Samuel Adams statue (Dock Square)</div></div></div>
+  <div class="big"><b>Big idea:</b> For almost 300 years, this has been a place to <b>buy, sell, and speak freely</b> — from Revolution speeches to today's street performers.</div>
+  <div class="parts">
+    <div class="part"><h4><span class="who">Nicole</span>Faneuil Hall: The "Cradle of Liberty"</h4>
+      <span class="lab">Your talk must answer</span>
+      <ol class="must"><li>Who was Peter Faneuil, and when was the hall built?</li><li>Why is Faneuil Hall called the "Cradle of Liberty"?</li><li>Who is the statue in front of the hall?</li></ol>
+      <span class="lab">Starter facts</span>
+      <ul><li>Built in <b>1742</b>, a gift to Boston from the merchant <b>Peter Faneuil</b>: a market downstairs and a meeting hall upstairs.</li><li>Samuel Adams and other colonists gave speeches here against British rule.</li><li>The statue in front shows <b>Samuel Adams</b>.</li></ul></div>
+    <div class="part"><h4><span class="who">Esteban</span>A Place for Free Speech</h4>
+      <span class="lab">Your talk must answer</span>
+      <ol class="must"><li>After the Revolution, what important causes did people speak about here?</li><li>Name one famous speaker who spoke at Faneuil Hall.</li><li>What is the golden animal on top of the building?</li></ol>
+      <span class="lab">Starter facts</span>
+      <ul><li>Abolitionists (people who fought to end slavery), such as <b>Frederick Douglass</b>, spoke here; so did people working for women's rights.</li><li>The <b>grasshopper weathervane</b> on the roof dates from 1742 (made by Shem Drowne).</li></ul></div>
+    <div class="part"><h4><span class="who">Merve</span>Quincy Market: History</h4>
+      <span class="lab">Your talk must answer</span>
+      <ol class="must"><li>When was Quincy Market built, and who is it named after?</li><li>Why did Boston need a bigger market?</li><li>What was sold here in the 1800s?</li></ol>
+      <span class="lab">Starter facts</span>
+      <ul><li>Built in <b>1824–1826</b> and named after Mayor <b>Josiah Quincy</b>.</li><li>Boston was growing quickly, and Faneuil Hall's market was too small.</li><li>It sold meat, fish, vegetables, and other food.</li></ul></div>
+    <div class="part"><h4><span class="who">Anastas</span>Faneuil Hall Marketplace Today</h4>
+      <span class="lab">Your talk must answer</span>
+      <ol class="must"><li>What happened to the market area in 1976?</li><li>What can visitors do here today?</li><li>Compare: Is there a famous market or square like this in your country?</li></ol>
+      <span class="lab">Starter facts</span>
+      <ul><li>The old buildings were restored and reopened in <b>1976</b> as a "festival marketplace" with shops and restaurants.</li><li>Today: food hall, shops, and street performers; millions of visitors each year.</li></ul></div>
+  </div>
+  <p class="src">Sources: <a href="https://www.nps.gov/bost/" target="_blank" rel="noopener">National Park Service — Boston National Historical Park</a> · <a href="https://www.thefreedomtrail.org/" target="_blank" rel="noopener">The Freedom Trail Foundation</a> · <a href="https://faneuilhallmarketplace.com/" target="_blank" rel="noopener">faneuilhallmarketplace.com</a></p>
+</section>
+
+<section id="how">
+  <h2>How to Prepare &amp; Present</h2>
+  <h3>Your 3-minute talk</h3>
+  <ol>
+    <li><b>Hook (20 seconds):</b> Start with a surprising fact or a question: <i>"Can you guess how old this building is?"</i></li>
+    <li><b>Answer your 3 questions (2 minutes):</b> Point to things we can see. Use simple, clear English.</li>
+    <li><b>Connect (30 seconds):</b> Connect to our class (Weeks 1–4) or to your home country.</li>
+    <li><b>Hand over:</b> <i>"Now ___ will tell you about…"</i></li>
+  </ol>
+  <h3>Rules for a great talk</h3>
+  <ul>
+    <li><b>Use your own words.</b> Do not read from your phone. You may bring <b>one small card</b> with key words.</li>
+    <li>Speak <b>loudly</b> — we are outside and the city is noisy!</li>
+    <li>Bring <b>one visual</b>: an old photo or map on your phone or printed, to show the group.</li>
+    <li>At the end, your group asks the class <b>one question</b>.</li>
+  </ul>
+  <h3>Useful language</h3>
+  <div class="frames">
+    <div><b>Pointing</b>"If you look up/to your left, you can see…" · "This is where…"</div>
+    <div><b>Talking about the past</b>"In 1773, …" · "This building was built in…" · "It used to be…"</div>
+    <div><b>Explaining why</b>"This is important because…" · "This led to…"</div>
+    <div><b>Connecting</b>"This reminds me of… in my country." · "Remember in Week 4 we learned…"</div>
+  </div>
+</section>
+
+<section id="rubric">
+  <h2>How You Will Be Graded</h2>
+  <div class="tw"><table class="rub">
+    <thead><tr><th>Part</th><th>What your teacher looks for</th><th>Points</th></tr></thead>
+    <tbody>
+      <tr><td>Content</td><td>Your talk answers all 3 questions with correct facts.</td><td class="pts">8</td></tr>
+      <tr><td>Speaking</td><td>Clear, loud, and in your own words; you don't read the whole time.</td><td class="pts">6</td></tr>
+      <tr><td>Connection &amp; visual</td><td>You connect to our class or your country and show one visual.</td><td class="pts">3</td></tr>
+      <tr><td>Teamwork</td><td>Smooth hand-overs, on time, and your group answers questions together.</td><td class="pts">3</td></tr>
+      <tr><td>Field Trip Worksheet</td><td>Notes and answers for the other groups' stops.</td><td class="pts">15</td></tr>
+      <tr><td>Reflection</td><td>Your written reflection at the end of the trip (6–8 sentences).</td><td class="pts">15</td></tr>
+      <tr><td colspan="2" style="text-align:right">Total</td><td class="pts">50</td></tr>
+    </tbody>
+  </table></div>
+  <p class="meta">The presentation is graded <b>individually</b> — each person gets their own score for their own part.</p>
+</section>
+
+<section id="check">
+  <h2>My Preparation Checklist</h2>
+  <p class="meta">Your checks are saved on this device.</p>
+  <div class="check">
+    <label><input type="checkbox"> I know my group and my topic.</label>
+    <label><input type="checkbox"> I found answers to my 3 questions (from at least 2 sources).</label>
+    <label><input type="checkbox"> I wrote my talk in my own words and made a small key-word card.</label>
+    <label><input type="checkbox"> I found one visual (photo or map) to show.</label>
+    <label><input type="checkbox"> My group practiced together and our talk is about 10 minutes.</label>
+    <label><input type="checkbox"> We wrote one question to ask the class.</label>
+    <label><input type="checkbox"> I know where we meet: Boston Public Library, Copley Square, at 2:00 PM.</label>
+    <label><input type="checkbox"> I will wear comfortable shoes and a warm jacket, and charge my phone.</label>
+  </div>
+  <div class="warn"><b>On the day:</b> Stay with the class. Save your teacher's phone number. If you get lost, go to the next stop on the timetable and call your teacher.</div>
+</section>
+
+</div></main>
+<footer>American Culture — Week 5 Midterm Field Trip · Preparation Guide</footer>
+<script>
+const KEY='ac-week5-prep-v1';
+const boxes=[...document.querySelectorAll('.check input')];
+let s={};try{s=JSON.parse(localStorage.getItem(KEY)||'{}');}catch(e){}
+boxes.forEach((b,i)=>{b.checked=!!s[i];b.addEventListener('change',()=>{s[i]=b.checked;try{localStorage.setItem(KEY,JSON.stringify(s));}catch(e){}});});
+</script>
+</body>
+</html>

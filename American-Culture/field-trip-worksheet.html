@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Boston Field Trip — Worksheet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1B1F4B;--red:#990011;--gold:#D9A441;--green:#2F6B4F;--purple:#6b4f8a;--cream:#FBF6F1;--ink:#2A2D44;--gray:#5B5B66;--line:#d8d6e2;--field:#fdfcfa}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);font:18px/1.55 "Source Sans 3",Calibri,Arial,sans-serif}
+.page{max-width:820px;margin:0 auto;background:#fff;padding:28px 36px 60px;border-top:6px solid var(--navy)}
+h1,h2,h3{font-family:"Source Serif 4",Cambria,Georgia,serif;color:var(--navy);line-height:1.2}
+h1{font-size:32px;margin:4px 0}
+.kicker{font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
+.subt{color:var(--gray);margin:2px 0 16px}
+input[type=text],textarea,select{font:inherit;color:var(--navy);width:100%;border:1.5px solid var(--line);border-radius:6px;padding:9px 11px;background:var(--field);min-height:44px}
+textarea{min-height:70px;resize:vertical;line-height:1.5}
+input:focus,textarea:focus,select:focus{outline:2px solid var(--navy);outline-offset:1px;background:#fff}
+label{font-weight:600;color:var(--navy)}
+.idrow{display:grid;grid-template-columns:2fr 1.3fr;gap:12px}
+.idrow label{font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+.how{background:var(--cream);border-radius:10px;padding:12px 18px;margin:18px 0;font-size:16.5px}
+.how b{color:var(--navy)}
+/* progress */
+.prog{display:flex;gap:6px;margin:16px 0 6px;flex-wrap:wrap}
+.prog a{flex:1;min-width:110px;text-decoration:none;text-align:center;font-weight:700;font-size:13.5px;padding:8px 6px;border-radius:8px;background:#eee;color:var(--gray);border:2px solid transparent}
+.prog a.done{background:#e7f5ec;color:var(--green)}
+.prog a.mine{border-color:var(--gold)}
+/* stops */
+.stop{margin-top:34px;border:1.5px solid var(--line);border-radius:12px;overflow:hidden}
+.shead{display:flex;align-items:center;gap:14px;padding:14px 18px;color:#fff;background:var(--navy)}
+.s1 .shead{background:var(--purple)}.s2 .shead{background:var(--red)}.s3 .shead{background:var(--green)}.s4 .shead{background:var(--navy)}.s5 .shead{background:#8a6416}
+.snum{width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;font:700 22px "Source Serif 4",serif;flex:none}
+.shead h2{color:#fff;font-size:23px;margin:0}
+.shead small{display:block;font-size:14px;opacity:.85;font-weight:600}
+.sbody{padding:16px 18px}
+.mine-note{display:none;background:#fdf3df;border-radius:8px;padding:10px 14px;margin-bottom:10px;font-size:16px}
+.stop.is-mine .mine-note{display:block}
+.stop.is-mine .qs{opacity:.45}
+.q{margin:12px 0}
+.q label{display:block;margin-bottom:5px}
+.q label i{font-weight:400;color:var(--gray);font-size:15px}
+.extras{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:6px}
+.stars{display:flex;gap:4px;align-items:center;flex-wrap:wrap}
+.stars span{font-size:15px;color:var(--gray);margin-right:6px}
+.stars label{font-size:30px;line-height:1;cursor:pointer;color:#d5d2dc;font-weight:400}
+.stars input{position:absolute;opacity:0;pointer-events:none}
+.stars label.on{color:var(--gold)}
+.stars label:has(input:focus-visible){outline:2px solid var(--navy);border-radius:4px}
+/* reflection */
+.refl{margin-top:40px;border-top:4px double var(--gold);padding-top:10px}
+.refl h2{font-size:26px;margin:8px 0}
+.prompts{background:var(--cream);border-radius:10px;padding:10px 18px 10px 36px;margin:10px 0}
+.prompts li{margin:4px 0}
+.counter{font-size:14px;color:var(--gray);text-align:right;margin-top:4px}
+.counter.ok{color:var(--green);font-weight:700}
+.frames{font-size:15.5px;color:var(--gray);margin-top:8px}
+.frames i{color:var(--navy)}
+.toolbar{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);margin:-28px -36px 18px;padding:10px 36px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.btn{font:700 15px "Source Sans 3",sans-serif;border-radius:8px;padding:7px 14px;cursor:pointer;border:2px solid var(--navy);background:var(--navy);color:#fff;min-height:40px}
+.btn.ghost{background:#fff;color:var(--navy)}
+#saved{font-size:14px;color:var(--gray);margin-left:auto}
+footer{margin-top:36px;font-size:13px;color:var(--gray);text-align:center}
+@media (max-width:640px){
+  body{font-size:17px}
+  .page{padding:18px 14px 40px}
+  .toolbar{margin:-18px -14px 14px;padding:8px 14px}
+  .idrow,.extras{grid-template-columns:1fr}
+  h1{font-size:26px}
+  .prog a{min-width:30%}
+}
+@media print{
+  body{background:#fff;font-size:12.5px}
+  .page{padding:0;max-width:none;border:0}
+  .toolbar,.prog,.counter,.mine-note{display:none!important}
+  .stop.is-mine .qs{opacity:1}
+  input[type=text],textarea,select{border:0;border-bottom:1px solid #999;border-radius:0;background:transparent!important;min-height:0;padding:2px 4px}
+  textarea{resize:none;overflow:hidden}
+  .stop,.q{break-inside:avoid}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+<main class="page">
+<div class="toolbar">
+  <button class="btn" onclick="print()">Print / Save as PDF</button>
+  <button class="btn ghost" id="clear">Clear my answers</button>
+  <span id="saved">Your answers save automatically on this device.</span>
+</div>
+
+<div class="kicker">American Culture &nbsp;|&nbsp; Week 5 Midterm</div>
+<h1>Walking Through History: Field Trip Worksheet</h1>
+<p class="subt">Listen to each group and answer the questions. Use complete sentences when you can.</p>
+
+<div class="idrow">
+  <div><label for="name">Name</label><input type="text" id="name" autocomplete="name"></div>
+  <div><label for="mygroup">My group (my stop)</label>
+    <select id="mygroup"><option value="">Choose…</option><option value="1">Boston Public Library</option><option value="2">Public Garden</option><option value="3">State House</option><option value="4">Freedom Trail</option><option value="5">Faneuil Hall &amp; Quincy Market</option></select></div>
+</div>
+
+<div class="how"><b>How it works:</b> At each stop, listen to the presenting group and answer their questions. <b>Skip your own group's stop</b> — you are the teacher there! At the end, write your reflection. When you finish, click <b>Print / Save as PDF</b> and send it to your teacher.</div>
+
+<nav class="prog" id="prog" aria-label="Progress"></nav>
+
+<div id="stops"></div>
+
+<section class="refl" id="reflection">
+  <div class="kicker">Part 2 &nbsp;·&nbsp; 15 points</div>
+  <h2>My Reflection</h2>
+  <p>Write <b>6–8 sentences</b>. Answer these questions in your paragraph:</p>
+  <ol class="prompts">
+    <li>Which place was the most interesting for you? Why?</li>
+    <li>What is one thing you learned today that surprised you?</li>
+    <li>How does one of these places connect to something we studied in class (the Revolution, government, schools, or civil rights)?</li>
+    <li>Is there a similar place or story in your home country? Compare them.</li>
+  </ol>
+  <textarea id="refltext" style="min-height:230px" aria-label="My reflection"></textarea>
+  <div class="counter" id="rcount"></div>
+  <p class="frames">Useful phrases: <i>"The most interesting place was… because…"</i> · <i>"I was surprised to learn that…"</i> · <i>"This reminds me of… in my country."</i> · <i>"In Week __, we learned that…"</i></p>
+</section>
+
+<footer>American Culture — Week 5 Midterm · Field Trip Worksheet</footer>
+</main>
+
+<script>
+const STOPS=[
+ {n:1,cls:"s1",name:"Boston Public Library",where:"Copley Square · 2:00 PM",by:"New, Hook, Raphaela",
+  qs:["When was the Boston Public Library founded, and what is it the \"first\" to do?",
+      "Who designed the main (McKim) building, and what is Bates Hall?",
+      "Name two things people can do at the library today."]},
+ {n:2,cls:"s2",name:"The Public Garden",where:"Arlington Street gate · 2:35 PM",by:"Isabella, Beatriz, Wesley",
+  qs:["When was the Public Garden created, and why is it a \"first\" in the U.S.?",
+      "Who made the George Washington statue? What is Washington's connection to Boston?",
+      "What are the Swan Boats? What is Make Way for Ducklings?"]},
+ {n:3,cls:"s3",name:"Massachusetts State House",where:"Beacon Street · 3:10 PM",by:"Bobe, MiMi, Rachel",
+  qs:["Who designed the State House, and whose land was it built on?",
+      "Who works in the State House? How is state government different from city government?",
+      "What is the Sacred Cod? Who does the memorial across the street honor?"]},
+ {n:4,cls:"s4",name:"The Freedom Trail",where:"Park Street → Old South → Old State House · 3:30 PM",by:"Mina, Jihane, Keyla",
+  qs:["How long is the Freedom Trail? Name one famous person buried in the Granary Burying Ground.",
+      "What happened at the Old South Meeting House on December 16, 1773? Why were people angry?",
+      "What was the Boston Massacre? What document was read from the Old State House balcony in 1776?"]},
+ {n:5,cls:"s5",name:"Faneuil Hall & Quincy Market",where:"Samuel Adams statue · 4:10 PM",by:"Nicole, Esteban, Merve, Anastas",
+  qs:["Who was Peter Faneuil? Why is Faneuil Hall called the \"Cradle of Liberty\"?",
+      "Name one famous speaker or cause from Faneuil Hall's history. What animal is on the roof?",
+      "When was Quincy Market built, and who is it named after?",
+      "What happened to the marketplace in 1976? What can visitors do here today?"]}
+];
+const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;');
+document.getElementById('stops').innerHTML=STOPS.map(s=>`
+<section class="stop ${s.cls}" id="stop${s.n}" data-n="${s.n}">
+  <div class="shead"><span class="snum">${s.n}</span><div><h2>${esc(s.name)}</h2><small>${esc(s.where)} · Presented by ${esc(s.by)}</small></div></div>
+  <div class="sbody">
+    <div class="mine-note"><b>This is your group's stop.</b> You don't need to answer these questions. Good luck with your presentation!</div>
+    <div class="qs">
+      ${s.qs.map((q,i)=>`<div class="q"><label for="s${s.n}q${i}">${i+1}. ${esc(q)}</label><textarea id="s${s.n}q${i}" data-stop="${s.n}"></textarea></div>`).join('')}
+      <div class="extras">
+        <div class="q"><label for="s${s.n}w">One new word I learned <i>(+ meaning)</i></label><input type="text" id="s${s.n}w"></div>
+        <div class="q"><label for="s${s.n}m">One question I asked or want to ask</label><input type="text" id="s${s.n}m"></div>
+      </div>
+      <div class="stars" role="radiogroup" aria-label="How interesting was this stop?"><span>How interesting was this stop?</span>
+        ${[1,2,3,4,5].map(k=>`<label title="${k} of 5"><input type="radio" name="star${s.n}" value="${k}">&#9733;</label>`).join('')}</div>
+    </div>
+  </div>
+</section>`).join('');
+
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const sentences=t=>t.split(/[.!?]+(?:\s|$)/).map(x=>x.trim()).filter(x=>x.split(/\s+/).filter(Boolean).length>=3);
+
+function updateProgress(){
+  const mine=$('#mygroup').value;
+  $('#prog').innerHTML=STOPS.map(s=>{
+    const tas=$$(`textarea[data-stop="${s.n}"]`); const done=tas.filter(t=>t.value.trim()).length;
+    const isMine=mine==String(s.n);
+    return `<a href="#stop${s.n}" class="${isMine?'mine':''} ${(!isMine&&done===tas.length)?'done':''}">${s.n}. ${isMine?'My stop':done+'/'+tas.length+' answered'}</a>`;}).join('')+
+    `<a href="#reflection" class="${sentences($('#refltext').value).length>=6?'done':''}">Reflection</a>`;
+  $$('.stop').forEach(st=>st.classList.toggle('is-mine',st.dataset.n===mine));
+}
+function updateStars(){ $$('.stars').forEach(g=>{const v=+(g.querySelector('input:checked')?.value||0);[...g.querySelectorAll('label')].forEach((l,i)=>l.classList.toggle('on',i<v));}); }
+function updateCount(){const t=$('#refltext').value,n=sentences(t).length,c=$('#rcount');
+  c.textContent=`${n} sentence(s) · ${t.trim()?t.trim().split(/\s+/).length:0} words`+(n>=6?' — great length!':' — aim for 6–8 sentences');c.classList.toggle('ok',n>=6);}
+
+/* autosave */
+const KEY='ac-week5-fieldtrip-v1';
+const fields=$$('input[type=text],textarea,select,input[type=radio]');
+let d={};try{d=JSON.parse(localStorage.getItem(KEY)||'{}');}catch(e){}
+fields.forEach((f,i)=>{const v=d['f'+i];if(v!==undefined){if(f.type==='radio')f.checked=!!v;else f.value=v;}});
+let tm;function save(){const o={};fields.forEach((f,i)=>o['f'+i]=f.type==='radio'?f.checked:f.value);
+  try{localStorage.setItem(KEY,JSON.stringify(o));const s=$('#saved');s.textContent='✓ Saved on this device';clearTimeout(tm);tm=setTimeout(()=>s.textContent='Your answers save automatically on this device.',2000);}catch(e){}}
+fields.forEach(f=>['input','change'].forEach(ev=>f.addEventListener(ev,()=>{save();updateProgress();updateStars();updateCount();})));
+$('#clear').onclick=()=>{if(!confirm('Clear ALL your answers? This cannot be undone.'))return;try{localStorage.removeItem(KEY);}catch(e){}
+  fields.forEach(f=>{if(f.type==='radio')f.checked=false;else f.value='';});updateProgress();updateStars();updateCount();};
+updateProgress();updateStars();updateCount();
+addEventListener('beforeprint',()=>$$('textarea').forEach(a=>{a.style.height='auto';a.style.height=(a.scrollHeight+4)+'px';}));
+</script>
+</body>
+</html>
