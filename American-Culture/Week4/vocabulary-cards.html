@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>School Vocabulary Cards — Week 4</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=Noto+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1B1F4B;--navy-d:#12153A;--red:#990011;--gold:#D9A441;--cream:#FBF6F1;--ink:#2A2D44;--gray:#5B5B66;--lav:#E4E4F0}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:#0a0c22;overflow:hidden}
+body{font-family:"Source Sans 3",Calibri,Arial,sans-serif;color:var(--ink)}
+#viewport{position:fixed;inset:0;display:flex;align-items:center;justify-content:center}
+#stage{width:1280px;height:720px;position:relative;flex:none;background:var(--cream);overflow:hidden}
+h1,h2,h3{font-family:"Source Serif 4",Cambria,Georgia,serif;line-height:1.1}
+.screen{position:absolute;inset:0;display:none}
+.screen.on{display:block}
+/* title & overview */
+#title{background:var(--navy);color:#fff;padding:70px 80px}
+#title .kicker{color:var(--gold)}
+.kicker{font-weight:700;font-size:18px;letter-spacing:.16em;text-transform:uppercase;color:var(--red)}
+#title h1{font-size:74px;margin:16px 0 18px}
+#title p{font-size:26px;color:rgba(255,255,255,.85);max-width:900px;line-height:1.45}
+.howto{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
+.howto div{background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.18);border-radius:12px;padding:18px 20px;font-size:21px;line-height:1.35}
+.howto b.h{display:block;color:var(--gold);font-size:15px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px}
+#overview{padding:40px 56px}
+#overview h2{font-size:46px;color:var(--navy);margin:6px 0 22px}
+.ogrid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.ogrid button{font:600 24px "Source Serif 4",serif;color:var(--navy);background:#fff;border:1.5px solid #e2dfe8;border-left:7px solid var(--red);border-radius:8px;padding:16px 16px;text-align:left;cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+.ogrid button:nth-child(even){border-left-color:var(--navy)}
+.ogrid button small{font:600 14px "Source Sans 3",sans-serif;color:var(--gray)}
+.ogrid button:hover{background:#fdf3df}
+/* card */
+#card{display:none;grid-template-columns:470px 1fr}
+#card.on{display:grid}
+.left{background:var(--navy);color:#fff;padding:44px 44px 36px;position:relative;display:flex;flex-direction:column}
+.num{font-weight:700;font-size:16px;letter-spacing:.14em;color:var(--gold)}
+.word{font:700 76px/1.02 "Source Serif 4",serif;margin:18px 0 12px;word-break:break-word}
+.pos{display:inline-block;font-weight:700;font-size:19px;font-style:italic;color:var(--navy);background:var(--gold);border-radius:20px;padding:3px 14px;align-self:flex-start}
+.ipa{font:400 42px "Noto Sans","Source Sans 3",sans-serif;color:#fff;margin-top:26px;letter-spacing:.01em}
+.ipa small{display:block;font:600 14px "Source Sans 3",sans-serif;letter-spacing:.12em;color:rgba(255,255,255,.6);margin-bottom:4px}
+.resp{font-size:34px;margin-top:14px;color:#F3E2BC;letter-spacing:.02em}
+.resp b{color:#fff;font-weight:700}
+.resp small{display:block;font:600 14px "Source Sans 3",sans-serif;letter-spacing:.12em;color:rgba(255,255,255,.6);margin-bottom:2px}
+.alt{font-size:18px;color:rgba(255,255,255,.75);margin-top:10px;line-height:1.35}
+.listen{display:flex;gap:10px;flex-wrap:wrap;margin-top:auto;padding-top:22px}
+.sbtn{display:inline-flex;align-items:center;gap:10px;font:700 20px "Source Sans 3",sans-serif;border:0;border-radius:40px;padding:12px 22px;cursor:pointer;background:var(--gold);color:var(--navy)}
+.sbtn.ghost{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.5)}
+.sbtn svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.sbtn.playing{background:#fff}
+.right{padding:52px 52px 30px;display:flex;flex-direction:column;gap:26px;position:relative}
+.lab{font-weight:700;font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:8px;display:flex;align-items:center;gap:10px}
+.def{font-size:35px;line-height:1.35;color:var(--navy);font-weight:600}
+.fam{display:flex;flex-wrap:wrap;gap:10px}
+.fam span{background:#fff;border:1.5px solid #e2dfe8;border-radius:10px;padding:8px 14px;font-size:25px;color:var(--ink)}
+.fam span i{font-size:17px;color:var(--red);font-weight:700;margin-left:6px}
+.ex{background:#fff;border-left:7px solid var(--gold);border-radius:0 12px 12px 0;padding:18px 22px;font-size:30px;line-height:1.4;font-style:italic;color:var(--ink);display:flex;gap:16px;align-items:flex-start}
+.ex b{font-style:normal;color:var(--red)}
+.ex .txt{flex:1}
+.mini{flex:none;width:46px;height:46px;border-radius:50%;border:0;background:var(--navy);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.mini svg{width:22px;height:22px;fill:none;stroke:#fff;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.note{font-size:22px;color:var(--gray);background:#fdf3df;border-radius:8px;padding:8px 14px}
+.src{position:absolute;left:52px;right:52px;top:12px;font-size:14px;color:var(--gray);display:flex;justify-content:space-between;gap:12px}
+.src a{color:var(--navy);font-weight:600}
+/* quiz mode */
+.quiz .hideable{filter:blur(12px);cursor:pointer;user-select:none;transition:filter .25s}
+.quiz .hideable.shown{filter:none}
+.quiz .hideable::after{content:""}
+.qhint{display:none;font-size:15px;color:var(--red);font-weight:700}
+.quiz .qhint{display:inline}
+/* ui */
+#ui{position:fixed;right:0;bottom:0;display:flex;align-items:center;gap:8px;padding:8px;opacity:.35;transition:opacity .2s;z-index:5;flex-wrap:wrap;justify-content:flex-end}
+#ui:hover,#ui:focus-within{opacity:1}
+#ui button{font:600 14px "Source Sans 3",sans-serif;background:var(--navy);color:#fff;border:1px solid #fff;border-radius:6px;padding:7px 12px;cursor:pointer;min-height:36px}
+#ui button.on{background:var(--red)}
+#count{color:#fff;font:600 14px "Source Sans 3",sans-serif;min-width:60px;text-align:center;text-shadow:0 0 4px #000}
+#progress{position:fixed;left:0;top:0;height:4px;background:var(--gold);z-index:6;transition:width .2s}
+#toast{position:fixed;left:50%;top:16px;transform:translateX(-50%);background:var(--red);color:#fff;padding:10px 18px;border-radius:8px;font-size:15px;display:none;z-index:9;max-width:90vw}
+@media print{
+  html,body{overflow:visible;background:#fff}
+  #ui,#progress,#toast,.listen,.mini{display:none!important}
+  #viewport{position:static;display:block}#stage{transform:none!important;height:auto;background:none}
+  .screen{display:none!important}
+  #printall{display:block!important}
+  .pcard{width:1280px;height:720px;display:grid;grid-template-columns:470px 1fr;break-after:page;background:var(--cream)}
+  @page{size:1280px 720px;margin:0}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+#printall{display:none}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute"><defs>
+  <symbol id="spk" viewBox="0 0 24 24"><path d="M11 5L6 9H2v6h4l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14"/></symbol>
+  <symbol id="turtle" viewBox="0 0 24 24"><path d="M4 15c0-4 3.5-7 8-7s8 3 8 7z"/><path d="M20 13h2M6 15l-1 3M18 15l1 3M9 8l1.5 7M15 8l-1.5 7M4 15h16"/></symbol>
+</defs></svg>
+<div id="progress"></div>
+<div id="toast"></div>
+<div id="viewport"><div id="stage">
+
+  <section class="screen on" id="title">
+    <div class="kicker">American Culture &nbsp;|&nbsp; Week 4 Vocabulary</div>
+    <h1>School Words in America</h1>
+    <p>16 key words for talking about school in the U.S. Each card shows the American pronunciation, word family, definition, and an example sentence.</p>
+    <div class="howto">
+      <div><b class="h">Listen</b>Click <i>Listen</i> to hear the word in American English. Click <i>Slow</i> to hear it slowly.</div>
+      <div><b class="h">Repeat</b>Say the word together. The <b>BIG letters</b> show the stressed syllable.</div>
+      <div><b class="h">Quiz mode</b>Press <b>Q</b> to hide the definition and example. Students guess, then click to reveal.</div>
+    </div>
+    <p style="margin-top:34px;font-size:22px">Press <b>Space</b> or <b>&rarr;</b> to begin.</p>
+  </section>
+
+  <section class="screen" id="overview">
+    <div class="kicker">Word List</div>
+    <h2>Click a word to jump to its card</h2>
+    <div class="ogrid" id="ogrid"></div>
+  </section>
+
+  <section class="screen" id="card">
+    <div class="left">
+      <div class="num" id="cnum"></div>
+      <div class="word" id="cword"></div>
+      <span class="pos" id="cpos"></span>
+      <div class="ipa"><small>AMERICAN IPA</small><span id="cipa"></span></div>
+      <div class="resp"><small>SAY IT</small><span id="cresp"></span></div>
+      <div class="alt" id="calt"></div>
+      <div class="listen" id="clisten"></div>
+    </div>
+    <div class="right">
+      <div><div class="lab">Definition <span class="qhint">— click to reveal</span></div><div class="def hideable" id="cdef"></div></div>
+      <div><div class="lab">Word Family</div><div class="fam" id="cfam"></div></div>
+      <div><div class="lab">Example <span class="qhint">— click to reveal</span></div><div class="ex"><div class="txt hideable" id="cex"></div><button class="mini" id="cexbtn" aria-label="Listen to the example sentence"><svg><use href="#spk"/></svg></button></div></div>
+      <div class="note" id="cnote" style="display:none"></div>
+      <div class="src"><span id="csrc"></span><a id="clink" target="_blank" rel="noopener">Hear a dictionary recording &rarr;</a></div>
+    </div>
+  </section>
+
+</div></div>
+
+<div id="printall"></div>
+
+<div id="ui">
+  <button id="prev" aria-label="Previous">&#9664;</button>
+  <span id="count"></span>
+  <button id="next" aria-label="Next">&#9654;</button>
+  <button id="listBtn">Word list</button>
+  <button id="quizBtn">Quiz mode: off</button>
+  <button id="shufBtn">Shuffle</button>
+  <button id="fsBtn">Full screen</button>
+  <button id="prBtn">Print</button>
+</div>
+
+<script>
+/* ===== Vocabulary data =====
+   ipa: American IPA · resp: stress respelling (CAPS = stressed syllable)
+   say: [label, text to speak] buttons · src: dictionary checked
+   Sources: Merriam-Webster (merriam-webster.com), Vocabulary.com (US IPA), Oxford Learner's Dictionaries (American English) */
+const W = [
+ {w:"freshman", pos:"noun", ipa:"/ˈfrɛʃmən/", resp:"<b>FRESH</b>-muhn",
+  fam:[["freshmen","plural"],["freshman","adj. · freshman year"],["fresh","adj."]],
+  def:"a student in the first year of high school or college",
+  ex:"As a <b>freshman</b>, Ana got lost in her big new high school on the first day.",
+  say:[["freshman"]], src:"Merriam-Webster · Vocabulary.com", mw:"freshman"},
+ {w:"sophomore", pos:"noun", ipa:"/ˈsɑfmɔr/", resp:"<b>SAHF</b>-mor", alt:"Also: /ˈsɑfəmɔr/ (<b>SAHF</b>-uh-mor) — both are correct.",
+  fam:[["sophomores","plural"],["sophomore","adj. · sophomore year"],["sophomoric","adj. · immature"]],
+  def:"a student in the second year of high school or college",
+  ex:"My brother is a <b>sophomore</b>, so he has two more years of high school.",
+  say:[["sophomore"]], src:"Merriam-Webster · Vocabulary.com · Oxford Learner's", mw:"sophomore"},
+ {w:"junior", pos:"noun / adjective", ipa:"/ˈdʒunjər/", resp:"<b>JOON</b>-yer",
+  fam:[["juniors","plural"],["junior","adj. · junior year"],["junior high","noun"]],
+  def:"a student in the next-to-last year of high school or college (usually the 3rd year)",
+  ex:"Many <b>juniors</b> start visiting colleges in the spring.",
+  say:[["junior"]], src:"Merriam-Webster", mw:"junior"},
+ {w:"senior", pos:"noun / adjective", ipa:"/ˈsinjər/", resp:"<b>SEEN</b>-yer",
+  fam:[["seniors","plural"],["senior","adj. · senior year"],["seniority","noun"],["senior citizen","noun"]],
+  def:"a student in the last year of high school or college",
+  ex:"The <b>seniors</b> are planning a big party for graduation.",
+  say:[["senior"]], src:"Merriam-Webster", mw:"senior", note:"Senior can also mean an older person: a senior citizen."},
+ {w:"major", pos:"noun / verb", ipa:"/ˈmeɪdʒər/", resp:"<b>MAY</b>-jer",
+  fam:[["major in","verb"],["majors","plural"],["major","adj. · important"],["majority","noun"]],
+  def:"the main subject a student studies in college",
+  ex:"Her <b>major</b> is biology. She <b>majored</b> in biology because she wants to be a doctor.",
+  say:[["major"],["major in","She majored in biology."]], src:"Merriam-Webster · Oxford Learner's", mw:"major"},
+ {w:"recess", pos:"noun", ipa:"/ˈriˌsɛs/", resp:"<b>REE</b>-sess", alt:"Also: /rɪˈsɛs/ (ri-<b>SESS</b>).",
+  fam:[["recesses","plural"],["recess","verb · to stop for a break"],["recessed","verb, past"]],
+  def:"a short break in the school day when children can play, usually outside",
+  ex:"The children played soccer at <b>recess</b>.",
+  say:[["recess"]], src:"Merriam-Webster", mw:"recess"},
+ {w:"locker", pos:"noun", ipa:"/ˈlɑkər/", resp:"<b>LAH</b>-ker",
+  fam:[["lock","verb / noun"],["unlock","verb"],["locked","adj."],["locker room","noun"]],
+  def:"a small cabinet with a lock where a student keeps books and personal things",
+  ex:"I left my math book in my <b>locker</b>.",
+  say:[["locker"]], src:"Merriam-Webster", mw:"locker"},
+ {w:"field trip", pos:"noun", ipa:"/ˈfild ˌtrɪp/", resp:"<b>FEELD</b> trip",
+  fam:[["field trips","plural"],["go on a field trip","phrase"],["trip","noun / verb"]],
+  def:"a visit by a class to a place like a museum, farm, or factory to learn by seeing things in person",
+  ex:"Our class went on a <b>field trip</b> to the science museum.",
+  say:[["field trip"]], src:"Merriam-Webster", mw:"field%20trip"},
+ {w:"GPA", pos:"noun (abbreviation)", ipa:"/ˌdʒiˌpiˈeɪ/", resp:"jee-pee-<b>AY</b>",
+  fam:[["grade point average","full form"],["grade","noun / verb"],["graded","adj."],["grading","noun"]],
+  def:"grade point average: a number (usually 0.0–4.0) that shows the average of all a student's grades",
+  ex:"She needs a 3.5 <b>GPA</b> to get the scholarship.",
+  say:[["GPA","G. P. A."],["full form","grade point average"]], src:"Merriam-Webster", mw:"grade%20point%20average"},
+ {w:"mascot", pos:"noun", ipa:"/ˈmæˌskɑt/", resp:"<b>MAS</b>-kaht",
+  fam:[["mascots","plural"],["mascot costume","noun"],["from French mascotte","= lucky charm"]],
+  def:"an animal, person, or thing that represents a team or school and is believed to bring good luck",
+  ex:"Our school <b>mascot</b> is an eagle.",
+  say:[["mascot"]], src:"Merriam-Webster", mw:"mascot"},
+ {w:"cafeteria", pos:"noun", ipa:"/ˌkæfəˈtɪriə/", resp:"kaf-uh-<b>TEER</b>-ee-uh",
+  fam:[["cafeterias","plural"],["café","noun"],["cafeteria-style","adj."]],
+  def:"a large room or restaurant where you get food at a counter and carry it to a table, as in a school",
+  ex:"We eat lunch in the <b>cafeteria</b> at noon.",
+  say:[["cafeteria"]], src:"Merriam-Webster · Vocabulary.com", mw:"cafeteria"},
+ {w:"snow day", pos:"noun", ipa:"/ˈsnoʊ ˌdeɪ/", resp:"<b>SNOH</b> day",
+  fam:[["snow days","plural"],["snow","noun / verb"],["snowy","adj."],["snowstorm","noun"]],
+  def:"a day when schools (and sometimes businesses) close because a lot of snow is falling",
+  ex:"It snowed all night, so tomorrow is a <b>snow day</b>!",
+  say:[["snow day"]], src:"Merriam-Webster", mw:"snow%20day"},
+ {w:"tuition", pos:"noun", ipa:"/tuˈɪʃən/", resp:"too-<b>ISH</b>-uhn",
+  fam:[["tuition fees","noun"],["tuition-free","adj."],["tutor","noun / verb · related word"]],
+  def:"the money you pay to study at a school, college, or university",
+  ex:"<b>Tuition</b> at private universities can be very expensive.",
+  say:[["tuition"]], src:"Merriam-Webster", mw:"tuition"},
+ {w:"scholarship", pos:"noun", ipa:"/ˈskɑlərˌʃɪp/", resp:"<b>SKAH</b>-ler-ship",
+  fam:[["scholar","noun"],["scholarly","adj."],["scholastic","adj."]],
+  def:"money given to a student to help pay for school, often for good grades, sports, or a special talent",
+  ex:"He won a soccer <b>scholarship</b> to a university in Ohio.",
+  say:[["scholarship"]], src:"Merriam-Webster · Vocabulary.com", mw:"scholarship"},
+ {w:"graduate", pos:"verb / noun", ipa:"v. /ˈɡrædʒuˌeɪt/<br>n. /ˈɡrædʒuət/", resp:"v. <b>GRAJ</b>-oo-ayt<br>n. <b>GRAJ</b>-oo-it",
+  fam:[["graduation","noun"],["graduate","noun · a person"],["graduate school","noun"],["undergraduate","noun"]],
+  def:"(verb) to finish school and receive a diploma or degree; (noun) a person who has finished school",
+  ex:"She <b>graduated</b> from high school in 2024. Now her sister is a college <b>graduate</b>, too.",
+  say:[["verb","to graduate"],["noun","a graduate"]], src:"Merriam-Webster", mw:"graduate",
+  note:"Listen for the difference: the verb ends in -ayt; the noun ends in -it."},
+ {w:"segregation", pos:"noun", ipa:"/ˌsɛɡrəˈɡeɪʃən/", resp:"seg-ruh-<b>GAY</b>-shuhn",
+  fam:[["segregate","verb"],["segregated","adj."],["desegregation","noun"],["integration","opposite"]],
+  def:"the practice of keeping people of different races apart, for example in separate schools",
+  ex:"In 1954, the Supreme Court ruled that <b>segregation</b> in public schools was unconstitutional.",
+  say:[["segregation"]], src:"Merriam-Webster · Vocabulary.com", mw:"segregation"}
+];
+
+/* ===== speech (browser's built-in American English voice) ===== */
+const synth=window.speechSynthesis;
+let voice=null;
+function pickVoice(){
+  if(!synth) return;
+  const vs=synth.getVoices().filter(v=>/^en[-_]US/i.test(v.lang));
+  const pref=["Samantha","Google US English","Microsoft Aria","Microsoft Jenny","Microsoft Guy","Alex","Ava","Allison","Microsoft Zira"];
+  voice = pref.map(p=>vs.find(v=>v.name.includes(p))).find(Boolean) || vs[0] || null;
+}
+if(synth){ pickVoice(); synth.onvoiceschanged=pickVoice; }
+function toast(m){const t=document.getElementById('toast');t.textContent=m;t.style.display='block';clearTimeout(toast.t);toast.t=setTimeout(()=>t.style.display='none',4000);}
+function speak(text,rate=0.9,btn){
+  if(!synth){toast('Audio is not supported in this browser. Try Chrome, Edge, or Safari.');return;}
+  synth.cancel();
+  const u=new SpeechSynthesisUtterance(text.replace(/<[^>]+>/g,''));
+  u.lang='en-US'; u.rate=rate; if(voice) u.voice=voice;
+  if(!voice) toast('No American English voice found on this device — the browser will use its default voice.');
+  if(btn){btn.classList.add('playing');u.onend=u.onerror=()=>btn.classList.remove('playing');}
+  synth.speak(u);
+}
+
+/* ===== deck ===== */
+let order=W.map((_,i)=>i);
+// screens: 0 title, 1 overview, 2.. cards
+let cur=0; const total=()=>2+order.length;
+let quiz=false;
+const $=id=>document.getElementById(id);
+function fit(){const s=Math.min(innerWidth/1280,innerHeight/720);$('stage').style.transform=`scale(${s})`;}
+addEventListener('resize',fit); fit();
+const spk='<svg><use href="#spk"/></svg>', slow='<svg><use href="#turtle"/></svg>';
+
+function renderCard(i){
+  const d=W[order[i]];
+  $('cnum').textContent=`WORD ${i+1} OF ${order.length}`;
+  $('cword').textContent=d.w;
+  $('cword').style.fontSize = d.w.length>10 ? '62px' : '76px';
+  $('cpos').textContent=d.pos;
+  $('cipa').innerHTML=d.ipa;
+  $('cipa').parentElement.style.fontSize = d.ipa.length>30 ? '34px':'42px';
+  $('cresp').innerHTML=d.resp;
+  $('cresp').parentElement.style.fontSize = d.resp.length>48 ? '30px':'34px';
+  $('calt').innerHTML=d.alt||'';
+  const L=$('clisten'); L.innerHTML='';
+  d.say.forEach(([label,text])=>{
+    const t=text||label;
+    const b=document.createElement('button'); b.className='sbtn';
+    b.innerHTML=`${spk}${d.say.length>1?'Listen: '+label:'Listen'}`; b.onclick=()=>speak(t,0.9,b); L.appendChild(b);
+  });
+  const sb=document.createElement('button'); sb.className='sbtn ghost'; sb.innerHTML=`${slow}Slow`;
+  sb.onclick=()=>speak(d.say.map(s=>s[1]||s[0]).join('. '),0.55,sb); L.appendChild(sb);
+  $('cdef').textContent=d.def;
+  $('cfam').innerHTML=d.fam.map(f=>`<span>${f[0]}<i>${f[1]}</i></span>`).join('');
+  $('cex').innerHTML=d.ex;
+  $('cexbtn').onclick=()=>speak(d.ex,0.9,$('cexbtn'));
+  $('cnote').style.display=d.note?'block':'none'; $('cnote').textContent=d.note||'';
+  $('csrc').textContent='Checked with: '+d.src;
+  $('clink').href='https://www.merriam-webster.com/dictionary/'+d.mw;
+  document.querySelectorAll('.hideable').forEach(h=>h.classList.remove('shown'));
+}
+function show(n){
+  cur=Math.max(0,Math.min(total()-1,n));
+  ['title','overview','card'].forEach(id=>$(id).classList.remove('on'));
+  if(cur===0) $('title').classList.add('on');
+  else if(cur===1) $('overview').classList.add('on');
+  else { $('card').classList.add('on'); renderCard(cur-2); }
+  $('count').textContent=`${cur+1} / ${total()}`;
+  $('progress').style.width=((cur+1)/total()*100)+'%';
+  if(synth) synth.cancel();
+}
+function buildOverview(){
+  $('ogrid').innerHTML=order.map((wi,i)=>`<button data-go="${i}">${W[wi].w}<small>${W[wi].pos.split(' ')[0]}</small></button>`).join('');
+}
+$('ogrid').addEventListener('click',e=>{const b=e.target.closest('[data-go]'); if(b) show(2+(+b.dataset.go));});
+document.querySelectorAll('.hideable').forEach(h=>h.addEventListener('click',()=>h.classList.add('shown')));
+
+function setQuiz(v){quiz=v;$('card').classList.toggle('quiz',quiz);$('quizBtn').textContent='Quiz mode: '+(quiz?'on':'off');$('quizBtn').classList.toggle('on',quiz);
+  document.querySelectorAll('.hideable').forEach(h=>h.classList.remove('shown'));}
+$('quizBtn').onclick=()=>setQuiz(!quiz);
+$('shufBtn').onclick=()=>{order=order.map(v=>[Math.random(),v]).sort((a,b)=>a[0]-b[0]).map(v=>v[1]);buildOverview();show(2);toast('Cards shuffled!');};
+$('listBtn').onclick=()=>show(1);
+$('prev').onclick=()=>show(cur-1); $('next').onclick=()=>show(cur+1);
+function toggleFs(){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen().catch(()=>{});}
+$('fsBtn').onclick=toggleFs;
+$('prBtn').onclick=()=>print();
+addEventListener('keydown',e=>{
+  if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();show(cur+1);}
+  else if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();show(cur-1);}
+  else if(e.key==='q'||e.key==='Q') setQuiz(!quiz);
+  else if((e.key==='l'||e.key==='L') && cur>=2){ const d=W[order[cur-2]]; speak(d.say[0][1]||d.say[0][0]); }
+  else if(e.key==='r'||e.key==='R'){ document.querySelectorAll('.hideable').forEach(h=>h.classList.add('shown')); }
+  else if(e.key==='f'||e.key==='F') toggleFs();
+  else if(e.key==='Home') show(0); else if(e.key==='End') show(total()-1);
+});
+let tx=null;
+addEventListener('touchstart',e=>tx=e.touches[0].clientX,{passive:true});
+addEventListener('touchend',e=>{if(tx==null)return;const d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>60)show(cur+(d<0?1:-1));tx=null;});
+
+/* print: one card per page */
+addEventListener('beforeprint',()=>{
+  const src=$('card');
+  $('printall').innerHTML='';
+  const keep=cur, q=quiz; setQuiz(false);
+  W.forEach((_,i)=>{ const saveOrder=order; order=W.map((_,k)=>k); renderCard(i); const c=document.createElement('div'); c.className='pcard'; c.innerHTML=src.innerHTML; $('printall').appendChild(c); order=saveOrder; });
+  setQuiz(q); if(keep>=2) renderCard(keep-2);
+});
+
+buildOverview(); show(0);
+</script>
+</body>
+</html>
