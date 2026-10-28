@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Week 4 Handouts · Ethics in a Global World</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#143865;--blue:#1c4f8f;--gold:#d39f10;--gold-d:#8c7535;--sky:#c1cddd;--sky2:#e1e8f2;--sky3:#edf2f9;--cream:#efe9d9;--ink:#1a2233;--muted:#4a5568}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Source Sans 3",system-ui,sans-serif;color:var(--ink);background:#e9ecf1}
+.ctl{position:sticky;top:0;z-index:5;background:var(--navy);color:#fff;border-bottom:4px solid var(--gold);padding:12px 16px}
+.ctl .in{max-width:8.5in;margin:0 auto;display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center}
+.ctl h1{font-family:"Libre Baskerville",serif;font-size:18px;margin:0;flex-basis:100%}
+.ctl label{font-size:14px;display:flex;gap:5px;align-items:center}
+.btn{background:var(--gold);color:var(--navy);border:0;border-radius:6px;padding:7px 13px;font:inherit;font-weight:700;cursor:pointer;text-decoration:none;font-size:14px}
+.btn.ghost{background:transparent;color:#fff;border:1px solid var(--sky)}
+.page{width:8.5in;min-height:11in;margin:18px auto;background:#fff;padding:.45in .5in;box-shadow:0 4px 16px rgba(0,0,0,.12);position:relative;font-size:12.5pt;line-height:1.38}
+.page.off{display:none}
+.ph{display:flex;justify-content:space-between;align-items:baseline;border-bottom:3px solid var(--gold);padding-bottom:5px;margin-bottom:12px}
+.ph b{font-family:"Libre Baskerville",serif;color:var(--navy);font-size:15pt}
+.ph span{font-size:9.5pt;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.pf{position:absolute;bottom:.25in;left:.5in;right:.5in;font-size:8pt;color:#7a8597;display:flex;justify-content:space-between}
+.cut{border:1.5px dashed #9aa8bb;border-radius:6px}
+.grid{display:grid;gap:8px}
+.g3{grid-template-columns:repeat(3,1fr)}.g2{grid-template-columns:repeat(2,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+.card{padding:10px 12px;display:flex;flex-direction:column;justify-content:center;text-align:center;min-height:1.05in}
+.card.v{background:var(--navy);color:#fff;font-weight:700;font-size:16pt;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.card.x{font-size:14pt;font-weight:600;color:var(--navy)}
+.half{padding:12px 16px;margin-bottom:12px}
+h3{font-family:"Libre Baskerville",serif;color:var(--navy);margin:0 0 6px;font-size:13.5pt}
+.line{border-bottom:1px solid #aab4c3;height:24px}
+.lbl{font-weight:700;color:var(--navy);font-size:11pt;margin-top:6px}
+.small{font-size:10.5pt}
+.tiny{font-size:9.5pt;color:var(--muted)}
+.box{background:var(--sky3);border-left:4px solid var(--gold);padding:7px 11px;border-radius:4px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.fw{border:1.5px solid var(--sky);border-top:5px solid var(--blue);border-radius:8px;padding:8px 12px;margin-bottom:9px;font-size:10.5pt;line-height:1.32}
+.fw p{margin:3px 0}
+.id{padding:10px 12px;min-height:2.2in;display:flex;flex-direction:column}
+.id .who{font-family:"Libre Baskerville",serif;font-weight:700;color:var(--navy);font-size:13pt;margin-bottom:6px}
+.id .q{margin-top:auto;font-size:10pt;color:var(--gold-d);font-weight:700}
+.tc{min-height:.95in;padding:8px 10px;display:flex;align-items:center;justify-content:center;text-align:center}
+.tc.n{font-family:"Libre Baskerville",serif;font-weight:700;color:var(--navy);font-size:15pt;background:var(--cream);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.tc.i{font-size:11.5pt}
+.ev{padding:8px 11px;min-height:1.25in;font-size:11pt}
+.ev .s{font-size:8.5pt;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-d)}
+ul{margin:4px 0;padding-left:20px}
+@media print{
+  @page{size:letter;margin:0}
+  body{background:#fff}
+  .ctl{display:none}
+  .page{margin:0;box-shadow:none;break-after:page;width:8.5in;height:11in;min-height:0;overflow:hidden}
+  .page.off{display:none}
+}
+@media (max-width:8.7in){.page{transform-origin:top left}}
+
+.sign{height:4.7in;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;border-radius:14px;color:#fff;margin-bottom:.25in;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.sign b{font-family:"Libre Baskerville",serif;font-size:58pt;line-height:1.05}
+.sign span{font-size:16pt;margin-top:10px;opacity:.9}
+.case{padding:10px 12px;min-height:2.05in;font-size:11pt;line-height:1.35}
+.case h3{font-size:12.5pt}
+.case .mm{margin-top:6px;font-size:9.5pt;color:var(--gold-d);font-weight:700}
+.strip{display:grid;grid-template-columns:repeat(4,1fr);text-align:center;font-weight:700;font-size:12pt;border-radius:6px;overflow:hidden;margin-top:10px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.strip div{padding:12px 4px}
+.mxp{display:grid;grid-template-columns:.35in 1fr 1fr;grid-template-rows:4.1in 4.1in .35in;gap:6px}
+.mxp .q{border:2px solid var(--navy);border-radius:8px;padding:8px 10px;font-size:11pt;color:var(--navy)}
+.mxp .q b{display:block;font-size:13pt}
+.mxp .k{background:#eef2f8;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.mxp .ax{display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--gold-d);letter-spacing:.1em}
+.mxp .ay{writing-mode:vertical-rl;transform:rotate(180deg)}
+.brief{padding:12px 16px;font-size:11pt;line-height:1.4;margin-bottom:10px}
+.evc{min-height:1.55in;padding:12px 14px;font-size:13pt;line-height:1.35;display:flex;flex-direction:column;justify-content:center}
+.evc .n{font-size:9pt;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-d)}
+.role{padding:9px 12px;min-height:1.92in;font-size:10.3pt;line-height:1.32;margin-bottom:8px}
+.role h3{font-size:12.5pt;margin:0 0 2px}
+.role .cat{font-size:8.5pt;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-d)}
+.role .sec{background:#fbf1dc;border-left:3px solid var(--gold);padding:4px 8px;margin-top:5px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.slip{padding:8px 12px;font-size:10.5pt}
+
+.slip{padding:10px 12px;font-size:10.5pt}
+.slip table{width:100%;border-collapse:collapse;margin-top:4px}
+.slip td,.slip th{border:1px solid #aab4c3;padding:4px;text-align:center;font-size:10pt}
+.judge{padding:12px 16px;margin-bottom:10px;font-size:11.5pt;line-height:1.4}
+.poster{height:4.8in;padding:16px 20px;margin-bottom:.15in;display:flex;flex-direction:column;border:2px solid var(--navy);border-top:10px solid var(--navy);border-radius:10px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.poster .loc{font-family:"Libre Baskerville",serif;font-size:22pt;color:var(--navy);font-weight:700}
+.poster .yr{font-size:11pt;color:var(--gold-d);font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.poster p{font-size:13pt;line-height:1.4;margin:8px 0}
+.poster .qs{margin-top:auto;background:var(--sky3);border-radius:6px;padding:8px 12px;font-size:11pt;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.poster .src{font-size:9pt;color:var(--muted)}
+.flagstrip{padding:10px 14px;font-size:10.5pt;margin-bottom:8px}
+.flagstrip ol{margin:4px 0;padding-left:20px}
+.pile{height:1.4in;display:flex;align-items:center;justify-content:center;font-family:"Libre Baskerville",serif;font-size:20pt;font-weight:700;color:#fff;border-radius:8px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.cc{min-height:1.95in;padding:10px 12px;font-size:11pt;line-height:1.35;display:flex;flex-direction:column}
+.cc .n{font-size:9pt;font-weight:700;color:var(--gold-d);letter-spacing:.08em;text-transform:uppercase}
+.cc .tb{margin-top:auto;font-size:8.5pt;color:var(--muted)}
+.tool{padding:8px 12px;font-size:10.5pt}
+.ev{min-height:1.15in;padding:8px 11px;font-size:10.5pt}
+.ev .s{font-size:8.5pt;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-d)}
+</style>
+</head>
+<body>
+<div class="ctl"><div class="in">
+  <h1>Week 4 Handouts · untick pages you don't need, then print (Letter, 100%, no margins)</h1>
+  <div id="toggles" style="display:contents"></div>
+  <button class="btn" onclick="print()">Print</button>
+  <a class="btn ghost" href="index.html">All files</a>
+</div></div>
+
+<div class="page" data-name="1 Fishing game slips">
+  <div class="ph"><b>The fishing game · score slips</b><span>Class 1 · 1 per student · cut</span></div>
+  <div class="grid g2" id="slips"></div>
+  <div class="pf"><span>Teacher-made game · tragedy of the commons (OpenStax 4.2)</span><span>Approach International Student Center</span></div>
+</div>
+
+<div class="page" data-name="2 Judge cards">
+  <div class="ph"><b>You be the judge</b><span>Class 1 · 1 set per group · cut</span></div>
+  <div id="judges"></div>
+  <div class="pf"><span>Cases from OpenStax Business Ethics 4.1 (CC BY-NC-SA 4.0)</span><span>Approach International Student Center</span></div>
+</div>
+
+<div class="page" data-name="3 Gallery posters A–B"><div class="ph"><b>Gallery walk · stations A and B</b><span>Class 1 · tape on the wall</span></div><div id="pA"></div><div class="pf"><span>OpenStax Business Ethics 4.2 (CC BY-NC-SA 4.0)</span><span>Approach International Student Center</span></div></div>
+<div class="page" data-name="4 Gallery posters C–D"><div class="ph"><b>Gallery walk · stations C and D</b><span>Class 1 · tape on the wall</span></div><div id="pC"></div><div class="pf"><span>OpenStax Business Ethics 4.2–4.3 (CC BY-NC-SA 4.0)</span><span>Approach International Student Center</span></div></div>
+<div class="page" data-name="5 Gallery posters E–F"><div class="ph"><b>Gallery walk · stations E and F</b><span>Class 1 · tape on the wall</span></div><div id="pE"></div><div class="pf"><span>OpenStax Business Ethics 4.2 (CC BY-NC-SA 4.0)</span><span>Approach International Student Center</span></div></div>
+
+<div class="page" data-name="6 Red flags + pile labels">
+  <div class="ph"><b>Five red flags · pile labels</b><span>Class 2 · 1 per group · cut</span></div>
+  <div class="grid g2" id="flags"></div>
+  <div class="grid g3" style="margin-top:10px">
+    <div class="pile" style="background:#2f6b2f">Genuine CSR</div>
+    <div class="pile" style="background:#a33a2a">Greenwashing</div>
+    <div class="pile" style="background:#8c7535">Need more information</div>
+  </div>
+  <div class="pf"><span>Red flags based on the EU Empowering Consumers Directive (applies from Sept. 27, 2026) — outside source</span><span>Approach International Student Center</span></div>
+</div>
+
+<div class="page" data-name="7 Claim cards 1–8"><div class="ph"><b>CSR or greenwashing? · cards 1–8</b><span>Class 2 · 1 set per group · cut</span></div><div class="grid g2" id="c1"></div><div class="pf"><span>Cards 1–8: OpenStax Business Ethics 3.4, 4.1–4.3 (CC BY-NC-SA 4.0)</span><span>Approach International Student Center</span></div></div>
+<div class="page" data-name="8 Claim cards 9–16"><div class="ph"><b>CSR or greenwashing? · cards 9–16</b><span>Class 2 · fictional companies · cut</span></div><div class="grid g2" id="c2"></div><div class="pf"><span>Cards 9–16: fictional, teacher-made</span><span>Approach International Student Center</span></div></div>
+
+<div class="page" data-name="9 Government toolbox match">
+  <div class="ph"><b>The government toolbox · match</b><span>Class 2 · 1 per pair · cut in half</span></div>
+  <div id="tools"></div>
+  <div class="pf"><span>OpenStax Business Ethics 4.2–4.3 (CC BY-NC-SA 4.0)</span><span>Approach International Student Center</span></div>
+</div>
+
+<div class="page" data-name="10 Fishbowl evidence cards">
+  <div class="ph"><b>Fishbowl · evidence cards</b><span>Class 2 · 1 set for the room · cut</span></div>
+  <p class="small" style="margin:0 0 8px"><b>Question:</b> "Should governments force businesses to behave ethically — or should businesses be trusted to regulate themselves?"</p>
+  <div class="grid g2" id="ev"></div>
+  <div class="pf"><span>Evidence from OpenStax Business Ethics 4.1–4.3 (CC BY-NC-SA 4.0)</span><span>Approach International Student Center</span></div>
+</div>
+
+<div class="page" data-name="11 Observer sheets (×2)">
+  <div class="ph"><b>Fishbowl · observer sheet</b><span>Class 2 · 1 per student · cut in half</span></div>
+  <div id="obs"></div>
+  <div class="pf"><span>Ethics in a Global World · Week 4</span><span>Approach International Student Center</span></div>
+</div>
+
+<div class="page" data-name="12 Exit tickets">
+  <div class="ph"><b>Exit tickets · Class 1</b><span>cut</span></div>
+  <div class="grid g2" id="exits"></div>
+  <div class="pf"><span>Ethics in a Global World · Week 4</span><span>Approach International Student Center</span></div>
+</div>
+
+<script>
+const $=s=>document.getElementById(s);
+$('slips').innerHTML=`<div class="cut slip"><b style="color:#143865">Fishing game</b> &nbsp; Name: ______________<table><tr><th></th><th>R1</th><th>R2</th><th>R3</th><th>R4</th></tr><tr><td>I take (0–3)</td><td></td><td></td><td></td><td></td></tr><tr><td>Fish left</td><td></td><td></td><td></td><td></td></tr></table><div class="tiny" style="margin-top:4px">Lake: 12 fish. Too many taken = collapse. Fish left double (max 12). No talking in R1–R2.</div></div>`.repeat(8);
+const J=[["Dodge v. Ford Motor Company (1919)","Henry Ford wanted to keep profits in the company to expand and to lower car prices, instead of paying large dividends to shareholders. Two shareholders, the Dodge brothers, sued."],["Shlensky v. Wrigley (1968)","The owners of the Chicago Cubs baseball team refused to install lights for night games, partly out of concern for the neighborhood. A shareholder sued, saying the team was losing money."],["eBay v. Newmark (2010)","The founders of craigslist, a classifieds website, used special measures to stop eBay (a minority shareholder) from gaining more control. They wanted to protect craigslist's community-focused, not-very-profit-driven culture."]];
+$('judges').innerHTML=J.map(j=>`<div class="cut judge"><h3>${j[0]}</h3>${j[1]}<div class="lbl" style="margin-top:8px">Our ruling: ☐ for the managers ☐ for the shareholders &nbsp; Because:</div><div class="line"></div><div class="line"></div></div>`).join('');
+const P=[["A · Côte d'Ivoire","2006","The energy company Trafigura dumped hundreds of tons of toxic waste near Abidjan after searching other countries for a place to get rid of it. Amnesty International reported more than 100,000 people sickened and 15 deaths.","4.2 · Ethics Across Time and Cultures"],["B · Nigeria","Mid-1990s","A reporter found about 10,000 barrels of toxic waste, including dangerous chemicals called PCBs, stored near homes where children lived. Disposal cost about $3,000 per ton in the U.S. and Europe — but about $3 per ton in West Africa.","4.2 · Ethics Across Time and Cultures"],["C · Ecuador","2008","Ecuador's constitution gives “Rights for Nature”: an ecosystem, such as a river or forest, can be a party in a lawsuit, and citizens can enforce its rights. The U.S. has not adopted this idea. Should the Gulf of Mexico have been able to sue BP after the 2010 oil spill?","4.2 · Environmental Justice"],["D · Gulf of Mexico","2010","BP's Deepwater Horizon oil rig exploded: 11 workers killed, at least 5 million barrels of oil released. An inexpensive backup shutoff valve could likely have stopped the flow. The U.S. didn't require it, partly because of industry lobbying. Norway and Brazil do require it.","4.3 · Cases from the Real World"],["E · The oceans","Every year","About 25 million people take cruises each year. Cruise ships dump about a billion gallons of sewage into the ocean every year, often at night (Friends of the Earth, using EPA data).","4.2 · Environmental Justice"],["F · West Texas","Fracking","Fracking (breaking rock underground to release oil and gas) increased truck traffic tenfold, damaging roads that small towns cannot afford to repair. It can also pollute water, spill chemicals and may trigger earthquakes.","4.2 · Environmental Economics and Policy"]];
+const poster=p=>`<div class="poster"><div class="yr">${p[1]}</div><div class="loc">${p[0]}</div><p>${p[2]}</p><div class="qs"><b>Add two sticky notes:</b> one new idea + one reply.<br><b>1</b> Who benefits, and who pays the cost? (Include the voiceless.)<br><b>2</b> Legal minimum or ethical maximum? Is there a gap in the law?<br><b>3</b> Who should fix it — the company, customers, government? How?</div><div class="src">Source: OpenStax Business Ethics ${p[3]}</div></div>`;
+$('pA').innerHTML=poster(P[0])+poster(P[1]);$('pC').innerHTML=poster(P[2])+poster(P[3]);$('pE').innerHTML=poster(P[4])+poster(P[5]);
+$('flags').innerHTML=`<div class="cut flagstrip"><b style="color:#143865">Five red flags of greenwashing</b> <span class="tiny">(EU rules since Sept. 27, 2026)</span><ol><li><b>Vague words</b> with no proof — "eco-friendly," "green" <i>(banned)</i></li><li><b>"Carbon neutral"</b> because of offsets <i>(banned)</i></li><li><b>Homemade labels</b>, not independently certified <i>(banned)</i></li><li><b>One part</b> presented as the whole <i>(banned)</i></li><li><b>Future promises</b> without a plan <i>(may be misleading)</i></li></ol></div>`.repeat(4);
+const C=[["CVS, a U.S. pharmacy chain, stopped selling tobacco in 2014, giving up those sales.","4.3"],["Dell's flexible-work program avoids about 7,000 metric tons of emissions and saves about $12 million a year.","4.2"],["Cisco requires its suppliers to follow a code of conduct: fair labor, safe conditions, lower carbon footprints.","4.2"],["Net-a-Porter, an online fashion retailer, banned fur after surveying its customers.","4.3"],["The Empire State Building earned LEED Gold certification after a multimillion-dollar energy retrofit.","4.2"],["Unilever's Project Shakti trains rural women in India to become small entrepreneurs selling its products. It has enlisted over 100,000 participants.","4.1"],["Ben & Jerry's has a “social mission,” but as it grew, much of its milk came from large, crowded industrial farms (CAFOs).","3.4"],["Coca-Cola reports “ongoing stakeholder dialogue” and sustainability goals. The textbook says its plant in Chiapas, Mexico, uses huge amounts of water while only about half the local people have running water.","3.4"],["EcoNest detergent: big label “Eco-friendly!” — no other information.","fictional"],["SkyHop Airlines: “Fly carbon neutral! Every ticket is 100% offset by tree planting.”","fictional"],["UrbanThread jeans carry a green “Planet Hero” badge designed by the company's own marketing team.","fictional"],["FreshBox meal kits: “Made with recycled materials!” Only the cardboard sleeve (about 3% of the packaging) is recycled.","fictional"],["Northline Energy: “Net zero by 2050!” No plan published; the company is still opening new coal mines.","fictional"],["Brightway Bank publishes a yearly emissions report checked by an independent auditor — including the targets it missed.","fictional"],["GreenLeaf Coffee sells only beans certified by an independent fair-trade organization, which audits farms every year.","fictional"],["AquaPure water: “Our bottle now uses 30% less plastic than our 2020 bottle.”","fictional"]];
+const card=(c,i)=>`<div class="cut cc"><div class="n">Card ${i+1}</div>${c[0]}<div class="tb">${c[1]==='fictional'?'Fictional company':'Textbook, Section '+c[1]}</div></div>`;
+$('c1').innerHTML=C.slice(0,8).map((c,i)=>card(c,i)).join('');$('c2').innerHTML=C.slice(8).map((c,i)=>card(c,i+8)).join('');
+const tl=`<div class="cut tool" style="margin-bottom:10px"><b style="color:#143865">Match each tool (1–6) to an example (A–F)</b><table class="small" style="width:100%;border-collapse:collapse;margin-top:6px" border="1" cellpadding="4"><tr><th style="width:42%">Tool</th><th>Example</th></tr><tr><td>1 · Direct regulation (rules and penalties) ___</td><td>A · NASA working with SpaceX</td></tr><tr><td>2 · Carbon tax (pay to pollute) ___</td><td>B · Sarbanes-Oxley (2002), passed after Enron and WorldCom</td></tr><tr><td>3 · Cap and trade ___</td><td>C · ISO 14000 and LEED certification</td></tr><tr><td>4 · Transparency law ___</td><td>D · Clean Air Act; Vopak paid a $2.5 million penalty (2017)</td></tr><tr><td>5 · Public-private partnership ___</td><td>E · A total pollution limit with permits companies can buy and sell</td></tr><tr><td>6 · Voluntary standards ___</td><td>F · A fee for each unit of carbon; even Exxon and Shell supported it</td></tr></table><div class="lbl">Which tool would you use for the fishing lake? Why?</div><div class="line"></div></div>`;
+$('tools').innerHTML=tl+tl;
+const PRO=["Deepwater Horizon: the U.S. didn't require a cheap backup valve, partly because of lobbying. Norway and Brazil do. (4.3)","Tragedy of the commons: free shared resources get overused without rules. (4.2)","Sarbanes-Oxley (2002) was passed after Enron and WorldCom showed that self-regulation had failed. (4.3)","Toxic waste moved to countries where laws were weak and disposal was cheap. (4.2)","Vopak installed pollution controls and paid a $2.5 million penalty only after enforcement. (4.3)"];
+const CON=["Friedman: CSR imposed from outside is unelected regulation; business should make profit within the law. (4.1)","Global 100 sustainable companies did better than a typical index fund — sustainability pays without force. (4.2)","Dell, Cisco and CVS acted voluntarily, beyond what the law required. (4.2, 4.3)","The revolving door and lobbying mean regulators can be controlled by the industry. (4.3)","U.S. auto-emission rules changed with each administration — a “moving target” for business. (4.3)"];
+$('ev').innerHTML=PRO.map((p,k)=>`<div class="cut ev"><div class="s">Supports government regulation</div>${p}</div><div class="cut ev" style="background:#f6f4ee;-webkit-print-color-adjust:exact;print-color-adjust:exact"><div class="s">Supports self-regulation</div>${CON[k]}</div>`).join('');
+const ob=`<div class="cut half"><h3>Observer sheet</h3><div class="lbl">My name: ______________ &nbsp; My partner (inner circle): ______________</div><div class="lbl">One argument my partner made — and the evidence</div><div class="line"></div><div class="line"></div><div class="lbl">One good question my partner asked</div><div class="line"></div><div class="lbl">One strong phrase I heard</div><div class="line"></div><div class="lbl">Tally: ☐ built on someone ☐ challenged politely ☐ used evidence ☐ invited someone in</div><div class="lbl">One tip for my partner</div><div class="line"></div></div>`;
+$('obs').innerHTML=ob+ob;
+$('exits').innerHTML=`<div class="cut" style="padding:8px 11px;font-size:10.5pt"><b style="color:#143865">Exit ticket · Class 1</b> &nbsp;Name: ________________<div class="lbl" style="font-size:10pt">1. The tragedy of the commons, with an example from today</div><div class="line"></div><div class="line"></div><div class="lbl" style="font-size:10pt">2. Which case should the government fix, and how?</div><div class="line"></div><div class="line"></div><div class="lbl" style="font-size:10pt">3. One question I still have</div><div class="line"></div></div>`.repeat(6);
+const pages=[...document.querySelectorAll('.page')];
+$('toggles').innerHTML=pages.map((p,k)=>`<label><input type="checkbox" checked data-p="${k}"> ${p.dataset.name}</label>`).join('');
+document.querySelectorAll('[data-p]').forEach(c=>c.addEventListener('change',()=>pages[c.dataset.p].classList.toggle('off',!c.checked)));
+</script>
+</body>
+</html>

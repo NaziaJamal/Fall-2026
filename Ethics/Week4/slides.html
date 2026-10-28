@@ -1,0 +1,606 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Slides · Week 4 · Ethics in a Global World</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+:root{--navy:#143865;--blue:#1c4f8f;--gold:#d39f10;--gold-d:#8c7535;--sky:#c1cddd;--sky2:#e1e8f2;--sky3:#edf2f9;--cream:#efe9d9;--ink:#1a2233;--muted:#4a5568}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:#0b1d36;overflow:hidden;font-family:"Source Sans 3",system-ui,sans-serif;color:var(--ink)}
+#stage{position:fixed;inset:0;display:flex;align-items:center;justify-content:center}
+#deck{width:1280px;height:720px;position:relative;transform-origin:center center;flex:none}
+.slide{position:absolute;inset:0;background:#fbfaf6;padding:56px 76px 70px;display:none;flex-direction:column;overflow:hidden}
+.slide.on{display:flex}
+.slide.dark{background:var(--navy);color:#fff}
+.slide.cream{background:var(--cream)}
+.slide::after{content:"";position:absolute;left:0;right:0;bottom:0;height:8px;background:var(--gold)}
+.foot{position:absolute;left:76px;right:76px;bottom:22px;display:flex;justify-content:space-between;font-size:15px;color:var(--muted);letter-spacing:.04em}
+.dark .foot{color:var(--sky)}
+.kick{font-size:18px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-d);margin-bottom:10px}
+.dark .kick{color:var(--gold)}
+h1{font-family:"Libre Baskerville",serif;font-size:56px;line-height:1.12;margin:0 0 16px;color:var(--navy)}
+.dark h1{color:#fff}
+h2{font-family:"Libre Baskerville",serif;font-size:40px;line-height:1.18;margin:0 0 18px;color:var(--navy)}
+.dark h2{color:#fff}
+p,li{font-size:27px;line-height:1.4;margin:0 0 10px}
+ul,ol{margin:0;padding-left:34px}
+.big{font-size:34px;line-height:1.35}
+.q{font-family:"Libre Baskerville",serif;font-size:36px;line-height:1.35;color:var(--navy)}
+.dark .q{color:#fff}
+.muted{color:var(--muted)}.dark .muted{color:var(--sky)}
+.gold{color:var(--gold-d)}.dark .gold{color:var(--gold)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.cols3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px}
+.cols4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.box{background:#fff;border:2px solid var(--sky);border-top:6px solid var(--blue);border-radius:12px;padding:16px 20px}
+.box h3{font-family:"Libre Baskerville",serif;margin:0 0 6px;font-size:24px;color:var(--navy)}
+.box p,.box li{font-size:21px}
+.dark .box{background:#1c4673;border-color:#2c5b8c;border-top-color:var(--gold);color:#fff}
+.dark .box h3{color:var(--gold)}
+.lang{margin-top:auto;background:var(--sky3);border-left:6px solid var(--gold);padding:10px 18px;border-radius:8px;font-size:20px;color:var(--navy)}
+.lang b{color:var(--gold-d)}
+.dark .lang{background:#1c4673;color:#fff}
+.dark .lang b{color:var(--gold)}
+table{border-collapse:collapse;width:100%;font-size:21px;background:#fff}
+th,td{border:2px solid var(--sky);padding:8px 12px;text-align:left;vertical-align:top}
+th{background:var(--sky2);color:var(--navy)}
+.mean{display:flex;align-items:center;justify-content:center;gap:24px;font-size:34px;margin:24px 0}
+.mean .v{background:var(--navy);color:#fff;padding:12px 26px;border-radius:10px;font-weight:700}
+.mean .x{color:var(--gold-d);font-weight:700}
+.tag{display:inline-block;background:var(--navy);color:#fff;font-size:16px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border-radius:5px;margin-bottom:12px}
+.tag.s{background:var(--blue)}.tag.a{background:var(--gold-d)}.tag.b{background:#5a6b84}
+.step{opacity:0;transform:translateY(8px);transition:opacity .3s,transform .3s}
+.step.shown{opacity:1;transform:none}
+.timechip{display:inline-block;background:var(--gold);color:var(--navy);font-weight:700;padding:3px 12px;border-radius:20px;font-size:18px;margin-left:10px;vertical-align:middle}
+.brand{display:flex;align-items:center;gap:16px;margin-bottom:auto}
+.brand img{height:74px}
+.brand .w{font-family:"Libre Baskerville",serif;color:var(--gold);letter-spacing:.14em;font-size:22px;line-height:1.1}
+.brand .w small{display:block;font-size:13px;letter-spacing:.03em;color:#e6d8a8}
+#qr{background:#fff;padding:10px;border-radius:10px;width:max-content}
+#qr img,#qr canvas{display:block;width:170px!important;height:170px!important}
+.warn{background:#fbf1dc;border-left:6px solid var(--gold);padding:10px 16px;border-radius:8px;font-size:20px;margin-bottom:12px}
+#timer{position:fixed;right:18px;top:18px;background:var(--gold);color:var(--navy);font:700 46px "Source Sans 3",sans-serif;padding:6px 20px;border-radius:12px;display:none;z-index:10;box-shadow:0 6px 20px rgba(0,0,0,.3);cursor:pointer}
+#timer.done{background:#a33a2a;color:#fff;animation:pulse 1s infinite}
+@keyframes pulse{50%{opacity:.6}}
+#help{position:fixed;left:14px;bottom:12px;color:#7f93ad;font-size:13px;z-index:10}
+#prog{position:fixed;left:0;top:0;height:4px;background:var(--gold);z-index:11;transition:width .2s}
+@media print{html,body{overflow:visible;background:#fff;height:auto}#stage{position:static;display:block}#deck{transform:none!important;width:auto;height:auto}.slide{display:flex!important;position:relative;width:1280px;height:720px;break-after:page}.step{opacity:1;transform:none}#timer,#help,#prog{display:none}}
+
+.corners{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:10px}
+.corners div{border-radius:12px;padding:18px 22px;font-size:30px;font-weight:700;color:#fff}
+.c1{background:#1c4f8f}.c2{background:#8c3a2a}.c3{background:#8c7535}.c4{background:#4a5f7a}
+.matrix{display:grid;grid-template-columns:60px 1fr 1fr;grid-template-rows:1fr 1fr 40px;gap:8px;height:420px}
+.matrix .q{border-radius:10px;padding:14px 18px;font-size:22px;background:var(--sky3);border:2px solid var(--sky)}
+.matrix .q b{display:block;font-size:24px;color:var(--navy)}
+.matrix .q.key{background:var(--navy);color:#fff;border-color:var(--navy)}
+.matrix .q.key b{color:var(--gold)}
+.matrix .ax{display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--gold-d);font-size:18px;letter-spacing:.08em}
+.matrix .ay{writing-mode:vertical-rl;transform:rotate(180deg)}
+.therm{display:grid;grid-template-columns:repeat(4,1fr);margin:18px 0;border-radius:10px;overflow:hidden;font-size:22px;font-weight:700;text-align:center}
+.therm div{padding:16px 8px}
+.paper{background:#f8f5ec;border:2px solid #2b2b2b;padding:22px 30px;font-family:"Libre Baskerville",serif;color:#1a1a1a;box-shadow:6px 6px 0 rgba(0,0,0,.15)}
+.paper .mast{text-align:center;font-size:44px;font-weight:700;border-bottom:4px double #1a1a1a;padding-bottom:6px;letter-spacing:.04em}
+.paper .date{display:flex;justify-content:space-between;font-family:"Source Sans 3",sans-serif;font-size:15px;border-bottom:1px solid #1a1a1a;padding:4px 0;margin-bottom:14px}
+.paper .head{font-size:44px;line-height:1.15;font-weight:700;margin:6px 0 10px}
+.paper p{font-family:"Source Sans 3",sans-serif;font-size:22px}
+.lie{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px}
+.lie div{background:#fff;border:2px solid var(--sky);border-radius:12px;padding:14px 18px;font-size:23px;line-height:1.35}
+.lie b{color:var(--gold-d);font-size:26px;margin-right:6px}
+.ev{background:#fff;border:3px dashed var(--gold-d);border-radius:14px;padding:30px 36px;font-size:36px;line-height:1.35;font-family:"Libre Baskerville",serif;color:var(--navy);margin:12px 0}
+
+.fix{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.fix div{background:#fff;border:2px solid var(--sky);border-left:6px solid #a33a2a;border-radius:10px;padding:12px 16px;font-size:22px}
+.fix div.ok{border-left-color:#2f6b2f}
+.flaglist li{font-size:25px;margin:6px 0}
+.flaglist small{color:var(--gold-d);font-size:18px}
+.stn{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.stn div{background:#fff;border:2px solid var(--sky);border-top:6px solid var(--blue);border-radius:10px;padding:10px 14px;font-size:20px}
+.stn b{display:block;color:var(--navy);font-family:"Libre Baskerville",serif;font-size:21px}
+.verdict{display:inline-block;background:var(--gold);color:var(--navy);font-weight:700;padding:4px 14px;border-radius:6px;margin-top:6px}
+.fish{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:10px}
+.fish div{background:var(--sky3);border-radius:10px;padding:12px;text-align:center;font-size:21px}
+.fish b{display:block;font-size:34px;color:var(--navy)}
+</style>
+</head>
+<body>
+<div id="prog"></div>
+<div id="stage"><div id="deck">
+
+<!-- 1 -->
+<section class="slide dark">
+  <div class="brand"><img src="logo.png" alt="" onerror="this.remove()"><div class="w">APPROACH<small>International Student Center</small></div></div>
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:40px">
+    <div><div class="kick">Ethics in a Global World · Week 4</div>
+    <h1>Three Special Stakeholders:<br>Society, the Environment<br>and Government</h1>
+    <p class="muted">Chapter 4 · Who pays for the planet — and who decides?</p></div>
+    <div style="text-align:center"><div id="qr"></div><p style="font-size:16px;margin-top:8px" class="muted">Scan for your worksheet</p></div>
+  </div>
+  <div class="foot"><span>Week 4</span><span>1</span></div>
+</section>
+
+<!-- 2 -->
+<section class="slide">
+  <div class="kick">Today</div>
+  <h2>Who pays for the planet? Who decides?</h2>
+  <div class="cols3" style="margin-top:10px">
+    <div class="box"><h3>Class 1 · 9:00–10:40</h3><p><b>Who Pays for the Planet?</b></p><p>A fishing game, three court cases, and a gallery walk of six global cases</p></div>
+    <div class="box" style="border-top-color:var(--gold)"><h3>Break · 10:40–11:10</h3><p>Check the green claim you brought</p></div>
+    <div class="box"><h3>Class 2 · 11:10–12:50</h3><p><b>Green or Greenwash?</b></p><p>Card sort, the government toolbox, fishbowl seminar</p></div>
+  </div>
+  <p style="margin-top:26px" class="muted">Please hand in <b>Ethics Journal #3</b>. Quiz 1 comes back today.</p>
+  <div class="foot"><span>Week 4 · Overview</span><span>2</span></div>
+</section>
+
+<!-- 3 -->
+<section class="slide" data-t="4">
+  <span class="tag s">Quiz 1 review</span>
+  <h2>Fix the mistake <span class="timechip">4 min</span></h2>
+  <p>Four sentences from Quiz 1. Each has one mistake. Fix it with a partner.</p>
+  <div class="fix" style="margin-top:10px">
+    <div>1. "The ethical minimum is to recall every crib and refund customers."</div>
+    <div>2. "The four stakeholder categories are high power/low interest, low power/high interest…"</div>
+    <div>3. "Regulators are diffused stakeholders."</div>
+    <div>4. "A Kantian judges the result."</div>
+  </div>
+  <div class="foot"><span>Class 1 · Review</span><span>3</span></div>
+</section>
+
+<!-- 4 -->
+<section class="slide">
+  <span class="tag s">Quiz 1 review</span>
+  <h2>Fixed</h2>
+  <div class="fix">
+    <div class="ok step">1. A recall is <b>beyond</b> the law. Minimum = only what the law requires: keep selling.</div>
+    <div class="ok step">2. Those are the <b>matrix</b>. Categories = enabling, functional, normative, diffused.</div>
+    <div class="ok step">3. Regulators are <b>enabling</b>.</div>
+    <div class="ok step">4. That's <b>utilitarian</b>. Kant judges <b>duty and motive</b>.</div>
+  </div>
+  <p class="step q" style="margin-top:18px;font-size:27px">Categories = <span class="gold">what kind</span> of stakeholder. Matrix = <span class="gold">how much attention</span>.</p>
+  <div class="foot"><span>Class 1 · Review</span><span>4</span></div>
+</section>
+
+<!-- 5 -->
+<section class="slide" data-t="2">
+  <span class="tag">Engage</span>
+  <h2>The fishing game</h2>
+  <div class="fish">
+    <div><b>12</b>fish in your lake</div>
+    <div><b>0–3</b>fish each, written secretly</div>
+    <div><b>x2</b>fish left double after each round (max 12)</div>
+    <div><b>4</b>rounds</div>
+  </div>
+  <ul style="margin-top:18px">
+    <li>If the group takes <b>more fish than the lake has</b>, the lake <b>collapses</b>. Game over.</li>
+    <li>Your score = your total fish.</li>
+    <li><b>No talking in rounds 1 and 2.</b></li>
+  </ul>
+  <div class="foot"><span>Class 1 · Engage</span><span>5</span></div>
+</section>
+
+<!-- 6 -->
+<section class="slide dark" data-t="4">
+  <div class="kick">Rounds 3 and 4</div>
+  <h1>Now you may talk.</h1>
+  <p class="big">Make an agreement with your group.</p>
+  <p class="big gold">Will everyone keep it?</p>
+  <div class="foot"><span>Class 1 · Engage</span><span>6</span></div>
+</section>
+
+<!-- 7 -->
+<section class="slide">
+  <span class="tag">Debrief</span>
+  <h2>The tragedy of the commons</h2>
+  <ul>
+    <li class="step">Whose lake collapsed? Why did people take 3 fish?</li>
+    <li class="step">What changed when you could talk? Did anyone break the deal?</li>
+    <li class="step">If you were the government, what <b>one rule</b> would you make?</li>
+  </ul>
+  <div class="box step" style="margin-top:16px;border-top-color:var(--gold)"><p class="big" style="margin:0">A free, shared resource gets <b>overused</b>: each user gains by taking more, but everyone loses together.</p><p class="muted" style="font-size:19px;margin:6px 0 0">William Forster Lloyd · Garrett Hardin, 1968 · Section 4.2</p></div>
+  <p class="step q" style="font-size:26px;margin-top:14px">Cruise ships dump about a billion gallons of sewage into the sea each year. <span class="gold">Who owns the ocean?</span></p>
+  <div class="foot"><span>Class 1 · Engage</span><span>7</span></div>
+</section>
+
+<!-- 8 -->
+<section class="slide">
+  <span class="tag s">Study · 4.1</span>
+  <h2>Who is a company for?</h2>
+  <div class="cols">
+    <div class="box"><h3>Limited liability</h3><p>Owners can lose only what they invested. Society shares the risk — so the textbook says companies owe something back (<i>quid pro quo</i>).</p></div>
+    <div class="box" style="border-top-color:var(--gold)"><h3>Shareholder primacy vs. CSR</h3><p>Is the company only for its shareholders — or also for workers, communities and the environment?</p></div>
+  </div>
+  <p class="big" style="margin-top:20px">You are judges. Read each case. Rule: <b class="gold">for the managers</b> or <b class="gold">for the shareholders</b>? <span class="timechip">8 min</span></p>
+  <div class="foot"><span>Class 1 · You be the judge</span><span>8</span></div>
+</section>
+
+<!-- 9 -->
+<section class="slide">
+  <span class="tag s">Case 1</span>
+  <h2><i>Dodge v. Ford Motor Company</i> (1919)</h2>
+  <p class="q">Henry Ford wanted to reinvest profits and lower car prices instead of paying big dividends. Two shareholders — the Dodge brothers — sued.</p>
+  <p class="step big" style="margin-top:20px">The court sided with the <b>Dodge brothers</b>.</p>
+  <p class="step"><span class="verdict">Shareholder primacy</span> — but courts shouldn't second-guess ordinary business decisions.</p>
+  <div class="foot"><span>Class 1 · You be the judge · 4.1</span><span>9</span></div>
+</section>
+
+<!-- 10 -->
+<section class="slide">
+  <span class="tag s">Case 2</span>
+  <h2><i>Shlensky v. Wrigley</i> (1968)</h2>
+  <p class="q">The Chicago Cubs' owners refused to install lights for night games, partly to protect the neighborhood. A shareholder sued: "We're losing money!"</p>
+  <p class="step big" style="margin-top:20px">The <b>owners</b> won.</p>
+  <p class="step"><span class="verdict">Business judgment rule</span> — courts don't overrule reasonable, honest business decisions.</p>
+  <div class="foot"><span>Class 1 · You be the judge · 4.1</span><span>10</span></div>
+</section>
+
+<!-- 11 -->
+<section class="slide">
+  <span class="tag s">Case 3</span>
+  <h2><i>eBay v. Newmark</i> (2010)</h2>
+  <p class="q">craigslist's founders tried to stop eBay, a shareholder, from gaining more control — to protect craigslist's community-focused culture.</p>
+  <p class="step big" style="margin-top:20px">The court ruled for <b>eBay</b>.</p>
+  <p class="step"><span class="verdict">Fiduciary duty</span> — directors must promote value for stockholders.</p>
+  <div class="foot"><span>Class 1 · You be the judge · 4.1</span><span>11</span></div>
+</section>
+
+<!-- 12 -->
+<section class="slide dark">
+  <div class="kick">So is the law clear?</div>
+  <h2>No — it swings like a pendulum.</h2>
+  <div class="cols" style="margin-top:12px">
+    <div class="box"><h3>Milton Friedman</h3><p>Business should make profit within the law. CSR is unelected regulation.</p></div>
+    <div class="box"><h3>Lynn Stout</h3><p>Shareholders as a group actually want companies to behave well.</p></div>
+  </div>
+  <p class="big" style="margin-top:20px">The textbook's evidence: CSR does <b class="gold">not necessarily</b> reduce profits.</p>
+  <div class="foot"><span>Class 1 · 4.1</span><span>12</span></div>
+</section>
+
+<!-- 13 -->
+<section class="slide">
+  <span class="tag s">Study · 4.2</span>
+  <h2>The sustainability toolbox</h2>
+  <div class="cols">
+    <div class="box"><h3>Sustainability</h3><p class="big">A long-term approach to how business affects the environment and people.</p></div>
+    <div class="box"><h3>Carbon footprint</h3><p class="big">The carbon dioxide a person or company releases by using fossil fuels.</p></div>
+  </div>
+  <div class="foot"><span>Class 1 · Study</span><span>13</span></div>
+</section>
+
+<!-- 14 -->
+<section class="slide">
+  <span class="tag s">Study · 4.2</span>
+  <h2>If a company can be a "person"…</h2>
+  <div class="cols">
+    <div class="box"><h3>Corporate personhood</h3><p>A corporation has some legal rights of a person: it can own property, sign contracts, sue and be sued.</p></div>
+    <div class="box" style="border-top-color:var(--gold)"><h3>Earth jurisprudence</h3><p>Nature itself should have legal rights. <b>Ecuador</b>'s 2008 constitution was the first to recognize "Rights for Nature."</p></div>
+  </div>
+  <p class="q step" style="margin-top:22px">…why can't a river be one too?</p>
+  <p class="step muted">Week 3 flashback: "Should Trees Have Standing?" (Stone, 1972)</p>
+  <div class="foot"><span>Class 1 · Study</span><span>14</span></div>
+</section>
+
+<!-- 15 -->
+<section class="slide">
+  <span class="tag s">Study · 4.2</span>
+  <h2>Is sustainability good business?</h2>
+  <ul>
+    <li>The textbook reports that <b>Global 100</b> sustainable companies did better than a typical index fund (2005–2015).</li>
+    <li><b>Dell</b>'s flexible-work program avoids about 7,000 metric tons of emissions and saves about <b>$12 million</b> a year.</li>
+    <li>Surveys: the top reason companies go green is <b>saving money</b>.</li>
+  </ul>
+  <p class="q" style="margin-top:18px;font-size:28px">If it pays, is it still ethics? <span class="muted">(Week 3: normative vs. instrumental)</span></p>
+  <div class="foot"><span>Class 1 · Study</span><span>15</span></div>
+</section>
+
+<!-- 16 -->
+<section class="slide">
+  <span class="tag a">Activate</span>
+  <h2>Gallery walk: six global cases</h2>
+  <div class="stn">
+    <div><b>A · Côte d'Ivoire</b>toxic waste, 2006</div>
+    <div><b>B · Nigeria</b>toxic waste, 1990s</div>
+    <div><b>C · Ecuador</b>rights for nature, 2008</div>
+    <div><b>D · Gulf of Mexico</b>Deepwater Horizon, 2010</div>
+    <div><b>E · The oceans</b>cruise-ship sewage</div>
+    <div><b>F · West Texas</b>fracking</div>
+  </div>
+  <p style="margin-top:16px;font-size:23px">At every station: <b>(1)</b> Who benefits, who pays? <b>(2)</b> Minimum or maximum? A gap in the law? <b>(3)</b> Who should fix it, and how?</p>
+  <div class="foot"><span>Class 1 · Gallery walk</span><span>16</span></div>
+</section>
+
+<!-- 17 -->
+<section class="slide cream" data-t="4">
+  <span class="tag a">Gallery walk</span>
+  <h2>Rotate every 4 minutes <span class="timechip">6 × 4 min</span></h2>
+  <ul>
+    <li>Read the case.</li>
+    <li>Add <b>two sticky notes</b>: one new idea, one reply to someone else's note.</li>
+    <li>When the bell rings, move clockwise.</li>
+  </ul>
+  <div class="lang"><b>Try:</b> "The hidden cost here is…" · "This was legal, but…" · "Building on the note above, …" · "The voiceless stakeholder is…" · "A law requiring ___ would…"</div>
+  <div class="foot"><span>Class 1 · Gallery walk</span><span>17</span></div>
+</section>
+
+<!-- 18 -->
+<section class="slide" data-t="7">
+  <span class="tag a">Gallery walk</span>
+  <h2>Back to your first station <span class="timechip">7 min</span></h2>
+  <p class="big">Read every note. Prepare a <b>1-minute summary</b>:</p>
+  <ul>
+    <li>The strongest idea</li>
+    <li>The biggest disagreement</li>
+    <li>Your answer: who should fix it — and how?</li>
+  </ul>
+  <div class="foot"><span>Class 1 · Gallery walk</span><span>18</span></div>
+</section>
+
+<!-- 19 -->
+<section class="slide cream">
+  <span class="tag a">Debrief</span>
+  <h2>Across all six cases</h2>
+  <ul>
+    <li class="step">Which cases are the <b>tragedy of the commons</b>?</li>
+    <li class="step">Waste went where disposal was cheap and laws were weak. Is "legal there" an ethical defense?</li>
+    <li class="step">Which case needed <b>government</b> most? Which could a company fix alone?</li>
+    <li class="step">Who was most often <b>voiceless</b>?</li>
+  </ul>
+  <div class="foot"><span>Class 1 · Debrief</span><span>19</span></div>
+</section>
+
+<!-- 20 -->
+<section class="slide dark" data-t="6">
+  <div class="kick">Exit ticket</div>
+  <h2>Before the break <span class="timechip">6 min</span></h2>
+  <ol>
+    <li>Explain the <b>tragedy of the commons</b> with an example from today.</li>
+    <li>Which case should the <b>government</b> fix, and how?</li>
+    <li>One question you still have.</li>
+  </ol>
+  <div class="foot"><span>Class 1 · Exit ticket</span><span>20</span></div>
+</section>
+
+<!-- 21 -->
+<section class="slide dark">
+  <div class="kick">Break · 10:40–11:10</div>
+  <h1>Take out the green claim you brought.</h1>
+  <p class="big gold">Do you believe it?</p>
+  <p class="muted">After the break, we test it.</p>
+  <div class="foot"><span>Break</span><span>21</span></div>
+</section>
+
+<!-- 22 -->
+<section class="slide dark">
+  <div class="brand"><img src="logo.png" alt="" onerror="this.remove()"><div class="w">APPROACH<small>International Student Center</small></div></div>
+  <div class="kick">Class 2 · 11:10–12:50</div>
+  <h1>Green or Greenwash —<br>and Who Decides?</h1>
+  <p class="muted">Card sort · the government toolbox · fishbowl seminar</p>
+  <div class="foot"><span>Week 4 · Class 2</span><span>22</span></div>
+</section>
+
+<!-- 23 -->
+<section class="slide" data-t="5">
+  <span class="tag">Engage</span>
+  <h2>Claim check <span class="timechip">5 min</span></h2>
+  <ul>
+    <li>Read your claim aloud: the company and its <b>exact words</b>.</li>
+    <li>Your group gives it a <b>trust score</b> from 1 to 5. Gut feeling only.</li>
+    <li>Share your group's highest and lowest score.</li>
+  </ul>
+  <div class="foot"><span>Class 2 · Engage</span><span>23</span></div>
+</section>
+
+<!-- 24 -->
+<section class="slide">
+  <span class="tag s">Study · 3.4</span>
+  <h2>CSR or greenwashing?</h2>
+  <div class="cols3">
+    <div class="box"><h3>CSR</h3><p>Responsibilities beyond products and profits: environment, community, workers.</p></div>
+    <div class="box"><h3>Triple bottom line</h3><p><b>People, planet, profit</b> — John Elkington, 1994.</p></div>
+    <div class="box" style="border-top-color:#a33a2a"><h3>Greenwashing</h3><p>CSR used as public relations to <b>hide real problems</b>.</p></div>
+  </div>
+  <p class="q" style="margin-top:20px;font-size:27px">The textbook: don't "blindly accept" company websites or advertising.</p>
+  <div class="foot"><span>Class 2 · Study</span><span>24</span></div>
+</section>
+
+<!-- 25 -->
+<section class="slide">
+  <span class="tag s">The real world · since September 27, 2026</span>
+  <h2>Five red flags</h2>
+  <p class="muted" style="font-size:20px">Based on new EU rules for claims made to EU consumers, including by non-EU companies. Outside source, not in the textbook.</p>
+  <ol class="flaglist">
+    <li class="step"><b>Vague words</b> with no proof — "eco-friendly," "green" <small>banned in the EU</small></li>
+    <li class="step"><b>"Carbon neutral"</b> because of offsets <small>banned in the EU</small></li>
+    <li class="step"><b>Homemade labels</b>, not independently certified <small>banned in the EU</small></li>
+    <li class="step"><b>One part</b> presented as the whole <small>banned in the EU</small></li>
+    <li class="step"><b>Future promises</b> without a plan <small>may be misleading</small></li>
+  </ol>
+  <div class="foot"><span>Class 2 · Study</span><span>25</span></div>
+</section>
+
+<!-- 26 -->
+<section class="slide cream" data-t="3">
+  <span class="tag s">Practice</span>
+  <h2>Test your own claim <span class="timechip">3 min</span></h2>
+  <p class="big">Look at the claim you brought. Does it raise any of the five red flags?</p>
+  <div class="lang"><b>Try:</b> "This sounds impressive, but…" · "The claim is too vague to verify." · "Who checks this?" · "It's specific and measurable, so…"</div>
+  <div class="foot"><span>Class 2 · Study</span><span>26</span></div>
+</section>
+
+<!-- 27 -->
+<section class="slide" data-t="12">
+  <span class="tag a">Activate</span>
+  <h2>Card sort <span class="timechip">12 min</span></h2>
+  <div class="cols3" style="margin-top:6px">
+    <div class="box" style="border-top-color:#2f6b2f"><h3>Genuine CSR</h3></div>
+    <div class="box" style="border-top-color:#a33a2a"><h3>Greenwashing</h3></div>
+    <div class="box" style="border-top-color:var(--gold)"><h3>Need more information</h3></div>
+  </div>
+  <ul style="margin-top:16px">
+    <li>16 cards: 8 from the textbook, 8 fictional.</li>
+    <li>Your group must <b>agree</b> — or the card goes to "Need more information," with a note saying <b>what</b> information.</li>
+  </ul>
+  <div class="foot"><span>Class 2 · Card sort</span><span>27</span></div>
+</section>
+
+<!-- 28 -->
+<section class="slide dark" data-t="8">
+  <div class="kick">Round 2</div>
+  <h2>You are now an EU inspector <span class="timechip">8 min</span></h2>
+  <ul>
+    <li>For every card in <b>Greenwashing</b>: which red flag (1–5) does it raise?</li>
+    <li>Which fictional claims would be <b class="gold">illegal in the EU today</b>?</li>
+    <li>Then sort the claims you brought from home. Did any trust scores change?</li>
+  </ul>
+  <p class="q" style="margin-top:18px;font-size:27px">Would these companies have changed <i>without</i> a law?</p>
+  <div class="foot"><span>Class 2 · Card sort</span><span>28</span></div>
+</section>
+
+<!-- 29 -->
+<section class="slide" data-t="5">
+  <span class="tag s">Study · 4.2 and 4.3</span>
+  <h2>The government toolbox <span class="timechip">5 min</span></h2>
+  <table>
+    <tr><th>Tool</th><th>Example (textbook)</th></tr>
+    <tr><td><b>Direct regulation</b></td><td class="step">Clean Air Act; Vopak paid a $2.5 million penalty (2017)</td></tr>
+    <tr><td><b>Carbon tax</b> (pay to pollute)</td><td class="step">Even Exxon, Shell, BP and Total supported one</td></tr>
+    <tr><td><b>Cap and trade</b></td><td class="step">A total limit + permits companies can buy and sell</td></tr>
+    <tr><td><b>Transparency law</b></td><td class="step">Sarbanes-Oxley (2002), after Enron and WorldCom</td></tr>
+    <tr><td><b>Public-private partnership</b></td><td class="step">NASA and SpaceX</td></tr>
+    <tr><td><b>Voluntary standards</b></td><td class="step">ISO 14000; LEED buildings</td></tr>
+  </table>
+  <div class="foot"><span>Class 2 · Study</span><span>29</span></div>
+</section>
+
+<!-- 30 -->
+<section class="slide">
+  <span class="tag s">Study · 4.3</span>
+  <h2>But government can fail too</h2>
+  <div class="cols3">
+    <div class="box"><h3>Lobbying</h3><p>Industry pressure stopped a rule requiring a cheap backup valve — before Deepwater Horizon.</p></div>
+    <div class="box"><h3>The revolving door</h3><p>People move between an industry and the agency that regulates it. "The fox guarding the hen house."</p></div>
+    <div class="box"><h3><i>Citizens United</i> (2010)</h3><p>Corporations may spend unlimited money on political ads.</p></div>
+  </div>
+  <div class="foot"><span>Class 2 · Study</span><span>30</span></div>
+</section>
+
+<!-- 31 -->
+<section class="slide dark" data-t="4">
+  <div class="kick">Fishbowl seminar</div>
+  <p class="q" style="margin-top:10px">"Should governments <span class="gold">force</span> businesses to behave ethically — or should businesses be <span class="gold">trusted</span> to regulate themselves?"</p>
+  <p class="big" style="margin-top:24px">Prepare <span class="timechip">4 min</span>: your position (1–10), two pieces of evidence, one question.</p>
+  <div class="foot"><span>Class 2 · Fishbowl</span><span>31</span></div>
+</section>
+
+<!-- 32 -->
+<section class="slide">
+  <span class="tag a">Fishbowl</span>
+  <h2>How it works</h2>
+  <div class="cols">
+    <div class="box"><h3>Inner circle</h3><p>Discuss. No hand-raising — build on each other. One empty <b>hot seat</b>: anyone from outside may sit, make one point, and leave.</p></div>
+    <div class="box" style="border-top-color:var(--gold)"><h3>Outer circle</h3><p>Observe one partner. Note: one argument with evidence, one good question, one strong phrase.</p></div>
+  </div>
+  <div class="lang"><b>Try:</b> "Building on what ___ said, …" · "Can I push back on that?" · "What's your evidence?" · "So are you saying that…?" · "___, what's your take?"</div>
+  <div class="foot"><span>Class 2 · Fishbowl</span><span>32</span></div>
+</section>
+
+<!-- 33 -->
+<section class="slide cream" data-t="12">
+  <span class="tag a">Round 1</span>
+  <h2>Inner circle <span class="timechip">12 min</span></h2>
+  <ul>
+    <li>The fishing game: did your group need a rule, or did talking work? What does that say about companies?</li>
+    <li>Why would Exxon support a carbon tax? Is that ethics or strategy?</li>
+  </ul>
+  <p class="muted" style="margin-top:16px">Then 2 minutes: observers give their partner feedback.</p>
+  <div class="foot"><span>Class 2 · Fishbowl</span><span>33</span></div>
+</section>
+
+<!-- 34 -->
+<section class="slide cream" data-t="12">
+  <span class="tag a">Round 2 · swap circles</span>
+  <h2>Inner circle <span class="timechip">12 min</span></h2>
+  <ul>
+    <li>Norway and Brazil require the backup valve; the U.S. didn't. Who is responsible for Deepwater Horizon?</li>
+    <li>If regulators come from the industry, can regulation be trusted?</li>
+    <li>Is it ethical to follow weak laws in one country and strict laws in another?</li>
+  </ul>
+  <div class="foot"><span>Class 2 · Fishbowl</span><span>34</span></div>
+</section>
+
+<!-- 35 -->
+<section class="slide">
+  <span class="tag b">Debrief</span>
+  <h2>What did we hear?</h2>
+  <ul>
+    <li class="step">The strongest argument for <b>government action</b>?</li>
+    <li class="step">The strongest argument for <b>self-regulation</b>?</li>
+    <li class="step">Where did the two sides <b>agree</b>?</li>
+    <li class="step">A phrase you heard that you want to use again?</li>
+  </ul>
+  <div class="foot"><span>Class 2 · Debrief</span><span>35</span></div>
+</section>
+
+<!-- 36 -->
+<section class="slide dark" data-t="4">
+  <div class="kick">Reflect</div>
+  <h2>Your position in one sentence <span class="timechip">4 min</span></h2>
+  <p class="q" style="margin-top:14px">"Governments should…"</p>
+  <p class="big">…and what changed your mind (or didn't)?</p>
+  <div class="foot"><span>Class 2 · Reflect</span><span>36</span></div>
+</section>
+
+<!-- 37 -->
+<section class="slide dark">
+  <div class="kick">Before next week</div>
+  <h2>Homework</h2>
+  <ol>
+    <li><b>Ethics Journal #4</b> (150–200 words) — choose one: <span class="muted">Houston flooding · Toxic waste · Project Shakti</span></li>
+    <li>Read all of <b>Chapter 4</b> (from p. 93). Preview <b>Chapter 5</b>.</li>
+    <li><b class="gold">Quiz 2 next week</b> — Chapters 4 and 5.</li>
+  </ol>
+  <p class="muted" style="margin-top:20px">Don't forget: <b>Download</b> your worksheet.</p>
+  <div class="foot"><span>Week 4 · Homework</span><span>37</span></div>
+</section>
+
+</div></div>
+<div id="timer" title="Click to pause; double-click to hide"></div>
+<div id="help">← → or tap · T timer · F fullscreen</div>
+<script>
+const slides=[...document.querySelectorAll('.slide')];
+let i=0;
+function fit(){const s=Math.min(innerWidth/1280,innerHeight/720);document.getElementById('deck').style.transform=`scale(${s})`}
+addEventListener('resize',fit);fit();
+function show(n,back){
+  i=Math.max(0,Math.min(slides.length-1,n));
+  slides.forEach((s,k)=>s.classList.toggle('on',k===i));
+  slides[i].querySelectorAll('.step').forEach(e=>e.classList.toggle('shown',!!back));
+  document.getElementById('prog').style.width=((i+1)/slides.length*100)+'%';
+  try{history.replaceState(null,'','#'+(i+1))}catch(e){}
+}
+function next(){const h=slides[i].querySelector('.step:not(.shown)');if(h){h.classList.add('shown');return}if(i<slides.length-1)show(i+1)}
+function prev(){const s=[...slides[i].querySelectorAll('.step.shown')];if(s.length){s[s.length-1].classList.remove('shown');return}if(i>0)show(i-1,true)}
+addEventListener('keydown',e=>{
+  if(['ArrowRight','PageDown',' ','Enter'].includes(e.key)){e.preventDefault();next()}
+  else if(['ArrowLeft','PageUp','Backspace'].includes(e.key)){e.preventDefault();prev()}
+  else if(e.key==='t'||e.key==='T')startTimer();
+  else if(e.key==='f'||e.key==='F'){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen?.()}
+  else if(e.key==='Home')show(0);else if(e.key==='End')show(slides.length-1);
+});
+document.getElementById('stage').addEventListener('click',e=>{if(e.clientX<innerWidth/3)prev();else next()});
+let tx=null;addEventListener('touchstart',e=>{tx=e.touches[0].clientX},{passive:true});
+addEventListener('touchend',e=>{if(tx===null)return;const dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>50){dx<0?next():prev();e.preventDefault()}tx=null});
+/* timer */
+const T=document.getElementById('timer');let left=0,run=null,paused=false;
+function fmt(s){return Math.floor(s/60)+':'+String(s%60).padStart(2,'0')}
+function startTimer(){const m=+(slides[i].dataset.t||5);left=m*60;paused=false;T.classList.remove('done');T.style.display='block';T.textContent=fmt(left);clearInterval(run);run=setInterval(()=>{if(paused)return;left--;T.textContent=fmt(Math.max(0,left));if(left<=0){clearInterval(run);T.classList.add('done');T.textContent="Time!"}},1000)}
+T.addEventListener('click',e=>{e.stopPropagation();paused=!paused;T.style.opacity=paused?.6:1});
+T.addEventListener('dblclick',e=>{e.stopPropagation();clearInterval(run);T.style.display='none'});
+/* QR */
+try{const url=location.href.split('#')[0].replace(/slides\.html.*$/,'worksheet.html');if(window.QRCode&&/^https?:/.test(url))new QRCode(document.getElementById('qr'),{text:url,width:170,height:170,colorDark:'#143865',colorLight:'#ffffff'});else document.getElementById('qr').closest('div[style]').style.display='none'}catch(e){}
+show(Math.max(0,(parseInt(location.hash.slice(1))||1)-1));
+</script>
+</body>
+</html>

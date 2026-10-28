@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Week 4 Worksheet · Ethics in a Global World</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#143865;--blue:#1c4f8f;--gold:#d39f10;--gold-d:#8c7535;--sky:#c1cddd;--sky2:#e1e8f2;--sky3:#edf2f9;--cream:#efe9d9;--ink:#1a2233;--muted:#4a5568;--bg:#f6f4ee;--ok:#2f6b2f;--no:#a33a2a}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Source Sans 3",system-ui,sans-serif;color:var(--ink);background:var(--bg);font-size:17px;line-height:1.55}
+header.top{background:var(--navy);color:#fff;border-bottom:4px solid var(--gold)}
+.top .in{max-width:860px;margin:0 auto;padding:20px 16px 24px;display:flex;gap:14px;align-items:center}
+.top img{width:60px;height:60px;border-radius:8px;flex:none}
+.top .w{font-family:"Libre Baskerville",serif;color:var(--gold);letter-spacing:.12em;font-size:16px;line-height:1.1;flex:none}
+.top .w small{display:block;letter-spacing:.02em;font-size:10px;color:#e6d8a8}
+.top h1{font-family:"Libre Baskerville",serif;margin:0;font-size:clamp(20px,4.5vw,28px);line-height:1.2}
+.top p{margin:3px 0 0;color:var(--sky);font-size:14.5px}
+.bar{position:sticky;top:0;z-index:5;background:#fff;border-bottom:1px solid var(--sky);box-shadow:0 2px 8px rgba(20,56,101,.06)}
+.bar .in{max-width:860px;margin:0 auto;padding:8px 16px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.bar input{flex:1;min-width:160px}
+.btn{background:var(--navy);color:#fff;border:0;border-radius:6px;padding:8px 13px;font:inherit;font-weight:700;font-size:14.5px;cursor:pointer;white-space:nowrap}
+.btn.gold{background:var(--gold);color:var(--navy)}
+.btn.ghost{background:#fff;color:var(--navy);border:1px solid var(--sky)}
+.btn.sm{padding:6px 11px;font-size:14px}
+#saved{font-size:13px;color:var(--muted);min-width:70px}
+main{max-width:860px;margin:0 auto;padding:10px 16px 60px}
+.part{font-family:"Libre Baskerville",serif;color:var(--gold-d);font-size:14px;letter-spacing:.12em;text-transform:uppercase;margin:34px 0 0;border-top:2px solid var(--gold);padding-top:12px}
+section.card{background:#fff;border:1px solid var(--sky);border-radius:12px;padding:16px 18px 18px;margin:16px 0}
+section.card h2{font-family:"Libre Baskerville",serif;color:var(--navy);font-size:21px;margin:0 0 4px}
+.sub{color:var(--muted);font-size:14.5px;margin:0 0 10px}
+label{display:block;font-weight:600;margin:12px 0 4px;color:var(--navy)}
+input[type=text],textarea,select{width:100%;font:inherit;font-size:16px;border:1px solid var(--sky);border-radius:7px;padding:8px 10px;background:#fbfcfe;color:var(--ink)}
+textarea{min-height:64px;resize:vertical}
+textarea.big{min-height:180px}
+input:focus,textarea:focus,select:focus{outline:2px solid var(--gold);border-color:var(--gold)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.opts{display:flex;flex-wrap:wrap;gap:6px 14px;margin:4px 0}
+.opts label{display:flex;gap:6px;align-items:center;font-weight:400;margin:0;color:var(--ink)}
+details{border:1px solid var(--sky);border-radius:9px;margin:10px 0;background:var(--sky3)}
+details>summary{cursor:pointer;padding:9px 12px;font-weight:700;color:var(--navy);list-style:none}
+details>summary::before{content:"▸ ";color:var(--gold-d)}
+details[open]>summary::before{content:"▾ "}
+details>div{padding:2px 14px 12px;background:#fff;border-radius:0 0 9px 9px}
+.box{background:var(--cream);border-left:4px solid var(--gold-d);padding:10px 14px;border-radius:6px;margin:10px 0;font-size:16px}
+.tip{background:var(--sky3);border-left:4px solid var(--blue);padding:8px 12px;border-radius:6px;margin:10px 0;font-size:15px}
+table{width:100%;border-collapse:collapse;font-size:15.5px;margin:8px 0}
+th,td{border:1px solid var(--sky);padding:6px 8px;text-align:left;vertical-align:top}
+th{background:var(--sky2);color:var(--navy)}
+.gm{display:grid;grid-template-columns:1fr auto 1fr;gap:8px;align-items:center;margin:8px 0}
+.gm .v{font-weight:700;color:var(--navy);text-align:center;background:var(--cream);border-radius:6px;padding:6px 10px;min-width:110px}
+.fb{font-size:14.5px;margin-top:6px;font-weight:600}
+.ok{color:var(--ok)}.no{color:var(--no)}
+select.ok{border-color:var(--ok);background:#eef6ec}select.no{border-color:var(--no);background:#fbefec}
+.hidden{display:none}
+.key{background:#eef6ec;border:1px solid #b9d3b1;border-radius:8px;padding:8px 12px;margin-top:8px;font-size:15px}
+.grid3{display:grid;grid-template-columns:120px 1fr 1fr 1fr;gap:6px;align-items:start}
+.grid3 .h{font-weight:700;color:var(--navy);font-size:14.5px;background:var(--sky2);border-radius:5px;padding:5px 7px}
+.grid3 textarea{min-height:58px;font-size:15px}
+.grid2{display:grid;grid-template-columns:140px 1fr 1fr;gap:6px;align-items:start}
+.grid2 .h{font-weight:700;color:var(--navy);font-size:14.5px;background:var(--sky2);border-radius:5px;padding:5px 7px}
+.grid2 textarea{min-height:58px;font-size:15px}
+.tl{display:grid;grid-template-columns:150px 90px 1fr;gap:6px;align-items:center;margin:6px 0}
+.tl b{color:var(--navy)}
+.wc{font-size:14px;color:var(--muted);margin-top:4px}
+.slider{display:grid;grid-template-columns:120px 1fr 34px;gap:10px;align-items:center;margin:6px 0}
+.slider input{width:100%}
+ul.lb li{margin:3px 0}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;font-size:13px;color:#6b7280}
+@media (max-width:640px){
+  .row2{grid-template-columns:1fr}
+  .gm{grid-template-columns:1fr}.gm .v{order:-1}
+  .grid3,.grid2{grid-template-columns:1fr}
+  .grid3 .h.c,.grid2 .h.c,.hdr{display:none}
+  .grid3 textarea::placeholder,.grid2 textarea::placeholder{color:#7a8597}
+  .tl{grid-template-columns:1fr 80px}.tl select.idea{grid-column:1/-1}
+  .slider{grid-template-columns:90px 1fr 30px}
+}
+@media print{
+  body{background:#fff;font-size:11.5pt}
+  .bar,.noprint,button{display:none!important}
+  section.card{break-inside:avoid;border-color:#bbb}
+  details>div{display:block!important}
+  details{background:#fff}
+  textarea{border:1px solid #bbb;overflow:hidden}
+  header.top{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+
+.pick{display:grid;grid-template-columns:1fr 190px;gap:8px;align-items:center;margin:6px 0;padding:4px 0;border-bottom:1px dashed var(--sky2)}
+.thermo{display:flex;justify-content:space-between;font-size:13.5px;font-weight:700;color:var(--navy);background:linear-gradient(90deg,#cfe0f3,#fbf1dc,#f6c9a4);border-radius:6px;padding:6px 10px;margin:6px 0}
+.case{border:1px solid var(--sky);border-radius:9px;padding:10px 12px;margin:10px 0;background:#fff}
+.case h3{margin:0 0 4px;font-size:16.5px;color:var(--navy)}
+.case p{margin:0 0 6px;font-size:15.5px}
+.case .row2 select{font-size:15px}
+.map{width:100%;border-collapse:collapse;font-size:14.5px}
+.map td,.map th{padding:4px}
+.map input[type=text]{font-size:15px;padding:6px}
+.map select{font-size:14.5px;padding:6px 4px}
+.mx{display:grid;grid-template-columns:1fr 1fr;gap:4px;font-size:13.5px;text-align:center;margin:8px 0}
+.mx div{background:var(--sky3);border-radius:6px;padding:8px}
+.mx .k{background:var(--navy);color:#fff}
+details.book{border-color:var(--gold-d);background:var(--cream)}
+details.book>summary::before{content:"\25B8  Book · "}
+details.book[open]>summary::before{content:"\25BE  Book · "}
+.pg{display:inline-block;background:var(--navy);color:#fff;border-radius:4px;padding:0 6px;font-size:13px;font-weight:700;margin-left:4px}
+@media (max-width:640px){.pick{grid-template-columns:1fr}.map thead{display:none}.map tr{display:grid;grid-template-columns:1fr 1fr;gap:4px;border-bottom:2px solid var(--sky);padding:6px 0}.map td{border:0}.map td:first-child{grid-column:1/-1}}
+
+.flags li{margin:4px 0}
+.score{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;align-items:center;font-size:15px}
+.score input{text-align:center}
+.score b{color:var(--navy)}
+.slider{display:grid;grid-template-columns:150px 1fr 34px;gap:10px;align-items:center;margin:6px 0}
+@media (max-width:640px){.score{grid-template-columns:repeat(3,1fr)}.slider{grid-template-columns:1fr 1fr 30px}}
+</style>
+</head>
+<body>
+<header class="top"><div class="in">
+  <img src="logo.png" alt="Approach International Student Center" onload="this.nextElementSibling.remove()" onerror="this.remove()"><div class="w">APPROACH<small>International Student Center</small></div>
+  <div><h1>Week 4 Worksheet · Society, the Environment and Government</h1><p>Ethics in a Global World · Chapter 4 · Class 1 and Class 2</p></div>
+</div></header>
+
+<div class="bar"><div class="in">
+  <input type="text" id="sname" data-k="name" placeholder="Your name" aria-label="Your name">
+  <span id="saved">Saved</span>
+  <button class="btn gold" onclick="downloadAnswers()">Download</button>
+  <button class="btn" onclick="window.print()">Print / PDF</button>
+  <button class="btn ghost sm" onclick="clearAll()">Clear</button>
+</div></div>
+
+<main>
+<p class="tip">Your answers save automatically <b>on this device</b>. Before you leave class, tap <b>Download</b> to keep a copy.</p>
+
+<section class="card">
+<h2>This week's reading · Chapter 4</h2>
+<p class="sub"><i>Business Ethics</i> (OpenStax), Chapter 4: Three Special Stakeholders: Society, the Environment, and Government. Page numbers are the printed page numbers in the OpenStax PDF. Tap a section to read it online.</p>
+<table>
+<tr><th>Section</th><th>Pages</th><th>We use it in</th></tr>
+<tr><td><a href="https://openstax.org/books/business-ethics/pages/4-introduction" target="_blank" rel="noopener">Chapter 4 introduction</a></td><td>p. 93</td><td>§4</td></tr>
+<tr><td><a href="https://openstax.org/books/business-ethics/pages/4-1-corporate-law-and-corporate-responsibility" target="_blank" rel="noopener">4.1 Corporate Law and Corporate Responsibility</a></td><td>pp. 94–102</td><td>§3, §6 · Journal C</td></tr>
+<tr><td><a href="https://openstax.org/books/business-ethics/pages/4-2-sustainability-business-and-the-environment" target="_blank" rel="noopener">4.2 Sustainability: Business and the Environment</a></td><td>pp. 103–116</td><td>§2, §4, §5, §6, §7 · Journal A and B</td></tr>
+<tr><td><a href="https://openstax.org/books/business-ethics/pages/4-3-government-and-the-private-sector" target="_blank" rel="noopener">4.3 Government and the Private Sector</a></td><td>from p. 117</td><td>§5, §6, §7, §8</td></tr>
+<tr><td><a href="https://openstax.org/books/business-ethics/pages/3-4-corporate-social-responsibility-csr" target="_blank" rel="noopener">3.4 Corporate Social Responsibility (review)</a></td><td>from p. 83</td><td>§6</td></tr>
+</table>
+<p class="tip" style="margin-bottom:0"><b>Quiz 2 next week</b> covers Chapter 4 (from p. 93) and Chapter 5.</p>
+</section>
+
+<div class="part">Class 1 · Who Pays for the Planet?</div>
+
+<!-- 1 -->
+<section class="card">
+<h2>1 · Fix the mistake</h2>
+<p class="sub">These sentences are from Quiz 1. Each one has a mistake. Correct it.</p>
+<details class="book"><summary>Week 3 review <span class="pg">pp. 68–82</span></summary><div>
+<p>Ethical minimum and maximum: <a href="https://openstax.org/books/business-ethics/pages/3-1-adopting-a-stakeholder-orientation" target="_blank" rel="noopener">3.1</a> (pp. 68–71). The four categories: <a href="https://openstax.org/books/business-ethics/pages/3-2-weighing-stakeholder-claims" target="_blank" rel="noopener">3.2</a>, Figure 3.4 (pp. 72–77). The power–interest matrix: <a href="https://openstax.org/books/business-ethics/pages/3-3-ethical-decision-making-and-prioritizing-stakeholders" target="_blank" rel="noopener">3.3</a>, Figure 3.5 (pp. 78–82).</p>
+</div></details>
+<div id="fix"></div>
+<button class="btn sm" onclick="toggle('fixKey')">Check</button>
+<div id="fixKey" class="key hidden">
+<p>1. Recalling and refunding is <b>beyond</b> the law. The ethical minimum is only what the law requires: keep selling, because the paint is legal at home.<br>
+2. Those are the <b>matrix quadrants</b>. The four <b>categories</b> are enabling, functional, normative and diffused.<br>
+3. Regulators are <b>enabling</b>: they allow the company to operate.<br>
+4. That's <b>utilitarian</b>. A Kantian judges duty and motive: never use people merely as a means.</p>
+</div>
+</section>
+
+<!-- 2 -->
+<section class="card">
+<h2>2 · The fishing game</h2>
+<div class="box">Your group shares a lake with <b>12 fish</b>. Each round, write secretly how many fish you want (0–3). If the total is more than the fish in the lake, the lake <b>collapses</b>. After each round, the fish left in the lake <b>double</b> (maximum 12). No talking in rounds 1–2.</div>
+<details class="book"><summary>4.2 · the tragedy of the commons <span class="pg">pp. 103–116</span></summary><div>
+<p><b>Read:</b> <a href="https://openstax.org/books/business-ethics/pages/4-2-sustainability-business-and-the-environment" target="_blank" rel="noopener">4.2</a> "Environmental Justice" — the parts on William Forster Lloyd, Garrett Hardin and the tragedy of the commons, and on cruise ships dumping sewage at sea. The game itself is teacher-made, not from the book.</p>
+<p><b>Glossary:</b> <i>commons</i> — a resource everyone shares and no one owns · <i>deplete</i> — use up · <i>overuse</i> — use too much</p>
+</div></details>
+<div class="score" style="margin-top:8px"><b></b><b>Round 1</b><b>Round 2</b><b>Round 3</b><b>Round 4</b>
+<b>My catch</b><input type="text" inputmode="numeric" data-k="f1" aria-label="My catch round 1"><input type="text" inputmode="numeric" data-k="f2" aria-label="My catch round 2"><input type="text" inputmode="numeric" data-k="f3" aria-label="My catch round 3"><input type="text" inputmode="numeric" data-k="f4" aria-label="My catch round 4">
+<b>Fish left</b><input type="text" inputmode="numeric" data-k="l1" aria-label="Fish left round 1"><input type="text" inputmode="numeric" data-k="l2" aria-label="Fish left round 2"><input type="text" inputmode="numeric" data-k="l3" aria-label="Fish left round 3"><input type="text" inputmode="numeric" data-k="l4" aria-label="Fish left round 4"></div>
+<label>Did your lake collapse?</label>
+<div class="opts">
+  <label><input type="radio" name="s2_c" data-k="s2_c" value="No"> No</label>
+  <label><input type="radio" name="s2_c" data-k="s2_c" value="Round 1"> Round 1</label>
+  <label><input type="radio" name="s2_c" data-k="s2_c" value="Round 2"> Round 2</label>
+  <label><input type="radio" name="s2_c" data-k="s2_c" value="Round 3"> Round 3</label>
+  <label><input type="radio" name="s2_c" data-k="s2_c" value="Round 4"> Round 4</label>
+</div>
+<label>What changed when you were allowed to talk?</label>
+<textarea data-k="s2_talk"></textarea>
+<label>If you were the government, what one rule would you make for this lake?</label>
+<textarea data-k="s2_rule"></textarea>
+<label>The tragedy of the commons in my own words</label>
+<textarea data-k="s2_def"></textarea>
+</section>
+
+<!-- 3 -->
+<section class="card">
+<h2>3 · You be the judge</h2>
+<p class="sub">Does a company exist only for its shareholders? Read each case and decide before you see the court's answer.</p>
+<details class="book"><summary>4.1 <span class="pg">pp. 94–102</span></summary><div>
+<p><b>Read:</b> <a href="https://openstax.org/books/business-ethics/pages/4-1-corporate-law-and-corporate-responsibility" target="_blank" rel="noopener">4.1</a> "The Advantages of Corporate Status," "Balancing the Many Responsibilities of a Corporation" and "The Two Sides of the Corporate Responsibility Debate."</p>
+<p><b>Before you read:</b> If you owned shares in a company, would you want it to give money to the community?</p>
+<p><b>Glossary:</b> <i>limited liability</i> — owners can lose only what they invested · <i>dividend</i> — profit paid to shareholders · <i>shareholder primacy</i> — the company exists mainly to make money for shareholders · <i>business judgment rule</i> — courts don't second-guess reasonable, honest business decisions · <i>fiduciary duty</i> — a legal duty to act in the best interest of the people whose money you manage · <i>moral minimum</i> — the basic level of ethical behavior a business must meet</p>
+<p><b>Look for:</b> Why does the book say companies owe society something in return for limited liability? Is the law clear about shareholder primacy? Does CSR lower profits, according to the book?</p>
+</div></details>
+<div id="judge"></div>
+<button class="btn sm" onclick="toggle('judgeKey')">What did the courts decide?</button>
+<div id="judgeKey" class="key hidden">
+<p><b>Dodge v. Ford (1919):</b> The Michigan Supreme Court sided with the Dodge brothers — a company is run mainly for its shareholders (<b>shareholder primacy</b>). But it also said courts should not second-guess ordinary business decisions.<br>
+<b>Shlensky v. Wrigley (1968):</b> The owners won. Their decision was reasonable and in good faith (<b>business judgment rule</b>). Lights were installed in 1988, after the team was sold.<br>
+<b>eBay v. Newmark (2010):</b> The Delaware court ruled for eBay: directors must promote value for stockholders (<b>fiduciary duty</b>).</p>
+<p>The textbook's conclusion: the law is not settled — opinion "swings like a pendulum." And CSR does not necessarily reduce profits.</p>
+</div>
+<p class="sub" style="margin-top:12px"><b>Match the terms.</b></p>
+<div id="termRows"></div>
+<button class="btn sm" onclick="checkTerms()">Check</button>
+<div id="termFb" class="fb"></div>
+</section>
+
+<!-- 4 -->
+<section class="card">
+<h2>4 · The sustainability toolbox</h2>
+<details class="book"><summary>Chapter 4 intro and 4.2 <span class="pg">pp. 93–116</span></summary><div>
+<p><b>Read:</b> the <a href="https://openstax.org/books/business-ethics/pages/4-introduction" target="_blank" rel="noopener">Chapter 4 introduction</a> (p. 93) and <a href="https://openstax.org/books/business-ethics/pages/4-2-sustainability-business-and-the-environment" target="_blank" rel="noopener">4.2</a> "Environmental Justice" and "Why Sustainability Is Good for Business" (pp. 103–116).</p>
+<p><b>Glossary:</b> <i>sustainability</i> — using resources so they last for the long term · <i>carbon footprint</i> — the carbon dioxide a person or company releases · <i>corporate personhood</i> — a corporation has some legal rights of a person · <i>earth jurisprudence</i> — the idea that nature should have legal rights · <i>ecosystem</i> — a natural system such as a river or forest</p>
+<p><b>Look for:</b> What did Ecuador do in 2008? What evidence does the book give that sustainability is good for business (Global 100, Dell)?</p>
+</div></details>
+<div class="box">
+<b>Sustainability</b> — a long-term approach to how business affects the environment and people.<br>
+<b>Carbon footprint</b> — the carbon dioxide a person or company releases by using fossil fuels.<br>
+<b>Corporate personhood</b> — a corporation has some legal rights of a person: it can own property, sign contracts, sue and be sued.<br>
+<b>Earth jurisprudence</b> — nature itself should have legal rights. <b>Ecuador</b>'s 2008 constitution was the first to recognize "Rights for Nature."<br>
+<b>Good business?</b> The textbook reports that "Global 100" sustainable companies did better than a typical index fund (2005–2015), and Dell's flexible-work program saves about $12 million a year.</div>
+<label>If a corporation can be a legal "person," should a river be one too? Why or why not?</label>
+<textarea data-k="s4_river"></textarea>
+</section>
+
+<!-- 5 -->
+<section class="card">
+<h2>5 · Gallery walk: global environmental ethics cases</h2>
+<p class="sub">At each station, read the case and add at least two sticky notes: one new idea and one reply to someone else's note. Use this page for your own notes.</p>
+<details class="book"><summary>4.2 and 4.3 <span class="pg">pp. 103–116 · from p. 117</span></summary><div>
+<p><b>Stations A and B:</b> <a href="https://openstax.org/books/business-ethics/pages/4-2-sustainability-business-and-the-environment" target="_blank" rel="noopener">4.2</a>, box <i>Ethics Across Time and Cultures: "Is It Ethical to Dump Toxic Waste in Countries That Allow It?"</i><br>
+<b>Stations C and E:</b> 4.2 "Environmental Justice" (Ecuador; cruise ships).<br>
+<b>Station D:</b> <a href="https://openstax.org/books/business-ethics/pages/4-3-government-and-the-private-sector" target="_blank" rel="noopener">4.3</a>, box <i>Cases from the Real World: BP Deepwater Horizon</i> (from p. 117).<br>
+<b>Station F:</b> 4.2 "Environmental Economics and Policy" (fracking).</p>
+<p><b>Glossary:</b> <i>toxic</i> — poisonous · <i>dispose of</i> — get rid of · <i>litigant</i> — a party in a lawsuit · <i>externality</i> — a cost that falls on people outside the deal · <i>lobbying</i> — trying to influence lawmakers</p>
+</div></details>
+<p class="sub"><b>Three questions at every station:</b> (1) Who benefits, and who pays the cost? Include the voiceless. (2) Legal minimum or ethical maximum? Is there a gap in the law? (3) Who should fix it — the company, customers, government, or all three? How?</p>
+<div id="stations"></div>
+<label>My home station's summary: the strongest idea and the biggest disagreement</label>
+<textarea data-k="s5_sum"></textarea>
+<div class="box" style="margin-top:14px"><b>Exit ticket</b></div>
+<label>1. Explain the tragedy of the commons with an example from today.</label>
+<textarea data-k="s5_x1"></textarea>
+<label>2. Which case should the government fix, and how?</label>
+<textarea data-k="s5_x2"></textarea>
+<label>3. One question I still have</label>
+<input type="text" data-k="s5_x3">
+</section>
+
+<div class="part">Class 2 · Green or Greenwash — and Who Decides?</div>
+
+<!-- 6 -->
+<section class="card">
+<h2>6 · CSR or greenwashing?</h2>
+<details class="book"><summary>3.4, 4.1, 4.2, 4.3 <span class="pg">from p. 83</span></summary><div>
+<p><b>Read:</b> <a href="https://openstax.org/books/business-ethics/pages/3-4-corporate-social-responsibility-csr" target="_blank" rel="noopener">3.4</a> "Corporate Social Responsibility Defined," "People, Planet, Profit: The Triple Bottom Line," "CSR as Public Relations Tool" and the Ben &amp; Jerry's box (from p. 83). Cards 1–8 come from 3.4, <a href="https://openstax.org/books/business-ethics/pages/4-1-corporate-law-and-corporate-responsibility" target="_blank" rel="noopener">4.1</a> (Project Shakti), <a href="https://openstax.org/books/business-ethics/pages/4-2-sustainability-business-and-the-environment" target="_blank" rel="noopener">4.2</a> (Dell, Cisco, LEED) and <a href="https://openstax.org/books/business-ethics/pages/4-3-government-and-the-private-sector" target="_blank" rel="noopener">4.3</a> (CVS, Net-a-Porter). Cards 9–16 are <b>fictional</b>.</p>
+<p><b>Outside source (not in the book):</b> the EU rules on green claims, in force since September 27, 2026.</p>
+<p><b>Glossary:</b> <i>CSR</i> — corporate social responsibility · <i>triple bottom line</i> — people, planet, profit · <i>greenwashing</i> — misleading green claims · <i>offset</i> — paying for a project (e.g., planting trees) to "balance out" pollution · <i>certification</i> — official approval by an independent organization · <i>verify</i> — check that something is true</p>
+</div></details>
+<label>The claim I brought from home (company + exact words)</label>
+<textarea data-k="s6_mine"></textarea>
+<div class="slider"><span>My trust score (1–5)</span><input type="range" min="1" max="5" value="3" data-k="s6_trust"><b class="sv">3</b></div>
+<div class="box"><b>Five red flags of greenwashing</b> — based on the EU rules that apply since <b>September 27, 2026</b> to claims made to EU consumers (including by non-EU companies)
+<ol class="flags">
+<li><b>Vague words with no proof</b> — "eco-friendly," "green," "natural." <i>(banned in the EU)</i></li>
+<li><b>"Carbon neutral" because of offsets</b> <i>(banned in the EU)</i></li>
+<li><b>Homemade labels</b> — a green logo the company made itself, not independently certified <i>(banned in the EU)</i></li>
+<li><b>One part presented as the whole</b> <i>(banned in the EU)</i></li>
+<li><b>Future promises without a plan</b> — "Net zero by 2050!" with no checkable plan <i>(may be misleading)</i></li>
+</ol></div>
+<p class="sub"><b>Card sort:</b> choose a pile for each card. For greenwashing, choose the red flag.</p>
+<div id="cards"></div>
+<button class="btn sm" onclick="toggle('cardKey')">Compare with suggested answers</button>
+<div id="cardKey" class="key hidden"><table id="cardKeyT"></table></div>
+<label>Which card caused the biggest argument in your group? Why?</label>
+<textarea data-k="s6_arg"></textarea>
+<label>After the card sort: my trust score for my own claim now, and why</label>
+<textarea data-k="s6_after"></textarea>
+</section>
+
+<!-- 7 -->
+<section class="card">
+<h2>7 · The government toolbox</h2>
+<details class="book"><summary>4.2 and 4.3 <span class="pg">pp. 103–116 · from p. 117</span></summary><div>
+<p><b>Read:</b> <a href="https://openstax.org/books/business-ethics/pages/4-2-sustainability-business-and-the-environment" target="_blank" rel="noopener">4.2</a> "Environmental Economics and Policy" (Pigovian tax, carbon tax, cap and trade) and "Sustainability Standards" (ISO 14000, LEED). <a href="https://openstax.org/books/business-ethics/pages/4-3-government-and-the-private-sector" target="_blank" rel="noopener">4.3</a>: the Clean Air Act and Vopak; "The Revolving Door between Government Regulation and the Private Sector"; <i>Citizens United</i>; Sarbanes-Oxley.</p>
+<p><b>Glossary:</b> <i>regulation</i> — rules made and enforced by government · <i>penalty</i> — a punishment, often money · <i>allowance / permit</i> — official permission to pollute a certain amount · <i>revolving door</i> — moving between an industry and the agency that regulates it</p>
+</div></details>
+<p class="sub">Match each tool to an example from the textbook.</p>
+<div id="toolRows"></div>
+<button class="btn sm" onclick="checkTools()">Check</button>
+<div id="toolFb" class="fb"></div>
+<div class="box" style="margin-top:12px"><b>Three risks the textbook names:</b> <b>lobbying</b> (industry pressure stopped a rule requiring a cheap safety valve before Deepwater Horizon) · <b>the revolving door</b> ("the fox guarding the hen house") · <b><i>Citizens United</i></b> (2010: corporations may spend unlimited money on political ads)</div>
+</section>
+
+<!-- 8 -->
+<section class="card">
+<h2>8 · Fishbowl seminar</h2>
+<div class="box"><b>Central question:</b> "Should governments force businesses to behave ethically — or should businesses be trusted to regulate themselves?"</div>
+<details class="book"><summary>4.1 and 4.3 <span class="pg">pp. 94–102 · from p. 117</span></summary><div>
+<p><b>Evidence for regulation:</b> Deepwater Horizon valve (4.3); the tragedy of the commons (4.2); Sarbanes-Oxley after Enron (4.3); toxic waste in countries with weak laws (4.2); Vopak's penalty (4.3).<br>
+<b>Evidence for self-regulation:</b> Friedman's view (4.1); Global 100 results (4.2); voluntary action by Dell, Cisco, CVS (4.2, 4.3); the revolving door and lobbying (4.3); changing rules as a "moving target" (4.3).</p>
+</div></details>
+<div class="slider"><span>My first position (1 = self-regulation, 10 = government)</span><input type="range" min="1" max="10" value="5" data-k="s8_pos1"><b class="sv">5</b></div>
+<label>Two pieces of evidence I can use</label>
+<textarea data-k="s8_ev" placeholder="1. …&#10;2. …"></textarea>
+<label>One question I want to ask the group</label>
+<input type="text" data-k="s8_q">
+<label>Observer notes (my partner: one argument with evidence, one good question, one strong phrase)</label>
+<textarea data-k="s8_obs"></textarea>
+<div class="slider"><span>My final position (1–10)</span><input type="range" min="1" max="10" value="5" data-k="s8_pos2"><b class="sv">5</b></div>
+<label>My position in one sentence: "Governments should…"</label>
+<textarea data-k="s8_final"></textarea>
+<label>What changed my mind (or didn't)</label>
+<textarea data-k="s8_change"></textarea>
+</section>
+
+<div class="part">Homework</div>
+
+<section class="card">
+<h2>Ethics Journal #4</h2>
+<p class="sub">150–200 words. Choose one prompt. Structure: <b>Opinion → Reasons → Framework or stakeholder tool → Counterargument → Conclusion</b>.</p>
+<select data-k="j_prompt"><option value="">— choose a prompt —</option>
+<option>A · Houston flooding: should developers be required to set aside green space?</option>
+<option>B · Toxic waste: is it ethical to dump waste where it's legal or cheap?</option>
+<option>C · Project Shakti: CSR, profit, or both?</option></select>
+<details><summary>The three cases</summary><div>
+<p><b>A · Houston flooding</b> — <a href="https://openstax.org/books/business-ethics/pages/4-2-sustainability-business-and-the-environment" target="_blank" rel="noopener">4.2</a>, box <i>What Would You Do?</i> <span class="pg">pp. 103–116</span><br>You are on Houston's urban planning commission. Since 2001, hurricanes and storms have caused about $75 billion in damage. The solution can't rely only on taxpayers. The proposal: developers must set aside green space at least equal to the land they cover with concrete, which raises their costs. How would you persuade developers, investors, homeowners, politicians and the media? Should local, state or federal government regulate this? Who should pay for flood damage?</p>
+<p><b>B · Toxic waste</b> — 4.2, box <i>Ethics Across Time and Cultures</i> <span class="pg">pp. 103–116</span><br>In Nigeria in the mid-1990s, about 10,000 barrels of toxic waste were stored near homes; disposal cost about $3,000 per ton in the U.S. and Europe but about $3 per ton in West Africa. In 2006, Trafigura dumped waste near Abidjan, Côte d'Ivoire; Amnesty International reported over 100,000 people sickened and 15 deaths. Should a company take advantage of a country's weak laws? Would your answer change if it saved your company $1 million?</p>
+<p><b>C · Project Shakti</b> — <a href="https://openstax.org/books/business-ethics/pages/4-1-corporate-law-and-corporate-responsibility" target="_blank" rel="noopener">4.1</a>, box <i>Cases from the Real World</i> <span class="pg">pp. 94–102</span><br>Unilever trains rural women in India to become small entrepreneurs selling its products; the program has enlisted over 100,000 participants. Does Unilever do this to help women, to increase profits, or both? Do mixed motives discredit a good program?</p>
+</div></details>
+<textarea class="big" id="journal" data-k="journal" placeholder="I believe…"></textarea>
+<div class="wc" id="wc">0 words · target 150–200</div>
+<details><summary>Model journal (Prompt B)</summary><div>
+<p>I believe it is unethical for a company to dump toxic waste in a country simply because it is legal or cheap there. The main reason is that the harm to people is the same wherever the waste goes; only the price changes. In stakeholder terms, the local community is a voiceless stakeholder with very low power, so it cannot protect itself. A Kantian would say that choosing a place because its people are poor and its laws are weak treats them merely as a means to save money. Even a utilitarian would struggle to defend it: in Côte d'Ivoire, the textbook reports more than 100,000 people sickened and 15 deaths. One could argue that the company obeyed local law and that profits create jobs at home. That is true, but obeying a weak law is only the ethical minimum. If saving $1 million required harming others, I would still refuse, because a company's reputation and its duty to people are worth more. In conclusion, companies should apply their strictest standard everywhere.</p>
+</div></details>
+<details><summary>How your journal is marked (12 points)</summary><div>
+<table>
+<tr><th>Criterion</th><th>3 points</th></tr>
+<tr><td>Position</td><td>Clear, specific answer to the prompt</td></tr>
+<tr><td>Tools</td><td>A stakeholder or Chapter 4 concept and a framework, used accurately</td></tr>
+<tr><td>Counterargument</td><td>A strong opposing view, stated fairly and answered</td></tr>
+<tr><td>Language</td><td>Course vocabulary; hedging and modals mostly accurate</td></tr>
+</table></div></details>
+<p class="tip"><b>Also:</b> read all of Chapter 4 (from p. 93) and preview Chapter 5. <b>Quiz 2 (Chapters 4–5) is next week.</b></p>
+</section>
+
+<section class="card">
+<h2>Language bank</h2>
+<details><summary>Key words in simple English</summary><div>
+<ul class="lb">
+<li><b>limited liability</b> — owners can lose only what they invested</li>
+<li><b>shareholder primacy</b> — the company exists mainly for its shareholders</li>
+<li><b>fiduciary duty</b> — a legal duty to act in the best interest of the people whose money you manage</li>
+<li><b>sustainability</b> — using resources so they last</li>
+<li><b>carbon footprint</b> — the carbon dioxide you release</li>
+<li><b>tragedy of the commons</b> — shared free resources get overused</li>
+<li><b>externality</b> — a cost that falls on people outside the deal</li>
+<li><b>greenwashing</b> — misleading green claims</li>
+<li><b>offset</b> — paying to "balance out" pollution</li>
+<li><b>carbon tax / cap and trade</b> — a fee per unit of pollution / a pollution limit with tradable permits</li>
+<li><b>lobbying</b> — trying to influence lawmakers</li>
+<li><b>commons</b> — shared resources (not "common" = ordinary!)</li>
+<li><b>liability</b> — legal responsibility (not "reliability")</li>
+</ul></div></details>
+<details><summary>Seminar phrases</summary><div>
+<ul class="lb">
+<li>Building on what ___ said, …</li>
+<li>Can I push back on that?</li>
+<li>What's your evidence for that?</li>
+<li>That's true for ___, but not necessarily for…</li>
+<li>I'd like to bring in the example of…</li>
+<li>So are you saying that…?</li>
+<li>___, what's your take on this?</li>
+<li>I've changed my mind slightly, because…</li>
+</ul></div></details>
+<details><summary>Hedging and modals</summary><div>
+<p>The evidence <i>suggests</i> that… · It <i>appears</i> that… · This <i>may</i> be greenwashing, but we'd need to know…<br>Companies <i>should</i>… (advice) · Companies <i>must</i>… (law) · Companies <i>are required to</i>… (rule)</p>
+</div></details>
+<details><summary>Pronunciation</summary><div>
+<p>sus·tain·a·BIL·i·ty · fi·DU·ci·ar·y · li·a·BIL·i·ty · ex·ter·nal·I·ty · ju·ris·PRU·dence · REG·u·la·to·ry · pi·GO·vi·an</p>
+</div></details>
+</section>
+</main>
+<footer>Textbook content summarized from Byars &amp; Stanberry, <em>Business Ethics</em>, OpenStax (CC BY-NC-SA 4.0), Section 3.4 and Chapter 4. Outside source: EU Empowering Consumers Directive (rules apply from September 27, 2026). The fishing game and claim cards 9–16 are fictional.</footer>
+
+<script>
+const KEY='ethics-w4-worksheet-v1';
+let data={};
+try{data=JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){data={}}
+const $=s=>document.querySelector(s);
+
+const FIX=["“The ethical minimum is to recall every crib and refund customers.”","“The four stakeholder categories are high power/low interest, low power/high interest…”","“Regulators are diffused stakeholders.”","“A Kantian judges the result.”"];
+$('#fix').innerHTML=FIX.map((f,i)=>`<label>${i+1}. ${f}</label><textarea data-k="fx${i}" aria-label="Correction ${i+1}" placeholder="Correct version…" style="min-height:48px"></textarea>`).join('');
+
+const JUDGE=[["Dodge v. Ford Motor Company (1919)","Henry Ford wanted to keep profits in the company to expand and to lower car prices, instead of paying large dividends. Two shareholders, the Dodge brothers, sued."],["Shlensky v. Wrigley (1968)","The owners of the Chicago Cubs baseball team refused to install lights for night games, partly out of concern for the neighborhood. A shareholder sued, saying the team was losing money."],["eBay v. Newmark (2010)","The founders of craigslist, a classifieds website, used special measures to stop eBay (a minority shareholder) from gaining more control, to protect craigslist's community-focused, not-very-profit-driven culture."]];
+$('#judge').innerHTML=JUDGE.map((j,i)=>`<div class="case"><h3>${j[0]}</h3><p>${j[1]}</p><div class="opts"><label><input type="radio" name="jd${i}" data-k="jd${i}" value="For the managers / company leaders"> For the managers</label><label><input type="radio" name="jd${i}" data-k="jd${i}" value="For the shareholders"> For the shareholders</label></div><textarea data-k="jr${i}" aria-label="${j[0]} — our reasoning" placeholder="We rule in favor of ___, on the grounds that…" style="min-height:48px"></textarea></div>`).join('');
+
+const TERMS=[["Limited liability","B"],["Shareholder primacy","D"],["Business judgment rule","A"],["Fiduciary duty","E"],["Quid pro quo","C"]];
+const TDEF='<option value="">—</option><option value="A">Courts don\'t second-guess reasonable, honest business decisions</option><option value="B">Owners can lose only what they invested</option><option value="C">Something given in exchange for something else</option><option value="D">A company exists mainly to make money for shareholders</option><option value="E">A legal duty to act in the best interest of the people whose money you manage</option>';
+$('#termRows').innerHTML=TERMS.map((t,i)=>`<div class="pick" style="grid-template-columns:170px 1fr"><span><b>${t[0]}</b></span><select data-k="tm${i}" aria-label="Meaning of ${t[0]}">${TDEF}</select></div>`).join('');
+
+const ST=[["A · Côte d'Ivoire, 2006","The energy company Trafigura dumped hundreds of tons of toxic waste near Abidjan after searching other countries for a place to get rid of it. Amnesty International reported more than 100,000 people sickened and 15 deaths."],["B · Nigeria, mid-1990s","A reporter found about 10,000 barrels of toxic waste, including dangerous chemicals called PCBs, stored near homes where children lived. Disposal cost about $3,000 per ton in the U.S. and Europe, but about $3 per ton in West Africa."],["C · Ecuador, 2008","Ecuador's constitution gives “Rights for Nature”: an ecosystem, such as a river or forest, can be a party in a lawsuit, and citizens can enforce its rights. The U.S. has not adopted this idea. Should the Gulf of Mexico have been able to sue BP?"],["D · Gulf of Mexico, 2010","BP's Deepwater Horizon oil rig exploded: 11 workers killed, at least 5 million barrels of oil released. An inexpensive backup shutoff valve could likely have stopped the flow. The U.S. didn't require it, partly because of industry lobbying. Norway and Brazil do require it."],["E · The oceans","About 25 million people take cruises each year. Cruise ships dump about a billion gallons of sewage into the ocean every year, often at night (Friends of the Earth, using EPA data)."],["F · West Texas","Fracking (breaking rock underground to release oil and gas) increased truck traffic tenfold, damaging roads that small towns cannot afford to repair. It can also pollute water, spill chemicals and may trigger earthquakes."]];
+$('#stations').innerHTML=ST.map((s,i)=>`<div class="case"><h3>${s[0]}</h3><p>${s[1]}</p><textarea data-k="g${i}a" aria-label="${s[0]} — who benefits, who pays" placeholder="1. Who benefits / who pays…" style="min-height:44px"></textarea><textarea data-k="g${i}b" aria-label="${s[0]} — minimum or maximum, legal gap" placeholder="2. Minimum or maximum? Legal gap?" style="min-height:44px;margin-top:4px"></textarea><textarea data-k="g${i}c" aria-label="${s[0]} — who should fix it" placeholder="3. Who should fix it, and how?" style="min-height:44px;margin-top:4px"></textarea></div>`).join('');
+
+const CARDS=[["CVS, a U.S. pharmacy chain, stopped selling tobacco in 2014, giving up those sales. (4.3)","Genuine CSR","—","Real cost; fits its health mission."],["Dell's flexible-work program avoids about 7,000 metric tons of emissions and saves about $12 million a year. (4.2)","Genuine CSR","—","Measured results; also good business — and that's fine."],["Cisco requires its suppliers to follow a code of conduct: fair labor, safe conditions, lower carbon footprints. (4.2)","Genuine CSR","—","Good policy — but how is it checked? “Need more information” is also reasonable."],["Net-a-Porter, an online fashion retailer, banned fur after surveying its customers. (4.3)","Genuine CSR","—","Real change driven by customers."],["The Empire State Building earned LEED Gold certification after a multimillion-dollar energy retrofit. (4.2)","Genuine CSR","—","Independent certification; real investment."],["Unilever's Project Shakti trains rural women in India to become small entrepreneurs selling its products; it has enlisted over 100,000 participants. (4.1)","Need more information","—","Mixed motives: helps women and sells products. Does that matter?"],["Ben & Jerry's has a “social mission,” but as it grew, much of its milk came from large, crowded industrial farms (CAFOs). (3.4)","Greenwashing","4","The image doesn't match the supply chain."],["Coca-Cola reports “ongoing stakeholder dialogue” and sustainability goals. The textbook says its bottling plant in Chiapas, Mexico, uses huge amounts of water while only about half the local people have running water. (3.4)","Greenwashing","4","Positive words vs. a serious local water problem."],["EcoNest detergent: big label “Eco-friendly!” — no other information. (fictional)","Greenwashing","1","Vague claim — banned in the EU."],["SkyHop Airlines: “Fly carbon neutral! Every ticket is 100% offset by tree planting.” (fictional)","Greenwashing","2","Neutrality through offsets — banned in the EU."],["UrbanThread jeans carry a green “Planet Hero” badge designed by the company's own marketing team. (fictional)","Greenwashing","3","Homemade label — banned in the EU."],["FreshBox meal kits: “Made with recycled materials!” Only the cardboard sleeve (about 3% of the packaging) is recycled. (fictional)","Greenwashing","4","One part presented as the whole."],["Northline Energy: “Net zero by 2050!” No plan published; the company is still opening new coal mines. (fictional)","Greenwashing","5","Future promise without a plan."],["Brightway Bank publishes a yearly emissions report checked by an independent auditor, including the targets it missed. (fictional)","Genuine CSR","—","Independent checking; honest about failure."],["GreenLeaf Coffee sells only beans certified by an independent fair-trade organization, which audits farms every year. (fictional)","Genuine CSR","—","Independent certification."],["AquaPure water: “Our bottle now uses 30% less plastic than our 2020 bottle.” (fictional)","Genuine CSR","—","Specific and checkable — allowed if true. Still single-use plastic, so “need more information” is also fair."]];
+const PILE='<option value="">— pile —</option><option>Genuine CSR</option><option>Greenwashing</option><option>Need more information</option>';
+const FLAG='<option value="">— red flag —</option><option value="1">1 · Vague words</option><option value="2">2 · Offsets</option><option value="3">3 · Homemade label</option><option value="4">4 · Part as whole</option><option value="5">5 · Future promise</option><option value="—">None</option>';
+$('#cards').innerHTML=CARDS.map((c,i)=>`<div class="case"><p><b>${i+1}.</b> ${c[0]}</p><div class="row2"><select data-k="cp${i}" aria-label="Card ${i+1} — pile">${PILE}</select><select data-k="cf${i}" aria-label="Card ${i+1} — red flag">${FLAG}</select></div></div>`).join('');
+$('#cardKeyT').innerHTML='<tr><th>#</th><th>Suggested</th><th>Flag</th><th>Why</th></tr>'+CARDS.map((c,i)=>`<tr><td>${i+1}</td><td>${c[1]}</td><td>${c[2]}</td><td>${c[3]}</td></tr>`).join('');
+
+const TOOLS=[["Direct regulation (rules and penalties)","A"],["Carbon tax / Pigovian tax (pay to pollute)","B"],["Cap and trade","C"],["Transparency law","D"],["Public-private partnership","E"],["Voluntary standards","F"]];
+const TEX='<option value="">—</option><option value="D">Sarbanes-Oxley (2002), passed after Enron and WorldCom</option><option value="F">ISO 14000 and LEED certification</option><option value="A">Clean Air Act; Vopak paid a $2.5 million penalty (2017)</option><option value="C">A total pollution limit with permits companies can buy and sell</option><option value="E">NASA working with SpaceX</option><option value="B">A fee for each unit of carbon released; even Exxon and Shell supported it</option>';
+$('#toolRows').innerHTML=TOOLS.map((t,i)=>`<div class="pick" style="grid-template-columns:210px 1fr"><span><b>${t[0]}</b></span><select data-k="tl${i}" aria-label="Example for ${t[0]}">${TEX}</select></div>`).join('');
+
+/* save / load */
+const status=$('#saved');let tmr;
+function save(){try{localStorage.setItem(KEY,JSON.stringify(data));status.textContent='Saved ✓'}catch(e){status.textContent='Not saved — use Download'}}
+function bind(el){
+  const k=el.dataset.k;
+  if(el.type==='radio'){if(data[k]===el.value)el.checked=true;el.addEventListener('change',()=>{data[k]=el.value;save()});return}
+  if(data[k]!==undefined)el.value=data[k];
+  el.addEventListener('input',()=>{data[k]=el.value;status.textContent='Saving…';clearTimeout(tmr);tmr=setTimeout(save,400);if(el.type==='range')el.nextElementSibling.textContent=el.value;if(el.id==='journal')wc()});
+  if(el.tagName==='SELECT')el.addEventListener('change',()=>{data[k]=el.value;save()});
+  if(el.type==='range')el.nextElementSibling.textContent=el.value;
+}
+document.querySelectorAll('[data-k]').forEach(bind);
+function wc(){const n=($('#journal').value.trim().match(/\S+/g)||[]).length;const w=$('#wc');w.textContent=n+' words · target 150–200';w.className='wc '+(n>=150&&n<=200?'ok':n>200?'no':'')}
+wc();
+function toggle(id){document.getElementById(id).classList.toggle('hidden')}
+function mark(el,ok){el.classList.remove('ok','no');if(el.value)el.classList.add(ok?'ok':'no')}
+function checkTerms(){let c=0;TERMS.forEach((t,i)=>{const e=$(`[data-k="tm${i}"]`);mark(e,e.value===t[1]);if(e.value===t[1])c++});$('#termFb').innerHTML=`${c} / ${TERMS.length} correct.`+(c===TERMS.length?' <span class="ok">Excellent!</span>':' Red boxes need another look.')}
+function checkTools(){let c=0;TOOLS.forEach((t,i)=>{const e=$(`[data-k="tl${i}"]`);mark(e,e.value===t[1]);if(e.value===t[1])c++});$('#toolFb').innerHTML=`${c} / ${TOOLS.length} correct.`+(c===TOOLS.length?' <span class="ok">Excellent!</span>':' Red boxes need another look.')}
+
+/* download / clear / print */
+function esc(s){return String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]))}
+function labelFor(el){
+  if(el.type==='radio'){const o=el.closest('.opts');const p=o&&o.previousElementSibling;if(p&&p.tagName==='LABEL')return p.textContent;const c=el.closest('.case');return c?c.querySelector('h3').textContent:el.dataset.k}
+  if(el.getAttribute('aria-label'))return el.getAttribute('aria-label');
+  if(el.type==='range'){const s=el.closest('.slider');if(s)return s.firstElementChild.textContent}
+  const p=el.previousElementSibling;if(p&&p.tagName==='LABEL')return p.textContent;
+  return el.placeholder||el.dataset.k;
+}
+function downloadAnswers(){
+  let html='';
+  document.querySelectorAll('section.card').forEach(sec=>{
+    let body='';
+    sec.querySelectorAll('[data-k]').forEach(el=>{
+      if(el.type==='radio'&&!el.checked)return;
+      if(el.type==='range'&&!(el.dataset.k in data))return;
+      const v=el.value;if(!v)return;
+      body+=`<p><b>${esc(labelFor(el))}</b><br>${esc(v).replace(/\n/g,'<br>')}</p>`;
+    });
+    if(body)html+=`<h2>${esc(sec.querySelector('h2').textContent)}</h2>${body}`;
+  });
+  const name=$('#sname').value||'student';
+  const doc=`<!doctype html><meta charset="utf-8"><title>Week 4 answers · ${esc(name)}</title><body style="font-family:system-ui,sans-serif;max-width:760px;margin:30px auto;padding:0 16px;line-height:1.5"><h1 style="color:#143865">Ethics in a Global World · Week 4 answers</h1><p><b>Name:</b> ${esc(name)} · ${new Date().toLocaleString()}</p>${html||'<p>No answers yet.</p>'}</body>`;
+  const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([doc],{type:'text/html'}));a.download='week4-answers-'+name.replace(/\W+/g,'-').toLowerCase()+'.html';document.body.appendChild(a);a.click();a.remove();
+}
+function clearAll(){if(!confirm('Clear ALL your answers on this device? This cannot be undone.'))return;data={};try{localStorage.removeItem(KEY)}catch(e){}location.reload()}
+window.addEventListener('beforeprint',()=>{document.querySelectorAll('textarea').forEach(t=>{t.style.height='auto';t.style.height=(t.scrollHeight+4)+'px'});document.querySelectorAll('details').forEach(d=>d.setAttribute('open',''));document.querySelectorAll('.key.hidden').forEach(k=>k.dataset.wasHidden=1)});
+</script>
+</body>
+</html>
