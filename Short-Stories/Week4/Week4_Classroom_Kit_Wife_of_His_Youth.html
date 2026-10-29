@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Week 4 Classroom Kit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#143865;--blue:#1c4f8f;--gold:#d39f10;--gold-dk:#8c7535;--warm:#efe9d9;--sky-lt:#edf2f9;--sky-md:#e1e8f2;--sky-dk:#c1cddd;--ink:#1b2430;--muted:#55606e}
+  *{box-sizing:border-box}
+  body{margin:0;background:#dfe5ee;font-family:"Source Sans 3",Arial,sans-serif;color:var(--ink)}
+  .bar{max-width:1060px;margin:18px auto 0;padding:0 16px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+  .bar button{border:none;border-radius:8px;padding:10px 18px;font:700 1rem "Source Sans 3",sans-serif;background:var(--gold);color:var(--navy);cursor:pointer}
+  .bar span{color:var(--muted)}
+  .pg{background:#fff;margin:18px auto;box-shadow:0 6px 24px rgba(20,56,101,.15);position:relative;overflow:hidden}
+  .pt{width:8.5in;min-height:11in;padding:.5in}
+  .ls{width:11in;height:8.5in;padding:.4in}
+  .lbl{font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--gold-dk)}
+  h1,h2{font-family:"Libre Baskerville",Georgia,serif;color:var(--navy)}
+  .pf{position:absolute;bottom:.18in;left:0;right:0;text-align:center;font-size:.7rem;color:var(--muted)}
+  /* contents page */
+  .cover h1{margin:.1in 0 .05in;font-size:1.7rem}
+  .cover table{width:100%;border-collapse:collapse;font-size:.92rem;margin-top:.15in}
+  .cover th,.cover td{border:1px solid var(--sky-dk);padding:6px 8px;text-align:left;vertical-align:top}
+  .cover th{background:var(--navy);color:#fff}
+  /* cut cards */
+  .cards{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px dashed #9aa6b6;margin-top:.12in}
+  .card{border:1px dashed #9aa6b6;padding:.16in .2in;min-height:1.28in;display:flex;flex-direction:column;justify-content:center}
+  .card .w{font:700 1.6rem "Libre Baskerville",Georgia,serif;color:var(--navy);text-align:center}
+  .card .d{font-size:1.02rem;line-height:1.35;text-align:center}
+  .card .tag{font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-dk);font-weight:700;text-align:center;margin-bottom:4px}
+  .card.dk{background:var(--sky-lt)}
+  .jx .card{min-height:1.15in}
+  .jx .card .d{font-size:.96rem}
+  .jx .card .q{font-family:"Libre Baskerville",Georgia,serif;font-style:italic}
+  /* signs and posters */
+  .sign{height:100%;border:6px solid var(--navy);border-radius:6px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:.5in;position:relative}
+  .sign .big{font:700 1in/1.05 "Libre Baskerville",Georgia,serif;color:var(--navy)}
+  .sign .sub{font-size:1.5rem;color:var(--muted);margin-top:.2in;max-width:8in}
+  .sign.dark{background:var(--navy)}
+  .sign.dark .big{color:var(--gold)}
+  .sign.dark .sub{color:var(--warm)}
+  .sign .bar2{width:2.2in;height:.14in;background:var(--gold);margin:.25in auto}
+  .poster{height:100%;border:6px solid var(--navy);border-radius:6px;display:grid;grid-template-columns:2.3in 1fr;overflow:hidden}
+  .poster .side{background:var(--navy);color:var(--gold);display:flex;flex-direction:column;align-items:center;justify-content:center;border-right:10px solid var(--gold);padding:.2in;text-align:center}
+  .poster .side .n{font:700 2.6in/1 "Libre Baskerville",Georgia,serif}
+  .poster .side .t{color:var(--warm);font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:.9rem}
+  .poster .main{padding:.35in .45in;display:flex;flex-direction:column;justify-content:center}
+  .poster h2{margin:0 0 .12in;font-size:1.9rem}
+  .poster ul{margin:0;padding-left:1.1em;font-size:1.22rem;line-height:1.45}
+  .poster li{margin-bottom:.07in}
+  .poster .ask{margin-top:.2in;background:var(--warm);border-left:10px solid var(--gold);padding:.12in .2in;font-size:1.15rem}
+  .poster .src{font-size:.75rem;color:var(--muted);margin-top:.12in}
+  .carousel .main{justify-content:flex-start}
+  .carousel .pair{display:grid;grid-template-columns:1fr auto 1fr;gap:.15in;align-items:center;margin:.05in 0 .2in}
+  .carousel .pair div{background:var(--sky-lt);border-radius:6px;padding:.12in .16in;font-size:1.05rem;min-height:.9in;display:flex;align-items:center}
+  .carousel .pair .vs{background:none;font:700 1.6rem "Libre Baskerville",Georgia,serif;color:var(--gold-dk);min-height:auto}
+  .carousel .write{flex:1;border:2px dashed var(--sky-dk);border-radius:6px;padding:.12in;color:var(--muted);font-size:.95rem}
+  /* role cards */
+  .roles{display:grid;grid-template-columns:1fr 1fr;border:1px dashed #9aa6b6;margin-top:.12in}
+  .role{border:1px dashed #9aa6b6;padding:.18in .22in;min-height:1.95in}
+  .role .rn{font:700 1.15rem "Libre Baskerville",Georgia,serif;color:var(--navy)}
+  .role .rd{font-size:.95rem;line-height:1.4;margin-top:4px}
+  .role .rq{font-size:.88rem;color:var(--gold-dk);margin-top:6px;font-weight:600}
+  .exp{border:1px dashed #9aa6b6;padding:.2in .25in;margin-top:.12in;min-height:2.9in}
+  .exp h2{margin:0 0 .06in;font-size:1.25rem}
+  .exp ol{margin:.04in 0 0;padding-left:1.2em;font-size:.98rem;line-height:1.4}
+  /* handout + quiz */
+  .ho h1{font-size:1.35rem;margin:.05in 0}
+  .ho .story{font-family:"Libre Baskerville",Georgia,serif;font-size:.93rem;line-height:1.62}
+  .ho .story p{margin:0 0 .6em;text-indent:1.3em}
+  .ho .story p.first,.ho .story p.poem{text-indent:0}
+  .ho .story p.poem{margin-left:1.6em;font-style:italic;color:var(--navy);border-left:3px solid var(--gold);padding-left:10px}
+  .ho .sec{display:flex;gap:10px;align-items:baseline;border-bottom:1px solid var(--sky-dk);margin:14px 0 8px;padding-bottom:3px}
+  .ho .sec .num{background:var(--navy);color:#fff;font-weight:700;border-radius:5px;padding:1px 8px;font-size:.85rem}
+  .ho .sec .ttl{font-weight:700;color:var(--gold-dk);letter-spacing:.06em;text-transform:uppercase;font-size:.78rem}
+  .ho .gloss{font-size:.82rem;background:var(--sky-md);border-radius:6px;padding:6px 10px;margin:6px 0 10px}
+  .ho .gloss .lbl{margin-right:6px}
+  .ho .check{display:none}
+  .quiz h1{font-size:1.4rem;margin:.04in 0 .04in}
+  .quiz .idr{display:flex;gap:.3in;margin:.1in 0 .14in;font-weight:600;color:var(--navy)}
+  .quiz .idr span{flex:1;border-bottom:1.5px solid #999;padding-bottom:2px}
+  .quiz ol{padding-left:1.3em;margin:0}
+  .quiz li{margin-bottom:.13in;font-size:.98rem;line-height:1.38;break-inside:avoid}
+  .quiz .ops{display:grid;grid-template-columns:1fr 1fr;gap:2px 18px;margin-top:3px}
+  .quiz .ops.one{grid-template-columns:1fr}
+  .quiz .lines{border-bottom:1px solid #aaa;height:.32in}
+  .quiz h3{color:var(--navy);margin:.14in 0 .06in;font-size:1.02rem;border-bottom:2px solid var(--navy);padding-bottom:3px}
+  @page{size:letter portrait;margin:0}
+  @page land{size:letter landscape;margin:0}
+  @media print{
+    body{background:#fff}
+    .bar{display:none}
+    .pg{margin:0;box-shadow:none;page-break-after:always;break-after:page}
+    .pt{height:11in}
+    .ls{page:land}
+    *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  }
+  @media screen and (max-width:1100px){ .pg{width:auto!important;height:auto!important;min-height:0;margin:14px} .poster{grid-template-columns:1fr} .poster .side{border-right:none;border-bottom:10px solid var(--gold)} .poster .side .n{font-size:5rem} .sign .big{font-size:3rem} .cards,.roles{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+<div class="bar">
+  <button onclick="window.print()">Print the whole kit</button>
+  <span>Print in color with “Background graphics” on. Use the page list below to print only the pages you need (Print → Pages).</span>
+</div>
+
+<!-- P1 COVER -->
+<section class="pg pt cover">
+  <img src="data:image/png;base64,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" alt="Approach International Student Center" class="logo" style="width:64px;height:64px;border-radius:8px;display:block;margin-bottom:8px">
+  <div class="lbl">Week 4 · Classroom Kit</div>
+  <h1>“The Wife of His Youth” · Printables</h1>
+  <p>Everything you need to print, cut, and post for this week’s movement activities. Print in color (Background graphics on). Page numbers below match the print preview.</p>
+  <table>
+    <tr><th style="width:12%">Pages</th><th style="width:34%">What</th><th style="width:18%">Activity</th><th>How many / how to use</th></tr>
+    <tr><td>2</td><td>Vocabulary Match-Up cards (7 words + 7 definitions)</td><td>Class A · Part 2</td><td>Cut into 14 cards. For more than 14 students, print 2 copies and give each set a different paper color, or allow trios.</td></tr>
+    <tr><td>3–7</td><td>Gallery Walk posters 1–5 (landscape)</td><td>Class A · Part 3</td><td>Tape around the room before class, far apart.</td></tr>
+    <tr><td>8</td><td>Jigsaw expert cards A, B, C</td><td>Class A · Part 4</td><td>One card per expert table.</td></tr>
+    <tr><td>9</td><td>Readers’ Theater role cards</td><td>Class A · Part 5</td><td>Give to four volunteers.</td></tr>
+    <tr><td>10–11</td><td>Conscience Alley signs (landscape)</td><td>Class B · Part 8</td><td>Hold up or tape at the head of each line.</td></tr>
+    <tr><td>12–13</td><td>Ball guest cards (10 roles)</td><td>Class B · Part 9</td><td>Cut; fold if you like. Duplicate roles for larger classes. Give Mrs. Dixon’s card to a confident student.</td></tr>
+    <tr><td>14–16</td><td>Ball vote signs (landscape)</td><td>Class B · Part 9</td><td>Tape in three places in the room.</td></tr>
+    <tr><td>17–19</td><td>Part III handout (§8–§9)</td><td>Class B · Part 10</td><td>For students using paper packets: give out <i>after</i> the role-play.</td></tr>
+    <tr><td>20</td><td>Juxtaposition sort cards (8 pairs)</td><td>Class B · Part 11</td><td>One set per group; cut and shuffle.</td></tr>
+    <tr><td>21–26</td><td>Carousel posters (landscape)</td><td>Class B · Part 11</td><td>One per group station; groups write directly on them.</td></tr>
+    <tr><td>27–29</td><td>Philosophical Chairs signs (landscape)</td><td>Class B · Part 12</td><td>“Hero” and “Not a hero” on opposite walls; “Undecided” in the middle.</td></tr>
+    <tr><td>30–31</td><td>Quiz 2 (Unit II: Weeks 3–4)</td><td>Next class or homework</td><td>One per student. Answer key in the Teacher’s Guide.</td></tr>
+  </table>
+  <p style="font-size:.9rem;color:var(--muted);margin-top:.15in">Also needed: large paper or flip-chart sheets and markers (Role on the Wall), sticky notes (Exit Wall), index cards (Feedback Carousel), tape.</p>
+  <div class="pf">Approach International Student Center · Week 4 Classroom Kit</div>
+</section>
+
+<!-- P2 VOCAB CARDS -->
+<section class="pg pt">
+  <div class="lbl">Class A · Part 2 · Vocabulary Match-Up · cut on the dashed lines</div>
+  <div class="cards">
+    <div class="card"><div class="tag">word</div><div class="w">prejudice</div></div>
+    <div class="card dk"><div class="tag">definition</div><div class="d">An unfair opinion about a group of people, formed without good reason</div></div>
+    <div class="card"><div class="tag">word</div><div class="w">eligible</div></div>
+    <div class="card dk"><div class="tag">definition</div><div class="d">Allowed to join or receive something because you meet the conditions</div></div>
+    <div class="card"><div class="tag">word</div><div class="w">refined</div></div>
+    <div class="card dk"><div class="tag">definition</div><div class="d">Polite, elegant, and educated in manner or appearance</div></div>
+    <div class="card"><div class="tag">word</div><div class="w">exclusive</div></div>
+    <div class="card dk"><div class="tag">definition</div><div class="d">Only for a small, selected group; keeping other people out</div></div>
+    <div class="card"><div class="tag">word</div><div class="w">complexion</div></div>
+    <div class="card dk"><div class="tag">definition</div><div class="d">The natural color and appearance of the skin of the face</div></div>
+    <div class="card"><div class="tag">word</div><div class="w">patronizing</div></div>
+    <div class="card dk"><div class="tag">definition</div><div class="d">Kind or helpful, but in a way that shows you feel superior</div></div>
+    <div class="card"><div class="tag">word</div><div class="w">intently</div></div>
+    <div class="card dk"><div class="tag">definition</div><div class="d">With great attention and concentration</div></div>
+  </div>
+  <p style="font-size:.85rem;color:var(--muted)">Tip: shuffle the cards before handing them out so that partners are mixed.</p>
+  <div class="pf">Week 4 · “The Wife of His Youth” · Classroom Kit</div>
+</section>
+
+<!-- P3-7 GALLERY POSTERS -->
+<section class="pg ls"><div class="poster"><div class="side"><div class="t">Gallery Walk</div><div class="n">1</div></div><div class="main">
+  <h2>Charles W. Chesnutt (1858–1932)</h2>
+  <ul>
+    <li>Born in Cleveland, Ohio, to free Black parents; grew up in Fayetteville, North Carolina.</li>
+    <li>Teacher and school principal by his mid-twenties; later a lawyer and the owner of a successful court-reporting business in Cleveland.</li>
+    <li>One of the first African American fiction writers to be published regularly in major national magazines such as <i>The Atlantic Monthly</i>.</li>
+    <li>He had mostly European ancestry and could have lived as a white man, but he identified as Black and wrote about the “color line.”</li>
+  </ul>
+  <div class="ask"><b>Think:</b> How might Chesnutt’s own life connect to Mr. Ryder’s?</div>
+</div></div></section>
+
+<section class="pg ls"><div class="poster"><div class="side"><div class="t">Gallery Walk</div><div class="n">2</div></div><div class="main">
+  <h2>Marriage Under Slavery</h2>
+  <ul>
+    <li>Marriages between enslaved people had <b>no legal standing</b>. Enslavers could separate husbands, wives, and children by selling them.</li>
+    <li>After emancipation (1865), the Freedmen’s Bureau and ministers recorded the marriages of formerly enslaved couples.</li>
+    <li>Between 1865 and 1867, most Southern states passed laws recognizing these unions; some required couples to register.</li>
+    <li>A couple separated before freedom often had no legal marriage at all.</li>
+  </ul>
+  <div class="ask"><b>Think:</b> In the story, Mr. Ryder says, “without that your marriage doesn’t count.” Is he right? Does it matter?</div>
+  <div class="src">Source: U.S. National Archives, <i>Prologue</i> magazine, “Freedmen’s Bureau marriage records.”</div>
+</div></div></section>
+
+<section class="pg ls"><div class="poster"><div class="side"><div class="t">Gallery Walk</div><div class="n">3</div></div><div class="main">
+  <h2>“Information Wanted”: Families Searching</h2>
+  <ul>
+    <li>After the Civil War, formerly enslaved people placed notices in newspapers, such as Philadelphia’s <i>Christian Recorder</i>, to find husbands, wives, children, and parents sold away from them.</li>
+    <li>A typical ad gave names, the enslaver’s name, and the place where the person was “last seen.”</li>
+    <li>Many ads were placed decades after the separation. Very few searches are known to have ended in reunion.</li>
+    <li>Today, the <i>Last Seen</i> project (Villanova University and Mother Bethel AME Church) collects and studies these ads.</li>
+  </ul>
+  <div class="ask"><b>Think:</b> ’Liza Jane has searched for 25 years. Is her story unusual, or typical of her time?</div>
+  <div class="src">Source: NPR, “After Slavery, Searching for Loved Ones in Wanted Ads” (2017).</div>
+</div></div></section>
+
+<section class="pg ls"><div class="poster"><div class="side"><div class="t">Gallery Walk</div><div class="n">4</div></div><div class="main">
+  <h2>Skin Color Inside the Community</h2>
+  <ul>
+    <li>In the 1800s, many light-skinned Black Americans had more access to education and property, partly because some were born free or were the children of white fathers.</li>
+    <li>Some elite clubs and churches were said to favor light-skinned members. Chesnutt’s “Blue Vein Society” is fictional, but it reflects real debates of his time.</li>
+    <li>Discrimination based on skin tone <i>within</i> a group is now called <b>colorism</b>, a word made popular by the writer Alice Walker in the 1980s.</li>
+    <li>Colorism exists in many countries and communities today.</li>
+  </ul>
+  <div class="ask"><b>Think:</b> Why might a group that suffers prejudice create its own hierarchy?</div>
+</div></div></section>
+
+<section class="pg ls"><div class="poster"><div class="side"><div class="t">Gallery Walk</div><div class="n">5</div></div><div class="main">
+  <h2>The 1890s: Progress and New Barriers</h2>
+  <ul>
+    <li>A growing Black middle class of teachers, doctors, lawyers, and newspaper editors lived in Northern cities like Cleveland.</li>
+    <li>At the same time, “Jim Crow” segregation laws spread across the South.</li>
+    <li>In 1896, the U.S. Supreme Court decision <i>Plessy v. Ferguson</i> approved “separate but equal” segregation.</li>
+    <li>The story was published in 1898: a time of real achievement, and of growing danger.</li>
+  </ul>
+  <div class="ask"><b>Think:</b> Why might Mr. Ryder feel he must protect what he has built?</div>
+</div></div></section>
+
+<!-- P8 JIGSAW -->
+<section class="pg pt">
+  <div class="lbl">Class A · Part 4 · Jigsaw expert cards · one per expert table</div>
+  <div class="exp"><h2>Expert Group A · §1 The Blue Veins</h2>
+    <ol><li>Read §1 together (one person reads aloud, or everyone reads silently).</li><li>Explain: What is the Blue Vein Society? How did it get its name?</li><li>What do the Blue Veins <i>say</i> about membership? What seems to be <i>true</i>?</li><li>What do critics think? What happens when the critics get inside?</li><li>Choose the one sentence your home group must hear, and prepare to teach §1 in 2 minutes.</li></ol></div>
+  <div class="exp"><h2>Expert Group B · §2 Mr. Ryder</h2>
+    <ol><li>Read §2 together.</li><li>Describe Mr. Ryder: appearance, job, home, habits, position in the society.</li><li>What does he love? What is he careful about?</li><li>Find one example of <b>direct</b> characterization (the narrator tells us) and one of <b>indirect</b> characterization (we infer it).</li><li>Choose the one sentence your home group must hear, and prepare to teach §2 in 2 minutes.</li></ol></div>
+  <div class="exp"><h2>Expert Group C · §3 Mrs. Dixon and the plan</h2>
+    <ol><li>Read §3 together.</li><li>Who is Mrs. Dixon? Why is Mr. Ryder attracted to her?</li><li>What is his plan for the ball?</li><li>Explain his “theory” about people “of mixed blood” in your own words. What does “absorption” mean here?</li><li>Choose the one sentence your home group must hear, and prepare to teach §3 in 2 minutes.</li></ol></div>
+  <div class="pf">Week 4 · “The Wife of His Youth” · Classroom Kit</div>
+</section>
+
+<!-- P9 READERS THEATER -->
+<section class="pg pt">
+  <div class="lbl">Class A · Part 5 · Readers’ Theater role cards</div>
+  <div class="roles">
+    <div class="role"><div class="rn">Narrator 1</div><div class="rd">You read the narration in <b>§4–§5</b>: the porch, the poems, and the visitor’s arrival. Read slowly. Pause after the description of ’Liza Jane.</div></div>
+    <div class="role"><div class="rn">Narrator 2</div><div class="rd">You read the narration in <b>§6–§7</b>. Your most important line is the last one: the mirror. Read it slowly, then pause.</div></div>
+    <div class="role"><div class="rn">Mr. Ryder</div><div class="rd">You are polite, educated, and in control. Read his questions calmly. Think about what he <i>feels</i> but does not say, especially when he looks at the photograph.</div></div>
+    <div class="role"><div class="rn">’Liza Jane</div><div class="rd">You are brave, hopeful, and certain that you will find Sam. Read her words naturally and with dignity, in your own voice. <b>Do not imitate an accent.</b></div></div>
+  </div>
+  <p style="font-size:.9rem;margin-top:.15in"><b>Teacher note:</b> Ask volunteers in advance, or read ’Liza Jane’s part yourself the first time. The Tennyson poems (§4) can be read by Mr. Ryder.</p>
+  <div class="pf">Week 4 · “The Wife of His Youth” · Classroom Kit</div>
+</section>
+
+<!-- P10-11 CONSCIENCE ALLEY -->
+<section class="pg ls"><div class="sign dark"><div class="sub" style="margin:0 0 .1in;font-size:1.1rem;letter-spacing:.2em;text-transform:uppercase">Conscience Alley</div><div class="big">ACKNOWLEDGE HER</div><div class="bar2"></div><div class="sub">Tell Mr. Ryder why he must reveal the truth.</div></div></section>
+<section class="pg ls"><div class="sign"><div class="sub" style="margin:0 0 .1in;font-size:1.1rem;letter-spacing:.2em;text-transform:uppercase">Conscience Alley</div><div class="big">STAY SILENT</div><div class="bar2"></div><div class="sub">Tell Mr. Ryder why he should keep his secret.</div></div></section>
+
+<!-- P12-13 BALL GUEST CARDS -->
+<section class="pg pt">
+  <div class="lbl">Class B · Part 9 · The Ball · guest cards (1–6)</div>
+  <div class="roles">
+    <div class="role"><div class="rn">Mr. Solomon Sadler, the toastmaster</div><div class="rd">You introduce every toast and love a good speech. You know everyone at the ball and you care about Groveland’s good opinion.</div><div class="rq">In role: What will people say tomorrow?</div></div>
+    <div class="role"><div class="rn">Mrs. Molly Dixon</div><div class="rd">You are young, educated, and a widow from Washington. The ball is in your honor, and everyone expects Mr. Ryder to propose to you tonight.</div><div class="rq">In role: Listen to his voice. Why does he keep looking at you?</div></div>
+    <div class="role"><div class="rn">A young schoolteacher</div><div class="rd">You teach children whose grandparents were enslaved. You believe education can change a person completely.</div><div class="rq">In role: Can a person become “as different … as the day is from the night”?</div></div>
+    <div class="role"><div class="rn">A young doctor</div><div class="rd">You worked very hard to reach your position. You are proud of how far your community has come in 25 years.</div><div class="rq">In role: What does the man owe to the past?</div></div>
+    <div class="role"><div class="rn">A lawyer</div><div class="rd">You think about rules and contracts. You know that a slave marriage had no legal force unless the couple chose to continue it.</div><div class="rq">In role: Is the man legally married? Is he morally married?</div></div>
+    <div class="role"><div class="rn">A professional singer</div><div class="rd">You are emotional and romantic. You love stories of faithful love, like the poems Mr. Ryder quotes.</div><div class="rq">In role: What does true love require?</div></div>
+  </div>
+  <div class="pf">Week 4 · “The Wife of His Youth” · Classroom Kit</div>
+</section>
+<section class="pg pt">
+  <div class="lbl">Class B · Part 9 · The Ball · guest cards (7–10)</div>
+  <div class="roles">
+    <div class="role"><div class="rn">A newspaper editor</div><div class="rd">You know a good story when you hear one, and you know what people will say about it tomorrow.</div><div class="rq">In role: Would this story help or hurt the Blue Veins?</div></div>
+    <div class="role"><div class="rn">An army lieutenant</div><div class="rd">You are on leave in Groveland. You believe in duty, honor, and keeping promises.</div><div class="rq">In role: What does honor demand here?</div></div>
+    <div class="role"><div class="rn">An older Blue Vein member</div><div class="rd">You helped build the society and care deeply about its reputation and “standards.”</div><div class="rq">In role: What would happen to the society if its leader…?</div></div>
+    <div class="role"><div class="rn">A guest whose grandparents were enslaved</div><div class="rd">Your grandparents were separated by sale and never found each other again. You know these stories from your family.</div><div class="rq">In role: What would your grandparents say?</div></div>
+  </div>
+  <p style="font-size:.9rem;margin-top:.15in"><b>For larger classes:</b> print this page twice. Several guests can share a role (for example, two teachers or three doctors).</p>
+  <div class="pf">Week 4 · “The Wife of His Youth” · Classroom Kit</div>
+</section>
+
+<!-- P14-16 VOTE SIGNS -->
+<section class="pg ls"><div class="sign dark"><div class="sub" style="margin:0 0 .1in;font-size:1.1rem;letter-spacing:.2em;text-transform:uppercase">What should he do?</div><div class="big">ACKNOWLEDGE HER PUBLICLY</div><div class="bar2"></div><div class="sub">Tell everyone the truth, tonight.</div></div></section>
+<section class="pg ls"><div class="sign"><div class="sub" style="margin:0 0 .1in;font-size:1.1rem;letter-spacing:.2em;text-transform:uppercase">What should he do?</div><div class="big">HELP HER PRIVATELY</div><div class="bar2"></div><div class="sub">Support her secretly, but keep his new life.</div></div></section>
+<section class="pg ls"><div class="sign dark"><div class="sub" style="margin:0 0 .1in;font-size:1.1rem;letter-spacing:.2em;text-transform:uppercase">What should he do?</div><div class="big">SAY NOTHING</div><div class="bar2"></div><div class="sub">The past is the past.</div></div></section>
+
+<!-- P17-19 PART III HANDOUT -->
+<section class="pg pt ho" style="height:auto;min-height:11in;overflow:visible">
+  <div class="lbl">Class B · Part 10 · Handout · give out after the role-play</div>
+  <h1>“The Wife of His Youth” · Part III (§8–§9)</h1>
+  <p style="font-size:.85rem;color:var(--muted);margin:0 0 .08in">Adapted version for B2–B2+ readers. Not the original text.</p>
+  <div class="story">
+      <div class="sec"><span class="num">§8</span><span class="ttl">The toast</span></div>
+      <p class="first">At eight o’clock the ballroom was a blaze of light and the guests had begun to arrive, for there was a literary program and some routine business of the society before the dancing. A Black servant in evening dress waited at the door and directed the guests to the dressing rooms.</p>
+      <p>The evening was long remembered among the colored people of the city, not only for the fine clothes and display, but for the high level of intelligence and culture of the gathering as a whole. There were a number of schoolteachers, several young doctors, three or four lawyers, some professional singers, a newspaper editor, a lieutenant in the United States Army on leave in the city, and others in various respectable professions. They were all colored, though most of them would not have attracted even a quick second look because of any noticeable difference from white people. Most of the ladies were in evening gowns, and the men wore formal coats and dancing shoes. A band of string musicians, placed in a corner behind a row of palms, played popular songs while the guests were gathering.</p>
+      <p>The dancing began at half past nine. At eleven o’clock supper was served. Mr. Ryder had left the ballroom a little while before the break, but he reappeared at the supper table. The meal was worthy of the occasion, and the guests enjoyed it fully. When the coffee had been served, the toastmaster, Mr. Solomon Sadler, tapped for silence. He made a short opening speech, praising the host and the guests, and then introduced the toasts of the evening in their order. The speakers responded with good after-dinner humor.</p>
+      <p>“The last toast,” said the toastmaster, when he reached the end of the list, “is one which must appeal to us all. There is no man among us who is not at some time dependent upon woman — in infancy for protection, in manhood for companionship, in old age for care and comfort. Our good host has been trying to live alone, but the lovely faces I see around me tonight prove that he too depends on the gentler sex for most of what makes life worth living — the company and love of friends — and rumor is wrong if he does not soon give his heart completely to one of them. Mr. Ryder will now respond to the toast: The Ladies.”</p>
+      <p>There was a thoughtful look in Mr. Ryder’s eyes as he stood up and adjusted his glasses. He began by speaking of woman as the gift of Heaven to man, and after some general remarks about men and women, he said: “But perhaps the quality which most distinguishes woman is her loyalty and devotion to those she loves. History is full of examples, but has recorded none more striking than one which came to my attention only today.”</p>
+      <p>He then told, simply but effectively, the story his visitor had told him that afternoon. He told it in the same soft Southern dialect, which came easily to his lips, while the guests listened with attention and sympathy. For the story had touched many hearts. Some of those present had seen, and others had heard their fathers and grandfathers describe, the wrongs and sufferings of that past generation, and all of them still felt, in their darker moments, the shadow hanging over them. Mr. Ryder went on:</p>
+      <p>“Such devotion and trust are rare even among women. There are many who would have searched for a year, some who would have waited five years, a few who might have hoped for ten years; but for twenty-five years this woman has kept her love for and her faith in a man she has not seen or heard of in all that time.</p>
+      <p>“She came to me today hoping that I might help her find this long-lost husband. And when she had gone, I let my imagination run free and imagined a case which I will put to you.</p>
+      <p>“Suppose that this husband, soon after his escape, had learned that his wife had been sold away, and that all the questions he could ask brought no information about where she was. Suppose that he was young, and she much older than he; that he was light, and she was black; that their marriage was a slave marriage, and legally binding only if they chose to make it so after the war. Suppose, too, that he made his way to the North, as some of us have done, and there, where he had greater opportunities, he used them, and over all these years became as different from the ignorant boy who ran away in fear of slavery as the day is from the night. Suppose, even, that by hard work, careful saving, and study he had made himself worthy of the friendship and company of such people as I see around me tonight, gracing my table and filling my heart with gladness — for I am old enough to remember the day when such a gathering would not have been possible in this land. Suppose, too, that as the years went by, this man’s memory of the past grew weaker and weaker, until at last the past rarely came back to his mind, except in his dreams.</p>
+      <p>“And then suppose that chance should bring him the news that the wife of his youth, the wife he had left behind him — not one who had walked by his side and kept pace with him in his upward struggle, but one on whom the years and a life of hard work had left their mark — was alive and searching for him, but that he was absolutely safe from recognition or discovery, unless he chose to reveal himself. My friends, what would the man do? I will assume that he was a man who loved honor and tried to deal fairly with all people. I will even take the case further and suppose that perhaps he had set his heart on another woman, whom he had hoped to call his own. What would he do, or rather, what ought he to do, in such a crisis of a lifetime?</p>
+      <p>“It seemed to me that he might hesitate, and I imagined that I was an old friend, a close friend, and that he had come to me for advice; and I argued the case with him. I tried to discuss it fairly. After we had looked at the matter from every point of view, I said to him, in words that we all know:</p>
+      <p class="poem">‘This above all: to thine own self be true,<br>And it must follow, as the night the day,<br>Thou canst not then be false to any man.’</p>
+      <p>“Then, finally, I asked him the question: ‘Shall you acknowledge her?’</p>
+      <p>“And now, ladies and gentlemen, friends and companions, I ask you, what should he have done?”</p>
+      <p>There was something in Mr. Ryder’s voice that moved the hearts of those who sat around him. It suggested more than sympathy with an imaginary situation; it seemed more like a personal appeal. People noticed, too, that his eyes rested especially on Mrs. Dixon, with a mixed expression of giving something up and asking a question.</p>
+      <div class="gloss"><span class="lbl">Word notes</span><b>toastmaster</b> the person who introduces the speakers at a formal dinner · <b>devotion</b> great love and loyalty · <b>gracing my table</b> making my dinner more beautiful by being here · <b>recognition</b> being recognized (known) by someone · <b>hesitate</b> pause before deciding because you are unsure · <b>“This above all…”</b> famous lines from Shakespeare’s <i>Hamlet</i>: if you are honest with yourself, you will be honest with everyone · <b>acknowledge</b> to accept or admit publicly that something is true, or that someone belongs to you</div>
+
+      <div class="sec"><span class="num">§9</span><span class="ttl">The answer</span></div>
+      <p class="first">She had listened with parted lips and streaming eyes. She was the first to speak: “He should have acknowledged her.”</p>
+      <p>“Yes,” they all repeated, “he should have acknowledged her.”</p>
+      <p>“My friends and companions,” replied Mr. Ryder, “I thank you, one and all. It is the answer I expected, for I knew your hearts.”</p>
+      <p>He turned and walked toward the closed door of a room next to the ballroom, while every eye followed him with surprised curiosity. He came back in a moment, leading by the hand his visitor of the afternoon, who stood startled and trembling at being suddenly thrown into this brilliant, joyful scene. She was neatly dressed in gray and wore the white cap of an elderly woman.</p>
+      <p>“Ladies and gentlemen,” he said, “this is the woman, and I am the man, whose story I have told you. Permit me to introduce to you the wife of my youth.”</p>
+      <div class="gloss"><span class="lbl">Word notes</span><b>with parted lips and streaming eyes</b> with her mouth slightly open and tears running down her face · <b>startled</b> suddenly surprised and a little frightened · <b>trembling</b> shaking · <b>Permit me</b> allow me (formal)</div>
+      <div class="check"><b class="h">Checkpoint · end of the story</b>
+        <ol><li>Who answers Mr. Ryder’s question first? Why is that surprising?</li><li>What does Mr. Ryder give up by acknowledging ’Liza Jane? What does he gain?</li></ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- P20 JUXTAPOSITION CARDS -->
+<section class="pg pt jx">
+  <div class="lbl">Class B · Part 11 · Juxtaposition sort · cut, shuffle, and match into 8 pairs</div>
+  <div class="cards">
+    <div class="card"><div class="d q">“A daughter of the gods, divinely tall, / And most divinely fair.” (§4)</div></div>
+    <div class="card"><div class="d">’Liza Jane at the gate: “very black,” “a bit of the old plantation life” (§5)</div></div>
+    <div class="card"><div class="d">Mrs. Molly Dixon: young, “whiter than he, and better educated” (§3)</div></div>
+    <div class="card"><div class="d">’Liza Jane: old, a former enslaved cook: “I’m a good cook” (§7)</div></div>
+    <div class="card"><div class="d">Mr. Ryder’s formal speech: “we people of mixed blood are ground between the upper and the lower millstone” (§3)</div></div>
+    <div class="card"><div class="d">’Liza Jane’s dialect: “I’ve been lookin’ for him ever since” (§6)</div></div>
+    <div class="card"><div class="d q">“Self-preservation is the first law of nature.” (§3)</div></div>
+    <div class="card"><div class="d q">“This above all: to thine own self be true.” (§8)</div></div>
+    <div class="card"><div class="d">The ballroom: “a blaze of light,” teachers, doctors, lawyers, an editor (§8)</div></div>
+    <div class="card"><div class="d">The plantation in Missouri: whipped and “sold down the river” (§6)</div></div>
+    <div class="card"><div class="d">The Blue Veins: “character and culture were the only things considered” (§1)</div></div>
+    <div class="card"><div class="d">Guests “whose complexions and jobs were hardly up to the standard” (§3)</div></div>
+    <div class="card"><div class="d">The name “Mr. Ryder,” leader of the Blue Veins (§1)</div></div>
+    <div class="card"><div class="d">The name “Sam Taylor,” a young man who ran away in fear of slavery (§5–§6)</div></div>
+    <div class="card"><div class="d">Mr. Ryder alone before the mirror, “gazing … at the reflection of his own face” (§7)</div></div>
+    <div class="card"><div class="d">Mr. Ryder before all his guests: “this is the woman, and I am the man” (§9)</div></div>
+  </div>
+  <div class="pf">Week 4 · “The Wife of His Youth” · Classroom Kit</div>
+</section>
+
+<!-- P21-26 CAROUSEL POSTERS -->
+<section class="pg ls"><div class="poster carousel"><div class="side"><div class="t">Carousel</div><div class="n">1</div></div><div class="main">
+  <h2>Juxtaposition 1</h2>
+  <div class="pair"><div>“A daughter of the gods, divinely tall, / And most divinely fair.” (§4)</div><div class="vs">vs.</div><div>’Liza Jane at the gate: “very black,” “a bit of the old plantation life” (§5)</div></div>
+  <div class="write">What does this contrast reveal about racial identity, class, or Mr. Ryder? Each group adds one idea or one piece of evidence (§).</div>
+</div></div></section>
+<section class="pg ls"><div class="poster carousel"><div class="side"><div class="t">Carousel</div><div class="n">2</div></div><div class="main">
+  <h2>Juxtaposition 2</h2>
+  <div class="pair"><div>Mrs. Molly Dixon: young, “whiter than he, and better educated” (§3)</div><div class="vs">vs.</div><div>’Liza Jane: old, a former enslaved cook (§5–§7)</div></div>
+  <div class="write">What does this contrast reveal about racial identity, class, or Mr. Ryder? Each group adds one idea or one piece of evidence (§).</div>
+</div></div></section>
+<section class="pg ls"><div class="poster carousel"><div class="side"><div class="t">Carousel</div><div class="n">3</div></div><div class="main">
+  <h2>Juxtaposition 3</h2>
+  <div class="pair"><div>Mr. Ryder’s formal, educated English (§3)</div><div class="vs">vs.</div><div>’Liza Jane’s Southern dialect (§6)</div></div>
+  <div class="write">What does this contrast reveal about racial identity, class, or Mr. Ryder? Each group adds one idea or one piece of evidence (§).</div>
+</div></div></section>
+<section class="pg ls"><div class="poster carousel"><div class="side"><div class="t">Carousel</div><div class="n">4</div></div><div class="main">
+  <h2>Juxtaposition 4</h2>
+  <div class="pair"><div>“Self-preservation is the first law of nature.” (§3)</div><div class="vs">vs.</div><div>“This above all: to thine own self be true.” (§8)</div></div>
+  <div class="write">What does this contrast reveal about racial identity, class, or Mr. Ryder? Each group adds one idea or one piece of evidence (§).</div>
+</div></div></section>
+<section class="pg ls"><div class="poster carousel"><div class="side"><div class="t">Carousel</div><div class="n">5</div></div><div class="main">
+  <h2>Juxtaposition 5</h2>
+  <div class="pair"><div>The Blue Veins: “character and culture were the only things considered” (§1)</div><div class="vs">vs.</div><div>Guests “whose complexions and jobs were hardly up to the standard” (§3)</div></div>
+  <div class="write">What does this contrast reveal about racial identity, class, or Mr. Ryder? Each group adds one idea or one piece of evidence (§).</div>
+</div></div></section>
+<section class="pg ls"><div class="poster carousel"><div class="side"><div class="t">Carousel</div><div class="n">6</div></div><div class="main">
+  <h2>Juxtaposition 6</h2>
+  <div class="pair"><div>“Mr. Ryder,” leader of the Blue Veins</div><div class="vs">vs.</div><div>“Sam Taylor,” a young man who ran away in fear of slavery</div></div>
+  <div class="write">What does this contrast reveal about racial identity, class, or Mr. Ryder? Each group adds one idea or one piece of evidence (§).</div>
+</div></div></section>
+
+
+<!-- P27-29 PHILOSOPHICAL CHAIRS -->
+<section class="pg ls"><div class="sign dark"><div class="sub" style="margin:0 0 .1in;font-size:1.1rem;letter-spacing:.2em;text-transform:uppercase">Philosophical Chairs · Is Mr. Ryder a hero?</div><div class="big">HERO</div><div class="bar2"></div><div class="sub">His final choice makes him a hero.</div></div></section>
+<section class="pg ls"><div class="sign"><div class="sub" style="margin:0 0 .1in;font-size:1.1rem;letter-spacing:.2em;text-transform:uppercase">Philosophical Chairs · Is Mr. Ryder a hero?</div><div class="big">UNDECIDED</div><div class="bar2"></div><div class="sub">Listen, then move when an argument convinces you.</div></div></section>
+<section class="pg ls"><div class="sign dark"><div class="sub" style="margin:0 0 .1in;font-size:1.1rem;letter-spacing:.2em;text-transform:uppercase">Philosophical Chairs · Is Mr. Ryder a hero?</div><div class="big">NOT A HERO</div><div class="bar2"></div><div class="sub">One right choice does not erase who he was.</div></div></section>
+
+<!-- P30-31 QUIZ 2 -->
+<section class="pg pt quiz">
+  <div class="lbl">Close Reading Quiz 2 · Unit II: New American Voices (Weeks 3–4)</div>
+  <h1>Quiz 2: Chopin and Chesnutt</h1>
+  <div class="idr"><span>Name:</span><span>Date:</span><span>Score: ____ / 10</span></div>
+  <p style="font-size:.92rem;margin:0 0 .1in"><i>Questions 1–8: circle the best answer (1 point each). Questions 9–10: answer in 2–3 sentences with evidence (1 point each).</i></p>
+  <h3>“A Pair of Silk Stockings” (Kate Chopin)</h3>
+  <ol>
+    <li>What did Mrs. Sommers first plan to do with the fifteen dollars?
+      <div class="ops"><span>a) Save it for the future</span><span>b) Buy clothes and shoes for her children</span><span>c) Pay her rent</span><span>d) Buy a gift for her husband</span></div></li>
+    <li>Which sentence is an example of <b>interior monologue</b>?
+      <div class="ops one"><span>a) “She took the elevator, which carried her to an upper floor.”</span><span>b) “How good was the touch of the raw silk to her flesh!”</span><span>c) “The play was over, the music stopped, the crowd filed out.”</span><span>d) “She handed the girl a five-dollar bill.”</span></div></li>
+    <li>A <b>turning point</b> is…
+      <div class="ops one"><span>a) the moment of highest tension</span><span>b) the final event of the story</span><span>c) the moment when the story changes direction</span><span>d) the description of the setting</span></div></li>
+    <li>“A vision of the future like some dim, gaunt monster sometimes frightened her, but luckily tomorrow never comes.” The phrase “luckily tomorrow never comes” is…
+      <div class="ops one"><span>a) ironic, because tomorrow will certainly come</span><span>b) a fact about time</span><span>c) the clerk’s opinion</span><span>d) a quotation from a poem</span></div></li>
+  </ol>
+  <h3>“The Wife of His Youth” (Charles W. Chesnutt)</h3>
+  <ol start="5">
+    <li>The Blue Veins <i>claimed</i> that membership depended only on…
+      <div class="ops"><span>a) free birth</span><span>b) skin color</span><span>c) character and culture</span><span>d) wealth</span></div></li>
+    <li>Why was ’Liza Jane sold “down the river”?
+      <div class="ops one"><span>a) Her master needed money for a trip.</span><span>b) She warned Sam that he would be sold, and he escaped.</span><span>c) She tried to run away with Sam.</span><span>d) The war forced her master to move.</span></div></li>
+  </ol>
+  <div class="pf">Week 4 · Quiz 2 · page 1</div>
+</section>
+<section class="pg pt quiz">
+  <div class="lbl">Quiz 2 · continued</div>
+  <ol start="7">
+    <li>Which is the clearest example of <b>juxtaposition</b> in the story?
+      <div class="ops one"><span>a) Mr. Ryder works for a railroad company.</span><span>b) ’Liza Jane appears just as Mr. Ryder reads about “divinely fair” women.</span><span>c) The dancing begins at half past nine.</span><span>d) Mrs. Dixon is visiting friends in Groveland.</span></div></li>
+    <li>In “He should have acknowledged her,” <i>acknowledged</i> means…
+      <div class="ops one"><span>a) forgotten completely</span><span>b) helped with money</span><span>c) publicly accepted as his wife</span><span>d) recognized her face</span></div></li>
+  </ol>
+  <h3>Short answers (both stories)</h3>
+  <ol start="9">
+    <li>Is Mr. Ryder an <b>antihero</b>? Explain with <b>one</b> piece of evidence (§).<div class="lines"></div><div class="lines"></div><div class="lines"></div><div class="lines"></div></li>
+    <li>Both Mrs. Sommers and Mr. Ryder face a choice between who they <i>were</i> and who they <i>want to be</i>. Compare their choices in 2–3 sentences.<div class="lines"></div><div class="lines"></div><div class="lines"></div><div class="lines"></div><div class="lines"></div></li>
+  </ol>
+  <div class="pf">Week 4 · Quiz 2 · page 2</div>
+</section>
+</body>
+</html>
