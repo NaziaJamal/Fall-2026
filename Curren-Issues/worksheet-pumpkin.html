@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A Giant Pumpkin on the Move · Worksheet</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#143865; --deep:#0c2340; --blue:#1c4f8f; --gold:#8c7535; --gold-bright:#d39f10;
+  --sky-dark:#c1cddd; --sky-med:#e1e8f2; --sky-light:#edf2f9; --warm:#efe9d9;
+  --ink:#1b2433; --muted:#5a6578; --ok:#1e7a46; --okbg:#e3f4ea; --no:#b3261e; --nobg:#fbe7e5; --bg:#f2f4f8;
+  --pumpkin:#e07a1f; --pumpkin-l:#fdf0e3;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);font-family:"Source Sans 3",Arial,sans-serif;color:var(--ink);font-size:17px;line-height:1.5}
+h1,h2,h3{font-family:"Source Serif 4",Georgia,serif;color:var(--navy);line-height:1.2}
+.toolbar{position:sticky;top:0;z-index:20;background:var(--deep);color:#fff}
+.toolbar .in{max-width:880px;margin:0 auto;padding:9px 16px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.toolbar img{height:36px}
+.toolbar .bt{font-family:"Source Serif 4",Georgia,serif;color:var(--gold-bright);font-weight:700;letter-spacing:.05em;margin-right:auto}
+.toolbar button{font:inherit;font-size:14px;font-weight:700;border:0;border-radius:7px;padding:7px 12px;cursor:pointer;background:#fff;color:var(--navy)}
+.toolbar button.gold{background:var(--gold-bright);color:var(--deep)}
+.hero{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;position:relative;overflow:hidden}
+.hero .in{max-width:880px;margin:0 auto;padding:20px 16px 22px;position:relative;z-index:1}
+.hero h1{color:#fff;font-size:31px}
+.hero p{opacity:.92}
+.hero svg.pk{position:absolute;right:4%;top:50%;transform:translateY(-50%);width:130px;opacity:.9}
+.meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px;align-items:center}
+.meta label{font-weight:700}
+.meta input{border:0;border-radius:8px;padding:8px 10px;font:inherit;min-width:180px;flex:1;max-width:300px}
+.saved{font-size:13px;color:#e9d9a8;margin-top:6px}
+nav.jump{background:#fff;border-bottom:1px solid var(--sky-dark);position:sticky;top:54px;z-index:15}
+nav.jump .in{max-width:880px;margin:0 auto;display:flex;gap:6px;overflow-x:auto;padding:7px 16px;scrollbar-width:none}
+nav.jump a{flex:none;text-decoration:none;color:var(--navy);font-weight:600;font-size:13px;padding:4px 10px;border-radius:16px;background:var(--sky-light);border:1px solid var(--sky-dark)}
+nav.jump a.mv{background:var(--pumpkin-l);border-color:#f2c79c;color:#9a4a07}
+main{max-width:880px;margin:0 auto;padding:16px 16px 60px}
+section.card{background:#fff;border:1px solid var(--sky-dark);border-radius:14px;padding:18px 20px 20px;margin-bottom:16px;scroll-margin-top:110px}
+section.card.move{border:2px solid #f2c79c}
+.sh{display:flex;align-items:center;gap:10px;margin-bottom:4px;flex-wrap:wrap}
+.num{background:var(--navy);color:#fff;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-weight:700;flex:none}
+.move .num{background:var(--pumpkin)}
+.sh h2{font-size:22px}
+.tag{margin-left:auto;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:12px;background:var(--sky-med);color:var(--navy)}
+.tag.mv{background:var(--pumpkin);color:#fff}
+.tag.a{background:var(--okbg);color:var(--ok)}
+.inst{color:var(--muted);margin-bottom:10px}
+.movebox{background:var(--pumpkin-l);border:1.5px dashed #e8a866;border-radius:10px;padding:10px 14px;margin:6px 0 12px;font-size:16px}
+.movebox b{color:#9a4a07}
+.frame{background:var(--deep);color:#fff;border-radius:10px;padding:10px 14px;font-family:"Source Serif 4",Georgia,serif;font-size:17px;line-height:1.55;margin:8px 0}
+.frame b{color:var(--gold-bright)}
+.link{display:inline-flex;gap:8px;align-items:center;background:var(--gold-bright);color:var(--deep);font-weight:700;text-decoration:none;border-radius:24px;padding:9px 18px;margin:2px 0 10px}
+input[type=text],textarea,select{font:inherit;color:#1a3d6b;background:#f7f9fc;border:1.5px solid var(--sky-dark);border-radius:8px;padding:6px 9px}
+input[type=text]:focus,textarea:focus,select:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(28,79,143,.15);background:#fff}
+textarea{width:100%;min-height:80px;resize:vertical}
+.good{background:var(--okbg)!important;border-color:var(--ok)!important}
+.bad{background:var(--nobg)!important;border-color:var(--no)!important}
+.opts{display:grid;gap:7px}
+.opts label{display:flex;gap:10px;align-items:flex-start;border:1.5px solid var(--sky-dark);border-radius:10px;padding:8px 12px;cursor:pointer;background:#fff}
+.opts input{margin-top:5px;accent-color:var(--navy)}
+.row{display:grid;grid-template-columns:28px 1fr;gap:8px;align-items:center;padding:7px 0;border-bottom:1px dashed var(--sky-dark);min-width:0}
+.row:last-of-type{border-bottom:0}
+.row .n{font-weight:700;color:var(--muted)}
+.row .ln{display:flex;flex-wrap:wrap;gap:6px;align-items:center;min-width:0}
+.row .ln select{max-width:100%;min-width:0}
+.check{font:inherit;font-weight:700;font-size:14px;background:var(--navy);color:#fff;border:0;border-radius:8px;padding:7px 16px;cursor:pointer;margin-top:10px}
+.score{font-weight:700;color:var(--ok);margin-left:10px}
+
+/* find someone who */
+table.fsw{width:100%;border-collapse:collapse;font-size:16px}
+table.fsw th{background:var(--navy);color:#fff;text-align:left;padding:7px 10px;font-weight:600}
+table.fsw td{border:1px solid var(--sky-dark);padding:6px 8px;vertical-align:middle}
+table.fsw td input{width:100%}
+table.fsw td.q{width:45%}
+table.fsw td.q small{display:block;color:var(--muted);font-size:13px}
+
+/* vocab */
+.vgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:12px}
+.vcard{border:1.5px solid var(--sky-dark);border-radius:12px;padding:8px 10px;background:#fff;text-align:center}
+.vcard svg{width:62px;height:62px;display:block;margin:0 auto 4px}
+.vcard b{font-family:"Source Serif 4",Georgia,serif;color:var(--navy);font-size:18px}
+.vcard span{display:block;font-size:13px;color:var(--muted)}
+
+/* map */
+.map{background:#f4f8ee;border:1.5px solid var(--sky-dark);border-radius:12px;padding:6px;margin:8px 0}
+.map svg{width:100%;height:auto;display:block}
+.route{display:grid;gap:8px}
+
+/* order */
+.order .row{grid-template-columns:auto 1fr}
+.order select{width:64px}
+
+/* tf */
+.tf{padding:8px 0;border-bottom:1px dashed var(--sky-dark)}
+.tf:last-child{border-bottom:0}
+.tfb{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:4px}
+.tfb label{border:1.5px solid var(--sky-dark);border-radius:8px;padding:3px 12px;cursor:pointer;font-weight:700;font-size:14px;display:flex;gap:5px;align-items:center}
+.tfb input[type=text]{flex:1;min-width:200px}
+
+/* fact file */
+.factfile{border:3px solid var(--pumpkin);border-radius:14px;overflow:hidden}
+.factfile .ffh{background:var(--pumpkin);color:#fff;font-family:"Source Serif 4",Georgia,serif;font-weight:700;font-size:22px;padding:8px 14px;letter-spacing:.04em}
+.factfile .ffb{display:grid;grid-template-columns:150px 1fr;gap:8px 12px;padding:12px 14px;align-items:center}
+.factfile .ffb label{font-weight:700;color:#9a4a07}
+.factfile .ffb input{width:100%}
+
+/* prices */
+.stand{border:2px solid var(--gold);border-radius:14px;overflow:hidden}
+.stand .sth{background:#5b3a24;color:#fff;padding:8px 14px;font-family:"Source Serif 4",Georgia,serif;font-size:21px;font-weight:700;display:flex;justify-content:space-between;align-items:center}
+.stand .sth span{font-family:"Source Sans 3",Arial,sans-serif;font-size:13px;font-weight:400;opacity:.85}
+.stand table{width:100%;border-collapse:collapse;font-size:17px}
+.stand td{padding:7px 14px;border-bottom:1px dashed #d9c9a3}
+.stand td.p{text-align:right;font-weight:700;font-variant-numeric:tabular-nums;color:#5b3a24}
+.stand tr:nth-child(even) td{background:#fbf7ec}
+.say-it{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.say-it span{background:var(--sky-light);border-radius:8px;padding:4px 10px;font-size:15px}
+.receipt{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.receipt .r{border:1.5px solid var(--sky-dark);border-radius:10px;padding:10px 12px}
+.receipt .r h3{font-size:17px;margin-bottom:6px}
+.receipt label{display:grid;grid-template-columns:110px 1fr;gap:6px;align-items:center;margin:4px 0;font-size:15px}
+
+/* prepositions */
+.prep{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:10px}
+.prep div{border-radius:10px;padding:8px 12px;background:var(--sky-light);font-size:15px}
+.prep b.p{display:block;font-family:"Source Serif 4",Georgia,serif;font-size:24px;color:var(--navy)}
+.prep .t{font-size:12px;font-weight:700;letter-spacing:.08em;color:var(--gold);text-transform:uppercase}
+
+.counter{font-size:14px;color:var(--muted)}
+.model{background:var(--deep);color:#fff;border-radius:10px;padding:12px 16px;font-family:"Source Serif 4",Georgia,serif;font-size:17px;line-height:1.6;margin-bottom:10px}
+.model b{color:var(--gold-bright)}
+.model .hl{display:inline-block;background:var(--pumpkin);color:#fff;font-family:"Source Sans 3",Arial,sans-serif;font-size:12px;font-weight:700;border-radius:6px;padding:0 6px;margin-right:6px;letter-spacing:.06em}
+.checks label{display:flex;gap:8px;align-items:flex-start;padding:3px 0;cursor:pointer}
+.checks input{margin-top:5px;accent-color:var(--ok)}
+.ideas{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0 10px}
+.ideas span{border:1.5px solid var(--sky-dark);border-radius:20px;padding:3px 12px;font-size:14px;cursor:pointer;background:#fff}
+.ideas span.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+.faces{display:flex;gap:8px;flex-wrap:wrap}
+.faces label{flex:1;min-width:120px;text-align:center;background:#fff;border:1.5px solid var(--sky-dark);border-radius:10px;padding:8px 6px;cursor:pointer;font-size:14px;font-weight:600}
+.faces input{display:none}
+.faces label:has(input:checked){border-color:var(--navy);background:var(--sky-med)}
+#answers{display:none}
+body.show-answers #answers{display:block}
+#answers p,#answers li{margin-bottom:5px;font-size:15px}
+#answers ul{padding-left:20px}
+.credit{text-align:center;font-size:12px;color:var(--muted);margin-top:8px}
+.toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:var(--deep);color:#fff;padding:9px 18px;border-radius:20px;font-weight:600;opacity:0;transition:.25s;pointer-events:none;z-index:30}
+.toast.show{opacity:1}
+@media (max-width:660px){
+  .vgrid{grid-template-columns:repeat(2,1fr)}
+  .prep,.receipt{grid-template-columns:1fr}
+  .factfile .ffb{grid-template-columns:1fr}
+  .receipt label{grid-template-columns:1fr}
+  table.fsw{font-size:14px}
+  .hero h1{font-size:25px;padding-right:80px}
+  .hero svg.pk{width:80px;right:2%}
+  section.card{padding:14px}
+}
+@media print{
+  @page{margin:12mm 13mm}
+  body{background:#fff;font-size:11pt;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .toolbar,nav.jump,.check,.score,.toast,.link,.saved{display:none!important}
+  .hero{background:none;color:var(--ink);border-bottom:3px solid var(--gold-bright)}
+  .hero h1{color:var(--navy)} .hero .in{padding:0 0 8px} .hero svg.pk{display:none}
+  .meta input{border-bottom:1px solid #555;border-radius:0;background:none}
+  main{padding:8px 0 0}
+  section.card{padding:8px 0 10px;break-inside:avoid;margin-bottom:6px;border:0;border-bottom:1px solid var(--sky-med);border-radius:0}
+  #s1,#s10{break-inside:auto}
+  input[type=text],select,textarea{background:transparent!important;border-color:#999}
+  select{appearance:none;-webkit-appearance:none}
+  .good,.bad{background:transparent!important;border-color:#999!important}
+  textarea{min-height:110px;resize:none}
+  body.print-blank input[type=text],body.print-blank textarea,body.print-blank select{color:transparent!important}
+  body.print-blank input[type=radio],body.print-blank input[type=checkbox]{appearance:none;-webkit-appearance:none;width:12px;height:12px;border:1.5px solid #555;border-radius:50%}
+  body.print-blank input[type=checkbox]{border-radius:2px}
+  body.print-blank .ideas span{background:#fff!important;color:var(--ink)!important}
+  body.print-blank .counter{visibility:hidden}
+  #answers{break-before:page}
+}
+</style>
+</head>
+<body>
+
+<div class="toolbar"><div class="in">
+  <img src="data:image/png;base64,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" alt="Approach logo"><span class="bt">APPROACH</span>
+  <button type="button" id="ansBtn">Show answers</button>
+  <button type="button" id="blankBtn">Print blank</button>
+  <button type="button" class="gold" id="printBtn">Print my answers</button>
+  <button type="button" id="copyBtn">Copy answers</button>
+  <button type="button" id="clearBtn">Clear</button>
+</div></div>
+
+<div class="hero"><div class="in">
+  <h1>A Giant Pumpkin on the Move</h1>
+  <p>Current Issues · Basic Level · Week 4 · Numbers, dates, and places in the news</p>
+  <div class="meta"><label for="name">Name:</label><input type="text" id="name" data-label="Name" placeholder="Write your name"><label for="date">Date:</label><input type="text" id="date" data-label="Date" style="max-width:150px"></div>
+  <div class="saved">Your answers save automatically on this device.</div>
+</div>
+<svg class="pk" viewBox="0 0 120 110" aria-hidden="true"><path d="M58 18c0-8 4-14 10-16l3 4c-5 2-7 6-7 12z" fill="#3e7d3a"/><ellipse cx="60" cy="64" rx="54" ry="42" fill="#e07a1f"/><path d="M60 22c-10 14-10 70 0 84M60 22c10 14 10 70 0 84M60 22c-30 8-34 74 0 84M60 22c30 8 34 74 0 84" stroke="#b85d10" stroke-width="2.5" fill="none"/><path d="M34 52l12 0-6 10z M74 52l12 0-6 10z" fill="#1b2433"/><path d="M36 76q24 18 48 0q-6 12-24 12t-24-12z" fill="#1b2433"/></svg>
+</div>
+
+<nav class="jump"><div class="in">
+  <a href="#s1" class="mv">1 Find someone</a><a href="#s2">2 Words</a><a href="#s3">3 Read</a><a href="#s4" class="mv">4 Story line</a><a href="#s5" class="mv">5 True/False</a><a href="#s6" class="mv">6 Pumpkin route</a><a href="#s7">7 Fact file</a><a href="#s8">8 in · on · at</a><a href="#s9" class="mv">9 Pumpkin stand</a><a href="#s10">10 Write</a><a href="#s11">11 Exit</a>
+</div></nav>
+
+<main>
+
+<!-- 1 FIND SOMEONE WHO -->
+<section class="card move" id="s1">
+  <div class="sh"><div class="num">1</div><h2>Find Someone Who…</h2><span class="tag mv">Move</span></div>
+  <div class="movebox"><b>Stand up!</b> Walk around the room. Ask a classmate a question. If they say <b>“Yes, I have!”</b> or <b>“Yes, I do!”</b>, write their name. Then ask one more question. Find a <b>different</b> person for each line.</div>
+  <table class="fsw" id="fsw"><tr><th>Find someone who…</th><th>Name</th><th>More information</th></tr></table>
+  <div class="frame"><b>Have you ever</b> carved a pumpkin? &nbsp;·&nbsp; <b>Do you</b> like…? &nbsp;·&nbsp; When? Where? What was it like?</div>
+</section>
+
+<!-- 2 WORDS -->
+<section class="card" id="s2">
+  <div class="sh"><div class="num">2</div><h2>Words from the Story</h2><span class="tag">Vocabulary</span></div>
+  <div class="vgrid" id="vgrid"></div>
+  <p class="inst">Choose the correct word for each sentence.</p>
+  <div id="kw"></div>
+  <button type="button" class="check" data-check="kw">Check</button><span class="score" id="sc-kw"></span>
+</section>
+
+<!-- 3 READ -->
+<section class="card" id="s3">
+  <div class="sh"><div class="num">3</div><h2>Read and Listen</h2><span class="tag">Reading</span></div>
+  <a class="link" href="https://eslnewsstories.com/articles/2026-10-20-a-giant-pumpkin-on-the-move/" target="_blank" rel="noopener">Open the story: A Giant Pumpkin on the Move</a>
+  <p class="inst"><b>Before you read:</b> Look at the headline. What do you think happened?</p>
+  <input type="text" style="width:100%;margin-bottom:12px" data-label="Prediction" placeholder="I think the pumpkin…">
+  <p class="inst"><b>First reading.</b> What is the story mainly about? Choose one.</p>
+  <div class="opts" id="main">
+    <label><input type="radio" name="main" value="a" data-label="Main idea"> a) A farmer grew the biggest pumpkin in North Carolina.</label>
+    <label><input type="radio" name="main" value="b" data-label="Main idea"> b) Strong winds pushed a giant Halloween decoration away from a farm.</label>
+    <label><input type="radio" name="main" value="c" data-label="Main idea"> c) A storm closed a church and a road in North Carolina.</label>
+  </div>
+  <button type="button" class="check" data-check="main">Check</button><span class="score" id="sc-main"></span>
+</section>
+
+<!-- 4 STORY LINE -->
+<section class="card move" id="s4">
+  <div class="sh"><div class="num">4</div><h2>Human Story Line</h2><span class="tag mv">Move</span></div>
+  <div class="movebox"><b>Groups of 6:</b> each person gets one event card from your teacher. Read your card aloud. Stand in a line in the <b>correct order</b> — from first to last. Then each person says their sentence with <b>First, Then, Next, After that, Finally</b>.</div>
+  <p class="inst">Now number the events 1–6 here.</p>
+  <div class="order" id="order"></div>
+  <button type="button" class="check" data-check="order">Check</button><span class="score" id="sc-order"></span>
+</section>
+
+<!-- 5 TRUE FALSE -->
+<section class="card move" id="s5">
+  <div class="sh"><div class="num">5</div><h2>True or False? Run to the Wall!</h2><span class="tag mv">Move</span></div>
+  <div class="movebox"><b>Your teacher reads a sentence.</b> Walk to the <b>TRUE</b> wall or the <b>FALSE</b> wall. If it's false, the group says the correct sentence together. Then write your answers here.</div>
+  <div id="tf"></div>
+  <button type="button" class="check" data-check="tf">Check</button><span class="score" id="sc-tf"></span>
+</section>
+
+<!-- 6 ROUTE -->
+<section class="card move" id="s6">
+  <div class="sh"><div class="num">6</div><h2>The Pumpkin's Route</h2><span class="tag mv">Move</span></div>
+  <p class="inst">Look at the map. Where did the pumpkin go? Choose the correct word.</p>
+  <div class="map"><svg viewBox="0 0 760 250" role="img" aria-label="Map: the pumpkin starts at the farm, rolls along a fence, past a church, and down the road">
+    <rect width="760" height="250" fill="#eef5e4"/>
+    <path d="M0 200 H760" stroke="#9aa6b8" stroke-width="38"/><path d="M0 200 H760" stroke="#fff" stroke-width="3" stroke-dasharray="18 14"/>
+    <text x="690" y="236" font-family="Arial" font-size="14" font-weight="700" fill="#5a6578">ROAD</text>
+    <rect x="18" y="28" width="150" height="110" rx="10" fill="#f6e3c3" stroke="#8c7535" stroke-width="2"/>
+    <path d="M40 80 L70 55 L100 80 V120 H40Z" fill="#b3261e"/><rect x="60" y="95" width="20" height="25" fill="#5b3a24"/>
+    <rect x="112" y="78" width="40" height="42" fill="#d39f10"/><text x="93" y="22" text-anchor="middle" font-family="Arial" font-size="15" font-weight="700" fill="#5b3a24">PHILLIPS FARM</text>
+    <path d="M190 160 H420" stroke="#8c7535" stroke-width="4"/>
+    <g stroke="#8c7535" stroke-width="3">
+      <path d="M190 148V172M215 148V172M240 148V172M265 148V172M290 148V172M315 148V172M340 148V172M365 148V172M390 148V172M415 148V172"/>
+    </g>
+    <text x="305" y="142" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#8c7535">FENCE</text>
+    <rect x="470" y="70" width="80" height="80" fill="#e1e8f2" stroke="#143865" stroke-width="2"/>
+    <path d="M462 72 L510 36 L558 72Z" fill="#143865"/><path d="M510 10 V36 M500 20 H520" stroke="#143865" stroke-width="4"/>
+    <rect x="500" y="115" width="20" height="35" fill="#143865"/><text x="510" y="168" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#143865">CHURCH</text>
+    <path d="M150 140 C 200 175, 300 175, 430 175 S 560 180, 600 196 S 690 200, 720 200" stroke="#e07a1f" stroke-width="5" fill="none" stroke-dasharray="10 8"/>
+    <circle cx="150" cy="140" r="16" fill="#e07a1f"/><path d="M143 136h5l-2.5 4zM153 136h5l-2.5 4z" fill="#1b2433"/><path d="M142 146q8 6 16 0" stroke="#1b2433" stroke-width="2" fill="none"/>
+    <circle cx="300" cy="175" r="22" fill="#fff" stroke="#e07a1f" stroke-width="3"/><text x="300" y="181" text-anchor="middle" font-family="Arial" font-size="17" font-weight="700" fill="#e07a1f">1</text>
+    <circle cx="510" cy="188" r="22" fill="#fff" stroke="#e07a1f" stroke-width="3"/><text x="510" y="194" text-anchor="middle" font-family="Arial" font-size="17" font-weight="700" fill="#e07a1f">2</text>
+    <circle cx="660" cy="200" r="22" fill="#fff" stroke="#e07a1f" stroke-width="3"/><text x="660" y="206" text-anchor="middle" font-family="Arial" font-size="17" font-weight="700" fill="#e07a1f">3</text>
+  </svg></div>
+  <div id="route"></div>
+  <button type="button" class="check" data-check="route">Check</button><span class="score" id="sc-route"></span>
+
+  <h3 style="margin:16px 0 4px;font-size:19px;color:#9a4a07">Game: Pumpkin Escape!</h3>
+  <div class="movebox"><b>Pairs.</b> Student A is the <b>pumpkin</b>. Student B gives directions: <i>“Roll along the wall! Go past the door! Go around the table! Stop next to the window!”</i> The pumpkin moves slowly (walking only!). Then change roles. Write 3 directions you gave.</div>
+  <div class="ideas" id="preps"><span>along</span><span>past</span><span>around</span><span>through</span><span>to</span><span>next to</span><span>between</span><span>in front of</span><span>behind</span></div>
+  <div id="esc"></div>
+</section>
+
+<!-- 7 FACT FILE -->
+<section class="card" id="s7">
+  <div class="sh"><div class="num">7</div><h2>Pumpkin Fact File</h2><span class="tag">Numbers · Places · Dates</span></div>
+  <p class="inst">Read the story again. Find the facts. Write short answers.</p>
+  <div class="factfile"><div class="ffh">FACT FILE: THE RUNAWAY PUMPKIN</div>
+    <div class="ffb">
+      <label for="f1">What is it?</label><input type="text" id="f1" data-label="Fact: what" placeholder="a giant inflatable…">
+      <label for="f2">How tall?</label><input type="text" id="f2" data-label="Fact: how tall" placeholder="as tall as…">
+      <label for="f3">Where? (city, state)</label><input type="text" id="f3" data-label="Fact: where" placeholder="in ___, ___">
+      <label for="f4">Whose farm?</label><input type="text" id="f4" data-label="Fact: whose farm">
+      <label for="f5">Which day?</label><input type="text" id="f5" data-label="Fact: day" placeholder="on a ___">
+      <label for="f6">Which holiday is near?</label><input type="text" id="f6" data-label="Fact: holiday" placeholder="___ (October 31)">
+      <label for="f7">How long to stop it?</label><input type="text" id="f7" data-label="Fact: how long" placeholder="about ___">
+      <label for="f8">How many tractors now?</label><input type="text" id="f8" data-label="Fact: tractors">
+    </div>
+  </div>
+  <button type="button" class="check" data-check="ff">Check</button><span class="score" id="sc-ff"></span>
+</section>
+
+<!-- 8 IN ON AT -->
+<section class="card" id="s8">
+  <div class="sh"><div class="num">8</div><h2>in · on · at</h2><span class="tag">Language</span></div>
+  <div class="prep">
+    <div><span class="t">Time</span><b class="p">in</b>in October · in 2026 · in the morning<br><span class="t">Place</span><br>in Cary · in North Carolina · in a field</div>
+    <div><span class="t">Time</span><b class="p">on</b>on Sunday · on October 31 · on Halloween<br><span class="t">Place</span><br>on the road · on a farm · on a table</div>
+    <div><span class="t">Time</span><b class="p">at</b>at 3:00 · at night · at noon<br><span class="t">Place</span><br>at the farm · at home · at the church</div>
+  </div>
+  <div class="frame" style="font-size:15px"><b>Tip:</b> months, years, cities, countries &rarr; <b>in</b> · days and dates &rarr; <b>on</b> · clock times and exact points &rarr; <b>at</b></div>
+  <div id="iot"></div>
+  <button type="button" class="check" data-check="iot">Check</button><span class="score" id="sc-iot"></span>
+</section>
+
+<!-- 9 PUMPKIN STAND -->
+<section class="card move" id="s9">
+  <div class="sh"><div class="num">9</div><h2>At the Pumpkin Stand</h2><span class="tag mv">Move</span></div>
+  <p class="inst">It's October. You are at a farm stand. Read the prices.</p>
+  <div class="stand"><div class="sth">Sunny Hill Farm Stand <span>(a pretend farm)</span></div>
+    <table>
+      <tr><td>Small pumpkin</td><td class="p">$3.50</td></tr>
+      <tr><td>Big pumpkin</td><td class="p">$12.99</td></tr>
+      <tr><td>Giant pumpkin</td><td class="p">$45.00</td></tr>
+      <tr><td>Pumpkin pie (1 slice)</td><td class="p">$4.25</td></tr>
+      <tr><td>Apple cider (1 cup)</td><td class="p">$2.75</td></tr>
+      <tr><td>Hayride (1 person)</td><td class="p">$8.00</td></tr>
+      <tr><td>Corn maze (1 person)</td><td class="p">$10.00</td></tr>
+    </table>
+  </div>
+  <div class="say-it"><span><b>$3.50</b> = three fifty / three dollars and fifty cents</span><span><b>$12.99</b> = twelve ninety-nine</span><span><b>$45.00</b> = forty-five dollars</span></div>
+
+  <h3 style="margin:12px 0 4px;font-size:18px">A. Read and answer</h3>
+  <div id="pr"></div>
+  <button type="button" class="check" data-check="pr">Check</button><span class="score" id="sc-pr"></span>
+
+  <h3 style="margin:16px 0 4px;font-size:18px;color:#9a4a07">B. Role-play: Buy and Sell</h3>
+  <div class="movebox"><b>Half the class are sellers.</b> They stand at “stands” around the room. <b>Buyers walk</b> to 2 different stands and buy 3 things. Then change roles.</div>
+  <div class="frame"><b>Buyer:</b> How much is the ___? · I'd like ___, please. · How much is that all together?<br><b>Seller:</b> It's ___. · That's ___ all together. · Here's your change. Have a nice day!</div>
+  <div class="receipt">
+    <div class="r"><h3>My receipt (buyer)</h3>
+      <label>Item 1 <input type="text" data-label="Receipt item 1" placeholder="1 big pumpkin $12.99"></label>
+      <label>Item 2 <input type="text" data-label="Receipt item 2"></label>
+      <label>Item 3 <input type="text" data-label="Receipt item 3"></label>
+      <label>Total <input type="text" data-label="Receipt total" placeholder="$"></label>
+    </div>
+    <div class="r"><h3>My customers (seller)</h3>
+      <label>Customer 1 <input type="text" data-label="Customer 1" placeholder="name + total"></label>
+      <label>Customer 2 <input type="text" data-label="Customer 2"></label>
+      <label>Customer 3 <input type="text" data-label="Customer 3"></label>
+      <label>Most popular <input type="text" data-label="Most popular item"></label>
+    </div>
+  </div>
+</section>
+
+<!-- 10 WRITE -->
+<section class="card" id="s10">
+  <div class="sh"><div class="num">10</div><h2>Write: Breaking News!</h2><span class="tag a">Writing</span></div>
+  <p class="inst">Something else is “on the move”! Choose an idea (or your own) and write a short news story: <b>5–6 sentences</b>. Use a <b>place</b>, a <b>day or date</b>, a <b>number</b>, and <b>along / past / down</b>.</p>
+  <div class="ideas" id="ideas"><span>a giant balloon</span><span>a big trash can</span><span>a beach umbrella</span><span>a runaway shopping cart</span><span>a giant snowman</span><span>my own idea</span></div>
+  <div class="model">
+    <span class="hl">HEADLINE</span><b>Giant Balloon Flies Over a School</b><br>
+    On Saturday, a giant yellow balloon flew away from a party <b>in</b> Lowell, Massachusetts. It was as big as a car! The wind carried it <b>past</b> a school and <b>along</b> the river. Two police officers followed it for 20 minutes. Finally, it stopped <b>in</b> a tree. Nobody was hurt.
+  </div>
+  <input type="text" id="hl" data-label="My headline" placeholder="My headline: ___ on the Move!" style="width:100%;margin-bottom:8px">
+  <textarea id="para" data-label="My news story" placeholder="On ___, a ___ …" style="min-height:140px"></textarea>
+  <div class="counter" id="paraCount">0 words · 0 sentences</div>
+  <div class="checks" style="margin-top:8px">
+    <label><input type="checkbox" data-label="Checklist: place"> I wrote a <b>place</b> (in + city / state).</label>
+    <label><input type="checkbox" data-label="Checklist: day or date"> I wrote a <b>day or date</b> (on Sunday / on October 20).</label>
+    <label><input type="checkbox" data-label="Checklist: number"> I used a <b>number</b> (two, 20 minutes, $5…).</label>
+    <label><input type="checkbox" data-label="Checklist: along past down"> I used <b>along / past / down</b>.</label>
+  </div>
+</section>
+
+<!-- 11 EXIT -->
+<section class="card" id="s11">
+  <div class="sh"><div class="num">11</div><h2>Exit Ticket</h2><span class="tag a">Reflect</span></div>
+  <div class="row"><span class="n">1.</span><div class="ln" style="width:100%"><span>One fact with a number:</span><input type="text" style="flex:1;min-width:200px" data-label="Exit: number fact"></div></div>
+  <div class="row"><span class="n">2.</span><div class="ln" style="width:100%"><span>One sentence with <b>in</b>, <b>on</b>, or <b>at</b>:</span><input type="text" style="flex:1;min-width:200px" data-label="Exit: in on at"></div></div>
+  <div class="row"><span class="n">3.</span><div class="ln" style="width:100%"><span>Favorite activity today:</span><input type="text" style="flex:1;min-width:200px" data-label="Exit: favorite activity"></div></div>
+  <p class="inst" style="margin-top:10px">How do you feel about today?</p>
+  <div class="faces">
+    <label><input type="radio" name="feel" value="I need help" data-label="Exit: feeling">I need help</label>
+    <label><input type="radio" name="feel" value="OK" data-label="Exit: feeling">OK</label>
+    <label><input type="radio" name="feel" value="Good" data-label="Exit: feeling">Good</label>
+    <label><input type="radio" name="feel" value="Great" data-label="Exit: feeling">Great!</label>
+  </div>
+</section>
+
+<section class="card" id="answers">
+  <div class="sh"><div class="num">&#10003;</div><h2>Answer Key</h2><span class="tag">Teacher</span></div>
+  <p><b>2. Words:</b> 1 giant · 2 decoration · 3 fence · 4 rope · 5 roll · 6 tractor · 7 jack-o'-lantern · 8 spike</p>
+  <p><b>3. Main idea:</b> b</p>
+  <p><b>4. Order:</b> 1 Bad weather — the workers did not inflate the pumpkin. · 2 The sun came out. · 3 The owner's father inflated the pumpkin. · 4 Strong winds came suddenly. · 5 The pumpkin rolled down the road. · 6 Workers stopped it, and now it is tied to two tractors.</p>
+  <p><b>5. True / False:</b> 1 F (it was filled with air) · 2 T · 3 F (it went past a church) · 4 F (about one minute) · 5 T · 6 F (two tractors)</p>
+  <p><b>6. Route:</b> 1 along · 2 past · 3 down</p>
+  <p><b>7. Fact file:</b> a giant inflatable jack-o'-lantern (pumpkin) · as tall as a two-story building · Cary, North Carolina · Phillips Farm (Michael Phillips) · a Sunday · Halloween · about one minute · two</p>
+  <p><b>8. in · on · at:</b> 1 in · 2 on · 3 on · 4 in · 5 at · 6 at · 7 in · 8 on</p>
+  <p><b>9A. Prices:</b> 1 $45.00 · 2 $7.00 · 3 $16.49 · 4 $20.00 · 5 the hayride · 6 $5.00</p>
+  <p class="credit">Story: “A Giant Pumpkin on the Move,” ESL News Stories (eslnewsstories.com), adapted from AP. Activities written for Approach Current Issues.</p>
+</section>
+
+<p class="credit">Activities written for Approach Current Issues · Basic Level. Story from ESL News Stories (eslnewsstories.com). The farm stand is pretend.</p>
+</main>
+<div class="toast" id="toast"></div>
+
+<script>
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const el=(t,a={},h="")=>{const e=document.createElement(t);for(const k in a)e.setAttribute(k,a[k]);if(h)e.innerHTML=h;return e;};
+const norm=v=>v.trim().toLowerCase().replace(/[.!?,$]/g,"").replace(/\s+/g," ");
+function toast(m){const t=$("#toast");t.textContent=m;t.classList.add("show");setTimeout(()=>t.classList.remove("show"),2000);}
+
+/* 1 find someone who */
+const FSW=[
+ ["has carved a pumpkin.","What face did you make?"],
+ ["has worn a costume.","What costume?"],
+ ["likes pumpkin food (pie, soup, bread…).","What food?"],
+ ["has a special day with decorations in their country.","What day? When is it?"],
+ ["has seen a very strong wind or storm.","Where? What happened?"],
+ ["has driven or sat on a tractor.","Where?"],
+ ["has a birthday in October or November.","What date?"],
+ ["thinks Halloween is scary.","Why?"]
+];
+FSW.forEach((f,i)=>{ const tr=el("tr"); tr.append(el("td",{class:"q"},`${f[0]}<small>Ask more: ${f[1]}</small>`));
+  const a=el("td"); a.append(el("input",{type:"text","data-label":`Find someone ${i+1}: name`,"aria-label":"name"})); tr.append(a);
+  const b=el("td"); b.append(el("input",{type:"text","data-label":`Find someone ${i+1}: info`,"aria-label":"more information"})); tr.append(b);
+  $("#fsw").append(tr); });
+
+/* 2 vocab cards with simple drawings */
+const ICONS={
+ giant:'<svg viewBox="0 0 64 64"><circle cx="20" cy="50" r="6" fill="#e07a1f"/><circle cx="44" cy="36" r="18" fill="#e07a1f"/><path d="M44 18v-6" stroke="#3e7d3a" stroke-width="3"/></svg>',
+ fence:'<svg viewBox="0 0 64 64"><path d="M6 30H58M6 46H58" stroke="#8c7535" stroke-width="4"/><path d="M12 20V56M24 20V56M36 20V56M48 20V56" stroke="#8c7535" stroke-width="5"/></svg>',
+ "jack-o'-lantern":'<svg viewBox="0 0 64 64"><ellipse cx="32" cy="36" rx="26" ry="20" fill="#e07a1f"/><path d="M32 16v-6" stroke="#3e7d3a" stroke-width="3"/><path d="M20 30h7l-3.5 6zM37 30h7l-3.5 6z" fill="#1b2433"/><path d="M20 42q12 9 24 0q-4 7-12 7t-12-7z" fill="#1b2433"/></svg>',
+ rope:'<svg viewBox="0 0 64 64"><path d="M8 50C20 20 30 50 40 24S54 10 58 14" stroke="#b08850" stroke-width="5" fill="none" stroke-linecap="round"/></svg>',
+ roll:'<svg viewBox="0 0 64 64"><circle cx="38" cy="36" r="14" fill="#e07a1f"/><path d="M4 52H60" stroke="#5a6578" stroke-width="3"/><path d="M8 30h10M6 38h10M10 46h10" stroke="#9aa6b8" stroke-width="3" stroke-linecap="round"/></svg>',
+ spike:'<svg viewBox="0 0 64 64"><path d="M32 6 L38 14 V58 H26 V14Z" fill="#9aa6b8" stroke="#5a6578" stroke-width="2"/><path d="M26 58L32 62 38 58" fill="#5a6578"/></svg>',
+ decoration:'<svg viewBox="0 0 64 64"><path d="M4 14Q32 30 60 14" stroke="#5a6578" stroke-width="2" fill="none"/><path d="M14 19l-5 12h10zM32 22l-5 12h10zM50 19l-5 12h10z" fill="#e07a1f"/></svg>',
+ tractor:'<svg viewBox="0 0 64 64"><rect x="10" y="26" width="30" height="16" rx="3" fill="#1e7a46"/><rect x="26" y="14" width="14" height="14" fill="#1e7a46"/><circle cx="18" cy="46" r="8" fill="#1b2433"/><circle cx="46" cy="44" r="12" fill="#1b2433"/><circle cx="46" cy="44" r="4" fill="#d39f10"/></svg>'
+};
+const DEF={giant:"very, very big","fence":"a wall of wood or metal around a place","jack-o'-lantern":"a pumpkin with a face, for Halloween",rope:"thick, strong string",roll:"to move by turning over and over",spike:"a long metal piece with a sharp end",decoration:"a thing that makes a place pretty for a special day",tractor:"a big, strong farm vehicle"};
+Object.keys(ICONS).forEach(w=>$("#vgrid").append(el("div",{class:"vcard"},`${ICONS[w]}<b>${w}</b><span>${DEF[w]}</span>`)));
+const kwOpts=Object.keys(ICONS).slice().sort();
+function selRow(box,i,pre,post,opts,ans,label){
+  const r=el("div",{class:"row"}); r.append(el("span",{class:"n"},(i+1)+"."));
+  const ln=el("div",{class:"ln"}); if(pre) ln.append(el("span",{},pre));
+  const s=el("select",{"data-label":label,"data-ans":ans}); s.append(el("option",{value:""},"— choose —")); opts.forEach(o=>s.append(el("option",{value:o},o)));
+  ln.append(s); if(post) ln.append(el("span",{},post)); r.append(ln); box.append(r); return s;
+}
+// reorder so answers line up with the key: giant, decoration, fence, rope, roll, tractor, jack-o'-lantern, spike
+const KWO=[
+ ["A whale is a "," animal.","giant"],
+ ["We put lights on our house for the holidays. Each light is a ",".","decoration"],
+ ["We put a "," around the garden so the dog can't get out.","fence"],
+ ["Tie the boat to the dock with a ",".","rope"],
+ ["The ball started to "," down the hill.","roll"],
+ ["The farmer uses a "," to pull heavy things.","tractor"],
+ ["At Halloween, my kids carve a ",".","jack-o'-lantern"],
+ ["Be careful! That metal "," is sharp.","spike"]
+];
+KWO.forEach((k,i)=>selRow($("#kw"),i,k[0],k[1],kwOpts,k[2],"Words "+(i+1)));
+
+/* 4 order */
+const EV=[
+ ["The pumpkin rolled along a fence, past a church, and down the road.",5],
+ ["Because of bad weather, the workers did not inflate the pumpkin.",1],
+ ["Workers stopped it. Now it is tied to two tractors.",6],
+ ["The owner's father inflated the pumpkin.",3],
+ ["Strong winds came suddenly.",4],
+ ["The sun came out.",2]
+];
+EV.forEach((e,i)=>{ const r=el("div",{class:"row"}); const s=el("select",{"data-label":"Order: "+e[0],"data-ans":String(e[1]),"aria-label":"order number"}); s.append(el("option",{value:""},"#")); [1,2,3,4,5,6].forEach(n=>s.append(el("option",{value:String(n)},String(n)))); r.append(s); r.append(el("span",{},e[0])); $("#order").append(r); });
+
+/* 5 tf */
+const TF=[
+ ["The giant pumpkin was a real pumpkin.",false],
+ ["The owner's father inflated it when the sun came out.",true],
+ ["The pumpkin rolled into a church.",false],
+ ["Workers stopped the pumpkin after one hour.",false],
+ ["Now ropes and metal spikes help keep it in place.",true],
+ ["It is tied to five tractors now.",false]
+];
+TF.forEach((t,i)=>{ const d=el("div",{class:"tf"}); d.append(el("div",{},`${i+1}. ${t[0]}`)); const b=el("div",{class:"tfb","data-ans":t[1]?"T":"F"});
+  ["T","F"].forEach(v=>{ const l=el("label"); l.append(el("input",{type:"radio",name:"tf"+i,value:v,"data-label":"True/False "+(i+1)}),document.createTextNode(v==="T"?"True":"False")); b.append(l); });
+  b.append(el("input",{type:"text",placeholder:"If false, write the correct sentence…","data-label":"True/False "+(i+1)+" correction"})); d.append(b); $("#tf").append(d); });
+
+/* 6 route */
+const RT=[["1. The pumpkin rolled "," a fence.","along"],["2. It rolled "," a church.","past"],["3. Then it rolled "," the road.","down"]];
+RT.forEach((r,i)=>{ const s=selRow($("#route"),i,r[0].slice(3),r[1],["along","past","down","into","over"],r[2],"Route "+(i+1)); });
+for(let i=0;i<3;i++){ const r=el("div",{class:"row"}); r.append(el("span",{class:"n"},(i+1)+".")); r.append(el("input",{type:"text",style:"width:100%","data-label":"Pumpkin Escape direction "+(i+1),placeholder:i===0?"Roll along the wall!":""})); $("#esc").append(r); }
+
+/* 7 fact file answers (flexible keywords) */
+const FF={f1:["pumpkin","jack-o-lantern","jack-o'-lantern","decoration","inflatable"],f2:["two-story","two story","2-story","2 story"],f3:["cary"],f4:["phillips"],f5:["sunday"],f6:["halloween"],f7:["one minute","1 minute","a minute"],f8:["two","2"]};
+
+/* 8 in on at */
+const IOT=[
+ ["The farm is "," Cary, North Carolina.","in"],
+ ["It happened "," a Sunday.","on"],
+ ["Halloween is "," October 31.","on"],
+ ["Halloween is "," October.","in"],
+ ["The workers arrived "," 9:00.","at"],
+ ["The farm owner was "," the farm.","at"],
+ ["Many people carve pumpkins "," the fall.","in"],
+ ["The pumpkin rolled "," the road.","on"]
+];
+IOT.forEach((q,i)=>selRow($("#iot"),i,q[0],q[1],["in","on","at"],q[2],"in/on/at "+(i+1)));
+
+/* 9 prices */
+const PR=[
+ ["How much is the giant pumpkin? ","",["$4.50","$45.00","$4.25"],"$45.00"],
+ ["Two small pumpkins cost ",".",["$6.50","$7.00","$7.50"],"$7.00"],
+ ["A big pumpkin and a cup of cider cost ",".",["$15.74","$15.99","$16.49"],"$16.49"],
+ ["Two people want to do the corn maze. They pay ",".",["$10.00","$18.00","$20.00"],"$20.00"],
+ ["Which costs $8.00? ","",["the corn maze","the hayride","the pie"],"the hayride"],
+ ["You pay for a small pumpkin with a $10 bill. Your change is ",".",["$5.00","$6.50","$7.50"],"$6.50"]
+];
+// keep key consistent: item 6 change from $10 for $3.50 = $6.50
+PR.forEach((p,i)=>selRow($("#pr"),i,p[0],p[1],p[2],p[3],"Prices "+(i+1)));
+
+/* idea chips */
+function chips(id,label){ $$(`#${id} span`).forEach(s=>s.onclick=()=>{ s.classList.toggle("on"); store.chips[id]=$$(`#${id} span.on`).map(x=>x.textContent); persist(); }); }
+
+/* counter */
+function countPara(){ const t=$("#para").value.trim(); const w=t?t.split(/\s+/).length:0; const s=(t.match(/[.!?](\s|$)/g)||[]).length; $("#paraCount").textContent=`${w} words · ${s} sentence${s===1?"":"s"}${s>=5&&s<=6?" ✓":""}`; }
+$("#para").addEventListener("input",countPara);
+
+/* checking */
+function checkSelects(sel){ let n=0; const all=$$(sel); all.forEach(s=>{ s.classList.remove("good","bad"); if(!s.value) return; const ok=s.value===s.dataset.ans; if(ok)n++; s.classList.add(ok?"good":"bad"); }); return [n,all.length]; }
+const checkers={
+ kw:()=>checkSelects("#kw select"), order:()=>checkSelects("#order select"), route:()=>checkSelects("#route select"), iot:()=>checkSelects("#iot select"), pr:()=>checkSelects("#pr select"),
+ main:()=>{ const box=$("#main"); box.querySelectorAll("label").forEach(l=>l.classList.remove("good","bad")); const c=box.querySelector("input:checked"); if(!c) return [0,1]; const ok=c.value==="b"; c.parentElement.classList.add(ok?"good":"bad"); return [ok?1:0,1]; },
+ tf:()=>{ let n=0; $$("#tf .tfb").forEach(b=>{ b.querySelectorAll("label").forEach(l=>l.classList.remove("good","bad")); const c=b.querySelector("input:checked"); if(!c) return; const ok=c.value===b.dataset.ans; if(ok)n++; c.parentElement.classList.add(ok?"good":"bad"); }); return [n,TF.length]; },
+ ff:()=>{ let n=0; Object.entries(FF).forEach(([id,keys])=>{ const i=$("#"+id); i.classList.remove("good","bad"); const v=norm(i.value).replace(/’/g,"'"); if(!v) return; const ok=keys.some(k=>v.includes(k)); if(ok)n++; i.classList.add(ok?"good":"bad"); }); return [n,8]; }
+};
+$$("[data-check]").forEach(b=>b.onclick=()=>{ const k=b.dataset.check,[n,t]=checkers[k](); $("#sc-"+k).textContent=`${n} / ${t} correct${n===t?" — great!":""}`; });
+document.addEventListener("input",e=>e.target.classList&&e.target.classList.remove("good","bad"));
+document.addEventListener("change",e=>{ if(e.target.tagName==="SELECT") e.target.classList.remove("good","bad"); });
+
+/* save / load */
+const KEY="approach-ci-pumpkin-ws";
+let store={chips:{}};
+function persist(){ try{localStorage.setItem(KEY,JSON.stringify(store));}catch(e){} }
+const fields=()=>$$("input[data-label],textarea[data-label],select[data-label]");
+const fk=(f,i)=>f.type==="radio"?`r:${f.name}:${f.value}`:(f.id?"id:"+f.id:"k"+i);
+function save(){ store.v={}; fields().forEach((f,i)=>{ store.v[fk(f,i)]=(f.type==="radio"||f.type==="checkbox")?f.checked:f.value; }); persist(); }
+function load(){ try{store=JSON.parse(localStorage.getItem(KEY))||{chips:{}};}catch(e){store={chips:{}};} store.chips=store.chips||{}; const v=store.v||{};
+  fields().forEach((f,i)=>{ const k=fk(f,i); if(!(k in v))return; if(f.type==="radio"||f.type==="checkbox") f.checked=v[k]; else f.value=v[k]; });
+  ["ideas","preps"].forEach(id=>{ (store.chips[id]||[]).forEach(t=>{ const s=$$(`#${id} span`).find(x=>x.textContent===t); if(s) s.classList.add("on"); }); });
+  countPara(); }
+document.addEventListener("input",save); document.addEventListener("change",save);
+load(); chips("ideas"); chips("preps");
+
+/* export */
+function exportText(){
+  const out=["CURRENT ISSUES · BASIC LEVEL · WEEK 4","A Giant Pumpkin on the Move",""]; const seen=new Set();
+  fields().forEach(f=>{ const L=f.dataset.label;
+    if(f.type==="radio"){ if(seen.has(f.name))return; seen.add(f.name); const c=document.querySelector(`input[name="${f.name}"]:checked`); out.push(`${L}: ${c?c.value:"—"}`); return; }
+    if(f.type==="checkbox"){ out.push(`${f.checked?"[x]":"[ ]"} ${L.replace("Checklist: ","")}`); return; }
+    out.push(`${L}: ${(f.value||"").trim()||"—"}`); });
+  const idea=(store.chips.ideas||[]).join(", "); if(idea) out.push("My news idea: "+idea);
+  return out.join("\n");
+}
+$("#ansBtn").onclick=()=>{ const on=document.body.classList.toggle("show-answers"); $("#ansBtn").textContent=on?"Hide answers":"Show answers"; if(on) $("#answers").scrollIntoView({behavior:"smooth"}); };
+$("#printBtn").onclick=()=>{ document.body.classList.remove("print-blank"); window.print(); };
+$("#blankBtn").onclick=()=>{ document.body.classList.add("print-blank"); window.print(); };
+addEventListener("afterprint",()=>document.body.classList.remove("print-blank"));
+$("#copyBtn").onclick=async()=>{ const t=exportText(); try{ await navigator.clipboard.writeText(t); toast("Copied! Paste it on Community."); }catch(e){ const ta=el("textarea"); ta.value=t; document.body.append(ta); ta.select(); try{document.execCommand("copy"); toast("Copied!");}catch(_){ toast("Copy did not work."); } ta.remove(); } };
+$("#clearBtn").onclick=()=>{ if(!confirm("Clear all your answers?")) return; try{localStorage.removeItem(KEY);}catch(e){} location.reload(); };
+</script>
+</body>
+</html>
