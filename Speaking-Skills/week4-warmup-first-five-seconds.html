@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The First Five Seconds</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,600;0,700;1,500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{ --navy:#0f2340; --blue:#143865; --blue-2:#1c4f8f; --gold:#8c7535; --gold-2:#d39f10; --gold-3:#e2c27a; --cream:#f6f2e7; --warm:#efe9d9; --muted:#9fb0c8; --ink:#14213a; --green-2:#7fd3a8; --red-2:#ff9c93; }
+  *{box-sizing:border-box}
+  html,body{margin:0; height:100%}
+  body{background:radial-gradient(ellipse at top, #1b3560 0%, var(--navy) 55%, #081428 100%); color:var(--cream); font-family:Inter, system-ui, sans-serif; display:flex; flex-direction:column; min-height:100vh}
+  button{font-family:inherit; cursor:pointer}
+  header{display:flex; align-items:center; justify-content:space-between; gap:12px; padding:14px clamp(16px,3vw,40px); border-bottom:1px solid rgba(211,159,16,.25)}
+  .brand b{display:block; font-family:Lora, serif; font-size:clamp(18px,1.8vw,26px); color:var(--gold-3)}
+  .brand span{font-size:clamp(11px,1vw,14px); color:var(--muted); letter-spacing:.08em; text-transform:uppercase}
+  .hbtn{background:rgba(255,255,255,.06); color:var(--cream); border:1px solid rgba(255,255,255,.18); border-radius:10px; padding:9px 14px; font-size:14px; font-weight:600}
+  .hbtn:hover{border-color:var(--gold-2); color:var(--gold-3)}
+  main{flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:clamp(14px,2.2vw,32px)}
+  .screen{width:100%; max-width:1300px; display:none; flex-direction:column; align-items:center; text-align:center; gap:clamp(14px,2vw,26px)}
+  .screen.on{display:flex; animation:in .35s ease}
+  @keyframes in{from{opacity:0; transform:translateY(10px)}}
+  .eyebrow{font-weight:800; letter-spacing:.14em; text-transform:uppercase; color:var(--gold-2); font-size:clamp(13px,1.3vw,18px)}
+  h1{font-family:Lora, serif; font-size:clamp(44px,6vw,96px); margin:0; line-height:1.05}
+  h1 em{font-style:normal; color:var(--gold-2)}
+  h2{font-family:Lora, serif; font-size:clamp(34px,4.2vw,66px); margin:0; line-height:1.1}
+  .lead{font-size:clamp(20px,2.1vw,32px); color:#dfe6f0; margin:0; line-height:1.4; max-width:1100px}
+  .judge{display:flex; flex-wrap:wrap; gap:12px; justify-content:center}
+  .judge span{font-family:Lora, serif; font-size:clamp(20px,2.2vw,34px); border:2px solid rgba(255,255,255,.2); border-radius:999px; padding:8px 22px; background:rgba(255,255,255,.05)}
+  .card{width:100%; background:linear-gradient(160deg, var(--cream) 0%, var(--warm) 100%); color:var(--ink); border-radius:28px; padding:clamp(22px,3vw,46px); display:grid; grid-template-columns:1fr auto; gap:clamp(18px,3vw,44px); align-items:center; text-align:left; box-shadow:0 30px 60px rgba(0,0,0,.35)}
+  .card .rule{font-family:Lora, serif; font-size:clamp(28px,3.2vw,52px); line-height:1.2; color:var(--blue); margin:0 0 12px}
+  .card .how{font-size:clamp(18px,1.8vw,27px); color:#3f4b5e; margin:0 0 14px; line-height:1.4}
+  .card .say{display:inline-block; background:var(--blue); color:#fff; border-radius:14px; padding:10px 20px; font-family:Lora, serif; font-style:italic; font-size:clamp(20px,2vw,30px)}
+  .card .say small{display:block; font-family:Inter, sans-serif; font-style:normal; font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--gold-3)}
+  .clock{position:relative; width:clamp(150px,15vw,230px); aspect-ratio:1}
+  .clock svg{width:100%; height:100%; transform:rotate(-90deg)}
+  .clock circle{fill:none; stroke-width:9}
+  .clock .bg{stroke:rgba(20,56,101,.15)}
+  .clock .fg{stroke:var(--gold-2); stroke-linecap:round; transition:stroke-dashoffset 1s linear}
+  .clock.low .fg{stroke:#c0392b}
+  .clock .num{position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; font-weight:800; font-size:clamp(36px,3.8vw,60px); color:var(--blue); font-variant-numeric:tabular-nums}
+  .clock .num small{font-size:13px; letter-spacing:.1em; text-transform:uppercase; color:var(--gold)}
+  .rate{display:flex; gap:12px; justify-content:center; flex-wrap:wrap; align-items:center}
+  .rate b{font-family:Lora, serif; font-size:clamp(22px,2.3vw,34px); color:var(--gold-3); margin-right:6px}
+  .rate span{width:clamp(48px,4.4vw,66px); height:clamp(48px,4.4vw,66px); border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:clamp(20px,2vw,28px); border:2px solid rgba(255,255,255,.3)}
+  .rate small{color:var(--muted); font-size:15px}
+  .pair{display:grid; grid-template-columns:1fr 1fr; gap:18px; width:100%}
+  .pbox{border-radius:22px; padding:20px 24px; text-align:left; font-size:clamp(18px,1.8vw,26px); line-height:1.4}
+  .pbox b{display:block; font-family:Lora, serif; font-size:clamp(26px,2.6vw,40px); margin-bottom:6px}
+  .pa{background:rgba(255,156,147,.12); border:2px solid var(--red-2)} .pa b{color:var(--red-2)}
+  .pb{background:rgba(127,211,168,.12); border:2px solid var(--green-2)} .pb b{color:var(--green-2)}
+  .qs{list-style:none; padding:0; margin:0; display:grid; grid-template-columns:1fr 1fr; gap:14px; width:100%}
+  .qs li{background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.15); border-radius:16px; padding:16px 20px; text-align:left; font-size:clamp(17px,1.7vw,25px); line-height:1.35}
+  .qs li i{font-style:normal; color:var(--gold-3); font-weight:800; margin-right:8px}
+  .reveal{display:none; width:100%; background:var(--cream); color:var(--ink); border-radius:22px; padding:clamp(18px,2.4vw,34px); text-align:left; border-left:10px solid var(--gold-2)}
+  .reveal.on{display:block; animation:in .35s ease}
+  .reveal .q{font-family:Lora, serif; font-size:clamp(22px,2.4vw,38px); color:var(--blue); line-height:1.35}
+  .reveal .steps{display:flex; flex-wrap:wrap; gap:10px; margin-top:14px}
+  .reveal .steps span{background:var(--blue); color:#fff; border-radius:999px; padding:8px 18px; font-weight:700; font-size:clamp(15px,1.5vw,22px)}
+  .reveal small{display:block; margin-top:10px; color:#5b6b82; font-size:14px}
+  .big{background:var(--gold-2); color:var(--ink); border:none; border-radius:16px; padding:14px 30px; font-size:clamp(17px,1.7vw,23px); font-weight:800}
+  .ghost{background:rgba(255,255,255,.07); color:var(--cream); border:2px solid rgba(255,255,255,.22); border-radius:16px; padding:12px 22px; font-size:clamp(15px,1.5vw,20px); font-weight:700}
+  .controls{display:flex; gap:12px; justify-content:center; flex-wrap:wrap; align-items:center; margin-top:clamp(12px,1.6vw,22px)}
+  .nav{width:clamp(46px,4.2vw,60px); height:clamp(46px,4.2vw,60px); border-radius:50%; background:rgba(255,255,255,.07); border:2px solid rgba(255,255,255,.2); color:var(--cream); font-size:clamp(18px,2vw,24px)}
+  .nav:disabled{opacity:.25; cursor:default}
+  .dots{display:flex; gap:8px}
+  .dot{width:13px; height:13px; border-radius:50%; background:rgba(255,255,255,.2)}
+  .dot.on{background:var(--gold-2); transform:scale(1.3)}
+  .keys{font-size:13px; color:var(--muted); text-align:center; margin-top:8px}
+  @media (max-width:860px){ .card{grid-template-columns:1fr; justify-items:center; text-align:center} .pair,.qs{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+<header>
+  <div class="brand"><b>TED Talks: Ideas Worth Sharing</b><span>Week 4 · Warm-up · The First Five Seconds</span></div>
+  <button class="hbtn" id="fsBtn">Fullscreen</button>
+</header>
+
+<main>
+  <section class="screen on">
+    <span class="eyebrow">Stand up · Bring nothing</span>
+    <h1>The First <em>Five Seconds</em></h1>
+    <p class="lead">Before a speaker says a word, the audience has already decided:</p>
+    <div class="judge"><span>Friend or foe?</span><span>Likable or not?</span><span>Confident or tentative?</span></div>
+    <p class="lead">Let's test it. Three mingle rounds. Greet <b>two</b> people each round. Then rate how much you trusted them.</p>
+  </section>
+
+  <section class="screen" data-timer="45">
+    <span class="eyebrow">Round 1 of 3</span>
+    <div class="card">
+      <div><p class="rule">Eyes on your phone.</p><p class="how">Walk around. Greet two people while you look at your phone or the floor.</p><span class="say"><small>Say</small>"Hi! I have a story for you."</span></div>
+      <div class="clock"><svg viewBox="0 0 100 100"><circle class="bg" cx="50" cy="50" r="44"/><circle class="fg" cx="50" cy="50" r="44"/></svg><div class="num"><span class="t">0:45</span><small>press start</small></div></div>
+    </div>
+    <div class="rate"><b>Trust?</b><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><small>show with your fingers, then write it in A1</small></div>
+  </section>
+
+  <section class="screen" data-timer="45">
+    <span class="eyebrow">Round 2 of 3</span>
+    <div class="card">
+      <div><p class="rule">Eyes over their head.</p><p class="how">Greet two new people. Look just above their head, at the wall behind them.</p><span class="say"><small>Say</small>"Hi! I have a story for you."</span></div>
+      <div class="clock"><svg viewBox="0 0 100 100"><circle class="bg" cx="50" cy="50" r="44"/><circle class="fg" cx="50" cy="50" r="44"/></svg><div class="num"><span class="t">0:45</span><small>press start</small></div></div>
+    </div>
+    <div class="rate"><b>Trust?</b><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><small>fingers up</small></div>
+  </section>
+
+  <section class="screen" data-timer="45">
+    <span class="eyebrow">Round 3 of 3</span>
+    <div class="card">
+      <div><p class="rule">The Connector.</p><p class="how">Greet two new people. <b>Stop.</b> Two seconds of eye contact. Nod. A <i>real</i> smile. <b>Then</b> speak.</p><span class="say"><small>Say</small>"Hi! I have a story for you."</span></div>
+      <div class="clock"><svg viewBox="0 0 100 100"><circle class="bg" cx="50" cy="50" r="44"/><circle class="fg" cx="50" cy="50" r="44"/></svg><div class="num"><span class="t">0:45</span><small>press start</small></div></div>
+    </div>
+    <div class="rate"><b>Trust?</b><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><small>fingers up</small></div>
+  </section>
+
+  <section class="screen" data-timer="30">
+    <span class="eyebrow">Round 4 · Pairs · Swap after 30 seconds</span>
+    <h2>Try <em style="font-style:normal;color:var(--gold-2)">not</em> to smile</h2>
+    <div class="pair">
+      <div class="pbox pa"><b>Partner A</b>Keep a straight face. No smiling. No laughing. Just listen.</div>
+      <div class="pbox pb"><b>Partner B</b>Describe the best meal of your life, with a big, real smile and lots of eye contact.</div>
+    </div>
+    <div class="card" style="grid-template-columns:1fr auto">
+      <div><p class="rule" style="font-size:clamp(24px,2.6vw,40px)">Who smiled first?</p><p class="how" style="margin:0">30 seconds, then swap roles and press start again.</p></div>
+      <div class="clock"><svg viewBox="0 0 100 100"><circle class="bg" cx="50" cy="50" r="44"/><circle class="fg" cx="50" cy="50" r="44"/></svg><div class="num"><span class="t">0:30</span><small>press start</small></div></div>
+    </div>
+  </section>
+
+  <section class="screen">
+    <span class="eyebrow">Sit down · Talk with your partner</span>
+    <h2>What happened?</h2>
+    <ul class="qs">
+      <li><i>1</i>In which round did you trust the other person most? Why?</li>
+      <li><i>2</i>What did you notice about them in the first five seconds?</li>
+      <li><i>3</i>Why was it so hard <i style="color:inherit;margin:0;font-style:italic;font-weight:400">not</i> to smile?</li>
+      <li><i>4</i>Predict: what does Anderson tell speakers to do <b>before</b> the first sentence?</li>
+    </ul>
+    <div class="reveal" id="reveal">
+      <div class="q">"Don't rush in with your opening sentence."</div>
+      <div class="steps"><span>1 · Walk on and pause</span><span>2 · Pick out a couple of people</span><span>3 · Eye contact, nod, smile</span><span>4 · Then begin</span></div>
+      <small>Chris Anderson, <i>TED Talks</i>, Ch. 5, "Make Eye Contact, Right from the Start." You'll read more at Station A.</small>
+    </div>
+  </section>
+
+  <div class="controls">
+    <button class="nav" id="prev" aria-label="Previous">&#9664;</button>
+    <button class="big" id="action">Start</button>
+    <button class="ghost" id="reset" hidden>Reset timer</button>
+    <button class="nav" id="next" aria-label="Next">&#9654;</button>
+  </div>
+  <div class="controls"><div class="dots" id="dots"></div></div>
+  <p class="keys">Space: start or pause the timer · Arrow keys: move · F: fullscreen</p>
+</main>
+
+<script>
+const $ = id => document.getElementById(id);
+const screens = [...document.querySelectorAll(".screen")];
+let i = 0, timer = null, left = 0, total = 0;
+const C = 2 * Math.PI * 44;
+document.querySelectorAll(".fg").forEach(c => { c.style.strokeDasharray = C; c.style.strokeDashoffset = 0; });
+$("dots").innerHTML = screens.map(() => '<span class="dot"></span>').join("");
+
+function fmt(s){ return Math.floor(s/60) + ":" + String(s%60).padStart(2,"0"); }
+function clockEls(){ const s = screens[i]; return { wrap:s.querySelector(".clock"), fg:s.querySelector(".fg"), t:s.querySelector(".num .t"), sm:s.querySelector(".num small") }; }
+function draw(){
+  const c = clockEls(); if(!c.wrap) return;
+  c.t.textContent = fmt(left);
+  c.fg.style.strokeDashoffset = C * (1 - left/total);
+  c.wrap.classList.toggle("low", left <= 10 && left > 0);
+}
+function beep(){
+  try{
+    const ctx = new (window.AudioContext||window.webkitAudioContext)();
+    [0,.35,.7].forEach(t => { const o = ctx.createOscillator(), g = ctx.createGain(); o.frequency.value = 880; o.connect(g); g.connect(ctx.destination);
+      g.gain.setValueAtTime(.0001, ctx.currentTime+t); g.gain.exponentialRampToValueAtTime(.3, ctx.currentTime+t+.02); g.gain.exponentialRampToValueAtTime(.0001, ctx.currentTime+t+.25);
+      o.start(ctx.currentTime+t); o.stop(ctx.currentTime+t+.3); });
+  }catch(e){}
+}
+function stop(){ clearInterval(timer); timer = null; }
+function resetTimer(){
+  stop(); total = +(screens[i].dataset.timer || 0); left = total;
+  const c = clockEls(); if(c.wrap){ c.sm.textContent = "press start"; draw(); }
+  updateAction();
+}
+function updateAction(){
+  const s = screens[i];
+  $("reset").hidden = !s.dataset.timer;
+  if(s.dataset.timer){
+    $("action").textContent = timer ? "Pause" : (left === 0 ? "Next" : (left < total ? "Resume" : "Start"));
+  } else if(i === screens.length - 1){
+    $("action").textContent = $("reveal").classList.contains("on") ? "Done" : "Reveal Anderson's advice";
+  } else $("action").textContent = "Next";
+}
+function action(){
+  const s = screens[i];
+  if(s.dataset.timer){
+    if(left === 0) return go(i+1);
+    if(timer){ stop(); clockEls().sm.textContent = "paused"; }
+    else {
+      clockEls().sm.textContent = "go!";
+      timer = setInterval(() => { left--; draw(); if(left <= 0){ stop(); beep(); clockEls().sm.textContent = "time!"; updateAction(); } }, 1000);
+    }
+    return updateAction();
+  }
+  if(i === screens.length - 1){ $("reveal").classList.add("on"); return updateAction(); }
+  go(i+1);
+}
+function go(n){
+  if(n < 0 || n >= screens.length) return;
+  stop(); i = n;
+  screens.forEach((s,k) => s.classList.toggle("on", k === i));
+  [...$("dots").children].forEach((d,k) => d.classList.toggle("on", k === i));
+  $("prev").disabled = i === 0; $("next").disabled = i === screens.length - 1;
+  resetTimer();
+}
+$("action").onclick = action;
+$("reset").onclick = resetTimer;
+$("prev").onclick = () => go(i-1); $("next").onclick = () => go(i+1);
+function fs(){ if(!document.fullscreenElement) document.documentElement.requestFullscreen?.(); else document.exitFullscreen?.(); }
+$("fsBtn").onclick = fs;
+document.addEventListener("keydown", e => {
+  const k = e.key.toLowerCase();
+  if(k === "f") return fs();
+  if(k === "arrowright") go(i+1); else if(k === "arrowleft") go(i-1);
+  else if(k === " " || k === "enter"){ e.preventDefault(); action(); }
+});
+go(0);
+</script>
+</body>
+</html>
