@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How Does a Rainbow Form? · Worksheet</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#143865; --deep:#0c2340; --blue:#1c4f8f; --gold:#8c7535; --gold-bright:#d39f10;
+  --sky-dark:#c1cddd; --sky-med:#e1e8f2; --sky-light:#edf2f9; --warm:#efe9d9;
+  --ink:#1b2433; --muted:#5a6578; --ok:#1e7a46; --okbg:#e3f4ea; --no:#b3261e; --nobg:#fbe7e5; --bg:#f2f4f8;
+  --pumpkin:#e07a1f; --pumpkin-l:#fdf0e3;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);font-family:"Source Sans 3",Arial,sans-serif;color:var(--ink);font-size:17px;line-height:1.5}
+h1,h2,h3{font-family:"Source Serif 4",Georgia,serif;color:var(--navy);line-height:1.2}
+.toolbar{position:sticky;top:0;z-index:20;background:var(--deep);color:#fff}
+.toolbar .in{max-width:880px;margin:0 auto;padding:9px 16px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.toolbar img{height:36px}
+.toolbar .bt{font-family:"Source Serif 4",Georgia,serif;color:var(--gold-bright);font-weight:700;letter-spacing:.05em;margin-right:auto}
+.toolbar button{font:inherit;font-size:14px;font-weight:700;border:0;border-radius:7px;padding:7px 12px;cursor:pointer;background:#fff;color:var(--navy)}
+.toolbar button.gold{background:var(--gold-bright);color:var(--deep)}
+.hero{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;position:relative;overflow:hidden}
+.hero .in{max-width:880px;margin:0 auto;padding:20px 16px 22px;position:relative;z-index:1}
+.hero h1{color:#fff;font-size:31px}
+.hero p{opacity:.92}
+.hero svg.pk{position:absolute;right:4%;top:50%;transform:translateY(-50%);width:130px;opacity:.9}
+.meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px;align-items:center}
+.meta label{font-weight:700}
+.meta input{border:0;border-radius:8px;padding:8px 10px;font:inherit;min-width:180px;flex:1;max-width:300px}
+.saved{font-size:13px;color:#e9d9a8;margin-top:6px}
+nav.jump{background:#fff;border-bottom:1px solid var(--sky-dark);position:sticky;top:54px;z-index:15}
+nav.jump .in{max-width:880px;margin:0 auto;display:flex;gap:6px;overflow-x:auto;padding:7px 16px;scrollbar-width:none}
+nav.jump a{flex:none;text-decoration:none;color:var(--navy);font-weight:600;font-size:13px;padding:4px 10px;border-radius:16px;background:var(--sky-light);border:1px solid var(--sky-dark)}
+nav.jump a.mv{background:var(--pumpkin-l);border-color:#f2c79c;color:#9a4a07}
+main{max-width:880px;margin:0 auto;padding:16px 16px 60px}
+section.card{background:#fff;border:1px solid var(--sky-dark);border-radius:14px;padding:18px 20px 20px;margin-bottom:16px;scroll-margin-top:110px}
+section.card.move{border:2px solid #f2c79c}
+.sh{display:flex;align-items:center;gap:10px;margin-bottom:4px;flex-wrap:wrap}
+.num{background:var(--navy);color:#fff;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-weight:700;flex:none}
+.move .num{background:var(--pumpkin)}
+.sh h2{font-size:22px}
+.tag{margin-left:auto;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:12px;background:var(--sky-med);color:var(--navy)}
+.tag.mv{background:var(--pumpkin);color:#fff}
+.tag.a{background:var(--okbg);color:var(--ok)}
+.inst{color:var(--muted);margin-bottom:10px}
+.movebox{background:var(--pumpkin-l);border:1.5px dashed #e8a866;border-radius:10px;padding:10px 14px;margin:6px 0 12px;font-size:16px}
+.movebox b{color:#9a4a07}
+.frame{background:var(--deep);color:#fff;border-radius:10px;padding:10px 14px;font-family:"Source Serif 4",Georgia,serif;font-size:17px;line-height:1.55;margin:8px 0}
+.frame b{color:var(--gold-bright)}
+.link{display:inline-flex;gap:8px;align-items:center;background:var(--gold-bright);color:var(--deep);font-weight:700;text-decoration:none;border-radius:24px;padding:9px 18px;margin:2px 0 10px}
+input[type=text],textarea,select{font:inherit;color:#1a3d6b;background:#f7f9fc;border:1.5px solid var(--sky-dark);border-radius:8px;padding:6px 9px}
+input[type=text]:focus,textarea:focus,select:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(28,79,143,.15);background:#fff}
+textarea{width:100%;min-height:80px;resize:vertical}
+.good{background:var(--okbg)!important;border-color:var(--ok)!important}
+.bad{background:var(--nobg)!important;border-color:var(--no)!important}
+.opts{display:grid;gap:7px}
+.opts label{display:flex;gap:10px;align-items:flex-start;border:1.5px solid var(--sky-dark);border-radius:10px;padding:8px 12px;cursor:pointer;background:#fff}
+.opts input{margin-top:5px;accent-color:var(--navy)}
+.row{display:grid;grid-template-columns:28px 1fr;gap:8px;align-items:center;padding:7px 0;border-bottom:1px dashed var(--sky-dark);min-width:0}
+.row:last-of-type{border-bottom:0}
+.row .n{font-weight:700;color:var(--muted)}
+.row .ln{display:flex;flex-wrap:wrap;gap:6px;align-items:center;min-width:0}
+.row .ln select{max-width:100%;min-width:0}
+.check{font:inherit;font-weight:700;font-size:14px;background:var(--navy);color:#fff;border:0;border-radius:8px;padding:7px 16px;cursor:pointer;margin-top:10px}
+.score{font-weight:700;color:var(--ok);margin-left:10px}
+
+/* find someone who */
+table.fsw{width:100%;border-collapse:collapse;font-size:16px}
+table.fsw th{background:var(--navy);color:#fff;text-align:left;padding:7px 10px;font-weight:600}
+table.fsw td{border:1px solid var(--sky-dark);padding:6px 8px;vertical-align:middle}
+table.fsw td input{width:100%}
+table.fsw td.q{width:45%}
+table.fsw td.q small{display:block;color:var(--muted);font-size:13px}
+
+/* vocab */
+.vgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:12px}
+.vcard{border:1.5px solid var(--sky-dark);border-radius:12px;padding:8px 10px;background:#fff;text-align:center}
+.vcard svg{width:62px;height:62px;display:block;margin:0 auto 4px}
+.vcard b{font-family:"Source Serif 4",Georgia,serif;color:var(--navy);font-size:18px}
+.vcard span{display:block;font-size:13px;color:var(--muted)}
+
+/* map */
+.map{background:#f4f8ee;border:1.5px solid var(--sky-dark);border-radius:12px;padding:6px;margin:8px 0}
+.map svg{width:100%;height:auto;display:block}
+.route{display:grid;gap:8px}
+
+/* order */
+.order .row{grid-template-columns:auto 1fr}
+.order select{width:64px}
+
+/* tf */
+.tf{padding:8px 0;border-bottom:1px dashed var(--sky-dark)}
+.tf:last-child{border-bottom:0}
+.tfb{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:4px}
+.tfb label{border:1.5px solid var(--sky-dark);border-radius:8px;padding:3px 12px;cursor:pointer;font-weight:700;font-size:14px;display:flex;gap:5px;align-items:center}
+.tfb input[type=text]{flex:1;min-width:200px}
+
+/* fact file */
+.factfile{border:3px solid var(--pumpkin);border-radius:14px;overflow:hidden}
+.factfile .ffh{background:var(--pumpkin);color:#fff;font-family:"Source Serif 4",Georgia,serif;font-weight:700;font-size:22px;padding:8px 14px;letter-spacing:.04em}
+.factfile .ffb{display:grid;grid-template-columns:150px 1fr;gap:8px 12px;padding:12px 14px;align-items:center}
+.factfile .ffb label{font-weight:700;color:#9a4a07}
+.factfile .ffb input{width:100%}
+
+/* prices */
+.stand{border:2px solid var(--gold);border-radius:14px;overflow:hidden}
+.stand .sth{background:#5b3a24;color:#fff;padding:8px 14px;font-family:"Source Serif 4",Georgia,serif;font-size:21px;font-weight:700;display:flex;justify-content:space-between;align-items:center}
+.stand .sth span{font-family:"Source Sans 3",Arial,sans-serif;font-size:13px;font-weight:400;opacity:.85}
+.stand table{width:100%;border-collapse:collapse;font-size:17px}
+.stand td{padding:7px 14px;border-bottom:1px dashed #d9c9a3}
+.stand td.p{text-align:right;font-weight:700;font-variant-numeric:tabular-nums;color:#5b3a24}
+.stand tr:nth-child(even) td{background:#fbf7ec}
+.say-it{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.say-it span{background:var(--sky-light);border-radius:8px;padding:4px 10px;font-size:15px}
+.receipt{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.receipt .r{border:1.5px solid var(--sky-dark);border-radius:10px;padding:10px 12px}
+.receipt .r h3{font-size:17px;margin-bottom:6px}
+.receipt label{display:grid;grid-template-columns:110px 1fr;gap:6px;align-items:center;margin:4px 0;font-size:15px}
+
+/* prepositions */
+.prep{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:10px}
+.prep div{border-radius:10px;padding:8px 12px;background:var(--sky-light);font-size:15px}
+.prep b.p{display:block;font-family:"Source Serif 4",Georgia,serif;font-size:24px;color:var(--navy)}
+.prep .t{font-size:12px;font-weight:700;letter-spacing:.08em;color:var(--gold);text-transform:uppercase}
+
+.counter{font-size:14px;color:var(--muted)}
+.model{background:var(--deep);color:#fff;border-radius:10px;padding:12px 16px;font-family:"Source Serif 4",Georgia,serif;font-size:17px;line-height:1.6;margin-bottom:10px}
+.model b{color:var(--gold-bright)}
+.model .hl{display:inline-block;background:var(--pumpkin);color:#fff;font-family:"Source Sans 3",Arial,sans-serif;font-size:12px;font-weight:700;border-radius:6px;padding:0 6px;margin-right:6px;letter-spacing:.06em}
+.checks label{display:flex;gap:8px;align-items:flex-start;padding:3px 0;cursor:pointer}
+.checks input{margin-top:5px;accent-color:var(--ok)}
+.ideas{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0 10px}
+.ideas span{border:1.5px solid var(--sky-dark);border-radius:20px;padding:3px 12px;font-size:14px;cursor:pointer;background:#fff}
+.ideas span.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+.faces{display:flex;gap:8px;flex-wrap:wrap}
+.faces label{flex:1;min-width:120px;text-align:center;background:#fff;border:1.5px solid var(--sky-dark);border-radius:10px;padding:8px 6px;cursor:pointer;font-size:14px;font-weight:600}
+.faces input{display:none}
+.faces label:has(input:checked){border-color:var(--navy);background:var(--sky-med)}
+#answers{display:none}
+body.show-answers #answers{display:block}
+#answers p,#answers li{margin-bottom:5px;font-size:15px}
+#answers ul{padding-left:20px}
+.credit{text-align:center;font-size:12px;color:var(--muted);margin-top:8px}
+.toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:var(--deep);color:#fff;padding:9px 18px;border-radius:20px;font-weight:600;opacity:0;transition:.25s;pointer-events:none;z-index:30}
+.toast.show{opacity:1}
+@media (max-width:660px){
+  .vgrid{grid-template-columns:repeat(2,1fr)}
+  .prep,.receipt{grid-template-columns:1fr}
+  .factfile .ffb{grid-template-columns:1fr}
+  .receipt label{grid-template-columns:1fr}
+  table.fsw{font-size:14px}
+  .hero h1{font-size:25px;padding-right:80px}
+  .hero svg.pk{width:80px;right:2%}
+  section.card{padding:14px}
+}
+@media print{
+  @page{margin:12mm 13mm}
+  body{background:#fff;font-size:11pt;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .toolbar,nav.jump,.check,.score,.toast,.link,.saved{display:none!important}
+  .hero{background:none;color:var(--ink);border-bottom:3px solid var(--gold-bright)}
+  .hero h1{color:var(--navy)} .hero .in{padding:0 0 8px} .hero svg.pk{display:none}
+  .meta input{border-bottom:1px solid #555;border-radius:0;background:none}
+  main{padding:8px 0 0}
+  section.card{padding:8px 0 10px;break-inside:avoid;margin-bottom:6px;border:0;border-bottom:1px solid var(--sky-med);border-radius:0}
+  #s1,#s5,#s10{break-inside:auto}
+  input[type=text],select,textarea{background:transparent!important;border-color:#999}
+  select{appearance:none;-webkit-appearance:none}
+  .good,.bad{background:transparent!important;border-color:#999!important}
+  textarea{min-height:110px;resize:none}
+  body.print-blank input[type=text],body.print-blank textarea,body.print-blank select{color:transparent!important}
+  body.print-blank input[type=radio],body.print-blank input[type=checkbox]{appearance:none;-webkit-appearance:none;width:12px;height:12px;border:1.5px solid #555;border-radius:50%}
+  body.print-blank input[type=checkbox]{border-radius:2px}
+  body.print-blank .ideas span{background:#fff!important;color:var(--ink)!important}
+  body.print-blank .counter{visibility:hidden}
+  #answers{break-before:page}
+}
+
+.rainbowrow{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin:6px 0}
+.rbcell{border:1.5px solid var(--sky-dark);border-top:8px solid var(--sky-dark);border-radius:10px;padding:6px;text-align:center;background:#fff;min-width:0}
+.rbcell .rbn{display:block;font-weight:700;color:var(--muted);font-size:13px}
+.rbcell select{width:100%;padding:4px 2px;font-size:14px}
+.prep6{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-bottom:12px}
+.prep6 div{border:1.5px solid var(--sky-dark);border-radius:10px;padding:6px;text-align:center;background:#fff}
+.prep6 svg{width:56px;height:56px;display:block;margin:0 auto}
+.prep6 b{font-family:"Source Serif 4",Georgia,serif;color:var(--navy);font-size:16px}
+.sw{display:inline-block;width:16px;height:16px;border-radius:4px;vertical-align:-3px;margin-right:8px}
+table.fsw td.q{width:20%;font-weight:700}
+.hero svg.pk{width:150px}
+@media (max-width:660px){.rainbowrow{grid-template-columns:repeat(4,1fr)}.prep6{grid-template-columns:repeat(3,1fr)}}
+@media print{#s9,#s5{break-inside:auto}}
+</style>
+</head>
+<body>
+
+<div class="toolbar"><div class="in">
+  <img src="data:image/png;base64,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" alt="Approach logo"><span class="bt">APPROACH</span>
+  <button type="button" id="ansBtn">Show answers</button>
+  <button type="button" id="blankBtn">Print blank</button>
+  <button type="button" class="gold" id="printBtn">Print my answers</button>
+  <button type="button" id="copyBtn">Copy answers</button>
+  <button type="button" id="clearBtn">Clear</button>
+</div></div>
+
+<div class="hero"><div class="in">
+  <h1>How Does a Rainbow Form?</h1>
+  <p>Current Issues · Basic Level · Week 4 · Class 2 · Places and times: where and when</p>
+  <div class="meta"><label for="name">Name:</label><input type="text" id="name" data-label="Name" placeholder="Write your name"><label for="date">Date:</label><input type="text" id="date" data-label="Date" style="max-width:150px"></div>
+  <div class="saved">Your answers save automatically on this device.</div>
+</div>
+<svg class="pk" viewBox="0 0 140 90" aria-hidden="true"><g fill="none" stroke-width="7"><path d="M10 85a60 60 0 0 1 120 0" stroke="#e5484d"/><path d="M17 85a53 53 0 0 1 106 0" stroke="#f08c2e"/><path d="M24 85a46 46 0 0 1 92 0" stroke="#f5c94a"/><path d="M31 85a39 39 0 0 1 78 0" stroke="#4caf50"/><path d="M38 85a32 32 0 0 1 64 0" stroke="#3b82f6"/><path d="M45 85a25 25 0 0 1 50 0" stroke="#4b3fb3"/><path d="M52 85a18 18 0 0 1 36 0" stroke="#8e5bd1"/></g></svg>
+</div>
+
+<nav class="jump"><div class="in">
+  <a href="#s1" class="mv">1 Human rainbow</a><a href="#s2">2 Words</a><a href="#s3">3 Read</a><a href="#s4" class="mv">4 Where to stand</a><a href="#s5" class="mv">5 Act it out</a><a href="#s6">6 True/False</a><a href="#s7">7 Where is it?</a><a href="#s8">8 When?</a><a href="#s9" class="mv">9 Color hunt</a><a href="#s10">10 Write</a><a href="#s11">11 Exit</a>
+</div></nav>
+
+<main>
+
+<!-- 1 HUMAN RAINBOW -->
+<section class="card move" id="s1">
+  <div class="sh"><div class="num">1</div><h2>Human Rainbow</h2><span class="tag mv">Move</span></div>
+  <div class="movebox"><b>Take a color card.</b> Don't show it! Walk around and ask: <i>“What color do you have?”</i> Find the other person with your color. Then the class makes a <b>rainbow</b>: stand in the correct order from <b>red</b> to <b>violet</b>.</div>
+  <div class="frame">What color do you have? · I have <b>___</b>. · I think red is <b>first</b>. · Orange is <b>next to</b> red. · Green is <b>between</b> yellow and blue.</div>
+  <p class="inst">Now write the 7 colors in order.</p>
+  <div class="rainbowrow" id="rb"></div>
+  <button type="button" class="check" data-check="rb">Check</button><span class="score" id="sc-rb"></span>
+  <p class="inst" style="margin-top:12px"><b>Talk:</b> What does a rainbow mean in your country or culture?</p>
+  <input type="text" style="width:100%" data-label="Rainbow meaning in my culture" placeholder="In my country, a rainbow means…">
+</section>
+
+<!-- 2 WORDS -->
+<section class="card" id="s2">
+  <div class="sh"><div class="num">2</div><h2>Words You Need</h2><span class="tag">Vocabulary</span></div>
+  <div class="vgrid" id="vgrid"></div>
+  <p class="inst">Choose the correct word or phrase.</p>
+  <div id="kw"></div>
+  <button type="button" class="check" data-check="kw">Check</button><span class="score" id="sc-kw"></span>
+</section>
+
+<!-- 3 READ -->
+<section class="card" id="s3">
+  <div class="sh"><div class="num">3</div><h2>Read and Listen</h2><span class="tag">Reading</span></div>
+  <a class="link" href="https://eslnewsstories.com/explainers/how-does-a-rainbow-form/" target="_blank" rel="noopener">Open the text: How Does a Rainbow Form?</a>
+  <p class="inst"><b>Before you read:</b> How do you think a rainbow forms? Guess!</p>
+  <input type="text" style="width:100%;margin-bottom:12px" data-label="Guess" placeholder="I think a rainbow forms when…">
+  <p class="inst"><b>First reading.</b> What is the text mainly about? Choose one.</p>
+  <div class="opts" id="main">
+    <label><input type="radio" name="main" value="a" data-label="Main idea"> a) Why rainbows only happen in the summer.</label>
+    <label><input type="radio" name="main" value="b" data-label="Main idea"> b) How sunlight and raindrops make the colors of a rainbow.</label>
+    <label><input type="radio" name="main" value="c" data-label="Main idea"> c) How to walk to the end of a rainbow.</label>
+  </div>
+  <button type="button" class="check" data-check="main">Check</button><span class="score" id="sc-main"></span>
+</section>
+
+<!-- 4 WHERE TO STAND -->
+<section class="card move" id="s4">
+  <div class="sh"><div class="num">4</div><h2>Where Should You Stand?</h2><span class="tag mv">Move</span></div>
+  <div class="movebox">Your teacher puts a <b>SUN</b> sign on one wall and a <b>RAIN</b> sign on the other wall. <b>Stand where you can see a rainbow!</b> Then your teacher moves the signs. Move again! Explain your place to a partner.</div>
+  <div class="frame">The sun is <b>behind</b> me. · The rain is <b>in front of</b> me. · I am <b>between</b> the sun and the rain.</div>
+  <div class="map"><svg viewBox="0 0 760 230" role="img" aria-label="A person stands between the sun behind them and the rain in front of them; the rainbow is in the sky in front">
+    <rect width="760" height="230" fill="#eaf3fb"/>
+    <rect y="186" width="760" height="44" fill="#cfe3b8"/>
+    <circle cx="80" cy="70" r="38" fill="#f5c94a"/><g stroke="#f5c94a" stroke-width="5" stroke-linecap="round"><path d="M80 14v-10M80 136v-10M24 70h-10M146 70h-10M40 30l-7-7M120 110l7 7M120 30l7-7M40 110l-7 7"/></g>
+    <text x="80" y="160" text-anchor="middle" font-family="Arial" font-size="15" font-weight="700" fill="#8c7535">SUN</text>
+    <g transform="translate(330,118)"><circle cx="0" cy="-10" r="12" fill="#143865"/><path d="M0 2v40M0 42l-12 26M0 42l12 26M0 14l-16 14M0 14l16 14" stroke="#143865" stroke-width="5" stroke-linecap="round"/></g>
+    <text x="330" y="208" text-anchor="middle" font-family="Arial" font-size="15" font-weight="700" fill="#143865">YOU</text>
+    <path d="M200 112 h70" stroke="#5a6578" stroke-width="3" marker-end="url(#ar)"/>
+    <defs><marker id="ar" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto"><path d="M0 0L10 5 0 10z" fill="#5a6578"/></marker></defs>
+    <text x="235" y="104" text-anchor="middle" font-family="Arial" font-size="12" fill="#5a6578">sunlight</text>
+    <g fill="none" stroke-width="7" opacity=".9"><path d="M440 186a150 150 0 0 1 300 0" stroke="#e5484d"/><path d="M452 186a138 138 0 0 1 276 0" stroke="#f08c2e"/><path d="M464 186a126 126 0 0 1 252 0" stroke="#f5c94a"/><path d="M476 186a114 114 0 0 1 228 0" stroke="#4caf50"/><path d="M488 186a102 102 0 0 1 204 0" stroke="#3b82f6"/><path d="M500 186a90 90 0 0 1 180 0" stroke="#4b3fb3"/><path d="M512 186a78 78 0 0 1 156 0" stroke="#8e5bd1"/></g>
+    <ellipse cx="600" cy="34" rx="110" ry="26" fill="#7c8696"/><g stroke="#3b82f6" stroke-width="3" stroke-linecap="round"><path d="M530 64l-6 14M560 70l-6 14M590 64l-6 14M620 70l-6 14M650 64l-6 14M680 70l-6 14M545 96l-6 14M605 98l-6 14M665 96l-6 14"/></g>
+    <text x="600" y="38" text-anchor="middle" font-family="Arial" font-size="15" font-weight="700" fill="#fff">RAIN</text>
+  </svg></div>
+  <p class="inst">Look at the picture. Choose the correct words.</p>
+  <div id="pos"></div>
+  <button type="button" class="check" data-check="pos">Check</button><span class="score" id="sc-pos"></span>
+</section>
+
+<!-- 5 ACT IT OUT -->
+<section class="card move" id="s5">
+  <div class="sh"><div class="num">5</div><h2>Be the Light! Act It Out</h2><span class="tag mv">Move</span></div>
+  <div class="movebox"><b>Groups of 4–5.</b> One student is the <b>raindrop</b> (make a big circle with your arms). The others are <b>sunlight</b>. Act out the steps below: walk into the raindrop, bend, turn back, and leave. One student reads each step aloud. Then put the steps in order.</div>
+  <div class="order" id="order"></div>
+  <button type="button" class="check" data-check="order">Check</button><span class="score" id="sc-order"></span>
+  <h3 style="margin:14px 0 4px;font-size:18px">Cause and result: match the two halves</h3>
+  <div id="cause"></div>
+  <button type="button" class="check" data-check="cause">Check</button><span class="score" id="sc-cause"></span>
+</section>
+
+<!-- 6 TRUE FALSE -->
+<section class="card" id="s6">
+  <div class="sh"><div class="num">6</div><h2>True or False?</h2><span class="tag">Reading</span></div>
+  <p class="inst">Choose True or False. If it is false, write the correct sentence. <b>Option:</b> play “Run to the Wall” again!</p>
+  <div id="tf"></div>
+  <button type="button" class="check" data-check="tf">Check</button><span class="score" id="sc-tf"></span>
+</section>
+
+<!-- 7 PLACE PREPOSITIONS -->
+<section class="card" id="s7">
+  <div class="sh"><div class="num">7</div><h2>Where Is It? Prepositions of Place</h2><span class="tag">Language</span></div>
+  <div class="prep6" id="prep6"></div>
+  <p class="inst">Complete the sentences.</p>
+  <div id="pp"></div>
+  <button type="button" class="check" data-check="pp">Check</button><span class="score" id="sc-pp"></span>
+</section>
+
+<!-- 8 WHEN -->
+<section class="card" id="s8">
+  <div class="sh"><div class="num">8</div><h2>When? Times and Chunks</h2><span class="tag">Language</span></div>
+  <p class="inst">Match each chunk from the text with its meaning.</p>
+  <div id="chunks"></div>
+  <button type="button" class="check" data-check="chunks">Check</button><span class="score" id="sc-chunks"></span>
+  <h3 style="margin:14px 0 4px;font-size:18px">in · on · at (time)</h3>
+  <div id="iot"></div>
+  <button type="button" class="check" data-check="iot">Check</button><span class="score" id="sc-iot"></span>
+</section>
+
+<!-- 9 COLOR HUNT -->
+<section class="card move" id="s9">
+  <div class="sh"><div class="num">9</div><h2>Classroom Color Hunt</h2><span class="tag mv">Move</span></div>
+  <div class="movebox"><b>Pairs. You have 5 minutes.</b> Walk around the classroom. Find something for each rainbow color. Write <b>what</b> it is and <b>where</b> it is. Use a different preposition each time! Then read 3 sentences to another pair — they must find the things.</div>
+  <div class="frame">There is a <b>red</b> bag <b>under</b> the table. · There are <b>blue</b> pens <b>next to</b> the computer.</div>
+  <table class="fsw" id="hunt"><tr><th>Color</th><th>What is it?</th><th>Where is it?</th></tr></table>
+</section>
+
+<!-- 10 WRITE -->
+<section class="card" id="s10">
+  <div class="sh"><div class="num">10</div><h2>Write: My Rainbow Memory</h2><span class="tag a">Writing</span></div>
+  <p class="inst">Think of a time you saw a rainbow (or a beautiful sky). Write <b>5–6 sentences</b>. Say <b>when</b>, <b>where</b>, <b>who</b> was with you, and <b>what</b> you saw.</p>
+  <div class="model">
+    Last year, <b>in</b> June, I saw a big rainbow <b>in</b> Medellín, Colombia. It was <b>in</b> the late afternoon, <b>at</b> about 5:00. I was <b>at</b> the park with my sister. The sun was <b>behind</b> us, and the rain was <b>in front of</b> us. We could see <b>all seven colors</b>! We took photos, <b>but</b> the rainbow moved when we walked.
+  </div>
+  <div class="frames" style="background:var(--sky-light);border-radius:10px;padding:10px 14px;font-size:15px;margin-bottom:10px">When? <b>in</b> + month/year · <b>on</b> + day/date · <b>at</b> + time &nbsp;·&nbsp; Where? <b>in</b> + city/country · <b>at</b> + the park/home/school &nbsp;·&nbsp; behind · in front of · above</div>
+  <textarea id="para" data-label="My rainbow memory" placeholder="Write here…" style="min-height:140px"></textarea>
+  <div class="counter" id="paraCount">0 words · 0 sentences</div>
+  <div class="checks" style="margin-top:8px">
+    <label><input type="checkbox" data-label="Checklist: when"> I said <b>when</b> (in / on / at + time).</label>
+    <label><input type="checkbox" data-label="Checklist: where"> I said <b>where</b> (in + city / at + place).</label>
+    <label><input type="checkbox" data-label="Checklist: place words"> I used <b>behind / in front of / above</b>.</label>
+    <label><input type="checkbox" data-label="Checklist: number"> I used a <b>number</b> (a time, a year, seven colors…).</label>
+  </div>
+</section>
+
+<!-- 11 EXIT -->
+<section class="card" id="s11">
+  <div class="sh"><div class="num">11</div><h2>Exit Ticket</h2><span class="tag a">Reflect</span></div>
+  <div class="row"><span class="n">1.</span><div class="ln" style="width:100%"><span>Where should the sun be? The rain?</span><input type="text" style="flex:1;min-width:200px" data-label="Exit: sun and rain"></div></div>
+  <div class="row"><span class="n">2.</span><div class="ln" style="width:100%"><span>One sentence with <b>behind</b> or <b>in front of</b>:</span><input type="text" style="flex:1;min-width:200px" data-label="Exit: place sentence"></div></div>
+  <div class="row"><span class="n">3.</span><div class="ln" style="width:100%"><span>Favorite activity today:</span><input type="text" style="flex:1;min-width:200px" data-label="Exit: favorite activity"></div></div>
+  <p class="inst" style="margin-top:10px">How do you feel about today?</p>
+  <div class="faces">
+    <label><input type="radio" name="feel" value="I need help" data-label="Exit: feeling">I need help</label>
+    <label><input type="radio" name="feel" value="OK" data-label="Exit: feeling">OK</label>
+    <label><input type="radio" name="feel" value="Good" data-label="Exit: feeling">Good</label>
+    <label><input type="radio" name="feel" value="Great" data-label="Exit: feeling">Great!</label>
+  </div>
+</section>
+
+<section class="card" id="answers">
+  <div class="sh"><div class="num">&#10003;</div><h2>Answer Key</h2><span class="tag">Teacher</span></div>
+  <p><b>1. Rainbow order:</b> red · orange · yellow · green · blue · indigo · violet</p>
+  <p><b>2. Words:</b> 1 sunlight · 2 raindrop · 3 appear · 4 bend · 5 spread apart · 6 at the same time · 7 low in the sky · 8 in front of</p>
+  <p><b>3. Main idea:</b> b</p>
+  <p><b>4. Picture:</b> 1 behind · 2 in front of · 3 between · 4 in front of · 5 above</p>
+  <p><b>5. Steps:</b> 1 Rain and sunlight happen at the same time. · 2 Sunlight goes into a raindrop and bends. · 3 Each color bends a little differently, so the colors spread apart. · 4 Some light turns back inside the raindrop. · 5 The light bends again when it leaves the raindrop. · 6 Colored light from many raindrops reaches your eyes.</p>
+  <p><b>Cause and result:</b> 1 c · 2 a · 3 d · 4 b</p>
+  <p><b>6. True / False:</b> 1 F (it looks white, but it has many colors) · 2 T · 3 F (each color bends a little differently) · 4 F (easier when the sun is low: morning or late afternoon) · 5 F (you can't walk up to a rainbow) · 6 T</p>
+  <p><b>7. Where is it?</b> 1 above · 2 behind · 3 in front of · 4 under · 5 between · 6 next to</p>
+  <p><b>8. Chunks:</b> at the same time = together · in front of you = on the side you are looking at · turns back = goes back the other way · low in the sky = not high, near the ground</p>
+  <p><b>in · on · at:</b> 1 in · 2 in · 3 at · 4 on · 5 in · 6 at</p>
+  <p class="credit">Text: “How Does a Rainbow Form?” ESL News Stories (eslnewsstories.com). Activities written for Approach Current Issues.</p>
+</section>
+
+<p class="credit">Activities written for Approach Current Issues · Basic Level. Text from ESL News Stories (eslnewsstories.com).</p>
+</main>
+<div class="toast" id="toast"></div>
+<script>
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const el=(t,a={},h="")=>{const e=document.createElement(t);for(const k in a)e.setAttribute(k,a[k]);if(h)e.innerHTML=h;return e;};
+function toast(m){const t=$("#toast");t.textContent=m;t.classList.add("show");setTimeout(()=>t.classList.remove("show"),2000);}
+function selRow(box,i,pre,post,opts,ans,label){
+  const r=el("div",{class:"row"}); r.append(el("span",{class:"n"},(i+1)+"."));
+  const ln=el("div",{class:"ln"}); if(pre) ln.append(el("span",{},pre));
+  const s=el("select",{"data-label":label,"data-ans":ans}); s.append(el("option",{value:""},"— choose —")); opts.forEach(o=>s.append(el("option",{value:o},o)));
+  ln.append(s); if(post) ln.append(el("span",{},post)); r.append(ln); box.append(r); return s;
+}
+
+/* 1 rainbow order */
+const COLORS=[["red","#e5484d"],["orange","#f08c2e"],["yellow","#f5c94a"],["green","#4caf50"],["blue","#3b82f6"],["indigo","#4b3fb3"],["violet","#8e5bd1"]];
+const cOpts=COLORS.map(c=>c[0]).slice().sort();
+COLORS.forEach((c,i)=>{ const d=el("div",{class:"rbcell"}); d.append(el("span",{class:"rbn"},String(i+1)));
+  const s=el("select",{"data-label":"Rainbow color "+(i+1),"data-ans":c[0],"aria-label":"color "+(i+1)}); s.append(el("option",{value:""},"—")); cOpts.forEach(o=>s.append(el("option",{value:o},o)));
+  s.addEventListener("change",()=>{ const f=COLORS.find(x=>x[0]===s.value); d.style.borderTopColor=f?f[1]:"#c1cddd"; });
+  d.append(s); $("#rb").append(d); });
+
+/* 2 words */
+const IC={
+ "sunlight":'<svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="12" fill="#f5c94a"/><g stroke="#f5c94a" stroke-width="4" stroke-linecap="round"><path d="M32 6v8M32 50v8M6 32h8M50 32h8M13 13l6 6M45 45l6 6M51 13l-6 6M19 45l-6 6"/></g></svg>',
+ "raindrop":'<svg viewBox="0 0 64 64"><path d="M32 6C24 22 16 30 16 40a16 16 0 0 0 32 0c0-10-8-18-16-34z" fill="#3b82f6"/><path d="M24 40a8 8 0 0 0 6 8" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/></svg>',
+ "appear":'<svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="8" fill="#d39f10"/><circle cx="32" cy="32" r="16" fill="none" stroke="#d39f10" stroke-width="2" stroke-dasharray="4 4"/><circle cx="32" cy="32" r="25" fill="none" stroke="#d39f10" stroke-width="2" stroke-dasharray="3 6" opacity=".6"/></svg>',
+ "bend":'<svg viewBox="0 0 64 64"><rect x="30" y="8" width="28" height="48" rx="6" fill="#cfe3f7"/><path d="M4 18 L32 30 L56 52" stroke="#e07a1f" stroke-width="4" fill="none" stroke-linecap="round"/></svg>',
+ "spread apart":'<svg viewBox="0 0 64 64"><path d="M6 32 L28 32" stroke="#9aa6b8" stroke-width="4"/><g stroke-width="4" stroke-linecap="round"><path d="M28 32 L58 12" stroke="#e5484d"/><path d="M28 32 L58 32" stroke="#4caf50"/><path d="M28 32 L58 52" stroke="#8e5bd1"/></g></svg>',
+ "at the same time":'<svg viewBox="0 0 64 64"><circle cx="20" cy="22" r="10" fill="#f5c94a"/><ellipse cx="42" cy="22" rx="16" ry="9" fill="#7c8696"/><g stroke="#3b82f6" stroke-width="3" stroke-linecap="round"><path d="M34 36l-3 8M42 36l-3 8M50 36l-3 8"/></g><path d="M8 56h48" stroke="#5a6578" stroke-width="2"/></svg>',
+ "low in the sky":'<svg viewBox="0 0 64 64"><path d="M4 48h56" stroke="#5a6578" stroke-width="3"/><circle cx="46" cy="42" r="9" fill="#f08c2e"/><path d="M16 14v22" stroke="#9aa6b8" stroke-width="2" stroke-dasharray="3 3"/></svg>',
+ "in front of":'<svg viewBox="0 0 64 64"><rect x="20" y="10" width="30" height="34" rx="3" fill="#c1cddd"/><circle cx="26" cy="38" r="8" fill="#143865"/><path d="M26 46v12" stroke="#143865" stroke-width="4"/></svg>'
+};
+const DEF={"sunlight":"light from the sun","raindrop":"one small drop of rain","appear":"to start to be seen","bend":"to change from a straight line","spread apart":"to move away from each other","at the same time":"together; not one after the other","low in the sky":"near the ground, not high","in front of you":"on the side you are looking at"};
+Object.keys(IC).forEach(w=>$("#vgrid").append(el("div",{class:"vcard"},`${IC[w]}<b>${w}</b><span>${DEF[w]||DEF["in front of you"]}</span>`)));
+const KW=[
+ ["The "," is very strong today. Wear sunglasses!","sunlight"],
+ ["A "," fell on my nose.","raindrop"],
+ ["Stars "," in the sky at night.","appear"],
+ ["Light can "," when it goes into water.","bend"],
+ ["After class, the students "," and went home.","spread apart"],
+ ["It was sunny and rainy ",". I saw a rainbow!","at the same time"],
+ ["In the evening, the sun is ",".","low in the sky"],
+ ["Please stand "," the camera for the photo.","in front of"]
+];
+const kwOpts=Object.keys(IC).slice().sort();
+KW.forEach((k,i)=>selRow($("#kw"),i,k[0],k[1],kwOpts,k[2],"Words "+(i+1)));
+
+/* 4 picture positions */
+const POS=[["The sun is "," the person.","behind"],["The rain is "," the person.","in front of"],["The person is "," the sun and the rain.","between"],["The rainbow is "," the person.","in front of"],["The clouds are "," the rainbow.","above"]];
+const pOpts=["above","behind","between","in front of","next to","under"];
+POS.forEach((p,i)=>selRow($("#pos"),i,p[0],p[1],pOpts,p[2],"Picture "+(i+1)));
+
+/* 5 steps + cause */
+const ST=[
+ ["The light bends again when it leaves the raindrop.",5],
+ ["Rain and sunlight happen at the same time.",1],
+ ["Colored light from many raindrops reaches your eyes.",6],
+ ["Sunlight goes into a raindrop and bends.",2],
+ ["Some light turns back inside the raindrop.",4],
+ ["Each color bends a little differently, so the colors spread apart.",3]
+];
+ST.forEach((e,i)=>{ const r=el("div",{class:"row"}); const s=el("select",{"data-label":"Step: "+e[0],"data-ans":String(e[1]),"aria-label":"step number"}); s.append(el("option",{value:""},"#")); [1,2,3,4,5,6].forEach(n=>s.append(el("option",{value:String(n)},String(n)))); r.append(s); r.append(el("span",{},e[0])); $("#order").append(r); });
+const CA=[["When light goes into a raindrop,","c"],["The colors bend a little differently,","a"],["You can't walk up to a rainbow","d"],["Rainbows are easier to see in the morning","b"]];
+const CAopts=["a) so they spread apart.","b) because the sun is low in the sky.","c) it bends.","d) because it moves when you move."];
+CA.forEach((c,i)=>{ const s=selRow($("#cause"),i,c[0]+" ","",CAopts,CAopts.find(o=>o.startsWith(c[1])),"Cause and result "+(i+1)); });
+
+/* 6 tf */
+const TF=[["Sunlight has only one color.",false],["To see a rainbow, the sun should be behind you.",true],["Each color bends in exactly the same way.",false],["Rainbows are easier to see at noon, when the sun is high.",false],["You can walk to the end of a rainbow.",false],["A rainbow seems to move when you move.",true]];
+TF.forEach((t,i)=>{ const d=el("div",{class:"tf"}); d.append(el("div",{},`${i+1}. ${t[0]}`)); const b=el("div",{class:"tfb","data-ans":t[1]?"T":"F"});
+  ["T","F"].forEach(v=>{ const l=el("label"); l.append(el("input",{type:"radio",name:"tf"+i,value:v,"data-label":"True/False "+(i+1)}),document.createTextNode(v==="T"?"True":"False")); b.append(l); });
+  b.append(el("input",{type:"text",placeholder:"If false, write the correct sentence…","data-label":"True/False "+(i+1)+" correction"})); d.append(b); $("#tf").append(d); });
+
+/* 7 prepositions */
+const P6=[
+ ["above",'<rect x="14" y="40" width="36" height="20" rx="3" fill="#c1cddd"/><circle cx="32" cy="20" r="9" fill="#e07a1f"/>'],
+ ["under",'<rect x="14" y="14" width="36" height="8" rx="2" fill="#8c7535"/><path d="M18 22v28M46 22v28" stroke="#8c7535" stroke-width="4"/><circle cx="32" cy="44" r="8" fill="#e07a1f"/>'],
+ ["behind",'<circle cx="38" cy="26" r="11" fill="#e07a1f"/><rect x="12" y="24" width="34" height="34" rx="3" fill="#c1cddd"/>'],
+ ["in front of",'<rect x="20" y="10" width="34" height="34" rx="3" fill="#c1cddd"/><circle cx="28" cy="44" r="11" fill="#e07a1f"/>'],
+ ["next to",'<rect x="8" y="22" width="26" height="30" rx="3" fill="#c1cddd"/><circle cx="46" cy="40" r="11" fill="#e07a1f"/>'],
+ ["between",'<rect x="4" y="22" width="16" height="30" rx="3" fill="#c1cddd"/><rect x="44" y="22" width="16" height="30" rx="3" fill="#c1cddd"/><circle cx="32" cy="40" r="10" fill="#e07a1f"/>']
+];
+P6.forEach(p=>$("#prep6").append(el("div",{},`<svg viewBox="0 0 64 64">${p[1]}</svg><b>${p[0]}</b>`)));
+const PP=[["A rainbow appears "," the hills.","above"],["To see a rainbow, the sun must be "," you.","behind"],["The rain must be "," you.","in front of"],["We stood "," a tree when it started to rain.","under"],["In a rainbow, green is "," yellow and blue.","between"],["In a rainbow, orange is "," red.","next to"]];
+PP.forEach((p,i)=>selRow($("#pp"),i,p[0],p[1],pOpts,p[2],"Where "+(i+1)));
+
+/* 8 chunks + time */
+const CH=[["at the same time","together"],["in front of you","on the side you are looking at"],["turns back","goes back the other way"],["low in the sky","not high; near the ground"]];
+const chOpts=CH.map(c=>c[1]).slice().sort();
+CH.forEach((c,i)=>selRow($("#chunks"),i,`<b>${c[0]}</b> =`,"",chOpts,c[1],"Chunk: "+c[0]));
+const IOT=[["I saw a rainbow "," the morning.","in"],["Rainbows are easy to see "," the late afternoon.","in"],["The sun is high "," noon.","at"],["It rained "," Sunday.","on"],["It often rains "," April.","in"],["We saw the rainbow "," 5:30.","at"]];
+IOT.forEach((q,i)=>selRow($("#iot"),i,q[0],q[1],["in","on","at"],q[2],"Time in/on/at "+(i+1)));
+
+/* 9 hunt */
+COLORS.forEach((c,i)=>{ const tr=el("tr"); tr.append(el("td",{class:"q"},`<span class="sw" style="background:${c[1]}"></span>${c[0]}`));
+  const a=el("td"); a.append(el("input",{type:"text","data-label":`Color hunt ${c[0]}: what`,"aria-label":"what",placeholder:i===0?"a bag":""})); tr.append(a);
+  const b=el("td"); b.append(el("input",{type:"text","data-label":`Color hunt ${c[0]}: where`,"aria-label":"where",placeholder:i===0?"under the table":""})); tr.append(b);
+  $("#hunt").append(tr); });
+
+/* counter */
+function countPara(){ const t=$("#para").value.trim(); const w=t?t.split(/\s+/).length:0; const s=(t.match(/[.!?](\s|$)/g)||[]).length; $("#paraCount").textContent=`${w} words · ${s} sentence${s===1?"":"s"}${s>=5&&s<=6?" ✓":""}`; }
+$("#para").addEventListener("input",countPara);
+
+/* checking */
+function checkSelects(sel){ let n=0; const all=$$(sel); all.forEach(s=>{ s.classList.remove("good","bad"); if(!s.value) return; const ok=s.value===s.dataset.ans; if(ok)n++; s.classList.add(ok?"good":"bad"); }); return [n,all.length]; }
+const checkers={
+ rb:()=>checkSelects("#rb select"), kw:()=>checkSelects("#kw select"), pos:()=>checkSelects("#pos select"), order:()=>checkSelects("#order select"), cause:()=>checkSelects("#cause select"),
+ pp:()=>checkSelects("#pp select"), chunks:()=>checkSelects("#chunks select"), iot:()=>checkSelects("#iot select"),
+ main:()=>{ const box=$("#main"); box.querySelectorAll("label").forEach(l=>l.classList.remove("good","bad")); const c=box.querySelector("input:checked"); if(!c) return [0,1]; const ok=c.value==="b"; c.parentElement.classList.add(ok?"good":"bad"); return [ok?1:0,1]; },
+ tf:()=>{ let n=0; $$("#tf .tfb").forEach(b=>{ b.querySelectorAll("label").forEach(l=>l.classList.remove("good","bad")); const c=b.querySelector("input:checked"); if(!c) return; const ok=c.value===b.dataset.ans; if(ok)n++; c.parentElement.classList.add(ok?"good":"bad"); }); return [n,TF.length]; }
+};
+$$("[data-check]").forEach(b=>b.onclick=()=>{ const k=b.dataset.check,[n,t]=checkers[k](); $("#sc-"+k).textContent=`${n} / ${t} correct${n===t?" — great!":""}`; });
+document.addEventListener("input",e=>e.target.classList&&e.target.classList.remove("good","bad"));
+document.addEventListener("change",e=>{ if(e.target.tagName==="SELECT") e.target.classList.remove("good","bad"); });
+
+/* save / load */
+const KEY="approach-ci-rainbow-ws";
+const fields=()=>$$("input[data-label],textarea[data-label],select[data-label]");
+const fk=(f,i)=>f.type==="radio"?`r:${f.name}:${f.value}`:(f.id?"id:"+f.id:"k"+i);
+function save(){ const d={}; fields().forEach((f,i)=>{ d[fk(f,i)]=(f.type==="radio"||f.type==="checkbox")?f.checked:f.value; }); try{localStorage.setItem(KEY,JSON.stringify(d));}catch(e){} }
+function load(){ let d={}; try{d=JSON.parse(localStorage.getItem(KEY))||{};}catch(e){} fields().forEach((f,i)=>{ const k=fk(f,i); if(!(k in d))return; if(f.type==="radio"||f.type==="checkbox") f.checked=d[k]; else f.value=d[k]; if(f.tagName==="SELECT") f.dispatchEvent(new Event("change")); }); countPara(); }
+document.addEventListener("input",save); document.addEventListener("change",save);
+load();
+
+/* export + toolbar */
+function exportText(){
+  const out=["CURRENT ISSUES · BASIC LEVEL · WEEK 4 · CLASS 2","How Does a Rainbow Form?",""]; const seen=new Set();
+  fields().forEach(f=>{ const L=f.dataset.label;
+    if(f.type==="radio"){ if(seen.has(f.name))return; seen.add(f.name); const c=document.querySelector(`input[name="${f.name}"]:checked`); out.push(`${L}: ${c?c.value:"—"}`); return; }
+    if(f.type==="checkbox"){ out.push(`${f.checked?"[x]":"[ ]"} ${L.replace("Checklist: ","")}`); return; }
+    out.push(`${L}: ${(f.value||"").trim()||"—"}`); });
+  return out.join("\n");
+}
+$("#ansBtn").onclick=()=>{ const on=document.body.classList.toggle("show-answers"); $("#ansBtn").textContent=on?"Hide answers":"Show answers"; if(on) $("#answers").scrollIntoView({behavior:"smooth"}); };
+$("#printBtn").onclick=()=>{ document.body.classList.remove("print-blank"); window.print(); };
+$("#blankBtn").onclick=()=>{ document.body.classList.add("print-blank"); window.print(); };
+addEventListener("afterprint",()=>document.body.classList.remove("print-blank"));
+$("#copyBtn").onclick=async()=>{ const t=exportText(); try{ await navigator.clipboard.writeText(t); toast("Copied! Paste it on Community."); }catch(e){ const ta=el("textarea"); ta.value=t; document.body.append(ta); ta.select(); try{document.execCommand("copy"); toast("Copied!");}catch(_){ toast("Copy did not work."); } ta.remove(); } };
+$("#clearBtn").onclick=()=>{ if(!confirm("Clear all your answers?")) return; try{localStorage.removeItem(KEY);}catch(e){} location.reload(); };
+</script>
+
+</body>
+
+</html>

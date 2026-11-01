@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rainbow Color Cards and Signs</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#d9dee6;font-family:"Source Sans 3",Arial,sans-serif;color:#1b2433;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.toolbar{position:sticky;top:0;background:#0c2340;color:#fff;padding:10px 16px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;z-index:5}
+.toolbar p{font-size:14px;opacity:.9}
+.toolbar button{background:#d39f10;color:#0c2340;border:0;border-radius:6px;padding:8px 16px;font-weight:700;cursor:pointer}
+.sheet{width:8.5in;height:11in;margin:20px auto;background:#fff;padding:.35in .4in;box-shadow:0 2px 10px rgba(0,0,0,.15);display:flex;flex-direction:column}
+.grid{flex:1;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:repeat(7,1fr)}
+.card{border:1.5px dashed #9aa6b8;display:flex;align-items:center;gap:18px;padding:0 18px}
+.sw{width:1in;height:.9in;border-radius:12px;flex:none}
+.w{font-family:"Source Serif 4",Georgia,serif;font-size:44px;font-weight:700}
+.sign{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:20px;text-align:center;gap:10px}
+.sign .big{font-family:"Source Serif 4",Georgia,serif;font-size:190px;font-weight:700;line-height:1}
+.sign p{font-size:26px;font-weight:600}
+.sun{background:#fff6d6;color:#8c5a00;border:8px solid #f5c94a}
+.rain{background:#e6eefb;color:#143865;border:8px solid #3b82f6}
+.note{font-size:12px;color:#5a6578;margin-top:6px}
+@media print{@page{size:letter;margin:0}body{background:#fff}.toolbar{display:none}.sheet{margin:0;box-shadow:none;page-break-after:always;break-after:page}.sheet:last-child{page-break-after:auto}}
+@media screen and (max-width:8.6in){.sheet{width:100%;height:auto;min-height:0;padding:12px}.grid{grid-template-rows:none}.card{min-height:110px}.sign .big{font-size:100px}.sign{min-height:420px}}
+</style>
+</head>
+<body>
+<div class="toolbar"><p>Page 1: 14 color cards (2 of each color; cut on the dashed lines). Pages 2–3: SUN and RAIN wall signs.</p><button onclick="window.print()">Print</button></div>
+<section class="sheet"><div class="grid" id="g"></div><p class="note">Human Rainbow: give out the cards in mixed order. Students find their color partner, then the class lines up red → violet.</p></section>
+<section class="sheet"><div class="sign sun"><svg width="230" height="230" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="22" fill="#f5c94a"/><g stroke="#f5c94a" stroke-width="6" stroke-linecap="round"><path d="M50 6v12M50 82v12M6 50h12M82 50h12M19 19l8 8M73 73l8 8M81 19l-8 8M27 73l-8 8"/></g></svg><div class="big">SUN</div><p>The sun is behind you.</p></div></section>
+<section class="sheet"><div class="sign rain"><svg width="230" height="200" viewBox="0 0 100 90" aria-hidden="true"><ellipse cx="50" cy="28" rx="40" ry="20" fill="#7c8696"/><g stroke="#3b82f6" stroke-width="5" stroke-linecap="round"><path d="M28 56l-5 12M44 60l-5 12M60 56l-5 12M76 60l-5 12"/></g></svg><div class="big">RAIN</div><p>The rain is in front of you.</p></div></section>
+<script>
+const C=[["red","#e5484d"],["orange","#f08c2e"],["yellow","#f5c94a"],["green","#4caf50"],["blue","#3b82f6"],["indigo","#4b3fb3"],["violet","#8e5bd1"]];
+const order=[3,0,5,2,6,1,4,1,4,0,6,3,2,5];
+document.getElementById("g").innerHTML=order.map(i=>`<div class="card"><div class="sw" style="background:${C[i][1]}"></div><div class="w" style="color:${C[i][1]}">${C[i][0]}</div></div>`).join("");
+</script>
+</body>
+</html>
