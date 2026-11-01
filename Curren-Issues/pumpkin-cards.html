@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pumpkin Story Cards and Signs</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#143865;--deep:#0c2340;--gold-bright:#d39f10;--muted:#5a6578;--pumpkin:#e07a1f;--ok:#1e7a46;--no:#b3261e}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#d9dee6;font-family:"Source Sans 3",Arial,sans-serif;color:#1b2433;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.toolbar{position:sticky;top:0;background:var(--deep);color:#fff;padding:10px 16px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;z-index:5}
+.toolbar p{font-size:14px;opacity:.9}
+.toolbar button{background:var(--gold-bright);color:var(--deep);border:0;border-radius:6px;padding:8px 16px;font-weight:700;cursor:pointer}
+.sheet{width:8.5in;height:11in;margin:20px auto;background:#fff;padding:.4in .45in;box-shadow:0 2px 10px rgba(0,0,0,.15);display:flex;flex-direction:column}
+h1{font-family:"Source Serif 4",Georgia,serif;color:var(--navy);font-size:20px;margin-bottom:2px}
+.sub{font-size:13px;color:var(--muted);margin-bottom:8px}
+.set{display:grid;grid-template-columns:1fr;flex:1}
+.setlab{font-size:12px;font-weight:700;letter-spacing:.1em;color:var(--pumpkin);margin:6px 0 2px}
+.strip{border:1.5px dashed #9aa6b8;padding:0 14px;display:flex;align-items:center;gap:12px;font-size:19px;min-height:.62in}
+.strip .k{font-size:11px;color:#a5adbb;margin-left:auto;white-space:nowrap}
+.strip .dot{width:14px;height:14px;border-radius:50%;background:var(--pumpkin);flex:none}
+.sign{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:20px;color:#fff;text-align:center}
+.sign .w{font-family:"Source Serif 4",Georgia,serif;font-size:200px;font-weight:700;line-height:1}
+.sign p{font-size:28px;font-weight:600;opacity:.9}
+.t{background:var(--ok)} .f{background:var(--no)}
+.note{font-size:12px;color:var(--muted);margin-top:6px}
+@media print{@page{size:letter;margin:0}body{background:#fff}.toolbar{display:none}.sheet{margin:0;box-shadow:none;page-break-after:always;break-after:page}.sheet:last-child{page-break-after:auto}}
+@media screen and (max-width:8.6in){.sheet{width:100%;height:auto;min-height:0;padding:12px}.sign .w{font-size:110px}}
+</style>
+</head>
+<body>
+<div class="toolbar"><p>Page 1: story strips (2 sets, cut on the dashed lines). Pages 2–3: TRUE and FALSE wall signs.</p><button onclick="window.print()">Print</button></div>
+<div id="out"></div>
+<script>
+const EV=[
+ "Because of bad weather, the workers did not inflate the pumpkin.",
+ "The sun came out.",
+ "The owner's father inflated the pumpkin.",
+ "Strong winds came suddenly.",
+ "The pumpkin rolled along a fence, past a church, and down the road.",
+ "Workers stopped it. Now it is tied to two tractors."
+];
+const mix=[4,1,5,0,3,2];
+let h=`<section class="sheet"><h1>Human Story Line · A Giant Pumpkin on the Move</h1><div class="sub">Cut out one set for each group of 6. Mix the strips. The small letter helps you check: the correct order is <b>${[0,1,2,3,4,5].map(i=>"ABCDEF"[mix.indexOf(i)]).join(" · ")}</b>.</div>`;
+["SET 1","SET 2"].forEach(lab=>{
+  h+=`<div class="setlab">${lab}</div><div class="set">`+mix.map(i=>`<div class="strip"><span class="dot"></span><span>${EV[i]}</span><span class="k">${"ABCDEF"[mix.indexOf(i)]}</span></div>`).join("")+`</div>`;
+});
+h+=`<p class="note">14 students? Make 2 groups of 6; the other 2 students are “checkers” who read the story and check each line.</p></section>`;
+h+=`<section class="sheet"><div class="sign t"><div class="w">TRUE</div><p>It's correct.</p></div></section>`;
+h+=`<section class="sheet"><div class="sign f"><div class="w">FALSE</div><p>It's not correct. Fix it!</p></div></section>`;
+document.getElementById("out").innerHTML=h;
+</script>
+</body>
+</html>
