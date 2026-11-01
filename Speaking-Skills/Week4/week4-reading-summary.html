@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Week 4 Reading Summary</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0f2340; --blue:#143865; --blue-2:#1c4f8f; --gold:#8c7535; --gold-2:#d39f10; --red:#a91512;
+    --sky:#c1cddd; --sky-2:#e1e8f2; --sky-3:#edf2f9; --warm:#efe9d9; --paper:#fbf9f3;
+    --ink:#14213a; --soft:#3f4b5e; --muted:#5b6b82; --ok:#1f8a5b; --ok-bg:#e3f4ec; --no-bg:#fbe7e4;
+  }
+  *{box-sizing:border-box}
+  body{margin:0; background:var(--sky-3); color:var(--ink); font-family:Inter, system-ui, sans-serif; font-size:16px; line-height:1.55}
+  .page{max-width:900px; margin:0 auto; padding:20px 16px 60px}
+  .top{background:var(--blue); color:#fff; border-radius:18px; padding:22px 26px; position:relative; overflow:hidden}
+  .top::after{content:""; position:absolute; right:-40px; top:-40px; width:180px; height:180px; border:14px solid var(--gold-2); border-radius:50%; opacity:.25}
+  .school{font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--gold-2); font-weight:700}
+  h1{font-family:Lora, serif; font-size:clamp(28px,4.6vw,40px); margin:4px 0 2px}
+  .top p{margin:0; color:var(--sky)}
+  .tools{display:flex; justify-content:flex-end; gap:8px; margin:12px 0}
+  .btn{font:inherit; font-weight:700; font-size:14px; border-radius:10px; padding:8px 14px; border:2px solid var(--blue); background:#fff; color:var(--blue); cursor:pointer}
+  .btn.gold{background:var(--gold-2); border-color:var(--gold-2); color:var(--ink)}
+
+  section{background:#fff; border:1px solid var(--sky); border-radius:18px; padding:20px 22px; margin-bottom:16px}
+  h2{font-family:Lora, serif; color:var(--blue); font-size:23px; margin:0 0 10px; display:flex; align-items:center; gap:10px}
+  h2 .n{width:34px; height:34px; border-radius:10px; background:var(--navy); color:var(--gold-2); font-size:18px; display:inline-flex; align-items:center; justify-content:center; flex:none}
+  h3{font-size:14px; letter-spacing:.08em; text-transform:uppercase; color:var(--gold); margin:16px 0 6px}
+  p{margin:6px 0}
+  ul{margin:6px 0; padding-left:22px} li{margin:4px 0}
+  .focus{background:#fff3cf; border-radius:4px; padding:0 4px; font-weight:700}
+  .pause{color:var(--gold-2); font-weight:800; padding:0 4px}
+  .compare{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+  .box{border:1px solid var(--sky); border-radius:12px; padding:12px 14px}
+  .box.plain{background:var(--sky-3)}
+  .box.cleft{background:var(--blue); border-color:var(--blue); color:#eef3fa}
+  .box.cleft .focus{background:var(--gold-2); color:var(--ink)}
+  .box small{display:block; font-size:11px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; margin-bottom:4px; color:var(--muted)}
+  .box.cleft small{color:var(--gold-2)}
+  .big{font-family:Lora, serif; font-size:20px}
+
+  .pattern{border:1px solid var(--sky); border-radius:14px; margin:12px 0; overflow:hidden}
+  .pattern .ph{background:var(--paper); padding:10px 14px; display:flex; flex-wrap:wrap; gap:8px 16px; align-items:center; border-bottom:1px solid var(--sky)}
+  .pattern .ph b{font-size:17px; color:var(--blue)}
+  .formula{font-family:ui-monospace, Menlo, Consolas, monospace; font-size:14px; background:#fff; border:1px solid #e6dcbf; border-radius:8px; padding:3px 8px}
+  .pattern .pb{padding:10px 14px}
+  .pattern .use{font-size:14px; color:var(--muted)}
+  .ex{margin:6px 0; padding-left:14px; border-left:4px solid var(--sky)}
+  .ex.talk{border-color:var(--gold-2)}
+  .ex .src{font-size:12px; font-weight:700; color:var(--gold)}
+
+  table{width:100%; border-collapse:collapse; font-size:15px}
+  th{background:var(--blue); color:#fff; text-align:left; padding:8px 10px}
+  td{border-bottom:1px solid var(--sky-2); padding:8px 10px; vertical-align:top}
+  td.bad{background:var(--no-bg)} td.good{background:var(--ok-bg)}
+  .steps{counter-reset:s; list-style:none; padding:0}
+  .steps li{counter-increment:s; position:relative; padding:6px 0 6px 40px}
+  .steps li::before{content:counter(s); position:absolute; left:0; top:5px; width:28px; height:28px; border-radius:8px; background:var(--sky-2); color:var(--blue); font-weight:800; display:flex; align-items:center; justify-content:center; font-size:14px}
+  .tip{background:var(--paper); border-left:5px solid var(--gold-2); border-radius:0 10px 10px 0; padding:10px 14px; margin-top:10px}
+  .b2p{background:#fbf3df; border:1px solid #ecdcae; border-radius:12px; padding:10px 14px; margin-top:10px}
+  .b2p b.t{color:var(--gold)}
+
+  .q{display:grid; grid-template-columns:26px 1fr; gap:8px; padding:8px 0; border-bottom:1px dashed var(--sky)}
+  .q:last-child{border-bottom:none}
+  .q .num{font-weight:800; color:var(--gold)}
+  .q input{width:100%; font:inherit; border:1px solid var(--sky); border-radius:8px; padding:6px 10px; margin-top:4px; background:var(--paper)}
+  .ans{display:none; color:var(--ok); font-weight:600; font-size:14px; margin-top:4px}
+  .show .ans{display:block}
+  footer{text-align:center; color:var(--muted); font-size:12px; margin-top:20px}
+
+  @media (max-width:640px){ .compare{grid-template-columns:1fr} table{font-size:14px} }
+  @media print{
+    @page{margin:12mm}
+    body{background:#fff; font-size:12px}
+    .page{max-width:none; padding:0}
+    .tools{display:none}
+    .top{background:#fff; color:var(--ink); border:2px solid var(--blue); padding:10px 14px}
+    .top::after{display:none} .top p{color:var(--muted)}
+    section{break-inside:avoid; padding:12px 14px; border-color:#999}
+    .box.cleft{background:#fff; color:var(--ink); border:2px solid var(--blue)}
+    .box.cleft small{color:var(--gold)}
+    .q input{border:none; border-bottom:1px solid #777; border-radius:0; background:none}
+    *{-webkit-print-color-adjust:exact; print-color-adjust:exact}
+  }
+</style>
+<style>
+  .kp{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:8px}
+  .kp div{background:var(--sky-3); border:1px solid var(--sky); border-radius:12px; padding:10px 12px; font-size:15px}
+  .kp b{display:block; color:var(--blue)}
+  .use li{margin:6px 0}
+  @media (max-width:640px){ .kp{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+<div class="page">
+<header class="top">
+  <div class="school">Approach International Student Center · TED Talks: Ideas Worth Sharing</div>
+  <h1>Reading Summary · Connection and Story</h1>
+  <p>Week 4 · Chris Anderson, <i>TED Talks: The Official TED Guide to Public Speaking</i> (2016), Ch. 5 + Ch. 6 · for review or if you missed class</p>
+</header>
+<div class="tools"><button class="btn gold" onclick="window.print()">Print / Save PDF</button></div>
+
+<section>
+  <h2><span class="n">5</span>Chapter 5 · Connection: "Make Eye Contact, Right from the Start"</h2>
+  <p><b>The big idea:</b> before your words can work, the audience has to trust you, and they decide very quickly.</p>
+  <ul>
+    <li><b>We judge in seconds.</b> Friend or foe? Likable or not? Confident or tentative? We decide from tiny clues: clothes, walk, face, body language, attention.</li>
+    <li><b>Connect early.</b> It can be simple: walk on confidently, look around, make eye contact with two or three people, and smile. Kelly McGonigal's talk on stress opens with a pause, a little smile, and a look from face to face.</li>
+    <li><b>Why it works.</b> We read trust and feelings in each other's eyes. When two people look at each other, their emotions start to match: "our minds sync."</li>
+    <li><b>Smile, but for real.</b> A natural smile builds trust. People can spot a fake smile, and it makes them feel manipulated.</li>
+    <li><b>TED's number-one advice on the day of the talk:</b> make regular eye contact. Be warm. Be real. Be you.</li>
+    <li><b>Don't rush in.</b> Walk on → pick out a couple of people → look them in the eye, nod, and smile → then begin.</li>
+  </ul>
+</section>
+
+<section>
+  <h2><span class="n">6</span>Chapter 6 · Narration: "The Irresistible Allure of Stories"</h2>
+  <h3>Why stories work</h3>
+  <ul>
+    <li>Stories helped make us who we are. Fire brought people together after dark, and in many cultures, nighttime became storytelling time. (Anthropologist Polly Wiessner: daytime talk was about economics and gossip; at night, most of the time went to stories.)</li>
+    <li>Stories helped people imagine, understand other minds, and learn useful lessons, so they probably shaped how our minds share and receive information.</li>
+    <li>In a talk, stories are easy to follow (one step at a time, like a journey), and we <b>empathize</b> with the characters, so we care about what happens. Our attention is held.</li>
+  </ul>
+  <h3>What makes a great story</h3>
+  <p>The classic formula: a <b>protagonist</b> with a goal → an unexpected <b>obstacle</b> → a crisis → the protagonist tries to overcome it → a <b>climax</b> → a <b>resolution</b>.</p>
+  <div class="kp">
+    <div><b>1 · Character</b>someone your audience can empathize with</div>
+    <div><b>2 · Tension</b>through curiosity, social intrigue, or real danger</div>
+    <div><b>3 · Detail</b>the right level: too little = not vivid; too much = bogged down</div>
+    <div><b>4 · Resolution</b>satisfying: funny, moving, or revealing</div>
+  </div>
+  <h3>Execution: the boat story</h3>
+  <p>Anderson tells the same story twice. The great version has a character we care about, tension that builds, a key line ("Do you trust me, son?"), and a surprise ending. The messy version gives away the father's plan too early, skips the boy's experience, adds useless details (the brand of the boat, the helicopter model), and loses the key line. <b>Know why you're telling the story, and cut what you don't need.</b></p>
+  <h3>Let it mean something</h3>
+  <ul>
+    <li><b>The trap:</b> a personal story can entertain or boost the speaker's ego but give the audience nothing: no insight, perspective, context, or hope. TED often rejects speakers with great anecdotes but no central idea.</li>
+    <li><b>The fix:</b> an artful edit of your journey that links the key moments so others find meaning, told with humility, honesty, and vulnerability.</li>
+    <li><b>It has to be true.</b> Never exaggerate or fabricate.</li>
+    <li><b>Examples:</b> Eleanor Longden (mental illness), Ben Saunders (don't pin your happiness on the future), Andrew Solomon (identity), Sir Ken Robinson (creativity in schools).</li>
+    <li><b>Parables</b> are stories used as metaphors: Lawrence Lessig's "Lesterland" (money in politics), Malcolm Gladwell's spaghetti sauce (people want different things). Don't force-feed the conclusion, but leave enough to connect the dots, and test it on someone who knows your audience.</li>
+  </ul>
+</section>
+
+<section>
+  <h2><span class="n">★</span>Use it in your talk</h2>
+  <ul class="use">
+    <li>☐ Before my first word: pause, eye contact with two or three people, a real smile.</li>
+    <li>☐ My story has a character my audience can care about.</li>
+    <li>☐ There is tension: the audience wants to know what happens next.</li>
+    <li>☐ I kept one or two vivid details and cut the rest.</li>
+    <li>☐ I know my key line, and I say it slowly.</li>
+    <li>☐ The ending is funny, moving, or revealing, and it links to my throughline.</li>
+    <li>☐ It is 100% true.</li>
+  </ul>
+</section>
+
+<footer>Approach International Student Center · TED Talks: Ideas Worth Sharing · Week 4</footer>
+</div>
+</body>
+</html>

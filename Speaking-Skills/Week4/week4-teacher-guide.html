@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Week 4 Teacher Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0f2340; --blue:#143865; --blue-2:#1c4f8f; --gold:#8c7535; --gold-2:#d39f10;
+    --red:#a91512; --sky:#c1cddd; --sky-2:#e1e8f2; --sky-3:#edf2f9; --warm:#efe9d9; --paper:#fbf9f3;
+    --ink:#14213a; --muted:#5b6b82; --ok:#1f8a5b; --ok-bg:#e3f4ec;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0; background:var(--sky-3); color:var(--ink); font-family:Inter, system-ui, sans-serif; font-size:16px; line-height:1.55}
+  a{color:var(--blue-2)}
+  .wrap{max-width:1040px; margin:0 auto; padding:0 16px 64px}
+
+  /* top */
+  .hero{background:var(--navy); color:#fff; padding:34px 0 28px; position:relative; overflow:hidden}
+  .hero::after{content:""; position:absolute; right:-60px; top:-60px; width:240px; height:240px; border:18px solid var(--gold-2); border-radius:50%; opacity:.2}
+  .eyebrow{font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:var(--gold-2); font-weight:800}
+  .hero h1{font-family:Lora, serif; font-size:clamp(30px,5vw,46px); margin:6px 0 4px; line-height:1.1}
+  .hero p{margin:0; color:var(--sky)}
+  .chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:16px}
+  .chip{border:1px solid rgba(255,255,255,.28); border-radius:999px; padding:4px 12px; font-size:13px; color:#fff}
+  .chip b{color:var(--gold-2)}
+
+  /* nav */
+  nav{position:sticky; top:0; z-index:10; background:#fff; border-bottom:1px solid var(--sky); box-shadow:0 4px 14px rgba(20,56,101,.06)}
+  nav .wrap{display:flex; gap:6px; overflow-x:auto; padding-top:10px; padding-bottom:10px; align-items:center}
+  nav a{white-space:nowrap; text-decoration:none; font-weight:700; font-size:13px; color:var(--blue); padding:6px 10px; border-radius:8px}
+  nav a:hover{background:var(--sky-3)}
+  nav .sep{color:var(--sky)}
+  nav button{margin-left:auto; flex:none; font:inherit; font-weight:700; font-size:13px; border:none; background:var(--gold-2); color:var(--ink); padding:7px 14px; border-radius:8px; cursor:pointer}
+
+  h2.sec{font-family:Lora, serif; color:var(--blue); font-size:28px; margin:40px 0 14px; scroll-margin-top:70px}
+  .card{background:#fff; border:1px solid var(--sky); border-radius:16px; padding:22px; margin-bottom:16px}
+  .card h3{margin:0 0 10px; color:var(--blue); font-size:19px}
+  .grid2{display:grid; grid-template-columns:1fr 1fr; gap:16px}
+  .grid3{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
+  ul,ol{margin:6px 0; padding-left:22px}
+  li{margin:3px 0}
+  .muted{color:var(--muted)}
+  .small{font-size:14px}
+
+  table{width:100%; border-collapse:collapse; font-size:15px}
+  th{background:var(--blue); color:#fff; text-align:left; padding:9px 10px; font-weight:700}
+  td{padding:9px 10px; border-bottom:1px solid var(--sky-2); vertical-align:top}
+  tr.brk td{background:var(--warm); font-weight:700}
+  tr.sesh td{background:var(--sky-2); font-weight:800; color:var(--blue); letter-spacing:.04em}
+
+  .banner{display:flex; align-items:center; gap:16px; border-radius:16px; padding:18px 22px; margin:44px 0 16px; color:#fff; scroll-margin-top:70px}
+  .banner.a{background:var(--blue)}
+  .banner.b{background:var(--navy)}
+  .banner .tag{font-family:Lora, serif; font-size:42px; font-weight:700; color:var(--gold-2); line-height:1}
+  .banner h2{margin:0; font-family:Lora, serif; font-size:26px}
+  .banner p{margin:2px 0 0; color:var(--sky); font-size:14px}
+
+  /* activity */
+  .act{background:#fff; border:1px solid var(--sky); border-radius:18px; margin-bottom:20px; overflow:hidden; scroll-margin-top:70px}
+  .act-head{display:flex; flex-wrap:wrap; align-items:center; gap:10px 16px; padding:16px 22px; background:var(--paper); border-bottom:1px solid var(--sky)}
+  .num{width:40px; height:40px; border-radius:50%; background:var(--blue); color:var(--gold-2); display:flex; align-items:center; justify-content:center; font-weight:800; font-size:18px; flex:none}
+  .act-head h3{margin:0; font-family:Lora, serif; font-size:22px; color:var(--blue); flex:1; min-width:200px}
+  .stage{font-size:12px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; padding:4px 10px; border-radius:999px}
+  .st-e{background:#fdf1d2; color:#7a5a00}
+  .st-s{background:var(--sky-2); color:var(--blue)}
+  .st-a{background:var(--ok-bg); color:var(--ok)}
+  .time{font-weight:800; color:var(--blue); background:#fff; border:2px solid var(--blue); border-radius:10px; padding:3px 10px; font-size:14px}
+  .act-body{padding:18px 22px}
+  .meta{display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-bottom:16px}
+  .meta div{background:var(--sky-3); border-radius:10px; padding:10px 12px; font-size:14px}
+  .meta b{display:block; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--gold); margin-bottom:2px}
+  .lbl{font-size:12px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:var(--gold); margin:16px 0 6px}
+  .steps{counter-reset:s; list-style:none; padding:0; margin:0}
+  .steps li{counter-increment:s; position:relative; padding:8px 0 8px 46px; border-bottom:1px dashed var(--sky-2)}
+  .steps li:last-child{border-bottom:none}
+  .steps li::before{content:counter(s); position:absolute; left:0; top:8px; width:30px; height:30px; border-radius:8px; background:var(--sky-2); color:var(--blue); font-weight:800; display:flex; align-items:center; justify-content:center; font-size:14px}
+  .steps .t{display:inline-block; font-size:12px; font-weight:800; color:var(--blue-2); background:var(--sky-3); border-radius:6px; padding:0 6px; margin-right:6px}
+  .say{background:var(--warm); border-left:5px solid var(--gold-2); border-radius:10px; padding:10px 14px; margin:8px 0; font-style:italic}
+  .say::before{content:"Say: "; font-style:normal; font-weight:800; color:var(--gold)}
+  .student{background:var(--sky-3); border-left:5px solid var(--blue-2); border-radius:10px; padding:10px 14px}
+  .diff{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:16px}
+  .diff div{border-radius:12px; padding:12px 14px; font-size:15px}
+  .diff .b2{background:#eef5ff; border:1px solid #cfe0f5}
+  .diff .b2p{background:#fbf3df; border:1px solid #ecdcae}
+  .diff h4{margin:0 0 4px; font-size:13px; letter-spacing:.08em; text-transform:uppercase}
+  .diff .b2 h4{color:var(--blue-2)} .diff .b2p h4{color:var(--gold)}
+  .out{background:var(--ok-bg); border-radius:10px; padding:10px 14px; font-size:15px; margin-top:12px}
+  .out b{color:var(--ok)}
+  .warn{background:#fbe7e4; border-left:5px solid var(--red); border-radius:10px; padding:10px 14px; font-size:15px; margin-top:12px}
+  .warn b{color:var(--red)}
+  .tip{background:#fff8e6; border-left:5px solid var(--gold-2); border-radius:10px; padding:10px 14px; font-size:15px; margin-top:12px}
+  .tip b{color:var(--gold)}
+  .box{border:2px dashed var(--sky); border-radius:12px; padding:12px 16px; margin:8px 0}
+  .key{font-size:14px}
+  .key td{padding:6px 8px}
+  q{quotes:"“" "”"; font-style:italic}
+
+  .check{list-style:none; padding:0}
+  .check li{padding-left:30px; position:relative}
+  .check li::before{content:""; position:absolute; left:0; top:4px; width:16px; height:16px; border:2px solid var(--blue-2); border-radius:4px}
+
+  footer{text-align:center; color:var(--muted); font-size:13px; margin-top:30px}
+
+  @media (max-width:760px){
+    .grid2,.grid3,.meta,.diff{grid-template-columns:1fr}
+  }
+  @media print{
+    @page{margin:12mm}
+    body{background:#fff; font-size:12px}
+    nav{display:none}
+    .hero{background:#fff; color:var(--ink); border:2px solid var(--blue); border-radius:12px; padding:16px}
+    .hero::after{display:none}
+    .hero p,.chip{color:var(--ink)} .chip{border-color:#999}
+    .wrap{max-width:none; padding:0}
+    .act,.card{break-inside:auto; border-color:#999}
+    .act-head{break-after:avoid}
+    .banner{background:#fff !important; color:var(--ink); border:2px solid var(--blue)}
+    .banner p{color:var(--muted)}
+    .banner.b{break-before:page}
+    h2.sec{margin-top:20px}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Approach International Student Center · Teacher Guide</div>
+    <h1>Week 4 · Connection and Story</h1>
+    <p>TED Talks: Ideas Worth Sharing · B2 · B2+ · 6:00–9:40 pm · 200 minutes of instruction + 20-minute break</p>
+    <div class="chips">
+      <span class="chip"><b>Book:</b> Ch. 5 "Make Eye Contact, Right from the Start" + Ch. 6 Narration (to the end of "The Power of Parable")</span>
+      <span class="chip"><b>Talk:</b> Chimamanda Ngozi Adichie, "The danger of a single story" (TEDGlobal 2009, play 0:00–6:26)</span>
+      <span class="chip"><b>Language:</b> Narrative tenses + time phrases</span>
+      <span class="chip"><b>Milestone:</b> Your 2-minute story</span>
+    </div>
+  </div>
+</header>
+
+<nav>
+  <div class="wrap">
+    <a href="#overview">Overview</a><a href="#prep">Prep</a><a href="#timing">Timing</a>
+    <span class="sep">|</span>
+    <a href="#sessionA">Session A</a><a href="#a1">1 Warm-up</a><a href="#a2">2 Vocabulary</a><a href="#a3">3 Stations</a><a href="#a4">4 Watch</a>
+    <span class="sep">|</span>
+    <a href="#sessionB">Session B</a><a href="#b5">5 Tenses</a><a href="#b6">6 Campfire</a><a href="#b7">7 Story</a>
+    <span class="sep">|</span>
+    <a href="#milestone">Milestone</a><a href="#keys">Answer keys</a>
+    <button onclick="window.print()">Print</button>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<h2 class="sec" id="overview">Overview</h2>
+<div class="card" style="border-left:6px solid var(--gold-2)">
+  <h3>The big idea for today</h3>
+  <p style="font-family:Lora,serif; font-size:21px; margin:0; color:var(--blue)">Connect before your first word. Then take the audience on a journey: one true story, with a point.</p>
+  <p class="muted small" style="margin:8px 0 0">Chapter 5 shows how speakers win trust in the first seconds (eye contact and a real smile). Chapter 6 explains why stories work and what makes them great. Adichie models three short personal stories that all serve one throughline. Students leave with a 2-minute story for their own talk, rehearsed with a proper "walk-in."</p>
+</div>
+<div class="grid2">
+  <div class="card">
+    <h3>By the end of class, students can…</h3>
+    <ul>
+      <li>Open with eye contact, a pause, and a natural smile before the first word</li>
+      <li>Explain why stories hold attention and name Anderson's four key things</li>
+      <li>Analyze how Adichie builds her stories (character, tension, detail, resolution, key line)</li>
+      <li>Use the past simple, past continuous, past perfect, <i>would / used to</i>, and time phrases to tell a story</li>
+      <li>Plan, cut, and rehearse a true 2-minute story that links to their throughline</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>Syllabus links</h3>
+    <ul>
+      <li><b>SLO 4</b> Use talk tools: story is the first tool (B2 needs two in the final talk, B2+ three)</li>
+      <li><b>SLO 5</b> Use narrative tenses accurately</li>
+      <li><b>SLO 2</b> Read a book excerpt and apply its advice</li>
+      <li><b>SLO 6</b> Delivery: eye contact and a strong opening</li>
+      <li><b>SLO 7</b> Peer feedback (frames for B2; diplomatic, no frames for B2+)</li>
+    </ul>
+    <p class="small muted" style="margin:10px 0 0"><b>Builds on:</b> Week 3 throughline + outline → <b>leads to:</b> Week 5 persuasive outline, Week 6 midterm pitch.</p>
+  </div>
+</div>
+<div class="card small">
+  <b>Materials:</b> class flow slides (press <b>T</b> for the timer) · First Five Seconds warm-up · vocabulary cards · Quiz, Quiz, Trade fold cards (printed) · Story Station posters A–E (printed, on the walls) · Story Rescue cards · Human Timeline cards (printed, cut) · story prompt cards · Story Scorecard · model story map · narrative tenses study notes · reading summary (optional, homework) · student worksheet (link or printed) · Adichie talk · an LED candle or phone flashlight for the "campfire." Worksheet parts: <b>A</b> warm-up + vocabulary · <b>B</b> reading · <b>C</b> video · <b>D</b> language · <b>E</b> speaking · <b>F</b> milestone + exit ticket.
+</div>
+
+<h2 class="sec" id="prep">Before class</h2>
+<div class="grid2">
+  <div class="card">
+    <h3>Prepare</h3>
+    <ul class="check">
+      <li>Read the Week 3 throughlines and outlines. Note students who will need help finding a story that connects.</li>
+      <li>Print and tape up the five Station posters, far apart (stations file, pages 1–5).</li>
+      <li>Print and cut: Quiz, Quiz, Trade cards (task cards, page 2), Story Rescue cards (4), Human Timeline cards (4 stories × 7), prompt cards (12).</li>
+      <li>Cue the Adichie talk on TED.com. Mark <b>0:00</b>, <b>2:50</b> (Fide), and the stop point <b>6:26</b> ("This single story of Africa ultimately comes…").</li>
+      <li>Clear space for two lines (Cut the Fat) and circles of four (Campfire). Have soft music ready for Quiz, Quiz, Trade.</li>
+      <li>Share the worksheet link; print copies for students who prefer paper.</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>Group sizes</h3>
+    <table class="small">
+      <tr><th>Class size</th><th>Stations</th><th>Human Timeline</th><th>Campfire</th></tr>
+      <tr><td>12</td><td>4 groups of 3</td><td>2 stories (6 + 6; one person holds 2 cards)</td><td>3 circles of 4</td></tr>
+      <tr><td>16</td><td>4 groups of 4</td><td>2–3 stories</td><td>4 circles of 4</td></tr>
+      <tr><td>20+</td><td>5 groups of 4</td><td>3 stories (7 each)</td><td>5 circles of 4</td></tr>
+    </table>
+    <p class="small muted" style="margin:8px 0 0"><b>Sensitivity:</b> students choose what they share. Encourage small, everyday stories; no one has to tell a painful story.</p>
+  </div>
+</div>
+
+<h2 class="sec" id="timing">Timing at a glance</h2>
+<div class="card" style="padding:0; overflow:hidden">
+  <table>
+    <tr><th style="width:7%">#</th><th>Stage</th><th style="width:30%">Activity</th><th style="width:10%">Time</th><th style="width:15%">Clock</th><th style="width:10%">Worksheet</th></tr>
+    <tr class="sesh"><td colspan="6">SESSION A · 6:00–7:40</td></tr>
+    <tr><td>1</td><td>Engage · Warm-up</td><td>The First Five Seconds (mingle)</td><td>15 min</td><td>6:00–6:15</td><td>A1</td></tr>
+    <tr><td>2</td><td>Engage · Vocabulary</td><td>Cards + Quiz, Quiz, Trade + matching</td><td>15 min</td><td>6:15–6:30</td><td>A2–A3</td></tr>
+    <tr><td>3</td><td>Study · Guided reading</td><td>Story Stations + Story Rescue</td><td>40 min</td><td>6:30–7:10</td><td>B1–B3</td></tr>
+    <tr><td>4</td><td>Study · Watch & analyze</td><td>Adichie, three viewings</td><td>30 min</td><td>7:10–7:40</td><td>C1–C6</td></tr>
+    <tr class="brk"><td></td><td colspan="2">Break</td><td>20 min</td><td>7:40–8:00</td><td>—</td></tr>
+    <tr class="sesh"><td colspan="6">SESSION B · 8:00–9:40</td></tr>
+    <tr><td>5</td><td>Study → Activate · Language</td><td>Narrative tenses + Human Timeline</td><td>35 min</td><td>8:00–8:35</td><td>D1–D5</td></tr>
+    <tr><td>6</td><td>Activate · Speaking</td><td>Cut the Fat + Campfire Circles</td><td>35 min</td><td>8:35–9:10</td><td>E1–E3</td></tr>
+    <tr><td>7</td><td>Activate · Build your talk</td><td>Story map + walk-in rehearsal + exit ticket</td><td>30 min</td><td>9:10–9:40</td><td>F</td></tr>
+    <tr><td></td><td colspan="2"><b>Total instruction</b></td><td><b>200 min</b></td><td colspan="2"></td></tr>
+  </table>
+</div>
+
+<div class="banner a" id="sessionA"><span class="tag">A</span><div><h2>Session A · Connect first</h2><p>6:00–7:40 · Warm-up · Vocabulary · Story Stations · Watch & analyze · 100 minutes</p></div></div>
+
+<section class="act" id="a1">
+  <div class="act-head"><span class="num">1</span><h3>The First Five Seconds</h3><span class="stage st-e">Engage</span><span class="time">6:00–6:15</span></div>
+  <div class="act-body">
+    <div class="meta"><div><b>Goal</b>Experience how much eye contact and a real smile change trust, before reading Ch. 5</div><div><b>Interaction</b>Whole class mingle → pairs → whole class</div><div><b>Materials</b>First Five Seconds file (built-in timers) · worksheet A1 · task card 1</div></div>
+    <div class="lbl">Teacher instructions</div>
+    <ol class="steps">
+      <li><span class="t">2 min</span>Everyone stands. Show the first screen.<div class="say">Before a speaker says a word, you have already decided: friend or foe? Confident or tentative? Let's test it.</div></li>
+      <li><span class="t">6 min</span><b>Three mingle rounds</b> (45 sec each + rating). Each round, students greet two people and say "Hi! I have a story for you." Round 1: eyes on their phone. Round 2: eyes over the other person's head. Round 3: stop, two seconds of eye contact, nod, a real smile, then speak. After each round, students show their trust rating with 1–5 fingers and note it in A1.</li>
+      <li><span class="t">3 min</span><b>"Try not to smile."</b> Pairs: A keeps a straight face; B describes the best meal of their life with a big, real smile (30 sec). Swap. It's very hard not to smile back; this is Anderson's "our minds sync."</li>
+      <li><span class="t">4 min</span>Debrief with the four questions. Click <b>Reveal Anderson's advice</b> at the end: walk on and pause → pick out a couple of people → eye contact, nod, smile → then begin.</li>
+    </ol>
+    <div class="out"><b>Expected output:</b> three trust ratings (usually rising sharply in Round 3), a list of first-seconds clues, and a prediction for the reading.</div>
+    <div class="diff"><div class="b2"><h4>B2 support</h4>Model each round yourself first with a volunteer. Write the line on the board.</div><div class="b2p"><h4>B2+ challenge</h4>In the debrief, explain <i>why</i> Round 2 can feel worse than Round 1 (the speaker seems to be looking "through" you).</div></div>
+  </div>
+</section>
+
+<section class="act" id="a2">
+  <div class="act-head"><span class="num">2</span><h3>Words from the Book and the Talk</h3><span class="stage st-e">Engage</span><span class="time">6:15–6:30</span></div>
+  <div class="act-body">
+    <div class="meta"><div><b>Goal</b>Pre-teach 14 words needed for the reading and the video</div><div><b>Interaction</b>Teacher-led → mingle → pairs → individual</div><div><b>Materials</b>Vocabulary cards · Quiz, Quiz, Trade fold cards · worksheet A2–A3</div></div>
+    <ol class="steps">
+      <li><span class="t">5 min</span>Cards: audio, stress, concept check (below). Use "Hide meaning" for 2–3 words.</li>
+      <li><span class="t">5 min</span><b>Quiz, Quiz, Trade</b> (movement). Each student gets a folded card. Find a partner, show the word, partner explains it, check with the back, ask the check question. Swap roles, <b>trade cards</b>, new partner. Play soft music; stop it to end.</li>
+      <li><span class="t">3 min</span>Pairs match (A2), then <i>Check answers</i>.</li>
+      <li><span class="t">2 min</span>Students complete two A3 sentences and share one.</li>
+    </ol>
+    <table class="small" style="margin-top:10px">
+      <tr><th style="width:30%">Word</th><th style="width:22%">Stress</th><th>Concept check</th></tr>
+      <tr><td>tentative</td><td>TEN·ta·tive</td><td>Does a tentative speaker look sure of herself?</td></tr>
+      <tr><td>reel (someone) in</td><td>reel them IN</td><td>If a story reels you in, do you want to stop listening?</td></tr>
+      <tr><td>empathize (with)</td><td>EM·pa·thize</td><td>If you empathize with a character, do you feel what they feel?</td></tr>
+      <tr><td>protagonist</td><td>pro·TAG·o·nist</td><td>Is the protagonist a small, unimportant character?</td></tr>
+      <tr><td>obstacle</td><td>OB·sta·cle</td><td>Does an obstacle help you or stop you?</td></tr>
+      <tr><td>resolution</td><td>res·o·LU·tion</td><td>Is the resolution at the beginning or the end of a story?</td></tr>
+      <tr><td>get bogged down</td><td>get bogged DOWN</td><td>If a story gets bogged down, does it move quickly?</td></tr>
+      <tr><td>impressionable</td><td>im·PRES·sion·a·ble</td><td>Is an impressionable person easy or hard to influence?</td></tr>
+      <tr><td>stir (someone's) imagination</td><td>stir my i·mag·i·NA·tion</td><td>If a book stirs your imagination, is it boring?</td></tr>
+      <tr><td>startled</td><td>STAR·tled</td><td>Did she expect it to happen?</td></tr>
+      <tr><td>occur to (someone)</td><td>oc·CUR</td><td>If it didn't occur to me, did I think about it?</td></tr>
+      <tr><td>patronizing</td><td>PA·tron·iz·ing (PAY-)</td><td>Does a patronizing person treat you as an equal?</td></tr>
+      <tr><td>default position</td><td>de·FAULT po·SI·tion</td><td>Do you choose your default position carefully each time?</td></tr>
+      <tr><td>embrace</td><td>em·BRACE</td><td>If you embrace a change, do you fight it?</td></tr>
+    </table>
+  </div>
+</section>
+
+<section class="act" id="a3">
+  <div class="act-head"><span class="num">3</span><h3>Story Stations + Story Rescue</h3><span class="stage st-s">Study</span><span class="time">6:30–7:10</span></div>
+  <div class="act-body">
+    <div class="meta"><div><b>Goal</b>Understand Ch. 5 (eye contact) and Ch. 6 (narration), then apply the four key things to a bad story</div><div><b>Interaction</b>Pairs → groups rotating around the room → groups perform</div><div><b>Materials</b>Station posters A–E · worksheet B1–B3 · Story Rescue cards · slide timer</div></div>
+    <ol class="steps">
+      <li><span class="t">3 min</span><b>Predict (B1).</b> Show the chapter title "Narration: The Irresistible Allure of Stories." Pairs: why do humans love stories?</li>
+      <li><span class="t">25 min</span><b>Station rotation (B2).</b> Groups of 3–4 start at different letters; 5 minutes per station (slide 6, "Start 5:00"). Roles rotate: Reader, Writer, Timekeeper, Reporter. On the bell, move to the next letter (E → A). Circulate: check groups are discussing, not just copying.</li>
+      <li><span class="t">5 min</span><b>Check.</b> Reporters share one answer per station; show slide 7 (walk-in steps + four key things). Groups press <i>Check stations</i>.</li>
+      <li><span class="t">7 min</span><b>Story Rescue (B3).</b> Each group gets a badly told story card. Plan 3 min (slide 8 timer), then each group tells its rescued story in 45 seconds. The class guesses one thing they cut. Keep it fast and fun.</li>
+    </ol>
+    <div class="out"><b>Expected output:</b> completed station passport (B2), answers checked, 4 rescued stories performed with a key line and a new ending.</div>
+    <div class="diff"><div class="b2"><h4>B2 support</h4>Readers share the paragraphs; use the word-help box first. Give B2-heavy groups Rescue cards 1 or 3 (shorter).</div><div class="b2p"><h4>B2+ challenge</h4>Station E question 3 (parable risks). In Story Rescue, use one past perfect flashback and end without saying the moral directly.</div></div>
+    <p class="small muted" style="margin:8px 0 0"><b>Homework option:</b> the reading summary covers Ch. 5–6 for students who missed class or want to review.</p>
+  </div>
+</section>
+
+<section class="act" id="a4">
+  <div class="act-head"><span class="num">4</span><h3>Watch & Analyze: Adichie</h3><span class="stage st-s">Study</span><span class="time">7:10–7:40</span></div>
+  <div class="act-body">
+    <div class="meta"><div><b>Goal</b>Analyze how a speaker connects and builds short stories around one throughline</div><div><b>Interaction</b>Pairs → individual → groups → class</div><div><b>Materials</b>Adichie talk (0:00–6:26) · worksheet C1–C6 · slides 9–10</div></div>
+    <ol class="steps">
+      <li><span class="t">2 min</span><b>Predict (C1)</b> from the title: what is a "single story"?</li>
+      <li><span class="t">8 min</span><b>Viewing 1 (C2).</b> First 0:00–0:20 with the sound off: what do her eyes and face do? (Link to Station A.) Then play 0:00–6:26 with sound and captions on. Students complete the three-story table and choose the throughline. Pairs compare; check with slide 10.</li>
+      <li><span class="t">5 min</span><b>Viewing 2 (C3).</b> Replay the Fide story, 2:50–4:04. Order the seven parts, then find the four key things and the key line.</li>
+      <li><span class="t">6 min</span><b>Viewing 3 (C4).</b> Replay 1:00–5:00 with captions off. Gap-fill (tenses and time phrases), then check. These sentences feed directly into Step 5.</li>
+      <li><span class="t">6 min</span><b>Groups (C5).</b> Evaluate with Anderson's advice: strongest story, what the stories give us, humor, structure.</li>
+      <li><span class="t">3 min</span><b>Class (C6).</b> Quick round: "Have you ever had a single story about a place, a job, or a group of people?"</li>
+    </ol>
+    <table class="small" style="margin-top:10px">
+      <tr><th style="width:12%">Time</th><th>Part</th><th style="width:34%">Story technique</th></tr>
+      <tr><td>0:00</td><td>"I'm a storyteller…" Throughline preview: "the danger of the single story"</td><td>Says what kind of talk this is: stories</td></tr>
+      <tr><td>0:17</td><td>Story 1: reading British and American books; writing about snow, apples, ginger beer</td><td>Humor + vivid, funny details</td></tr>
+      <tr><td>1:35</td><td>Point: "how impressionable and vulnerable we are in the face of a story"</td><td>States the meaning after the story</td></tr>
+      <tr><td>1:59</td><td>Discovering African writers saved her from "a single story of what books are"</td><td>Resolution of Story 1</td></tr>
+      <tr><td>2:50</td><td>Story 2: Fide, his family's poverty, the basket</td><td>Tension (curiosity) → revealing resolution + key line</td></tr>
+      <tr><td>4:04</td><td>Story 3: her American roommate (English, "tribal music," Mariah Carey, the stove)</td><td>Humor; reverses the roles of Story 2</td></tr>
+      <tr><td>4:41–6:26</td><td>"My roommate had a single story of Africa"; she links it back to how she saw Fide's family</td><td>Links all three stories to one throughline</td></tr>
+    </table>
+    <div class="out"><b>Expected output:</b> table of three single stories, throughline (b), Fide story ordered and labeled, gap-fill checked, evaluation with evidence.</div>
+    <div class="diff"><div class="b2"><h4>B2 support</h4>Captions on for Viewing 1. Frame: "In this story, ___ had a single story about ___. It changed when ___."</div><div class="b2p"><h4>B2+ challenge</h4>C5.4: why three short stories instead of one long one? (Each one shows the throughline from a different angle; in Story 3 she is on the other side.)</div></div>
+  </div>
+</section>
+
+<div class="card" style="text-align:center; background:var(--warm); border-color:#e2d6b4">
+  <p style="margin:0; font-family:Lora,serif; font-size:22px; color:var(--gold)">Break · 7:40–8:00</p>
+  <p class="small muted" style="margin:4px 0 0">Before the break: "Think about your Week 3 throughline. What true moment from your life connects to it?"</p>
+</div>
+
+<div class="banner b" id="sessionB"><span class="tag">B</span><div><h2>Session B · Tell it</h2><p>8:00–9:40 · Narrative tenses · Cut the Fat + Campfire Circles · Your 2-minute story · 100 minutes</p></div></div>
+
+<section class="act" id="b5">
+  <div class="act-head"><span class="num">5</span><h3>Narrative Tenses + Human Timeline</h3><span class="stage st-s">Study → Activate</span><span class="time">8:00–8:35</span></div>
+  <div class="act-body">
+    <div class="meta"><div><b>Goal</b>Use narrative tenses and time phrases to control the order of a story</div><div><b>Interaction</b>Pairs → teacher-led → individual → groups (movement) → pairs</div><div><b>Materials</b>Slides 12–13 · worksheet D1–D5 · study notes · Human Timeline cards</div></div>
+    <ol class="steps">
+      <li><span class="t">6 min</span><b>Notice (D1).</b> Pairs match six sentences from Adichie and Anderson to their jobs.<div class="say">A listener can't reread. Tenses and time phrases tell them when each thing happened.</div></li>
+      <li><span class="t">7 min</span><b>Explain (D2).</b> Use slide 12 and the study notes timeline: past perfect (back story) → past continuous (scene) → past simple (events). Highlight <i>would</i> for habits, <i>was about to</i> for tension. Model the pause after a time phrase and contractions (<i>I'd never…</i>).</li>
+      <li><span class="t">6 min</span><b>Controlled (D3).</b> "Every Conversation Is an Interview": choose the correct forms; check.</li>
+      <li><span class="t">8 min</span><b>Human Timeline (D4, movement).</b> Hand out one card per student (groups of 6–7 per story). Round 1: line up in <i>time</i> order and tell it in the past simple. Round 2: the ★ person steps forward; re-line in <i>story</i> order (★ first, then back in time, then the ending) and say each sentence again with the right tense and a time phrase. Groups then write the story in D4 (finish for homework if needed).</li>
+      <li><span class="t">8 min</span><b>Freer (D5).</b> Students write the first four sentences of their own true story and say them to a partner, pausing after each time phrase.</li>
+    </ol>
+    <div class="out"><b>Expected output:</b> D1 and D3 correct; two Human Timeline retellings; four personal sentences with a time phrase, past continuous, past perfect, and a key event.</div>
+    <div class="diff"><div class="b2"><h4>B2 support</h4>In Round 2, write <i>had + past participle</i> and <i>was + -ing</i> on the board. Allow students to read from the card.</div><div class="b2p"><h4>B2+ challenge</h4>Try the historic present for the ★ moment ("So I'm standing at the desk…") and return to the past for the ending.</div></div>
+    <p class="small muted" style="margin:8px 0 0"><b>Common errors:</b> present perfect with finished time ("I have seen him yesterday") · past perfect for every verb · <i>would</i> for states ("I would live in…") · stative verbs in the continuous ("I was knowing").</p>
+  </div>
+</section>
+
+<section class="act" id="b6">
+  <div class="act-head"><span class="num">6</span><h3>Cut the Fat + Campfire Circles</h3><span class="stage st-a">Activate</span><span class="time">8:35–9:10</span></div>
+  <div class="act-body">
+    <div class="meta"><div><b>Goal</b>Tell a short story three times, cutting it to the essentials, then perform the best version</div><div><b>Interaction</b>Individual → two lines (rotating) → circles of four → class</div><div><b>Materials</b>Prompt cards · Story Scorecard · worksheet E1–E3 · slides 14–15 (timer buttons) · LED candle or phone flashlight</div></div>
+    <ol class="steps">
+      <li><span class="t">5 min</span><b>Plan (E1).</b> Students take a prompt card or use a story for their own talk. Notes only: WHO · TROUBLE · THE MOMENT · THE END · SO WHAT?</li>
+      <li><span class="t">13 min</span><b>Cut the Fat (E2, movement).</b> Two lines facing each other. Before speaking, each teller looks, pauses, and smiles. Round 1: 90 sec each + one comment. One line moves left. Round 2: 75 sec. Move. Round 3: 60 sec. Same story every time; it must get shorter and stronger. Use the slide 14 timer buttons.</li>
+      <li><span class="t">12 min</span><b>Campfire Circles (E3).</b> Dim the lights. Groups of four sit around a "campfire." Each person tells their best 60–75 sec version; listeners score with 1–3 fingers on the Story Scorecard and give one comment. The circle chooses a Campfire Champion.</li>
+      <li><span class="t">5 min</span><b>Champions.</b> Two or three champions tell their story to the whole class. The class says what the point was.</li>
+    </ol>
+    <div class="out"><b>Expected output:</b> each student tells the same story four times; it gets shorter and clearer each time; three pieces of feedback noted in E2.</div>
+    <div class="diff"><div class="b2"><h4>B2 support</h4>Allow the E1 note card in Rounds 1–2. Use the B2 feedback frames on the scorecard.</div><div class="b2p"><h4>B2+ challenge</h4>No notes from Round 2. Give feedback without frames: specific and diplomatic ("I wonder if…", "You might consider…").</div></div>
+  </div>
+</section>
+
+<section class="act" id="b7">
+  <div class="act-head"><span class="num">7</span><h3>Your 2-minute story + Walk-in Rehearsal + Exit Ticket</h3><span class="stage st-a">Activate</span><span class="time">9:10–9:40</span></div>
+  <div class="act-body">
+    <div class="meta"><div><b>Goal</b>Complete the Week 4 milestone: a true 2-minute story that links to the throughline</div><div><b>Interaction</b>Individual → pairs → individual</div><div><b>Materials</b>Worksheet Part F · model story map "The Umbrella" (task card 7) · slides 16–17</div></div>
+    <div class="say">By the end of today, you'll have a true story that your audience will remember, and it will carry your throughline.</div>
+    <ol class="steps">
+      <li><span class="t">5 min</span><b>Story finder (F1).</b> Students copy their Week 3 throughline and list three true moments. Four tests: true? links to the throughline? fits in 2 minutes? gives the audience something?</li>
+      <li><span class="t">10 min</span><b>Story map (F2).</b> Show the model ("The Umbrella"). Students complete their map: where it goes in the outline, character + goal, tension, two vivid details, key line, resolution, point, cut list. Circulate: is the point linked to the throughline?</li>
+      <li><span class="t">10 min</span><b>Walk-in rehearsal (F4).</b> Pairs. The speaker walks to the partner, stops, makes eye contact, nods, smiles, <i>then</i> tells the story (2 min max; slide 17 timer). The partner times it and gives one thing that worked + one thing to cut. Swap.</li>
+      <li><span class="t">5 min</span><b>Exit ticket.</b> Key line · what the story gives · one detail to cut · readiness 1–5.</li>
+    </ol>
+    <div class="out"><b>Expected output:</b> a story map, a timed first telling with a proper walk-in, and an exit ticket from every student. Scripts (F3) are finished for homework.</div>
+    <div class="diff"><div class="b2"><h4>B2 support</h4>Bullet notes, not a script. Use the model's structure directly. 1½–2 minutes is fine.</div><div class="b2p"><h4>B2+ challenge</h4>Full script (about 250–300 words) with a past perfect flashback; end with a line that "lets it mean something" without force-feeding the moral.</div></div>
+  </div>
+</section>
+
+<h2 class="sec" id="milestone">Weekly milestone · Your 2-minute story</h2>
+<div class="grid2">
+  <div class="card"><h3>What students submit</h3><ul><li>Worksheet Part F (story finder, story map, story), due at the <b>start of Week 5</b></li><li>Online: Download answers or Save as PDF · Paper: printed Part F</li><li><b>B2:</b> story map + bullet notes, 1½–2 min · <b>B2+:</b> full script, about 250–300 words, 2 min</li><li>Counts toward <b>weekly milestones (25%)</b></li></ul></div>
+  <div class="card"><h3>Before next class</h3><ul><li>Tell the story out loud three times with a timer, cutting until it fits</li><li>Tell it once to a real person, looking at them before the first word</li><li><b>Why:</b> in Week 5, students build a persuasive outline around their story; in Week 6, it can open the midterm pitch</li></ul></div>
+</div>
+<div class="card small"><b>Assessment link:</b> the story is the student's first <b>talk tool</b> (SLO 4: B2 needs at least two in the final talk, B2+ at least three). Narrative tenses support SLO 5. The walk-in (eye contact before the first word) is part of delivery (SLO 6) and is assessed at the Week 6 midterm pitch and the Week 11 final talk.</div>
+
+<h2 class="sec" id="keys">Answer keys</h2>
+<div class="grid2">
+  <div class="card"><h3>A2 · Vocabulary</h3><table class="key"><tr><td>1 c</td><td>6 l</td><td>11 i</td></tr><tr><td>2 j</td><td>7 m</td><td>12 n</td></tr><tr><td>3 e</td><td>8 k</td><td>13 f</td></tr><tr><td>4 b</td><td>9 a</td><td>14 g</td></tr><tr><td>5 h</td><td>10 d</td><td></td></tr></table></div>
+  <div class="card"><h3>B2 · Station passport</h3><p class="small" style="margin:0"><b>A:</b> walk on and pause (1) → pick out people (2) → eye contact, nod, smile (3) → begin (4). T/F: T, F, T, F.<br><b>B:</b> Day, Day, Night, Night, Night.<br><b>C:</b> goal 1 → obstacle 2 → crisis 3 → tries to overcome 4 → climax 5 → resolution 6. Character, Tension, Detail, Resolution.<br><b>D:</b> Yes, Yes, No, Yes, Yes, No. Key line: "Sure, honey. Downtown Worcester." Rule: know <i>why</i> you're telling it.<br><b>E:</b> Longden d · Saunders a · Solomon c · Robinson b · Lessig e · Gladwell f. T/F: F, F, T.</p></div>
+</div>
+<div class="grid2">
+  <div class="card"><h3>C1 · C2 · C3</h3><p class="small" style="margin:0"><b>C1:</b> b · <b>C2 throughline:</b> b<br><b>C2 table:</b> 1 Adichie as a child · books had to be about foreigners (white, snow, apples, ginger beer) · African writers (Achebe, Camara Laye). 2 Adichie at eight · Fide's family was only poor · visiting the village, the basket his brother made. 3 her American roommate · Africa = catastrophe; pity, no connection · Adichie later understood it came from popular images.<br><b>C3 order:</b> new house boy (1) → "very poor" (2) → yams, rice, clothes (3) → "Finish your food!" (4) → one Saturday, the visit (5) → the basket (6) → "Their poverty was my single story of them." (7)<br><b>Four key things:</b> a child we empathize with · curiosity (what will she find?) · yams, rice, old clothes; the patterned raffia basket · revealing resolution · key line: "Their poverty was my single story of them."</p></div>
+  <div class="card"><h3>C4 · D1 · D3</h3><p class="small" style="margin:0"><b>C4:</b> 1 had · 2 afterwards / afterward · 3 had · 4 become · 5 turned · 6 would · 7 one · 8 had · 9 years · 10 had<br><b>D1:</b> 1 c · 2 f · 3 a · 4 e · 5 b · 6 d<br><b>D3:</b> 1 went · 2 was waiting · 3 told · 4 would · 5 had never shared · 6 was about to · 7 opened · 8 had decided</p></div>
+</div>
+<div class="card"><h3>D4 · Human Timeline: model answer (Story A, story order)</h3><p class="small" style="margin:0">I finally reached the check-in desk, put my hand in my jacket pocket, and… nothing. My passport wasn't there. <b>Months earlier</b>, I <b>had booked</b> a cheap flight to visit my grandmother. <b>The night before</b>, I <b>had put</b> my passport in my jacket pocket. That morning, I <b>had taken</b> a taxi to the airport at 5 a.m., and I <b>had been waiting</b> in a long line for almost an hour. <b>Just then</b>, a woman behind me tapped me on the shoulder and held up a passport. Mine. It <b>had fallen</b> out while we <b>were waiting</b> in line. <b>Since then</b>, I've sent her a postcard every year.</p>
+  <table class="small" style="margin-top:10px">
+    <tr><th style="width:18%">Story</th><th>Time order (1–7) · ★ = event 5, where the story order starts</th></tr>
+    <tr><td>A · The Passport</td><td>book flight → passport in pocket the night before → taxi at 5 a.m. → waiting in line → ★ no passport at the desk → woman holds up a passport → it fell out in line; postcard every year</td></tr>
+    <tr><td>B · The Wedding Speech</td><td>friend asks for a speech → writes and practices for a month → arrives nervous → guests eating and laughing → ★ notes are a shopping list → tells one true story → bride cries; a true story beats a perfect script</td></tr>
+    <tr><td>C · The Exam</td><td>studies for a year → had never failed an exam → sleeps badly → silent room, clock ticking → ★ can't remember anything → breathes, starts with the easiest question → passes; panic only lasts a minute</td></tr>
+    <tr><td>D · The Dinner Party</td><td>invites new boss → had never cooked for guests → cooks grandmother's chicken all afternoon → guests talking in the living room → ★ smoke; the chicken is black → boss: "Let's order pizza!" → good friends; she tells the story at every office party</td></tr>
+  </table>
+</div>
+
+<footer>Approach International Student Center · TED Talks: Ideas Worth Sharing · Week 4 Teacher Guide</footer>
+</main>
+</body>
+</html>

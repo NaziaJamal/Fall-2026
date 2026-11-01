@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Narrative Tenses Study Notes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0f2340; --blue:#143865; --blue-2:#1c4f8f; --gold:#8c7535; --gold-2:#d39f10; --red:#a91512;
+    --sky:#c1cddd; --sky-2:#e1e8f2; --sky-3:#edf2f9; --warm:#efe9d9; --paper:#fbf9f3;
+    --ink:#14213a; --soft:#3f4b5e; --muted:#5b6b82; --ok:#1f8a5b; --ok-bg:#e3f4ec; --no-bg:#fbe7e4;
+  }
+  *{box-sizing:border-box}
+  body{margin:0; background:var(--sky-3); color:var(--ink); font-family:Inter, system-ui, sans-serif; font-size:16px; line-height:1.55}
+  .page{max-width:900px; margin:0 auto; padding:20px 16px 60px}
+  .top{background:var(--blue); color:#fff; border-radius:18px; padding:22px 26px; position:relative; overflow:hidden}
+  .top::after{content:""; position:absolute; right:-40px; top:-40px; width:180px; height:180px; border:14px solid var(--gold-2); border-radius:50%; opacity:.25}
+  .school{font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--gold-2); font-weight:700}
+  h1{font-family:Lora, serif; font-size:clamp(28px,4.6vw,40px); margin:4px 0 2px}
+  .top p{margin:0; color:var(--sky)}
+  .tools{display:flex; justify-content:flex-end; gap:8px; margin:12px 0}
+  .btn{font:inherit; font-weight:700; font-size:14px; border-radius:10px; padding:8px 14px; border:2px solid var(--blue); background:#fff; color:var(--blue); cursor:pointer}
+  .btn.gold{background:var(--gold-2); border-color:var(--gold-2); color:var(--ink)}
+
+  section{background:#fff; border:1px solid var(--sky); border-radius:18px; padding:20px 22px; margin-bottom:16px}
+  h2{font-family:Lora, serif; color:var(--blue); font-size:23px; margin:0 0 10px; display:flex; align-items:center; gap:10px}
+  h2 .n{width:34px; height:34px; border-radius:10px; background:var(--navy); color:var(--gold-2); font-size:18px; display:inline-flex; align-items:center; justify-content:center; flex:none}
+  h3{font-size:14px; letter-spacing:.08em; text-transform:uppercase; color:var(--gold); margin:16px 0 6px}
+  p{margin:6px 0}
+  ul{margin:6px 0; padding-left:22px} li{margin:4px 0}
+  .focus{background:#fff3cf; border-radius:4px; padding:0 4px; font-weight:700}
+  .pause{color:var(--gold-2); font-weight:800; padding:0 4px}
+  .compare{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+  .box{border:1px solid var(--sky); border-radius:12px; padding:12px 14px}
+  .box.plain{background:var(--sky-3)}
+  .box.cleft{background:var(--blue); border-color:var(--blue); color:#eef3fa}
+  .box.cleft .focus{background:var(--gold-2); color:var(--ink)}
+  .box small{display:block; font-size:11px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; margin-bottom:4px; color:var(--muted)}
+  .box.cleft small{color:var(--gold-2)}
+  .big{font-family:Lora, serif; font-size:20px}
+
+  .pattern{border:1px solid var(--sky); border-radius:14px; margin:12px 0; overflow:hidden}
+  .pattern .ph{background:var(--paper); padding:10px 14px; display:flex; flex-wrap:wrap; gap:8px 16px; align-items:center; border-bottom:1px solid var(--sky)}
+  .pattern .ph b{font-size:17px; color:var(--blue)}
+  .formula{font-family:ui-monospace, Menlo, Consolas, monospace; font-size:14px; background:#fff; border:1px solid #e6dcbf; border-radius:8px; padding:3px 8px}
+  .pattern .pb{padding:10px 14px}
+  .pattern .use{font-size:14px; color:var(--muted)}
+  .ex{margin:6px 0; padding-left:14px; border-left:4px solid var(--sky)}
+  .ex.talk{border-color:var(--gold-2)}
+  .ex .src{font-size:12px; font-weight:700; color:var(--gold)}
+
+  table{width:100%; border-collapse:collapse; font-size:15px}
+  th{background:var(--blue); color:#fff; text-align:left; padding:8px 10px}
+  td{border-bottom:1px solid var(--sky-2); padding:8px 10px; vertical-align:top}
+  td.bad{background:var(--no-bg)} td.good{background:var(--ok-bg)}
+  .steps{counter-reset:s; list-style:none; padding:0}
+  .steps li{counter-increment:s; position:relative; padding:6px 0 6px 40px}
+  .steps li::before{content:counter(s); position:absolute; left:0; top:5px; width:28px; height:28px; border-radius:8px; background:var(--sky-2); color:var(--blue); font-weight:800; display:flex; align-items:center; justify-content:center; font-size:14px}
+  .tip{background:var(--paper); border-left:5px solid var(--gold-2); border-radius:0 10px 10px 0; padding:10px 14px; margin-top:10px}
+  .b2p{background:#fbf3df; border:1px solid #ecdcae; border-radius:12px; padding:10px 14px; margin-top:10px}
+  .b2p b.t{color:var(--gold)}
+
+  .q{display:grid; grid-template-columns:26px 1fr; gap:8px; padding:8px 0; border-bottom:1px dashed var(--sky)}
+  .q:last-child{border-bottom:none}
+  .q .num{font-weight:800; color:var(--gold)}
+  .q input{width:100%; font:inherit; border:1px solid var(--sky); border-radius:8px; padding:6px 10px; margin-top:4px; background:var(--paper)}
+  .ans{display:none; color:var(--ok); font-weight:600; font-size:14px; margin-top:4px}
+  .show .ans{display:block}
+  footer{text-align:center; color:var(--muted); font-size:12px; margin-top:20px}
+
+  @media (max-width:640px){ .compare{grid-template-columns:1fr} table{font-size:14px} }
+  @media print{
+    @page{margin:12mm}
+    body{background:#fff; font-size:12px}
+    .page{max-width:none; padding:0}
+    .tools{display:none}
+    .top{background:#fff; color:var(--ink); border:2px solid var(--blue); padding:10px 14px}
+    .top::after{display:none} .top p{color:var(--muted)}
+    section{break-inside:avoid; padding:12px 14px; border-color:#999}
+    .box.cleft{background:#fff; color:var(--ink); border:2px solid var(--blue)}
+    .box.cleft small{color:var(--gold)}
+    .q input{border:none; border-bottom:1px solid #777; border-radius:0; background:none}
+    *{-webkit-print-color-adjust:exact; print-color-adjust:exact}
+  }
+</style>
+<style>
+  .timeline{position:relative; margin:14px 0 6px; padding:42px 8px 10px}
+  .timeline .axis{position:absolute; left:8px; right:8px; top:64px; height:4px; background:var(--blue); border-radius:2px}
+  .timeline .axis::after{content:""; position:absolute; right:-6px; top:-6px; border:8px solid transparent; border-left:12px solid var(--blue)}
+  .tlrow{display:grid; grid-template-columns:repeat(4,1fr); gap:10px; position:relative}
+  .tlrow div{background:var(--sky-3); border:1px solid var(--sky); border-radius:10px; padding:28px 10px 8px; font-size:13.5px; position:relative}
+  .tlrow div::before{content:""; position:absolute; top:-30px; left:50%; width:14px; height:14px; margin-left:-7px; border-radius:50%; background:var(--gold-2); border:3px solid #fff; box-shadow:0 0 0 2px var(--blue)}
+  .tlrow b{display:block; color:var(--blue); font-size:13px}
+  .tlrow .bg{background:#e3f4ec; border-color:#a9d9bf}
+  .tlrow .pp{background:#fdf1d2; border-color:#ecd28c}
+  .lab{position:absolute; top:6px; font-size:11px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; color:var(--muted)}
+  .lab.l{left:8px} .lab.r{right:8px}
+  .tense-pp{background:#fdf1d2; padding:0 3px; border-radius:3px; font-weight:700}
+  .tense-pc{background:#e3f4ec; padding:0 3px; border-radius:3px; font-weight:700}
+  .tense-ps{background:#e6f0fb; padding:0 3px; border-radius:3px; font-weight:700}
+  .tense-tp{border-bottom:3px solid var(--gold-2); font-weight:700}
+  @media (max-width:640px){ .tlrow{grid-template-columns:1fr 1fr} .timeline .axis{display:none} .tlrow div::before{display:none} .tlrow div{padding-top:8px} }
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="top">
+  <div class="school">Approach International Student Center · TED Talks: Ideas Worth Sharing</div>
+  <h1>Narrative Tenses + Time Phrases · Study Notes</h1>
+  <p>Week 4 · Connection and Story · How to tell a story your audience can follow</p>
+</header>
+
+<div class="tools">
+  <button class="btn" id="toggle">Show answers</button>
+  <button class="btn gold" onclick="window.print()">Print / Save PDF</button>
+</div>
+
+<section>
+  <h2><span class="n">1</span>Why tenses matter in a story</h2>
+  <p>A listener can't go back and reread. Tenses and time phrases tell them <b>when</b> each thing happened, so they can follow your story in their head. Good storytellers don't always tell events in time order. They often start at an exciting moment, then go <b>back in time</b> to explain.</p>
+  <div class="timeline">
+    <span class="lab l">earlier</span><span class="lab r">later</span>
+    <div class="axis"></div>
+    <div class="tlrow">
+      <div class="pp"><b>Past perfect</b>the back story<br><i>I had never taken a bus at night.</i></div>
+      <div class="bg"><b>Past continuous</b>the scene<br><i>I was standing in the rain…</i></div>
+      <div><b>Past simple</b>the main events<br><i>…when the bus drove past me.</i></div>
+      <div><b>Present / present perfect</b>the link to now<br><i>Since then, we have had coffee every Sunday.</i></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2><span class="n">2</span>The story toolkit</h2>
+
+  <div class="pattern"><div class="ph"><b>Past simple</b><span class="formula">verb + -ed / irregular</span><span class="use">the main events, the "spine" of the story</span></div>
+    <div class="pb"><div class="ex talk"><span class="src">Adichie</span><br>Then one Saturday, we <span class="tense-ps">went</span> to his village to visit, and his mother <span class="tense-ps">showed</span> us a beautifully patterned basket.</div>
+    <p class="use">Keep the main events in the past simple and in order. This is the line your audience follows.</p></div></div>
+
+  <div class="pattern"><div class="ph"><b>Past continuous</b><span class="formula">was / were + verb-ing</span><span class="use">the scene; an action in progress when something happened</span></div>
+    <div class="pb"><div class="ex">I <span class="tense-pc">was waiting</span> outside the office when a man <span class="tense-ps">sat down</span> next to me.</div>
+    <div class="ex">The rain <span class="tense-pc">was coming down</span>, and everyone <span class="tense-pc">was running</span> for cover.</div>
+    <p class="use">Use it to "paint the background," then interrupt it with a past simple event: <b>was …ing + when + past simple</b>.</p></div></div>
+
+  <div class="pattern"><div class="ph"><b>Past perfect</b><span class="formula">had + past participle</span><span class="use">a flashback; something earlier than the main story; a first time</span></div>
+    <div class="pb"><div class="ex talk"><span class="src">Adichie</span><br>I <span class="tense-pp">had never been</span> outside Nigeria. · It <span class="tense-pp">had not occurred</span> to me that anybody in his family could actually make something. · She <span class="tense-pp">had felt</span> sorry for me even before she saw me.</div>
+    <div class="ex talk"><span class="src">Anderson's boat story</span><br>It turned out that Dad knew the boat was going to sink, and he <span class="tense-pp">had called</span> them with our exact location.</div>
+    <p class="use">Perfect for <b>surprises and realizations</b>: the audience learns about an earlier action at the moment you want. Don't use it for every verb, only when you go back in time.</p></div></div>
+
+  <div class="pattern"><div class="ph"><b>would / used to</b><span class="formula">would + verb · used to + verb</span><span class="use">repeated habits in the past</span></div>
+    <div class="pb"><div class="ex talk"><span class="src">Adichie</span><br>When I didn't finish my dinner, my mother <span class="tense-ps">would say</span>, "Finish your food!"</div>
+    <div class="ex">Every summer, we <span class="tense-ps">used to</span> visit my grandmother by the sea.</div>
+    <p class="use"><b>used to</b> also works for past states (<i>I used to live in Cairo</i>). <b>would</b> does not (<i>✗ I would live in Cairo</i>).</p></div></div>
+
+  <div class="pattern"><div class="ph"><b>was going to / was about to</b><span class="formula">was going to + verb · was about to + verb</span><span class="use">a plan or a prediction, seen from the past</span></div>
+    <div class="pb"><div class="ex talk"><span class="src">Anderson's boat story</span><br>Dad knew the boat <span class="tense-ps">was going to</span> sink.</div>
+    <div class="ex">I <span class="tense-ps">was about to</span> give up when my phone rang.</div>
+    <p class="use">Great for tension: something <i>almost</i> happened.</p></div></div>
+</section>
+
+<section>
+  <h2><span class="n">3</span>Time phrases: the signposts of a story</h2>
+  <table>
+    <tr><th style="width:26%">Job</th><th>Time phrases</th></tr>
+    <tr><td><b>Set the scene</b></td><td>Two years ago, … · When I was eight, … · <span class="tense-tp">The year I turned eight</span>, … · Back in 2019, … · My first week in Boston, …</td></tr>
+    <tr><td><b>Move forward</b></td><td>Then … · <span class="tense-tp">One Saturday</span>, … · The next morning, … · After a while, … · Fifteen minutes later, …</td></tr>
+    <tr><td><b>The surprise</b></td><td>Suddenly, … · At that moment, … · Just as I was …, … · That's when …</td></tr>
+    <tr><td><b>Jump in time</b></td><td><span class="tense-tp">Years later</span>, … · By the time I was 19, … · Looking back, …</td></tr>
+    <tr><td><b>Go back in time</b></td><td>The night before, I had … · Until that day, I had never … · Earlier that week, …</td></tr>
+    <tr><td><b>End + link to now</b></td><td>In the end, … · Eventually, … · Since then, … · Today, … · And that's how I learned …</td></tr>
+  </table>
+</section>
+
+<section>
+  <h2><span class="n">4</span>Say it like a storyteller</h2>
+  <ol class="steps">
+    <li><b>Pause after a time phrase.</b> "Then one Saturday <span class="pause">|</span> we went to his village." The pause tells the audience: something new is coming.</li>
+    <li><b>Use contractions.</b> In speech, say <i>I'd never seen…</i>, <i>she'd already left</i>, <i>we were about to…</i>. It sounds natural, not written.</li>
+    <li><b>Slow down for the key line.</b> Say it clearly, then pause. "Do you trust me, son?" <span class="pause">|</span></li>
+    <li><b>Show, don't list.</b> One vivid detail ("my shoes were full of water") is better than five facts (the date, the bus number, the price).</li>
+    <li><b>Look up at the moment that matters.</b> Make eye contact before your first word, and again at the key line.</li>
+  </ol>
+  <div class="b2p"><b class="t">B2+ · The historic present.</b> Some storytellers switch to the present tense at the most exciting moment to make it feel live: <i>"So I'm standing at the bus stop. The bus is coming. I raise my hand… and it drives right past me."</i> Use it for one scene only, then return to the past.</div>
+</section>
+
+<section>
+  <h2><span class="n">5</span>Common errors</h2>
+  <table>
+    <tr><th>✗ Don't say</th><th>✓ Say</th><th>Why</th></tr>
+    <tr><td class="bad">I <b>have seen</b> him yesterday.</td><td class="good">I <b>saw</b> him yesterday.</td><td>Finished time (<i>yesterday, in 2019</i>) needs the past simple.</td></tr>
+    <tr><td class="bad">When I arrived, the party <b>finished</b>. <i>(= it ended before)</i></td><td class="good">When I arrived, the party <b>had finished</b>.</td><td>The past perfect shows it happened <i>earlier</i>.</td></tr>
+    <tr><td class="bad">I had woken up, I had showered, and I had taken the bus…</td><td class="good">I woke up, showered, and took the bus…</td><td>Events in order = past simple. Save the past perfect for flashbacks.</td></tr>
+    <tr><td class="bad">I <b>was knowing</b> the answer.</td><td class="good">I <b>knew</b> the answer.</td><td><i>know, want, believe, need</i> are not usually continuous.</td></tr>
+    <tr><td class="bad">When I was child, I <b>would live</b> in a small town.</td><td class="good">When I was <b>a</b> child, I <b>used to live</b> in a small town.</td><td><i>would</i> is for repeated actions, not states.</td></tr>
+  </table>
+</section>
+
+<section id="check">
+  <h2><span class="n">6</span>Check yourself</h2>
+  <p>Write the correct form of the verb. Press <b>Show answers</b> at the top when you finish.</p>
+  <div class="q"><span class="num">1</span><div>I (walk) _____ home when I heard someone call my name.<input aria-label="1"><div class="ans">was walking</div></div></div>
+  <div class="q"><span class="num">2</span><div>She was nervous because she (never / speak) _____ in public before.<input aria-label="2"><div class="ans">had never spoken</div></div></div>
+  <div class="q"><span class="num">3</span><div>Every Friday, my grandfather (tell) _____ us stories about the war. <i>(habit)</i><input aria-label="3"><div class="ans">would tell / used to tell</div></div></div>
+  <div class="q"><span class="num">4</span><div>We (leave) _____ the house when the phone rang. <i>(almost)</i><input aria-label="4"><div class="ans">were about to leave</div></div></div>
+  <div class="q"><span class="num">5</span><div>By the time the ambulance arrived, the man (already / stand up) _____.<input aria-label="5"><div class="ans">had already stood up</div></div></div>
+  <div class="q"><span class="num">6</span><div>Add a time phrase: "_____, I finally understood what my father meant."<input aria-label="6"><div class="ans">Years later, / Looking back, / In the end,</div></div></div>
+  <div class="q"><span class="num">7</span><div><b>Your turn:</b> write the first sentence of your own story with a time phrase and the past continuous.<input aria-label="Your turn"><div class="ans">Check: Does it start with a time phrase? Does it set the scene (was …ing)?</div></div></div>
+</section>
+
+<footer>Approach International Student Center · TED Talks: Ideas Worth Sharing · Week 4</footer>
+</div>
+<script>
+document.getElementById("toggle").onclick = e => {
+  const on = document.getElementById("check").classList.toggle("show");
+  e.target.textContent = on ? "Hide answers" : "Show answers";
+};
+</script>
+</body>
+</html>

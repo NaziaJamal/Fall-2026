@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Week 4 Task Cards</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0f2340; --blue:#143865; --blue-2:#1c4f8f; --gold:#8c7535; --gold-2:#d39f10; --red:#a91512; --green:#1f6b48; --purple:#5a3d8a;
+    --sky:#c1cddd; --sky-2:#e1e8f2; --sky-3:#edf2f9; --warm:#efe9d9; --paper:#fbf9f3;
+    --ink:#14213a; --soft:#3f4b5e; --muted:#5b6b82;
+  }
+  *{box-sizing:border-box}
+  body{margin:0; background:#dfe5ee; color:var(--ink); font-family:Inter, system-ui, sans-serif; line-height:1.5}
+  .bar{position:sticky; top:0; z-index:5; display:flex; flex-wrap:wrap; gap:6px; align-items:center; justify-content:center; background:var(--navy); color:#fff; padding:10px 16px}
+  .bar b{font-family:Lora, serif; color:var(--gold-2); margin-right:auto}
+  .bar a{color:#fff; text-decoration:none; font-weight:700; font-size:13px; border:1px solid rgba(255,255,255,.3); border-radius:8px; padding:5px 9px}
+  .bar button{font:inherit; font-weight:800; border:none; border-radius:8px; padding:7px 14px; background:var(--gold-2); color:var(--ink); cursor:pointer}
+
+  .sheet{width:8.5in; min-height:11in; margin:20px auto; background:#fff; padding:.45in .5in; box-shadow:0 6px 24px rgba(0,0,0,.12)}
+  .sh{display:flex; align-items:center; gap:14px; margin-bottom:12px}
+  .tn{width:54px; height:54px; border-radius:14px; background:var(--navy); color:var(--gold-2); font-family:Lora, serif; font-weight:700; font-size:22px; display:flex; align-items:center; justify-content:center; flex:none}
+  .sh h1{margin:0; font-family:Lora, serif; color:var(--blue); font-size:26px; line-height:1.15}
+  .sh p{margin:2px 0 0; color:var(--muted); font-size:13px; font-weight:600}
+  .chip{display:inline-block; font-size:11px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; border-radius:999px; padding:3px 9px; background:#e3f4ec; color:var(--green); margin-left:6px; vertical-align:middle}
+  h2{font-family:Lora, serif; color:var(--blue); font-size:19px; margin:14px 0 6px}
+  p, li{font-size:15px}
+  ol, ul{margin:4px 0 10px; padding-left:22px}
+  li{margin-bottom:5px}
+  .box{border:2px solid var(--sky); border-radius:14px; padding:12px 16px; margin-bottom:12px}
+  .box.gold{border-color:var(--gold-2); background:#fffaf0}
+  .box.blue{border-color:var(--blue); background:var(--sky-3)}
+  .say{font-family:Lora, serif; font-style:italic; color:var(--blue)}
+
+  .grid2{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+  .grid3{display:grid; grid-template-columns:repeat(3,1fr); gap:10px}
+  .card{border:2px dashed #9aa7b8; border-radius:14px; padding:12px 14px; position:relative; break-inside:avoid; background:#fff}
+  .card h3{margin:0 0 6px; font-family:Lora, serif; color:var(--red); font-size:18px}
+  .card p{font-size:14px; margin:0 0 6px}
+  .card .fix{font-size:12.5px; color:var(--muted); border-top:1px solid var(--sky-2); padding-top:6px; margin-top:6px}
+
+  /* timeline cards */
+  .tl{display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin-bottom:10px}
+  .tc{border:2px solid var(--c); border-radius:12px; min-height:1.3in; padding:10px 10px; display:flex; flex-direction:column; justify-content:space-between; break-inside:avoid; position:relative}
+  .tc .st{font-size:10.5px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; color:var(--c)}
+  .tc .ev{font-family:Lora, serif; font-size:16.5px; line-height:1.3; color:var(--ink)}
+  .tc.star{background:#fff8e6}
+  .tc.star::after{content:"★ START HERE in story order"; font-size:10.5px; font-weight:800; color:#b27d00; letter-spacing:.04em}
+  .sA{--c:var(--blue)} .sB{--c:#b27d00} .sC{--c:var(--green)} .sD{--c:var(--red)}
+  .tlblock{break-inside:avoid; page-break-inside:avoid}
+  .tl-title{font-weight:800; color:var(--c); margin:10px 0 6px; font-size:15px}
+
+  /* prompt cards */
+  .pc{border:2px dashed #9aa7b8; border-radius:14px; min-height:2.05in; padding:14px; display:flex; flex-direction:column; justify-content:center; text-align:center; break-inside:avoid}
+  .pc small{font-size:10px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:var(--gold)}
+  .pc b{font-family:Lora, serif; font-size:18.5px; line-height:1.3; color:var(--blue); margin-top:6px}
+
+  table{width:100%; border-collapse:collapse; font-size:14px}
+  th{background:var(--blue); color:#fff; text-align:left; padding:7px 9px}
+  td{border-bottom:1px solid var(--sky-2); padding:8px 9px; vertical-align:top}
+  .fingers{white-space:nowrap; font-weight:700; color:var(--blue)}
+
+  /* Quiz-Quiz-Trade fold cards */
+  .qqt{display:grid; grid-template-columns:1fr 1fr; gap:10px}
+  .fold{border:2px solid var(--blue); border-radius:12px; overflow:hidden; break-inside:avoid; display:flex; flex-direction:column}
+  .fold .top{padding:10px 12px; text-align:center; background:var(--sky-3); min-height:.9in; display:flex; flex-direction:column; justify-content:center}
+  .fold .top b{font-family:Lora, serif; font-size:21px; color:var(--blue)}
+  .fold .top span{font-size:12px; color:var(--gold); font-weight:700}
+  .fold .line{border-top:2px dashed #9aa7b8; font-size:9.5px; text-align:center; color:#9aa7b8; letter-spacing:.1em; text-transform:uppercase; padding:1px 0}
+  .fold .bot{padding:8px 12px; font-size:12.5px; min-height:.9in}
+  .fold .bot p{font-size:12.5px; margin:0 0 3px}
+  .fold .bot .q{color:var(--red); font-weight:700}
+
+  /* model */
+  .model td{padding:5px 9px; font-size:13.5px}
+  .model td:first-child{width:24%; font-weight:700; color:var(--blue)}
+  .script{font-family:Lora, serif; font-size:14.5px; line-height:1.55; background:var(--paper); border:1px solid #e6dcbf; border-radius:12px; padding:12px 16px}
+  .script p{font-size:14.5px; margin:0 0 6px}
+  .pp{background:#e6f0fb; border-bottom:2px solid var(--blue-2); padding:0 2px}
+  .pc2{background:#e3f4ec; border-bottom:2px solid var(--green); padding:0 2px}
+  .tp{background:#fdf1d2; border-bottom:2px solid var(--gold-2); padding:0 2px}
+  .key{color:var(--red); font-weight:700}
+  .legend span{font-size:12px; margin-right:10px}
+
+  @media print{
+    @page{size:letter; margin:0}
+    body{background:#fff}
+    .bar{display:none}
+    .sheet{margin:0; box-shadow:none; break-after:page}
+    *{-webkit-print-color-adjust:exact; print-color-adjust:exact}
+  }
+  @media screen and (max-width:900px){
+    .sheet{width:auto; min-height:0; margin:12px; padding:18px}
+    .grid2, .grid3, .qqt{grid-template-columns:1fr}
+    .tl{grid-template-columns:1fr 1fr}
+  }
+</style>
+</head>
+<body>
+<div class="bar">
+  <b>Week 4 · Task cards</b>
+  <a href="#t1">1 Warm-up</a><a href="#t2">2 Vocab cards</a><a href="#t3">3 Stations</a><a href="#t4">4 Story Rescue</a><a href="#t5">5 Human Timeline</a><a href="#t6">6 Campfire</a><a href="#t7">7 Story map</a>
+  <button onclick="window.print()">Print</button>
+</div>
+
+<!-- ============ T1 WARM-UP ============ -->
+<section class="sheet" id="t1">
+  <div class="sh"><div class="tn">1</div><div><h1>The First Five Seconds <span class="chip">Movement</span></h1><p>Step 1 · Warm-up · 15 min · Worksheet A1</p></div></div>
+  <div class="box blue">
+    <p style="margin:0">Stand up. Walk around the room. In each round, greet <b>two</b> people and say:</p>
+    <p class="say" style="font-size:22px;margin:6px 0 0">"Hi! I have a story for you."</p>
+  </div>
+  <div class="grid3">
+    <div class="box"><h2 style="margin-top:0">Round 1</h2><p><b>Eyes on your phone.</b> Look at your phone or the floor while you greet.</p><p>Then rate: how much did you trust them? (1–5)</p></div>
+    <div class="box"><h2 style="margin-top:0">Round 2</h2><p><b>Eyes over their head.</b> Look just above their head, at the wall behind them.</p><p>Rate again (1–5).</p></div>
+    <div class="box"><h2 style="margin-top:0">Round 3</h2><p><b>The Connector.</b> Stop. Two seconds of eye contact. Nod. A <i>real</i> smile. Then speak.</p><p>Rate again (1–5).</p></div>
+  </div>
+  <div class="box gold">
+    <h2 style="margin-top:0">Round 4 · The "Try not to smile" challenge (pairs)</h2>
+    <ul>
+      <li><b>Partner A</b> keeps a straight face. No smiling!</li>
+      <li><b>Partner B</b> has 30 seconds to describe the best meal of their life, with a big, real smile and lots of eye contact.</li>
+      <li>Swap. Who smiled first?</li>
+    </ul>
+  </div>
+  <h2>Talk about it</h2>
+  <ol>
+    <li>In which round did you trust the other person most? Why?</li>
+    <li>What did you notice about the other person in the first five seconds?</li>
+    <li>Why was it so hard <i>not</i> to smile?</li>
+    <li>Predict: what will Chris Anderson tell speakers to do <b>before</b> their first sentence?</li>
+  </ol>
+</section>
+
+<!-- ============ T2 QUIZ QUIZ TRADE ============ -->
+<section class="sheet" id="t2">
+  <div class="sh"><div class="tn">2</div><div><h1>Quiz, Quiz, Trade cards <span class="chip">Movement</span></h1><p>Step 2 · Vocabulary · Cut out. Fold on the dotted line so the word is on the front.</p></div></div>
+  <p style="margin-top:0"><b>How to play:</b> Find a partner. Show your word. Your partner explains it or uses it in a sentence. Check with the back, then ask the question on the back. Swap roles. <b>Trade cards</b>, and find a new partner. Keep going until the music stops.</p>
+  <div class="qqt" id="qqt"></div>
+</section>
+
+<!-- ============ T3 STATIONS ============ -->
+<section class="sheet" id="t3">
+  <div class="sh"><div class="tn">3</div><div><h1>Story Stations <span class="chip">Movement</span></h1><p>Step 3 · Guided Reading · 25 min · Worksheet B2</p></div></div>
+  <div class="box blue">
+    <p style="margin:0">There are <b>five posters</b> around the room (A–E). Your group spends <b>5 minutes</b> at each station. When the timer rings, move to the next letter. After E, go to A.</p>
+  </div>
+  <h2>Group roles: change roles at every station</h2>
+  <table>
+    <tr><th style="width:22%">Role</th><th>Job</th></tr>
+    <tr><td><b>Reader</b></td><td>Reads the poster aloud (or shares the paragraphs with the group).</td></tr>
+    <tr><td><b>Writer</b></td><td>Writes the group's answers in Worksheet B2.</td></tr>
+    <tr><td><b>Timekeeper</b></td><td>Watches the timer. Says "Two minutes left!"</td></tr>
+    <tr><td><b>Reporter</b></td><td>Shares one answer with the class at the end.</td></tr>
+  </table>
+  <h2>The five stations</h2>
+  <ul>
+    <li><b>A · Eye Contact, Right from the Start</b>: why the first seconds matter</li>
+    <li><b>B · Around the Campfire</b>: why humans love stories</li>
+    <li><b>C · The Story Formula + Four Key Things</b>: what makes a story work</li>
+    <li><b>D · Two Ways to Tell It</b>: a great version and a messy version</li>
+    <li><b>E · Let It Mean Something</b>: personal stories, truth, and parables</li>
+  </ul>
+  <div class="box gold"><b>Useful language:</b> <span class="say">"Let's read it together." · "What does ___ mean?" · "I think the answer is ___ because ___." · "Let's move on; we have one minute."</span></div>
+</section>
+
+<!-- ============ T4 STORY RESCUE ============ -->
+<section class="sheet" id="t4">
+  <div class="sh"><div class="tn">4</div><div><h1>Story Rescue</h1><p>Step 3 · after the stations · 7 min · Worksheet B3 · one card per group</p></div></div>
+  <div class="box blue"><p style="margin:0"><b>Rescue it!</b> 3 minutes to plan, then tell it in <b>45 seconds</b>. ① Don't give away the point at the start. ② Cut three details we don't need. ③ Add one feeling and one thing we can see or hear. ④ Find a key line (something someone said). ⑤ End with a funny, moving, or revealing line. You can change small facts, but keep it believable.</p></div>
+  <div class="grid2">
+    <div class="card"><h3>1 · The Driving Test</h3><p>This story is about never giving up. I took my driving test three times. The first time was on March 3, 2021, at the test center on Elm Street. The car was a gray 2015 Toyota Corolla, and the examiner was about 55 years old. I failed because of parking. The second time, I failed because of a stop sign. The third time, I passed. My instructor's name was Mr. Kim, and he charged $60 an hour. So I learned never to give up.</p></div>
+    <div class="card"><h3>2 · The Lost Dog</h3><p>I learned that neighbors are important when my dog got lost and a neighbor found him. My dog is a three-year-old beagle mix named Max. He weighs 25 pounds, and we adopted him from a shelter in 2020. One day in July, he ran out of the gate because the lock was broken. It was a cheap lock from a hardware store. We looked for him for six hours. Then a neighbor I had never talked to found him. Now we talk.</p></div>
+    <div class="card"><h3>3 · The First Class</h3><p>My first English class in the US was on a Monday at 9:00 a.m. in Room 204. There were 16 students from nine countries. The teacher asked me a question, and I didn't understand it, so I said "Yes." But the question was "What's your name?" Everyone laughed. It was embarrassing. Now my English is better. The lesson is that mistakes are OK.</p></div>
+    <div class="card"><h3>4 · The Wrong Party</h3><p>I learned to always check the address when I went to the wrong party. My friend's party was at 15 Oak Street, but I went to 51 Oak Street. I brought a chocolate cake that I bought at a supermarket for $19.99. The people at 51 were having a party too, for a 70-year-old man. I stayed for an hour before I realized. Then I went to the right party.</p></div>
+  </div>
+</section>
+
+<!-- ============ T5 HUMAN TIMELINE ============ -->
+<section class="sheet" id="t5">
+  <div class="sh"><div class="tn">5</div><div><h1>Human Timeline <span class="chip">Movement</span></h1><p>Step 5 · Language Focus · 8 min · Worksheet D4 · cut out; one card per student</p></div></div>
+  <div class="box blue" style="font-size:14px">
+    <b>Round 1 · Time order.</b> Read your card. Without showing it, find your group and line up in the order the events <i>happened</i>. Tell the story: each person says one sentence in the past simple.<br>
+    <b>Round 2 · Story order.</b> The ★ person steps to the front. Storytellers often start at the most exciting moment. Re-line: ★ first, then go <b>back in time</b>, then the ending. Say your sentence again with the <b>right tense</b> and a <b>time phrase</b> (<i>I had…, I was …ing, The night before, …, Then…</i>).
+  </div>
+  <div id="tlcards"></div>
+</section>
+
+<!-- ============ T6 CAMPFIRE ============ -->
+<section class="sheet" id="t6">
+  <div class="sh"><div class="tn">6</div><div><h1>Cut the Fat + Campfire Circles <span class="chip">Movement</span></h1><p>Step 6 · Speaking · 35 min · Worksheet E</p></div></div>
+  <div class="grid2">
+    <div class="box blue">
+      <h2 style="margin-top:0">Cut the Fat (two lines)</h2>
+      <ol style="margin-bottom:0">
+        <li>Stand in two lines facing a partner.</li>
+        <li><b>Before you speak:</b> look at your partner, pause, smile. Then begin.</li>
+        <li>Round 1: <b>90 sec</b> · Round 2: <b>75 sec</b> · Round 3: <b>60 sec</b>. Same story, a new partner each time (one line moves left).</li>
+        <li>Each round, the listener gives one comment from the scorecard below.</li>
+      </ol>
+    </div>
+    <div class="box gold">
+      <h2 style="margin-top:0">Campfire Circles</h2>
+      <ol style="margin-bottom:0">
+        <li>Groups of 4 sit in a circle around the "fire."</li>
+        <li>Each person tells their best version (60–75 sec).</li>
+        <li>Listeners score with 1–3 fingers for each line of the scorecard.</li>
+        <li>Choose your <b>Campfire Champion</b> to tell the whole class.</li>
+      </ol>
+    </div>
+  </div>
+  <h2>Story Scorecard</h2>
+  <table>
+    <tr><th style="width:22%">Key thing</th><th>Question</th><th style="width:18%">Score</th></tr>
+    <tr><td><b>Connection</b></td><td>Did they look at me and pause before the first word?</td><td class="fingers">1 · 2 · 3</td></tr>
+    <tr><td><b>Character</b></td><td>Did I care about the person in the story?</td><td class="fingers">1 · 2 · 3</td></tr>
+    <tr><td><b>Tension</b></td><td>Did I want to know what happened next?</td><td class="fingers">1 · 2 · 3</td></tr>
+    <tr><td><b>Detail</b></td><td>Could I see it? Not too little, not too much?</td><td class="fingers">1 · 2 · 3</td></tr>
+    <tr><td><b>Resolution + point</b></td><td>Was the ending satisfying? Did the story mean something?</td><td class="fingers">1 · 2 · 3</td></tr>
+  </table>
+  <h2>Feedback frames</h2>
+  <div class="grid2">
+    <div class="box"><b>B2</b><ul style="margin-bottom:0">
+      <li>The detail I can still see is…</li>
+      <li>I felt tension when…</li>
+      <li>The point I took away was…</li>
+      <li>One thing you could cut is…</li>
+      <li>Your first five seconds: you looked at me / you started too fast.</li>
+    </ul></div>
+    <div class="box"><b>B2+</b> · no frames: be specific and diplomatic<ul style="margin-bottom:0">
+      <li>I wonder if the story would be stronger without…</li>
+      <li>You might consider saving ___ until the end.</li>
+      <li>The moment that really landed for me was…</li>
+      <li>I wasn't sure how it connects to your throughline. Could you…?</li>
+    </ul></div>
+  </div>
+</section>
+
+<section class="sheet" id="t6b">
+  <div class="sh"><div class="tn">6</div><div><h1>Story prompt cards</h1><p>Step 6 · Speaking · cut out · students choose one (or use a story for their own talk)</p></div></div>
+  <p style="margin-top:0">Choose a story you are comfortable sharing. Small stories work best.</p>
+  <div class="grid3" id="prompts"></div>
+</section>
+
+<!-- ============ T7 MODEL STORY MAP ============ -->
+<section class="sheet" id="t7">
+  <div class="sh"><div class="tn">7</div><div><h1>Model story map · "The Umbrella"</h1><p>Step 7 · Build Your Talk · Worksheet F · a model for your 2-minute story</p></div></div>
+  <table class="model">
+    <tr><th>Part</th><th>Model</th></tr>
+    <tr><td>Throughline</td><td>Small acts of kindness are what turn a strange city into home. <i>(11 words)</i></td></tr>
+    <tr><td>Where it goes</td><td>Opening / hook: the story starts the talk.</td></tr>
+    <tr><td>Character + goal</td><td>Me, two years ago, new in Boston, trying to get home after work.</td></tr>
+    <tr><td>Tension</td><td>The last bus drives past me in the rain. (Will I get home? Does anyone here see me?)</td></tr>
+    <tr><td>Two vivid details</td><td>My shoes full of water · a big black umbrella</td></tr>
+    <tr><td>Key line</td><td>"Do you want to share?"</td></tr>
+    <tr><td>Resolution</td><td>Walter lives on my street, three houses away. (revealing + a little funny)</td></tr>
+    <tr><td>The point</td><td>A city starts to feel like home when one person shares an umbrella.</td></tr>
+    <tr><td>Cut list</td><td>the bus number · the name of my company · what I ate for dinner</td></tr>
+  </table>
+  <h2>The story (about 2 minutes)</h2>
+  <p class="legend"><span class="tp">time phrase</span><span class="pc2">past continuous</span><span class="pp">past perfect</span><span class="key">key line</span></p>
+  <div class="script">
+    <p><span class="tp">Two years ago</span>, I moved to Boston for a new job. I didn't know anyone, and I <span class="pp">had never taken</span> a city bus at night. <span class="tp">One rainy Friday</span>, I finished work late. It was almost eleven. I <span class="pc2">was standing</span> at the bus stop, and the rain <span class="pc2">was coming down</span> so hard that my shoes were full of water. Then I saw it: my bus. The last bus. I stepped forward and raised my hand. And it drove right past me.</p>
+    <p><i>[pause]</i> I just stood there. I was cold, I was tired, and I <span class="pc2">was thinking</span>, "Nobody in this city even sees me."</p>
+    <p><span class="tp">Then</span> I heard a voice behind me. <span class="key">"Do you want to share?"</span> An old man <span class="pc2">was holding</span> a big black umbrella. His name was Walter. He <span class="pp">had been waiting</span> for the same bus. We started walking together, and <span class="tp">after twenty minutes</span>, we discovered something funny: Walter lived on my street. Three houses away.</p>
+    <p><span class="tp">Since then</span>, Walter and I have had coffee every Sunday. He tells me stories about the city, and I tell him stories about my country.</p>
+    <p><span class="tp">That night</span>, I learned something. A city doesn't start to feel like home when you know the streets. It starts to feel like home when one person shares an umbrella.</p>
+  </div>
+</section>
+
+<script>
+const V = [
+  ["tentative","adjective · TEN-ta-tive","not confident; unsure","Her first words were tentative, so we didn't trust her.","Does a tentative speaker look sure?"],
+  ["reel (someone) in","phrasal verb · reel them IN","to attract someone's attention and keep it","Her first question reeled the audience in.","If a story reels you in, do you want to stop listening?"],
+  ["empathize (with)","verb · EM-pa-thize","to understand and share someone's feelings","I empathized with the nervous student in the story.","If you empathize with a character, do you feel what they feel?"],
+  ["protagonist","noun · pro-TAG-o-nist","the main character in a story","In your story, the protagonist is probably you.","Is the protagonist a small, unimportant character?"],
+  ["obstacle","noun · OB-sta-cle","something that blocks you from your goal","The biggest obstacle was the language.","Does an obstacle help you or stop you?"],
+  ["resolution","noun · res-o-LU-tion","the end of a story, where the problem is solved or explained","The resolution was funny and surprising.","Is the resolution at the beginning or the end?"],
+  ["get bogged down","idiom · get BOGGED DOWN","to become slow because of too many details","Don't get bogged down in dates and numbers.","If a story gets bogged down, does it move fast?"],
+  ["impressionable","adjective · im-PRES-sion-a-ble","easily influenced by what you see and hear","Children are impressionable, so books matter.","Are impressionable people easy or hard to influence?"],
+  ["stir (someone's) imagination","verb phrase · STIR","to make someone imagine new things and feel excited","Those books stirred my imagination.","If a book stirs your imagination, is it boring?"],
+  ["startled","adjective · STAR-tled","suddenly surprised and a little shocked","I was startled when the door opened.","Did she expect it?"],
+  ["occur to (someone)","verb · oc-CUR","(an idea) to come into your mind","It never occurred to me to ask for help.","If it didn't occur to me, did I think about it?"],
+  ["patronizing","adjective · PAY-tro-niz-ing","talking to someone as if they are less intelligent or important","\"Wow, you speak English so well!\" can sound patronizing.","Does a patronizing person treat you as an equal?"],
+  ["default position","noun · de-FAULT po-SI-tion","the way you think or act automatically","My default position is to say yes.","Do you choose your default position carefully every time?"],
+  ["embrace","verb · em-BRACE","to accept something willingly","I've learned to embrace my accent.","If you embrace a change, do you fight it?"]
+];
+document.getElementById("qqt").innerHTML = V.map(v=>`
+  <div class="fold"><div class="top"><b>${v[0]}</b><span>${v[1]}</span></div><div class="line">fold</div>
+  <div class="bot"><p><b>Meaning:</b> ${v[2]}</p><p><b>Example:</b> ${v[3]}</p><p class="q">Ask: ${v[4]}</p></div></div>`).join("");
+
+const T = [
+  ["sA","A · The Passport",[
+    "book a cheap flight to visit my grandmother",
+    "put my passport in my jacket pocket the night before",
+    "take a taxi to the airport at 5 a.m.",
+    "wait in a long line at check-in (background)",
+    "reach the desk and find that my passport is not in my pocket",
+    "a woman behind me tap me on the shoulder and hold up a passport",
+    "find out it fell out in the line; I still send her a postcard every year"],4],
+  ["sB","B · The Wedding Speech",[
+    "my best friend ask me to give a speech at her wedding",
+    "write a speech and practice it every night for a month",
+    "arrive at the wedding hall feeling nervous",
+    "the guests eat dinner and laugh (background)",
+    "stand up, open my notes, and see that they are my shopping list",
+    "decide to tell one true story about the day we met",
+    "the bride cry, the guests clap, and I learn that a true story beats a perfect script"],4],
+  ["sC","C · The Exam",[
+    "study for my university entrance exam for a whole year",
+    "never fail an exam before",
+    "sleep badly the night before the exam",
+    "sit in the silent exam room; the clock tick loudly (background)",
+    "turn over the paper and realize I can't remember anything",
+    "close my eyes, breathe slowly, and start with the easiest question",
+    "pass the exam and learn that panic only lasts a minute if you let it pass"],4],
+  ["sD","D · The Dinner Party",[
+    "invite my new boss and her husband for dinner",
+    "never cook for guests before",
+    "spend all afternoon making my grandmother's chicken recipe",
+    "the guests sit and talk in the living room (background)",
+    "smoke pour out of the kitchen; the chicken is completely black",
+    "my boss laugh and say, \"Let's order pizza!\"",
+    "we become good friends; she tell this story at every office party"],4]
+];
+/* shuffle display order so the cards are not printed in time order */
+const order = [5,2,6,0,4,1,3];
+document.getElementById("tlcards").innerHTML = T.map(s=>`
+  <div class="${s[0]} tlblock"><div class="tl-title">Story ${s[1]}</div><div class="tl">
+  ${order.map(k=>`<div class="tc${k===s[3]?" star":""}"><span class="st">Story ${s[1]}</span><span class="ev">${s[2][k]}</span></div>`).join("")}
+  </div></div>`).join("");
+
+const P = ["A time you were wrong about someone","A moment a stranger helped you","Your first day in a new place","A time you got completely lost","A small mistake with a big result","A time something didn't go as planned, and it was OK","A tradition from your childhood","The best advice you ever got, and how you got it","A time you had to speak English under pressure","A meal you will never forget","A moment that changed your mind","A time you surprised yourself"];
+document.getElementById("prompts").innerHTML = P.map((p,i)=>`<div class="pc"><small>Story prompt ${i+1}</small><b>${p}</b></div>`).join("");
+</script>
+</body>
+</html>

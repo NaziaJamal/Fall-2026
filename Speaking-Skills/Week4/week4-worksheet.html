@@ -1,0 +1,869 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Week 4 Worksheet · Connection and Story</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0f2340; --blue:#143865; --blue-2:#1c4f8f; --gold:#8c7535; --gold-2:#d39f10;
+    --sky:#c1cddd; --sky-2:#e1e8f2; --sky-3:#edf2f9; --warm:#efe9d9; --paper:#fbf9f3;
+    --ink:#14213a; --muted:#5b6b82; --ok:#1f8a5b; --ok-bg:#e3f4ec; --no:#c0392b; --no-bg:#fbe7e4;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0; background:var(--sky-3); color:var(--ink); font-family:Inter, system-ui, sans-serif; font-size:16px; line-height:1.55}
+  .page{max-width:960px; margin:0 auto; padding:20px 16px 60px}
+
+  .top{background:var(--blue); color:#fff; border-radius:18px; padding:22px 26px; position:relative; overflow:hidden}
+  .top::after{content:""; position:absolute; right:-40px; top:-40px; width:180px; height:180px; border:14px solid var(--gold-2); border-radius:50%; opacity:.25}
+  .school{font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--gold-2); font-weight:700}
+  h1{font-family:Lora, serif; font-size:clamp(26px,4.4vw,38px); margin:4px 0 2px}
+  .top p{margin:0; color:var(--sky)}
+  .goal{margin-top:12px; display:inline-block; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.25); border-radius:12px; padding:6px 14px; font-size:14px}
+
+  .toolbar{position:sticky; top:0; z-index:20; display:flex; flex-wrap:wrap; gap:8px; align-items:center; background:#fff; border:1px solid var(--sky); border-radius:14px; padding:10px 12px; margin:14px 0; box-shadow:0 6px 18px rgba(20,56,101,.08)}
+  .toolbar nav{display:flex; gap:4px; flex-wrap:wrap}
+  .toolbar nav a{text-decoration:none; font-weight:800; color:var(--blue); background:var(--sky-3); border-radius:8px; padding:5px 10px; font-size:14px}
+  .toolbar nav a:hover{background:var(--sky-2)}
+  .toolbar .sp{flex:1}
+  .saved{font-size:13px; color:var(--muted)}
+  .btn{font:inherit; font-weight:700; border-radius:10px; padding:8px 14px; border:2px solid var(--blue); background:var(--blue); color:#fff; cursor:pointer; font-size:14px}
+  .btn:hover{background:var(--blue-2); border-color:var(--blue-2)}
+  .btn.ghost{background:#fff; color:var(--blue)}
+  .btn.gold{background:var(--gold-2); border-color:var(--gold-2); color:var(--ink)}
+
+  .info{display:grid; grid-template-columns:2fr 1fr 1fr; gap:10px; margin-bottom:6px}
+  .info label{display:flex; align-items:center; gap:8px; background:#fff; border:1px solid var(--sky); border-radius:12px; padding:8px 12px; font-weight:600; color:var(--muted)}
+  .info input, .info select{flex:1; border:none; border-bottom:1px solid var(--sky); font:inherit; color:var(--ink); padding:4px; min-width:0; background:transparent}
+
+  .part{margin-top:28px; scroll-margin-top:80px}
+  .part-head{display:flex; align-items:center; gap:14px; margin-bottom:12px}
+  .part-letter{width:52px; height:52px; border-radius:14px; background:var(--navy); color:var(--gold-2); font-family:Lora, serif; font-weight:700; font-size:28px; display:flex; align-items:center; justify-content:center; flex:none}
+  .part-head h2{margin:0; font-family:Lora, serif; color:var(--blue); font-size:26px; line-height:1.15}
+  .part-head p{margin:2px 0 0; color:var(--muted); font-size:14px}
+
+  .task{background:#fff; border:1px solid var(--sky); border-radius:16px; padding:18px 20px; margin-bottom:14px}
+  .task-head{display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin-bottom:6px}
+  .task-head h3{margin:0; font-size:18px; color:var(--blue); flex:1; min-width:200px}
+  .tag{font-size:11px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; border-radius:999px; padding:3px 9px}
+  .t-ind{background:#eef0f4; color:#4a5568}
+  .t-pair{background:#e6f0fb; color:var(--blue-2)}
+  .t-grp{background:#fdf1d2; color:#7a5a00}
+  .t-cls{background:var(--ok-bg); color:var(--ok)}
+  .t-b2p{background:var(--navy); color:var(--gold-2)}
+  .instr{color:var(--muted); margin:0 0 12px; font-size:15px}
+
+  .q{margin:12px 0}
+  .q > label, .ql{display:block; font-weight:600; margin-bottom:5px}
+  textarea, input.line{width:100%; font:inherit; color:var(--ink); border:1px solid var(--sky); border-radius:10px; padding:9px 12px; background:var(--paper); resize:vertical}
+  textarea{min-height:64px}
+  textarea.tall{min-height:100px}
+  textarea:focus, input.line:focus, .gap:focus, select:focus{outline:2px solid var(--gold-2); outline-offset:1px}
+  .frame{font-size:13px; color:var(--gold); font-weight:700; margin-bottom:4px}
+
+  details.help{margin:8px 0; background:#eef5ff; border:1px solid #cfe0f5; border-radius:10px; padding:8px 12px; font-size:14px}
+  details.help summary{cursor:pointer; font-weight:700; color:var(--blue-2)}
+  .gloss{display:grid; grid-template-columns:1fr 1fr; gap:4px 18px; margin-top:6px}
+
+  /* matching */
+  .match{display:grid; grid-template-columns:1.1fr 1fr; gap:18px; align-items:start}
+  .mrow{display:grid; grid-template-columns:24px 36px 1fr 66px; gap:8px; align-items:center; padding:7px 6px; border-bottom:1px solid var(--sky-2); border-radius:8px}
+  .mnum{font-weight:800; color:var(--gold)}
+  .say{width:34px; height:34px; border-radius:50%; border:2px solid var(--sky); background:var(--sky-3); cursor:pointer; font-size:15px}
+  .say.playing{background:var(--gold-2); border-color:var(--gold-2)}
+  .mword{font-weight:700; color:var(--blue)}
+  .pos{display:inline-block; font-size:11px; font-weight:700; font-style:italic; color:var(--gold); background:var(--warm); border-radius:999px; padding:0 8px}
+  select{font:inherit; font-weight:700; border:2px solid var(--sky); border-radius:8px; padding:5px; background:var(--sky-3); color:var(--blue)}
+  .defs{background:var(--sky-3); border-radius:12px; padding:10px 14px; font-size:15px}
+  .def{display:flex; gap:8px; padding:5px 0; border-bottom:1px dashed var(--sky)}
+  .def:last-child{border-bottom:none}
+  .def b{color:var(--gold); min-width:14px}
+
+  /* list items */
+  .item{display:grid; grid-template-columns:28px 1fr auto; gap:10px; align-items:start; padding:9px 6px; border-bottom:1px solid var(--sky-2); border-radius:8px}
+  .item:last-child{border-bottom:none}
+  .n{font-weight:800; color:var(--gold)}
+  .tf{display:flex; gap:6px}
+  .tf label, .mc label{cursor:pointer}
+  .tf input, .mc input{position:absolute; opacity:0; pointer-events:none}
+  .tf span{display:inline-flex; width:40px; height:34px; align-items:center; justify-content:center; border:2px solid var(--sky); border-radius:8px; font-weight:800; color:var(--blue); background:#fff}
+  .tf input:checked + span{background:var(--blue); border-color:var(--blue); color:#fff}
+  .tf input:focus-visible + span, .mc input:focus-visible + span{outline:2px solid var(--gold-2)}
+  .mc{display:flex; flex-direction:column; gap:8px}
+  .mc span{display:block; border:2px solid var(--sky); border-radius:10px; padding:9px 12px; background:#fff}
+  .mc input:checked + span{border-color:var(--blue); background:#eef5ff; font-weight:600}
+  .gap{font:inherit; font-weight:600; color:var(--blue); border:none; border-bottom:2px solid var(--blue-2); background:var(--sky-3); padding:1px 6px; width:8.5em; max-width:100%; border-radius:4px 4px 0 0}
+  .time{display:inline-block; font-size:12px; font-weight:800; color:var(--blue-2); background:var(--sky-2); border-radius:6px; padding:0 6px; margin-right:6px}
+
+  .ok{background:var(--ok-bg) !important}
+  .no{background:var(--no-bg) !important}
+  .gap.ok{border-color:var(--ok)} .gap.no{border-color:var(--no)}
+  select.ok{border-color:var(--ok)} select.no{border-color:var(--no)}
+  .fixnote{grid-column:2 / -1; font-size:13px; color:var(--no); font-weight:600}
+  .checkbar{display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-top:12px}
+  .score{font-weight:800; color:var(--blue); margin-left:auto}
+  .model{display:none; font-size:14px; color:var(--ok); font-weight:600; margin-top:4px}
+  .show-models .model{display:block}
+
+  table.grid{width:100%; border-collapse:collapse; font-size:15px}
+  table.grid th{background:var(--blue); color:#fff; text-align:left; padding:8px 10px}
+  table.grid td{border-bottom:1px solid var(--sky-2); padding:8px 10px; vertical-align:top}
+  table.grid td textarea{min-height:44px}
+  .ref{background:var(--paper); border:1px solid #e6dcbf; border-radius:12px; padding:12px 14px; font-size:15px}
+  .ref table{width:100%; border-collapse:collapse}
+  .ref td,.ref th{padding:6px 8px; border-bottom:1px solid #eee3c6; text-align:left; vertical-align:top}
+  .ref th{color:var(--gold); font-size:12px; letter-spacing:.08em; text-transform:uppercase}
+  .quote{border-left:4px solid var(--gold-2); padding:6px 12px; margin:8px 0; background:var(--paper); border-radius:0 8px 8px 0; font-style:italic}
+  .scale{display:flex; flex-wrap:wrap; gap:6px}
+  .scale label span{display:inline-block; border:2px solid var(--sky); border-radius:999px; padding:5px 12px; font-size:14px; font-weight:600; background:#fff; cursor:pointer}
+  .scale input{position:absolute; opacity:0}
+  .scale input:checked + span{background:var(--blue); color:#fff; border-color:var(--blue)}
+  .checks{display:flex; flex-wrap:wrap; gap:8px 18px}
+  .checks label{display:flex; gap:6px; align-items:center; font-weight:500}
+  .checks input{width:18px; height:18px; accent-color:var(--blue)}
+
+  .bp{border:2px solid var(--blue); border-radius:16px; padding:16px 18px; background:#fff}
+  .bp h3{font-family:Lora, serif; color:var(--blue); margin:0 0 4px}
+  footer{text-align:center; color:var(--muted); font-size:12px; margin-top:28px}
+
+  @media (max-width:720px){
+    .info{grid-template-columns:1fr}
+    .match{grid-template-columns:1fr}
+    .defs{order:-1}
+    .gloss{grid-template-columns:1fr}
+    .item{grid-template-columns:24px 1fr}
+    .item > .tf{grid-column:2}
+    table.grid, table.grid tbody, table.grid tr, table.grid td{display:block; width:100%}
+    table.grid tr:first-child{display:none}
+    table.grid td{border:none; padding:4px 0}
+    table.grid tr{border-bottom:1px solid var(--sky); padding:8px 0}
+  }
+
+  @media print{
+    @page{margin:11mm}
+    body{background:#fff; font-size:11.5px}
+    .page{max-width:none; padding:0}
+    .toolbar, .checkbar, .say, .no-print{display:none !important}
+    .top{background:#fff; color:var(--ink); border:2px solid var(--blue); padding:10px 14px}
+    .top::after{display:none}
+    .top p, .goal{color:var(--muted); border-color:#999; background:none}
+    .task{border-color:#999; break-inside:avoid; padding:10px 12px}
+    .part{break-before:page; margin-top:0}
+    #partA{break-before:auto}
+    textarea, input.line{background:#fff; border:none; border-bottom:1px solid #777; border-radius:0; resize:none}
+    textarea{min-height:46px}
+    textarea.tall{min-height:72px}
+    .ok, .no{background:none !important}
+    details.help{border-color:#bbb; background:none}
+    details.help:not([open]){display:none}
+    .model{display:none !important}
+  }
+</style>
+
+<style>
+  .inline-sel{font:inherit; font-weight:600; font-size:15px; padding:2px 4px; border-radius:6px; border:2px solid var(--sky); background:var(--sky-3); color:var(--blue); max-width:100%}
+  .para{background:var(--paper); border:1px solid #e6dcbf; border-radius:12px; padding:14px 16px; line-height:2.1}
+  .story{background:var(--paper); border:1px solid #e6dcbf; border-radius:12px; padding:12px 16px; font-size:15px}
+  .story p{margin:0 0 8px} .story p:last-child{margin:0}
+  .story h4{margin:0 0 6px; font-size:13px; letter-spacing:.08em; text-transform:uppercase; color:var(--gold)}
+  .two{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+  .station{border-left:6px solid var(--blue); padding-left:14px; margin:6px 0 14px}
+  .station h4{margin:0 0 4px; font-family:Lora, serif; font-size:19px; color:var(--blue)}
+  .round{display:grid; grid-template-columns:1fr auto; gap:10px; align-items:center; padding:9px 6px; border-bottom:1px solid var(--sky-2)}
+  .round b{color:var(--blue)}
+  .spine td:first-child{font-weight:700; color:var(--blue); width:26%}
+  .spine td:first-child small{display:block; font-weight:500; color:var(--muted); font-size:12px}
+  .wc{font-size:13px; font-weight:700; margin-top:4px}
+  .wc.good{color:var(--ok)} .wc.bad{color:var(--no)}
+  .tl{display:flex; flex-wrap:wrap; gap:6px; margin:6px 0 10px}
+  .tl span{font-size:13px; font-weight:700; background:var(--sky-3); color:var(--blue); border:1px solid var(--sky); border-radius:999px; padding:2px 10px}
+  @media (max-width:720px){ .two{grid-template-columns:1fr} }
+  @media print{ .inline-sel{border:none; border-bottom:1px solid #333; border-radius:0; background:none} .para,.story{background:none} .wc{display:none} }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="top">
+    <div class="school">Approach International Student Center</div>
+    <h1>Week 4 · Connection and Story</h1>
+    <p>TED Talks: Ideas Worth Sharing · B2 · B2+ · Student Worksheet</p>
+    <span class="goal">Today's goal: connect with your audience in the first seconds, and build a 2-minute story that means something.</span>
+  </header>
+
+  <div class="toolbar">
+    <nav>
+      <a href="#partA">A</a><a href="#partB">B</a><a href="#partC">C</a><a href="#partD">D</a><a href="#partE">E</a><a href="#partF">F</a>
+    </nav>
+    <span class="sp"></span>
+    <span class="saved" id="saved">Your answers save on this device.</span>
+    <button class="btn ghost" id="dl">Download answers</button>
+    <button class="btn gold" onclick="window.print()">Print / Save PDF</button>
+  </div>
+
+  <div class="info">
+    <label>Name <input type="text" data-k="name" data-label="Name"></label>
+    <label>Date <input type="text" data-k="date" data-label="Date"></label>
+    <label>Level <select data-k="level" data-label="Level"><option value="">–</option><option>B2</option><option>B2+</option></select></label>
+  </div>
+
+<!-- ======================= PART A ======================= -->
+<section class="part" id="partA">
+  <div class="part-head"><div class="part-letter">A</div><div><h2>Warm-up and Vocabulary</h2><p>What happens in the first five seconds?</p></div></div>
+
+  <div class="task">
+    <div class="task-head"><h3>A1 · The First Five Seconds</h3><span class="tag t-cls">Whole class</span><span class="tag t-pair">Then pairs</span></div>
+    <p class="instr">Stand up and mingle. In each round, greet two people and say: <i>"Hi! I have a story for you."</i> After each round, rate how much you <b>trusted</b> the other person (1 = not at all, 5 = completely).</p>
+    <div id="rounds"></div>
+    <div class="q"><label>The "Try not to smile" challenge: could you keep a straight face? Why or why not?</label><input class="line" data-k="a1_smile" data-label="A1 Smile challenge"></div>
+    <div class="q"><label>What do we judge about a person in the first five seconds? List three things.</label><input class="line" data-k="a1_judge" data-label="A1 First-seconds judgments"></div>
+    <div class="q"><label>Predict: what will Chris Anderson tell speakers to do <b>before</b> their first sentence?</label><input class="line" data-k="a1_predict" data-label="A1 Prediction"></div>
+  </div>
+
+  <div class="task" id="vocab">
+    <div class="task-head"><h3>A2 · Match the words</h3><span class="tag t-pair">Pairs</span><span class="tag t-ind">Controlled</span></div>
+    <p class="instr">Press the speaker button to hear the word. Words 1–7 are from the book (Ch. 5–6); 8–14 are from the Adichie talk. Choose the meaning (a–n).</p>
+    <div class="match">
+      <div id="mwords"></div>
+      <div class="defs" id="mdefs"></div>
+    </div>
+    <div class="checkbar"><button class="btn" data-check="vocab">Check answers</button><button class="btn ghost" data-reset="vocab">Reset</button><span class="score"></span></div>
+  </div>
+
+  <div class="task">
+    <div class="task-head"><h3>A3 · Quiz, Quiz, Trade</h3><span class="tag t-cls">Mingle</span><span class="tag t-ind">Then write</span></div>
+    <p class="instr">Take a word card. Find a partner: quiz each other, help if needed, <b>trade cards</b>, and find a new partner. When the music stops, sit down and complete two sentences about <b>you</b>.</p>
+    <div class="q"><div class="frame">I felt tentative when…</div><input class="line" data-k="a3_1" data-label="A3.1 tentative"></div>
+    <div class="q"><div class="frame">A book or movie that really stirred my imagination as a child was…</div><input class="line" data-k="a3_2" data-label="A3.2 stir my imagination"></div>
+    <div class="q"><div class="frame">I was startled when…</div><input class="line" data-k="a3_3" data-label="A3.3 startled"></div>
+    <div class="q"><div class="frame">Something new I have learned to embrace is…</div><input class="line" data-k="a3_4" data-label="A3.4 embrace"></div>
+  </div>
+</section>
+
+<!-- ======================= PART B ======================= -->
+<section class="part" id="partB">
+  <div class="part-head"><div class="part-letter">B</div><div><h2>Guided Reading · Story Stations</h2><p>Chris Anderson, <i>TED Talks</i>, Ch. 5 "Connection" + Ch. 6 "Narration"</p></div></div>
+
+  <div class="task">
+    <div class="task-head"><h3>B1 · Predict</h3><span class="tag t-pair">Pairs</span></div>
+    <p class="instr">Chapter 6 is called <b>"Narration: The Irresistible Allure of Stories."</b></p>
+    <div class="q"><label>Why do humans love stories so much? Give two reasons.</label><textarea data-k="b1" data-label="B1 Why we love stories"></textarea></div>
+  </div>
+
+  <div class="task" id="stations">
+    <div class="task-head"><h3>B2 · Station passport</h3><span class="tag t-grp">Groups of 3–4</span><span class="tag t-ind">5 min per station</span></div>
+    <p class="instr">Walk to your first station. Read the poster together, then complete that station's tasks. When the timer rings, move to the next letter (E goes to A).</p>
+
+    <div class="station">
+      <h4>Station A · Eye Contact, Right from the Start</h4>
+      <p class="instr">1. Put the four "walk-in" steps in order.</p>
+      <div id="stA"></div>
+      <p class="instr" style="margin-top:10px">2. True or false?</p>
+      <div id="stA2"></div>
+      <div class="q"><label>3. Why does eye contact work? Explain in one sentence.</label><input class="line" data-k="bA3" data-label="B2 A3 Why eye contact works"></div>
+    </div>
+
+    <div class="station">
+      <h4>Station B · Around the Campfire</h4>
+      <p class="instr">1. Day talk or night talk? (Polly Wiessner's research)</p>
+      <div id="stB"></div>
+      <div class="q"><label>2. Give two reasons why stories hold our attention.</label><input class="line" data-k="bB2" data-label="B2 B2 Two reasons"></div>
+      <div class="q"><label>3. "Stories helped make us who we are." Agree or disagree? Why?</label><input class="line" data-k="bB3" data-label="B2 B3 Agree/disagree"></div>
+    </div>
+
+    <div class="station">
+      <h4>Station C · The Story Formula</h4>
+      <p class="instr">1. Put the classic story formula in order.</p>
+      <div id="stC"></div>
+      <p class="instr" style="margin-top:10px">2. Which of the four key things does each example show?</p>
+      <div id="stC2"></div>
+      <div class="q"><label>3. Map a movie everyone in your group knows: protagonist → obstacle → climax → resolution.</label><textarea data-k="bC3" data-label="B2 C3 Movie map"></textarea></div>
+    </div>
+
+    <div class="station">
+      <h4>Station D · Two Ways to Tell It</h4>
+      <p class="instr">1. Read "The Wrong Bus," Versions 1 and 2. What is wrong with Version 2? Choose Yes or No.</p>
+      <div id="stD"></div>
+      <div class="q"><label>2. What is the key line that anchors Version 1?</label><input class="line" data-k="bD2" data-label="B2 D2 Key line"></div>
+      <div class="q"><label>3. Anderson's rule: before you tell a story, make sure you know…</label><input class="line" data-k="bD3" data-label="B2 D3 Rule"></div>
+    </div>
+
+    <div class="station">
+      <h4>Station E · Let It Mean Something</h4>
+      <p class="instr">1. Match each speaker to the takeaway of their story.</p>
+      <div id="stE"></div>
+      <p class="instr" style="margin-top:10px">2. True or false?</p>
+      <div id="stE2"></div>
+      <div class="q"><label><span class="tag t-b2p">B2+</span> 3. Why can a parable be risky? Give two reasons.</label><input class="line" data-k="bE3" data-label="B2 E3 Parable risks"></div>
+    </div>
+
+    <div class="checkbar"><button class="btn" data-check="stations">Check stations</button><button class="btn ghost" data-reset="stations">Reset</button><span class="score"></span></div>
+  </div>
+
+  <div class="task">
+    <div class="task-head"><h3>B3 · Story Rescue</h3><span class="tag t-grp">Groups</span><span class="tag t-cls">Perform</span></div>
+    <p class="instr">Your group gets a badly told story. Rescue it with the four key things, then tell it to the class in <b>45 seconds</b>. One person tells, or you share it.</p>
+    <div class="q"><label>Our story was:</label>
+      <select data-k="b3_story" data-label="B3 Story"><option value="">– choose –</option><option>1 · The Driving Test</option><option>2 · The Lost Dog</option><option>3 · The First Class</option><option>4 · The Wrong Party</option></select>
+    </div>
+    <div class="two">
+      <div class="q"><label>Details we cut:</label><input class="line" data-k="b3_cut" data-label="B3 Cut"></div>
+      <div class="q"><label>Details or feelings we added:</label><input class="line" data-k="b3_add" data-label="B3 Added"></div>
+      <div class="q"><label>Our key line:</label><input class="line" data-k="b3_key" data-label="B3 Key line"></div>
+      <div class="q"><label>Our new ending (funny, moving, or revealing):</label><input class="line" data-k="b3_end" data-label="B3 Ending"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= PART C ======================= -->
+<section class="part" id="partC">
+  <div class="part-head"><div class="part-letter">C</div><div><h2>Watch and Analyze · "The danger of a single story"</h2><p>Chimamanda Ngozi Adichie, TEDGlobal 2009 · watch 0:00–6:26</p></div></div>
+
+  <div class="task" id="predict">
+    <div class="task-head"><h3>C1 · Predict</h3><span class="tag t-pair">Pairs</span></div>
+    <p class="instr">Read the title. What do you think a "single story" is? Choose now; check after Viewing 1.</p>
+    <div class="mc ck" data-ans="b" data-k="c1" data-label="C1 Single story">
+      <label><input type="radio" name="c1" value="a"><span>a) a story with only one character</span></label>
+      <label><input type="radio" name="c1" value="b"><span>b) one version of a person, place, or group that we believe is the whole truth</span></label>
+      <label><input type="radio" name="c1" value="c"><span>c) a very short story with no ending</span></label>
+    </div>
+    <div class="checkbar"><button class="btn" data-check="predict">Check after Viewing 1</button><span class="score"></span></div>
+  </div>
+
+  <div class="task" id="v1">
+    <div class="task-head"><h3>C2 · Viewing 1 · The big picture</h3><span class="tag t-ind">Individual</span><span class="tag t-pair">Then pairs</span></div>
+    <p class="instr"><b>First 20 seconds, sound off.</b> Watch only her face and eyes. What do you notice? (Remember Station A.)</p>
+    <div class="checks" data-k="c2_eyes" data-label="C2 First 20 seconds" data-type="checks" style="margin-bottom:8px">
+      <label><input type="checkbox" value="looks at the audience">She looks at the audience</label>
+      <label><input type="checkbox" value="smiles">She smiles</label>
+      <label><input type="checkbox" value="pauses">She pauses</label>
+      <label><input type="checkbox" value="reads notes">She reads her notes</label>
+      <label><input type="checkbox" value="looks relaxed">She looks relaxed</label>
+    </div>
+    <p class="instr"><b>Now watch 0:00–6:26 with sound.</b> She tells three stories. Complete the table.</p>
+    <table class="grid">
+      <tr><th style="width:18%">Story</th><th>Who had the single story?</th><th>What was the single story?</th><th>What changed it?</th></tr>
+      <tr><td><b>1</b> Her childhood books</td><td><textarea data-k="c2_1a" data-label="C2 Story 1 who"></textarea></td><td><textarea data-k="c2_1b" data-label="C2 Story 1 single story"></textarea></td><td><textarea data-k="c2_1c" data-label="C2 Story 1 change"></textarea></td></tr>
+      <tr><td><b>2</b> Fide's family</td><td><textarea data-k="c2_2a" data-label="C2 Story 2 who"></textarea></td><td><textarea data-k="c2_2b" data-label="C2 Story 2 single story"></textarea></td><td><textarea data-k="c2_2c" data-label="C2 Story 2 change"></textarea></td></tr>
+      <tr><td><b>3</b> Her American roommate</td><td><textarea data-k="c2_3a" data-label="C2 Story 3 who"></textarea></td><td><textarea data-k="c2_3b" data-label="C2 Story 3 single story"></textarea></td><td><textarea data-k="c2_3c" data-label="C2 Story 3 change"></textarea></td></tr>
+    </table>
+    <p class="instr" style="margin-top:12px">Which sentence is closest to her throughline?</p>
+    <div class="mc ck" data-ans="b" data-k="c2_tl" data-label="C2 Throughline">
+      <label><input type="radio" name="c2tl" value="a"><span>a) Children should read more African books.</span></label>
+      <label><input type="radio" name="c2tl" value="b"><span>b) When we know only one story about people or places, we misunderstand them.</span></label>
+      <label><input type="radio" name="c2tl" value="c"><span>c) Americans don't know much about Nigeria.</span></label>
+      <label><input type="radio" name="c2tl" value="d"><span>d) Poor families are often very creative.</span></label>
+    </div>
+    <div class="checkbar"><button class="btn" data-check="v1">Check</button><button class="btn ghost" data-reset="v1">Reset</button><span class="score"></span></div>
+  </div>
+
+  <div class="task" id="seq">
+    <div class="task-head"><h3>C3 · Viewing 2 · How the Fide story is built (2:50–4:04)</h3><span class="tag t-pair">Pairs</span></div>
+    <p class="instr">Put the parts of the story in order (1–7). Then label the story with Anderson's four key things.</p>
+    <div id="seqItems"></div>
+    <div class="checkbar"><button class="btn" data-check="seq">Check order</button><button class="btn ghost" data-reset="seq">Reset</button><span class="score"></span></div>
+    <table class="grid" style="margin-top:12px">
+      <tr><th style="width:30%">Key thing</th><th>Evidence from the Fide story</th></tr>
+      <tr><td>A character we empathize with</td><td><input class="line" data-k="c3_char" data-label="C3 Character"></td></tr>
+      <tr><td>Tension (curiosity, social intrigue, danger)</td><td><input class="line" data-k="c3_tension" data-label="C3 Tension"></td></tr>
+      <tr><td>The right level of detail</td><td><input class="line" data-k="c3_detail" data-label="C3 Detail"></td></tr>
+      <tr><td>A satisfying resolution (funny, moving, or revealing)</td><td><input class="line" data-k="c3_res" data-label="C3 Resolution"></td></tr>
+      <tr><td><b>The key line</b></td><td><input class="line" data-k="c3_key" data-label="C3 Key line"></td></tr>
+    </table>
+  </div>
+
+  <div class="task" id="gaps">
+    <div class="task-head"><h3>C4 · Viewing 3 · Story language</h3><span class="tag t-ind">Individual</span><span class="tag t-ind">Captions off</span></div>
+    <p class="instr">Listen and complete each gap with <b>one word</b>. Notice the time phrases and the past tenses.</p>
+    <div id="gapItems"></div>
+    <div class="checkbar"><button class="btn" data-check="gaps">Check</button><button class="btn ghost" data-reset="gaps">Reset</button><span class="score"></span></div>
+  </div>
+
+  <div class="task">
+    <div class="task-head"><h3>C5 · Evaluate</h3><span class="tag t-grp">Groups</span></div>
+    <p class="instr">Use Anderson's advice to evaluate her stories. Give evidence.</p>
+    <div class="q"><label>1. Which of her three stories is the strongest? Why?</label><textarea data-k="c5_1" data-label="C5.1 Strongest story"></textarea></div>
+    <div class="q"><label>2. Anderson says personal stories must <i>give</i> the audience something (insight, perspective, context, hope). What do her stories give us?</label><textarea data-k="c5_2" data-label="C5.2 What her stories give"></textarea></div>
+    <div class="q"><label>3. Where does she use humor? Why does it help?</label><input class="line" data-k="c5_3" data-label="C5.3 Humor"></div>
+    <div class="q"><label><span class="tag t-b2p">B2+</span> 4. She tells three short stories, not one long one. Why do you think she chose this structure?</label><textarea data-k="c5_4" data-label="C5.4 Structure"></textarea></div>
+  </div>
+
+  <div class="task">
+    <div class="task-head"><h3>C6 · Your turn</h3><span class="tag t-cls">Quick round</span></div>
+    <div class="q"><label>Have you ever had a "single story" about a place, a job, or a group of people? What changed it?</label><input class="line" data-k="c6" data-label="C6 My single story"></div>
+  </div>
+</section>
+
+<!-- ======================= PART D ======================= -->
+<section class="part" id="partD">
+  <div class="part-head"><div class="part-letter">D</div><div><h2>Language Focus · Narrative Tenses and Time Phrases</h2><p>Tell it in the right order, at the right time.</p></div></div>
+
+  <div class="task" id="notice">
+    <div class="task-head"><h3>D1 · Notice</h3><span class="tag t-pair">Pairs</span></div>
+    <p class="instr">These sentences are from Adichie's talk and Anderson's boat story. What job does the <b>bold</b> language do? Choose a–f.</p>
+    <div class="ref" style="margin-bottom:10px"><table>
+      <tr><td><b>a</b> a main event that moves the story forward</td><td><b>d</b> a jump forward in time</td></tr>
+      <tr><td><b>b</b> something that happened <i>earlier</i> than the main story</td><td><b>e</b> a prediction seen from the past</td></tr>
+      <tr><td><b>c</b> a repeated habit in the past</td><td><b>f</b> background: a state or a description</td></tr>
+    </table></div>
+    <div id="noticeItems"></div>
+    <div class="checkbar"><button class="btn" data-check="notice">Check</button><button class="btn ghost" data-reset="notice">Reset</button><span class="score"></span></div>
+  </div>
+
+  <div class="task">
+    <div class="task-head"><h3>D2 · Your story toolkit</h3><span class="tag t-cls">Teacher-led</span></div>
+    <div class="ref"><table>
+      <tr><th>Tense</th><th>Job in a story</th><th>Example</th></tr>
+      <tr><td><b>Past simple</b></td><td>the main events, in order</td><td>One Saturday, we <b>went</b> to his village.</td></tr>
+      <tr><td><b>Past continuous</b></td><td>the scene; an action in progress when something happened</td><td>I <b>was waiting</b> for the bus when it started to rain.</td></tr>
+      <tr><td><b>Past perfect</b></td><td>a flashback; something earlier; a first time</td><td>I <b>had never seen</b> snow. / It <b>had not occurred</b> to me…</td></tr>
+      <tr><td><b>would / used to</b></td><td>repeated habits in the past (<i>used to</i> also for states)</td><td>My mother <b>would</b> say, "Finish your food!"</td></tr>
+      <tr><td><b>was going to / was about to</b></td><td>a plan or prediction in the past</td><td>I <b>was about to</b> give up when…</td></tr>
+    </table></div>
+    <p class="instr" style="margin-top:10px">Full notes: <a href="week4-narrative-tenses-study-notes.html" target="_blank" rel="noopener">Study notes: Narrative tenses and time phrases</a></p>
+  </div>
+
+  <div class="task" id="choose">
+    <div class="task-head"><h3>D3 · Choose the best form</h3><span class="tag t-ind">Controlled</span></div>
+    <p class="instr">Read the story "Every Conversation Is an Interview." Choose the correct form.</p>
+    <div class="para" id="chooseText"></div>
+    <div class="checkbar"><button class="btn" data-check="choose">Check</button><button class="btn ghost" data-reset="choose">Reset</button><span class="score"></span></div>
+  </div>
+
+  <div class="task">
+    <div class="task-head"><h3>D4 · Human Timeline</h3><span class="tag t-grp">Groups</span><span class="tag t-cls">Movement</span></div>
+    <p class="instr">Each person holds one event card. <b>Round 1:</b> line up in <b>time order</b> and tell the story. <b>Round 2:</b> the person with the ★ card steps forward. Line up in <b>story order</b>: start with the ★ moment, then go back in time. Change the tenses as you speak.</p>
+    <div class="q"><label>Our story:</label>
+      <select data-k="d4_story" data-label="D4 Story"><option value="">– choose –</option><option>A · The Passport</option><option>B · The Wedding Speech</option><option>C · The Last Bus</option><option>D · The Dinner Party</option></select>
+    </div>
+    <div class="q"><label>Write the story in <b>story order</b> (start at ★). Use at least two past perfect forms, one past continuous form, and three time phrases.</label><textarea class="tall" data-k="d4_text" data-label="D4 Story in story order"></textarea></div>
+  </div>
+
+  <div class="task">
+    <div class="task-head"><h3>D5 · Tense upgrade: your story</h3><span class="tag t-ind">Freer</span><span class="tag t-pair">Then say it</span></div>
+    <p class="instr">Write the first moments of a true story of yours. Then say the four sentences to a partner, <b>pausing</b> after each time phrase.</p>
+    <div class="q"><div class="frame">1 · Time phrase + setting (Two years ago, … / The year I turned …, …)</div><input class="line" data-k="d5_1" data-label="D5.1 Time phrase + setting"></div>
+    <div class="q"><div class="frame">2 · Past continuous: the scene (I was … -ing when …)</div><input class="line" data-k="d5_2" data-label="D5.2 Past continuous"></div>
+    <div class="q"><div class="frame">3 · Past perfect: background (I had never … / I had already …)</div><input class="line" data-k="d5_3" data-label="D5.3 Past perfect"></div>
+    <div class="q"><div class="frame">4 · Past simple: the moment everything changed (Then … / Suddenly …)</div><input class="line" data-k="d5_4" data-label="D5.4 Key event"></div>
+  </div>
+</section>
+
+<!-- ======================= PART E ======================= -->
+<section class="part" id="partE">
+  <div class="part-head"><div class="part-letter">E</div><div><h2>Speaking · Cut the Fat + Campfire Circles</h2><p>Tell the same story three times. Make it shorter and stronger each time.</p></div></div>
+
+  <div class="task">
+    <div class="task-head"><h3>E1 · Plan your story (5 min)</h3><span class="tag t-ind">Individual</span></div>
+    <p class="instr">Choose a <b>prompt card</b>, or a story for your own talk. Choose a story you are comfortable sharing. Notes only: key words, not sentences.</p>
+    <table class="grid spine">
+      <tr><th>Part</th><th>Key words</th></tr>
+      <tr><td>WHO<small>character + goal</small></td><td><input class="line" data-k="e1_who" data-label="E1 Who"></td></tr>
+      <tr><td>TROUBLE<small>tension</small></td><td><input class="line" data-k="e1_trouble" data-label="E1 Trouble"></td></tr>
+      <tr><td>THE MOMENT<small>one vivid detail + the key line</small></td><td><input class="line" data-k="e1_moment" data-label="E1 The moment"></td></tr>
+      <tr><td>THE END<small>funny, moving, or revealing</small></td><td><input class="line" data-k="e1_end" data-label="E1 The end"></td></tr>
+      <tr><td>SO WHAT?<small>what it gives the listener</small></td><td><input class="line" data-k="e1_point" data-label="E1 So what"></td></tr>
+    </table>
+  </div>
+
+  <div class="task">
+    <div class="task-head"><h3>E2 · Cut the Fat · 90 → 75 → 60 seconds</h3><span class="tag t-pair">New partner each round</span><span class="tag t-cls">Movement</span></div>
+    <p class="instr">Before you start: stand, <b>look at your partner, pause, smile</b>, then begin. After each round, your partner gives one piece of feedback. Write it here.</p>
+    <div class="q"><label>Round 1 (90 sec). "The detail I can still see is…"</label><input class="line" data-k="e2_1" data-label="E2 Round 1 feedback"></div>
+    <div class="q"><label>Round 2 (75 sec). "One thing you could cut is…"</label><input class="line" data-k="e2_2" data-label="E2 Round 2 feedback"></div>
+    <div class="q"><label>Round 3 (60 sec). "The point I took away was…"</label><input class="line" data-k="e2_3" data-label="E2 Round 3 feedback"></div>
+    <div class="q"><label>What did you cut between Round 1 and Round 3? Was the story better?</label><input class="line" data-k="e2_cut" data-label="E2 What I cut"></div>
+  </div>
+
+  <div class="task">
+    <div class="task-head"><h3>E3 · Campfire Circles</h3><span class="tag t-grp">Groups of 4</span></div>
+    <p class="instr">Sit in a circle around the "campfire." Each person tells their best version (60–75 sec). Listeners score with the <a href="week4-student-tasks.html#t6" target="_blank" rel="noopener">Story Scorecard</a> (1–3 fingers). Choose your Campfire Champion.</p>
+    <div class="q"><label>The best story in my circle was… because…</label><input class="line" data-k="e3_best" data-label="E3 Best story"></div>
+    <div class="q"><label>My scores from my group (character / tension / detail / resolution / point):</label><input class="line" data-k="e3_score" data-label="E3 My scores" placeholder="e.g., 3 / 2 / 3 / 2 / 3"></div>
+  </div>
+</section>
+
+<!-- ======================= PART F ======================= -->
+<section class="part" id="partF">
+  <div class="part-head"><div class="part-letter">F</div><div><h2>Build Your Talk · Your 2-minute story</h2><p>Week 4 milestone · due at the start of Week 5</p></div></div>
+
+  <div class="bp">
+    <h3>1 · Story finder</h3>
+    <p class="instr">Look at your Week 3 throughline and outline. Write three true moments from your life that connect to it. Tick the tests each one passes.</p>
+    <div class="q"><label>My throughline (from Week 3)</label><input class="line" data-k="f_tl" data-label="F Throughline"></div>
+    <table class="grid">
+      <tr><th style="width:44%">Possible story</th><th>Tests</th></tr>
+      <tr><td><input class="line" data-k="f1_1" data-label="F1 Story idea 1"></td><td><div class="checks" data-k="f1_1t" data-label="F1 Story 1 tests" data-type="checks"><label><input type="checkbox" value="true">True</label><label><input type="checkbox" value="links">Links to my throughline</label><label><input type="checkbox" value="2 min">Fits in 2 min</label><label><input type="checkbox" value="gives">Gives the audience something</label></div></td></tr>
+      <tr><td><input class="line" data-k="f1_2" data-label="F1 Story idea 2"></td><td><div class="checks" data-k="f1_2t" data-label="F1 Story 2 tests" data-type="checks"><label><input type="checkbox" value="true">True</label><label><input type="checkbox" value="links">Links to my throughline</label><label><input type="checkbox" value="2 min">Fits in 2 min</label><label><input type="checkbox" value="gives">Gives the audience something</label></div></td></tr>
+      <tr><td><input class="line" data-k="f1_3" data-label="F1 Story idea 3"></td><td><div class="checks" data-k="f1_3t" data-label="F1 Story 3 tests" data-type="checks"><label><input type="checkbox" value="true">True</label><label><input type="checkbox" value="links">Links to my throughline</label><label><input type="checkbox" value="2 min">Fits in 2 min</label><label><input type="checkbox" value="gives">Gives the audience something</label></div></td></tr>
+    </table>
+
+    <h3 style="margin-top:16px">2 · Story map</h3>
+    <p class="instr">Need a model? See the <a href="week4-student-tasks.html#t7" target="_blank" rel="noopener">model story map: "The Umbrella"</a>.</p>
+    <table class="grid spine">
+      <tr><th>Part</th><th>My story</th></tr>
+      <tr><td>Where it goes<small>in my Week 3 outline</small></td><td><select data-k="f2_where" data-label="F2 Where in outline"><option value="">– choose –</option><option>Opening / hook</option><option>Point 1</option><option>Point 2</option><option>Point 3</option><option>Ending</option></select></td></tr>
+      <tr><td>Character + goal<small>who? what did they want?</small></td><td><textarea data-k="f2_char" data-label="F2 Character + goal"></textarea></td></tr>
+      <tr><td>Tension<small>curiosity, social intrigue, or danger</small></td><td><textarea data-k="f2_tension" data-label="F2 Tension"></textarea></td></tr>
+      <tr><td>Two vivid details<small>what we see, hear, or feel</small></td><td><textarea data-k="f2_detail" data-label="F2 Details"></textarea></td></tr>
+      <tr><td>The key line<small>a quote or moment that anchors it</small></td><td><input class="line" data-k="f2_key" data-label="F2 Key line"></td></tr>
+      <tr><td>Resolution<small>funny, moving, or revealing</small></td><td><textarea data-k="f2_res" data-label="F2 Resolution"></textarea></td></tr>
+      <tr><td>The point<small>how it links to my throughline</small></td><td><textarea data-k="f2_point" data-label="F2 Point"></textarea></td></tr>
+      <tr><td>Cut list<small>details my audience doesn't need</small></td><td><input class="line" data-k="f2_cut" data-label="F2 Cut list"></td></tr>
+    </table>
+
+    <h3 style="margin-top:16px">3 · My story</h3>
+    <p class="instr"><b>B2:</b> bullet notes, 1½–2 minutes. <b>B2+:</b> a full script of about 250–300 words (2 minutes), with a past perfect flashback. Include a time phrase in the first sentence.</p>
+    <textarea class="tall storycount" data-k="f3_story" data-label="F3 My story" style="min-height:220px"></textarea><div class="wc"></div>
+    <div class="checks" data-k="f3_check" data-label="F3 Language check" data-type="checks" style="margin-top:8px">
+      <label><input type="checkbox" value="time phrase opener">Time phrase in my first sentence</label>
+      <label><input type="checkbox" value="past continuous">Past continuous for the scene</label>
+      <label><input type="checkbox" value="past perfect">Past perfect for background</label>
+      <label><input type="checkbox" value="key line">My key line</label>
+      <label><input type="checkbox" value="true">It's true, with no exaggeration</label>
+    </div>
+
+    <h3 style="margin-top:16px">4 · Walk-in rehearsal</h3>
+    <p class="instr">Walk to your partner. Stop. Eye contact, nod, smile. <b>Then</b> begin. Your partner times you and gives feedback.</p>
+    <div class="two">
+      <div class="q"><label>Time:</label><input class="line" data-k="f4_time" data-label="F4 Time" placeholder="e.g., 2:05"></div>
+      <div class="q"><label>Did I connect before my first word?</label><select data-k="f4_connect" data-label="F4 Connected first"><option value="">–</option><option>Yes</option><option>Almost</option><option>Not yet</option></select></div>
+    </div>
+    <div class="q"><label>My partner's feedback:</label><textarea data-k="f4_fb" data-label="F4 Partner feedback"></textarea></div>
+  </div>
+
+  <div class="task" style="margin-top:14px; border:2px dashed var(--gold-2)">
+    <div class="task-head"><h3>Exit ticket</h3><span class="tag t-ind">Individual</span></div>
+    <div class="q"><label>1. The key line of my story is…</label><input class="line" data-k="x1" data-label="Exit 1 Key line"></div>
+    <div class="q"><label>2. My story gives my audience…</label><input class="line" data-k="x2" data-label="Exit 2 Gives"></div>
+    <div class="q"><label>3. One detail I will cut is…</label><input class="line" data-k="x3" data-label="Exit 3 Cut"></div>
+    <div class="q"><label>4. How ready do I feel to tell my story?</label>
+      <div class="scale" data-k="x4" data-label="Exit 4 Readiness" data-type="radio">
+        <label><input type="radio" name="x4" value="1"><span>1 · not yet</span></label>
+        <label><input type="radio" name="x4" value="2"><span>2</span></label>
+        <label><input type="radio" name="x4" value="3"><span>3 · getting there</span></label>
+        <label><input type="radio" name="x4" value="4"><span>4</span></label>
+        <label><input type="radio" name="x4" value="5"><span>5 · ready</span></label>
+      </div>
+    </div>
+  </div>
+
+  <div class="task">
+    <div class="task-head"><h3>Before next class</h3></div>
+    <ul style="margin:0">
+      <li>Tell your story out loud <b>three times</b> with a timer. Cut until it fits in 2 minutes.</li>
+      <li>Tell it once to a real person. Look at them before your first word.</li>
+      <li>Bring Part F to Week 5. Your story will become part of your talk, and you will build a <b>persuasive outline</b> around it.</li>
+    </ul>
+  </div>
+</section>
+
+<footer>Approach International Student Center · TED Talks: Ideas Worth Sharing · Week 4</footer>
+</div>
+
+<script>
+const $ = s => document.querySelector(s);
+const $$ = s => [...document.querySelectorAll(s)];
+
+/* ---------------- DATA ---------------- */
+const rounds = [
+  ["Round 1 · Eyes on your phone", "Look at your phone or the floor while you greet."],
+  ["Round 2 · Eyes over their head", "Look just above their head, at the wall behind them."],
+  ["Round 3 · The Connector", "Stop. Eye contact for two seconds, nod, a real smile. Then speak."]
+];
+const vocab = [
+  {w:"tentative",            say:"tentative",            pos:"adjective",    ans:"c"},
+  {w:"reel (someone) in",    say:"reel someone in",      pos:"phrasal verb", ans:"j"},
+  {w:"empathize (with)",     say:"empathize",            pos:"verb",         ans:"e"},
+  {w:"protagonist",          say:"protagonist",          pos:"noun",         ans:"b"},
+  {w:"obstacle",             say:"obstacle",             pos:"noun",         ans:"h"},
+  {w:"resolution",           say:"resolution",           pos:"noun",         ans:"l"},
+  {w:"get bogged down",      say:"get bogged down",      pos:"idiom",        ans:"m"},
+  {w:"impressionable",       say:"impressionable",       pos:"adjective",    ans:"k"},
+  {w:"stir (someone's) imagination", say:"stir my imagination", pos:"verb phrase", ans:"a"},
+  {w:"startled",             say:"startled",             pos:"adjective",    ans:"d"},
+  {w:"occur to (someone)",   say:"it occurred to me",    pos:"verb",         ans:"i"},
+  {w:"patronizing",          say:"patronizing",          pos:"adjective",    ans:"n"},
+  {w:"default position",     say:"default position",     pos:"noun",         ans:"f"},
+  {w:"embrace",              say:"embrace",              pos:"verb",         ans:"g"}
+];
+const defs = [
+  ["a","to make someone imagine new things and feel excited"],
+  ["b","the main character in a story"],
+  ["c","not confident; unsure"],
+  ["d","suddenly surprised, and a little shocked"],
+  ["e","to understand and share another person's feelings"],
+  ["f","the way you think or act automatically, without thinking about it"],
+  ["g","to accept something (an idea, a change, an identity) willingly"],
+  ["h","something that blocks you from reaching your goal"],
+  ["i","(an idea) to come into your mind"],
+  ["j","to attract someone's attention and keep it"],
+  ["k","easily influenced by what you see and hear"],
+  ["l","the end of a story, where the problem is solved or explained"],
+  ["m","to become slow because of too many details"],
+  ["n","talking to someone as if they are less intelligent or important than you"]
+];
+const stA = [
+  ["Begin your first sentence.",4],
+  ["Walk on and pause. Don't rush in.",1],
+  ["Look them in the eye, nod a greeting, and smile.",3],
+  ["Pick out a couple of people in the audience.",2]
+];
+const stA2 = [
+  ["We often judge people from very small clues: how they walk, stand, and look.","True"],
+  ["A big smile always helps, even if it is not real.","False"],
+  ["When two people look at each other, their emotions can start to match.","True"],
+  ["TED's number-one advice on the day of a talk is to memorize every word.","False"]
+];
+const stB = [
+  ["talk about money, work, and trading","Day"],
+  ["gossip about other people","Day"],
+  ["storytelling","Night"],
+  ["singing, dancing, and rituals","Night"],
+  ["stories told by respected elders","Night"]
+];
+const stC = [
+  ["The story reaches a climax.",5],
+  ["A protagonist has a goal.",1],
+  ["The protagonist tries to overcome the obstacle.",4],
+  ["An unexpected obstacle appears.",2],
+  ["The resolution: what happens in the end.",6],
+  ["A crisis results.",3]
+];
+const stC2 = [
+  ["We hear what the nervous new student was thinking and feeling.","Character"],
+  ["We don't find out what is inside the box until the very end.","Tension"],
+  ["She describes the smell of the bread, but skips the bus number.","Detail"],
+  ["In the end, he laughs and realizes the mistake was his.","Resolution"]
+];
+const stD = [
+  ["It tells us the point too early.","Yes"],
+  ["It includes details the audience doesn't need.","Yes"],
+  ["It is too short to be a story.","No"],
+  ["It leaves out the feelings and the scene.","Yes"],
+  ["It loses the key line.","Yes"],
+  ["It uses too much humor.","No"]
+];
+const stE = [
+  ["Eleanor Longden (hearing voices)","d"],
+  ["Ben Saunders (South Pole trek)","a"],
+  ["Andrew Solomon (childhood and identity)","c"],
+  ["Sir Ken Robinson (Gillian Lynne, the dancer)","b"],
+  ["Lawrence Lessig (\"Lesterland\")","e"],
+  ["Malcolm Gladwell (spaghetti sauce)","f"]
+];
+const stEopts = [
+  ["a","Don't pin your happiness on the future."],
+  ["b","Schools need to protect children's creativity."],
+  ["c","Stories can restore our humanity."],
+  ["d","We can rethink how we respond to mental illness."],
+  ["e","A small group of funders has too much power in politics."],
+  ["f","People want different things but often can't say what."]
+];
+const stE2 = [
+  ["If a personal story is interesting, that is enough for a TED Talk.","False"],
+  ["It's OK to exaggerate a little to make your story better.","False"],
+  ["A good story leaves enough for listeners to connect the dots, without force-feeding the conclusion.","True"]
+];
+const seq = [
+  ["The year she turns eight, her family gets a new house boy, Fide.",1],
+  ["Her mother tells them only one thing about him: his family is very poor.",2],
+  ["Her mother sends yams, rice, and old clothes to his family.",3],
+  ["When she doesn't finish dinner, her mother says, \"Finish your food!\"",4],
+  ["One Saturday, they visit his village.",5],
+  ["His mother shows them a beautiful basket that his brother made.",6],
+  ["She realizes: \"Their poverty was my single story of them.\"",7]
+];
+const seqShown = [3,6,0,4,1,5,2];
+const gaps = [
+  ["1:03","We didn't have snow, we ate mangoes… I ___ never been outside Nigeria.",["had"]],
+  ["1:29","And for many years ___, I would have a desperate desire to taste ginger beer.",["afterwards","afterward"]],
+  ["1:35","Because all I ___ read were books in which characters were foreign…",["had"]],
+  ["1:35","…I had ___ convinced that books by their very nature had to have foreigners in them…",["become"]],
+  ["2:50","So, the year I ___ eight, we got a new house boy.",["turned"]],
+  ["2:50","…my mother ___ say, \"Finish your food! Don't you know?\"",["would"]],
+  ["3:35","Then ___ Saturday, we went to his village to visit…",["one"]],
+  ["3:35","It ___ not occurred to me that anybody in his family could actually make something.",["had"]],
+  ["4:04","___ later, I thought about this when I left Nigeria…",["years"]],
+  ["4:41","She ___ felt sorry for me even before she saw me.",["had"]]
+];
+const notice = [
+  ["My mother <b>would say</b>, \"Finish your food!\"","c"],
+  ["<b>I was 19.</b> My American roommate <b>was shocked</b> by me.","f"],
+  ["Then one Saturday, we <b>went</b> to his village to visit.","a"],
+  ["Dad knew the boat <b>was going to sink</b>.","e"],
+  ["It <b>had not occurred</b> to me that anybody in his family could actually make something.","b"],
+  ["<b>Years later</b>, I thought about this when I left Nigeria.","d"]
+];
+/* D3: [text before, options, answer] + tail */
+const choose = [
+  ["Three years ago, I ", ["have gone","went"], "went"],
+  [" to my first job interview in English. I ", ["waited","was waiting"], "was waiting"],
+  [" outside the office when a man in a cleaning uniform sat down next to me. He asked me why I looked so nervous, so I ", ["told","was telling"], "told"],
+  [" him everything: my answers, my fears, my dreams. When I was a child, my father ", ["was going to","would"], "would"],
+  [" tell me, \"Be kind to everyone.\" I ", ["never share","had never shared"], "had never shared"],
+  [" my lunch with a stranger before, but I offered him half of my sandwich. Twenty minutes later, I ", ["was about to","used to"], "was about to"],
+  [" check my phone when the office door ", ["had opened","opened"], "opened"],
+  [" and the same man walked in, wearing a suit. It turned out that he ", ["decides","had decided"], "had decided"]
+];
+const chooseTail = " to sit outside so he could meet the candidates as they really were. I got the job. And that's how I learned that every conversation is an interview.";
+
+/* ---------------- BUILD ---------------- */
+$("#rounds").innerHTML = rounds.map((r,i)=>`
+  <div class="round"><div><b>${r[0]}</b><div class="instr" style="margin:0">${r[1]}</div></div>
+    <div class="scale" data-k="a1_r${i}" data-label="A1 ${r[0]} trust" data-type="radio">
+      ${[1,2,3,4,5].map(n=>`<label><input type="radio" name="r${i}" value="${n}"><span>${n}</span></label>`).join("")}
+    </div></div>`).join("");
+
+$("#mwords").innerHTML = vocab.map((v,i)=>`
+  <div class="mrow">
+    <span class="mnum">${i+1}</span>
+    <button class="say no-print" data-say="${v.say}" aria-label="Listen to ${v.w}">&#9654;</button>
+    <div><div class="mword">${v.w}</div><span class="pos">${v.pos}</span></div>
+    <select class="ck" data-ans="${v.ans}" data-k="v${i}" data-label="A2 ${v.w}"><option value="">–</option>${defs.map(d=>`<option>${d[0]}</option>`).join("")}</select>
+  </div>`).join("");
+$("#mdefs").innerHTML = defs.map(d=>`<div class="def"><b>${d[0]}</b><span>${d[1]}</span></div>`).join("");
+
+function selRows(el, data, opts, key, label, numbered=true){
+  $(el).innerHTML = data.map((t,i)=>`
+    <div class="item"><span class="n">${numbered ? i+1 : "•"}</span><div>${t[0]}</div>
+      <select class="ck" data-ans="${t[1]}" data-k="${key}${i}" data-label="${label} ${i+1}"><option value="">–</option>${opts.map(o=>Array.isArray(o)?`<option value="${o[0]}">${o[1]}</option>`:`<option>${o}</option>`).join("")}</select>
+    </div>`).join("");
+}
+selRows("#stA", stA, [1,2,3,4], "bA1_", "B2 A1 step", false);
+selRows("#stA2", stA2, ["True","False"], "bA2_", "B2 A2");
+selRows("#stB", stB, ["Day","Night"], "bB1_", "B2 B1");
+selRows("#stC", stC, [1,2,3,4,5,6], "bC1_", "B2 C1 order", false);
+selRows("#stC2", stC2, ["Character","Tension","Detail","Resolution"], "bC2_", "B2 C2");
+selRows("#stD", stD, ["Yes","No"], "bD1_", "B2 D1");
+selRows("#stE", stE, stEopts.map(o=>[o[0], o[0]+") "+o[1]]), "bE1_", "B2 E1");
+selRows("#stE2", stE2, ["True","False"], "bE2_", "B2 E2");
+
+$("#seqItems").innerHTML = seqShown.map(ix=>`
+  <div class="item"><span class="n">•</span><div>${seq[ix][0]}</div>
+    <select class="ck" data-ans="${seq[ix][1]}" data-k="seq${ix}" data-label="C3 ${seq[ix][0]}"><option value="">#</option>${[1,2,3,4,5,6,7].map(n=>`<option>${n}</option>`).join("")}</select>
+  </div>`).join("");
+
+$("#gapItems").innerHTML = gaps.map((g,i)=>{
+  const [b,a] = g[1].split("___");
+  return `<div class="item"><span class="n">${i+1}</span>
+    <div><span class="time">${g[0]}</span>${b}<input class="gap ck" data-ans="${g[2].join("|")}" data-k="g${i}" data-label="C4.${i+1}" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Gap ${i+1}">${a}</div><span></span></div>`;
+}).join("");
+
+$("#noticeItems").innerHTML = notice.map((t,i)=>`
+  <div class="item"><span class="n">${i+1}</span><div><i>${t[0]}</i></div>
+    <select class="ck" data-ans="${t[1]}" data-k="nt${i}" data-label="D1.${i+1}"><option value="">–</option>${"abcdef".split("").map(l=>`<option>${l}</option>`).join("")}</select>
+  </div>`).join("");
+
+$("#chooseText").innerHTML = choose.map((c,i)=>`${c[0]}<b style="color:var(--gold)">${i+1}</b> <select class="inline-sel ck" data-ans="${c[2]}" data-k="ch${i}" data-label="D3.${i+1}"><option value="">choose…</option>${c[1].map(o=>`<option>${o}</option>`).join("")}</select>`).join("") + chooseTail;
+
+/* story word counter */
+function countStory(el){
+  const n = el.value.trim() ? el.value.trim().split(/\s+/).length : 0;
+  const box = el.nextElementSibling; if(!box) return;
+  const mins = (n/140).toFixed(1);
+  box.textContent = n ? `${n} words · about ${mins} min spoken${n>320 ? " · too long, cut some details" : ""}` : "";
+  box.className = "wc " + (n && n<=320 ? "good" : n ? "bad" : "");
+}
+$$(".storycount").forEach(el => el.addEventListener("input", () => countStory(el)));
+
+
+/* ---------------- CHECKING ---------------- */
+const norm = s => (s||"").toLowerCase().trim().replace(/[.,!?;:"'’]/g,"").replace(/\s+/g," ");
+function valueOf(el){
+  if(el.matches("select, input")) return el.value;
+  const r = el.querySelector("input[type=radio]:checked"); return r ? r.value : "";
+}
+function rowOf(el){ return el.closest(".item, .mrow, .ga") || el; }
+function answerText(box, el){
+  const a = el.dataset.ans.split("|")[0];
+  if(box.id === "vocab") return a + " = " + defs.find(d=>d[0]===a)[1];
+  if(box.id === "stations" && /^[a-f]$/.test(a)) return a + ") " + stEopts.find(o=>o[0]===a)[1];
+  return a;
+}
+$$("[data-check]").forEach(btn => btn.onclick = () => {
+  const box = document.getElementById(btn.dataset.check);
+  const items = [...box.querySelectorAll(".ck")];
+  let n = 0;
+  box.querySelectorAll(".fixnote").forEach(x => x.remove());
+  items.forEach(el => {
+    const row = rowOf(el), v = norm(valueOf(el));
+    [el,row].forEach(x => x.classList.remove("ok","no"));
+    if(!v) return;
+    const good = el.dataset.ans.split("|").map(norm).includes(v);
+    (el.matches(".gap, select") ? el : row).classList.add(good ? "ok" : "no");
+    if(el.matches(".mc")) el.querySelectorAll("input").forEach(r => { r.nextElementSibling.classList.toggle("ok", r.checked && good); r.nextElementSibling.classList.toggle("no", r.checked && !good); });
+    if(good) n++;
+    else if(!["seq","mc","choose"].includes(box.id)){
+      const note = document.createElement("div"); note.className = "fixnote";
+      note.textContent = "Answer: " + answerText(box, el);
+      row.appendChild(note);
+    }
+  });
+  const s = btn.parentElement.querySelector(".score"); if(s) s.textContent = `Score: ${n} / ${items.length}`;
+});
+$$("[data-reset]").forEach(btn => btn.onclick = () => {
+  const box = document.getElementById(btn.dataset.reset);
+  box.querySelectorAll(".ok,.no").forEach(x => x.classList.remove("ok","no"));
+  box.querySelectorAll(".fixnote").forEach(x => x.remove());
+  box.querySelectorAll(".ck").forEach(el => { if(el.matches("select, input")) el.value = ""; else el.querySelectorAll("input").forEach(r => r.checked = false); });
+  const s = btn.parentElement.querySelector(".score"); if(s) s.textContent = "";
+  save();
+});
+
+/* ---------------- AUDIO ---------------- */
+const canSpeak = "speechSynthesis" in window;
+let voice = null;
+function pickVoice(){ const vs = canSpeak ? speechSynthesis.getVoices() : []; voice = vs.find(v=>v.lang==="en-US" && /Google|Samantha|Aria|Jenny|Natural/i.test(v.name)) || vs.find(v=>v.lang==="en-US") || vs.find(v=>v.lang && v.lang.startsWith("en")) || null; }
+if(canSpeak){ pickVoice(); speechSynthesis.onvoiceschanged = pickVoice; } else $$(".say").forEach(b => b.style.display = "none");
+$$(".say").forEach(b => b.onclick = () => {
+  speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(b.dataset.say);
+  u.lang = "en-US"; u.rate = .8; if(voice) u.voice = voice;
+  b.classList.add("playing"); u.onend = u.onerror = () => b.classList.remove("playing");
+  speechSynthesis.speak(u);
+});
+
+/* ---------------- SAVE / RESTORE / DOWNLOAD ---------------- */
+const KEY = "ted-b2-week4-worksheet";
+const fields = () => $$("[data-k]");
+function getVal(el){
+  const t = el.dataset.type;
+  if(t === "checks") return [...el.querySelectorAll("input:checked")].map(i=>i.value).join(", ");
+  if(t === "radio" || el.matches(".tf, .mc")) { const r = el.querySelector("input:checked"); return r ? r.value : ""; }
+  return el.value;
+}
+function setVal(el, v){
+  const t = el.dataset.type;
+  if(t === "checks"){ const set = v.split(", "); el.querySelectorAll("input").forEach(i => i.checked = set.includes(i.value)); }
+  else if(t === "radio" || el.matches(".tf, .mc")) el.querySelectorAll("input").forEach(i => i.checked = i.value === v);
+  else el.value = v;
+}
+function save(){
+  const data = {}; fields().forEach(el => data[el.dataset.k] = getVal(el));
+  try{ localStorage.setItem(KEY, JSON.stringify(data)); $("#saved").textContent = "Saved on this device " + new Date().toLocaleTimeString([], {hour:"2-digit", minute:"2-digit"}); }
+  catch(e){ $("#saved").textContent = "Use Download to keep your answers."; }
+}
+try{ const d = JSON.parse(localStorage.getItem(KEY) || "{}"); fields().forEach(el => { if(d[el.dataset.k] != null) setVal(el, d[el.dataset.k]); }); }catch(e){}
+$$(".storycount").forEach(countStory);
+let tmr; document.addEventListener("input", () => { clearTimeout(tmr); tmr = setTimeout(save, 400); });
+document.addEventListener("change", () => { clearTimeout(tmr); tmr = setTimeout(save, 200); });
+
+$("#dl").onclick = () => {
+  let out = "TED Talks: Ideas Worth Sharing · Week 4 · Connection and Story\n";
+  const head = ["name","date","level"].map(k => { const el = document.querySelector(`[data-k="${k}"]`); return el.dataset.label + ": " + (getVal(el)||"—"); }).join("\n");
+  $$("section.part").forEach(sec => {
+    out += "\n==== " + sec.querySelector("h2").textContent.toUpperCase() + " ====\n";
+    sec.querySelectorAll("[data-k]").forEach(el => { out += el.dataset.label + ": " + (getVal(el) || "—") + "\n"; });
+  });
+  const blob = new Blob([head + "\n\n" + out], {type:"text/plain"});
+  const a = document.createElement("a");
+  const nm = (getVal(document.querySelector('[data-k="name"]')) || "student").replace(/[^\w-]+/g,"_");
+  a.href = URL.createObjectURL(blob); a.download = `Week4_${nm}.txt`; a.click();
+  setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+};
+</script>
+</body>
+</html>
