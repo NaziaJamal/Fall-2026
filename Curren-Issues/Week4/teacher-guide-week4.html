@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Teacher Guide · Week 4 · Pumpkin and Rainbow</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#143865;--deep:#0c2340;--blue:#1c4f8f;--gold:#8c7535;--gold-bright:#d39f10;--sky-dark:#c1cddd;--sky-med:#e1e8f2;--sky-light:#edf2f9;--warm:#efe9d9;--ink:#1b2433;--muted:#5a6578;--ok:#1e7a46;--bg:#f2f4f8}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);font-family:"Source Sans 3",Arial,sans-serif;color:var(--ink);font-size:16.5px;line-height:1.5}
+h1,h2,h3{font-family:"Source Serif 4",Georgia,serif;color:var(--navy);line-height:1.2}
+.toolbar{position:sticky;top:0;z-index:20;background:var(--deep)}
+.toolbar .in{max-width:940px;margin:0 auto;padding:8px 16px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.toolbar img{height:34px}
+.toolbar .bt{font-family:"Source Serif 4",Georgia,serif;color:var(--gold-bright);font-weight:700;letter-spacing:.05em;margin-right:auto}
+.toolbar a{color:#fff;text-decoration:none;font-size:14px;font-weight:600;opacity:.85;padding:4px 8px;border-radius:6px}
+.toolbar a:hover{background:rgba(255,255,255,.12)}
+.toolbar button{font:inherit;font-size:14px;font-weight:700;border:0;border-radius:7px;padding:7px 12px;cursor:pointer;background:#fff;color:var(--navy)}
+.toolbar button.gold{background:var(--gold-bright);color:var(--deep)}
+.hero{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff}
+.hero .in{max-width:940px;margin:0 auto;padding:22px 16px}
+.hero h1{color:#fff;font-size:32px}
+.hero p{opacity:.92}
+main{max-width:940px;margin:0 auto;padding:16px 16px 60px}
+section.card{background:#fff;border:1px solid var(--sky-dark);border-radius:14px;padding:18px 22px;margin-bottom:16px}
+section.card > h2{font-size:24px;margin-bottom:10px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.kv{background:var(--sky-light);border-radius:10px;padding:10px 14px}
+.kv b{display:block;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold)}
+ul.check{list-style:none;display:grid;gap:5px}
+ul.check li{display:flex;gap:8px;align-items:flex-start}
+ul.check input{margin-top:5px;accent-color:var(--ok)}
+table{width:100%;border-collapse:collapse;font-size:15px}
+th{background:var(--navy);color:#fff;text-align:left;padding:7px 9px;font-weight:600}
+td{border-bottom:1px solid var(--sky-dark);padding:6px 9px;vertical-align:top}
+tr:nth-child(even) td{background:var(--sky-light)}
+td.t{white-space:nowrap;font-weight:700;color:var(--navy);text-align:right}
+tr.tot td{background:var(--warm)!important;font-weight:700}
+tr.brk td{background:#fffaf0!important;color:var(--gold);font-weight:700;text-align:center}
+.esa{display:inline-block;font-size:11px;font-weight:700;border-radius:6px;padding:1px 6px;margin-right:4px}
+.E{background:#fdf1d0;color:#7a5a00}.S{background:var(--sky-med);color:var(--navy)}.A{background:#e3f4ea;color:var(--ok)}.R{background:#efe3f4;color:#6b2c86}
+.classhead{display:flex;align-items:center;gap:12px;margin:26px 0 12px;font-family:"Source Serif 4",Georgia,serif;font-weight:700;font-size:22px;color:var(--gold)}
+.classhead::after{content:"";flex:1;height:2px;background:var(--gold-bright);opacity:.6}
+details.act{background:#fff;border:1px solid var(--sky-dark);border-radius:14px;margin-bottom:10px;overflow:hidden}
+details.act summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:34px 1fr auto;gap:10px;align-items:center;padding:12px 16px}
+details.act summary::-webkit-details-marker{display:none}
+details.act summary .n{width:30px;height:30px;border-radius:50%;background:var(--navy);color:#fff;display:grid;place-items:center;font-weight:700;font-size:14px}
+details.act summary .ti{font-family:"Source Serif 4",Georgia,serif;font-weight:700;font-size:19px;color:var(--navy)}
+details.act summary .ti small{display:block;font-family:"Source Sans 3",Arial,sans-serif;font-weight:400;font-size:14px;color:var(--muted)}
+details.act summary .mn{font-weight:700;color:var(--gold);white-space:nowrap}
+details.act[open] summary{background:var(--sky-light);border-bottom:1px solid var(--sky-dark)}
+.actbody{padding:14px 18px 16px;display:grid;gap:10px}
+.meta{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.meta div{background:var(--sky-light);border-radius:8px;padding:6px 10px;font-size:14.5px}
+.meta b{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold)}
+.field b.lab{display:block;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:2px}
+.field ol,.field ul{padding-left:20px}
+.field li{margin-bottom:3px}
+.say{background:var(--deep);color:#fff;border-radius:8px;padding:8px 12px;font-family:"Source Serif 4",Georgia,serif}
+.say b{color:var(--gold-bright)}
+.diff{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.diff div{border-radius:8px;padding:6px 10px;font-size:14.5px;border:1px solid var(--sky-dark)}
+.diff b{display:block;font-size:12px;letter-spacing:.06em;color:var(--navy)}
+.ans{background:#e9f6ee;border:1px solid #bfe2cc;border-radius:8px;padding:8px 12px;font-size:15px}
+.ans b.lab{color:var(--ok)}
+.warn{background:#fff6e5;border:1px solid #f1d28e;border-radius:8px;padding:8px 12px;font-size:15px}
+.qc{columns:2;column-gap:24px}
+.qc li{break-inside:avoid;margin-bottom:4px}
+.foot{text-align:center;font-size:12.5px;color:var(--muted);margin-top:10px}
+@media (max-width:700px){.grid2,.meta,.diff{grid-template-columns:1fr}.qc{columns:1}.hero h1{font-size:26px}section.card{padding:14px}.toolbar a{display:none}}
+@media print{
+  @page{margin:12mm}
+  body{background:#fff;font-size:10.5pt;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .toolbar{display:none}
+  .hero{background:none;color:var(--ink);border-bottom:3px solid var(--gold-bright)}
+  .hero h1{color:var(--navy)} .hero .in{padding:0 0 8px}
+  main{padding:6px 0 0}
+  section.card,details.act{border:1px solid var(--sky-dark);break-inside:auto}
+  .classhead{break-after:avoid}
+  details.act summary{break-after:avoid}
+  .meta,.diff,.ans,.say{break-inside:avoid}
+  details.act summary{background:var(--sky-light)!important}
+  .actbody{display:grid!important}
+}
+.mvtag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.08em;background:#e07a1f;color:#fff;border-radius:6px;padding:1px 6px;margin-left:6px;vertical-align:middle}
+</style>
+</head>
+<body>
+<div class="toolbar"><div class="in">
+  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIgAAAB0CAIAAADRiO1nAAAglUlEQVR4nO19aXAc55ne837dPTMY3AcBECBAkOAp3jd4iqRFSZQsWaetw7a0u9Z6k012N1tJudap/EnlR6qc2iR2VHG89q7P9S1LtixKFGVRIkXxJsX7BAkQBwlicANzdPf35sfXAEGgu2eAmSFpl55ilYriTPc3/fR7fO/1UV79ZnyKew/ibi/gU7hDv9sLmCSYwaP+SgAIdLdWkwX8MREjGVJCMogQ0BHQYWjO/7clYgkkbGgC2p+EFrjXiWHAlpASmkBhGJVFmD2VaqegOJeK85CfAwCmhWgCN/tw+TofusRNN6EJ0B+5+NA9a/wlw7Kha6gpxaLptKCGaspQkoeADgDMkAxmAA4HQoCAgRjePMxvHGQlWH+8uBclxrIhGaX5WFRLa+dhfjXlhRwmpETCGvcFBgBbAkDIwPMbKWjgXz9kTbvDC88k7i1iTBuCUF+JDfNp9SyaUggCbFcyPCAZpoWHl9GBi3ypHfofLTf3CjGKkoU1eHCpWDoDuUHYEpY9mUtJRjiIpXV0oY2Tf/pexd0nxpIAY8E0PLJCLJuJoA7TnoCIuEIyasogPrUxk4OUsCRqy/DYKlo/j0JGEkoEOfZcmRM/MMJBIvpUYiaOhIXSPDy0lLYtocLcJJTomuNx9UchBMrywXBcMi8kJ+/exl0gxpZgoGEOPb+Baspg+VJiaJCMi+3Ye5ZPNnHPIED4zCJ6bj0R4EkNoT/K/szd47jTxCQslOXj2XW0eQFpWhLFpQmca8WOo/JwI2KJ4W0j4/WDPKeKVs+C6eEdEBDph/yUmFSgAidrZuPFjWJaGUzbz+kydPQN4vWDvPMTjiZgaM6+EgAIpoWzLdwwh+BxBWZc78n0D7izuEPEWDbCQTzVQI8sJ91XUIhgaDh9Dd9/X16+Dn00JSNgRON+V4iZaOviT72yJEhYmFaCr2wTi6cnERRNgBlvHOJffcxDcTdKAABECBieFxGE/ig6eiH+mKOZWScmYWH5TLyyTVQUJtmd6Br6o/jhbt59mjXhRI5dQUBpvqdXJgitXRiMZTELICVs9lth+sgiMcywJB5YTC9toZxAElYMDZEBvLpDHr+CgJHkmRKhqpi8iCHC1Q6OW54ClyYsG9WlqK+gPWd5ZGuVcWSLGGbYjKcb6Nl1RJQkuGLouNaJ/7NDXmxH0FtHjVw5HERFkafESInzbdl6XlIiN4S/3CYW1KCqBL/cx5ydMHZWiJEMAl7YQE+sISkhffd6AR3n2/DN38vr3QimsBybUZqP0nzYbsQIQm8ULZ1ZsfwqlfDlzWJBDUwbTzcQM37+EWcj/ZN5YiRDI3xpM21fRpZMsj8P6DjZhG++JbsGYKS2FmbUlFJu0H0TIwTau9DZn/k8pkrZPbeeti6CaYEBS+KpBrIlfr2fBTLMTYaXLxmC8PJW8chysuzkrJxowv96U3YPTsCQMmN2lWeAUhAutLOZXgzUFaaFR1fQk2vIsp2Ig0oRPbuOFD2Z3c5mkhhmMOP5jfTQUued8kFAx6lmfPP3sncIesqrYEbIQH0FueoxAJbEhbYMPyMACQsPLsEX7yfcHqNT3Hx+HT264hZhGUEmibFsPL6aHltJZrIlGjoutuObb8mewYnlsiSjJB9Vpe52SxAGomi6yZnVYwkLWxfRy1uEcIucqtfxxU10/wJKM1sxGhn7BQkLWxbhC+tIJrMrhobWCL71loz0TzjDaEvMrEB+yP0WQqAlgu6BTGZiEha2LMRXPkP6sAkcb0skQxP4sy20qBaZ0qKZISZhYekMvLxFCJEkdKgJ9Azh1R2yNTLJDdqcqaQJd4kUhMYOjpmZscPMSFjYupC+8oDQNRAh0o9v7+SeQRfPwpbIDeGvHhRTiyeZeB2DDBBj2Zg+BV99UISDSTxjIpg2vreLz7Wm6oONQVDH7Cry4l4yLrRmZsPPDNPG9mV4ZRsFNBBhIIpv75TvHOcff8BSunBv2agqwZ99hgJGEp2RCtIlRiXYVcQl6ZuiC7y2n/edZ59Ilw9sibICVBS5J8GUgbnWyemHyCRDMp5cQy9vFZoACAkL/+9defwKckPYe47fOMSuSjhhYcVMemI1WWmn6dImRuKZtbRgWvIsfUDHnrN44yAb2iRfasmoLUOBl4EhdPThZn+6BkZKCMIX76cXNxLgsPKdnbz/PIIGCNAEXtvPxxrdQz6Wjc+uJLUDTQdpEZOwsHIWPbyMEskWYWi4dB0/2C3TqcNjxpwq8hIIIdDUwfH0DIxlIxTAX24Tj68iW0IQLBv/tEt+cIZHaBCEhIUffSC7BlwC2JKRY+CFjSI3kJZCmzwxSrF8cRPpWpIVCMJADN/bJXsGJr8hZ0bQwMwKz9glgMs30noWpo0pBfj7x4Xa25NAwsJ33uX3T40VDl3D1Q786mN2/TWmjXnV2L6c0hGayRPDjKcbqKY0uWnRBH5zkM+3TdLgj9yuIAdVJe4GhgixBK6lESKLm5hVia89JZbWIWFBEzAtfOddufsUu0bwAjr+cJKPXGF3hSbxyAqaUT55D22SxJg2FtTi/gUpKDEdx67g7aOcZvbCZlSXIj/H3VEmoD+G9u7JJMdUkfSm+/C1J8X0MoeVmIlvv8MfnPZL1lk2fraHe4fcFJpEYRjPrPVUvEkxme8xI6DjqQYRTOYXCkLfEP51j0xY6e4tmFFdQgHd/Y6awPVuDMUn7FaYNoIGXtpC/267KAzDtKFrGIjh1R1yz1l3aRiBruFKB9484h5oSFhYNYuW1E1SoU2GGNNGwxykssvVNPz2EKvUfZogwvQpfv/a2jWxrSUDCRN15fjaE+KxlQSCLRHQ0d6Nb7wu919IKc+ma9h5nK92uP9ATcNjKz1fJn9MmBjJKMjB4yuTf1HX0Hgdu05wOqZFgQFDQ02Z59aSgZbIBC5oS7DEA4vpPz8tFtQgYTlq4GwL/vtr8kxLqtlPVV/w+yPsqmFNC/dNw9JJCc2EibFsrJ9HdSmYNSnx2n7uj2YgcsWMwjCKcz3jPbaNlginKC4JC0W5+DcP01cfIqW+iGDo2HMW33hdtndPLCdtaPj4PF/w6CzQBB5YMpng08ReZmbkhrB1sZ/PqmBoOHKZD1/OgLgAkBIFYeTngD1csoEYIinELlXWZM1sPL9R1JY5uQlNwJb45T5+bT/bcsJalwjRBN79hGdPdbm9ZWNhDc2p4jMtMDTYErYEEQQ5KQNB7nec2GMzbayZgxlT4B9yUJVdrx9kS2amlISBsnwEDXcxVS5G75AfMSr2VVGEZ9bSpvtIE06owtDQO4QfvM8fnuVJ92/qGg5d4isdNLNi7AoZCBq4fwGdaWFNYFopzZuGaSUozqNonDv7cLiRL7VDGxcNmQAxzDA0bF4gkmoMJd3nWzNW4MOMiiLyuq8gRAYQjbs/VkVJKID7F9BTDVRZ5NS2ERAwcL4V33tPXmxPq6RGWZoPTvOsSnehWT6TKgp5KI7SfAR1TCmgZTMhiIiwfQX9ah+Pd+0msBxbYnYV5k9LLi7RBN4+luGS7vJCT1eYCDd6WDLGvwamDV1g1Sx8brWYV+1E8gGHwp3H+Sd7uD+agUInQ8PBi/z4KhpvCCWjOA9LZtDbR/nIZT54Ca8f4M+vp2fWki0RMvDCRmru5E+u3qbTJiC6krFqFoWThYAMDceu8MXMtdkxoGsoyfeUUyLc6Bm7KsuGZWNeNf7+cfqPj4v51bBsJ2oQ0NEfxXfe5X96lwdjmRFrIdDZh4MX3aPOYKyqJ0OHriGoA4SjjU5Yz5YwdNy/YOyvS/VVYUZeCMtnkOXLCgFxC+8ed39/JwlGQEeJr0sWGbj1V6Xl6yvxyApaPYtyAjBtJ9arOgiONOInH8irN2HoGU2tEw5c5AcWkxDj3hKJ2VMxtRhtXU4ZcEURgoaTvpKMmjIKBdgctQ1PlRhLYm45qkpg+3rJuoYTTTjbmsmuVAYCOoo8iCFCwkbvIANO5HF6ObYvo7VzKDd0qx+KAENHbxS/2c/vHGczC3WaukDjDTR3or5ynAvAyM/Bwlq61um4GOvmCSEcCWZGTgCqWHVEcCYgMQtrKWAgYSb55EfnOJHRn82MvBzkBNz7lAhIWOjoRUDHolrcv4CWzqC80G39UMqiHL6Mn30kG6/D0LLSzUyEoTiONbr7zQAW1GDncSQsrKzHshmwRsVNbDnWcqf0/FTR0Pxp5LqNGIEQuNmH41c99OxkIRlFYeiaZ+WNZWPDfFpRT/UVMG7vrRUEQ0NrF369nz86x5adrYLmkdudbOYn1rh0u9kSM8spN8hC4IWNwtBuSZUgRPoxFLvN3U+NGCA/B9UeIfdb1xI40cSRvrTC+y53ZxSGKaC7FxRIRl4Iz28kAPYoSpTuGozjraP8u8Mc6c+WoIyGEGjuxI0el/SEZBTlYWYFNt5HdeW3JXyJcOYam7e/NCk9QikxpRA5Ab9qMRUGP3SJs9H9UBiGriHu/VqM0emGBtPGvvP43SF5oR0aZVdQRqBSghfbuaaMxhDDDE3gy5tFVcltrKivHLo0tlQhNWIYlUVOu7fPmtq7caEtY0XDDGfWUsJCYTjVAK1Kp55qxhuH5CdXnU3xnQQzLl/H1kXu/1RTNlaSdA1Hz6O5c+xzS4kYAqpLkkTUNYELbdwfnaS6UPPHmCEleLjhb0oBqkpQX0ENc5LUnRBB12DbONeKd4/LAxcRNzOsUVOEIFyLcNx0cZoxrsldbcZ3HJU8TtGktHYhUFOaJHBpMw5f5rgJBmi4XHH0zUa+ra7DAIbJUI2WyicuL0R5IVWVoG4KVRShMOwEGX3Mmy4Qt3CsEe+dlCebEDNhaHeHFQCCcL0b/VEU5SYvZTY07DjqvhlPvnyVqCj2bq0DQIBpob6SAjr6YzwYRcyCbWOkzpoAIaAJx00KGsjLQV6ICsMoyUNxHhWFoeaPBY1b4+GkTEIJAE3gbCv/+AO+fAO27dFMewehnOZIP0ryIf3btTQ03sDrB93rFFIgBsgLIS/kx7968Z9co4rhyZaIm7BsjPTHEDmsCAFDg6GByPkjlDlhJwwOTl6iNhqawCdXcfoacoJ3TUpuAyFuITKAub6aXxCiJn6wW/YOuVvBlCQmFEAo4FeUTEAscWvWCwGhwLAeU/8Z/q76ryIgI+DheXP3SO84AZZEZx/De0VO1eBePtnkKd+pEWMgZPg9SskI6Le8gxH7MfyXSULJGSFJVWP69agZBiPS7/e7DR27TuB3h/0qh5L7tipUpXsU2GP4HYlmosZeeQ26cAaRRhM414K955JMhfGvZL/DUA76zErPN9LQ8MkV/HC39O+qTUkrJ+0kBhDUJyMcigmlAwXBlIgl0NGLS9f5XAsu3+DWLsyZinVzx+7XRuPemRnDDFviC+tpwzz3AgxNoK0b394ph+JJ9hUpEZNkz0iIm8gNwtVzH/mM4oCGpyMrU2/ZGIyhdwhtXdx0Ey0RtHdzpB+DcWerLCWKcpOI4j0yZYkBy8YTa+ipBs9qHrUNj6RQKpxqENMHKr7bH0VOALp26/Uf+a7avQ/GMBDHYAyDce4ZRKQfnf3cO4jBGHqGEEs4L/6IS60gJcJBHzvq/Np7AaaFR1fguQ3E7PfEAhp0kXycWkrE+F/F0HCiib//PocMp+bD0KAL52laEgnTSbNb0kksKvVKdEuVeck1A6FkgzLu+swYBkwLDy2lL20m8lWtrMYQp/AmJSeGgJiZZBPTM4Ch+HAkcVzx2+j57jTxeGLS3cndHU2uij0eWoqXt5BIweCl+Bql9JBMC5bt5ERdV6aq+hyVkvEZEZrvNe9U5NgVajLL51bTCxuIKCU3hFJ7QsnpI0LURCzheTkGhsws7u904c9LSoNOsgHlpr+wgb64iZAyK3HTfdjKGKRETCyBaMJPM2ZjEsXoBfgjI82oE4VlI2DgKw8I5YOluAAiDCXYspP/qBSIAQaiGIh5XksFRbInMklHZOUE7vQYf9NGYRh/+yhtWwLTGssK+c7K6o+m1M2UksSYEpF+9qy3S36XtOD/LqoSE6/O/2wgYaGuHF97UqyaRYlxk1k0AdP2mwzZM5jSa5SSi8ASrV3el1Pbjqw9GH9nnRnhIOkiiwsYgWSYNtbPw9efFrOrXKLghoaeQfzLe6zmQ7teobM/pXulWozR1uWnRrPqsNq+k2kYyA1C0yCzaeegjIqOZ9fS46tJFy5mNaDjSgde3SFNG0V57nlFybjZm1KjaKoZzJYIDyXcm6MIyPNojcwIErafNDCjKBcB/bZqucyCgYSFmlK8vEUsnwnTdskQ6xoOXsR3d8m2Hjy0hMIBl4g4EQZj6BrI0AYTgCDc6EX3AKYWu7h6RCgKZ5EY/wlbkpETQEEO+qNZMXe2BBgb59MXN1G527xVXYNp4Rf7+Y2DbNoIaKivdH/0GqF3CD2DKcWQUi3GGIjhSgemlbpofAKKcrN1PKCKO/gjoKMkD9cimauWBjAcaKkoxOfX08b5RDSWFVUxcr0H339fHrwIXYMQCOiYM9U9iEmE9i4kjSsrJCFGnQ+WE4Rt4lwrb5jvwrVkFOdRQM/O6VOEaJzZ0yV0ShKKcimzo/wtG4KwaQF9YR1NLYZpj8366BqkxO7T/POPuKPHiT5YNmrLPCu81XCoFJMUnsSo96W6BOvnUWc/9pzhcy08FKfAuFJVdWxVwEAskdItJ4ohb9dTQRCK8zJ2O1tCMmZV4sk1YtUsAO6C0hLBz/bygYuMUdE8yVhYS+Ggi8YjIGHjaof3K3Y73IlRVV6PrqCnG2jPWX79IDPQ1o1rnZhT5VLKXpCD3CCG4tAyLTFKlZnekToMNwKmL6zqGK3yQjyynD6zmPJC7g5x3MQ7x/i3h7izH4Z+y64p2V1a5+6PEaEviuZOpHhymgcxwHPr6Zl11BrBL/exLaEJxE0cv8Lzqsc+AAZCAZQV4EZvhrU8hts5Ywm/Mh1mlBaklZVREeKiMDYtp4eXUWWRy+EpyjCcvoZf7JOnmx1zMho2o64M9ZXuGy9N4GoHugZSdVBciDFt3DcNj64gpzdgOIwvBI5d4cdXk3H7VB9VrVFdQqeaM++aqVrFmIn8HE+nmYHiXNLFZIycyqLmhbB1EW1fTjWlTlpvNDQBIXC1A28d5X3nOOZR4yklls90lzP1Q860TKAvx+VTzFhQS6EA4iaqivHlLfTjD7l3EIaG5pu41I5FtS5OupePmCYIiCb8IhwY7nbLC6E3OgGHWR3EVRhGwxzatoRmlIPHleMoSlojeOc4f3iG+6NOUZzrGnKDaJjjPt5W/YqTTROYQeRO38i8XVvigcVUV05vHeVjjXyzDx+e4YW1Yy8vGbVTKKiz7TaTMB0QIW5iIAbheViM04mRm4OeoeRbGVUvIRll+Vg3j7YuoppSF0pUjvxaBLs+4b1nuXswSY2nJbFkGtWWuftjmoamTrREUjUwcCWGCJfab1n4hIWZFfj326m1i45f4bZu7h1yTgwdgZSoKERZAdq7M2//mREZ8FNSzMgJoiiMlk6/6ygRCeiYW411c2nVLJpSCClvo0QVT0nGlRt4/xTvO889yShR0AS2LoLX0TiCcOwKRxMTyOm5fFAXONXMZ1poUa1zG0XS1GJMKyXTJnvcAF/JyM/BrKnUEsnwzGN18Zt9SSRBI1QU0YkmFz2iTnoCUF6ApTNo7VyaPRU5AdjyVrxrpLQ6msCJJuw+JY9fxWAs1Upoy8acKngNWiLCUAKHx3XA+MNdYmImfrRbfv1pUZBzq85xpL7bVVEKwqJafHh6AvdOHZ19ST5AhMqi25wDtVpByA9jdiWtnYvF00mdOmPJ29ozNQFLorULhy7xoYt8pQOmffvhWylg2xLPo1h0gdPX0HRzYrrEw8ZouHwdr+6Q/3a7KM5Nqcrblpg9lfJzeDCe4XoiInT2ccIiIr8Id3khCWLTdvo6ygsxeyotno651VReCNXz6HQwk2NCLBvXe3DmGh9txLlWVkNPtAlSYtmYWYHVsz1HLDHwwekJNwx7ftbQcbQR/+2X8sVNYmkdkOwMGMmoKMLsKhy5DJHR7YwgdPYhZiLs3Wuo7l6aj4pCzJtGC2uodgoKwxDkRJUSFoSAIZw2ieZunGnhE018uR29QwAmzMcIiPD4asp12+0D0AVaIjjaOOGGYb+1GDqabuIbb8j182j7Mqorhyaco8PHQ+17G2bTkUsZ3s0QoWcIvYPIDXpuZdQw6v/6nCjKRchwilekBNOwsrLRNYCmDpxp4bMt3BrBYNwpWk+neSNhYdkMrKr3FBch8P6pyUxFSfJxFar7w0k+eJEX1tLG+bivhlRHpHI6R8OSWDydygq4a9BPn/JweeZIUxON+ieM6zdTuNGDaaWeHjMAXaC8EILAcAQlaqJ7ANciaL7Jl9r5WgTdA47h0cbt2ycB1aDyVIMI6O79CJpAezf2nuXUj/u49XOSfkKV6MVNHLjAhy6hqoSX1tGSOqqdguJcp4VVQUqU5mPZDNr5CWveFy4MIzeEkA5Ddwi2pWqMZyGcqsxwAOEg5YVQlIuiXOTn0MyK5MOFuvrR1o1IP7d1obWL27vRNYChuDMiTIlOBp1G08a2JTR/mmeXiCbwh1Mc6Z/MS5DqN9QMPABtXbjWyTuOcnEe6srx5c2i8vaZ7pvuow/P+O00B2MQhJCO3BAKckhN68jPQTgodA1FYeSGkBNAyHCOirVtxCwkrCRZfV3DiSb+1g7W6FYZ9AgfGYclUVOKJ9d4tqbqAs2deO/EJMdRTJjKkd/ZPYD2bgR0+bePihF/ybJRPxVzqnCy2bOP25boGkBnv/qKE4kjgiYYBH34vRbDdX4q6Ftdgv/yrPApIWOJ2ikUDrBlQ89y5Y7Sls9tEKX53i4r4c3D3DM4SZ05+XdJCOQEcOAiPj5/iwMGgjq2LPQc+uZ8l6APN2MaOtS8KKcI3UbcxGAc/VH0RdEXxUAMcRMtEXT0+TniklFeiCkFd6JdxrSwdSGtme3JiqHjk6vYc3by06bTEnIlKD/dK6/33FIXpo1Vs2jWuAlEya823Mek6v9v+yMQNdF4wy+soCJmMyoo2w1mpo36SnxhA3ndRxCG4vj5R9JMY9p0utpXE7jeg598eCvkzoxwENuXUWZLI5hxtiX5/O350zJ50/FQ9P/5VlEU9mwx1DW8eZgvtKU1uiYDZjGg4+Pz/PYxDgyvw7SxejbNr073qI7R0AQuX+eBmJ82syXmVlFeTra0mepIem6Dnydm6DjZhN8dTncEVWb8FSHwi3186ppjbFTq7Mk1wkh2UMYEbkG40eMyc2U0JKOyGHVTkvdrTQ6mhYeX0oNLPLeTmkDvIH6wW6rm+nSQIWIIQ3F8d5eMDDjya9pYUocG7wjSRKFCq6eambyXzIygjkXTk4+FngQSFtbMoec3eXbyEYGBn3woG29kYP5Wxjx8Q0PTTXx3F8dN52Uh4Om1VJKXsXZvQTh+hWO+JyvYjJX1Y9NF6SNhYdF0fPVBCuqeejKg4+2j/P6pzAzoyOTWK6Dj4EX+yYesPCtLoqYMj63y6wSfEDQNTTfRdNMvD2jbmFaKedWUkaP1FBIWFtTgbx4RBTmeSjKg48hl/tlHLHzbrFJHhvfEho63j/FvDjj+u2njwSW0wK1GYBJQpUwHLiWZ4a9p2LpwAklcf8RNLKzF331WFOd5xoTUOd7/9x1O37SMIMPEqCkpv9zHO4+zqkAPGfjS/SIvlBlPSRM4cpn7fKfFWzaWzKBZU9N9G9T07IY59B8eE8V5ntuygI6mm/jWW7J7IAOmZQSZjyKpXef33+ddJxDQYdmYPRXPrCX/ucApQhNo7cLhy37OqAr6PraC0gmRqRMXP7uS/uZRKsjxY6W5E//zTdneneGBm1mpBRcClsQ/vyffO8mGDsvGQ0tp7dwMHUXMeO8Ex3x7Qi0LK2fRyvpJ3tG0ETLw55+hlzaTOsLCFQEdjTfwP96Q1zozP+AxWx1HajDMd3fx28ega9A1vLSFassycNytruFiO440+j0LFWR8cRNVTvCAXWbETcwoxz88JbYvIzku5zSCoIGTzfjG67K1KytjN7PYCqYRbIl/eV/+9hADKC/EK9tEXigDuz/J2HFU+jdS2xLVxXjlAREOpnRHZVGEwMPL6B+eFvOqMb6/UkElqPac4X/8rbzZl61hqNkdKqGOr/nRB/yzvWxaWDwdL20h4VtTkQp0DefbkPQYsYSNZTPw19udWfJeUDWxRFhRj68/LV7Z5hzD5Aplt371Mb+6gwdiWRzknPXZBSrX++v93DPIL20WDyymjl78Yl9apy8qOXn9oFxSJwq8g4kAEhZWz6bCMP1gt7zQ5kx0Uu6JSm8ToSgXi2pp80K6rwaG8KPQ0NE3hB/ulrtPQdey23lKefWbs3j5Yahum8XT8co2UVOKb70l3zuZbtY9YWH7cvqLraQOuPKBoWEwjmNX+OPzuNrBcROhAEryUFVC86sxbxqpw2mscYWMIyDA0HGhLQOnAKWIO0SMQsJCRRH+YqtYUof//Xv+6BynMqLOC8wA4a8fpvsXUDxZO6DqNrJsDMQhpVOMETKcE1ySjsaXwB9O8k/3cF/0Dk3YvqPEALAkdIEnVtNDy+h7u3jf+SSHgPrDligM42tPillTUxqbQqMGoIwuwfH8PMHQ0N6Nn+7lj88z3cERXHeaGAx3CS2fiacaxDvHeO+5tOyNaaO2DP/pc2Nn5qcJAnQdcRMfnObfHOCO3tuax+4A7gIxCgkLJXl4cCldaufjV9MKMSUs1Ffi7z4rqjPEja5BMk4347UD8nSzU2pzh3HXiMHwzLUZ5RiK42aysnF/mDaqivHKNrFkOkyPWtGkUD0YzLh0Hb8/wgcvccK602c23FrMXSRGQZ1wLJN5Vklh2cgJ4HOrafsyZ+OS+m5JCOgCCQsX2rHzOB9t5KG4M079buHuE5NBqFaYuVV4Yg0trKHc4HAF8+12fmQUpCr8VHVu51p592k+e805s+EuUuIs8k+JGAXLhhCom4KGObRoOlUUIWQMD1JnhzzTRtzEjV5cbOMzLXzpOrr6wWqa4N2mROFPkBgF1ZUQDqIkD+UFKMojdeZPwkLcRO8Qdw2gb8iZXKhmCt9TuBfOj8gKnJoQC+3daI1AjtJlo2ej390zTXzw/wFU4+6ip9Wk0AAAAABJRU5ErkJggg==" alt="Approach logo"><span class="bt">TEACHER GUIDE</span>
+  <a href="#overview">Overview</a><a href="#prep">Prep</a><a href="#timing">Timing</a><a href="#c1">Class 1</a><a href="#c2">Class 2</a><a href="#keys">Answer keys</a>
+  <button type="button" id="openAll">Open all</button>
+  <button type="button" class="gold" id="printBtn">Print</button>
+</div></div>
+
+<div class="hero"><div class="in">
+  <h1>Week 4 Teacher Guide · The Pumpkin and the Rainbow</h1>
+  <p>Current Issues · Basic Level (A1–A2+) · Two 100-minute classes + 30-minute break · ESA</p>
+</div></div>
+
+<main>
+
+<section class="card" id="overview">
+  <h2>Overview</h2>
+  <div class="grid2">
+    <div class="kv"><b>Syllabus focus</b>Numbers, dates, and places in the news</div>
+    <div class="kv"><b>Language focus</b>Numbers, prices, dates · prepositions of time and place: <i>in / on / at</i> · <i>along, past, down</i> · <i>behind, in front of, between, above</i></div>
+    <div class="kv"><b>SLO (Week 4)</b>Students understand and say numbers, prices, dates, and places from an article correctly.</div>
+    <div class="kv"><b>Texts</b><b style="display:inline;letter-spacing:0;text-transform:none;color:var(--ink)">Class 1:</b> “A Giant Pumpkin on the Move” (news, A2, Oct 20, 2026, American audio) · <b style="display:inline;letter-spacing:0;text-transform:none;color:var(--ink)">Class 2:</b> “How Does a Rainbow Form?” (explainer, A2, American audio)</div>
+  </div>
+  <div class="grid2" style="margin-top:12px">
+    <div>
+      <h3 style="font-size:18px;margin-bottom:6px">Class 1 story in short</h3>
+      <p>On a Sunday, strong winds blew a giant inflatable jack-o'-lantern — as tall as a two-story building — away from Phillips Farm in Cary, North Carolina. It rolled along a fence, past a church, and down the road. Workers stopped it in about one minute. Now ropes, metal spikes, and two tractors keep it in place.</p>
+    </div>
+    <div>
+      <h3 style="font-size:18px;margin-bottom:6px">Class 2 text in short</h3>
+      <p>A rainbow can appear when there is rain and sunlight at the same time. The sun must be behind you and the rain in front of you. Light bends when it enters a raindrop, the colors spread apart, some light turns back, and it bends again as it leaves. Rainbows are easier to see when the sun is low.</p>
+    </div>
+  </div>
+  <h3 style="margin:14px 0 6px;font-size:18px">How the two classes connect</h3>
+  <ul style="padding-left:20px">
+    <li><b>Class 1 = places and dates in the news:</b> a route (<i>along, past, down</i>), a fact file of numbers and places, <i>in / on / at</i>, and prices at a farm stand.</li>
+    <li><b>Class 2 = where and when:</b> where to stand (<i>behind, in front of, between</i>), place prepositions, time chunks, and a personal “when and where” story.</li>
+    <li>Both worksheets have <b>4–5 movement activities</b> (orange in the worksheets) so energy stays high across 200 minutes.</li>
+  </ul>
+</section>
+
+<section class="card" id="prep">
+  <h2>Before Class: Checklist</h2>
+  <div class="grid2">
+    <div>
+      <h3 style="font-size:17px;margin-bottom:6px">Files (same GitHub folder)</h3>
+      <ul class="check">
+        <li><input type="checkbox" id="p1"><label for="p1"><b>worksheet-pumpkin.html</b> — Class 1 student link</label></li>
+        <li><input type="checkbox" id="p2"><label for="p2"><b>worksheet-rainbow.html</b> — Class 2 student link</label></li>
+        <li><input type="checkbox" id="p3"><label for="p3">Both texts open on eslnewsstories.com (reading + audio)</label></li>
+        <li><input type="checkbox" id="p4"><label for="p4">Test both audio tracks and the speakers</label></li>
+      </ul>
+      <h3 style="font-size:17px;margin:12px 0 6px">Print and cut</h3>
+      <ul class="check">
+        <li><input type="checkbox" id="p5"><label for="p5"><b>pumpkin-cards.html</b>: 2 sets of story strips + TRUE and FALSE signs</label></li>
+        <li><input type="checkbox" id="p6"><label for="p6"><b>rainbow-cards.html</b>: 14 color cards + SUN and RAIN signs</label></li>
+      </ul>
+    </div>
+    <div>
+      <h3 style="font-size:17px;margin-bottom:6px">Classroom</h3>
+      <ul class="check">
+        <li><input type="checkbox" id="p7"><label for="p7">Tape for the wall signs (TRUE/FALSE, SUN/RAIN)</label></li>
+        <li><input type="checkbox" id="p8"><label for="p8">Clear walking space: one long line for 14 students</label></li>
+        <li><input type="checkbox" id="p9"><label for="p9">4–5 desks as “farm stands” for the role-play (Class 1)</label></li>
+        <li><input type="checkbox" id="p10"><label for="p10">Colorful objects around the room for the Color Hunt (Class 2)</label></li>
+        <li><input type="checkbox" id="p11"><label for="p11">Optional: a real pumpkin or a photo of a jack-o'-lantern</label></li>
+        <li><input type="checkbox" id="p12"><label for="p12">Optional demo: glass of water in sunlight, or a flashlight on a CD, to make a small rainbow</label></li>
+      </ul>
+    </div>
+  </div>
+  <div class="warn" style="margin-top:12px"><b>Safety for movement activities:</b> walking only — no running, even in “Run to the Wall.” In Pumpkin Escape, the “pumpkin” keeps eyes open. Offer a seated role (checker, reader, timekeeper) for anyone who prefers not to move.</div>
+</section>
+
+<section class="card" id="timing">
+  <h2>Timing at a Glance</h2>
+  <table id="timeTable"></table>
+  <p style="font-size:14px;color:var(--muted);margin-top:8px">Class 1: the Breaking News writing (Section 10) is homework. Class 2: students start the Rainbow Memory in class and finish at home. Both are Community assignments.</p>
+</section>
+
+<div class="classhead" id="c1">Class 1 · A Giant Pumpkin on the Move · 100 minutes</div>
+<div id="acts1"></div>
+
+<div class="classhead">30-Minute Break</div>
+<p style="margin:-4px 0 10px;color:var(--muted)">Before students come back: tape the SUN and RAIN signs on opposite walls and have the color cards ready.</p>
+
+<div class="classhead" id="c2">Class 2 · How Does a Rainbow Form? · 100 minutes</div>
+<div id="acts2"></div>
+
+<section class="card" id="keys">
+  <h2>Answer Keys</h2>
+  <h3 style="font-size:18px;margin:4px 0 8px;color:var(--gold)">Class 1 · Pumpkin worksheet</h3>
+  <div class="grid2">
+    <div class="ans"><b class="lab">2 · Words</b><br>1 giant · 2 decoration · 3 fence · 4 rope · 5 roll · 6 tractor · 7 jack-o'-lantern · 8 spike</div>
+    <div class="ans"><b class="lab">3 · Main idea</b><br>b — Strong winds pushed a giant Halloween decoration away from a farm.</div>
+    <div class="ans"><b class="lab">4 · Story order</b><br>1 bad weather, not inflated · 2 the sun came out · 3 the owner's father inflated it · 4 strong winds came · 5 it rolled along a fence, past a church, down the road · 6 workers stopped it; two tractors<br><span style="font-size:13px">Strip letters: D · B · F · E · A · C</span></div>
+    <div class="ans"><b class="lab">5 · True / False</b><br>1 F (filled with air) · 2 T · 3 F (past a church) · 4 F (about one minute) · 5 T · 6 F (two tractors)</div>
+    <div class="ans"><b class="lab">6 · Route</b><br>1 along · 2 past · 3 down</div>
+    <div class="ans"><b class="lab">7 · Fact file</b><br>giant inflatable jack-o'-lantern · as tall as a two-story building · Cary, North Carolina · Phillips Farm (Michael Phillips) · a Sunday · Halloween · about one minute · two</div>
+    <div class="ans"><b class="lab">8 · in / on / at</b><br>1 in · 2 on · 3 on · 4 in · 5 at · 6 at · 7 in · 8 on</div>
+    <div class="ans"><b class="lab">9A · Prices</b><br>1 $45.00 · 2 $7.00 · 3 $16.49 · 4 $20.00 · 5 the hayride · 6 $6.50</div>
+  </div>
+  <h3 style="font-size:18px;margin:16px 0 8px;color:var(--gold)">Class 2 · Rainbow worksheet</h3>
+  <div class="grid2">
+    <div class="ans"><b class="lab">1 · Rainbow order</b><br>red · orange · yellow · green · blue · indigo · violet</div>
+    <div class="ans"><b class="lab">2 · Words</b><br>1 sunlight · 2 raindrop · 3 appear · 4 bend · 5 spread apart · 6 at the same time · 7 low in the sky · 8 in front of</div>
+    <div class="ans"><b class="lab">3 · Main idea</b><br>b — How sunlight and raindrops make the colors of a rainbow.</div>
+    <div class="ans"><b class="lab">4 · Picture</b><br>1 behind · 2 in front of · 3 between · 4 in front of · 5 above</div>
+    <div class="ans"><b class="lab">5 · Steps</b><br>1 rain and sunlight at the same time · 2 light goes into a raindrop and bends · 3 colors spread apart · 4 some light turns back · 5 light bends again as it leaves · 6 colored light reaches your eyes</div>
+    <div class="ans"><b class="lab">5 · Cause and result</b><br>1 c (it bends) · 2 a (so they spread apart) · 3 d (because it moves when you move) · 4 b (because the sun is low)</div>
+    <div class="ans"><b class="lab">6 · True / False</b><br>1 F (looks white, many colors) · 2 T · 3 F (each color bends a little differently) · 4 F (easier when the sun is low) · 5 F · 6 T</div>
+    <div class="ans"><b class="lab">7 · Where is it?</b><br>1 above · 2 behind · 3 in front of · 4 under · 5 between · 6 next to</div>
+    <div class="ans"><b class="lab">8 · Chunks</b><br>at the same time = together · in front of you = on the side you are looking at · turns back = goes back the other way · low in the sky = not high; near the ground</div>
+    <div class="ans"><b class="lab">8 · in / on / at (time)</b><br>1 in · 2 in · 3 at · 4 on · 5 in · 6 at</div>
+  </div>
+</section>
+
+<section class="card">
+  <h2>Quality Check</h2>
+  <ul class="qc">
+    <li>Follows the syllabus: Week 4 numbers, dates, places; prepositions of time and place</li>
+    <li>SLO practiced in both classes: fact file, prices, route, where/when writing</li>
+    <li>ESA in each class: Engage (move, predict) → Study (words, reading, language) → Activate (role-play, hunt, writing)</li>
+    <li>Both classes exactly 100 minutes; 30-minute break included</li>
+    <li>9 movement activities across the day, with seated roles available</li>
+    <li>Interaction: individual, pairs, groups, whole class</li>
+    <li>Productive outcomes: role-play receipts, color-hunt sentences, news story + rainbow memory</li>
+    <li>Class 2 builds on Class 1 (places → where/when; in/on/at place → time)</li>
+    <li>A1 support (pictures, dropdowns, frames) and A2+ challenge (corrections, extra facts, leading roles)</li>
+    <li>Adult-appropriate: real news, real science, real shopping</li>
+  </ul>
+</section>
+
+<p class="foot">Week 4 Teacher Guide · Current Issues · Basic Level · Texts: ESL News Stories (eslnewsstories.com) · The farm stand prices are pretend.</p>
+</main>
+<script>
+const A1=[
+ {t:"Find Someone Who…",s:"E",m:12,slide:"Worksheet 1",inter:"Whole class, mingle",mat:"Worksheet Section 1",
+  goal:"Warm up with movement; activate Halloween and holiday experiences.",
+  teach:["Model 2 questions with a student: “Have you ever carved a pumpkin?” → “Yes, I have!” → “What face did you make?”","Students stand and walk; a different name on each line (8 min).","Stop and ask 4–5 students to report: “Maria has carved a pumpkin. She made a funny face.”","Link to the story: “Today's news is about a pumpkin… but a very strange one.”"],
+  stud:"Walk, ask, write a name and one more piece of information.",say:"<b>Have you ever</b> ___? · <b>Do you</b> like ___? · When? Where? What was it like?",
+  out:"6–8 names with extra information; 4–5 short reports.",
+  diff:["Ask the question exactly as written; write only names.","Ask the follow-up question too.","Report to the class using he/she + past simple."]},
+ {t:"Words from the Story",s:"S",m:12,slide:"Worksheet 2",inter:"Whole class → individual → pairs",mat:"Worksheet Section 2 (picture cards)",
+  goal:"Pre-teach 8 words students need for the story and the route.",
+  teach:["Show the picture cards; elicit each word before saying it (4 min).","Drill: class → rows → individuals; mark the stress (<i>DEC-o-RA-tion, TRAC-tor, JACK-o'-lan-tern</i>).","Ask the check questions below (2 min).","Students complete the 8 sentences and press Check; pairs fix mistakes (6 min)."],
+  stud:"Look, listen, repeat. Then complete the sentences.",
+  out:"8 correct sentences.",vocab:"V1",
+  diff:["Match pictures and words first.","Complete all 8 sentences.","Make a new sentence with 3 words."]},
+ {t:"Read and Listen: Main Idea",s:"S",m:10,slide:"Worksheet 3",inter:"Individual → pairs",mat:"Article + audio; Worksheet Section 3",
+  goal:"Predict, then read for the main idea.",
+  teach:["Show only the headline: students write a prediction (2 min).","Play the audio while students read (2 min). Then silent reading (2 min).","Students choose the main idea and compare with a partner (2 min).","Check; ask: “Was your prediction right?” (2 min)."],
+  stud:"Predict, read and listen, choose the main idea.",out:"A prediction + the correct main idea.",
+  diff:["Listen and follow the text.","Read the whole story.","Explain why a and c are wrong."],ans:"b"},
+ {t:"Human Story Line",s:"A",m:10,slide:"Worksheet 4",inter:"Groups of 6 (+ 2 checkers)",mat:"pumpkin-cards.html: 2 sets of story strips",
+  goal:"Understand the sequence of events through movement.",
+  teach:["Make 2 groups of 6; give each group a mixed set of strips. The 2 extra students are checkers with the story open.","Students read their strip aloud and stand in order (4 min).","Each group retells the story in order, each student saying their strip with <i>First, Then, Next, After that, Finally</i> (3 min).","Check with the letters (D · B · F · E · A · C); students then number the events on the worksheet (3 min)."],
+  stud:"Read your strip. Stand in the right order. Retell the story.",say:"<b>First</b>, ___. <b>Then</b>, ___. <b>After that</b>, ___. <b>Finally</b>, ___.",
+  out:"Two correct story lines + an oral retelling.",
+  diff:["Read their own strip aloud.","Use a sequencer word.","Be a checker or retell without the strip."]},
+ {t:"True or False? Run to the Wall!",s:"A",m:6,slide:"Worksheet 5",inter:"Whole class",mat:"TRUE / FALSE signs on opposite walls",
+  goal:"Check details with movement.",
+  teach:["Read each statement. Students walk to the TRUE or FALSE wall (walking only).","For false items, the FALSE group says the correct sentence together.","Students then mark their answers on the worksheet and press Check."],
+  stud:"Listen. Walk to TRUE or FALSE. Correct the false sentences.",out:"6 decisions + 4 corrections.",
+  diff:["Follow the group, then check the text.","Say the correction.","Correct with a full sentence and a fact from the story."]},
+ {t:"The Pumpkin's Route + Pumpkin Escape",s:"A",m:12,slide:"Worksheet 6",inter:"Individual → pairs",mat:"Worksheet Section 6 (map)",
+  goal:"Learn and use prepositions of movement: along, past, down (+ around, through, next to).",
+  teach:["Students look at the map and choose <i>along / past / down</i> (3 min). Check.","Demonstrate with your hands or by walking: along the wall, past the door, down the hall.","<b>Pumpkin Escape</b> (7 min): Student A is the pumpkin and moves slowly; Student B gives directions. Change roles after 3 minutes.","Students write 3 directions they gave (2 min)."],
+  stud:"Choose the route words. Then give directions to your “pumpkin.”",say:"Roll <b>along</b> the wall! · Go <b>past</b> the door! · Go <b>around</b> the table! · Stop <b>next to</b> the window!",
+  out:"3 correct route answers + 3 written directions.",
+  diff:["Use along / past / next to only.","Use 5 different prepositions.","Give 3-step directions: “Go past the door, then around the table, then stop.”"]},
+ {t:"Pumpkin Fact File",s:"S",m:8,slide:"Worksheet 7",inter:"Individual → pairs",mat:"Article; Worksheet Section 7",
+  goal:"Find numbers, places, and dates in the article (Week 4 SLO).",
+  teach:["Students scan the article for the 8 facts (5 min).","Pairs check, then press Check (the checker accepts different correct wordings) (2 min).","Practice saying them: <i>Cary, North Carolina · a two-story building · about one minute</i> (1 min)."],
+  stud:"Find the facts. Write short answers.",out:"A completed fact file.",
+  diff:["Find 4 facts.","Find all 8.","Say the fact file as a mini news report."]},
+ {t:"in · on · at",s:"S",m:10,slide:"Worksheet 8",inter:"Whole class → individual → pairs",mat:"Worksheet Section 8",
+  goal:"Use in / on / at for time and place.",
+  teach:["Elicit from the story: “It happened ___ a Sunday.” “The farm is ___ Cary.” (2 min)","Go through the rule boxes: in = months, years, cities; on = days and dates; at = clock times and exact places (3 min).","Students complete 8 sentences and press Check (3 min).","Quick oral practice: “When is your birthday?” → “It's on May 4. I was born in 1990.” (2 min)."],
+  stud:"Read the rules. Choose in, on, or at.",out:"8 correct sentences + oral answers.",
+  diff:["Use the tip box.","Explain the rule for each answer.","Make 3 true sentences about themselves."]},
+ {t:"At the Pumpkin Stand",s:"A",m:15,slide:"Worksheet 9",inter:"Individual → whole class role-play",mat:"Worksheet Section 9; 4–5 desks as stands",
+  goal:"Read, say, and calculate prices; buy and sell (Week 4 theme: prices and shopping).",
+  teach:["Model saying prices: $3.50 = three fifty; $12.99 = twelve ninety-nine (2 min).","Part A: students answer 6 price questions and press Check (5 min).","Part B: half the class are sellers at the desks; buyers walk to 2 stands and buy 3 things; both fill in the receipt. Switch roles after 4 minutes (8 min)."],
+  stud:"Answer the price questions. Then buy and sell.",say:"How much is the ___? · I'd like ___, please. · That's ___ all together. · Here's your change.",
+  out:"6 correct answers + a buyer receipt and a seller list.",
+  diff:["Buy one thing; read the price aloud.","Buy 3 things; say the total.","Seller: calculate change and suggest items."]},
+ {t:"Exit Ticket + Homework",s:"R",m:5,slide:"Worksheet 10–11",inter:"Individual",mat:"Worksheet Sections 10–11",
+  goal:"Check learning; set the writing homework.",
+  teach:["Students complete the exit ticket (3 min).","Show the Breaking News model and the idea chips (2 min). Homework: write 5–6 sentences and post on Community with Copy answers."],
+  stud:"Answer the exit ticket. For homework, write your news story.",out:"Exit ticket answers; homework set.",
+  diff:["Copy the model frame for homework.","Write 5–6 sentences.","Add a quote: “Nobody was hurt,” said ___."]}
+];
+const A2=[
+ {t:"Human Rainbow",s:"E",m:10,slide:"Worksheet 1",inter:"Whole class, mingle",mat:"rainbow-cards.html: 14 color cards",
+  goal:"Energize after the break; review next to / between; build curiosity.",
+  teach:["Give each student a color card face down (2 students per color).","Students find their color partner by asking (2 min).","The class lines up red → violet using <i>next to</i> and <i>between</i> (3 min). Check together.","Students write the order on the worksheet (2 min). Quick talk: what does a rainbow mean in your culture? (3 min)"],
+  stud:"Find your color partner. Make a rainbow line.",say:"What color do you have? · Orange is <b>next to</b> red. · Green is <b>between</b> yellow and blue.",
+  out:"A correct rainbow line; 7 colors written in order.",
+  diff:["Say their color.","Use next to.","Use between and explain the order to others."],ans:"red · orange · yellow · green · blue · indigo · violet"},
+ {t:"Words You Need",s:"S",m:12,slide:"Worksheet 2",inter:"Whole class → individual → pairs",mat:"Worksheet Section 2 (picture cards)",
+  goal:"Pre-teach 5 words and 3 chunks from the text.",
+  teach:["Show the picture cards; elicit and drill each word (5 min).","Use your hands to show <i>bend</i> and <i>spread apart</i>.","Ask the check questions below (2 min).","Students complete the 8 sentences and press Check (5 min)."],
+  stud:"Look, listen, repeat. Then complete the sentences.",out:"8 correct sentences.",vocab:"V2",
+  diff:["Match pictures and words first.","Complete all 8.","Make a sentence about weather with 2 words."]},
+ {t:"Read and Listen: Main Idea",s:"S",m:10,slide:"Worksheet 3",inter:"Individual → pairs",mat:"Explainer + audio; Worksheet Section 3",
+  goal:"Predict, then read for the main idea.",
+  teach:["Students guess how a rainbow forms (2 min).","Play the audio while students read (2 min); silent reading (2 min).","Choose the main idea and compare (2 min); check (2 min)."],
+  stud:"Guess, read and listen, choose the main idea.",out:"A guess + the correct main idea.",
+  diff:["Listen and follow.","Read the whole text.","Explain the process to a partner in 2 sentences."],ans:"b"},
+ {t:"Where Should You Stand?",s:"A",m:10,slide:"Worksheet 4",inter:"Whole class → pairs",mat:"SUN and RAIN signs on opposite walls",
+  goal:"Understand the text by acting it out; use behind / in front of / between.",
+  teach:["Point to the signs: “Stand where you can see a rainbow!” Students should face the RAIN sign with the SUN sign behind them (2 min).","Move the signs (or swap them) 2 times; students move again (3 min).","Each student explains their place to a partner (2 min).","Students do the picture task on the worksheet and press Check (3 min)."],
+  stud:"Stand where you can see a rainbow. Explain where you are.",say:"The sun is <b>behind</b> me. · The rain is <b>in front of</b> me. · I am <b>between</b> the sun and the rain.",
+  out:"Correct positions + 5 correct picture answers.",
+  diff:["Point and say “behind / in front of.”","Say all 3 frames.","Explain why the rainbow moves when you move."]},
+ {t:"Be the Light! Act It Out",s:"A",m:15,slide:"Worksheet 5",inter:"Groups of 4–5 → individual",mat:"Worksheet Section 5",
+  goal:"Understand the process; sequence steps; use so / because / when.",
+  teach:["Groups choose one “raindrop” (arms in a big circle); the others are sunlight (1 min).","One student reads each step; the group acts it out: walk in, bend, turn back, leave (6 min).","2 groups perform for the class while others narrate (3 min).","Students number the 6 steps and match the cause-and-result halves; press Check (5 min)."],
+  stud:"Act out the steps. Then put them in order and match the halves.",say:"<b>When</b> light goes into a raindrop, it bends. · The colors bend differently, <b>so</b> they spread apart.",
+  out:"A group performance + 6 ordered steps + 4 matched sentences.",
+  diff:["Act and follow the reader.","Be the reader.","Narrate the performance without the worksheet."]},
+ {t:"True or False?",s:"S",m:6,slide:"Worksheet 6",inter:"Individual → whole class",mat:"Worksheet Section 6 (optional: TRUE/FALSE signs from Class 1)",
+  goal:"Check detailed understanding.",
+  teach:["Students answer alone (3 min), or play “Run to the Wall” again with the signs.","Check together; students correct the false sentences (3 min)."],
+  stud:"Choose True or False. Correct the false sentences.",out:"6 answers + 4 corrections.",
+  diff:["Choose T/F only.","Correct 2 false sentences.","Correct all 4 with evidence from the text."]},
+ {t:"Where Is It? Prepositions of Place",s:"S",m:8,slide:"Worksheet 7",inter:"Whole class → individual",mat:"Worksheet Section 7; objects in the room",
+  goal:"Learn 6 prepositions of place.",
+  teach:["Use a pen and a book to show each preposition; students say it (3 min).","Students complete the 6 sentences and press Check (3 min).","Quick quiz: “Where is my bag?” — students answer (2 min)."],
+  stud:"Look at the pictures. Complete the sentences.",out:"6 correct sentences.",
+  diff:["Point to the pictures.","Complete the sentences.","Describe 3 things in the room."]},
+ {t:"When? Times and Chunks",s:"S",m:8,slide:"Worksheet 8",inter:"Individual → pairs",mat:"Worksheet Section 8",
+  goal:"Understand the time chunks; use in / on / at for time (review from Class 1).",
+  teach:["Students match the 4 chunks (3 min).","Students complete the in / on / at sentences (3 min).","Pairs: “When do you usually see rainbows in your country?” (2 min)."],
+  stud:"Match the chunks. Choose in, on, or at.",out:"4 matches + 6 sentences.",
+  diff:["Match the chunks.","Complete both tasks.","Answer the pair question with in/on/at."]},
+ {t:"Classroom Color Hunt",s:"A",m:10,slide:"Worksheet 9",inter:"Pairs",mat:"Worksheet Section 9; colorful objects",
+  goal:"Use there is/are + prepositions of place in a real context.",
+  teach:["Pairs walk and find one object for each color; they write what and where (5 min).","Pairs read 3 sentences to another pair, who must find the objects (4 min).","Share one funny or difficult find with the class (1 min)."],
+  stud:"Find something for each color. Write what it is and where it is.",say:"There is a <b>red</b> bag <b>under</b> the table. · There are <b>blue</b> pens <b>next to</b> the computer.",
+  out:"7 sentences with different prepositions.",
+  diff:["Write 4 colors.","Write all 7 with different prepositions.","Give 2-preposition sentences: “between the door and the window.”"]},
+ {t:"Write: My Rainbow Memory",s:"A",m:8,slide:"Worksheet 10",inter:"Individual",mat:"Worksheet Section 10",
+  goal:"Write about when and where (Week 4 SLO).",
+  teach:["Read the model; students find the in / on / at words (2 min).","Students start writing (6 min) and finish at home; post on Community with Copy answers."],
+  stud:"Write 5–6 sentences: when, where, who, and what you saw.",out:"The first 3–4 sentences in class; full paragraph for homework.",
+  diff:["Use the frames.","5–6 sentences.","Add a sentence with because or so."]},
+ {t:"Exit Ticket",s:"R",m:3,slide:"Worksheet 11",inter:"Individual",mat:"Worksheet Section 11",
+  goal:"Check learning before students leave.",
+  teach:["Students complete the 3 questions and choose how they feel.","Collect answers at the door or ask them to press Copy answers."],
+  stud:"Answer the 3 questions.",out:"3 answers per student.",
+  diff:["Answer question 1.","Answer all 3.","Write a place and a time sentence."]}
+];
+const V1=[
+ ["giant","adjective","GI·ant","very, very big","Is a giant pumpkin small? Is a whale giant?"],
+ ["fence","noun","FENCE","a wall of wood or metal around a place","What is a fence made of? Where can you see fences?"],
+ ["jack-o'-lantern","noun","JACK·o'·lan·tern","a pumpkin with a carved face, for Halloween","When do people make jack-o'-lanterns?"],
+ ["rope","noun","ROPE","thick, strong string","Is a rope strong or weak? What can you do with a rope?"],
+ ["roll","verb","ROLL","to move by turning over and over","Can a ball roll? Can a box roll?"],
+ ["spike","noun","SPIKE","a long metal piece with a sharp end","Is a spike soft or sharp?"],
+ ["decoration","noun","dec·o·RA·tion","something that makes a place pretty for a special day","What decorations do people use for holidays in your country?"],
+ ["tractor","noun","TRAC·tor","a big, strong farm vehicle","Where do you see tractors — in the city or on a farm?"]
+];
+const V2=[
+ ["sunlight","noun","SUN·light","light from the sun","Is there sunlight at night?"],
+ ["raindrop","noun","RAIN·drop","one small drop of rain","Is a raindrop big or small?"],
+ ["appear","verb","ap·PEAR","to start to be seen","When do stars appear — in the day or at night?"],
+ ["bend","verb","BEND","to change from a straight line","Show me: can you bend your arm?"],
+ ["spread apart","phrasal verb","spread a·PART","to move away from each other","If people spread apart, are they closer or farther?"],
+ ["at the same time","chunk","at the SAME TIME","together; not one after the other","Can you talk and listen at the same time?"],
+ ["low in the sky","chunk","LOW in the SKY","near the ground, not high","Is the sun low in the sky at noon or at sunset?"],
+ ["in front of","preposition","in FRONT of","on the side you are looking at","What is in front of you right now?"]
+];
+function vocabTable(V){
+  return `<table><tr><th>Word</th><th>Stress</th><th>Meaning</th><th>Check question</th></tr>${V.map(v=>`<tr><td><b>${v[0]}</b> <span style="color:var(--muted);font-size:13px">${v[1]}</span></td><td>${v[2]}</td><td>${v[3]}</td><td>${v[4]}</td></tr>`).join("")}</table>`;
+}
+function act(a,i){
+  return `<details class="act"><summary><span class="n">${i}</span><span class="ti"><span class="esa ${a.s}">${a.s}</span>${a.t}<small>${a.slide} · ${a.inter}</small></span><span class="mn">${a.m} min</span></summary>
+  <div class="actbody">
+    <div class="meta"><div><b>Goal</b>${a.goal}</div><div><b>Interaction</b>${a.inter}</div><div><b>Materials</b>${a.mat}</div></div>
+    <div class="field"><b class="lab">Teacher instructions</b><ol>${a.teach.map(x=>`<li>${x}</li>`).join("")}</ol></div>
+    <div class="field"><b class="lab">Student instructions</b>${a.stud}</div>
+    ${a.say?`<div class="say">${a.say}</div>`:""}
+    ${a.vocab?vocabTable(a.vocab==="V1"?V1:V2):""}
+    <div class="field"><b class="lab">Expected output</b>${a.out}</div>
+    <div class="diff"><div><b>A1</b>${a.diff[0]}</div><div><b>A2</b>${a.diff[1]}</div><div><b>A2+</b>${a.diff[2]}</div></div>
+    ${a.ans?`<div class="ans"><b class="lab">Answers:</b> ${a.ans}</div>`:""}
+  </div></details>`;
+}
+document.getElementById("acts1").innerHTML=A1.map((a,i)=>act(a,i+1)).join("");
+document.getElementById("acts2").innerHTML=A2.map((a,i)=>act(a,A1.length+i+1)).join("");
+const sum=l=>l.reduce((s,a)=>s+a.m,0);
+let t=`<tr><th>#</th><th>Stage</th><th>Activity</th><th>Interaction</th><th style="text-align:right">Min</th></tr>`;
+let k=1;
+const isMove=a=>/Find Someone|Story Line|Run to|Route|Stand|Human Rainbow|Where Should|Act It|Color Hunt/.test(a.t);
+A1.forEach(a=>t+=`<tr><td>${k++}</td><td><span class="esa ${a.s}">${a.s}</span></td><td>${a.t}${isMove(a)?' <span class="mvtag">MOVE</span>':""}</td><td>${a.inter}</td><td class="t">${a.m}</td></tr>`);
+t+=`<tr class="tot"><td></td><td></td><td>Class 1 total</td><td></td><td class="t">${sum(A1)}</td></tr>`;
+t+=`<tr class="brk"><td colspan="5">30-minute break</td></tr>`;
+A2.forEach(a=>t+=`<tr><td>${k++}</td><td><span class="esa ${a.s}">${a.s}</span></td><td>${a.t}${isMove(a)?' <span class="mvtag">MOVE</span>':""}</td><td>${a.inter}</td><td class="t">${a.m}</td></tr>`);
+t+=`<tr class="tot"><td></td><td></td><td>Class 2 total</td><td></td><td class="t">${sum(A2)}</td></tr>`;
+document.getElementById("timeTable").innerHTML=t;
+document.getElementById("openAll").onclick=e=>{ const ds=[...document.querySelectorAll("details.act")]; const open=!ds.every(d=>d.open); ds.forEach(d=>d.open=open); e.target.textContent=open?"Close all":"Open all"; };
+document.getElementById("printBtn").onclick=()=>{ document.querySelectorAll("details.act").forEach(d=>d.open=true); setTimeout(()=>window.print(),100); };
+addEventListener("beforeprint",()=>document.querySelectorAll("details.act").forEach(d=>d.open=true));
+const KEY="approach-w4-teacher-guide";
+let st={}; try{st=JSON.parse(localStorage.getItem(KEY))||{};}catch(e){}
+document.querySelectorAll("ul.check input").forEach(c=>{ c.checked=!!st[c.id]; c.onchange=()=>{ st[c.id]=c.checked; try{localStorage.setItem(KEY,JSON.stringify(st));}catch(e){} }; });
+</script>
+
+</body>
+
+</html>
