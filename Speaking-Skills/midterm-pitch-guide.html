@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Midterm Idea Pitch Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0f2340; --blue:#143865; --blue-2:#1c4f8f; --gold:#8c7535; --gold-2:#d39f10; --red:#a91512; --green:#1f6b48;
+    --sky:#c1cddd; --sky-2:#e1e8f2; --sky-3:#edf2f9; --warm:#efe9d9; --paper:#fbf9f3;
+    --ink:#14213a; --soft:#3f4b5e; --muted:#5b6b82;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0; background:var(--sky-3); color:var(--ink); font-family:Inter, system-ui, sans-serif; font-size:16px; line-height:1.55}
+  .page{max-width:940px; margin:0 auto; padding:20px 16px 60px}
+
+  .top{background:var(--blue); color:#fff; border-radius:18px; padding:24px 28px; position:relative; overflow:hidden}
+  .top::after{content:""; position:absolute; right:-40px; top:-40px; width:190px; height:190px; border:14px solid var(--gold-2); border-radius:50%; opacity:.25}
+  .school{font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--gold-2); font-weight:700}
+  h1{font-family:Lora, serif; font-size:clamp(28px,4.8vw,42px); margin:4px 0 4px}
+  .top p{margin:0; color:var(--sky); max-width:640px}
+
+  nav{position:sticky; top:0; z-index:10; display:flex; flex-wrap:wrap; gap:6px; align-items:center; background:#fff; border:1px solid var(--sky); border-radius:14px; padding:10px 12px; margin:14px 0 18px; box-shadow:0 6px 18px rgba(20,56,101,.08)}
+  nav a{text-decoration:none; font-weight:700; font-size:14px; color:var(--blue); background:var(--sky-3); border-radius:8px; padding:5px 10px}
+  nav a:hover{background:var(--sky-2)}
+  nav .sp{flex:1}
+  .btn{font:inherit; font-weight:700; font-size:14px; border:none; border-radius:10px; padding:8px 14px; background:var(--gold-2); color:var(--ink); cursor:pointer}
+
+  section{background:#fff; border:1px solid var(--sky); border-radius:18px; padding:20px 22px; margin-bottom:16px; scroll-margin-top:70px}
+  h2{font-family:Lora, serif; color:var(--blue); font-size:24px; margin:0 0 12px; display:flex; align-items:center; gap:10px}
+  h2 .n{width:34px; height:34px; border-radius:10px; background:var(--navy); color:var(--gold-2); font-size:18px; display:inline-flex; align-items:center; justify-content:center; flex:none}
+  h3{font-size:14px; letter-spacing:.08em; text-transform:uppercase; color:var(--gold); margin:16px 0 6px}
+  p{margin:6px 0}
+  ul,ol{margin:6px 0; padding-left:22px} li{margin:4px 0}
+
+  .facts{display:grid; grid-template-columns:repeat(4,1fr); gap:10px}
+  .fact{background:var(--sky-3); border-radius:14px; padding:12px 14px}
+  .fact small{display:block; font-size:11px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:var(--muted)}
+  .fact b{display:block; font-family:Lora, serif; font-size:22px; color:var(--blue); line-height:1.2; margin-top:2px}
+  .fact span{font-size:13px; color:var(--soft)}
+
+  .lead{background:var(--paper); border-left:5px solid var(--gold-2); border-radius:0 12px 12px 0; padding:12px 16px; font-size:17px}
+
+  table{width:100%; border-collapse:collapse; font-size:15px}
+  th{background:var(--blue); color:#fff; text-align:left; padding:9px 10px; vertical-align:bottom}
+  td{border-bottom:1px solid var(--sky-2); padding:9px 10px; vertical-align:top}
+  td.lvl{font-weight:800; color:var(--blue); white-space:nowrap}
+  .b2col{background:#f3f7fd} .b2pcol{background:#fbf6e8}
+
+  .timeline{display:flex; gap:0; margin:8px 0 4px; border-radius:12px; overflow:hidden; border:1px solid var(--sky)}
+  .seg{padding:10px 10px; font-size:13.5px; border-right:1px solid #fff; min-width:0}
+  .seg:last-child{border-right:none}
+  .seg b{display:block; font-size:14px}
+  .seg span{color:var(--soft)}
+  .seg.s1{background:#e6eef9} .seg.s2{background:#d6e3f5} .seg.s3{background:#c6d8f0} .seg.s4{background:#f6ecd0} .seg.s5{background:#efe3bf}
+  .tl-label{font-size:12px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); margin-top:12px}
+
+  .rubric td:first-child{width:20%; font-weight:700; color:var(--blue)}
+  .rubric td{font-size:14px}
+  .rubric th{font-size:13px}
+  .score4{background:#e8f4ee} .score1{background:#fbeeec}
+
+  .weeks{display:grid; grid-template-columns:repeat(4,1fr); gap:10px}
+  .wk{border:1px solid var(--sky); border-radius:14px; padding:12px 14px}
+  .wk small{font-size:11px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:var(--gold)}
+  .wk b{display:block; color:var(--blue); font-size:16px; margin:2px 0 4px}
+  .wk p{font-size:14px; color:var(--soft); margin:0}
+  .wk.now{border:2px solid var(--gold-2); background:var(--paper)}
+
+  .checks label{display:flex; gap:10px; align-items:flex-start; padding:7px 4px; border-bottom:1px dashed var(--sky); cursor:pointer}
+  .checks label:last-child{border-bottom:none}
+  .checks input{width:20px; height:20px; margin-top:2px; accent-color:var(--blue); flex:none}
+  .progress{font-weight:800; color:var(--blue); font-size:14px; margin-top:6px}
+
+  .two{display:grid; grid-template-columns:1fr 1fr; gap:14px}
+  .box{border:1px solid var(--sky); border-radius:14px; padding:12px 16px}
+  .box h4{margin:0 0 6px; color:var(--blue); font-size:16px}
+  .box.good{border-left:6px solid var(--green)} .box.bad{border-left:6px solid var(--red)}
+  .frames p{font-style:italic; margin:3px 0; color:var(--soft)}
+  .ex{background:#e3f4ec; border-radius:12px; padding:12px 16px; font-size:15px}
+  .ex b{color:var(--green)}
+  details{border:1px solid var(--sky); border-radius:12px; padding:10px 14px; margin:8px 0}
+  details summary{cursor:pointer; font-weight:700; color:var(--blue)}
+  footer{text-align:center; color:var(--muted); font-size:12px; margin-top:22px}
+
+  @media (max-width:760px){
+    .facts,.weeks{grid-template-columns:1fr 1fr}
+    .two{grid-template-columns:1fr}
+    .timeline{flex-direction:column}
+    .seg{border-right:none; border-bottom:1px solid #fff; width:auto !important}
+    .rubric, .rubric tbody, .rubric tr, .rubric td, .rubric th{display:block; width:100% !important}
+    .rubric tr:first-child{display:none}
+    .rubric tr{border-bottom:2px solid var(--sky); padding:6px 0}
+    .rubric td{border:none; padding:4px 8px}
+    .rubric td[data-s]::before{content:attr(data-s) " · "; font-weight:800; color:var(--gold)}
+  }
+  @media print{
+    @page{size:letter; margin:11mm}
+    body{background:#fff; font-size:12px}
+    .page{max-width:none; padding:0}
+    nav,.btn{display:none}
+    .top{background:#fff; color:var(--ink); border:2px solid var(--blue); padding:12px 16px}
+    .top::after{display:none} .top p{color:var(--muted)}
+    section{break-inside:avoid; padding:12px 14px; border-color:#999}
+    #rubric{break-before:page}
+    details{border:none; padding:0} details > *{display:block}
+    *{-webkit-print-color-adjust:exact; print-color-adjust:exact}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="top">
+  <div class="school">Approach International Student Center · TED Talks: Ideas Worth Sharing</div>
+  <h1>Midterm Idea Pitch · Student Guide</h1>
+  <p>Week 6 · Everything you need to plan, practice and deliver a short pitch of the idea for your final TED-style talk.</p>
+</header>
+
+<nav>
+  <a href="#what">What</a><a href="#build">Build it</a><a href="#rubric">Scoring</a><a href="#prepare">Prepare</a><a href="#checklist">Checklist</a><a href="#day">On the day</a><a href="#faq">FAQ</a>
+  <span class="sp"></span>
+  <button class="btn" onclick="window.print()">Print / Save PDF</button>
+</nav>
+
+<!-- 1 WHAT -->
+<section id="what">
+  <h2><span class="n">1</span>What is the midterm pitch?</h2>
+  <p class="lead">In Week 6, you stand up and <b>pitch the idea for your final talk</b>: what your idea is, why it matters, and how your talk will build it. Think of it as a short trailer for your final TED-style talk.</p>
+  <div class="facts" style="margin-top:12px">
+    <div class="fact"><small>When</small><b>Week 6</b><span>in class, live</span></div>
+    <div class="fact"><small>Length</small><b>2 min · 3 min</b><span>B2 · B2+</span></div>
+    <div class="fact"><small>Grade</small><b>20%</b><span>of your course grade</span></div>
+    <div class="fact"><small>Score</small><b>20 points</b><span>5 areas × 4 points</span></div>
+  </div>
+  <h3>Your level, your targets</h3>
+  <table>
+    <tr><th style="width:24%"></th><th class="b2col" style="background:var(--blue-2)">B2</th><th style="background:var(--gold)">B2+</th></tr>
+    <tr><td><b>Length</b></td><td class="b2col">About 2 minutes</td><td class="b2pcol">About 3 minutes</td></tr>
+    <tr><td><b>Notes</b></td><td class="b2col">Note cards are allowed (key words, not full sentences)</td><td class="b2pcol">Minimal notes</td></tr>
+    <tr><td><b>Structure</b></td><td class="b2col">Throughline + 2 main points</td><td class="b2pcol">Throughline + 2–3 main points</td></tr>
+  </table>
+  <p style="font-size:14px;color:var(--muted)">You are scored against <b>your own level's</b> length and notes targets.</p>
+</section>
+
+<!-- 2 BUILD -->
+<section id="build">
+  <h2><span class="n">2</span>How to build your pitch</h2>
+  <p>Use what you made in Weeks 1–5: your idea (Week 2), your throughline and outline (Week 3), your story (Week 4) and your explanation and persuasion (Week 5).</p>
+
+  <p class="tl-label">B2 · about 2 minutes</p>
+  <div class="timeline">
+    <div class="seg s1" style="width:14%"><b>Hook</b><span>15 sec</span></div>
+    <div class="seg s2" style="width:22%"><b>Throughline + why it matters</b><span>25 sec</span></div>
+    <div class="seg s3" style="width:36%"><b>2 main points + a short story or example</b><span>60 sec</span></div>
+    <div class="seg s4" style="width:16%"><b>Ending</b><span>15 sec</span></div>
+    <div class="seg s5" style="width:12%"><b>Buffer</b><span>5 sec</span></div>
+  </div>
+  <p class="tl-label">B2+ · about 3 minutes</p>
+  <div class="timeline">
+    <div class="seg s1" style="width:12%"><b>Hook</b><span>20 sec</span></div>
+    <div class="seg s2" style="width:18%"><b>Throughline + why it matters</b><span>30 sec</span></div>
+    <div class="seg s3" style="width:46%"><b>2–3 main points, with a story, explanation or evidence</b><span>100 sec</span></div>
+    <div class="seg s4" style="width:14%"><b>Ending</b><span>20 sec</span></div>
+    <div class="seg s5" style="width:10%"><b>Buffer</b><span>10 sec</span></div>
+  </div>
+
+  <h3>What each part does</h3>
+  <table>
+    <tr><th style="width:22%">Part</th><th>Goal</th><th style="width:36%">Useful language</th></tr>
+    <tr><td><b>Hook</b></td><td>Make the audience curious in the first seconds. A question, a surprising fact, or the first line of a story.</td><td>Have you ever…? · Three years ago, I… · Here's something surprising: …</td></tr>
+    <tr><td><b>Throughline</b></td><td>Say your idea in one clear sentence (15 words or fewer). Then say why it matters to <i>this</i> audience.</td><td>What I want you to understand is… · The reason this matters is that…</td></tr>
+    <tr><td><b>Main points</b></td><td>Preview your points, then give each one. Support at least one with a short story, example or piece of evidence.</td><td>I'll share two things… · First, … · For example, … · That brings me to…</td></tr>
+    <tr><td><b>Ending</b></td><td>Bring it back to your throughline and leave the audience with something: a question, a challenge, an image.</td><td>So, to sum up, … · So here's my question to you: …</td></tr>
+  </table>
+
+  <h3>A model pitch (B2, about 2 minutes)</h3>
+  <div class="ex">
+    <b>Hook:</b> "On my first day at college, I sat alone in the library for two hours, too shy to ask where my class was."<br>
+    <b>Throughline:</b> "What I've learned is that asking for help is a skill, not a weakness. This matters because almost everyone in this room is new to something."<br>
+    <b>Points:</b> "I'll share two things. First, why we don't ask: we think it makes us look weak. For example, … Second, what changed when I started asking: …"<br>
+    <b>Ending:</b> "So here's my question to you: who will you ask for help this week?"
+  </div>
+
+  <div class="two" style="margin-top:12px">
+    <div class="box good"><h4>Do</h4><ul><li>One idea, one throughline</li><li>Signposts at every turn</li><li>A real story or example</li><li>Look at the audience, not your notes</li><li>Practice with a timer</li></ul></div>
+    <div class="box bad"><h4>Avoid the four traps</h4><ul><li><b>Sales pitch:</b> selling yourself or a product</li><li><b>Ramble:</b> no plan, no clear direction</li><li><b>Org bore:</b> all about your company or school</li><li><b>Inspiration performance:</b> big emotion, little substance</li></ul></div>
+  </div>
+</section>
+
+<!-- 3 RUBRIC -->
+<section id="rubric">
+  <h2><span class="n">3</span>How your pitch is scored</h2>
+  <p>Five areas, 4 points each, <b>20 points total</b>. The same rubric is used for the final talk in Week 11.</p>
+  <table class="rubric">
+    <tr><th>Area</th><th class="score4" style="background:var(--green)">4 · Excellent</th><th style="background:var(--blue-2)">3 · Good</th><th style="background:var(--gold)">2 · Developing</th><th style="background:var(--red)">1 · Beginning</th></tr>
+    <tr><td>Idea and throughline</td><td data-s="4">One clear idea; the throughline is easy to repeat and everything connects to it</td><td data-s="3">Clear idea; most parts connect to the throughline</td><td data-s="2">The idea is there but unclear, or the talk drifts</td><td data-s="1">No clear idea or throughline</td></tr>
+    <tr><td>Structure and signposting</td><td data-s="4">Clear opening, points and ending; signposts at every turn</td><td data-s="3">Clear structure; signposts at most turns</td><td data-s="2">Some structure; few or confusing signposts</td><td data-s="1">Hard to follow; no clear parts</td></tr>
+    <tr><td>Talk tools</td><td data-s="4">A story, example or evidence that really supports the idea</td><td data-s="3">A useful story or example, but it could connect more clearly</td><td data-s="2">A story or example that doesn't clearly support the idea</td><td data-s="1">No story, example or evidence</td></tr>
+    <tr><td>Language accuracy</td><td data-s="4">Accurate grammar and vocabulary for the level; tenses, signposts and clefts used well</td><td data-s="3">Mostly accurate; errors don't affect meaning</td><td data-s="2">Some errors make meaning unclear</td><td data-s="1">Frequent errors make it hard to understand</td></tr>
+    <tr><td>Delivery</td><td data-s="4">Clear voice, good pausing, steady eye contact; on time for your level; notes as allowed for your level</td><td data-s="3">Mostly clear and on time; some reading from notes</td><td data-s="2">Often quiet, fast or reading; noticeably short or long</td><td data-s="1">Mostly read aloud; very hard to hear or far off the time</td></tr>
+  </table>
+</section>
+
+<!-- 4 PREPARE -->
+<section id="prepare">
+  <h2><span class="n">4</span>Your road to the pitch</h2>
+  <div class="weeks">
+    <div class="wk"><small>Week 3</small><b>Throughline + outline</b><p>Your idea in 15 words, and the map of your talk.</p></div>
+    <div class="wk"><small>Week 4</small><b>Your 2-minute story</b><p>A personal story that supports your throughline.</p></div>
+    <div class="wk"><small>Week 5</small><b>Persuasive outline</b><p>Explanation and reasons that make people care.</p></div>
+    <div class="wk now"><small>Week 6</small><b>Midterm pitch</b><p>Put it all together and pitch it live.</p></div>
+  </div>
+  <h3>Practice plan</h3>
+  <ol>
+    <li><b>Write key words, not a script.</b> One card per part: hook, throughline, points, ending.</li>
+    <li><b>Say your throughline out loud</b> to someone outside class. Can they repeat it?</li>
+    <li><b>Time yourself</b> three times. Cut anything that doesn't support your throughline.</li>
+    <li><b>Record yourself</b> on your phone once. Watch it: Where do you look at your notes? Where do you rush?</li>
+    <li><b>Practice for one person</b> you like: curious, smart, not an expert.</li>
+  </ol>
+</section>
+
+<!-- 5 CHECKLIST -->
+<section id="checklist">
+  <h2><span class="n">5</span>Am I ready? Checklist</h2>
+  <p>Tick each one when it's true. Your ticks save on this device.</p>
+  <div class="checks" id="ready">
+    <label><input type="checkbox">My throughline is 15 words or fewer, and a friend can repeat it.</label>
+    <label><input type="checkbox">My hook makes people curious in the first 15 seconds.</label>
+    <label><input type="checkbox">I preview my points and use signposts to move between them.</label>
+    <label><input type="checkbox">At least one point has a story, example or evidence.</label>
+    <label><input type="checkbox">My ending brings the audience back to my throughline.</label>
+    <label><input type="checkbox">My pitch is a gift, not an ask: no sales pitch, ramble, org bore or performance.</label>
+    <label><input type="checkbox">I checked my tenses, signposts and cleft sentences.</label>
+    <label><input type="checkbox">I timed it: about 2 minutes (B2) or 3 minutes (B2+).</label>
+    <label><input type="checkbox">My notes are key words only (B2) or minimal (B2+).</label>
+    <label><input type="checkbox">I recorded myself once and fixed one thing.</label>
+  </div>
+  <p class="progress" id="prog"></p>
+</section>
+
+<!-- 6 DAY -->
+<section id="day">
+  <h2><span class="n">6</span>On the day</h2>
+  <div class="two">
+    <div class="box">
+      <h4>Before you start</h4>
+      <ul><li>Arrive on time; pitches start at the beginning of class.</li><li>Have your note cards ready (B2) or put them away (B2+).</li><li>Breathe slowly. Stand with both feet on the floor.</li><li>Find one friendly face in the room to start with.</li></ul>
+    </div>
+    <div class="box">
+      <h4>While you speak</h4>
+      <ul><li>Pause after your hook. Let it land.</li><li>Look at different people, one sentence each.</li><li>If you forget a word, pause, look at your card, continue.</li><li>Slow down for your throughline.</li></ul>
+    </div>
+  </div>
+  <h3>As a listener</h3>
+  <p>You will give classmates feedback. Be specific and kind:</p>
+  <div class="frames">
+    <p>Your throughline was clear when you said…</p>
+    <p>Your story about ___ made me care because…</p>
+    <p>One thing that would make it stronger is…</p>
+  </div>
+</section>
+
+<!-- 7 FAQ -->
+<section id="faq">
+  <h2><span class="n">7</span>Questions</h2>
+  <details><summary>What if I can't come in Week 6?</summary><p>You may present at the next session <b>only</b> if you tell your teacher before Week 6 and bring documentation. Talk to your teacher as early as possible.</p></details>
+  <details><summary>Can I read my pitch?</summary><p>No. B2 students may use note cards with key words; B2+ students use minimal notes. Reading a full script lowers your delivery score.</p></details>
+  <details><summary>What if I go over or under time?</summary><p>A few seconds is fine. A pitch that is much shorter or longer than your level's target loses points in delivery. Practice with a timer.</p></details>
+  <details><summary>Can I change my idea after the midterm?</summary><p>Yes, you can improve it. The feedback you get in Week 6 is there to help you make your final talk stronger. If you want to change it completely, talk to your teacher first.</p></details>
+  <details><summary>Will my pitch be recorded?</summary><p>If it is, the recording is for feedback only and is never shared outside the class without your permission.</p></details>
+</section>
+
+<footer>Approach International Student Center · TED Talks: Ideas Worth Sharing · Midterm Idea Pitch Guide</footer>
+</div>
+<script>
+const KEY = "ted-b2-midterm-checklist";
+const boxes = [...document.querySelectorAll("#ready input")];
+function prog(){ const n = boxes.filter(b=>b.checked).length; document.getElementById("prog").textContent = `${n} / ${boxes.length} ready` + (n === boxes.length ? " · You're ready!" : ""); }
+try{ const s = JSON.parse(localStorage.getItem(KEY) || "[]"); boxes.forEach((b,i)=>b.checked = !!s[i]); }catch(e){}
+boxes.forEach(b => b.addEventListener("change", () => { try{ localStorage.setItem(KEY, JSON.stringify(boxes.map(x=>x.checked))); }catch(e){} prog(); }));
+prog();
+</script>
+</body>
+</html>

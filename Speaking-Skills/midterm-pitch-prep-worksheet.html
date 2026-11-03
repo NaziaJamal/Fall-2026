@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Midterm Pitch Prep Worksheet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0f2340; --blue:#143865; --blue-2:#1c4f8f; --gold:#8c7535; --gold-2:#d39f10; --red:#a91512; --green:#1f6b48;
+    --sky:#c1cddd; --sky-2:#e1e8f2; --sky-3:#edf2f9; --paper:#fbf9f3; --ink:#14213a; --soft:#3f4b5e; --muted:#5b6b82;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0; background:var(--sky-3); color:var(--ink); font-family:Inter, system-ui, sans-serif; font-size:16px; line-height:1.55}
+  .page{max-width:940px; margin:0 auto; padding:20px 16px 60px}
+  .top{background:var(--blue); color:#fff; border-radius:18px; padding:24px 28px; position:relative; overflow:hidden}
+  .top::after{content:""; position:absolute; right:-40px; top:-40px; width:190px; height:190px; border:14px solid var(--gold-2); border-radius:50%; opacity:.25}
+  .school{font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--gold-2); font-weight:700}
+  h1{font-family:Lora, serif; font-size:clamp(28px,4.8vw,40px); margin:4px 0}
+  .top p{margin:0; color:var(--sky); max-width:640px}
+  .who{display:grid; grid-template-columns:2fr 1fr; gap:10px; margin-top:14px; position:relative; z-index:1}
+  .who input,.who select{background:#fff}
+  nav{position:sticky; top:0; z-index:10; display:flex; flex-wrap:wrap; gap:6px; align-items:center; background:#fff; border:1px solid var(--sky); border-radius:14px; padding:10px 12px; margin:14px 0 18px; box-shadow:0 6px 18px rgba(20,56,101,.08)}
+  nav a{text-decoration:none; font-weight:700; font-size:14px; color:var(--blue); background:var(--sky-3); border-radius:8px; padding:5px 10px}
+  nav .sp{flex:1}
+  .btn{font:inherit; font-weight:700; font-size:14px; border:none; border-radius:10px; padding:8px 14px; background:var(--gold-2); color:var(--ink); cursor:pointer}
+  .btn.ghost{background:var(--sky-2); color:var(--blue)}
+  .btn.navy{background:var(--blue); color:#fff}
+  section{background:#fff; border:1px solid var(--sky); border-radius:18px; padding:20px 22px; margin-bottom:16px; scroll-margin-top:70px}
+  h2{font-family:Lora, serif; color:var(--blue); font-size:23px; margin:0 0 4px; display:flex; align-items:center; gap:10px}
+  h2 .n{width:34px; height:34px; border-radius:10px; background:var(--navy); color:var(--gold-2); font-size:18px; display:inline-flex; align-items:center; justify-content:center; flex:none}
+  .meta{font-size:13px; color:var(--muted); margin:0 0 12px}
+  .meta b{color:var(--gold)}
+  h3{font-size:14px; letter-spacing:.08em; text-transform:uppercase; color:var(--gold); margin:16px 0 6px}
+  p{margin:6px 0}
+  label.q{display:block; font-weight:600; margin:12px 0 4px}
+  input[type=text],textarea,select{width:100%; font:inherit; font-size:15px; border:1px solid var(--sky); border-radius:10px; padding:9px 11px; background:var(--paper); color:var(--ink)}
+  textarea{min-height:64px; resize:vertical}
+  input:focus,textarea:focus,select:focus{outline:2px solid var(--gold-2); border-color:var(--gold-2)}
+  .hint{font-size:13.5px; color:var(--muted); margin:2px 0 0}
+  .wc{font-size:13px; font-weight:700; color:var(--green); margin-top:3px}
+  .wc.over{color:var(--red)}
+  .grid2{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+  .grid3{display:grid; grid-template-columns:repeat(3,1fr); gap:12px}
+  .box{border:1px solid var(--sky); border-radius:14px; padding:12px 14px; background:#fff}
+  .box h4{margin:0 0 4px; color:var(--blue); font-size:15px}
+  .box p.small{font-size:13.5px; color:var(--soft); margin:0 0 6px}
+  .b2{background:#f3f7fd; border-left:5px solid var(--blue-2); border-radius:0 12px 12px 0; padding:9px 14px; font-size:14.5px; margin-top:10px}
+  .b2p{background:#fbf6e8; border-left:5px solid var(--gold-2); border-radius:0 12px 12px 0; padding:9px 14px; font-size:14.5px; margin-top:10px}
+  .frames p{font-style:italic; color:var(--soft); margin:2px 0}
+  table{width:100%; border-collapse:collapse; font-size:15px}
+  th{background:var(--blue); color:#fff; text-align:left; padding:8px 10px; font-size:14px}
+  td{border-bottom:1px solid var(--sky-2); padding:7px 8px; vertical-align:top}
+  td input,td select,td textarea{font-size:14px}
+  td.lab{font-weight:700; color:var(--blue); width:18%}
+  .gap{display:inline-block; width:150px; max-width:100%; padding:4px 8px !important; margin:0 3px}
+  .gaps li{margin:9px 0}
+  .ok{background:#e3f4ec !important; border-color:var(--green) !important}
+  .no{background:#fbe7e4 !important; border-color:var(--red) !important}
+  .fixnote{display:none; font-size:13px; color:var(--red); font-weight:600; margin-left:4px}
+  .fixnote.on{display:inline}
+  .result{font-weight:800; color:var(--blue); margin-left:10px}
+  .checks label{display:flex; gap:10px; align-items:flex-start; padding:6px 2px; border-bottom:1px dashed var(--sky); cursor:pointer}
+  .checks input{width:19px; height:19px; margin-top:3px; accent-color:var(--blue); flex:none}
+  .timer{display:flex; flex-wrap:wrap; gap:10px; align-items:center; background:var(--navy); color:#fff; border-radius:16px; padding:14px 18px}
+  .clock{font-family:Lora, serif; font-size:44px; font-weight:700; min-width:130px; color:var(--gold-2)}
+  .clock.good{color:#7fd3a8} .clock.long{color:#ff9c93}
+  .timer select{width:auto; background:#fff}
+  .timer .msg{flex-basis:100%; font-size:14px; color:var(--sky)}
+  .score{font-family:Lora, serif; font-size:22px; color:var(--blue); font-weight:700; margin-top:8px}
+  .ex{background:#e3f4ec; border-radius:12px; padding:10px 14px; font-size:14.5px}
+  .ex b{color:var(--green)}
+  footer{text-align:center; color:var(--muted); font-size:12px; margin-top:22px}
+  @media (max-width:760px){
+    .grid2,.grid3,.who{grid-template-columns:1fr}
+    table.stack, table.stack tbody, table.stack tr, table.stack td{display:block; width:100% !important}
+    table.stack tr:first-child{display:none}
+    table.stack tr{border-bottom:2px solid var(--sky); padding:6px 0}
+    table.stack td{border:none; padding:4px 2px}
+    table.stack td[data-s]::before{content:attr(data-s); display:block; font-size:12px; font-weight:800; color:var(--gold); text-transform:uppercase; letter-spacing:.06em}
+  }
+  @media print{
+    @page{size:letter; margin:11mm}
+    body{background:#fff; font-size:12px}
+    .page{max-width:none; padding:0}
+    nav,.btn,.timer .btn{display:none !important}
+    .top{background:#fff; color:var(--ink); border:2px solid var(--blue); padding:12px 16px}
+    .top::after{display:none} .top p{color:var(--muted)}
+    section{break-inside:auto; padding:12px 14px; border-color:#999}
+    .box,tr,li{break-inside:avoid}
+    input[type=text],textarea,select{background:#fff; border-color:#999}
+    textarea{min-height:48px}
+    .timer{background:#fff; color:var(--ink); border:1px solid #999}
+    .clock{color:var(--ink)}
+    *{-webkit-print-color-adjust:exact; print-color-adjust:exact}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="top">
+  <div class="school">Approach International Student Center · TED Talks: Ideas Worth Sharing</div>
+  <h1>Midterm Pitch Prep Worksheet</h1>
+  <p>Build your Week 6 pitch step by step: collect, draft, check, rehearse. Your answers save on this device.</p>
+  <div class="who">
+    <input type="text" data-label="Name" placeholder="Your name">
+    <select data-label="Level" id="level">
+      <option value="">My level…</option><option value="B2">B2 · about 2 minutes</option><option value="B2+">B2+ · about 3 minutes</option>
+    </select>
+  </div>
+</header>
+
+<nav>
+  <a href="#a">A Collect</a><a href="#b">B Throughline</a><a href="#c">C Hook</a><a href="#d">D Points</a><a href="#e">E Ending</a><a href="#f">F Language</a><a href="#g">G Note cards</a><a href="#h">H Rehearse</a><a href="#i">I Feedback</a>
+  <span class="sp"></span>
+  <a href="midterm-pitch-guide.html">Pitch guide</a>
+  <button class="btn ghost" id="dl">Download answers</button>
+  <button class="btn" onclick="window.print()">Print</button>
+</nav>
+
+<!-- A -->
+<section id="a">
+  <h2><span class="n">A</span>Collect what you already have</h2>
+  <p class="meta"><b>Individual</b> · 10 min · Look back at your Weeks 2–5 worksheets.</p>
+  <div class="grid2">
+    <div class="box"><h4>Week 2 · My idea</h4><p class="small">What is your talk about, in a few words?</p><textarea data-label="A1 My idea (Week 2)"></textarea></div>
+    <div class="box"><h4>Week 3 · My one listener</h4><p class="small">A real person: curious, smart, not an expert.</p><textarea data-label="A2 My one listener (Week 3)"></textarea></div>
+    <div class="box"><h4>Week 4 · My story</h4><p class="small">Your story in 2–3 sentences: when, where, what happened.</p><textarea data-label="A3 My story (Week 4)"></textarea></div>
+    <div class="box"><h4>Week 5 · My reasons</h4><p class="small">Why should the audience care? List 2–3 reasons or pieces of evidence.</p><textarea data-label="A4 My reasons (Week 5)"></textarea></div>
+  </div>
+  <label class="q">A5 · What is still missing or weak? Be honest.</label>
+  <input type="text" data-label="A5 Missing or weak" placeholder="My story doesn't clearly connect to my idea yet…">
+</section>
+
+<!-- B -->
+<section id="b">
+  <h2><span class="n">B</span>Sharpen your throughline</h2>
+  <p class="meta"><b>Individual → Pairs</b> · 10 min</p>
+  <label class="q">B1 · Write your throughline (15 words or fewer)</label>
+  <input type="text" data-label="B1 Throughline" data-wc="15" placeholder="Asking for help is a skill, not a weakness.">
+  <div class="wc"></div>
+  <label class="q">B2 · Why does it matter to <i>this</i> audience? Finish the sentence.</label>
+  <input type="text" data-label="B2 Why it matters" placeholder="This matters because…">
+  <h3>B3 · The repeat test</h3>
+  <p>Say your throughline once to a partner. Don't show it. Your partner repeats it in their own words.</p>
+  <label class="q">What did your partner say?</label>
+  <input type="text" data-label="B3 Partner's version">
+  <label class="q">Was it close? What will you change?</label>
+  <input type="text" data-label="B3 What I'll change">
+  <div class="b2p"><b>B2+ challenge:</b> write a second version as a cleft sentence: <i>"What I've learned is that…"</i> or <i>"The thing nobody tells you about ___ is…"</i>
+    <input type="text" data-label="B2+ Cleft throughline" style="margin-top:6px"></div>
+</section>
+
+<!-- C -->
+<section id="c">
+  <h2><span class="n">C</span>Hook lab: three openings, one winner</h2>
+  <p class="meta"><b>Individual → Pairs</b> · 15 min · Your hook has about 15–20 seconds.</p>
+  <div class="grid3">
+    <div class="box"><h4>1 · A question</h4><p class="small">Have you ever…? / What would you do if…?</p><textarea data-label="C1 Hook: question"></textarea></div>
+    <div class="box"><h4>2 · A surprising fact</h4><p class="small">Here's something surprising: … / One in three…</p><textarea data-label="C2 Hook: surprising fact"></textarea></div>
+    <div class="box"><h4>3 · The first line of a story</h4><p class="small">Three years ago, I… / On my first day…</p><textarea data-label="C3 Hook: story"></textarea></div>
+  </div>
+  <h3>C4 · Test them</h3>
+  <p>Read all three to your partner. Your partner chooses the one that makes them most curious and says why.</p>
+  <div class="frames"><p>Number ___ made me want to hear more because…</p><p>Number ___ felt a little like an ask because…</p></div>
+  <div class="grid2" style="margin-top:8px">
+    <div><label class="q">My partner chose…</label><select data-label="C4 Partner chose"><option value=""></option><option>1 · Question</option><option>2 · Surprising fact</option><option>3 · Story</option></select></div>
+    <div><label class="q">I will use…</label><select data-label="C4 I will use"><option value=""></option><option>1 · Question</option><option>2 · Surprising fact</option><option>3 · Story</option></select></div>
+  </div>
+  <label class="q">C5 · My final hook (improve it with your partner's feedback)</label>
+  <textarea data-label="C5 Final hook"></textarea>
+</section>
+
+<!-- D -->
+<section id="d">
+  <h2><span class="n">D</span>Plan your main points</h2>
+  <p class="meta"><b>Individual</b> · 15 min · B2: 2 points · B2+: 2–3 points. At least one point needs a story, example or evidence.</p>
+  <label class="q">D1 · Preview sentence</label>
+  <input type="text" data-label="D1 Preview" placeholder="I'll share two things: why we don't ask, and what changes when we do.">
+  <table class="stack" style="margin-top:12px">
+    <tr><th style="width:12%"></th><th style="width:22%">Signpost</th><th>The point (key words)</th><th style="width:22%">Support</th><th style="width:22%">Support (key words)</th></tr>
+    <tr><td class="lab">Point 1</td>
+      <td data-s="Signpost"><input type="text" data-label="D2 Point 1 signpost" placeholder="First, …"></td>
+      <td data-s="Point"><input type="text" data-label="D2 Point 1"></td>
+      <td data-s="Support"><select data-label="D2 Point 1 support type"><option value=""></option><option>Story</option><option>Example</option><option>Evidence / fact</option><option>Explanation</option></select></td>
+      <td data-s="Support key words"><input type="text" data-label="D2 Point 1 support"></td></tr>
+    <tr><td class="lab">Point 2</td>
+      <td data-s="Signpost"><input type="text" data-label="D2 Point 2 signpost" placeholder="That brings me to…"></td>
+      <td data-s="Point"><input type="text" data-label="D2 Point 2"></td>
+      <td data-s="Support"><select data-label="D2 Point 2 support type"><option value=""></option><option>Story</option><option>Example</option><option>Evidence / fact</option><option>Explanation</option></select></td>
+      <td data-s="Support key words"><input type="text" data-label="D2 Point 2 support"></td></tr>
+    <tr><td class="lab">Point 3<br><small style="color:var(--gold)">B2+ optional</small></td>
+      <td data-s="Signpost"><input type="text" data-label="D2 Point 3 signpost" placeholder="Here's one last thing…"></td>
+      <td data-s="Point"><input type="text" data-label="D2 Point 3"></td>
+      <td data-s="Support"><select data-label="D2 Point 3 support type"><option value=""></option><option>Story</option><option>Example</option><option>Evidence / fact</option><option>Explanation</option></select></td>
+      <td data-s="Support key words"><input type="text" data-label="D2 Point 3 support"></td></tr>
+  </table>
+  <h3>D3 · The connection check</h3>
+  <p>Read each point next to your throughline. Does every point help the audience understand it?</p>
+  <div class="checks">
+    <label><input type="checkbox" data-label="D3 Every point connects to my throughline">Every point connects to my throughline.</label>
+    <label><input type="checkbox" data-label="D3 I cut anything that doesn't">I cut anything that doesn't connect (even if I like it).</label>
+    <label><input type="checkbox" data-label="D3 Story supports a point">My story or example clearly supports a point; it isn't just there to be interesting.</label>
+  </div>
+</section>
+
+<!-- E -->
+<section id="e">
+  <h2><span class="n">E</span>Write your ending</h2>
+  <p class="meta"><b>Individual</b> · 5 min · About 15–20 seconds. Bring the audience back to your throughline.</p>
+  <label class="q">E1 · What kind of ending?</label>
+  <select data-label="E1 Ending type"><option value=""></option><option>A question for the audience</option><option>A challenge or small action</option><option>Back to the opening story</option><option>A strong image or picture of the future</option></select>
+  <label class="q">E2 · My ending</label>
+  <textarea data-label="E2 Ending" placeholder="So, to sum up, … So here's my question to you: …"></textarea>
+  <div class="ex" style="margin-top:8px"><b>Model:</b> "So, asking for help isn't a weakness; it's a skill we can practice. Here's my question to you: who will you ask for help this week?"</div>
+</section>
+
+<!-- F -->
+<section id="f">
+  <h2><span class="n">F</span>Language check</h2>
+  <p class="meta"><b>Individual → check</b> · 10 min · Narrative tenses, signposts and clefts you'll use in your pitch.</p>
+  <h3>F1 · Complete the pitch sentences</h3>
+  <p class="hint">Use the word in brackets in the correct form, or write the missing word.</p>
+  <ol class="gaps" id="f1">
+    <li>Three years ago, I <input type="text" class="gap ck" data-ans="moved" data-label="F1.1"> (move) to Boston.<span class="fixnote"></span></li>
+    <li>When I arrived, I <input type="text" class="gap ck" data-ans="had never seen|'d never seen" data-label="F1.2"> (never / see) snow before.<span class="fixnote"></span></li>
+    <li>While I <input type="text" class="gap ck" data-ans="was walking" data-label="F1.3"> (walk) to class, I met my best friend.<span class="fixnote"></span></li>
+    <li><input type="text" class="gap ck" data-ans="what" data-label="F1.4"> I want you to understand is that small habits matter.<span class="fixnote"></span></li>
+    <li>I'll share two things. <input type="text" class="gap ck" data-ans="first|firstly" data-label="F1.5">, why we don't ask for help.<span class="fixnote"></span></li>
+    <li>For <input type="text" class="gap ck" data-ans="example|instance" data-label="F1.6">, when I started asking questions, my grades went up.<span class="fixnote"></span></li>
+    <li>That <input type="text" class="gap ck" data-ans="brings" data-label="F1.7"> me to my second point.<span class="fixnote"></span></li>
+    <li>So, to <input type="text" class="gap ck" data-ans="sum" data-label="F1.8"> up, asking for help is a skill.<span class="fixnote"></span></li>
+  </ol>
+  <button class="btn navy" data-check="f1">Check answers</button><span class="result" id="f1-res"></span>
+  <h3>F2 · Your own sentences</h3>
+  <p>Write two sentences <b>from your pitch</b>: one in the past (from your story) and one signpost or cleft. Ask your partner or teacher to check them.</p>
+  <input type="text" data-label="F2 Past tense sentence" placeholder="Past: When I first came here, I…" style="margin-bottom:8px">
+  <input type="text" data-label="F2 Signpost or cleft" placeholder="Signpost / cleft: What surprised me most was…">
+</section>
+
+<!-- G -->
+<section id="g">
+  <h2><span class="n">G</span>Make your note cards</h2>
+  <p class="meta"><b>Individual</b> · 10 min · Key words, not sentences. If you can read it aloud, it's too long.</p>
+  <div class="b2"><b>B2:</b> four cards, about 10 words or fewer on each.</div>
+  <div class="b2p"><b>B2+:</b> minimal notes. Try one card only (the "B2+ one card" box) with about 15 words for the whole pitch.</div>
+  <div class="grid2" style="margin-top:12px">
+    <div class="box"><h4>Card 1 · Hook + throughline</h4><textarea data-label="G Card 1" data-wc="10"></textarea><div class="wc"></div></div>
+    <div class="box"><h4>Card 2 · Point 1 + support</h4><textarea data-label="G Card 2" data-wc="10"></textarea><div class="wc"></div></div>
+    <div class="box"><h4>Card 3 · Point 2 (+ 3) + support</h4><textarea data-label="G Card 3" data-wc="10"></textarea><div class="wc"></div></div>
+    <div class="box"><h4>Card 4 · Ending</h4><textarea data-label="G Card 4" data-wc="10"></textarea><div class="wc"></div></div>
+  </div>
+  <div class="box" style="margin-top:12px; border-color:var(--gold-2)"><h4>B2+ one card · the whole pitch</h4><textarea data-label="G B2+ one card" data-wc="15"></textarea><div class="wc"></div></div>
+  <div class="ex" style="margin-top:10px"><b>Example card:</b> First → we don't ask · look weak · library, 2 hours alone</div>
+</section>
+
+<!-- H -->
+<section id="h">
+  <h2><span class="n">H</span>Rehearse with the timer</h2>
+  <p class="meta"><b>Individual or pairs</b> · 15 min in class · More at home. Stand up and say it out loud; don't just read it in your head.</p>
+  <div class="timer">
+    <span class="clock" id="clock">0:00</span>
+    <button class="btn" id="tStart">Start</button>
+    <button class="btn ghost" id="tReset">Reset</button>
+    <button class="btn ghost" id="tLog">Log this time</button>
+    <select id="target"><option value="120">Target: 2:00 (B2)</option><option value="180">Target: 3:00 (B2+)</option></select>
+    <span class="msg" id="tMsg">Green = within 15 seconds of your target.</span>
+  </div>
+  <table class="stack" style="margin-top:12px">
+    <tr><th style="width:12%">Run</th><th style="width:16%">Time</th><th>What went well</th><th>One thing I'll fix next time</th></tr>
+    <tr><td class="lab">Run 1</td><td data-s="Time"><input type="text" class="runtime" data-label="H Run 1 time"></td><td data-s="What went well"><input type="text" data-label="H Run 1 went well"></td><td data-s="Fix"><input type="text" data-label="H Run 1 fix"></td></tr>
+    <tr><td class="lab">Run 2</td><td data-s="Time"><input type="text" class="runtime" data-label="H Run 2 time"></td><td data-s="What went well"><input type="text" data-label="H Run 2 went well"></td><td data-s="Fix"><input type="text" data-label="H Run 2 fix"></td></tr>
+    <tr><td class="lab">Run 3</td><td data-s="Time"><input type="text" class="runtime" data-label="H Run 3 time"></td><td data-s="What went well"><input type="text" data-label="H Run 3 went well"></td><td data-s="Fix"><input type="text" data-label="H Run 3 fix"></td></tr>
+  </table>
+  <p class="hint">Too long? Cut the part that connects least to your throughline. Too short? Add one detail to your story or example.</p>
+  <h3>H2 · Score yourself (same rubric as the midterm)</h3>
+  <table class="stack" id="self">
+    <tr><th>Area</th><th style="width:30%">My score (1–4)</th></tr>
+    <tr><td class="lab" style="width:auto">Idea and throughline</td><td data-s="Score"><select class="sc" data-label="H2 Idea and throughline"><option value=""></option><option>4</option><option>3</option><option>2</option><option>1</option></select></td></tr>
+    <tr><td class="lab" style="width:auto">Structure and signposting</td><td data-s="Score"><select class="sc" data-label="H2 Structure and signposting"><option value=""></option><option>4</option><option>3</option><option>2</option><option>1</option></select></td></tr>
+    <tr><td class="lab" style="width:auto">Talk tools (story, example, evidence)</td><td data-s="Score"><select class="sc" data-label="H2 Talk tools"><option value=""></option><option>4</option><option>3</option><option>2</option><option>1</option></select></td></tr>
+    <tr><td class="lab" style="width:auto">Language accuracy</td><td data-s="Score"><select class="sc" data-label="H2 Language accuracy"><option value=""></option><option>4</option><option>3</option><option>2</option><option>1</option></select></td></tr>
+    <tr><td class="lab" style="width:auto">Delivery (voice, eye contact, time, notes)</td><td data-s="Score"><select class="sc" data-label="H2 Delivery"><option value=""></option><option>4</option><option>3</option><option>2</option><option>1</option></select></td></tr>
+  </table>
+  <p class="score" id="total">Total: – / 20</p>
+  <label class="q">My lowest area is ___. Before Week 6, I will…</label>
+  <input type="text" data-label="H2 Plan for lowest area">
+</section>
+
+<!-- I -->
+<section id="i">
+  <h2><span class="n">I</span>Practice pitch + partner feedback</h2>
+  <p class="meta"><b>Pairs</b> · 15 min · Give your full pitch to a partner. Swap. Then fill this in with what <b>your partner</b> said about you.</p>
+  <div class="grid2">
+    <div class="box"><h4>One strength</h4><p class="small frames">Your throughline was clear when… / Your story made me care because…</p><textarea data-label="I1 Partner: strength"></textarea></div>
+    <div class="box"><h4>One suggestion</h4><p class="small frames">One thing that would make it stronger is… / I got a little lost when…</p><textarea data-label="I2 Partner: suggestion"></textarea></div>
+  </div>
+  <label class="q">I3 · My partner said my throughline was…</label>
+  <input type="text" data-label="I3 Throughline as partner heard it">
+  <div class="b2p"><b>B2+ challenge:</b> no frames. Give one piece of delivery feedback and one piece of content feedback, and explain <i>why</i> each change would help the audience.</div>
+  <h3>Final check: I'm ready when…</h3>
+  <div class="checks">
+    <label><input type="checkbox" data-label="Ready: timed on target">My last run was within 15 seconds of my target.</label>
+    <label><input type="checkbox" data-label="Ready: partner repeated throughline">A partner could repeat my throughline.</label>
+    <label><input type="checkbox" data-label="Ready: notes are key words">My notes are key words only, and I looked up from them most of the time.</label>
+    <label><input type="checkbox" data-label="Ready: used feedback">I changed at least one thing because of feedback.</label>
+  </div>
+  <label class="q">Exit ticket · The one thing I'll practice most before Week 6 is…</label>
+  <input type="text" data-label="Exit ticket">
+</section>
+
+<footer>Approach International Student Center · TED Talks: Ideas Worth Sharing · Midterm Pitch Prep Worksheet</footer>
+</div>
+
+<script>
+const KEY = "ted-b2-midterm-prep";
+const fields = [...document.querySelectorAll("[data-label]")];
+function val(f){ return f.type === "checkbox" ? f.checked : f.value; }
+function save(){ try{ localStorage.setItem(KEY, JSON.stringify(fields.map(val))); }catch(e){} }
+try{ const s = JSON.parse(localStorage.getItem(KEY) || "null"); if(s) fields.forEach((f,i)=>{ if(s[i]===undefined) return; if(f.type==="checkbox") f.checked=!!s[i]; else f.value=s[i]; }); }catch(e){}
+fields.forEach(f => f.addEventListener(f.type==="checkbox"||f.tagName==="SELECT" ? "change" : "input", () => { save(); update(); }));
+
+/* word counters */
+function words(t){ return t.trim() ? t.trim().split(/\s+/).length : 0; }
+function update(){
+  document.querySelectorAll("[data-wc]").forEach(f => {
+    const out = f.nextElementSibling; if(!out || !out.classList.contains("wc")) return;
+    const n = words(f.value), max = +f.dataset.wc;
+    out.textContent = n ? `${n} word${n===1?"":"s"}` + (n>max ? ` · aim for ${max} or fewer` : " · good") : "";
+    out.classList.toggle("over", n>max);
+  });
+  const sc = [...document.querySelectorAll(".sc")].map(s=>+s.value||0);
+  const done = sc.filter(Boolean).length;
+  document.getElementById("total").textContent = `Total: ${done ? sc.reduce((a,b)=>a+b,0) : "–"} / 20`;
+}
+
+/* answer checking */
+function norm(s){ return s.toLowerCase().replace(/[’']/g,"'").replace(/[.,!?]/g,"").replace(/\s+/g," ").trim(); }
+document.querySelectorAll("[data-check]").forEach(b => b.onclick = () => {
+  const id = b.dataset.check, items = [...document.querySelectorAll(`#${id} .ck`)];
+  let ok = 0;
+  items.forEach(i => {
+    const alts = i.dataset.ans.split("|"), good = alts.some(a => norm(a) === norm(i.value));
+    i.classList.toggle("ok", good); i.classList.toggle("no", !good); if(good) ok++;
+    const note = i.parentElement.querySelector(".fixnote");
+    if(note){ note.textContent = good ? "" : `Answer: ${alts[0]}`; note.classList.toggle("on", !good); }
+  });
+  document.getElementById(id+"-res").textContent = `${ok} / ${items.length}`;
+});
+
+/* timer */
+let t0 = null, acc = 0, tick = null;
+const clock = document.getElementById("clock"), target = document.getElementById("target"), lvl = document.getElementById("level");
+function secs(){ return Math.floor((acc + (t0 ? Date.now()-t0 : 0))/1000); }
+function fmt(s){ return `${Math.floor(s/60)}:${String(s%60).padStart(2,"0")}`; }
+function draw(){ const s = secs(), tg = +target.value; clock.textContent = fmt(s);
+  clock.classList.toggle("good", Math.abs(s-tg) <= 15 && s>0); clock.classList.toggle("long", s > tg+15); }
+document.getElementById("tStart").onclick = e => {
+  if(t0){ acc += Date.now()-t0; t0 = null; clearInterval(tick); e.target.textContent = "Start"; }
+  else { t0 = Date.now(); tick = setInterval(draw, 250); e.target.textContent = "Stop"; }
+  draw();
+};
+document.getElementById("tReset").onclick = () => { t0 = null; acc = 0; clearInterval(tick); document.getElementById("tStart").textContent = "Start"; draw(); };
+document.getElementById("tLog").onclick = () => {
+  const empty = [...document.querySelectorAll(".runtime")].find(r => !r.value);
+  const msg = document.getElementById("tMsg");
+  if(!secs()){ msg.textContent = "Start the timer first."; return; }
+  if(!empty){ msg.textContent = "All three runs are logged. Clear one to log again."; return; }
+  empty.value = fmt(secs()); save(); msg.textContent = `Logged ${fmt(secs())}. Reset and go again.`;
+};
+target.onchange = draw;
+lvl.addEventListener("change", () => { if(lvl.value==="B2") target.value="120"; if(lvl.value==="B2+") target.value="180"; draw(); });
+if(lvl.value==="B2+") target.value="180";
+
+/* download */
+document.getElementById("dl").onclick = () => {
+  const lines = ["Midterm Pitch Prep Worksheet", ""];
+  fields.forEach(f => { const v = val(f); if(v===""||v===false) return; lines.push(`${f.dataset.label}: ${v===true ? "yes" : v}`); });
+  const name = (fields[0].value || "student").trim().replace(/\s+/g,"-");
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(new Blob([lines.join("\n")], {type:"text/plain"}));
+  a.download = `midterm-prep-${name}.txt`; a.click();
+};
+update(); draw();
+</script>
+</body>
+</html>
