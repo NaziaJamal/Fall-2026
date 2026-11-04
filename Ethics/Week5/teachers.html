@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Week 5 Teachers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#143865;--blue:#1c4f8f;--gold:#d39f10;--gold-d:#8c7535;--sky:#c1cddd;--bg:#fbfaf6}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{font-family:"Source Sans 3",system-ui,sans-serif;background:var(--bg);display:flex;flex-direction:column;height:100vh;height:100dvh}
+.bar{background:var(--navy);color:#fff;border-bottom:4px solid var(--gold);flex:none}
+.top{display:flex;align-items:center;gap:12px;padding:8px 16px 0}
+.top img{height:34px;border-radius:4px}
+.top .t{font-family:"Libre Baskerville",serif;font-size:16px;line-height:1.2}
+.top .t small{display:block;font-family:"Source Sans 3",sans-serif;font-size:12.5px;color:var(--sky);font-weight:600;letter-spacing:.04em}
+.top .who{margin-left:auto;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold);border-radius:999px;padding:3px 10px;white-space:nowrap}
+nav{display:flex;gap:4px;padding:10px 12px 0;overflow-x:auto;scrollbar-width:none}
+nav::-webkit-scrollbar{display:none}
+nav button{flex:none;font:600 15px "Source Sans 3",sans-serif;color:#dbe4f0;background:rgba(255,255,255,.08);border:0;border-radius:8px 8px 0 0;padding:9px 16px;cursor:pointer;white-space:nowrap}
+nav button:hover{background:rgba(255,255,255,.16);color:#fff}
+nav button[aria-selected="true"]{background:var(--bg);color:var(--navy);box-shadow:inset 0 3px 0 var(--gold)}
+nav .sp{flex:1}
+nav a{flex:none;align-self:center;font-size:13.5px;color:var(--sky);text-decoration:none;padding:6px 8px;white-space:nowrap}
+nav a:hover{color:#fff;text-decoration:underline}
+main{flex:1;position:relative;min-height:0}
+iframe{position:absolute;inset:0;width:100%;height:100%;border:0;background:#fff;display:none}
+iframe.on{display:block}
+@media (max-width:600px){.top .t small{display:none}.top .t{font-size:14px}.top img{height:28px}nav button{font-size:14px;padding:8px 12px}}
+@media print{.bar{display:none}}
+</style>
+</head>
+<body>
+<div class="bar">
+  <div class="top"><img src="logo.png" alt="" onerror="this.remove()"><div class="t">Week 5 · Culture and Time in Business Ethics<small>ETHICS IN A GLOBAL WORLD · CHAPTER 5</small></div><span class="who">Teachers</span></div>
+  <nav role="tablist" id="tabs"></nav>
+</div>
+<main id="panes"></main>
+<script>
+// Edit this list to reuse the page for another week.
+const TABS=[
+ {
+  "id": "guide",
+  "label": "Teacher Guide",
+  "file": "teacher-guide.html"
+ },
+ {
+  "id": "briefing",
+  "label": "Briefing",
+  "file": "teacher-briefing.html"
+ },
+ {
+  "id": "slides",
+  "label": "Slides",
+  "file": "slides.html"
+ },
+ {
+  "id": "handouts",
+  "label": "Handouts",
+  "file": "handouts.html"
+ },
+ {
+  "id": "quiz",
+  "label": "Quiz 2",
+  "file": "quiz.html"
+ },
+ {
+  "id": "notes",
+  "label": "Study Notes",
+  "file": "study-notes.html"
+ },
+ {
+  "id": "worksheet",
+  "label": "Student Worksheet",
+  "file": "worksheet.html"
+ }
+];
+const tabs=document.getElementById('tabs'),panes=document.getElementById('panes');
+TABS.forEach((t,i)=>{
+  const b=document.createElement('button');b.role='tab';b.id='tab-'+t.id;b.textContent=t.label;b.title=t.hint||'';
+  b.setAttribute('aria-controls','pane-'+t.id);b.onclick=()=>go(t.id);tabs.appendChild(b);
+});
+tabs.insertAdjacentHTML('beforeend','<span class="sp"></span><a id="newtab" target="_blank" rel="noopener">Open in new tab ↗</a>');
+function go(id,noHash){
+  const t=TABS.find(x=>x.id===id)||TABS[0];
+  TABS.forEach(x=>{const b=document.getElementById('tab-'+x.id);b.setAttribute('aria-selected',x.id===t.id);const f=document.getElementById('pane-'+x.id);if(f)f.classList.toggle('on',x.id===t.id)});
+  let f=document.getElementById('pane-'+t.id);
+  if(!f){f=document.createElement('iframe');f.id='pane-'+t.id;f.title=t.label;f.src=t.file;f.allow='fullscreen';f.allowFullscreen=true;f.className='on';
+    f.addEventListener('load',()=>{try{const d=f.contentDocument;d.querySelectorAll('a[href="index.html"]').forEach(a=>a.style.display='none');d.querySelectorAll('a[href$=".html"]:not([target])').forEach(a=>a.target='_top')}catch(e){}});
+    panes.appendChild(f)}
+  document.getElementById('newtab').href=t.file;
+  document.title=t.label+' · Week 5 Teachers';
+  if(!noHash)history.replaceState(null,'','#'+t.id);
+  document.getElementById('tab-'+t.id).scrollIntoView({block:'nearest',inline:'nearest'});
+  setTimeout(()=>{try{f.contentWindow.focus()}catch(e){}},50);
+}
+go(location.hash.slice(1),true);
+addEventListener('hashchange',()=>go(location.hash.slice(1),true));
+</script>
+</body>
+</html>
