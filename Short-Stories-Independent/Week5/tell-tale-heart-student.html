@@ -1,0 +1,1510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tell-Tale Heart: Student</title>
+<meta name="description" content="The Tell-Tale Heart by Edgar Allan Poe: adapted reading version with glossary, notes, and the original text. Approach International Student Center, Reading and Critical Thinking, Independent Level.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Noto+Sans:wght@400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#143865;
+  --blue:#1c4f8f;
+  --gold-dark:#8c7535;
+  --gold:#d39f10;
+  --sky-dark:#c1cddd;
+  --sky-mid:#e1e8f2;
+  --sky-light:#edf2f9;
+  --warm:#efe9d9;
+  --paper:#fffdf8;
+  --ink:#1d2433;
+  --muted:#556074;
+  --line:#d6dde8;
+  --reading-size:1.15rem;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--sky-light);
+  color:var(--ink);
+  font-family:"Source Sans 3",system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-size:1rem;
+  line-height:1.55;
+}
+a{color:var(--blue)}
+
+/* ---------- Header ---------- */
+.site-header{
+  background:var(--navy);
+  color:#fff;
+  padding:14px 16px;
+}
+.brand{
+  max-width:860px;margin:0 auto;
+  display:flex;align-items:center;gap:12px;
+}
+.brand img{height:44px;width:auto;background:#fff;border-radius:8px;padding:4px 6px}
+.brand-text{line-height:1.15}
+.brand-name{font-weight:700;letter-spacing:.14em;font-size:.95rem}
+.brand-sub{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--sky-dark)}
+
+.hero{
+  background:linear-gradient(180deg,var(--navy) 0%,var(--blue) 100%);
+  color:#fff;
+  padding:28px 16px 34px;
+  border-bottom:4px solid var(--gold);
+}
+.hero-inner{max-width:860px;margin:0 auto}
+.kicker{
+  display:inline-block;
+  font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--navy);background:var(--gold);
+  padding:3px 10px;border-radius:999px;margin-bottom:12px;
+}
+.hero h1{
+  font-family:"Source Serif 4",Georgia,serif;
+  font-size:clamp(2rem,6vw,3rem);
+  line-height:1.1;margin:0 0 6px;font-weight:700;
+}
+.hero .byline{font-size:1.1rem;color:var(--sky-mid);margin:0}
+.hero .meta{font-size:.9rem;color:var(--sky-dark);margin:8px 0 0}
+
+/* ---------- Toolbar / tabs ---------- */
+.toolbar{
+  position:sticky;top:0;z-index:20;
+  background:#fff;border-bottom:1px solid var(--line);
+  box-shadow:0 2px 6px rgba(20,56,101,.06);
+}
+.toolbar-inner{
+  max-width:860px;margin:0 auto;padding:8px 16px;
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;
+}
+.tabs{display:flex;gap:4px;flex-wrap:wrap}
+.tab{
+  font:inherit;font-weight:600;font-size:.92rem;
+  border:1px solid var(--line);background:var(--sky-light);color:var(--navy);
+  padding:7px 12px;border-radius:8px;cursor:pointer;
+}
+.tab[aria-selected="true"]{background:var(--navy);color:#fff;border-color:var(--navy)}
+.tab:focus-visible,.size-btn:focus-visible,.g:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.size{display:flex;align-items:center;gap:4px}
+.size span{font-size:.8rem;color:var(--muted);margin-right:2px}
+.size-btn{
+  font:inherit;font-weight:700;
+  width:34px;height:34px;border-radius:8px;
+  border:1px solid var(--line);background:#fff;color:var(--navy);cursor:pointer;
+}
+
+/* ---------- Layout ---------- */
+main{max-width:860px;margin:0 auto;padding:24px 16px 48px}
+.panel[hidden]{display:none}
+
+.card{
+  background:#fff;border:1px solid var(--line);border-radius:12px;
+  padding:20px;margin-bottom:20px;
+}
+.card h2{
+  font-family:"Source Serif 4",Georgia,serif;
+  color:var(--navy);font-size:1.35rem;margin:0 0 10px;
+}
+.card h3{color:var(--navy);font-size:1.05rem;margin:16px 0 6px}
+.card p{margin:0 0 10px}
+.card ul{margin:0 0 6px;padding-left:20px}
+.card li{margin-bottom:6px}
+
+.before{border-top:4px solid var(--gold)}
+.tip{
+  background:var(--warm);border-left:4px solid var(--gold-dark);
+  padding:12px 14px;border-radius:8px;margin-top:12px;
+}
+.tip strong{color:var(--gold-dark)}
+.how-to{font-size:.92rem;color:var(--muted)}
+.how-to .demo{border-bottom:2px dotted var(--gold-dark);color:var(--ink)}
+
+/* ---------- Story text ---------- */
+.story{
+  background:var(--paper);
+  border:1px solid var(--line);border-radius:12px;
+  padding:28px 22px 24px;
+  font-family:"Source Serif 4",Georgia,serif;
+  font-size:var(--reading-size);
+  line-height:1.75;
+}
+.story-title{text-align:center;margin-bottom:22px}
+.story-title h2{font-size:1.6rem;color:var(--navy);margin:0;letter-spacing:.02em}
+.story-title p{margin:4px 0 0;color:var(--muted);font-style:italic;font-size:1rem}
+.version-label{
+  display:inline-block;margin-bottom:8px;
+  font-family:"Source Sans 3",sans-serif;font-size:.75rem;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;
+  color:var(--blue);background:var(--sky-mid);padding:3px 10px;border-radius:999px;
+}
+.part{
+  font-family:"Source Sans 3",sans-serif;
+  display:flex;align-items:baseline;gap:10px;
+  margin:30px 0 14px;padding-bottom:6px;border-bottom:2px solid var(--sky-dark);
+}
+.part:first-of-type{margin-top:6px}
+.part .num{
+  font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:#fff;background:var(--blue);padding:2px 8px;border-radius:6px;white-space:nowrap;
+}
+.part .name{font-size:1.1rem;font-weight:700;color:var(--navy)}
+.para{position:relative;padding-left:38px;margin:0 0 1em}
+.para .pn{
+  position:absolute;left:0;top:.35em;
+  font-family:"Source Sans 3",sans-serif;font-size:.72rem;font-weight:700;
+  color:var(--gold-dark);background:var(--warm);
+  min-width:26px;text-align:center;border-radius:6px;padding:1px 4px;line-height:1.5;
+}
+.end-mark{text-align:center;color:var(--gold-dark);letter-spacing:.5em;margin-top:22px;font-family:"Source Sans 3",sans-serif}
+
+/* glossary words in the text */
+.g{
+  border-bottom:2px dotted var(--gold-dark);
+  cursor:pointer;
+  border-radius:2px;
+}
+.g:hover,.g.active{background:var(--warm)}
+
+/* Stop and think */
+.stop{
+  font-family:"Source Sans 3",sans-serif;font-size:1rem;line-height:1.5;
+  background:var(--sky-light);border:1px solid var(--sky-dark);border-left:5px solid var(--navy);
+  border-radius:10px;padding:14px 16px;margin:22px 0 26px;
+}
+.stop-head{
+  font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--navy);margin-bottom:6px;
+}
+.stop ol{margin:0;padding-left:20px}
+.stop li{margin-bottom:4px}
+
+/* ---------- Glossary panel ---------- */
+.gloss-list{margin:0;padding:0;list-style:none}
+.gloss-list li{
+  display:grid;grid-template-columns:minmax(120px,30%) 1fr;gap:4px 14px;
+  padding:10px 0;border-bottom:1px solid var(--line);
+}
+.gloss-list li:last-child{border-bottom:none}
+.gw{font-weight:700;color:var(--navy)}
+.gw .pos{display:block;font-weight:400;font-style:italic;font-size:.82rem;color:var(--muted)}
+.gref{display:block;font-size:.82rem;color:var(--gold-dark);margin-top:2px}
+.expr-list li{grid-template-columns:minmax(150px,38%) 1fr}
+.expr-list .gw{font-family:"Source Serif 4",Georgia,serif;font-style:italic;font-weight:600}
+
+/* ---------- Popover ---------- */
+.pop{
+  position:absolute;z-index:50;max-width:300px;
+  background:var(--navy);color:#fff;
+  border-radius:10px;padding:10px 14px;
+  box-shadow:0 8px 24px rgba(20,56,101,.3);
+  font-family:"Source Sans 3",sans-serif;font-size:.95rem;line-height:1.45;
+}
+.pop[hidden]{display:none}
+.pop .pw{font-weight:700;color:var(--gold)}
+.pop .pp{font-style:italic;color:var(--sky-dark);font-size:.82rem;margin-left:4px}
+.pop .pd{display:block;margin-top:4px}
+
+footer{
+  text-align:center;font-size:.82rem;color:var(--muted);
+  padding:20px 16px 32px;border-top:1px solid var(--line);
+  max-width:860px;margin:0 auto;
+}
+
+@media (max-width:560px){
+  .story{padding:22px 16px}
+  .para{padding-left:32px}
+  .gloss-list li,.expr-list li{grid-template-columns:1fr}
+  .toolbar-inner{justify-content:center}
+}
+
+@media print{
+  .site-header,.toolbar,footer,.pop{display:none !important}
+  body{background:#fff}
+  .hero{background:none;color:var(--ink);border-bottom:2px solid var(--navy);padding:0 0 12px}
+  .hero .byline,.hero .meta{color:var(--muted)}
+  .kicker{border:1px solid var(--navy)}
+  .story,.card{border:none;padding:0}
+  .g{border-bottom:none}
+  .stop{break-inside:avoid}
+}
+
+/* ---------- Vocabulary cards ---------- */
+.vc-bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;margin-bottom:14px}
+.vc-group{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.vc-btn{font:inherit;font-weight:600;font-size:.9rem;cursor:pointer;border:1px solid var(--line);background:#fff;color:var(--navy);padding:7px 12px;border-radius:8px}
+.vc-btn[aria-pressed="true"]{background:var(--navy);color:#fff;border-color:var(--navy)}
+.vc-btn:focus-visible,.vc-listen:focus-visible,.vc-reveal:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.vc-count{font-size:.85rem;color:var(--muted)}
+.vc-key{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin-bottom:18px;display:flex;flex-wrap:wrap;gap:6px 24px;font-size:.9rem;color:var(--muted)}
+.vc-key strong{color:var(--navy)}
+.vc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.vc-card{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+.vc-top{background:var(--navy);color:#fff;padding:16px 18px 14px;position:relative}
+.vc-num{position:absolute;top:12px;right:14px;font-size:.75rem;font-weight:700;color:var(--navy);background:var(--gold);border-radius:999px;padding:1px 9px}
+.vc-word{font-family:"Source Serif 4",Georgia,serif;font-size:1.85rem;font-weight:700;line-height:1.1;margin:0 40px 4px 0;color:#fff}
+.vc-pos{font-style:italic;color:var(--sky-dark);font-size:.95rem}
+.vc-pron{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;margin-top:10px}
+.vc-ipa{font-family:"Noto Sans","Lucida Sans Unicode","Segoe UI",sans-serif;font-size:1.05rem;background:rgba(255,255,255,.12);padding:2px 10px;border-radius:6px}
+.vc-listen{font:inherit;font-size:.82rem;font-weight:700;cursor:pointer;background:var(--gold);color:var(--navy);border:none;border-radius:6px;padding:4px 10px}
+.vc-dict{font-size:.82rem;color:var(--sky-dark)}
+.vc-dict:hover{color:#fff}
+.vc-stress{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;background:var(--sky-mid);padding:10px 18px;border-bottom:1px solid var(--line)}
+.vc-syll{font-size:1.15rem;color:var(--muted)}
+.vc-syll b{color:var(--navy);text-transform:uppercase}
+.vc-sep{color:var(--sky-dark);margin:0 2px}
+.vc-dots{display:inline-flex;align-items:center;gap:5px;vertical-align:middle}
+.vc-dot{width:8px;height:8px;border-radius:50%;background:var(--blue);opacity:.45;display:inline-block}
+.vc-dot.vc-big{width:15px;height:15px;opacity:1;background:var(--navy)}
+.vc-note{flex-basis:100%;font-size:.85rem;color:var(--gold-dark);font-weight:600}
+.vc-body{padding:14px 18px 16px;display:flex;flex-direction:column;gap:12px;flex:1}
+.vc-label{font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:3px}
+.vc-def{margin:0;font-size:1.02rem}
+.vc-family{display:flex;flex-wrap:wrap;gap:6px}
+.vc-chip{font-size:.88rem;background:var(--warm);border:1px solid #e2d7bb;border-radius:999px;padding:2px 10px}
+.vc-chip i{color:var(--muted);font-size:.8rem}
+.vc-none{font-size:.88rem;color:var(--muted);font-style:italic}
+.vc-ex{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px}
+.vc-ex li{font-family:"Source Serif 4",Georgia,serif;font-size:1rem;border-left:3px solid var(--sky-dark);padding:2px 0 2px 10px}
+.vc-ex li.vc-from-story{border-left-color:var(--gold)}
+.vc-ex em{font-style:normal;font-weight:700;color:var(--navy)}
+.vc-src{display:block;font-family:"Source Sans 3",sans-serif;font-size:.78rem;color:var(--muted)}
+.vc-hide{transition:filter .2s}
+#panel-vocab.vc-practice .vc-card:not(.vc-shown) .vc-hide{filter:blur(7px);user-select:none;pointer-events:none}
+.vc-reveal{display:none;font:inherit;font-weight:600;font-size:.88rem;cursor:pointer;margin:0 18px 16px;padding:8px;border-radius:8px;border:1px dashed var(--blue);background:var(--sky-light);color:var(--navy)}
+#panel-vocab.vc-practice .vc-reveal{display:block}
+.vc-sources{margin-top:24px;font-size:.9rem;color:var(--muted)}
+.vc-sources ul{margin:6px 0 0;padding-left:20px}
+@media (max-width:560px){.vc-grid{grid-template-columns:1fr}}
+@media print{
+  .vc-bar,.vc-reveal,.vc-listen,.vc-dict{display:none !important}
+  #panel-vocab.vc-practice .vc-card .vc-hide{filter:none}
+  .vc-grid{grid-template-columns:1fr 1fr;gap:12px}
+  .vc-card{break-inside:avoid;border:1px solid var(--line);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+
+/* ---------- Worksheet ---------- */
+:root{--ok:#2e7d4f;--warn:#b4541a}
+.ws-bar{background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 14px;margin-bottom:12px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between}
+.save-state{font-size:.85rem;color:var(--muted)}
+.save-state.saved{color:var(--ok)}
+.actions{display:flex;gap:6px;flex-wrap:wrap}
+.btn{cursor:pointer;font:inherit;font-weight:600;font-size:.92rem;border-radius:8px;padding:8px 14px;border:1px solid var(--navy);background:var(--navy);color:#fff}
+.btn.secondary{background:#fff;color:var(--navy)}
+.btn.ghost{background:#fff;color:var(--muted);border-color:var(--line)}
+.btn:focus-visible,#panel-ws input:focus-visible,#panel-ws textarea:focus-visible,.chip-opt input:focus-visible+span{outline:3px solid var(--gold);outline-offset:2px}
+.jump{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.jump a{font-size:.85rem;font-weight:600;text-decoration:none;color:var(--navy);background:#fff;border:1px solid var(--line);border-radius:999px;padding:4px 12px}
+#panel-ws .card h2{font-size:1.4rem;margin:0 0 4px}
+.sec-head{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:10px}
+.stage{font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:2px 9px;border-radius:6px;color:#fff;background:var(--blue)}
+.stage.engage{background:var(--gold-dark)}
+.stage.study{background:var(--blue)}
+.stage.activate{background:var(--navy)}
+.stage.hw{background:#5b6578}
+.who{font-size:.78rem;font-weight:700;color:var(--navy);background:var(--sky-mid);border-radius:999px;padding:2px 10px}
+.time{font-size:.78rem;color:var(--muted)}
+.instr{background:var(--sky-light);border-left:4px solid var(--blue);border-radius:8px;padding:10px 14px;margin:8px 0 16px;font-size:.98rem}
+.instr strong{color:var(--navy)}
+.q{margin:0 0 18px}
+.q:last-child{margin-bottom:0}
+.q-label{display:block;font-weight:600;margin-bottom:6px}
+.q-num{display:inline-block;min-width:24px;height:24px;line-height:24px;text-align:center;border-radius:50%;background:var(--navy);color:#fff;font-size:.8rem;margin-right:6px}
+.hint{display:block;font-size:.85rem;color:var(--muted);font-weight:400;margin-top:2px}
+#panel-ws input[type=text],#panel-ws textarea{width:100%;font:inherit;font-size:1rem;color:var(--ink);background:#fcfdff;border:1px solid var(--sky-dark);border-radius:8px;padding:9px 11px}
+#panel-ws textarea{min-height:80px;resize:vertical;line-height:1.5}
+#panel-ws textarea.tall{min-height:180px}
+#panel-ws input[type=text]:focus,#panel-ws textarea:focus{border-color:var(--blue);background:#fff}
+.quote{font-family:"Source Serif 4",Georgia,serif;font-style:italic;font-size:1.05rem;background:var(--warm);border-radius:8px;padding:10px 14px;margin:0 0 10px}
+.quote .ln{font-family:"Source Sans 3",sans-serif;font-style:normal;font-weight:700;font-size:.75rem;color:var(--gold-dark);letter-spacing:.08em;text-transform:uppercase;display:block;margin-bottom:2px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.fields{display:grid;gap:10px}
+.scale{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 8px}
+.chip-opt{position:relative;cursor:pointer}
+.chip-opt input{position:absolute;opacity:0;width:1px;height:1px}
+.chip-opt span{display:inline-block;min-width:44px;text-align:center;padding:7px 12px;border-radius:999px;border:1px solid var(--sky-dark);background:#fff;color:var(--navy);font-weight:600;font-size:.95rem}
+.chip-opt input:checked+span{background:var(--navy);border-color:var(--navy);color:#fff}
+.scale-ends{display:flex;justify-content:space-between;font-size:.8rem;color:var(--muted);max-width:290px}
+.ws-part{border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:14px}
+.ws-part h3{margin:0 0 10px;font-size:1.02rem;color:var(--navy)}
+.ws-part h3 span{font-size:.8rem;color:var(--muted);font-weight:400;margin-left:6px}
+.ws-h3{color:var(--navy);font-size:1.05rem;margin:18px 0 6px}
+.ev-cols{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.ev-col h3{margin:0 0 8px;font-size:1rem;color:#fff;background:var(--navy);padding:6px 10px;border-radius:8px}
+.ev-col.not h3{background:var(--gold-dark)}
+.ev-row{display:grid;grid-template-columns:1fr 64px;gap:6px;margin-bottom:6px}
+#panel-ws .ev-row input.p{text-align:center;padding:9px 4px}
+.ev-head{display:grid;grid-template-columns:1fr 64px;gap:6px;font-size:.75rem;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}
+.ev-head span:last-child{text-align:center}
+.frame{font-family:"Source Serif 4",Georgia,serif;font-size:.98rem;background:var(--warm);border-radius:8px;padding:10px 14px;margin-bottom:8px}
+.frame b{font-family:"Source Sans 3",sans-serif;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-dark);display:block;margin-bottom:2px}
+.under{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px;margin-top:6px}
+.wc{font-size:.85rem;font-weight:600;color:var(--muted)}
+.wc.good{color:var(--ok)}
+.wc.short,.wc.long{color:var(--warn)}
+.small-btn{cursor:pointer;font:inherit;font-size:.82rem;font-weight:600;border:1px dashed var(--blue);background:var(--sky-light);color:var(--navy);border-radius:8px;padding:5px 10px}
+.vocab-row{display:grid;grid-template-columns:30% 1fr;gap:8px;margin-bottom:8px}
+.finish{text-align:center}
+.finish p{margin:0 0 12px;color:var(--muted)}
+.finish .actions{justify-content:center}
+.toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:var(--navy);color:#fff;padding:10px 16px;border-radius:10px;font-size:.92rem;box-shadow:0 8px 24px rgba(20,56,101,.3);z-index:60;max-width:calc(100% - 32px)}
+.toast[hidden]{display:none}
+#sheet{display:none}
+.sheet{font-family:"Source Sans 3",Arial,sans-serif;color:#1d2433;font-size:11pt;line-height:1.45;background:#fff;width:100%}
+.sheet .s-head{border-bottom:3px solid #143865;padding-bottom:8px;margin-bottom:12px}
+.sheet .s-title{font-family:"Source Serif 4",Georgia,serif;font-size:20pt;font-weight:700;color:#143865;margin:0}
+.sheet .s-meta{display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;font-size:10pt;color:#556074;margin-top:4px}
+.sheet .s-sec{margin:14px 0 6px;padding:4px 8px;background:#143865;color:#fff;font-weight:700;font-size:11pt;border-radius:4px}
+.sheet .s-item{margin:0 0 8px;page-break-inside:avoid;break-inside:avoid}
+.sheet .s-q{font-weight:700;color:#143865}
+.sheet .s-a{white-space:pre-wrap;border-left:3px solid #c1cddd;padding:2px 0 2px 8px;margin-top:2px}
+.sheet .s-a.empty{color:#9aa3b2;font-style:italic}
+.sheet table{width:100%;border-collapse:collapse;margin:4px 0 8px;font-size:10pt;page-break-inside:avoid;break-inside:avoid}
+.sheet th,.sheet td{border:1px solid #c1cddd;padding:4px 6px;text-align:left;vertical-align:top}
+.sheet th{background:#e1e8f2;color:#143865}
+@media (max-width:600px){
+  .row2,.ev-cols{grid-template-columns:1fr}
+  .vocab-row{grid-template-columns:1fr}
+}
+@media print{
+  body.print-ws > *:not(#sheet){display:none !important}
+  body.print-ws #sheet{display:block !important}
+}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" defer></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="brand">
+    <img src="data:image/webp;base64,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" alt="Approach International Student Center logo" onerror="this.remove()">
+    <div class="brand-text">
+      <div class="brand-name">APPROACH</div>
+      <div class="brand-sub">International Student Center</div>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <span class="kicker">Unit 2 · Justice &amp; Morality</span>
+    <h1>The Tell-Tale Heart</h1>
+    <p class="byline">by Edgar Allan Poe</p>
+    <p class="meta">First published in 1843 · Reading &amp; Critical Thinking · Independent Level</p>
+  </div>
+</section>
+
+<nav class="toolbar" aria-label="Reading options">
+  <div class="toolbar-inner">
+    <div class="tabs" role="tablist">
+      <button class="tab" role="tab" id="tab-adapted" aria-controls="panel-adapted" aria-selected="true">Adapted Story</button>
+      <button class="tab" role="tab" id="tab-ws" aria-controls="panel-ws" aria-selected="false">Worksheet</button>
+      <button class="tab" role="tab" id="tab-vocab" aria-controls="panel-vocab" aria-selected="false">Vocabulary Cards</button>
+      <button class="tab" role="tab" id="tab-gloss" aria-controls="panel-gloss" aria-selected="false">Glossary &amp; Notes</button>
+      <button class="tab" role="tab" id="tab-original" aria-controls="panel-original" aria-selected="false">Original Text</button>
+    </div>
+    <div class="size" aria-label="Text size">
+      <span>Text size</span>
+      <button class="size-btn" id="smaller" aria-label="Make text smaller">A-</button>
+      <button class="size-btn" id="bigger" aria-label="Make text bigger">A+</button>
+    </div>
+  </div>
+</nav>
+
+<main>
+
+<!-- =============== ADAPTED STORY =============== -->
+<section class="panel" id="panel-adapted" role="tabpanel" aria-labelledby="tab-adapted">
+
+  <div class="card before">
+    <h2>Before You Read</h2>
+    <p><strong>The author.</strong> Edgar Allan Poe (1809–1849) was an American writer. He is famous for dark stories of mystery, horror, and crime, and many people call him the father of the modern detective story.</p>
+    <p><strong>The story.</strong> A man with no name tells us about something terrible that he did. He speaks directly to "you," the listener. We never learn who "you" is.</p>
+    <div class="tip">
+      <strong>Reading tip:</strong> Pay attention to two things as you read: what the narrator <em>says</em> about himself, and what his <em>actions</em> show us. Are they the same?
+    </div>
+    <p class="how-to" style="margin-top:12px">Words with a <span class="demo">dotted line</span> are in the glossary. Tap or click them to see the meaning. Paragraph numbers are the same in the adapted and original versions, so you can compare them.</p>
+  </div>
+
+  <article class="story">
+    <div class="story-title">
+      <span class="version-label">Adapted Version</span>
+      <h2>The Tell-Tale Heart</h2>
+      <p>Edgar Allan Poe</p>
+    </div>
+
+    <div class="part"><span class="num">Part 1</span><span class="name">The Eye</span></div>
+
+    <p class="para"><span class="pn">1</span>It's true! I am nervous. I have been very, very, terribly nervous, and I still am. But why do you say that I am <span class="g" data-g="mad">mad</span>? My illness made my <span class="g" data-g="senses">senses</span> sharper. It did not destroy them, and it did not make them weaker. Most of all, my sense of hearing was very sharp. I heard everything in heaven and on earth. I heard many things in hell. So how can I be mad? Listen! Listen, and see how healthy, how calm I am as I tell you the whole story.</p>
+
+    <p class="para"><span class="pn">2</span>It is impossible to say how the idea first came into my head. But once it was there, it stayed with me day and night, like a ghost. There was no reason for it. There was no anger. I loved the old man. He had never done anything wrong to me. He had never insulted me. I did not want his gold. I think it was his eye! Yes, that was it! He had the eye of a <span class="g" data-g="vulture">vulture</span>: a pale blue eye, with a thin, cloudy layer over it. Whenever that eye looked at me, <span class="g" data-g="bloodcold">my blood went cold</span>. And so, little by little, very slowly, I decided to kill the old man, and in this way free myself from the eye forever.</p>
+
+    <div class="stop">
+      <div class="stop-head">Stop and Think · Part 1</div>
+      <ol>
+        <li>Why does the narrator want to kill the old man? Is that a good reason?</li>
+        <li>The narrator says he is not mad. Do you believe him? Why or why not?</li>
+      </ol>
+    </div>
+
+    <div class="part"><span class="num">Part 2</span><span class="name">Seven Nights</span></div>
+
+    <p class="para"><span class="pn">3</span>Now this is the important point. You think I am mad. But mad people know nothing. You should have seen me. You should have seen how wisely I worked: how carefully, how well I planned everything, and how well I hid my true feelings! I was never kinder to the old man than during the whole week before I killed him. And every night, at about midnight, I turned the handle of his door and opened it, oh, so gently! Then, when the opening was big enough for my head, I put in a <span class="g" data-g="lantern">dark lantern</span>. It was completely closed, so no light came out. Then I pushed my head in. Oh, you would have laughed to see how cleverly I pushed it in! I moved it slowly, very, very slowly, so I would not wake the old man. It took me an hour to put my whole head inside the opening, far enough to see him lying on his bed. Ha! Would a madman be as wise as this? And then, when my head was inside the room, I opened the lantern carefully, oh, so carefully, carefully, because the <span class="g" data-g="hinges">hinges</span> made a noise. I opened it just enough for a single thin ray of light to fall on the vulture eye. And I did this for seven long nights, every night, exactly at midnight. But the eye was always closed, so it was impossible to do the job. It was not the old man who troubled me; it was his <span class="g" data-g="evileye">Evil Eye</span>. And every morning, when the sun came up, I went boldly into his bedroom and spoke to him bravely. I called him by his name in a warm, friendly voice and asked him how he had slept. So you see, he would have to be a very wise old man to <span class="g" data-g="suspect">suspect</span> that every night, at exactly twelve o'clock, I was looking at him while he slept.</p>
+
+    <div class="stop">
+      <div class="stop-head">Stop and Think · Part 2</div>
+      <ol>
+        <li>Why does the narrator tell us so much about how careful he was?</li>
+        <li>What does he want us to think about him? Does it work?</li>
+      </ol>
+    </div>
+
+    <div class="part"><span class="num">Part 3</span><span class="name">The Eighth Night</span></div>
+
+    <p class="para"><span class="pn">4</span>On the eighth night, I was even more careful than usual when I opened the door. The minute hand of a watch moves faster than my hand did. Never before that night had I felt how powerful I was, how clever I was. I could hardly hide my feeling of victory. Just think: there I was, opening the door little by little, and the old man could not even dream of my secret actions or thoughts. I actually laughed quietly at the idea, and perhaps the old man heard me, because he suddenly moved in the bed, as if something had frightened him. Now you may think that I pulled back. But no. His room was <span class="g" data-g="pitch">pitch-black</span> in the thick darkness, because the <span class="g" data-g="shutters">shutters</span> were tightly closed for fear of robbers. So I knew that he could not see the door opening, and I kept pushing it, slowly and steadily.</p>
+
+    <p class="para"><span class="pn">5</span>My head was inside, and I was about to open the lantern, when my thumb slipped on the metal lock, and the old man jumped up in bed, crying out, "Who's there?"</p>
+
+    <p class="para"><span class="pn">6</span>I stayed completely still and said nothing. For another hour, I did not move a single muscle, and during that time I did not hear the old man lie down again. He was still sitting up in bed, listening, just as I have done, night after night, listening to the <span class="g" data-g="deathwatch">death-watch beetles</span> in the wall.</p>
+
+    <p class="para"><span class="pn">7</span>Soon I heard a soft <span class="g" data-g="groan">groan</span>, and I knew it was a groan of deadly fear. It was not a groan of pain or of sadness. Oh, no! It was the low, choked sound that rises from the bottom of the soul when it is too full of fear. I knew that sound well. Many nights, exactly at midnight, when the whole world was sleeping, that sound has risen from my own chest, and its terrible echo has made my own fears even deeper. I say I knew it well. I knew what the old man was feeling, and I felt sorry for him, although inside I was laughing. I knew that he had been lying awake since the first small noise, when he had turned in the bed. Since then, his fears had been growing. He had been trying to believe that there was no reason to be afraid, but he could not. He had been saying to himself, "It's nothing but the wind in the chimney. It's only a mouse running across the floor," or "It's just a <span class="g" data-g="cricket">cricket</span> that made one little sound." Yes, he had been trying to comfort himself with these ideas, but it was all useless. All useless, because Death, coming closer to the old man, had walked toward him with its black shadow and covered its <span class="g" data-g="victim">victim</span>. And it was the sad power of that invisible shadow that made him feel (although he could not see or hear anything), made him <em>feel</em> that my head was in the room.</p>
+
+    <p class="para"><span class="pn">8</span>After I had waited a long time, very patiently, without hearing him lie down, I decided to open the lantern a little, just a very, very small crack. So I opened it (you cannot imagine how secretly, how quietly) until, finally, a single dim ray, as thin as a spider's thread, shot out of the crack and fell directly on the vulture eye.</p>
+
+    <p class="para"><span class="pn">9</span>It was open, wide, wide open, and I became furious as I stared at it. I saw it perfectly clearly: all a dull blue, with a horrible cloudy layer over it that <span class="g" data-g="bones">made me cold to the center of my bones</span>. But I could see nothing else of the old man's face or body, because I had pointed the ray, <span class="g" data-g="instinct">as if by instinct</span>, exactly on that <span class="g" data-g="cursed">cursed</span> spot.</p>
+
+    <p class="para"><span class="pn">10</span>And now (haven't I told you that what you think is madness is only senses that are too sharp?), now, I say, I heard a low, dull, quick sound, like the sound <span class="g" data-g="watch">a watch makes when it is wrapped in cotton</span>. I knew that sound well, too. It was the beating of the old man's heart. It made my anger stronger, just as the beating of a drum makes a soldier feel brave.</p>
+
+    <p class="para"><span class="pn">11</span>But I still controlled myself and stayed still. I hardly breathed. I held the lantern without moving it. I tested how steadily I could keep the ray on the eye. Meanwhile, the terrible drumbeat of the heart grew stronger. It grew quicker, and louder and louder every second. The old man's fear must have been extreme! It grew louder, I tell you, louder every moment! Are you listening carefully? I have told you that I am nervous, and I am. And now, in the dead middle of the night, in the terrible silence of that old house, this strange noise filled me with anger I could not control. But for some minutes more, I controlled myself and stayed still. But the beating grew louder, louder! I thought the heart must burst! And now <span class="g" data-g="tookhold">a new worry took hold of me</span>: a neighbor would hear the sound! <span class="g" data-g="timecome">The old man's time had come!</span> With a loud scream, I threw open the lantern and jumped into the room. He screamed once, only once. In a moment, I pulled him to the floor and pulled the heavy bed on top of him. Then I smiled happily to see that the job was almost done. But for many minutes, the heart continued to beat with a soft, <span class="g" data-g="muffled">muffled</span> sound. This did not worry me, however; it would not be heard through the walls. Finally, it stopped. The old man was dead. I moved the bed and examined the body. Yes, he was dead, <span class="g" data-g="stonedead">stone dead</span>. I put my hand on his heart and held it there for many minutes. There was no heartbeat. He was stone dead. His eye would not trouble me anymore.</p>
+
+    <p class="para"><span class="pn">12</span>If you still think I am mad, you will not think so anymore when I describe the wise steps I took to hide the body. The night was ending, and I worked quickly but silently. First of all, I cut the body into pieces. I cut off the head, the arms, and the legs. Then I took up three boards from the floor of the room and put everything in the space between the wooden <span class="g" data-g="beams">beams</span> under the floor. Then I put the boards back so cleverly, so skillfully, that no human eye (not even his) could see anything wrong. There was nothing to wash: no stain of any kind, no spot of blood at all. I had been too careful for that. A <span class="g" data-g="tub">tub</span> had caught it all. Ha! Ha!</p>
+
+    <div class="stop">
+      <div class="stop-head">Stop and Think · Part 3</div>
+      <ol>
+        <li>What sound does the narrator hear? Do you think the sound is real?</li>
+        <li>The narrator says the way he hid the body proves he is not mad. Does it?</li>
+      </ol>
+    </div>
+
+    <div class="part"><span class="num">Part 4</span><span class="name">The Visitors</span></div>
+
+    <p class="para"><span class="pn">13</span>When I had finished this work, it was four o'clock, still as dark as midnight. As the clock rang four, someone knocked at the front door. I went down to open it <span class="g" data-g="lightheart">with a light heart</span>, because what did I have to fear now? Three men came in and introduced themselves, very politely, as police officers. A neighbor had heard a scream during the night. Someone suspected a crime. The neighbor had reported it at the police station, and the officers had been sent to search the house.</p>
+
+    <p class="para"><span class="pn">14</span>I smiled, because what did I have to fear? I welcomed the gentlemen. The scream, I said, was my own, in a dream. The old man, I explained, was away in the country. I took my visitors all over the house. I told them to search, to search well. Finally, I led them to his bedroom. I showed them his valuable things, safe and untouched. In my excitement and confidence, I brought chairs into the room and invited them to rest there from their tiring work. And I myself, in the wild boldness of my perfect victory, put my own chair on the exact spot under which the victim's body lay.</p>
+
+    <p class="para"><span class="pn">15</span>The officers were satisfied. My behavior had <span class="g" data-g="convinced">convinced</span> them. I was unusually relaxed. They sat, and while I answered cheerfully, they chatted about everyday things. But before long, I felt myself becoming <span class="g" data-g="pale">pale</span>, and I wished they would leave. My head hurt, and I imagined a ringing in my ears. But they still sat, and they still chatted. The ringing became clearer. I talked more freely to get rid of the feeling, but it continued and became stronger and clearer, until, finally, I realized that the noise was not inside my ears.</p>
+
+    <p class="para"><span class="pn">16</span>No doubt I now became very pale, but I talked more easily, and in a louder voice. Still, the sound grew. And what could I do? It was a low, dull, quick sound, very much like the sound a watch makes when it is wrapped in cotton. I fought for breath, and still the officers did not hear it. I talked more quickly, more passionately, but the noise kept growing. I stood up and argued about unimportant things, in a high voice and waving my arms wildly, but the noise kept growing. Why wouldn't they leave? I walked back and forth across the floor with heavy steps, as if the men's comments were making me furious, but the noise kept growing. Oh God! What could I do? I <span class="g" data-g="foamed">foamed at the mouth</span>, I shouted wildly, I cursed! I swung the chair I had been sitting on and scraped it across the boards, but the noise rose above everything and kept growing. It grew louder, louder, louder! And still the men chatted pleasantly and smiled. Was it possible that they did not hear it? Almighty God! No, no! They heard it! They suspected! They <em>knew</em>! They were laughing at my horror! This is what I thought, and this is what I still think. But anything was better than this pain! Anything was easier to bear than this <span class="g" data-g="mockery">mockery</span>! I could not stand those false smiles any longer! I felt that I must scream or die! And now, again! Listen! Louder! Louder! Louder! Louder!</p>
+
+    <p class="para"><span class="pn">17</span>"<span class="g" data-g="villains">Villains</span>!" I screamed. "Stop pretending! I admit what I did! Tear up the boards! Here, here! It is the beating of his horrible heart!"</p>
+
+    <div class="end-mark">· · ·</div>
+
+    <div class="stop">
+      <div class="stop-head">Stop and Think · Part 4</div>
+      <ol>
+        <li>Why does the narrator confess? Did the police really suspect him?</li>
+        <li>Look at the title. Whose heart is "telling the tale" (telling the secret)?</li>
+      </ol>
+    </div>
+  </article>
+</section>
+
+<!-- =============== WORKSHEET =============== -->
+<section class="panel" id="panel-ws" role="tabpanel" aria-labelledby="tab-ws" hidden>
+  <div class="ws-bar">
+    <span class="save-state" id="save-state">Your answers save on this device automatically.</span>
+    <div class="actions">
+      <button class="btn secondary" type="button" data-action="print">Print</button>
+      <button class="btn" type="button" data-action="pdf">Download PDF</button>
+    </div>
+  </div>
+  <div class="jump" aria-label="Jump to section">
+  <a href="#s-start">Start</a>
+  <a href="#s-engage">1. Who Is Speaking?</a>
+  <a href="#s-reading">2. Stop and Think</a>
+  <a href="#s-evidence">3. Evidence Hunt</a>
+  <a href="#s-trial">4. The Trial</a>
+  <a href="#s-write">5. Quick Write</a>
+  <a href="#s-hw">Homework</a>
+</div>
+
+
+  <!-- START -->
+  <section class="card" id="s-start">
+    <h2>Before You Start</h2>
+    <div class="row2" style="margin-top:10px">
+      <div class="q">
+        <label class="q-label" for="name">Your name</label>
+        <input type="text" id="name" data-k="name" autocomplete="name">
+      </div>
+      <div class="q">
+        <label class="q-label" for="date">Date</label>
+        <input type="text" id="date" data-k="date">
+      </div>
+    </div>
+    <div class="instr">Read the story in the <strong>Adapted Story</strong> tab. Your answers save on this device while you work. When you finish, press <strong>Download PDF</strong> or <strong>Print</strong>.</div>
+  </section>
+
+  <!-- 1. ENGAGE -->
+  <section class="card" id="s-engage">
+    <div class="sec-head"><span class="stage engage">Engage</span><span class="who">Pairs</span><span class="time">12 minutes</span></div>
+    <h2>1. Who Is Speaking?</h2>
+
+    <h3 class="ws-h3">A. A mysterious voice</h3>
+    <div class="instr">Read the line with your partner. You don't know the story yet, so <strong>guess</strong>.</div>
+    <div class="quote"><span class="ln">Line 1</span>"I am nervous. I have been very, very, terribly nervous, and I still am. But why do you say that I am mad?"</div>
+    <div class="fields">
+      <div class="q"><label class="q-label" for="e1"><span class="q-num">1</span>Who is speaking?</label><input type="text" id="e1" data-k="e1"></div>
+      <div class="q"><label class="q-label" for="e2"><span class="q-num">2</span>Who is he talking to?</label><input type="text" id="e2" data-k="e2"></div>
+      <div class="q"><label class="q-label" for="e3"><span class="q-num">3</span>Where is he?</label><input type="text" id="e3" data-k="e3"></div>
+      <div class="q"><label class="q-label" for="e4"><span class="q-num">4</span>What do you think he did?</label><input type="text" id="e4" data-k="e4"></div>
+    </div>
+
+    <h3 class="ws-h3">B. The Trust Scale</h3>
+    <div class="instr">After each line, choose a number. <strong>1</strong> = I don't trust him at all. <strong>5</strong> = I trust him completely.</div>
+
+    <div class="q">
+      <div class="quote"><span class="ln">Line 2</span>"Listen, and see how healthy, how calm I am as I tell you the whole story."</div>
+      <div class="scale" role="radiogroup" aria-label="Trust score for Line 2" data-radio="t2"></div>
+    </div>
+    <div class="q">
+      <div class="quote"><span class="ln">Line 3</span>"I loved the old man. He had never done anything wrong to me."</div>
+      <div class="scale" role="radiogroup" aria-label="Trust score for Line 3" data-radio="t3"></div>
+    </div>
+    <div class="q">
+      <div class="quote"><span class="ln">Line 4</span>"Ha! Would a madman be as wise as this?"</div>
+      <div class="scale" role="radiogroup" aria-label="Trust score for Line 4" data-radio="t4"></div>
+      <div class="scale-ends"><span>1 = no trust</span><span>5 = complete trust</span></div>
+    </div>
+    <div class="q">
+      <label class="q-label" for="t-why">Why did you choose your number for Line 4?
+        <span class="hint">I don't trust him because... / He says..., but... / Something is strange about...</span></label>
+      <textarea id="t-why" data-k="twhy"></textarea>
+    </div>
+  </section>
+
+  <!-- 2. STOP AND THINK -->
+  <section class="card" id="s-reading">
+    <div class="sec-head"><span class="stage study">Study</span><span class="who">Pairs</span><span class="time">During the reading</span></div>
+    <h2>2. Stop and Think</h2>
+    <div class="instr">When you see a <strong>Stop and Think</strong> box in the story, discuss the questions with your partner. Then write short answers here.</div>
+
+    <div class="ws-part">
+      <h3>Part 1: The Eye <span>¶1–2</span></h3>
+      <div class="q"><label class="q-label" for="r1a">Why does the narrator want to kill the old man? Is that a good reason?</label><textarea id="r1a" data-k="r1a"></textarea></div>
+      <div class="q"><label class="q-label" for="r1b">The narrator says he is not mad. Do you believe him? Why or why not?</label><textarea id="r1b" data-k="r1b"></textarea></div>
+    </div>
+    <div class="ws-part">
+      <h3>Part 2: Seven Nights <span>¶3</span></h3>
+      <div class="q"><label class="q-label" for="r2a">Why does the narrator tell us so much about how careful he was?</label><textarea id="r2a" data-k="r2a"></textarea></div>
+      <div class="q"><label class="q-label" for="r2b">What does he want us to think about him? Does it work?</label><textarea id="r2b" data-k="r2b"></textarea></div>
+    </div>
+    <div class="ws-part">
+      <h3>Part 3: The Eighth Night <span>¶4–12</span></h3>
+      <div class="q"><label class="q-label" for="r3a">What sound does the narrator hear? Do you think the sound is real?</label><textarea id="r3a" data-k="r3a"></textarea></div>
+      <div class="q"><label class="q-label" for="r3b">The narrator says the way he hid the body proves he is not mad. Does it?</label><textarea id="r3b" data-k="r3b"></textarea></div>
+    </div>
+    <div class="ws-part">
+      <h3>Part 4: The Visitors <span>¶13–17</span></h3>
+      <div class="q"><label class="q-label" for="r4a">Why does the narrator confess? Did the police really suspect him?</label><textarea id="r4a" data-k="r4a"></textarea></div>
+      <div class="q"><label class="q-label" for="r4b">Look at the title. Whose heart is "telling the tale" (telling the secret)?</label><textarea id="r4b" data-k="r4b"></textarea></div>
+    </div>
+  </section>
+
+  <!-- 3. EVIDENCE HUNT -->
+  <section class="card" id="s-evidence">
+    <div class="sec-head"><span class="stage study">Study</span><span class="who">Groups</span><span class="time">10 minutes</span></div>
+    <h2>3. Evidence Hunt</h2>
+    <div class="instr">
+      <strong>Unreliable narrator:</strong> a narrator we cannot completely believe. What he <em>says</em> and what he <em>does</em> do not match.<br>
+      Find quotations for each column. Copy the words <strong>exactly</strong> and write the paragraph number (¶). Find at least 3 for each column.
+    </div>
+
+    <div class="q">
+      <span class="q-label">Which group are you in?</span>
+      <div class="scale" role="radiogroup" aria-label="Group" data-radio="grp" data-options="Group A: search ¶1–8|Group B: search ¶9–17"></div>
+    </div>
+
+    <div class="ev-cols">
+      <div class="ev-col">
+        <h3>He says he is sane</h3>
+        <div class="ev-head"><span>Quotation</span><span>¶</span></div>
+        <div id="ev-says"></div>
+      </div>
+      <div class="ev-col not">
+        <h3>This shows he is not</h3>
+        <div class="ev-head"><span>Quotation</span><span>¶</span></div>
+        <div id="ev-not"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. TRIAL -->
+  <section class="card" id="s-trial">
+    <div class="sec-head"><span class="stage activate">Activate</span><span class="who">Teams</span><span class="time">10 minutes to prepare</span></div>
+    <h2>4. The Trial</h2>
+    <div class="instr">
+      <strong>The question for the court:</strong> Is the narrator a cold killer who knew what he was doing and belongs in <strong>prison</strong>, or a mentally ill man who needs a <strong>hospital</strong>?
+    </div>
+
+    <div class="row2">
+      <div class="q">
+        <span class="q-label">My team</span>
+        <div class="scale" role="radiogroup" aria-label="Team" data-radio="team" data-options="Prosecution: prison|Defense: hospital"></div>
+      </div>
+      <div class="q">
+        <span class="q-label">My job</span>
+        <div class="scale" role="radiogroup" aria-label="Job" data-radio="job" data-options="Opener|Questioner|Closer"></div>
+      </div>
+    </div>
+
+    <h3 class="ws-h3">A. Our two opening points</h3>
+    <div class="frame"><b>Sentence frames</b>The narrator says "..." (¶...). This shows that... · If he were really mad / sane, he would not...</div>
+    <div class="ws-part">
+      <h3>Point 1</h3>
+      <div class="q"><label class="q-label" for="p1">Our point</label><textarea id="p1" data-k="p1" style="min-height:60px"></textarea></div>
+      <div class="ev-row"><input type="text" data-k="p1q" aria-label="Point 1 quotation" placeholder="Quotation"><input type="text" class="p" data-k="p1p" aria-label="Point 1 paragraph" placeholder="¶"></div>
+    </div>
+    <div class="ws-part">
+      <h3>Point 2</h3>
+      <div class="q"><label class="q-label" for="p2">Our point</label><textarea id="p2" data-k="p2" style="min-height:60px"></textarea></div>
+      <div class="ev-row"><input type="text" data-k="p2q" aria-label="Point 2 quotation" placeholder="Quotation"><input type="text" class="p" data-k="p2p" aria-label="Point 2 paragraph" placeholder="¶"></div>
+    </div>
+
+    <h3 class="ws-h3">B. Our questions for the narrator</h3>
+    <div class="frame"><b>Sentence frames</b>Why did you...? · Can you explain why...? · If you are not mad, why...?</div>
+    <div class="fields">
+      <div class="q"><label class="q-label" for="tq1"><span class="q-num">1</span>Question 1</label><input type="text" id="tq1" data-k="tq1"></div>
+      <div class="q"><label class="q-label" for="tq2"><span class="q-num">2</span>Question 2</label><input type="text" id="tq2" data-k="tq2"></div>
+    </div>
+
+    <h3 class="ws-h3">C. After the trial: my real opinion</h3>
+    <div class="instr">Step out of your role. What do <strong>you</strong> really believe?</div>
+    <div class="q">
+      <span class="q-label">My verdict</span>
+      <div class="scale" role="radiogroup" aria-label="Verdict" data-radio="verdict" data-options="Prison|Hospital|I'm not sure"></div>
+    </div>
+    <div class="q"><label class="q-label" for="conv">The most convincing quotation in the trial was... because...</label><textarea id="conv" data-k="conv"></textarea></div>
+  </section>
+
+  <!-- 5. QUICK WRITE -->
+  <section class="card" id="s-write">
+    <div class="sec-head"><span class="stage activate">Activate</span><span class="who">Individual</span><span class="time">8 minutes</span></div>
+    <h2>5. Quick Write</h2>
+    <div class="instr"><strong>Is the narrator reliable?</strong> Give one reason and one quotation from the story. Write 4 to 5 sentences.</div>
+    <div class="frame"><b>Frame (optional)</b>I think the narrator is / is not reliable. He says "..." (¶...). However, this shows that... Another reason is... For these reasons, I believe...</div>
+    <div class="q">
+      <label class="q-label" for="qw">My answer</label>
+      <textarea id="qw" data-k="qw" class="tall"></textarea>
+      <div class="under">
+        <button class="small-btn" type="button" data-frame="qw">Start with the frame</button>
+        <span class="wc" data-wc="qw" data-min="40" data-max="120"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOMEWORK -->
+  <section class="card" id="s-hw">
+    <div class="sec-head"><span class="stage hw">Homework</span><span class="who">Individual</span><span class="time">Before next class</span></div>
+    <h2>Homework</h2>
+
+    <h3 class="ws-h3">A. Reading Journal: The Tell-Tale Heart</h3>
+    <div class="q"><label class="q-label" for="j1"><span class="q-num">1</span>Summary in 3 sentences<span class="hint">Beginning, middle, end.</span></label><textarea id="j1" data-k="j1"></textarea></div>
+
+    <div class="q">
+      <span class="q-label"><span class="q-num">2</span>Three new vocabulary items with definitions<span class="hint">Use the Vocabulary Cards tab.</span></span>
+      <div class="vocab-row"><input type="text" data-k="v1w" aria-label="Word 1" placeholder="Word 1"><input type="text" data-k="v1d" aria-label="Definition 1" placeholder="Definition"></div>
+      <div class="vocab-row"><input type="text" data-k="v2w" aria-label="Word 2" placeholder="Word 2"><input type="text" data-k="v2d" aria-label="Definition 2" placeholder="Definition"></div>
+      <div class="vocab-row"><input type="text" data-k="v3w" aria-label="Word 3" placeholder="Word 3"><input type="text" data-k="v3d" aria-label="Definition 3" placeholder="Definition"></div>
+    </div>
+
+    <div class="q"><label class="q-label" for="j3"><span class="q-num">3</span>One personal response sentence<span class="hint">How did the story make you feel? What surprised you?</span></label><input type="text" id="j3" data-k="j3"></div>
+    <div class="q"><label class="q-label" for="j4"><span class="q-num">4</span>One question about the story</label><input type="text" id="j4" data-k="j4"></div>
+
+    <h3 class="ws-h3">B. Midterm Practice Paragraph</h3>
+    <div class="instr">Expand your Quick Write into a paragraph of <strong>100 to 150 words</strong>. Include at least one quotation with its paragraph number (¶). Start with a clear topic sentence and end with a concluding sentence.</div>
+    <div class="q">
+      <label class="q-label" for="para">Is the narrator reliable?</label>
+      <textarea id="para" data-k="para" class="tall" style="min-height:240px"></textarea>
+      <div class="under">
+        <button class="small-btn" type="button" data-copy="qw" data-to="para">Copy my Quick Write here</button>
+        <span class="wc" data-wc="para" data-min="100" data-max="150"></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="card finish">
+    <h2>Finished?</h2>
+    <p>Download your answers as a PDF or print them, then send or give them to your teacher.</p>
+    <div class="actions">
+      <button class="btn secondary" type="button" data-action="print">Print</button>
+      <button class="btn" type="button" data-action="pdf">Download PDF</button>
+      <button class="btn ghost" type="button" id="clear">Clear all answers</button>
+    </div>
+  </section>
+
+</section>
+
+<!-- =============== VOCABULARY CARDS =============== -->
+<section class="panel" id="panel-vocab" role="tabpanel" aria-labelledby="tab-vocab" hidden>
+
+  <div class="vc-bar">
+    <div class="vc-group">
+      <button class="vc-btn" id="vc-study" aria-pressed="true">Study Mode</button>
+      <button class="vc-btn" id="vc-practice" aria-pressed="false">Practice Mode</button>
+    </div>
+    <div class="vc-group">
+      <span class="vc-count" id="vc-count"></span>
+      <button class="vc-btn" id="vc-shuffle">Shuffle</button>
+      <button class="vc-btn" id="vc-order">Story Order</button>
+      <button class="vc-btn" id="vc-print">Print Cards</button>
+    </div>
+  </div>
+
+  <div class="vc-key">
+    <span><strong>Stress:</strong> the CAPITAL syllable is strong. <span class="vc-dots"><span class="vc-dot"></span><span class="vc-dot vc-big"></span></span> = weak, strong</span>
+    <span><strong>/ˈ/</strong> in the pronunciation comes before the stressed syllable.</span>
+    <span><strong>Gold line:</strong> example from the story (¶ = paragraph). <strong>Blue line:</strong> everyday example.</span>
+    <span><strong>Practice Mode:</strong> say the meaning first, then tap to check.</span>
+  </div>
+
+  <div class="vc-grid" id="vc-grid"></div>
+
+  <div class="card vc-sources">
+    <h2>Sources</h2>
+    Pronunciations use American English and follow the IPA style of the Cambridge Dictionary. Definitions are written for learners and checked against learner dictionaries. Tap "Cambridge" on any card to open its dictionary entry and hear a recorded pronunciation.
+    <ul>
+      <li><a href="https://dictionary.cambridge.org/us/" target="_blank" rel="noopener">Cambridge Dictionary (American English)</a></li>
+      <li><a href="https://www.merriam-webster.com/" target="_blank" rel="noopener">Merriam-Webster Dictionary</a></li>
+      <li><a href="https://www.oxfordlearnersdictionaries.com/us/" target="_blank" rel="noopener">Oxford Learner's Dictionaries (American English)</a></li>
+    </ul>
+  </div>
+</section>
+
+<!-- =============== GLOSSARY & NOTES =============== -->
+<section class="panel" id="panel-gloss" role="tabpanel" aria-labelledby="tab-gloss" hidden>
+
+  <div class="card">
+    <h2>Vocabulary</h2>
+    <p class="how-to">Words in the order they appear in the story. The number shows the paragraph.</p>
+    <ul class="gloss-list" id="gloss-words"></ul>
+  </div>
+
+  <div class="card">
+    <h2>Expressions</h2>
+    <ul class="gloss-list expr-list" id="gloss-expr"></ul>
+  </div>
+
+  <div class="card">
+    <h2>Background Notes</h2>
+    <h3>Life in the 1840s</h3>
+    <p>The story takes place in an old house in the 1840s. There was no electricity. People used candles and oil lamps for light, and they carried <strong>pocket watches</strong> that made a loud ticking sound.</p>
+    <h3>The dark lantern</h3>
+    <p>A <strong>dark lantern</strong> was a small metal lamp with a cover that could slide open and closed. When it was closed, no light came out at all. When it was open a little, it made a thin beam of light, like a small flashlight today.</p>
+    <h3>The Evil Eye</h3>
+    <p>Many cultures around the world believe that a certain kind of look can bring bad luck, illness, or harm. This is called <strong>the Evil Eye</strong>. Poe writes "Evil Eye" with capital letters to show how important and frightening it is to the narrator. Does your culture have a similar belief?</p>
+    <h3>Death-watch beetles</h3>
+    <p>These small insects live inside old wooden walls and make a quiet ticking or tapping sound. In the past, many people believed that hearing them meant someone in the house would die soon.</p>
+    <h3>The narrator</h3>
+    <p>We never learn the narrator's name, and the story never says if the narrator is a man or a woman. Most readers imagine a man. We also never learn exactly who "you" is: maybe a judge, a doctor, a police officer, or the reader.</p>
+  </div>
+</section>
+
+<!-- =============== ORIGINAL TEXT =============== -->
+<section class="panel" id="panel-original" role="tabpanel" aria-labelledby="tab-original" hidden>
+
+  <div class="card">
+    <h2>About the Original Text</h2>
+    <p>This is Poe's original text, first published in <em>The Pioneer</em> magazine in January 1843. It uses older English and some words that are rare today. The paragraph numbers match the adapted version, so you can compare any paragraph with the original.</p>
+  </div>
+
+  <article class="story">
+    <div class="story-title">
+      <span class="version-label">Original Text · 1843</span>
+      <h2>The Tell-Tale Heart</h2>
+      <p>Edgar Allan Poe</p>
+    </div>
+
+    <div class="part"><span class="num">Part 1</span><span class="name">The Eye</span></div>
+
+    <p class="para"><span class="pn">1</span>TRUE! — nervous — very, very dreadfully nervous I had been, and am; but why will you say that I am mad? The disease had sharpened my senses — not destroyed — not dulled them. Above all was the sense of hearing acute. I heard all things in the heaven and in the earth. I heard many things in hell. How, then, am I mad? Hearken! and observe how healthily — how calmly I can tell you the whole story.</p>
+
+    <p class="para"><span class="pn">2</span>It is impossible to say how first the idea entered my brain; but, once conceived, it haunted me day and night. Object there was none. Passion there was none. I loved the old man. He had never wronged me. He had never given me insult. For his gold I had no desire. I think it was his eye! — yes, it was this! He had the eye of a vulture — a pale blue eye, with a film over it. Whenever it fell upon me, my blood ran cold; and so, by degrees — very gradually — I made up my mind to take the life of the old man, and thus rid myself of the eye forever.</p>
+
+    <div class="part"><span class="num">Part 2</span><span class="name">Seven Nights</span></div>
+
+    <p class="para"><span class="pn">3</span>Now this is the point. You fancy me mad. Madmen know nothing. But you should have seen me. You should have seen how wisely I proceeded — with what caution — with what foresight — with what dissimulation I went to work! I was never kinder to the old man than during the whole week before I killed him. And every night, about midnight, I turned the latch of his door and opened it — oh so gently! And then, when I had made an opening sufficient for my head, I put in a dark lantern, all closed, closed, that no light shone out, and then I thrust in my head. Oh, you would have laughed to see how cunningly I thrust it in! I moved it slowly — very, very slowly, so that I might not disturb the old man's sleep. It took me an hour to place my whole head within the opening so far that I could see him as he lay upon his bed. Ha! — would a madman have been so wise as this? And then, when my head was well in the room, I undid the lantern cautiously — oh, so cautiously — cautiously (for the hinges creaked) — I undid it just so much that a single thin ray fell upon the vulture eye. And this I did for seven long nights — every night just at midnight — but I found the eye always closed; and so it was impossible to do the work; for it was not the old man who vexed me, but his Evil Eye. And every morning, when the day broke, I went boldly into his chamber, and spoke courageously to him, calling him by name in a hearty tone, and inquiring how he has passed the night. So you see he would have been a very profound old man, indeed, to suspect that every night, just at twelve, I looked in upon him while he slept.</p>
+
+    <div class="part"><span class="num">Part 3</span><span class="name">The Eighth Night</span></div>
+
+    <p class="para"><span class="pn">4</span>Upon the eighth night I was more than usually cautious in opening the door. A watch's minute hand moves more quickly than did mine. Never before that night had I felt the extent of my own powers — of my sagacity. I could scarcely contain my feelings of triumph. To think that there I was, opening the door, little by little, and the old man not even to dream of my secret deeds or thoughts. I fairly chuckled at the idea; and perhaps the old man heard me; for he moved in the bed suddenly, as if startled. Now you may think that I drew back — but no. His room was as black as pitch with the thick darkness, (for the shutters were close fastened, through fear of robbers,) and so I knew that he could not see the opening of the door, and I kept pushing it on steadily, steadily.</p>
+
+    <p class="para"><span class="pn">5</span>I had got my head in, and was about to open the lantern, when my thumb slipped upon the tin fastening, and the old man sprang up in bed, crying out — "Who's there?"</p>
+
+    <p class="para"><span class="pn">6</span>I kept quite still and said nothing. For another hour I did not move a muscle, and in the meantime I did not hear the old man lie down. He was still sitting up in the bed, listening; — just as I have done, night after night, hearkening to the death-watches in the wall.</p>
+
+    <p class="para"><span class="pn">7</span>Presently I heard a slight groan, and I knew it was the groan of mortal terror. It was not a groan of pain or of grief — oh, no! — it was the low stifled sound that arises from the bottom of the soul when overcharged with awe. I knew the sound well. Many a night, just at midnight, when all the world slept, it has welled up from my own bosom, deepening, with its dreadful echo, the terrors that distracted me. I say I knew it well. I knew what the old man felt, and pitied him, although I chuckled at heart. I knew that he had been lying awake ever since the first slight noise, when he had turned in the bed. His fears had been, ever since, growing upon him. He had been trying to fancy them causeless, but could not. He had been saying to himself — "It is nothing but the wind in the chimney — it is only a mouse crossing the floor," or "It is merely a cricket which has made a single chirp." Yes, he had been trying to comfort himself with these suppositions; but he had found all in vain. All in vain: because death, in approaching the old man, had stalked with his black shadow before him, and enveloped the victim. And it was the mournful influence of the unperceived shadow that caused him to feel — although he neither saw nor heard — to feel the presence of my head within the room.</p>
+
+    <p class="para"><span class="pn">8</span>When I had waited a long time, very patiently, without hearing him lie down, I resolved to open a little — a very, very little crevice in the lantern. So I opened it — you cannot imagine how stealthily, stealthily — until, at length a simple dim ray, like the thread of the spider, shot from out the crevice and fell full upon the vulture eye.</p>
+
+    <p class="para"><span class="pn">9</span>It was open — wide, wide open — and I grew furious as I gazed upon it. I saw it with perfect distinctness — all a dull blue, with a hideous veil over it that chilled the very marrow in my bones; but I could see nothing else of the old man's face or person; for I had directed the ray as if by instinct, precisely upon the damned spot.</p>
+
+    <p class="para"><span class="pn">10</span>And now — have I not told you that what you mistake for madness is but over-acuteness of the senses? — now, I say, there came to my ears a low, dull, quick sound, such as a watch makes when enveloped in cotton. I knew that sound well, too. It was the beating of the old man's heart. It increased my fury, as the beating of a drum stimulates the soldier into courage.</p>
+
+    <p class="para"><span class="pn">11</span>But even yet I refrained and kept still. I scarcely breathed. I held the lantern motionless. I tried how steadily I could maintain the ray upon the eye. Meantime the hellish tattoo of the heart increased. It grew quicker, and louder and louder every instant. The old man's terror must have been extreme! It grew louder, I say, louder every moment: — do you mark me well? I have told you that I am nervous: — so I am. And now, at the dead hour of the night, and amid the dreadful silence of that old house, so strange a noise as this excited me to uncontrollable wrath. Yet, for some minutes longer, I refrained and kept still. But the beating grew louder, louder! I thought the heart must burst! And now a new anxiety seized me — the sound would be heard by a neighbor! The old man's hour had come! With a loud yell, I threw open the lantern and leaped into the room. He shrieked once — once only. In an instant I dragged him to the floor, and pulled the heavy bed over him. I then smiled gaily, to find the deed so far done. But, for many minutes, the heart beat on with a muffled sound. This, however, did not vex me; it would not be heard through the walls. At length it ceased. The old man was dead. I removed the bed and examined the corpse. Yes, he was stone, stone dead. I placed my hand upon the heart and held it there many minutes. There was no pulsation. The old man was stone dead. His eye would trouble me no more.</p>
+
+    <p class="para"><span class="pn">12</span>If, still, you think me mad, you will think so no longer when I describe the wise precautions I took for the concealment of the body. The night waned, and I worked hastily, but in silence. First of all I dismembered the corpse. I cut off the head and the arms and the legs. I then took up three planks from the flooring of the chamber, and deposited all between the scantlings. I then replaced the boards so cleverly, so cunningly, that no human eye — not even his — could have detected anything wrong. There was nothing to wash out — no stain of any kind — no blood-spot whatever. I had been too wary for that. A tub had caught all — ha! ha!</p>
+
+    <div class="part"><span class="num">Part 4</span><span class="name">The Visitors</span></div>
+
+    <p class="para"><span class="pn">13</span>When I had made an end of these labors, it was four o'clock — still dark as midnight. As the bell sounded the hour, there came a knocking at the street door. I went down to open it with a light heart, — for what had I now to fear? There entered three men, who introduced themselves, with perfect suavity, as officers of the police. A shriek had been heard by a neighbour during the night; suspicion of foul play had been aroused; information had been lodged at the police-office, and they (the officers) had been deputed to search the premises.</p>
+
+    <p class="para"><span class="pn">14</span>I smiled, — for what had I to fear? I bade the gentlemen welcome. The shriek, I said, was my own in a dream. The old man, I mentioned, was absent in the country. I took my visitors all over the house. I bade them search — search well. I led them, at length, to his chamber. I showed them his treasures, secure, undisturbed. In the enthusiasm of my confidence, I brought chairs into the room, and desired them here to rest from their fatigues, while I myself, in the wild audacity of my perfect triumph, placed my own seat upon the very spot beneath which reposed the corpse of the victim.</p>
+
+    <p class="para"><span class="pn">15</span>The officers were satisfied. My manner had convinced them. I was singularly at ease. They sat, and while I answered cheerily, they chatted of familiar things. But, ere long, I felt myself getting pale and wished them gone. My head ached, and I fancied a ringing in my ears: but still they sat and still chatted. The ringing became more distinct: I talked more freely to get rid of the feeling; but it continued and gained definiteness — until, at length, I found that the noise was not within my ears.</p>
+
+    <p class="para"><span class="pn">16</span>No doubt I now grew very pale; — but I talked more fluently, and with a heightened voice. Yet the sound increased — and what could I do? It was a low, dull, quick sound — much such a sound as a watch makes when enveloped in cotton. I gasped for breath — and yet the officers heard it not. I talked more quickly — more vehemently; — but the noise steadily increased. I arose and argued about trifles, in a high key and with violent gesticulations; — but the noise steadily increased. Why would they not be gone? I paced the floor to and fro, with heavy strides, as if excited to fury by the observations of the men — but the noise steadily increased. Oh God! what could I do? I foamed — I raved — I swore! I swung the chair upon which I had sat, and grated it upon the boards; — but the noise arose over all and continually increased. It grew louder — louder — louder! And still the men chatted pleasantly, and smiled. Was it possible they heard not? Almighty God! — no, no! They heard! — they suspected! — they knew! — they were making a mockery of my horror! — this I thought, and this I think. But anything better than this agony! Anything was more tolerable than this derision! I could bear those hypocritical smiles no longer! I felt that I must scream or die! — and now — again! — hark! louder! louder! louder! louder! —</p>
+
+    <p class="para"><span class="pn">17</span>"Villains!" I shrieked, "dissemble no more! I admit the deed! — tear up the planks! — here, here! — it is the beating of his hideous heart!"</p>
+
+    <div class="end-mark">· · ·</div>
+  </article>
+</section>
+
+</main>
+
+<footer>
+  Approach International Student Center · Reading &amp; Critical Thinking, Independent Level<br>
+  Original text: Edgar Allan Poe, "The Tell-Tale Heart," <em>The Pioneer</em>, 1843 (public domain). Adapted for classroom use.
+</footer>
+
+<div id="sheet" aria-hidden="true"></div>
+<div class="toast" id="toast" role="status" hidden></div>
+
+<div class="pop" id="pop" role="dialog" aria-live="polite" hidden></div>
+
+<script>
+// ---------- Glossary data (single source for pop-ups and the Glossary tab) ----------
+var GLOSS = {
+  mad:        {w:"mad", pos:"adjective", p:1, def:"mentally ill; crazy. (This meaning is a little old-fashioned. Today, \u201cmad\u201d usually means \u201cangry\u201d in American English.)"},
+  senses:     {w:"senses", pos:"noun", p:1, def:"the five ways your body knows the world: sight, hearing, smell, taste, and touch."},
+  vulture:    {w:"vulture", pos:"noun", p:2, def:"a large bird that eats dead animals. People often see vultures as ugly and connected with death."},
+  lantern:    {w:"dark lantern", pos:"noun", p:3, def:"a small metal lamp from the 1800s with a cover that could be closed completely to hide the light."},
+  hinges:     {w:"hinges", pos:"noun", p:3, def:"the metal parts that let a door or a cover open and close."},
+  evileye:    {w:"the Evil Eye", pos:"noun", p:3, def:"a look that some people believe can bring bad luck, illness, or harm. Many cultures share this belief."},
+  suspect:    {w:"suspect", pos:"verb", p:3, def:"to think that someone may have done something wrong, or that something bad may be true."},
+  pitch:      {w:"pitch-black", pos:"adjective", p:4, def:"completely dark, with no light at all. (Pitch is a thick, black substance like tar.)"},
+  shutters:   {w:"shutters", pos:"noun", p:4, def:"wooden covers on a window that can be closed to keep out light or people."},
+  deathwatch: {w:"death-watch beetles", pos:"noun", p:6, def:"small insects that live in old wood and make a ticking sound. In the past, people believed the sound meant someone in the house would die soon."},
+  groan:      {w:"groan", pos:"noun", p:7, def:"a long, low sound that a person makes because of pain, fear, or unhappiness."},
+  cricket:    {w:"cricket", pos:"noun", p:7, def:"a small jumping insect that makes a high, short sound, especially at night."},
+  victim:     {w:"victim", pos:"noun", p:7, def:"a person who is hurt or killed by someone or something."},
+  cursed:     {w:"cursed", pos:"adjective", p:9, def:"hated, terrible, as if something evil is in it."},
+  muffled:    {w:"muffled", pos:"adjective", p:11, def:"quiet and unclear, because something is covering it."},
+  beams:      {w:"beams", pos:"noun", p:12, def:"long, heavy pieces of wood that hold up a floor or a roof."},
+  tub:        {w:"tub", pos:"noun", p:12, def:"a large, open container for holding water or other liquids."},
+  convinced:  {w:"convince (convinced)", pos:"verb", p:15, def:"to make someone believe that something is true."},
+  pale:       {w:"pale", pos:"adjective", p:15, def:"with very light skin color, often because of fear or illness."},
+  mockery:    {w:"mockery", pos:"noun", p:16, def:"laughing at someone in an unkind way to make them feel stupid."},
+  villains:   {w:"villains", pos:"noun", p:17, def:"very bad people, especially in a story or a movie."}
+};
+var EXPR = {
+  bloodcold:  {w:"my blood went cold", p:2, def:"I suddenly felt very afraid."},
+  instinct:   {w:"as if by instinct", p:9, def:"automatically, without thinking, like an animal acting naturally."},
+  bones:      {w:"made me cold to the center of my bones", p:9, def:"filled me with deep, complete fear. (Poe wrote: \u201cchilled the very marrow in my bones.\u201d)"},
+  watch:      {w:"a watch wrapped in cotton", p:10, def:"In the 1800s, pocket watches ticked loudly. Wrapped in soft cotton, the tick becomes quiet, dull, and fast, like a heartbeat."},
+  tookhold:   {w:"a new worry took hold of me", p:11, def:"suddenly I started to worry about something new."},
+  timecome:   {w:"the old man's time had come", p:11, def:"it was the moment for the old man to die."},
+  stonedead:  {w:"stone dead", p:11, def:"completely dead, as cold and still as a stone."},
+  lightheart: {w:"with a light heart", p:13, def:"happily, without any worries."},
+  foamed:     {w:"foamed at the mouth", p:16, def:"was extremely angry and out of control. (Foam is a mass of small white bubbles.)"}
+};
+var ALL = {};
+Object.keys(GLOSS).forEach(function(k){ ALL[k] = GLOSS[k]; });
+Object.keys(EXPR).forEach(function(k){ ALL[k] = EXPR[k]; });
+
+// ---------- Build glossary lists ----------
+function buildList(obj, id){
+  var ul = document.getElementById(id);
+  Object.keys(obj).sort(function(a,b){ return obj[a].p - obj[b].p; }).forEach(function(k){
+    var e = obj[k];
+    var li = document.createElement("li");
+    var left = document.createElement("div");
+    left.className = "gw";
+    left.textContent = e.w;
+    if (e.pos){
+      var pos = document.createElement("span");
+      pos.className = "pos"; pos.textContent = e.pos;
+      left.appendChild(pos);
+    }
+    var ref = document.createElement("span");
+    ref.className = "gref"; ref.textContent = "Paragraph " + e.p;
+    left.appendChild(ref);
+    var right = document.createElement("div");
+    right.textContent = e.def;
+    li.appendChild(left); li.appendChild(right);
+    ul.appendChild(li);
+  });
+}
+buildList(GLOSS, "gloss-words");
+buildList(EXPR, "gloss-expr");
+
+// ---------- Tabs ----------
+var tabs = document.querySelectorAll(".tab");
+function showTab(tab){
+  tabs.forEach(function(t){
+    var on = t === tab;
+    t.setAttribute("aria-selected", on ? "true" : "false");
+    document.getElementById(t.getAttribute("aria-controls")).hidden = !on;
+  });
+  hidePop();
+  window.scrollTo({top: document.querySelector(".toolbar").offsetTop, behavior: "smooth"});
+}
+tabs.forEach(function(t){ t.addEventListener("click", function(){ showTab(t); }); });
+
+// ---------- Text size ----------
+var sizes = [1, 1.08, 1.15, 1.25, 1.35, 1.5];
+var sizeIndex = 2;
+try {
+  var saved = parseInt(localStorage.getItem("tth-size"), 10);
+  if (!isNaN(saved) && saved >= 0 && saved < sizes.length) sizeIndex = saved;
+} catch (e) {}
+function applySize(){
+  document.documentElement.style.setProperty("--reading-size", sizes[sizeIndex] + "rem");
+  try { localStorage.setItem("tth-size", String(sizeIndex)); } catch (e) {}
+}
+applySize();
+document.getElementById("smaller").addEventListener("click", function(){ if (sizeIndex > 0){ sizeIndex--; applySize(); } });
+document.getElementById("bigger").addEventListener("click", function(){ if (sizeIndex < sizes.length - 1){ sizeIndex++; applySize(); } });
+
+// ---------- Glossary pop-ups ----------
+var pop = document.getElementById("pop");
+var activeEl = null;
+document.querySelectorAll(".g").forEach(function(el){
+  el.setAttribute("tabindex", "0");
+  el.setAttribute("role", "button");
+  el.addEventListener("click", function(ev){ ev.stopPropagation(); togglePop(el); });
+  el.addEventListener("keydown", function(ev){
+    if (ev.key === "Enter" || ev.key === " "){ ev.preventDefault(); togglePop(el); }
+  });
+});
+function togglePop(el){
+  if (activeEl === el){ hidePop(); return; }
+  var e = ALL[el.getAttribute("data-g")];
+  if (!e) return;
+  if (activeEl) activeEl.classList.remove("active");
+  activeEl = el; el.classList.add("active");
+  pop.innerHTML = "";
+  var w = document.createElement("span"); w.className = "pw"; w.textContent = e.w; pop.appendChild(w);
+  if (e.pos){ var p = document.createElement("span"); p.className = "pp"; p.textContent = e.pos; pop.appendChild(p); }
+  var d = document.createElement("span"); d.className = "pd"; d.textContent = e.def; pop.appendChild(d);
+  pop.hidden = false;
+  var r = el.getBoundingClientRect();
+  var pw = pop.offsetWidth;
+  var left = r.left + window.scrollX + r.width / 2 - pw / 2;
+  var maxLeft = window.scrollX + document.documentElement.clientWidth - pw - 12;
+  left = Math.max(window.scrollX + 12, Math.min(left, maxLeft));
+  pop.style.left = left + "px";
+  pop.style.top = (r.bottom + window.scrollY + 8) + "px";
+}
+function hidePop(){
+  pop.hidden = true;
+  if (activeEl){ activeEl.classList.remove("active"); activeEl = null; }
+}
+document.addEventListener("click", function(ev){ if (!pop.contains(ev.target)) hidePop(); });
+document.addEventListener("keydown", function(ev){ if (ev.key === "Escape") hidePop(); });
+window.addEventListener("resize", hidePop);
+
+// ---------- Vocabulary cards ----------
+var WORDS = [
+  {w:"nervous", pos:"adjective", ipa:"/ˈnɝː.vəs/", s:["ner","vous"], st:0,
+   fam:[["nerve","noun"],["nervousness","noun"],["nervously","adverb"]],
+   def:"worried and a little afraid, so that you cannot relax.",
+   ex:[["I have been very, very, terribly <em>nervous</em>, and I still am.","¶1"],["I always feel <em>nervous</em> before a job interview.",""]]},
+
+  {w:"mad", pos:"adjective", ipa:"/mæd/", s:["mad"], st:0,
+   fam:[["madness","noun"],["madman","noun"],["madly","adverb"]],
+   def:"mentally ill; crazy (old-fashioned meaning). In everyday American English today, mad usually means angry.",
+   ex:[["But why do you say that I am <em>mad</em>?","¶1"],["My boss was <em>mad</em> at me because I was late again.",""]]},
+
+  {w:"sense", pos:"noun", ipa:"/sens/", s:["sense"], st:0,
+   fam:[["sense","verb"],["sensitive","adjective"],["senseless","adjective"]],
+   def:"one of the five natural abilities of the body: sight, hearing, smell, taste, and touch.",
+   ex:[["My illness made my <em>senses</em> sharper.","¶1"],["Dogs have a much better <em>sense</em> of smell than people.",""]]},
+
+  {w:"vulture", pos:"noun", ipa:"/ˈvʌl.tʃɚ/", s:["vul","ture"], st:0,
+   fam:[],
+   def:"a large bird with no feathers on its head that eats the bodies of dead animals.",
+   ex:[["He had the eye of a <em>vulture</em>: a pale blue eye, with a thin, cloudy layer over it.","¶2"],["Three <em>vultures</em> were flying in circles above the road.",""]]},
+
+  {w:"lantern", pos:"noun", ipa:"/ˈlæn.tɚn/", s:["lan","tern"], st:0,
+   fam:[],
+   def:"a lamp inside a metal or glass case, usually with a handle so you can carry it.",
+   ex:[["Then, when the opening was big enough for my head, I put in a dark <em>lantern</em>.","¶3"],["We used a <em>lantern</em> when the electricity went out.",""]]},
+
+  {w:"hinge", pos:"noun", ipa:"/hɪndʒ/", s:["hinge"], st:0,
+   fam:[["hinged","adjective"],["unhinged","adjective (mentally unstable)"]],
+   def:"a metal part that joins a door or a cover to something, so that it can open and close.",
+   ex:[["I opened the lantern carefully, oh, so carefully, carefully, because the <em>hinges</em> made a noise.","¶3"],["The door makes a terrible sound. The <em>hinges</em> need some oil.",""]]},
+
+  {w:"evil", pos:"adjective", ipa:"/ˈiː.vəl/", s:["e","vil"], st:0,
+   fam:[["evil","noun"],["evilly","adverb"]],
+   def:"very bad, cruel, or wanting to cause harm.",
+   ex:[["It was not the old man who troubled me; it was his <em>Evil</em> Eye.","¶3"],["In many movies, the <em>evil</em> character wants to control the world.",""]]},
+
+  {w:"suspect", pos:"verb", ipa:"/səˈspekt/", s:["sus","pect"], st:1,
+   note:"The noun is different: a SUSpect /ˈsʌs.pekt/ (a person the police think did a crime).",
+   fam:[["suspect","noun"],["suspicion","noun"],["suspicious","adjective"],["suspiciously","adverb"]],
+   def:"to think that someone has probably done something wrong, or that something bad is probably true.",
+   ex:[["He would have to be a very wise old man to <em>suspect</em> that every night, at exactly twelve o'clock, I was looking at him while he slept.","¶3"],["The police <em>suspect</em> that the fire was not an accident.",""]]},
+
+  {w:"shutter", pos:"noun", ipa:"/ˈʃʌt̬.ɚ/", s:["shut","ter"], st:0,
+   fam:[["shut","verb"],["shuttered","adjective"]],
+   def:"a wooden or metal cover on a window that you can close to keep out light or people.",
+   ex:[["His room was pitch-black in the thick darkness, because the <em>shutters</em> were tightly closed for fear of robbers.","¶4"],["In summer, we close the <em>shutters</em> to keep the house cool.",""]]},
+
+  {w:"groan", pos:"noun", ipa:"/ɡroʊn/", s:["groan"], st:0,
+   fam:[["groan","verb"],["groaning","noun"]],
+   def:"a long, low sound that a person makes because of pain, fear, or unhappiness.",
+   ex:[["Soon I heard a soft <em>groan</em>, and I knew it was a groan of deadly fear.","¶7"],["Everyone <em>groaned</em> when the teacher announced a surprise test.",""]]},
+
+  {w:"victim", pos:"noun", ipa:"/ˈvɪk.təm/", s:["vic","tim"], st:0,
+   fam:[["victimize","verb"]],
+   def:"a person who is hurt, killed, or treated badly by someone or something.",
+   ex:[["And I myself, in the wild boldness of my perfect victory, put my own chair on the exact spot under which the <em>victim's</em> body lay.","¶14"],["The <em>victims</em> of the flood received food and help from volunteers.",""]]},
+
+  {w:"furious", pos:"adjective", ipa:"/ˈfjʊr.i.əs/", s:["fu","ri","ous"], st:0,
+   fam:[["fury","noun"],["furiously","adverb"]],
+   def:"extremely angry.",
+   ex:[["It was open, wide, wide open, and I became <em>furious</em> as I stared at it.","¶9"],["She was <em>furious</em> when she saw that someone had damaged her car.",""]]},
+
+  {w:"curse", pos:"verb", ipa:"/kɝːs/", s:["curse"], st:0,
+   note:"The adjective cursed is usually one syllable: /kɝːst/.",
+   fam:[["curse","noun"],["cursed","adjective"]],
+   def:"to use rude or offensive words because you are angry. As a noun, a curse is magic words that wish something bad on someone.",
+   ex:[["I foamed at the mouth, I shouted wildly, I <em>cursed</em>!","¶16"],["He <em>cursed</em> loudly when he dropped his new phone.",""]]},
+
+  {w:"muffled", pos:"adjective", ipa:"/ˈmʌf.əld/", s:["muf","fled"], st:0,
+   fam:[["muffle","verb"],["muffler","noun"]],
+   def:"quiet and not clear, because something is covering the sound or blocking it.",
+   ex:[["But for many minutes, the heart continued to beat with a soft, <em>muffled</em> sound.","¶11"],["We could hear <em>muffled</em> voices from the next apartment.",""]]},
+
+  {w:"beam", pos:"noun", ipa:"/biːm/", s:["beam"], st:0,
+   fam:[["beam","verb (to smile widely; to shine)"]],
+   def:"a long, heavy piece of wood or metal that holds up a floor or roof. A beam is also a line of light.",
+   ex:[["Then I took up three boards from the floor of the room and put everything in the space between the wooden <em>beams</em> under the floor.","¶12"],["The old house has dark wooden <em>beams</em> across the ceiling.",""]]},
+
+  {w:"confidence", pos:"noun", ipa:"/ˈkɑːn.fə.dəns/", s:["con","fi","dence"], st:0,
+   fam:[["confident","adjective"],["confidently","adverb"]],
+   def:"the feeling that you can do something well or that you are sure about something.",
+   ex:[["In my excitement and <em>confidence</em>, I brought chairs into the room.","¶14"],["Speaking English every day gave her more <em>confidence</em> at work.",""]]},
+
+  {w:"convince", pos:"verb", ipa:"/kənˈvɪns/", s:["con","vince"], st:1,
+   fam:[["convinced","adjective"],["convincing","adjective"],["convincingly","adverb"]],
+   def:"to make someone believe that something is true.",
+   ex:[["The officers were satisfied. My behavior had <em>convinced</em> them.","¶15"],["He <em>convinced</em> his parents that studying abroad was a good idea.",""]]},
+
+  {w:"pale", pos:"adjective", ipa:"/peɪl/", s:["pale"], st:0,
+   fam:[["paleness","noun"],["pale","verb (to go pale)"]],
+   def:"having less color in your face than usual, often because you are afraid or sick.",
+   ex:[["I felt myself becoming <em>pale</em>, and I wished they would leave.","¶15"],["You look <em>pale</em>. Are you feeling okay?",""]]},
+
+  {w:"mockery", pos:"noun", ipa:"/ˈmɑː.kɚ.i/", s:["mock","er","y"], st:0,
+   fam:[["mock","verb"],["mocking","adjective"]],
+   def:"unkind words or actions that laugh at someone and make them look stupid.",
+   ex:[["Anything was easier to bear than this <em>mockery</em>!","¶16"],["His classmates <em>mocked</em> his old phone, but he didn't care.",""]]},
+
+  {w:"villain", pos:"noun", ipa:"/ˈvɪl.ən/", s:["vil","lain"], st:0,
+   fam:[["villainous","adjective"],["villainy","noun"]],
+   def:"a very bad person, especially the bad character in a story or a movie.",
+   ex:[["“<em>Villains</em>!” I screamed. “Stop pretending!”","¶17"],["The <em>villain</em> in this movie is more interesting than the hero.",""]]},
+
+  {w:"admit", pos:"verb", ipa:"/ədˈmɪt/", s:["ad","mit"], st:1,
+   fam:[["admission","noun"],["admittedly","adverb"]],
+   def:"to agree, often unwillingly, that you did something wrong or that something bad is true.",
+   ex:[["I <em>admit</em> what I did! Tear up the boards!","¶17"],["He finally <em>admitted</em> that he had made a mistake.",""]]}
+];
+(function(){
+  var grid = document.getElementById("vc-grid");
+  var panel = document.getElementById("panel-vocab");
+  function mk(tag, cls, html){
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (html !== undefined) e.innerHTML = html;
+    return e;
+  }
+  function speak(word){
+    try {
+      if (!("speechSynthesis" in window)) return;
+      window.speechSynthesis.cancel();
+      var u = new SpeechSynthesisUtterance(word);
+      u.lang = "en-US"; u.rate = 0.85;
+      var v = window.speechSynthesis.getVoices().filter(function(x){ return x.lang === "en-US"; })[0];
+      if (v) u.voice = v;
+      window.speechSynthesis.speak(u);
+    } catch (e) {}
+  }
+  function build(d, i){
+    var card = mk("article", "vc-card");
+    var top = mk("div", "vc-top");
+    top.appendChild(mk("span", "vc-num", String(i + 1)));
+    top.appendChild(mk("h3", "vc-word", d.w));
+    top.appendChild(mk("span", "vc-pos", d.pos));
+    var pron = mk("div", "vc-pron");
+    pron.appendChild(mk("span", "vc-ipa", d.ipa));
+    var b = mk("button", "vc-listen", "Listen");
+    b.type = "button"; b.setAttribute("aria-label", "Listen to " + d.w);
+    b.addEventListener("click", function(){ speak(d.w); });
+    pron.appendChild(b);
+    var a = mk("a", "vc-dict", "Cambridge");
+    a.href = "https://dictionary.cambridge.org/us/dictionary/english/" + encodeURIComponent(d.w);
+    a.target = "_blank"; a.rel = "noopener";
+    pron.appendChild(a);
+    top.appendChild(pron);
+    card.appendChild(top);
+
+    var st = mk("div", "vc-stress");
+    var syl = mk("span", "vc-syll");
+    d.s.forEach(function(x, k){
+      if (k > 0) syl.appendChild(mk("span", "vc-sep", "·"));
+      syl.appendChild(k === d.st ? mk("b", "", x) : document.createTextNode(x));
+    });
+    st.appendChild(syl);
+    var dots = mk("span", "vc-dots");
+    dots.setAttribute("aria-label", d.s.length + " syllable" + (d.s.length > 1 ? "s" : "") + ", stress on syllable " + (d.st + 1));
+    d.s.forEach(function(x, k){ dots.appendChild(mk("span", "vc-dot" + (k === d.st ? " vc-big" : ""))); });
+    st.appendChild(dots);
+    if (d.note) st.appendChild(mk("span", "vc-note", d.note));
+    card.appendChild(st);
+
+    var body = mk("div", "vc-body");
+    var defBox = mk("div", "vc-hide");
+    defBox.appendChild(mk("div", "vc-label", "Definition"));
+    defBox.appendChild(mk("p", "vc-def", d.def));
+    body.appendChild(defBox);
+
+    var famBox = mk("div");
+    famBox.appendChild(mk("div", "vc-label", "Word Family"));
+    if (d.fam.length){
+      var fam = mk("div", "vc-family");
+      d.fam.forEach(function(f){ fam.appendChild(mk("span", "vc-chip", f[0] + " <i>(" + f[1] + ")</i>")); });
+      famBox.appendChild(fam);
+    } else {
+      famBox.appendChild(mk("span", "vc-none", "No common related words. Learn this one on its own."));
+    }
+    body.appendChild(famBox);
+
+    var exBox = mk("div", "vc-hide");
+    exBox.appendChild(mk("div", "vc-label", "Examples"));
+    var ul = mk("ul", "vc-ex");
+    d.ex.forEach(function(x){
+      var li = mk("li", x[1] ? "vc-from-story" : "", x[0]);
+      li.appendChild(mk("span", "vc-src", x[1] ? "The Tell-Tale Heart, " + x[1] : "Everyday English"));
+      ul.appendChild(li);
+    });
+    exBox.appendChild(ul);
+    body.appendChild(exBox);
+    card.appendChild(body);
+
+    var rv = mk("button", "vc-reveal", "Show definition and examples");
+    rv.type = "button";
+    rv.addEventListener("click", function(){
+      var shown = card.classList.toggle("vc-shown");
+      rv.textContent = shown ? "Hide definition and examples" : "Show definition and examples";
+    });
+    card.appendChild(rv);
+    return card;
+  }
+  var cards = WORDS.map(build);
+  function render(list){ grid.innerHTML = ""; list.forEach(function(c){ grid.appendChild(c); }); }
+  render(cards);
+  document.getElementById("vc-count").textContent = WORDS.length + " words";
+
+  var bS = document.getElementById("vc-study"), bP = document.getElementById("vc-practice");
+  function setMode(p){
+    panel.classList.toggle("vc-practice", p);
+    bS.setAttribute("aria-pressed", p ? "false" : "true");
+    bP.setAttribute("aria-pressed", p ? "true" : "false");
+    cards.forEach(function(c){
+      c.classList.remove("vc-shown");
+      c.querySelector(".vc-reveal").textContent = "Show definition and examples";
+    });
+  }
+  bS.addEventListener("click", function(){ setMode(false); });
+  bP.addEventListener("click", function(){ setMode(true); });
+  document.getElementById("vc-shuffle").addEventListener("click", function(){
+    var c = cards.slice();
+    for (var i = c.length - 1; i > 0; i--){ var j = Math.floor(Math.random() * (i + 1)); var t = c[i]; c[i] = c[j]; c[j] = t; }
+    render(c);
+  });
+  document.getElementById("vc-order").addEventListener("click", function(){ render(cards); });
+  document.getElementById("vc-print").addEventListener("click", function(){ window.print(); });
+  if ("speechSynthesis" in window){ try { window.speechSynthesis.getVoices(); } catch (e) {} }
+})();
+
+// ---------- Worksheet ----------
+(function(){
+
+var STORE_KEY = "tth-worksheet-v1";
+var EV_ROWS = 5;
+var data = {};
+
+try { data = JSON.parse(localStorage.getItem(STORE_KEY) || "{}") || {}; } catch (e) { data = {}; }
+
+// ---------- Build radio chips ----------
+document.querySelectorAll("[data-radio]").forEach(function(group){
+  var key = group.getAttribute("data-radio");
+  var opts = group.getAttribute("data-options");
+  var list = opts ? opts.split("|") : ["1","2","3","4","5"];
+  list.forEach(function(o){
+    var lab = document.createElement("label");
+    lab.className = "chip-opt";
+    var inp = document.createElement("input");
+    inp.type = "radio"; inp.name = key; inp.value = o; inp.setAttribute("data-k", key);
+    var sp = document.createElement("span"); sp.textContent = o;
+    lab.appendChild(inp); lab.appendChild(sp);
+    group.appendChild(lab);
+  });
+});
+
+// ---------- Build evidence rows ----------
+function buildEv(id, prefix, label){
+  var box = document.getElementById(id);
+  for (var i = 1; i <= EV_ROWS; i++){
+    var row = document.createElement("div"); row.className = "ev-row";
+    var q = document.createElement("input"); q.type = "text"; q.setAttribute("data-k", prefix + i + "q");
+    q.setAttribute("aria-label", label + " quotation " + i); q.placeholder = i <= 3 ? "Quotation " + i : "Extra quotation (optional)";
+    var p = document.createElement("input"); p.type = "text"; p.className = "p"; p.setAttribute("data-k", prefix + i + "p");
+    p.setAttribute("aria-label", label + " paragraph " + i); p.placeholder = "¶"; p.inputMode = "numeric";
+    row.appendChild(q); row.appendChild(p); box.appendChild(row);
+  }
+}
+buildEv("ev-says", "es", "He says he is sane");
+buildEv("ev-not", "en", "This shows he is not");
+
+// ---------- Restore + save ----------
+var fields = document.querySelectorAll("#panel-ws [data-k]");
+fields.forEach(function(f){
+  var k = f.getAttribute("data-k");
+  if (f.type === "radio"){ if (data[k] === f.value) f.checked = true; }
+  else if (data[k] !== undefined) f.value = data[k];
+});
+if (!data.date){
+  var d = new Date();
+  document.getElementById("date").value = d.toLocaleDateString("en-US", {month:"long", day:"numeric", year:"numeric"});
+}
+
+var saveState = document.getElementById("save-state");
+var saveTimer = null;
+function collect(){
+  var out = {};
+  fields.forEach(function(f){
+    var k = f.getAttribute("data-k");
+    if (f.type === "radio"){ if (f.checked) out[k] = f.value; }
+    else out[k] = f.value;
+  });
+  return out;
+}
+function save(){
+  data = collect();
+  try {
+    localStorage.setItem(STORE_KEY, JSON.stringify(data));
+    saveState.textContent = "Saved on this device";
+    saveState.classList.add("saved");
+  } catch (e) {
+    saveState.textContent = "Not saved: download or print before you close this page.";
+    saveState.classList.remove("saved");
+  }
+}
+document.addEventListener("input", function(ev){
+  if (!ev.target.matches("[data-k]")) return;
+  saveState.textContent = "Saving...";
+  saveState.classList.remove("saved");
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(save, 400);
+  if (ev.target.matches("textarea")) grow(ev.target);
+  updateCounts();
+});
+document.addEventListener("change", function(ev){ if (ev.target.matches("[data-k]")) save(); });
+
+// ---------- Auto-grow textareas ----------
+function grow(t){ t.style.height = "auto"; t.style.height = Math.max(t.scrollHeight + 2, 60) + "px"; }
+document.querySelectorAll("textarea").forEach(function(t){ if (t.value) grow(t); });
+
+// ---------- Word counts ----------
+function words(s){ var m = (s || "").trim().match(/\S+/g); return m ? m.length : 0; }
+function updateCounts(){
+  document.querySelectorAll("[data-wc]").forEach(function(el){
+    var t = document.querySelector('[data-k="' + el.getAttribute("data-wc") + '"]');
+    var n = words(t.value), min = +el.getAttribute("data-min"), max = +el.getAttribute("data-max");
+    el.className = "wc" + (n === 0 ? "" : n < min ? " short" : n > max ? " long" : " good");
+    var target = el.getAttribute("data-wc") === "para" ? " (target: 100–150)" : "";
+    el.textContent = n + (n === 1 ? " word" : " words") + target;
+  });
+}
+updateCounts();
+
+// ---------- Helpers ----------
+var FRAME = "I think the narrator is / is not reliable. He says \"...\" (¶...). However, this shows that... Another reason is... For these reasons, I believe...";
+document.querySelectorAll("[data-frame]").forEach(function(b){
+  b.addEventListener("click", function(){
+    var t = document.querySelector('[data-k="' + b.getAttribute("data-frame") + '"]');
+    if (t.value.trim() && !confirm("Replace what you wrote with the frame?")) return;
+    t.value = FRAME; grow(t); t.focus(); save(); updateCounts();
+  });
+});
+document.querySelectorAll("[data-copy]").forEach(function(b){
+  b.addEventListener("click", function(){
+    var from = document.querySelector('[data-k="' + b.getAttribute("data-copy") + '"]');
+    var to = document.querySelector('[data-k="' + b.getAttribute("data-to") + '"]');
+    if (!from.value.trim()){ toast("Your Quick Write is empty."); return; }
+    if (to.value.trim() && !confirm("Replace your paragraph with your Quick Write?")) return;
+    to.value = from.value; grow(to); to.focus(); save(); updateCounts();
+  });
+});
+document.getElementById("clear").addEventListener("click", function(){
+  if (!confirm("Delete ALL your answers on this device? This cannot be undone.")) return;
+  try { localStorage.removeItem(STORE_KEY); } catch (e) {}
+  fields.forEach(function(f){ if (f.type === "radio") f.checked = false; else f.value = ""; });
+  document.querySelectorAll("textarea").forEach(function(t){ t.style.height = ""; });
+  data = {}; updateCounts();
+  saveState.textContent = "All answers cleared.";
+  saveState.classList.remove("saved");
+});
+
+var toastEl = document.getElementById("toast"), toastTimer = null;
+function toast(msg){
+  toastEl.textContent = msg; toastEl.hidden = false;
+  clearTimeout(toastTimer); toastTimer = setTimeout(function(){ toastEl.hidden = true; }, 3500);
+}
+
+// ---------- Answer sheet ----------
+function esc(s){ return String(s == null ? "" : s).replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c]; }); }
+function v(k){ return (data[k] || "").trim(); }
+function item(q, a){
+  return '<div class="s-item"><div class="s-q">' + esc(q) + '</div><div class="s-a' + (a ? '' : ' empty') + '">' + (a ? esc(a) : 'No answer') + '</div></div>';
+}
+function sec(t){ return '<div class="s-sec">' + esc(t) + '</div>'; }
+function evTable(){
+  var h = '<table><tr><th>He says he is sane</th><th style="width:34px">¶</th><th>This shows he is not</th><th style="width:34px">¶</th></tr>';
+  for (var i = 1; i <= EV_ROWS; i++){
+    var a = v("es" + i + "q"), b = v("en" + i + "q");
+    if (i > 3 && !a && !b) continue;
+    h += '<tr><td>' + esc(a) + '</td><td>' + esc(v("es" + i + "p")) + '</td><td>' + esc(b) + '</td><td>' + esc(v("en" + i + "p")) + '</td></tr>';
+  }
+  return h + '</table>';
+}
+function buildSheet(){
+  data = collect();
+  var h = '<div class="sheet">';
+  h += '<div class="s-head"><div class="s-title">The Tell-Tale Heart: Worksheet</div>';
+  h += '<div class="s-meta"><span><b>Name:</b> ' + esc(v("name") || "________________") + '</span><span><b>Date:</b> ' + esc(v("date")) + '</span><span>Approach International Student Center · Reading &amp; Critical Thinking</span></div></div>';
+
+  h += sec("1. Who Is Speaking? (Engage)");
+  h += item("Who is speaking?", v("e1"));
+  h += item("Who is he talking to?", v("e2"));
+  h += item("Where is he?", v("e3"));
+  h += item("What do you think he did?", v("e4"));
+  h += '<table><tr><th>Trust Scale (1–5)</th><th>Line 2</th><th>Line 3</th><th>Line 4</th></tr><tr><td>My score</td><td>' + esc(v("t2")) + '</td><td>' + esc(v("t3")) + '</td><td>' + esc(v("t4")) + '</td></tr></table>';
+  h += item("Why did you choose your number for Line 4?", v("twhy"));
+
+  h += sec("2. Stop and Think (Study)");
+  h += item("Part 1: Why does the narrator want to kill the old man? Is that a good reason?", v("r1a"));
+  h += item("Part 1: The narrator says he is not mad. Do you believe him?", v("r1b"));
+  h += item("Part 2: Why does the narrator tell us so much about how careful he was?", v("r2a"));
+  h += item("Part 2: What does he want us to think about him? Does it work?", v("r2b"));
+  h += item("Part 3: What sound does the narrator hear? Is the sound real?", v("r3a"));
+  h += item("Part 3: Does the way he hid the body prove he is not mad?", v("r3b"));
+  h += item("Part 4: Why does the narrator confess? Did the police really suspect him?", v("r4a"));
+  h += item("Part 4: Whose heart is \"telling the tale\"?", v("r4b"));
+
+  h += sec("3. Evidence Hunt (Study)" + (v("grp") ? " · " + v("grp") : ""));
+  h += evTable();
+
+  h += sec("4. The Trial (Activate)");
+  h += '<table><tr><th>My team</th><td>' + esc(v("team")) + '</td><th>My job</th><td>' + esc(v("job")) + '</td></tr></table>';
+  h += item("Opening point 1", v("p1") + (v("p1q") ? '\nQuotation: "' + v("p1q") + '" (¶' + v("p1p") + ')' : ""));
+  h += item("Opening point 2", v("p2") + (v("p2q") ? '\nQuotation: "' + v("p2q") + '" (¶' + v("p2p") + ')' : ""));
+  h += item("Question for the narrator 1", v("tq1"));
+  h += item("Question for the narrator 2", v("tq2"));
+  h += item("My real verdict", v("verdict"));
+  h += item("The most convincing quotation was... because...", v("conv"));
+
+  h += sec("5. Quick Write (Activate) · " + words(v("qw")) + " words");
+  h += item("Is the narrator reliable?", v("qw"));
+
+  h += sec("Homework A: Reading Journal");
+  h += item("Summary (3 sentences)", v("j1"));
+  h += '<table><tr><th style="width:30%">Word</th><th>Definition</th></tr>';
+  [1,2,3].forEach(function(i){ h += '<tr><td>' + esc(v("v" + i + "w")) + '</td><td>' + esc(v("v" + i + "d")) + '</td></tr>'; });
+  h += '</table>';
+  h += item("Personal response", v("j3"));
+  h += item("My question about the story", v("j4"));
+
+  h += sec("Homework B: Midterm Practice Paragraph · " + words(v("para")) + " words");
+  h += item("Is the narrator reliable?", v("para"));
+  h += '</div>';
+  return h;
+}
+
+function fileName(){
+  var n = v("name").replace(/[^A-Za-z0-9 ]/g, "").trim().replace(/\s+/g, "-");
+  return "Tell-Tale-Heart-Worksheet" + (n ? "-" + n : "") + ".pdf";
+}
+
+function doPrint(){
+  document.getElementById("sheet").innerHTML = buildSheet();
+  document.body.classList.add("print-ws");
+  window.print();
+}
+
+function doPdf(){
+  data = collect();
+  if (!v("name")){ toast("Please write your name at the top first."); document.getElementById("name").focus(); return; }
+  if (typeof html2pdf === "undefined"){
+    toast("PDF download is not available right now. Use Print and choose \"Save as PDF\".");
+    return;
+  }
+  toast("Preparing your PDF...");
+  var html = '<div style="width:700px;background:#fff">' + buildSheet() + '</div>';
+  window.scrollTo(0, 0);
+  html2pdf().set({
+    margin:[12,12,12,12],
+    filename:fileName(),
+    image:{type:"jpeg",quality:0.95},
+    html2canvas:{scale:2,useCORS:true,backgroundColor:"#ffffff",scrollX:0,scrollY:0},
+    jsPDF:{unit:"mm",format:"letter",orientation:"portrait"},
+    pagebreak:{mode:["css","legacy"],avoid:[".s-item","table",".s-sec"]}
+  }).from(html, "string").save().then(function(){
+    toast("Downloaded: " + fileName());
+  }).catch(function(){
+    toast("Download failed. Use Print and choose \"Save as PDF\".");
+  });
+}
+
+document.querySelectorAll("[data-action]").forEach(function(b){
+  b.addEventListener("click", function(){
+    if (b.getAttribute("data-action") === "print") doPrint(); else doPdf();
+  });
+});
+window.addEventListener("beforeprint", function(){
+  if (!document.getElementById("panel-ws").hidden){
+    document.getElementById("sheet").innerHTML = buildSheet();
+    document.body.classList.add("print-ws");
+  }
+});
+window.addEventListener("afterprint", function(){ document.body.classList.remove("print-ws"); });
+document.getElementById("tab-ws").addEventListener("click", function(){
+  setTimeout(function(){ document.querySelectorAll("#panel-ws textarea").forEach(function(t){ if (t.value) grow(t); }); }, 50);
+});
+
+})();
+</script>
+</body>
+</html>
