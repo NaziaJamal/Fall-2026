@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tell-Tale Heart: Teacher</title>
+<meta name="description" content="Teacher materials for The Tell-Tale Heart: 110-minute ESA lesson plan and answer key.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,600;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#143865;--blue:#1c4f8f;--gold-dark:#8c7535;--gold:#d39f10;
+  --sky-dark:#c1cddd;--sky-mid:#e1e8f2;--sky-light:#edf2f9;--warm:#efe9d9;
+  --ink:#1d2433;--muted:#556074;--line:#d6dde8;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--sky-light);color:var(--ink);font-family:"Source Sans 3",system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.55}
+a{color:var(--blue)}
+.site-header{background:var(--navy);color:#fff;padding:14px 16px}
+.brand{max-width:960px;margin:0 auto;display:flex;align-items:center;gap:12px}
+.brand img{height:44px;width:auto;background:#fff;border-radius:8px;padding:4px 6px}
+.brand-name{font-weight:700;letter-spacing:.14em;font-size:.95rem}
+.brand-sub{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--sky-dark)}
+.hero{background:linear-gradient(180deg,var(--navy),var(--blue));color:#fff;padding:26px 16px 30px;border-bottom:4px solid var(--gold)}
+.hero-inner{max-width:960px;margin:0 auto}
+.kicker{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--navy);background:var(--gold);padding:3px 10px;border-radius:999px;margin-bottom:10px}
+.hero h1{font-family:"Source Serif 4",Georgia,serif;font-size:clamp(1.8rem,5vw,2.6rem);margin:0 0 4px;line-height:1.15}
+.hero p{margin:0;color:var(--sky-mid)}
+.toolbar{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 2px 6px rgba(20,56,101,.06)}
+.toolbar-inner{max-width:960px;margin:0 auto;padding:8px 16px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between}
+.tabs{display:flex;gap:4px;flex-wrap:wrap}
+.tab,.btn{font:inherit;font-weight:600;font-size:.92rem;border:1px solid var(--line);background:var(--sky-light);color:var(--navy);padding:7px 12px;border-radius:8px;cursor:pointer}
+.tab[aria-selected="true"]{background:var(--navy);color:#fff;border-color:var(--navy)}
+.btn{background:#fff;border-color:var(--navy)}
+.tab:focus-visible,.btn:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+main{max-width:960px;margin:0 auto;padding:20px 16px 48px}
+.panel[hidden]{display:none}
+.notice{background:#fff7e0;border:1px solid #ecd28a;border-radius:10px;padding:10px 14px;font-size:.92rem;margin-bottom:18px}
+.toc{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px}
+.toc a{font-size:.85rem;font-weight:600;text-decoration:none;color:var(--navy);background:#fff;border:1px solid var(--line);border-radius:999px;padding:4px 12px}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin-bottom:20px}
+.card h2{font-family:"Source Serif 4",Georgia,serif;color:var(--navy);font-size:1.45rem;margin:0 0 8px;line-height:1.25}
+.card h3{color:var(--navy);font-size:1.08rem;margin:20px 0 6px}
+.card p{margin:0 0 10px}
+.card ul,.card ol{margin:0 0 10px;padding-left:22px}
+.card li{margin-bottom:5px}
+.lead{font-size:1.05rem}
+.stage{display:inline-block;font-family:"Source Sans 3",sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:2px 9px;border-radius:6px;color:#fff;vertical-align:middle;margin-right:8px;position:relative;top:-2px}
+.engage{background:var(--gold-dark)}.study{background:var(--blue)}.activate{background:var(--navy)}.close{background:#5b6578}
+.time{font-family:"Source Sans 3",sans-serif;font-size:.95rem;font-weight:600;color:var(--muted)}
+table{width:100%;border-collapse:collapse;margin:8px 0 14px;font-size:.95rem}
+th,td{border:1px solid var(--line);padding:7px 10px;text-align:left;vertical-align:top}
+th{background:var(--sky-mid);color:var(--navy);font-weight:700}
+tr.total td{font-weight:700;background:var(--sky-light)}
+.tbl{overflow-x:auto}
+.slide{background:var(--sky-light);border-left:4px solid var(--blue);border-radius:8px;padding:10px 14px;margin:8px 0 12px}
+.slide b.lbl{display:block;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:2px}
+.teacher{background:var(--warm);border-left:4px solid var(--gold-dark);border-radius:8px;padding:10px 14px;margin:8px 0 12px}
+.teacher b.lbl{display:block;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:2px}
+.q{font-style:italic;font-family:"Source Serif 4",Georgia,serif}
+.check{list-style:none;padding-left:0}
+.check li::before{content:"";display:inline-block;width:13px;height:13px;border:2px solid var(--blue);border-radius:3px;margin-right:8px;vertical-align:-1px}
+.model{font-family:"Source Serif 4",Georgia,serif;background:#fcfbf6;border:1px solid #e2d7bb;border-radius:8px;padding:12px 16px;margin:8px 0 12px}
+.model .wc{display:block;font-family:"Source Sans 3",sans-serif;font-size:.8rem;color:var(--muted);margin-top:6px}
+.ans{border-left:3px solid var(--gold);padding:2px 0 2px 12px;margin:4px 0 14px}
+.ans .qq{font-weight:700;color:var(--navy);display:block}
+footer{text-align:center;font-size:.82rem;color:var(--muted);padding:10px 16px 32px}
+@media (max-width:600px){.card{padding:16px}.toolbar-inner{justify-content:center}}
+@media print{
+  .site-header,.toolbar,.toc,.notice,footer{display:none !important}
+  body{background:#fff}
+  .hero{background:none;color:var(--ink);border-bottom:2px solid var(--navy);padding:0 0 10px}
+  .hero p{color:var(--muted)}
+  .card{border:none;padding:0;margin-bottom:14px}
+  .card h2{break-after:avoid}
+  table,.model,.slide,.teacher{break-inside:avoid}
+  th,.stage,.slide,.teacher{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="brand">
+    <img src="data:image/webp;base64,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" alt="Approach International Student Center logo">
+    <div><div class="brand-name">APPROACH</div><div class="brand-sub">International Student Center</div></div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <span class="kicker">Teacher Materials</span>
+    <h1>The Tell-Tale Heart</h1>
+    <p>Edgar Allan Poe · Week 5 · Reading &amp; Critical Thinking, Independent Level</p>
+  </div>
+</section>
+
+<nav class="toolbar" aria-label="Teacher options">
+  <div class="toolbar-inner">
+    <div class="tabs" role="tablist">
+      <button class="tab" role="tab" id="tab-plan" aria-controls="panel-plan" aria-selected="true">Lesson Plan</button>
+      <button class="tab" role="tab" id="tab-key" aria-controls="panel-key" aria-selected="false">Answer Key &amp; Notes</button>
+    </div>
+    <button class="btn" type="button" id="print">Print This Tab</button>
+  </div>
+</nav>
+
+<main>
+<div class="notice"><strong>Teacher only.</strong> This page contains answers. Do not share this link with students. Students use the student page (Adapted Story, Worksheet, Vocabulary Cards, Glossary &amp; Notes, Original Text).</div>
+
+<!-- ===================== LESSON PLAN ===================== -->
+<section class="panel" id="panel-plan" role="tabpanel" aria-labelledby="tab-plan">
+
+  <div class="toc">
+    <a href="#lp-overview">Overview</a><a href="#lp-timing">Timing</a><a href="#lp-engage">Engage</a><a href="#lp-vocab">Study A</a><a href="#lp-reading">Study B</a><a href="#lp-narrator">Study C</a><a href="#lp-trial">Trial</a><a href="#lp-write">Quick Write</a><a href="#lp-diff">Differentiation</a><a href="#lp-outcomes">Outcomes</a>
+  </div>
+
+  <div class="card" id="lp-overview">
+    <h2>Lesson Overview</h2>
+    <p class="lead">Students read the whole story in class and finish by judging whether the narrator can be trusted, using quotations as evidence. This one lesson covers the missing Unit 2 story before the midterm and introduces the unreliable narrator, which returns in Units 4 and 5 and the final exam.</p>
+    <div class="tbl"><table>
+      <tr><th style="width:150px">Course</th><td>Reading &amp; Critical Thinking, Independent Level (A2+ to B1+)</td></tr>
+      <tr><th>Week</th><td>Week 5 (one 110-minute class, no break)</td></tr>
+      <tr><th>Story</th><td>"The Tell-Tale Heart" by Edgar Allan Poe (1843), Unit 2: Justice &amp; Morality</td></tr>
+      <tr><th>Students</th><td>7 adults: 6 Brazilian, 1 Colombian</td></tr>
+      <tr><th>Method</th><td>ESA (Engage, Study, Activate)</td></tr>
+      <tr><th>Pre-reading</th><td>None. Students meet the story for the first time in class.</td></tr>
+    </table></div>
+    <p><strong>Literary focus (three ideas only):</strong> first-person narrator, unreliable narrator, and suspense.</p>
+
+    <h3>Learning objectives</h3>
+    <p>By the end of the class, students will be able to:</p>
+    <ol>
+      <li>Follow the full plot and explain the narrator's motive in their own words.</li>
+      <li>Explain what an unreliable narrator is, with one example from the story.</li>
+      <li>Find quotations that support an interpretation and use them when speaking.</li>
+      <li>Write a short response that includes one quotation from the story.</li>
+    </ol>
+
+    <h3>Materials and preparation</h3>
+    <ul class="check">
+      <li>Student page open on the projector and on students' phones or laptops (tabs: Adapted Story, Worksheet, Vocabulary Cards)</li>
+      <li>Short heartbeat sound clip, ready to play</li>
+      <li>Engage slide: the four narrator lines (also in the Worksheet tab)</li>
+      <li>Evidence chart: students use the Worksheet tab; optionally also one large sheet per group</li>
+      <li>Trial question and sentence frames on the board or a slide (also in the Worksheet tab)</li>
+      <li>Timer visible to students</li>
+      <li>Groups decided in advance: Group A (3 students) and Group B (4 students), each with a mix of levels</li>
+    </ul>
+  </div>
+
+  <div class="card" id="lp-timing">
+    <h2>Timing at a Glance</h2>
+    <p>Eleven steps fill exactly 110 minutes: 15 for Engage, 52 for Study, 38 for Activate, and 5 to close.</p>
+    <div class="tbl"><table>
+      <tr><th>Time</th><th>Min</th><th>Stage</th><th>Activity</th><th>Grouping</th></tr>
+      <tr><td>6:00–6:03</td><td>3</td><td>Engage</td><td>Agenda and objectives</td><td>Whole class</td></tr>
+      <tr><td>6:03–6:15</td><td>12</td><td>Engage</td><td>Who Is Speaking? and the Trust Scale</td><td>Pairs + one group of 3, then whole class</td></tr>
+      <tr><td>6:15–6:23</td><td>8</td><td>Study A</td><td>Vocabulary Cards (Practice Mode)</td><td>Pairs + one group of 3</td></tr>
+      <tr><td>6:23–6:52</td><td>29</td><td>Study B</td><td>Mixed reading with four pause points</td><td>Whole class (aloud) and individual (silent)</td></tr>
+      <tr><td>6:52–6:57</td><td>5</td><td>Study C</td><td>Mini-input: first-person and unreliable narrator</td><td>Whole class</td></tr>
+      <tr><td>6:57–7:07</td><td>10</td><td>Study C</td><td>Evidence hunt</td><td>Group A (3) and Group B (4)</td></tr>
+      <tr><td>7:07–7:17</td><td>10</td><td>Activate</td><td>Trial preparation</td><td>Prosecution (3) and Defense (4)</td></tr>
+      <tr><td>7:17–7:32</td><td>15</td><td>Activate</td><td>The trial</td><td>Whole class</td></tr>
+      <tr><td>7:32–7:37</td><td>5</td><td>Activate</td><td>Verdict and debrief</td><td>Whole class</td></tr>
+      <tr><td>7:37–7:45</td><td>8</td><td>Activate</td><td>Quick write</td><td>Individual</td></tr>
+      <tr><td>7:45–7:50</td><td>5</td><td>Close</td><td>Wrap-up and homework</td><td>Whole class</td></tr>
+      <tr class="total"><td></td><td>110</td><td colspan="3"></td></tr>
+    </table></div>
+  </div>
+
+  <div class="card" id="lp-engage">
+    <h2><span class="stage engage">Engage</span>Who Is Speaking? <span class="time">6:00–6:15 · 15 min</span></h2>
+    <p>Students hear the narrator's voice before they know the story, guess the situation, and rate how much they trust him. The trust ratings become the example you use to teach "unreliable narrator" later.</p>
+
+    <h3>Agenda (3 min, whole class)</h3>
+    <p>Show the agenda and the four objectives. Say: "Tonight we read a famous horror story from 1843. At the end, you will decide if the storyteller is telling the truth."</p>
+
+    <h3>Who Is Speaking? (5 min, pairs + one group of 3)</h3>
+    <div class="teacher"><b class="lbl">Teacher</b>
+      <ol>
+        <li>Turn off the lights if possible. Play the heartbeat sound for 10 seconds.</li>
+        <li>Show Line 1 only, with no title or author: <span class="q">"I am nervous. I have been very, very, terribly nervous, and I still am. But why do you say that I am mad?"</span></li>
+        <li>Pairs answer four questions: Who is speaking? Who is he talking to? Where is he? What do you think he did?</li>
+        <li>Take one quick guess from each pair. Write key guesses on the board. Do not confirm or correct.</li>
+      </ol>
+    </div>
+    <div class="slide"><b class="lbl">Student instructions (slide)</b>Read the line with your partner. Answer: Who? To whom? Where? What did he do? You have 3 minutes.</div>
+
+    <h3>The Trust Scale (7 min, individual, then whole class)</h3>
+    <div class="teacher"><b class="lbl">Teacher</b>
+      <ol>
+        <li>Show Lines 2, 3 and 4 one at a time:
+          <ul>
+            <li class="q">"Listen, and see how healthy, how calm I am as I tell you the whole story."</li>
+            <li class="q">"I loved the old man. He had never done anything wrong to me."</li>
+            <li class="q">"Ha! Would a madman be as wise as this?"</li>
+          </ul>
+        </li>
+        <li>After each line, students show 1 to 5 fingers (and mark it in the Worksheet tab): 1 = "I don't trust him at all," 5 = "I trust him completely."</li>
+        <li>After Line 4, ask two or three students to explain their number: "Why did you choose 2?"</li>
+        <li>Write the class's numbers on the board and leave them there for Study C.</li>
+      </ol>
+    </div>
+    <div class="slide"><b class="lbl">Student instructions (slide)</b>Read each line. How much do you trust this person? Show 1 to 5 fingers. Be ready to explain your number.<br><b>Useful language:</b> <em>I don't trust him because... / He says..., but... / Something is strange about...</em></div>
+  </div>
+
+  <div class="card" id="lp-vocab">
+    <h2><span class="stage study">Study A</span>Vocabulary Cards <span class="time">6:15–6:23 · 8 min</span></h2>
+    <p>Students preview the 8 words they most need to follow the plot, using the Vocabulary Cards tab in Practice Mode. The other 13 words stay available as tap-to-see glosses while they read.</p>
+    <p><strong>Core 8 words:</strong> nervous, mad, vulture, lantern, suspect, groan, muffled, admit.</p>
+
+    <h3>Card practice (5 min, pairs + one group of 3)</h3>
+    <div class="teacher"><b class="lbl">Teacher</b>
+      <ol>
+        <li>Students open the student page and choose <strong>Vocabulary Cards</strong>, then <strong>Practice Mode</strong>. Definitions and examples are now blurred.</li>
+        <li>Write the core 8 words on the board. Pairs find these cards only.</li>
+        <li>Partner A reads the word aloud using the stress shown, then guesses the meaning. Partner B taps "Show definition and examples" to check. They switch every card. In the group of 3, the third student presses Listen to check pronunciation.</li>
+        <li>Monitor pronunciation, especially <em>VUL·ture</em>, <em>LAN·tern</em> and <em>sus·PECT</em>.</li>
+      </ol>
+    </div>
+    <div class="slide"><b class="lbl">Student instructions (slide)</b>Open Vocabulary Cards and press Practice Mode. Find the 8 words on the board. Say the word, guess the meaning, then tap to check. Take turns.</div>
+
+    <h3>Three words to highlight (3 min, whole class)</h3>
+    <ol>
+      <li><strong>mad:</strong> In this story it means mentally ill. In American English today it usually means angry. Ask: "Which meaning does the narrator mean?"</li>
+      <li><strong>suspect:</strong> The verb is sus·PECT, but the noun is SUS·pect. Drill both quickly: "The police suSPECT him. He is the SUSpect."</li>
+      <li><strong>admit:</strong> Tell students to watch for this word at the very end of the story. Do not explain why.</li>
+    </ol>
+  </div>
+
+  <div class="card" id="lp-reading">
+    <h2><span class="stage study">Study B</span>Mixed Reading <span class="time">6:23–6:52 · 29 min</span></h2>
+    <p>Students read the complete adapted story: aloud for the opening and the ending, silently for the middle. They stop four times to answer the Stop and Think questions (on the story page and in the Worksheet tab). Every student reads aloud once.</p>
+    <div class="tbl"><table>
+      <tr><th>Part</th><th>Paragraphs</th><th>Reading mode</th><th>Reading</th><th>Pause</th></tr>
+      <tr><td>1: The Eye</td><td>¶1–2</td><td>Aloud: Students 1, 2, 3</td><td>4 min</td><td>2 min</td></tr>
+      <tr><td>2: Seven Nights</td><td>¶3</td><td>Silent, individual</td><td>4 min</td><td>2 min</td></tr>
+      <tr><td>3: The Eighth Night</td><td>¶4–12</td><td>Silent, individual</td><td>9 min</td><td>2 min</td></tr>
+      <tr><td>4: The Visitors</td><td>¶13–17</td><td>Aloud: Students 4, 5, 6, 7</td><td>4 min</td><td>2 min</td></tr>
+    </table></div>
+
+    <h3>Part 1, aloud (6 min)</h3>
+    <p><strong>Teacher:</strong> Assign readers before you start. Student 1 reads ¶1. Students 2 and 3 split ¶2 (Student 3 starts at "I think it was his eye!"). Ask readers to sound nervous, not calm.</p>
+    <p><strong>Pause (pairs):</strong> Stop and Think, Part 1. Collect one answer to "Is that a good reason?" Most students will say no; that is the point.</p>
+
+    <h3>Part 2, silent (6 min)</h3>
+    <p><strong>Teacher:</strong> Tell students to read ¶3 alone and tap any dotted words they need. Circulate and help weaker readers.</p>
+    <p><strong>Pause (pairs):</strong> Stop and Think, Part 2. Push for the key idea: he describes his care because he wants to prove he is not mad.</p>
+
+    <h3>Part 3, silent (11 min)</h3>
+    <p><strong>Teacher:</strong> This is the longest part. Mention first that it contains a violent moment. Give a 9-minute warning on the timer. Fast finishers reread ¶11 and count how many times the sound "grew louder."</p>
+    <p><strong>Pause (pairs):</strong> Stop and Think, Part 3. Do not give the answer to "Is the sound real?" Students will return to it.</p>
+
+    <h3>Part 4, aloud (6 min)</h3>
+    <p><strong>Teacher:</strong> Student 4 reads ¶13, Student 5 reads ¶14–15, Student 6 reads ¶16 to "Oh God! What could I do?", and Student 7 reads the rest of ¶16 and ¶17. Tell Students 6 and 7 to read faster and louder as the panic grows.</p>
+    <p><strong>Pause (whole class):</strong> Stop and Think, Part 4. Then return to the Engage guesses on the board: "Who guessed correctly? What surprised you?"</p>
+    <div class="slide"><b class="lbl">Student instructions (slide)</b>Read the part on the screen. When you see Stop and Think, discuss the questions with your partner and write short answers in the Worksheet tab. You have 2 minutes.</div>
+  </div>
+
+  <div class="card" id="lp-narrator">
+    <h2><span class="stage study">Study C</span>The Unreliable Narrator <span class="time">6:52–7:07 · 15 min</span></h2>
+    <p>Students learn two terms and immediately test them, building a chart of quotations that becomes their evidence for the trial.</p>
+
+    <h3>Mini-input (5 min, whole class)</h3>
+    <div class="teacher"><b class="lbl">Teacher</b>
+      <ol>
+        <li>Ask: "Who tells this story?" Elicit: the killer himself, using "I." Write <strong>first-person narrator</strong>: the story is told by a character, using <em>I</em>.</li>
+        <li>Point to the trust numbers still on the board from Engage. Ask: "Did your numbers change after reading?"</li>
+        <li>Write <strong>unreliable narrator</strong>: a narrator we cannot completely believe. What he <em>says</em> and what he <em>does</em> do not match.</li>
+        <li>Give one model from ¶1: he says "see how healthy, how calm I am," but he is telling a story about murder and repeats "nervous" three times.</li>
+      </ol>
+    </div>
+    <p><strong>Board:</strong> <em>first-person narrator = I tell the story · unreliable narrator = says one thing, shows another</em></p>
+
+    <h3>Evidence hunt (10 min, Group A of 3 and Group B of 4)</h3>
+    <div class="teacher"><b class="lbl">Teacher</b>
+      <ol>
+        <li>Students fill the two-column chart in the Worksheet tab: <strong>He says he is sane</strong> and <strong>This shows he is not</strong>.</li>
+        <li>Each group needs at least three quotations per column, each with its paragraph number.</li>
+        <li>Split the story so groups don't copy each other: Group A searches ¶1–8, Group B searches ¶9–17.</li>
+        <li>Circulate. Push stronger students toward less obvious evidence; point weaker students to specific paragraphs.</li>
+        <li>At 7:06, groups stop. Their charts are their notes for the trial.</li>
+      </ol>
+    </div>
+    <div class="slide"><b class="lbl">Student instructions (slide)</b>In your group, find quotations for each column. Write the words exactly and the paragraph number (¶). Find at least 3 for each column. You have 10 minutes.</div>
+    <p>Sample answers are in the <strong>Answer Key &amp; Notes</strong> tab.</p>
+  </div>
+
+  <div class="card" id="lp-trial">
+    <h2><span class="stage activate">Activate</span>The Trial <span class="time">7:07–7:37 · 30 min</span></h2>
+    <p>Students argue a real interpretive question in teams, using their evidence charts, while you play the narrator in the witness chair. Every student speaks at least twice.</p>
+    <div class="slide"><b class="lbl">The question for the court (slide)</b>Is the narrator a cold killer who knew what he was doing and belongs in prison, or a mentally ill man who needs a hospital?</div>
+    <p>This framing avoids legal terms such as "insanity defense," which work differently in Brazil, Colombia and the US. Both sides agree he killed the old man; they argue about <strong>why</strong> and <strong>what should happen to him</strong>.</p>
+
+    <h3>Teams</h3>
+    <div class="tbl"><table>
+      <tr><th>Team</th><th>Students</th><th>Argues that...</th><th>Useful evidence</th></tr>
+      <tr><td>Prosecution</td><td>Group A (3)</td><td>He planned everything and knew it was wrong.</td><td>Seven nights of planning (¶3), hiding the body (¶12), lying to the police (¶14)</td></tr>
+      <tr><td>Defense</td><td>Group B (4)</td><td>He is clearly ill and needs a hospital.</td><td>The eye (¶2), hearing the heart (¶10, ¶15–16), his confession (¶17)</td></tr>
+      <tr><td>The narrator</td><td>You (teacher)</td><td>Answers in character. Insists he is not mad.</td><td></td></tr>
+    </table></div>
+    <p>Both teams may use <strong>both</strong> groups' evidence charts.</p>
+
+    <h3>Preparation (10 min, teams)</h3>
+    <p><strong>Teacher:</strong> Show the team instructions on the slide. Every student must have a speaking job. Circulate and check that each point has a quotation.</p>
+    <div class="slide"><b class="lbl">Student instructions (slide)</b>
+      1. Write <strong>2 opening points</strong>. Each point needs one quotation and a paragraph number.<br>
+      2. Write <strong>2 questions</strong> to ask the narrator.<br>
+      3. Choose jobs: one <strong>opener</strong>, one or two <strong>questioners</strong>, one <strong>closer</strong>. (Defense: two questioners.)<br><br>
+      <b>Sentence frames:</b> <em>The narrator says "..." (¶...). This shows that... / If he were really mad / sane, he would not... / Why did you...? / Can you explain why...? / In conclusion, the evidence shows that...</em>
+    </div>
+
+    <h3>The trial (15 min, whole class)</h3>
+    <p>Arrange the room: the witness chair in the center, Prosecution on one side, Defense on the other. You are both the judge and the narrator; switch voices when needed.</p>
+    <div class="tbl"><table>
+      <tr><th>Step</th><th>Time</th><th>Who speaks</th></tr>
+      <tr><td>Opening statements</td><td>4 min</td><td>Prosecution opener, then Defense opener (2 min each)</td></tr>
+      <tr><td>Questions for the narrator</td><td>6 min</td><td>Alternate sides, one question at a time; you answer in character</td></tr>
+      <tr><td>Closing statements</td><td>3 min</td><td>Prosecution closer, then Defense closer</td></tr>
+      <tr><td>Transitions</td><td>2 min</td><td></td></tr>
+    </table></div>
+    <div class="teacher"><b class="lbl">Playing the narrator</b>
+      <ul>
+        <li>Stay calm and proud at first; become more nervous as questions get closer to the truth.</li>
+        <li>Repeat his favorite argument: "Would a madman plan so carefully?"</li>
+        <li>Help weaker students: if a question is unclear, rephrase it yourself ("You are asking why I killed him? I'll tell you...").</li>
+        <li>Leave openings for the Defense: mention the sound, the eye, the "ringing in my ears."</li>
+      </ul>
+    </div>
+
+    <h3>Verdict and debrief (5 min, whole class)</h3>
+    <ol>
+      <li>Everyone steps out of their role. Students vote on what they <strong>really</strong> believe: hand vote, or secret vote on paper if the group is shy. They also record it in the Worksheet tab.</li>
+      <li>Ask: "Which quotation was the most convincing? Why?"</li>
+      <li>Final question: "Why does Poe let the killer tell the story himself? What would we lose if the police told it?" (Steer toward: we are inside his mind, so we feel his panic and see that he cannot be trusted.)</li>
+    </ol>
+  </div>
+
+  <div class="card" id="lp-write">
+    <h2><span class="stage activate">Activate</span>Quick Write and Close <span class="time">7:37–7:50 · 13 min</span></h2>
+    <p>Students turn their spoken arguments into a short written answer with one quotation: a small, low-pressure version of the midterm's written analysis.</p>
+
+    <h3>Quick write (8 min, individual)</h3>
+    <div class="slide"><b class="lbl">Question (slide)</b>Is the narrator reliable? Give one reason and one quotation from the story.<br><b>Frame:</b> <em>I think the narrator is / is not reliable. He says "..." (¶...). However, this shows that... Another reason is... For these reasons, I believe...</em></div>
+    <div class="teacher"><b class="lbl">Teacher</b>
+      <ol>
+        <li>Students write 4 to 5 sentences in the Worksheet tab. They may use their evidence chart.</li>
+        <li>A2+ students can use the frame (one-tap button in the Worksheet). B1+ students should write without it and add a second quotation.</li>
+        <li>Students keep working on the same page at home; they submit everything as one PDF with the homework.</li>
+      </ol>
+    </div>
+
+    <h3>Wrap-up (2 min, whole class)</h3>
+    <p>Ask two students: "What is one thing you learned tonight about how to read a story?" Aim for: <em>Don't always believe the narrator.</em></p>
+
+    <h3>Homework (3 min to explain)</h3>
+    <div class="slide"><b class="lbl">Student instructions (slide)</b>
+      1. <strong>Reading journal:</strong> 3-sentence summary, 3 vocabulary items with definitions, 1 personal response sentence, 1 question about the story.<br>
+      2. <strong>Expand your quick write to 100–150 words</strong> with at least one quotation and its paragraph number. This is practice for the midterm.<br>
+      3. Press <strong>Download PDF</strong> in the Worksheet tab and send it to your teacher.
+    </div>
+  </div>
+
+  <div class="card" id="lp-diff">
+    <h2>Differentiation and Backup Plans</h2>
+    <p>The biggest risk is time: if silent reading runs long, cut from the trial, never from the reading or the quick write.</p>
+    <h3>Support and challenge</h3>
+    <div class="tbl"><table>
+      <tr><th>Stage</th><th>A2+ support</th><th>B1+ challenge</th></tr>
+      <tr><td>Engage</td><td>Pair with a stronger partner</td><td>Explain their trust number with a "because" sentence</td></tr>
+      <tr><td>Vocabulary</td><td>Focus on the core 8 only</td><td>Try 3 extra cards and use each word in a sentence</td></tr>
+      <tr><td>Reading</td><td>Tap glossary words; read the shorter aloud parts (¶1, ¶13)</td><td>Compare one paragraph with the Original Text tab</td></tr>
+      <tr><td>Evidence hunt</td><td>Search the paragraphs you name for them</td><td>Find hidden evidence (pride, laughter)</td></tr>
+      <tr><td>Trial</td><td>Opener role, reading a prepared statement</td><td>Questioner role, which needs quick thinking</td></tr>
+      <tr><td>Quick write</td><td>Use the frame</td><td>No frame, two quotations</td></tr>
+    </table></div>
+
+    <h3>Common difficulties</h3>
+    <ul>
+      <li><strong>"Mad" means angry.</strong> Students may think the narrator is just angry. Return to the vocabulary note on old and modern meanings.</li>
+      <li><strong>Who is "you"?</strong> Students may be confused by the narrator speaking to "you." Say: we don't know; maybe a judge, a doctor, or the reader.</li>
+      <li><strong>The heartbeat.</strong> Some students will think the heart really beats. Accept it as a reading, then ask: "Could anyone else hear it?"</li>
+      <li><strong>The violence.</strong> ¶12 describes cutting up the body. Mention before Part 3 that the story has a violent moment, and keep the reading moving.</li>
+      <li><strong>Quiet students in the trial.</strong> Give them the opener or closer role; they can read prepared text.</li>
+    </ul>
+
+    <h3>If time runs short</h3>
+    <div class="tbl"><table>
+      <tr><th>Running late by...</th><th>Cut</th></tr>
+      <tr><td>3 min</td><td>Shorten the Engage trust scale to Lines 2 and 4 only</td></tr>
+      <tr><td>5 min</td><td>Questions to the narrator: 4 minutes instead of 6</td></tr>
+      <tr><td>10 min</td><td>Skip opening statements; go straight to questions and closings</td></tr>
+    </table></div>
+
+    <h3>If a student is absent</h3>
+    <p>With 6 students, use two groups of 3 and teams of 3 and 3. Part 4 readers: Student 4 reads ¶13–14, Student 5 reads ¶15 and ¶16 to "Oh God! What could I do?", and Student 6 reads the rest.</p>
+  </div>
+
+  <div class="card" id="lp-outcomes">
+    <h2>Expected Outcomes and How to Check Them</h2>
+    <p>Each objective has a visible moment in the lesson where you can see whether students reached it.</p>
+    <div class="tbl"><table>
+      <tr><th>Objective</th><th>Where you check it</th><th>Success looks like</th></tr>
+      <tr><td>Follow the plot and explain the motive</td><td>Stop and Think pauses, Parts 1 and 4</td><td>Students say he killed the old man because of the eye, not for money or anger</td></tr>
+      <tr><td>Explain "unreliable narrator"</td><td>Mini-input and trial debrief</td><td>Students say "He says he is calm, but..." in their own words</td></tr>
+      <tr><td>Find and use quotations when speaking</td><td>Evidence charts and the trial</td><td>Each team uses at least 3 quotations with paragraph numbers</td></tr>
+      <tr><td>Write a short response with a quotation</td><td>Quick write</td><td>4 to 5 sentences with one correctly copied quotation and a clear opinion</td></tr>
+    </table></div>
+    <p><strong>Syllabus links:</strong> SLOs on identifying literary elements, using literary vocabulary (narrator), and defending interpretations with textual support; Unit 2 focus on narrative unreliability and guilt.</p>
+    <p><strong>After class:</strong> When the PDFs arrive, note who can (a) state a clear opinion, (b) copy a quotation correctly, and (c) explain how the quotation supports the opinion. These three skills are exactly what the midterm's 150-word analysis will test.</p>
+  </div>
+</section>
+
+<!-- ===================== ANSWER KEY ===================== -->
+<section class="panel" id="panel-key" role="tabpanel" aria-labelledby="tab-key" hidden>
+
+  <div class="toc">
+    <a href="#k-engage">1. Who Is Speaking?</a><a href="#k-stop">2. Stop and Think</a><a href="#k-evidence">3. Evidence Hunt</a><a href="#k-trial">4. The Trial</a><a href="#k-write">5. Quick Write</a><a href="#k-hw">Homework</a><a href="#k-lit">Literary Notes</a>
+  </div>
+
+  <div class="card" id="k-engage">
+    <h2>1. Who Is Speaking? (Engage)</h2>
+    <p>There are no correct answers here; students are guessing before they read. Listen for guesses you can return to later.</p>
+    <ul>
+      <li><strong>Who / where:</strong> a prisoner, a patient in a mental hospital, a criminal in a police station or courtroom. All are reasonable: the story never says where he is.</li>
+      <li><strong>Who is he talking to:</strong> a judge, a doctor, a police officer, a lawyer. The story never says.</li>
+      <li><strong>Trust Scale:</strong> Line 4 usually gets the lowest scores ("Ha!" sounds strange). Line 3 may get a higher score; after reading, it becomes the most shocking line, because he kills the man he says he loved.</li>
+    </ul>
+  </div>
+
+  <div class="card" id="k-stop">
+    <h2>2. Stop and Think (Study)</h2>
+    <p>Suggested answers. Accept any answer that is supported by the text.</p>
+
+    <h3>Part 1: The Eye (¶1–2)</h3>
+    <div class="ans"><span class="qq">Why does the narrator want to kill the old man? Is that a good reason?</span>Because of the old man's eye: "the eye of a vulture," pale blue with a cloudy layer (¶2). It is not about money ("I did not want his gold") or anger ("There was no anger"). It is not a good reason, and that is the first sign that the narrator is not normal.</div>
+    <div class="ans"><span class="qq">The narrator says he is not mad. Do you believe him?</span>Open question. Strong answers notice the contradiction: he says he is "healthy" and "calm," but he repeats that he is "very, very, terribly nervous" and says he hears "many things in hell" (¶1).</div>
+
+    <h3>Part 2: Seven Nights (¶3)</h3>
+    <div class="ans"><span class="qq">Why does the narrator tell us so much about how careful he was?</span>He believes careful planning proves he is sane: "Would a madman be as wise as this?" (¶3).</div>
+    <div class="ans"><span class="qq">What does he want us to think about him? Does it work?</span>He wants us to see him as clever and wise. It does not work: spending an hour putting his head through a door, every night for seven nights, and being extra kind to the man by day, makes him seem more disturbed, not less.</div>
+
+    <h3>Part 3: The Eighth Night (¶4–12)</h3>
+    <div class="ans"><span class="qq">What sound does the narrator hear? Do you think the sound is real?</span>A "low, dull, quick sound," like a watch wrapped in cotton, which he believes is the old man's heart (¶10). Possible readings: (1) the frightened old man's real heartbeat, though hearing it across a dark room is unlikely; (2) his own heartbeat; (3) his imagination or guilt; (4) the death-watch beetles in the wall (¶6). Accept any reading with evidence.</div>
+    <div class="ans"><span class="qq">Does the way he hid the body prove he is not mad?</span>No. Hiding the body shows planning, but planning is not the same as sanity. His laughter, "A tub had caught it all. Ha! Ha!" (¶12), and his pride show that something is wrong. This is the key insight of the lesson.</div>
+
+    <h3>Part 4: The Visitors (¶13–17)</h3>
+    <div class="ans"><span class="qq">Why does the narrator confess? Did the police really suspect him?</span>He confesses because the sound grows louder and he believes the officers know and are laughing at him (¶16). The police probably did not suspect him: they "were satisfied" (¶15) and "chatted pleasantly and smiled" (¶16). Nothing outside his own mind forces the confession; his guilt does.</div>
+    <div class="ans"><span class="qq">Whose heart is "telling the tale" (telling the secret)?</span>Two good readings: (1) the old man's heart, as the narrator believes; (2) the narrator's own heart: his heartbeat, guilt or conscience gives away his secret. "Tell-tale" means something that reveals a secret. Strong students may argue for both.</div>
+  </div>
+
+  <div class="card" id="k-evidence">
+    <h2>3. Evidence Hunt (Study)</h2>
+    <p>Sample quotations from the adapted story. Students may find others; check that the words are copied exactly and the paragraph number is correct.</p>
+    <div class="tbl"><table>
+      <tr><th>He says he is sane</th><th>This shows he is not</th></tr>
+      <tr><td>"So how can I be mad?" (¶1)</td><td>"I think it was his eye!" He kills a man he loved because of an eye (¶2)</td></tr>
+      <tr><td>"Listen, and see how healthy, how calm I am..." (¶1)</td><td>"I actually laughed quietly at the idea" (¶4)</td></tr>
+      <tr><td>"Would a madman be as wise as this?" (¶3)</td><td>"I knew what the old man was feeling, and I felt sorry for him, although inside I was laughing." (¶7)</td></tr>
+      <tr><td>"haven't I told you that what you think is madness is only senses that are too sharp?" (¶10)</td><td>"A tub had caught it all. Ha! Ha!" (¶12)</td></tr>
+      <tr><td>"I describe the wise steps I took to hide the body" (¶12)</td><td>He puts his chair "on the exact spot under which the victim's body lay" (¶14)</td></tr>
+      <tr><td>"I was unusually relaxed." (¶15)</td><td>"They were laughing at my horror!" (¶16)</td></tr>
+    </table></div>
+    <p><strong>Group A (¶1–8)</strong> will find most of the "he says" quotations. <strong>Group B (¶9–17)</strong> will find most of the "this shows" quotations. That is why both teams share both charts in the trial.</p>
+  </div>
+
+  <div class="card" id="k-trial">
+    <h2>4. The Trial (Activate)</h2>
+    <p>Arguments each side is likely to make. Use these to prompt teams that get stuck during preparation.</p>
+    <div class="tbl"><table>
+      <tr><th>Prosecution: prison</th><th>Defense: hospital</th></tr>
+      <tr><td>He planned for seven nights (¶3).</td><td>He had no real motive: "I loved the old man" (¶2).</td></tr>
+      <tr><td>He pretended to be kind to the old man every morning (¶3).</td><td>He is obsessed with an eye and calls it "Evil" (¶2–3).</td></tr>
+      <tr><td>He hid the body carefully so no one would find it (¶12).</td><td>He hears things no one else hears: "in heaven and on earth... in hell" (¶1).</td></tr>
+      <tr><td>He lied to the police: the scream was "my own, in a dream" (¶14).</td><td>He hears a dead man's heart (¶15–16).</td></tr>
+      <tr><td>He knew it was wrong; that is why he hid it.</td><td>He confessed with no evidence against him (¶17).</td></tr>
+    </table></div>
+    <h3>Good questions for the narrator</h3>
+    <ul>
+      <li>If you loved the old man, why did you kill him?</li>
+      <li>Why did you hide the body if you did nothing wrong?</li>
+      <li>Why did you put your chair on top of the body?</li>
+      <li>The police were smiling. Why did you think they knew?</li>
+      <li>Can a sane person hear a dead man's heart?</li>
+    </ul>
+  </div>
+
+  <div class="card" id="k-write">
+    <h2>5. Quick Write (Activate)</h2>
+    <p>Model answer at A2+ level, using the frame. Share it after students write, not before.</p>
+    <div class="model">I think the narrator is not reliable. He says, "So how can I be mad?" (¶1). However, he killed an old man only because of his eye. This shows that he is not thinking normally. Another reason is that he hears the dead man's heart under the floor. For these reasons, I believe we cannot trust him.<span class="wc">57 words</span></div>
+
+    <h3>What to look for</h3>
+    <div class="tbl"><table>
+      <tr><th>Skill</th><th>Strong</th><th>Needs work</th></tr>
+      <tr><td>Clear opinion</td><td>First sentence answers the question</td><td>No opinion, or opinion only at the end</td></tr>
+      <tr><td>Quotation</td><td>Copied exactly, in quotation marks, with ¶</td><td>Paraphrase only, or no paragraph number</td></tr>
+      <tr><td>Explanation</td><td>Says <em>how</em> the quotation supports the opinion ("This shows that...")</td><td>Quotation with no comment</td></tr>
+    </table></div>
+  </div>
+
+  <div class="card" id="k-hw">
+    <h2>Homework</h2>
+    <h3>A. Reading journal: sample</h3>
+    <ul>
+      <li><strong>Summary:</strong> A man decides to kill an old man because he hates his pale, cloudy eye. After seven nights of watching, he kills him and hides the body under the floor. When the police visit, he hears a heartbeat getting louder, and he confesses.</li>
+      <li><strong>Vocabulary:</strong> any 3 words with learner-level definitions (check against the Vocabulary Cards).</li>
+      <li><strong>Personal response:</strong> any honest sentence, e.g., "The ending surprised me because the police did not suspect him."</li>
+      <li><strong>Question:</strong> any genuine question, e.g., "Who is the narrator talking to?" These make good openers for next class.</li>
+    </ul>
+
+    <h3>B. Midterm practice paragraph: model (B1+)</h3>
+    <div class="model">The narrator of "The Tell-Tale Heart" is not reliable, because what he says and what he does do not match. From the first paragraph, he insists that he is calm and healthy, and he asks, "So how can I be mad?" (¶1). However, his only reason for killing the old man is his "vulture" eye, and he admits that he "loved the old man" (¶2). A sane person does not kill someone he loves because of an eye. He also believes that careful planning proves he is sane, but his laughter at the hidden body, "Ha! Ha!" (¶12), shows the opposite. Finally, he hears a dead man's heart through the floor and confesses. Poe lets the killer tell his own story so that readers can watch his mind break down.<span class="wc">130 words</span></div>
+    <p>Notice the structure for the midterm: <strong>topic sentence</strong> (clear opinion), <strong>evidence</strong> (quotations with ¶), <strong>explanation</strong> (what each quotation shows), and a <strong>concluding sentence</strong> about the author's choice.</p>
+  </div>
+
+  <div class="card" id="k-lit">
+    <h2>Literary Notes for the Teacher</h2>
+    <p>Background for answering student questions. Only the first three terms are taught in this lesson.</p>
+    <div class="tbl"><table>
+      <tr><th style="width:170px">Term</th><th>In this story</th></tr>
+      <tr><td><strong>First-person narrator</strong> (taught)</td><td>The killer tells his own story using "I." We only know what he chooses to tell us.</td></tr>
+      <tr><td><strong>Unreliable narrator</strong> (taught)</td><td>He insists he is sane, but his words and actions prove the opposite. The reader must read "against" him.</td></tr>
+      <tr><td><strong>Suspense</strong> (taught)</td><td>Poe slows time (an hour to put his head in the door), repeats words ("louder, louder"), and uses short, broken sentences to build tension.</td></tr>
+      <tr><td>Dramatic irony</td><td>He is kindest to the old man in the week he plans to kill him; he says he is calm while he panics.</td></tr>
+      <tr><td>Symbolism</td><td>The eye can represent being watched or judged; the heart represents guilt or conscience.</td></tr>
+      <tr><td>Gothic atmosphere</td><td>Midnight, a dark old house, a lantern's thin ray, death-watch beetles, a hidden body.</td></tr>
+    </table></div>
+    <p><strong>For later units:</strong> The Yellow Wallpaper (Unit 4) and An Occurrence at Owl Creek Bridge (Unit 5) return to unreliable narration. Remind students of this story when you get there.</p>
+  </div>
+</section>
+</main>
+
+<footer>Approach International Student Center · Reading &amp; Critical Thinking, Independent Level · Teacher Materials</footer>
+
+<script>
+var tabs = document.querySelectorAll(".tab");
+tabs.forEach(function(t){
+  t.addEventListener("click", function(){
+    tabs.forEach(function(x){
+      var on = x === t;
+      x.setAttribute("aria-selected", on ? "true" : "false");
+      document.getElementById(x.getAttribute("aria-controls")).hidden = !on;
+    });
+    window.scrollTo({top: document.querySelector(".toolbar").offsetTop, behavior: "smooth"});
+  });
+});
+document.getElementById("print").addEventListener("click", function(){ window.print(); });
+</script>
+</body>
+</html>
