@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Midterm · Ethics in a Global World</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#143865;--blue:#1c4f8f;--gold:#d39f10;--gold-d:#8c7535;--sky:#c1cddd;--sky2:#e1e8f2;--sky3:#edf2f9;--cream:#efe9d9;--ink:#1a2233;--muted:#4a5568;--ok:#2f6b2f}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Source Sans 3",system-ui,sans-serif;color:var(--ink);background:#e9ecf1;font-size:16px;line-height:1.45}
+.ctl{position:sticky;top:0;z-index:5;background:var(--navy);color:#fff;border-bottom:4px solid var(--gold);padding:10px 16px}
+.ctl .in{max-width:8.5in;margin:0 auto;display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center}
+.ctl b{font-family:"Libre Baskerville",serif;flex:1;min-width:200px}
+.btn{background:var(--gold);color:var(--navy);border:0;border-radius:6px;padding:7px 13px;font:inherit;font-weight:700;cursor:pointer;text-decoration:none;font-size:14px}
+.btn.ghost{background:transparent;color:#fff;border:1px solid var(--sky)}
+.sheet{max-width:8.5in;margin:16px auto;background:#fff;padding:.5in .6in;box-shadow:0 4px 16px rgba(0,0,0,.12)}
+.hd{display:flex;align-items:center;gap:12px;border-bottom:3px solid var(--gold);padding-bottom:8px;margin-bottom:10px}
+.hd img{width:46px;height:46px;border-radius:6px}
+.hd h1{font-family:"Libre Baskerville",serif;color:var(--navy);font-size:21px;margin:0}
+.hd p{margin:0;color:var(--muted);font-size:13.5px}
+.namebar{display:flex;gap:20px;flex-wrap:wrap;font-size:14.5px;margin:6px 0 12px}
+.namebar span{flex:1;min-width:180px;border-bottom:1px solid #999;padding-bottom:2px}
+h2{font-family:"Libre Baskerville",serif;color:var(--navy);font-size:17px;margin:20px 0 6px;padding-bottom:3px;border-bottom:2px solid var(--sky2)}
+.ins{font-size:14px;color:var(--muted);margin:0 0 8px}
+ol.q>li{margin:0 0 10px;break-inside:avoid}
+ol.opts{list-style:lower-alpha;margin:3px 0 0;padding-left:24px;columns:2;column-gap:24px}
+ol.opts li{margin:1px 0;break-inside:avoid}
+.match{display:grid;grid-template-columns:1fr 1.6fr;gap:4px 20px;font-size:15px}
+.match ol{margin:0;padding-left:22px}
+.match ol li{margin:0 0 6px}
+.match ol.d{list-style:upper-alpha}
+.case{background:var(--sky3);border-left:4px solid var(--gold);padding:10px 14px;border-radius:4px;margin:8px 0;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.lines{border-bottom:1px solid #aab4c3;height:26px}
+.pts{float:right;color:var(--gold-d);font-weight:700;font-size:13.5px}
+.key{display:none;background:#eef6ec;border:1px solid #b9d3b1;border-radius:6px;padding:6px 10px;margin-top:4px;font-size:14px;color:var(--ok)}
+body.showkey .key{display:block}
+body.showkey .lines{display:none}
+.keyonly{display:none}
+body.showkey .keyonly{display:block}
+.kin{display:none;color:var(--ok);font-weight:700;margin-left:6px}
+body.showkey .kin{display:inline}
+table{width:100%;border-collapse:collapse;font-size:14px;margin:6px 0}
+th,td{border:1px solid var(--sky);padding:5px 7px;text-align:left;vertical-align:top}
+th{background:var(--sky2)}
+.total{text-align:right;font-weight:700;color:var(--navy);margin-top:14px}
+@media (max-width:640px){.sheet{padding:18px 16px}ol.opts{columns:1}.match{grid-template-columns:1fr}}
+@media print{@page{size:letter;margin:.45in}body{background:#fff;font-size:11pt}.ctl{display:none}.sheet{box-shadow:none;margin:0;padding:0;max-width:none}h2{break-after:avoid}.pagebreak{break-before:page}}
+
+.box{border:1.5px solid var(--navy);border-radius:6px;padding:8px 12px;margin:6px 0 10px;display:flex;flex-wrap:wrap;gap:6px 22px;font-weight:600;color:var(--navy)}
+.rules{font-size:14px;border:1px solid var(--sky);border-radius:6px;padding:8px 12px;margin:0 0 6px;background:#fafbfd}
+.rules ul{margin:4px 0 0;padding-left:20px}
+.ptable td,.ptable th{text-align:center}
+.ptable td:first-child,.ptable th:first-child{text-align:left}
+.tnote{background:#fff7e0;border:1px solid #e6cf8a;border-radius:6px;padding:10px 14px;margin:0 0 16px;font-size:14px}
+.tnote h3{font-family:"Libre Baskerville",serif;color:var(--navy);font-size:15px;margin:10px 0 4px}
+.tnote h3:first-child{margin-top:0}
+.tnote ul{margin:2px 0;padding-left:20px}
+.sub{font-weight:700;color:var(--navy);margin:6px 0 2px}
+@media print{.match ol li{margin:0 0 3px}.box{gap:4px 14px;padding:6px 10px;font-size:10.5pt}ol.q>li{margin-bottom:6px}.namebar{margin:4px 0 8px}h2{margin-top:12px}.match{font-size:10.5pt}.rules{padding:5px 10px}.hd{margin-bottom:6px}}
+.blank{display:inline-block;min-width:150px;border-bottom:1px solid #777}
+body.showkey .blank{display:none}
+</style>
+</head>
+<body>
+<div class="ctl"><div class="in">
+  <b>Midterm · Chapters 1–6</b>
+  <button class="btn" onclick="document.body.classList.toggle('showkey');this.textContent=document.body.classList.contains('showkey')?'Hide teacher key':'Show teacher key'">Show teacher key</button>
+  <button class="btn" onclick="print()">Print</button>
+</div></div>
+
+<div class="sheet">
+
+<div class="keyonly tnote">
+<h3>Teacher notes (shown only with the key)</h3>
+<p style="margin:0 0 6px">To print the <b>student version</b>, hide the key first, then print. To print a <b>marking copy</b>, show the key, then print.</p>
+<h3>Format and timing (80 minutes, 50 points, closed-book)</h3>
+<table class="ptable"><tr><th>Part</th><th>Points</th><th>Suggested time</th><th>Syllabus element</th></tr>
+<tr><td>A · Vocabulary</td><td>12</td><td>10 min</td><td>Vocabulary</td></tr>
+<tr><td>B · Short answer</td><td>15</td><td>20 min</td><td>Short answer</td></tr>
+<tr><td>C · Case analysis + paragraph</td><td>23</td><td>50 min</td><td>Case analysis</td></tr></table>
+<ul><li>Give time warnings at 30 minutes (students should be starting Part C) and with 10 minutes left.</li>
+<li>Grade conversion: the midterm is 20% of the course grade, so course points = score ÷ 50 × 20.</li></ul>
+<h3>What each chapter contributes</h3>
+<table><tr><th>Chapter</th><th>Items</th></tr>
+<tr><td>1 · Why Ethics Matter</td><td>A1 integrity, goodwill · B1</td></tr>
+<tr><td>2 · Antiquity to the Present</td><td>A1 veil of ignorance · B2 · C4</td></tr>
+<tr><td>3 · Stakeholders</td><td>A1 stakeholder · B3 · C1 · C2</td></tr>
+<tr><td>4 · Society, Environment, Government</td><td>A1 externality, greenwashing · A2 tragedy of the commons · C2b</td></tr>
+<tr><td>5 · Culture and Time</td><td>A1 enculturation · A2 acculturation, ethical relativism · B4 · C3</td></tr>
+<tr><td>6 · What Employers Owe Employees</td><td>A1 collective bargaining · A2 pay ratio · B5 · the working-hours and wage facts in Part C</td></tr></table>
+<h3>If you don't cover Chapter 6 before the test</h3>
+<ul>
+<li><b>A1 item 8:</b> replace "collective bargaining" with <i>localization</i>; definition H becomes "adapting a product to a local market."</li>
+<li><b>A2 sentence 3:</b> replace it with "Wearing fur was once a sign of wealth; today many brands ban it. This shows that standards can change over ______." Put <i>time</i> in the word box in place of <i>pay ratio</i>.</li>
+<li><b>B5:</b> use instead "What is greenwashing? Give one example." Key: a company says it is green or responsible but hides real problems (2); one example (1).</li>
+</ul>
+<h3>Marking principles</h3>
+<ul><li>Grade the <b>ideas</b>. Language errors lose points only when they make the meaning unclear.</li>
+<li>Short answers are fine. A correct idea in simple words earns full points.</li>
+<li>Accept any position that is clearly reasoned. There is no single correct answer in Part C.</li></ul>
+</div>
+
+<div class="hd"><img src="logo.png" alt="" onerror="this.remove()"><div><h1>Midterm Assessment · Ethics in a Global World</h1><p>Chapters 1–6 · 80 minutes · 50 points</p></div></div>
+<div class="namebar"><span>Name:</span><span>Date:</span><span style="flex:.4;min-width:110px">Score: &nbsp;&nbsp;&nbsp;&nbsp; / 50</span></div>
+<div class="rules"><b>Instructions</b>
+<ul><li>No phones, notes, books or translation tools.</li>
+<li>Answer in English. Clear ideas matter more than perfect grammar. Short, simple answers are fine.</li>
+<li>Suggested time: Part A 10 minutes · Part B 20 minutes · Part C 50 minutes.</li></ul></div>
+
+<h2>Part A · Vocabulary <span class="pts">12 points</span></h2>
+<p class="sub">A1 · Matching (8 points)</p>
+<p class="ins">Write the letter of the correct meaning next to each word. One meaning is not used.</p>
+<div class="match">
+<ol>
+<li>integrity ____ <span class="kin">D</span></li>
+<li>stakeholder ____ <span class="kin">G</span></li>
+<li>goodwill ____ <span class="kin">A</span></li>
+<li>veil of ignorance ____ <span class="kin">F</span></li>
+<li>externality ____ <span class="kin">I</span></li>
+<li>greenwashing ____ <span class="kin">C</span></li>
+<li>enculturation ____ <span class="kin">E</span></li>
+<li>collective bargaining ____ <span class="kin">H</span></li>
+</ol>
+<ol class="d">
+<li>a company's good reputation and good relationships with customers</li>
+<li>a tax on pollution</li>
+<li>saying a company is "green" or responsible when it is not</li>
+<li>doing what you say; being honest and consistent</li>
+<li>learning the customs and values of your own society as you grow up</li>
+<li>choosing fair rules without knowing who you will be in society</li>
+<li>anyone who is affected by a company's decisions</li>
+<li>a union and an employer negotiating pay and working conditions</li>
+<li>a cost that falls on people outside a business deal, such as pollution</li>
+</ol>
+</div>
+
+<p class="sub" style="margin-top:14px">A2 · Words in context (4 points)</p>
+<p class="ins">Complete each sentence with a term from the box. One term is not used.</p>
+<div class="box"><span>acculturation</span><span>ethical relativism</span><span>pay ratio</span><span>sustainability</span><span>tragedy of the commons</span></div>
+<ol class="q">
+<li>Every fishing company took more fish from the shared lake, and soon there were no fish left. This is the <span class="blank">&nbsp;</span>. <span class="kin">tragedy of the commons</span></li>
+<li>Mei moved to Canada. After ten years, some of her habits and ideas changed because of the new culture. This is <span class="blank">&nbsp;</span>. <span class="kin">acculturation</span></li>
+<li>The CEO earns 300 times more than the average worker. The company's <span class="blank">&nbsp;</span> is 300 to 1. <span class="kin">pay ratio</span></li>
+<li>"Bribes are OK here, because everyone does it here." This idea is called <span class="blank">&nbsp;</span>. <span class="kin">ethical relativism</span></li>
+</ol>
+
+<h2 class="pagebreak">Part B · Short answer <span class="pts">15 points</span></h2>
+<p class="ins">Answer in 2–3 sentences. You may use the sentence starters. (3 points each)</p>
+<ol class="q">
+<li>What is the difference between a <b>short-term</b> and a <b>long-term</b> view of profit? Give an example.
+<p class="ins" style="margin:3px 0 0"><i>Starters: A short-term view focuses on … A long-term view … For example, …</i></p>
+<div class="lines"></div><div class="lines"></div><div class="lines"></div>
+<div class="key">Short-term: focuses on profit this quarter or this year (1). Long-term: thinks about results years from now; honesty and trust (goodwill) bring profit over time (1). Example (1): J&amp;J's Tylenol recall cost a lot but customers came back; Samsung rushed the Note 7 and lost more; or any clear workplace example.</div></li>
+<li>A company must decide whether to close a factory. What would a <b>utilitarian</b> look at? What would <b>Kant</b> look at?
+<p class="ins" style="margin:3px 0 0"><i>Starters: A utilitarian would look at … Kant would look at …</i></p>
+<div class="lines"></div><div class="lines"></div><div class="lines"></div>
+<div class="key">Utilitarian (1.5): the results, which choice brings the most good and the least harm for the most people (count workers, owners, the town, customers). Kant (1.5): duty and the motive, whether the company is honest and whether it treats workers merely as a means (a tool) for profit; results don't decide.</div></li>
+<li>What is the difference between the <b>ethical minimum</b> and the <b>ethical maximum</b>? Give an example.
+<p class="ins" style="margin:3px 0 0"><i>Starters: The ethical minimum is … The ethical maximum is … For example, …</i></p>
+<div class="lines"></div><div class="lines"></div><div class="lines"></div>
+<div class="key">Minimum: the least a company can do and still obey the law (1). Maximum: the best, most ethical action possible (1). Example (1): J&amp;J removed all Tylenol from U.S. stores (maximum); Samsung first only warned washer owners (minimum), then gave refunds and free pickup (maximum); or a clear example of their own.</div></li>
+<li>What is the difference between <b>etiquette</b> and <b>ethics</b>? Give one example of each.
+<p class="ins" style="margin:3px 0 0"><i>Starters: Etiquette is about … Ethics is about … For example, …</i></p>
+<div class="lines"></div><div class="lines"></div><div class="lines"></div>
+<div class="key">Etiquette: manners and customs, what is polite, which can change from culture to culture (1). Ethics: right and wrong, especially when other people can be harmed (1). Examples (1, both needed): etiquette, e.g., arriving late, how to greet, a small gift; ethics, e.g., bribery, lying to customers, unsafe work.</div></li>
+<li>Name <b>two</b> things that employers owe their employees. Choose one and explain why it matters.
+<p class="ins" style="margin:3px 0 0"><i>Starters: Employers owe their employees … and … This matters because …</i></p>
+<div class="lines"></div><div class="lines"></div><div class="lines"></div>
+<div class="key">Any two (1 each), e.g., a safe workplace, a fair wage, respect and no harassment, privacy, the right to join a union, good working conditions. Explanation (1): e.g., safety protects workers' lives; fair pay respects their work and builds loyalty and productivity.</div></li>
+</ol>
+
+<h2 class="pagebreak">Part C · Case analysis <span class="pts">23 points</span></h2>
+<p class="ins">Read the case, then answer C1–C5.</p>
+<div class="case"><b>Brightline Outdoor</b> <i>(a fictional company)</i> is an American company that sells jackets for $140. Its website says: <b>"Every jacket is made ethically."</b> The jackets are made by a factory called <b>Sunfield</b> in another country. Sunfield has 1,200 workers. A check of the factory finds three problems:
+<ul style="margin:6px 0 4px;padding-left:20px">
+<li>In the busy months, workers work <b>70 hours a week</b>. This is legal in that country.</li>
+<li>Workers earn more than the minimum wage, but <b>not enough to live on</b>.</li>
+<li>The factory puts dirty water into a river. Farmers use this river for their crops.</li>
+</ul>
+The factory manager says: <i>"Long hours are normal here. If you make us change, you will go to a cheaper factory, and our 1,200 workers will lose their jobs."</i><br>
+Fixing the three problems would cost Brightline <b>$1.10 more per jacket</b>. Another factory offers to make the jackets cheaper.</div>
+
+<ol class="q">
+<li><span class="pts">4 points</span><b>C1 · Stakeholders.</b> Name <b>four</b> stakeholders in this case. Write the type of each one.
+<p class="ins" style="margin:3px 0 0"><i>Types: enabling (owners, government) · functional (workers, suppliers, customers) · normative (competitors) · diffused (media, community groups, the environment)</i></p>
+<table style="margin-top:6px"><tr><th style="width:55%">Stakeholder</th><th>Type</th></tr><tr><td style="height:28px"></td><td></td></tr><tr><td style="height:28px"></td><td></td></tr><tr><td style="height:28px"></td><td></td></tr><tr><td style="height:28px"></td><td></td></tr></table>
+<div class="key">Any four, 1 point each (½ for the stakeholder, ½ for the type). Examples: Brightline's owners or shareholders, enabling; the government of Sunfield's country, enabling; factory workers, functional; Sunfield (the supplier), functional; customers, functional; the cheaper factory or other jacket companies, normative; the farmers, diffused (accept functional with a reason); the river/environment, diffused; the media, diffused.</div></li>
+
+<li><span class="pts">4 points</span><b>C2 · Minimum, maximum and the website.</b>
+<div style="margin-top:4px">(a) What is the <b>ethical minimum</b> for Brightline? What is the <b>ethical maximum</b>? (2 points)</div>
+<div class="lines"></div><div class="lines"></div><div class="lines"></div>
+<div style="margin-top:6px">(b) Is the website claim "Every jacket is made ethically" honest? Why or why not? (2 points)</div>
+<div class="lines"></div><div class="lines"></div>
+<div class="key">(a) Minimum (1): change nothing, because nothing is illegal there; or move to the cheaper factory. Maximum (1): stay, and help pay for the changes (fewer hours, fair pay, clean water); check the factory often; tell the public the truth.<br>(b) Not honest (1), with a reason (1): workers work 70 hours, pay is too low to live on and the river is polluted, so the claim hides real problems; this is like greenwashing. Accept "partly honest" with a clear reason.</div></li>
+
+<li><span class="pts">3 points</span><b>C3 · Culture.</b> The manager says long hours are "normal here." Is this just a <b>local custom</b> (etiquette), or is it a question of <b>ethics</b>? Circle one and give a reason. <span style="white-space:nowrap">&nbsp; Custom &nbsp;/&nbsp; Ethics &nbsp;/&nbsp; Both</span>
+<div class="lines"></div><div class="lines"></div><div class="lines"></div>
+<div class="key">Choice (1) and reason (2). Accept any choice with a clear reason. Strong answers: working hours can be a local custom, and some workers want the extra money, but 70-hour weeks can hurt health and safety, so it is also ethics. Bonus idea, not required: Nike also faced this problem in the 1990s and improved its factories.</div></li>
+
+<li><span class="pts">4 points</span><b>C4 · Frameworks.</b> Choose <b>two</b> frameworks from the list. Write what each one would tell Brightline to do, and why.
+<p class="ins" style="margin:3px 0 0"><i>Utilitarianism (most good for most people) · Kant (duty; don't use people only as tools) · Rawls (protect the weakest) · Aristotle (be a good, honest person)</i></p>
+<table style="margin-top:6px"><tr><th style="width:22%">Framework</th><th>What should Brightline do? Why?</th></tr><tr><td style="height:58px"></td><td></td></tr><tr><td style="height:58px"></td><td></td></tr></table>
+<div class="key">2 points each: what Brightline should do (1) and a reason connected to the case (1). <b>Utilitarian:</b> stay and fix the problems, because 1,200 jobs and the farmers' crops matter more than $1.10 per jacket. <b>Kant:</b> workers and farmers are being used only as tools for cheap jackets, and the website claim is not honest, so fix the problems and tell the truth. <b>Rawls:</b> protect the weakest, the low-paid workers and the farmers, so raise pay and clean the water. <b>Aristotle:</b> an honest, wise company would find a balanced solution and not hide problems.</div></li>
+
+<li><span class="pts">8 points</span><b>C5 · Paragraph.</b> Write one paragraph (<b>120–150 words</b>): <b>What should Brightline do?</b> Stay with Sunfield and ask for changes, move to the cheaper factory, or another idea?
+<div class="rules" style="margin-top:6px"><b>Include all six parts:</b> 1 my position · 2 a reason · 3 a fact from the case · 4 a framework, used for this case · 5 the other side, and my answer to it · 6 a conclusion<br><i>Starters: I believe Brightline should … · because … · For example, the case says … · From a ___ perspective, … · Some people may say … However, … · Therefore, …</i></div>
+<div class="lines"></div><div class="lines"></div><div class="lines"></div><div class="lines"></div><div class="lines"></div><div class="lines"></div><div class="lines"></div><div class="lines"></div><div class="lines"></div><div class="lines"></div><div class="lines"></div><div class="lines"></div>
+<div class="key"><b>Rubric (8):</b> Position (1) · Reason (1) · A fact from the case, e.g., 70 hours, not enough to live on, the river, $1.10, 1,200 jobs, the website claim (1) · Framework used for the case, not only defined (2) · The other side stated and answered (2) · Conclusion (1). Don't deduct for length if all parts are there.<br><b>Model (about 130 words):</b> I believe Brightline should stay with Sunfield and ask for changes. This is the fairest choice for the workers. For example, the case says workers work 70 hours a week and do not earn enough to live on, but the website says every jacket is made ethically. From a Kantian perspective, Brightline is using the workers only as tools for cheap jackets, and its website is not honest. Some people may say that changes will cost money and that the workers could lose their jobs. However, the changes cost only $1.10 for a $140 jacket, and moving to another factory would hurt the same workers much more. Therefore, Brightline should stay, help pay for the changes and make its website honest.</div></li>
+</ol>
+
+<p class="total">Total: ______ / 50</p>
+<div class="keyonly" style="margin-top:14px">
+<table><tr><th>Score</th><th>Suggested meaning</th></tr><tr><td>45–50</td><td>Excellent command of Chapters 1–6</td></tr><tr><td>38–44</td><td>Good; review the items missed</td></tr><tr><td>30–37</td><td>Developing; review key terms and how to use frameworks</td></tr><tr><td>below 30</td><td>Needs support before Quiz 3 and the final</td></tr></table>
+<p style="font-size:13px;color:#4a5568">Sources: Byars &amp; Stanberry, <i>Business Ethics</i>, OpenStax (CC BY-NC-SA 4.0), Chapters 1–6. Brightline Outdoor and Sunfield are fictional.</p>
+</div>
+</div>
+</body>
+</html>
