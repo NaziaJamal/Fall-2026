@@ -181,16 +181,23 @@ details.card2 ul{margin:6px 0 0;padding-left:20px}
 .steps4 b{display:block;font:700 20px var(--serif);color:var(--gold)}
 .box2{border:1px solid var(--sky-3);border-radius:8px;min-height:90px;background:#fff}
 .box2.tall{min-height:220px}
-.tbl td.blank{height:58px}
+.tbl td textarea{width:100%;min-height:52px;font:15px var(--sans);border:1px solid var(--sky-3);border-radius:8px;padding:6px 8px;background:#fbfcfe;resize:vertical;box-sizing:border-box}
+textarea.big{min-height:260px;font:16px/1.6 var(--sans)}
+.grid3w{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:10px}
+.wc{font-size:14px;font-weight:700;color:var(--muted);margin-top:4px}
+.wc.ok{color:#2f7a45}
 .src a{word-break:break-word}
-@media (max-width:720px){ .steps4{grid-template-columns:1fr 1fr} }
+@media (max-width:720px){ .steps4{grid-template-columns:1fr 1fr} .grid3w{grid-template-columns:1fr} }
 @media print{
   @page{size:letter;margin:12mm}
   .casesel,.no-print{display:none !important}
   .steps4 div{background:#fff;color:#000;border:1px solid #000}.steps4 b{color:#000}
   .orig{background:#fff;border-left:4px solid #000}
   .box2{border:1px solid #000}
-  .tbl td.blank{height:36px}
+  textarea{overflow:visible !important;resize:none;border:1px solid #000 !important;background:#fff !important}
+  .tbl td textarea{min-height:36px}
+  textarea.big{min-height:300px}
+  .wc{display:none}
   .orig{break-inside:avoid}
   .box2.tall{min-height:300px}
   .pb{break-before:page}
@@ -214,15 +221,18 @@ details.card2 ul{margin:6px 0 0;padding-left:20px}
   <div class="wrap">
     <div class="casesel"><label class="f" style="display:flex;gap:8px;align-items:center;color:#fff">Case <select id="caseSel" aria-label="Case"><option value="dove">Dove · Facebook ad (2017)</option><option value="amazon">Amazon · Kindle deletions (2009)</option></select></label></div>
     <span class="spacer"></span>
+    <span class="status" id="status" style="color:var(--sky-3);font-size:13px"></span>
+    <button class="btn" type="button" id="btnDl">Download my answers</button>
     <button class="btn" type="button" onclick="window.print()">Print / PDF</button>
+    <button class="btn" type="button" id="btnClear">Clear all</button>
   </div>
 </div>
 
 <main class="wrap">
 
 <div class="idgrid">
-  <label class="f">Name<input type="text" aria-label="Name"></label>
-  <label class="f">Date<input type="text" aria-label="Date"></label>
+  <label class="f">Name<input type="text" data-f="name" aria-label="Name"></label>
+  <label class="f">Date<input type="text" data-f="date" aria-label="Date"></label>
 </div>
 
 <section class="box">
@@ -258,7 +268,7 @@ details.card2 ul{margin:6px 0 0;padding-left:20px}
       <li><b>Three strategic choices (Part 3).</b> Explain three decisions you made and why, in full sentences: "I chose ___ because ___." For example: who apologizes, which channel, what action you promise, what words you avoid.</li>
       <li><b>The key risk (Part 3).</b> What could still go wrong with your new apology, and how would you reduce that risk?</li>
     </ol>
-    <p class="note">Work on this sheet, in class. No phone or laptop.</p>
+    <p class="note">Type your answers on this page, in class. Your answers save automatically on this device. Work on your own: don't use AI tools, translators or other websites. When you finish, press <b>Download my answers</b> or <b>Print / PDF</b> and send the file to your teacher.</p>
   </div>
 </section>
 
@@ -313,28 +323,33 @@ details.card2 ul{margin:6px 0 0;padding-left:20px}
     <p class="sub">Part 1 · Diagnose the original</p>
     <div class="scroll"><table class="tbl">
       <tr><th style="width:18%"></th><th>What the original does (quote it)</th><th>What is weak or missing</th></tr>
-      <tr><td class="q">Goal</td><td class="blank"></td><td class="blank"></td></tr>
-      <tr><td class="q">Audience</td><td class="blank"></td><td class="blank"></td></tr>
-      <tr><td class="q">Message</td><td class="blank"></td><td class="blank"></td></tr>
-      <tr><td class="q">Expression<br><span class="note">tone · channel · messenger · timing</span></td><td class="blank"></td><td class="blank"></td></tr>
-      <tr><td class="q">4A (optional)<br><span class="note">Acknowledge · Accept · Apologize · Act</span></td><td class="blank"></td><td class="blank"></td></tr>
+      <tr><td class="q">Goal</td><td><textarea data-f="d_goal_does" aria-label="Goal: what the original does"></textarea></td><td><textarea data-f="d_goal_miss" aria-label="Goal: what is weak or missing"></textarea></td></tr>
+      <tr><td class="q">Audience</td><td><textarea data-f="d_audience_does" aria-label="Audience: what the original does"></textarea></td><td><textarea data-f="d_audience_miss" aria-label="Audience: what is weak or missing"></textarea></td></tr>
+      <tr><td class="q">Message</td><td><textarea data-f="d_message_does" aria-label="Message: what the original does"></textarea></td><td><textarea data-f="d_message_miss" aria-label="Message: what is weak or missing"></textarea></td></tr>
+      <tr><td class="q">Expression<br><span class="note">tone · channel · messenger · timing</span></td><td><textarea data-f="d_expression_does" aria-label="Expression: what the original does"></textarea></td><td><textarea data-f="d_expression_miss" aria-label="Expression: what is weak or missing"></textarea></td></tr>
+      <tr><td class="q">4A (optional)<br><span class="note">Acknowledge · Accept · Apologize · Act</span></td><td><textarea data-f="d_4a_does" aria-label="4A: what the original does"></textarea></td><td><textarea data-f="d_4a_miss" aria-label="4A: what is weak or missing"></textarea></td></tr>
     </table></div>
 
     <p class="sub">Part 3 · Three strategic choices and the key risk</p>
     <div class="scroll"><table class="tbl">
-      <tr><td class="q" style="width:18%">Choice 1</td><td class="blank">I chose … because …</td></tr>
-      <tr><td class="q">Choice 2</td><td class="blank">I chose … because …</td></tr>
-      <tr><td class="q">Choice 3</td><td class="blank">I chose … because …</td></tr>
-      <tr><td class="q">Key risk</td><td class="blank"></td></tr>
+      <tr><td class="q" style="width:18%">Choice 1</td><td><textarea data-f="c1" placeholder="I chose … because …" aria-label="Choice 1"></textarea></td></tr>
+      <tr><td class="q">Choice 2</td><td><textarea data-f="c2" placeholder="I chose … because …" aria-label="Choice 2"></textarea></td></tr>
+      <tr><td class="q">Choice 3</td><td><textarea data-f="c3" placeholder="I chose … because …" aria-label="Choice 3"></textarea></td></tr>
+      <tr><td class="q">Key risk</td><td><textarea data-f="risk" placeholder="The main risk is… To reduce it, I would…" aria-label="Key risk"></textarea></td></tr>
     </table></div>
   </div>
 </section>
 
 <section class="box pb">
-  <header><div class="bn">7</div><div><h2>Part 2 · My new apology</h2><div class="meta">Who delivers it: ____________ · Where: ____________ · When: ____________ · Write the full statement (about 100–150 words).</div></div></header>
+  <header><div class="bn">7</div><div><h2>Part 2 · My new apology</h2><div class="meta">Write the full statement (about 100–150 words).</div></div></header>
   <div class="inner">
-    <div class="box2 tall"></div>
-    <div class="box2 tall"></div>
+    <div class="grid3w">
+      <label class="f">Who delivers it<input type="text" data-f="who" aria-label="Who delivers it"></label>
+      <label class="f">Where (channel)<input type="text" data-f="where" aria-label="Where"></label>
+      <label class="f">When<input type="text" data-f="when" aria-label="When"></label>
+    </div>
+    <label class="f">My new apology<textarea data-f="apology" id="apology" class="big" aria-label="My new apology"></textarea></label>
+    <div class="wc" id="wc">0 words · aim for 100–150</div>
   </div>
 </section>
 
@@ -367,6 +382,38 @@ details.card2 ul{margin:6px 0 0;padding-left:20px}
   if(C[q]) sel.value=q;
   sel.addEventListener('change',function(){ show(); try{ history.replaceState(null,'','#'+sel.value); }catch(e){} });
   show();
+})();
+
+(function(){
+  var KEY='sc-a1-makeup-student-v1', st={};
+  try{ st=JSON.parse(localStorage.getItem(KEY)||'{}')||{}; }catch(e){ st={}; }
+  var status=document.getElementById('status');
+  function save(){ try{ localStorage.setItem(KEY,JSON.stringify(st)); status.textContent='Saved · '+new Date().toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'}); }catch(e){ status.textContent='Not saving here: download your answers before you close.'; } }
+  function grow(el){ if(el.tagName!=='TEXTAREA') return; el.style.height='auto'; el.style.height=(el.scrollHeight+2)+'px'; }
+  function words(){ var v=(document.getElementById('apology').value||'').trim(), n=v?v.split(/\s+/).length:0, w=document.getElementById('wc'); w.textContent=n+' words · aim for 100–150'; w.classList.toggle('ok',n>=100&&n<=150); }
+  var fields=[].slice.call(document.querySelectorAll('[data-f]'));
+  fields.forEach(function(el){
+    var k=el.dataset.f; if(st[k]!==undefined) el.value=st[k];
+    el.addEventListener('input',function(){ st[k]=el.value; save(); grow(el); if(k==='apology') words(); });
+  });
+  var sel=document.getElementById('caseSel');
+  if(st._case && !location.hash) { sel.value=st._case; sel.dispatchEvent(new Event('change')); }
+  sel.addEventListener('change',function(){ st._case=sel.value; save(); });
+  setTimeout(function(){ fields.forEach(grow); },50);
+  words();
+  window.addEventListener('beforeprint',function(){ fields.forEach(grow); });
+  document.getElementById('btnDl').addEventListener('click',function(){
+    var L=['STRATEGIC COMMUNICATION · ASSIGNMENT 1 MAKE-UP · REWRITE THE APOLOGY','Case: '+sel.options[sel.selectedIndex].text,''];
+    fields.forEach(function(el){ var v=(el.value||'').trim(); if(v) L.push((el.getAttribute('aria-label')||el.dataset.f)+':\n'+v+'\n'); });
+    var nm=(st.name||'student').trim().replace(/[^\w\- ]+/g,'').replace(/\s+/g,'_')||'student';
+    var a=document.createElement('a'); a.href=URL.createObjectURL(new Blob([L.join('\n')],{type:'text/plain'})); a.download='A1_makeup_'+nm+'.txt';
+    document.body.appendChild(a); a.click(); setTimeout(function(){ URL.revokeObjectURL(a.href); a.remove(); },500);
+  });
+  document.getElementById('btnClear').addEventListener('click',function(){
+    if(!confirm('Clear ALL your answers on this device? This cannot be undone.')) return;
+    st={}; try{ localStorage.removeItem(KEY); }catch(e){}
+    fields.forEach(function(el){ el.value=''; grow(el); }); words(); status.textContent='Cleared.';
+  });
 })();
 </script>
 </body>
