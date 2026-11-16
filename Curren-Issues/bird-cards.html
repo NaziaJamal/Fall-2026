@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bird vs. Bird Cards · Week 7</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#143865;--deep:#0c2340;--gold-bright:#d39f10;--muted:#5a6578;--sky:#edf2f9}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#d9dee6;font-family:"Source Sans 3",Arial,sans-serif;color:#1b2433;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.toolbar{position:sticky;top:0;background:var(--deep);color:#fff;padding:10px 16px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;z-index:5}
+.toolbar p{font-size:14px;opacity:.9}
+.toolbar button{background:var(--gold-bright);color:var(--deep);border:0;border-radius:6px;padding:8px 16px;font-weight:700;cursor:pointer}
+.sheet{width:8.5in;height:11in;margin:20px auto;background:#fff;padding:.35in .4in;box-shadow:0 2px 10px rgba(0,0,0,.15);display:grid;grid-template-columns:1fr 1fr;grid-template-rows:repeat(4,1fr)}
+.card{border:1.5px dashed #9aa6b8;padding:.14in .18in;display:flex;flex-direction:column;gap:5px;position:relative}
+.card .top{display:flex;align-items:center;gap:10px}
+.card svg{width:62px;height:52px;flex:none}
+.card h2{font-family:"Source Serif 4",Georgia,serif;color:var(--navy);font-size:23px;line-height:1.1}
+.card h2 small{display:block;font-family:"Source Sans 3",Arial,sans-serif;font-size:12px;color:var(--muted);font-weight:600;letter-spacing:.04em}
+.bars{display:grid;gap:3px;margin-top:2px}
+.bar{display:grid;grid-template-columns:62px 1fr;align-items:center;font-size:12.5px;font-weight:700;color:var(--muted)}
+.dots{display:flex;gap:4px}
+.dots i{width:16px;height:12px;border-radius:3px;background:#e1e8f2;display:block}
+.dots i.on{background:var(--gold-bright)}
+.bar.c .dots i.on{background:#3b82f6}
+.bar.r .dots i.on{background:#b3261e}
+ul{list-style:none;font-size:13.5px;line-height:1.35}
+ul li::before{content:"· ";color:var(--muted)}
+.say{margin-top:auto;font-size:12px;color:#8c7535;font-weight:700}
+.note{grid-column:1/-1}
+@media print{@page{size:letter;margin:0}body{background:#fff}.toolbar{display:none}.sheet{margin:0;box-shadow:none;page-break-after:always;break-after:page}.sheet:last-child{page-break-after:auto}}
+@media screen and (max-width:8.6in){.sheet{width:100%;height:auto;grid-template-columns:1fr;grid-template-rows:none;padding:12px}.card{min-height:220px}}
+</style>
+</head>
+<body>
+<div class="toolbar"><p>14 bird cards on 2 pages (2 of each bird). Print with “Background graphics” on and cut on the dashed lines.</p><button onclick="window.print()">Print</button></div>
+<div id="out"></div>
+<script>
+const B=[
+ {n:"Black robin",w:"New Zealand",s:2,c:1,r:5,f:["Small and all black","Lives only on the Chatham Islands","About 350 in the world","Can fly"],
+  svg:'<path d="M12 36 Q22 18 42 22 Q56 24 58 34 Q50 44 32 44 Q20 45 12 36z" fill="#1b2433"/><circle cx="50" cy="27" r="7" fill="#1b2433"/><path d="M56 27 l7 2-7 2z" fill="#1b2433"/><circle cx="52" cy="25" r="1.4" fill="#fff"/>'},
+ {n:"Bald eagle",w:"USA",s:3,c:2,r:2,f:["White head, brown body","The national bird of the USA","Very strong","Can fly"],
+  svg:'<path d="M6 30 Q20 14 32 26 Q44 14 58 30 Q44 26 34 34 L30 34 Q20 26 6 30z" fill="#6b4a2b"/><circle cx="32" cy="22" r="6" fill="#fff" stroke="#9aa6b8"/><path d="M37 22 l6 2-6 2z" fill="#d39f10"/>'},
+ {n:"Andean condor",w:"South America",s:4,c:1,r:4,f:["Very big wings","Lives in the Andes mountains","A national symbol of Bolivia and Colombia","Can fly very high"],
+  svg:'<path d="M2 28 Q18 16 32 26 Q46 16 62 28 Q46 30 36 34 L28 34 Q18 30 2 28z" fill="#1b2433"/><circle cx="32" cy="22" r="5" fill="#d9a38f"/><path d="M28 27 h8" stroke="#fff" stroke-width="2"/>'},
+ {n:"Hummingbird",w:"The Americas",s:1,c:5,r:1,f:["One of the smallest birds","Very colorful","Its wings move very fast","Can fly backward"],
+  svg:'<path d="M18 32 Q28 22 40 26 Q46 28 44 34 Q36 40 24 38z" fill="#1e7a46"/><circle cx="42" cy="26" r="4" fill="#3b82f6"/><path d="M45 26 L62 22" stroke="#1b2433" stroke-width="2"/><path d="M26 28 Q20 10 32 8 Q34 18 30 28z" fill="#8e5bd1" opacity=".8"/>'},
+ {n:"Ostrich",w:"Africa",s:5,c:1,r:2,f:["The biggest bird in the world","Cannot fly","Runs very fast","Very long legs"],
+  svg:'<ellipse cx="26" cy="26" rx="14" ry="9" fill="#1b2433"/><path d="M36 22 Q44 14 42 6" stroke="#d9a38f" stroke-width="3" fill="none"/><circle cx="42" cy="6" r="3" fill="#d9a38f"/><path d="M22 34 L20 50 M30 34 L32 50" stroke="#d9a38f" stroke-width="3"/>'},
+ {n:"Penguin",w:"Cold places in the south",s:3,c:1,r:2,f:["Black and white","Cannot fly","A great swimmer","Lives in cold places"],
+  svg:'<ellipse cx="32" cy="30" rx="12" ry="18" fill="#1b2433"/><ellipse cx="32" cy="33" rx="7" ry="13" fill="#fff"/><circle cx="29" cy="20" r="1.5" fill="#fff"/><path d="M33 22 l5 2-5 2z" fill="#d39f10"/><path d="M26 48 h5 M33 48 h5" stroke="#d39f10" stroke-width="3"/>'},
+ {n:"Parrot",w:"Warm forests",s:2,c:5,r:2,f:["Very colorful","Some can copy words","Strong, curved beak","Can fly"],
+  svg:'<path d="M20 44 Q16 24 30 16 Q42 12 44 24 Q44 38 30 44z" fill="#e5484d"/><path d="M24 40 Q22 28 30 24" stroke="#3b82f6" stroke-width="5" fill="none"/><path d="M42 20 q8 2 4 10 q-2-4-6-4z" fill="#f5c94a"/><circle cx="38" cy="20" r="1.6" fill="#1b2433"/><path d="M26 44 L22 58 M30 44 L32 58" stroke="#f5c94a" stroke-width="5"/>'}
+];
+const dots=n=>`<span class="dots">${[1,2,3,4,5].map(k=>`<i class="${k<=n?"on":""}"></i>`).join("")}</span>`;
+const card=b=>`<div class="card"><div class="top"><svg viewBox="0 0 64 56">${b.svg}</svg><h2>${b.n}<small>${b.w.toUpperCase()}</small></h2></div>
+ <div class="bars"><div class="bar"><span>Size</span>${dots(b.s)}</div><div class="bar c"><span>Colorful</span>${dots(b.c)}</div><div class="bar r"><span>Rare</span>${dots(b.r)}</div></div>
+ <ul>${b.f.map(x=>`<li>${x}</li>`).join("")}</ul><div class="say">My bird is ___er than your bird, but…</div></div>`;
+const order=[0,1,2,3,4,5,6,0,1,2,3,4,5,6];
+let h="";
+[order.slice(0,8),order.slice(8)].forEach(set=>{ h+=`<section class="sheet">${set.map(i=>card(B[i])).join("")}</section>`; });
+document.getElementById("out").innerHTML=h;
+</script>
+</body>
+</html>
