@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Little Black Bird That Won · Worksheet</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#143865; --deep:#0c2340; --blue:#1c4f8f; --gold:#8c7535; --gold-bright:#d39f10;
+  --sky-dark:#c1cddd; --sky-med:#e1e8f2; --sky-light:#edf2f9; --warm:#efe9d9;
+  --ink:#1b2433; --muted:#5a6578; --ok:#1e7a46; --okbg:#e3f4ea; --no:#b3261e; --nobg:#fbe7e5; --bg:#f2f4f8;
+  --pumpkin:#e07a1f; --pumpkin-l:#fdf0e3;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);font-family:"Source Sans 3",Arial,sans-serif;color:var(--ink);font-size:17px;line-height:1.5}
+h1,h2,h3{font-family:"Source Serif 4",Georgia,serif;color:var(--navy);line-height:1.2}
+.toolbar{position:sticky;top:0;z-index:20;background:var(--deep);color:#fff}
+.toolbar .in{max-width:880px;margin:0 auto;padding:9px 16px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.toolbar img{height:36px}
+.toolbar .bt{font-family:"Source Serif 4",Georgia,serif;color:var(--gold-bright);font-weight:700;letter-spacing:.05em;margin-right:auto}
+.toolbar button{font:inherit;font-size:14px;font-weight:700;border:0;border-radius:7px;padding:7px 12px;cursor:pointer;background:#fff;color:var(--navy)}
+.toolbar button.gold{background:var(--gold-bright);color:var(--deep)}
+.hero{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;position:relative;overflow:hidden}
+.hero .in{max-width:880px;margin:0 auto;padding:20px 16px 22px;position:relative;z-index:1}
+.hero h1{color:#fff;font-size:31px}
+.hero p{opacity:.92}
+.hero svg.pk{position:absolute;right:4%;top:50%;transform:translateY(-50%);width:130px;opacity:.9}
+.meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px;align-items:center}
+.meta label{font-weight:700}
+.meta input{border:0;border-radius:8px;padding:8px 10px;font:inherit;min-width:180px;flex:1;max-width:300px}
+.saved{font-size:13px;color:#e9d9a8;margin-top:6px}
+nav.jump{background:#fff;border-bottom:1px solid var(--sky-dark);position:sticky;top:54px;z-index:15}
+nav.jump .in{max-width:880px;margin:0 auto;display:flex;gap:6px;overflow-x:auto;padding:7px 16px;scrollbar-width:none}
+nav.jump a{flex:none;text-decoration:none;color:var(--navy);font-weight:600;font-size:13px;padding:4px 10px;border-radius:16px;background:var(--sky-light);border:1px solid var(--sky-dark)}
+nav.jump a.mv{background:var(--pumpkin-l);border-color:#f2c79c;color:#9a4a07}
+main{max-width:880px;margin:0 auto;padding:16px 16px 60px}
+section.card{background:#fff;border:1px solid var(--sky-dark);border-radius:14px;padding:18px 20px 20px;margin-bottom:16px;scroll-margin-top:110px}
+section.card.move{border:2px solid #f2c79c}
+.sh{display:flex;align-items:center;gap:10px;margin-bottom:4px;flex-wrap:wrap}
+.num{background:var(--navy);color:#fff;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-weight:700;flex:none}
+.move .num{background:var(--pumpkin)}
+.sh h2{font-size:22px}
+.tag{margin-left:auto;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:12px;background:var(--sky-med);color:var(--navy)}
+.tag.mv{background:var(--pumpkin);color:#fff}
+.tag.a{background:var(--okbg);color:var(--ok)}
+.inst{color:var(--muted);margin-bottom:10px}
+.movebox{background:var(--pumpkin-l);border:1.5px dashed #e8a866;border-radius:10px;padding:10px 14px;margin:6px 0 12px;font-size:16px}
+.movebox b{color:#9a4a07}
+.frame{background:var(--deep);color:#fff;border-radius:10px;padding:10px 14px;font-family:"Source Serif 4",Georgia,serif;font-size:17px;line-height:1.55;margin:8px 0}
+.frame b{color:var(--gold-bright)}
+.link{display:inline-flex;gap:8px;align-items:center;background:var(--gold-bright);color:var(--deep);font-weight:700;text-decoration:none;border-radius:24px;padding:9px 18px;margin:2px 0 10px}
+input[type=text],textarea,select{font:inherit;color:#1a3d6b;background:#f7f9fc;border:1.5px solid var(--sky-dark);border-radius:8px;padding:6px 9px}
+input[type=text]:focus,textarea:focus,select:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(28,79,143,.15);background:#fff}
+textarea{width:100%;min-height:80px;resize:vertical}
+.good{background:var(--okbg)!important;border-color:var(--ok)!important}
+.bad{background:var(--nobg)!important;border-color:var(--no)!important}
+.opts{display:grid;gap:7px}
+.opts label{display:flex;gap:10px;align-items:flex-start;border:1.5px solid var(--sky-dark);border-radius:10px;padding:8px 12px;cursor:pointer;background:#fff}
+.opts input{margin-top:5px;accent-color:var(--navy)}
+.row{display:grid;grid-template-columns:28px 1fr;gap:8px;align-items:center;padding:7px 0;border-bottom:1px dashed var(--sky-dark);min-width:0}
+.row:last-of-type{border-bottom:0}
+.row .n{font-weight:700;color:var(--muted)}
+.row .ln{display:flex;flex-wrap:wrap;gap:6px;align-items:center;min-width:0}
+.row .ln select{max-width:100%;min-width:0}
+.check{font:inherit;font-weight:700;font-size:14px;background:var(--navy);color:#fff;border:0;border-radius:8px;padding:7px 16px;cursor:pointer;margin-top:10px}
+.score{font-weight:700;color:var(--ok);margin-left:10px}
+
+/* find someone who */
+table.fsw{width:100%;border-collapse:collapse;font-size:16px}
+table.fsw th{background:var(--navy);color:#fff;text-align:left;padding:7px 10px;font-weight:600}
+table.fsw td{border:1px solid var(--sky-dark);padding:6px 8px;vertical-align:middle}
+table.fsw td input{width:100%}
+table.fsw td.q{width:45%}
+table.fsw td.q small{display:block;color:var(--muted);font-size:13px}
+
+/* vocab */
+.vgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:12px}
+.vcard{border:1.5px solid var(--sky-dark);border-radius:12px;padding:8px 10px;background:#fff;text-align:center}
+.vcard svg{width:62px;height:62px;display:block;margin:0 auto 4px}
+.vcard b{font-family:"Source Serif 4",Georgia,serif;color:var(--navy);font-size:18px}
+.vcard span{display:block;font-size:13px;color:var(--muted)}
+
+/* map */
+.map{background:#f4f8ee;border:1.5px solid var(--sky-dark);border-radius:12px;padding:6px;margin:8px 0}
+.map svg{width:100%;height:auto;display:block}
+.route{display:grid;gap:8px}
+
+/* order */
+.order .row{grid-template-columns:auto 1fr}
+.order select{width:64px}
+
+/* tf */
+.tf{padding:8px 0;border-bottom:1px dashed var(--sky-dark)}
+.tf:last-child{border-bottom:0}
+.tfb{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:4px}
+.tfb label{border:1.5px solid var(--sky-dark);border-radius:8px;padding:3px 12px;cursor:pointer;font-weight:700;font-size:14px;display:flex;gap:5px;align-items:center}
+.tfb input[type=text]{flex:1;min-width:200px}
+
+/* fact file */
+.factfile{border:3px solid var(--pumpkin);border-radius:14px;overflow:hidden}
+.factfile .ffh{background:var(--pumpkin);color:#fff;font-family:"Source Serif 4",Georgia,serif;font-weight:700;font-size:22px;padding:8px 14px;letter-spacing:.04em}
+.factfile .ffb{display:grid;grid-template-columns:150px 1fr;gap:8px 12px;padding:12px 14px;align-items:center}
+.factfile .ffb label{font-weight:700;color:#9a4a07}
+.factfile .ffb input{width:100%}
+
+/* prices */
+.stand{border:2px solid var(--gold);border-radius:14px;overflow:hidden}
+.stand .sth{background:#5b3a24;color:#fff;padding:8px 14px;font-family:"Source Serif 4",Georgia,serif;font-size:21px;font-weight:700;display:flex;justify-content:space-between;align-items:center}
+.stand .sth span{font-family:"Source Sans 3",Arial,sans-serif;font-size:13px;font-weight:400;opacity:.85}
+.stand table{width:100%;border-collapse:collapse;font-size:17px}
+.stand td{padding:7px 14px;border-bottom:1px dashed #d9c9a3}
+.stand td.p{text-align:right;font-weight:700;font-variant-numeric:tabular-nums;color:#5b3a24}
+.stand tr:nth-child(even) td{background:#fbf7ec}
+.say-it{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.say-it span{background:var(--sky-light);border-radius:8px;padding:4px 10px;font-size:15px}
+.receipt{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.receipt .r{border:1.5px solid var(--sky-dark);border-radius:10px;padding:10px 12px}
+.receipt .r h3{font-size:17px;margin-bottom:6px}
+.receipt label{display:grid;grid-template-columns:110px 1fr;gap:6px;align-items:center;margin:4px 0;font-size:15px}
+
+/* prepositions */
+.prep{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:10px}
+.prep div{border-radius:10px;padding:8px 12px;background:var(--sky-light);font-size:15px}
+.prep b.p{display:block;font-family:"Source Serif 4",Georgia,serif;font-size:24px;color:var(--navy)}
+.prep .t{font-size:12px;font-weight:700;letter-spacing:.08em;color:var(--gold);text-transform:uppercase}
+
+.counter{font-size:14px;color:var(--muted)}
+.model{background:var(--deep);color:#fff;border-radius:10px;padding:12px 16px;font-family:"Source Serif 4",Georgia,serif;font-size:17px;line-height:1.6;margin-bottom:10px}
+.model b{color:var(--gold-bright)}
+.model .hl{display:inline-block;background:var(--pumpkin);color:#fff;font-family:"Source Sans 3",Arial,sans-serif;font-size:12px;font-weight:700;border-radius:6px;padding:0 6px;margin-right:6px;letter-spacing:.06em}
+.checks label{display:flex;gap:8px;align-items:flex-start;padding:3px 0;cursor:pointer}
+.checks input{margin-top:5px;accent-color:var(--ok)}
+.ideas{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0 10px}
+.ideas span{border:1.5px solid var(--sky-dark);border-radius:20px;padding:3px 12px;font-size:14px;cursor:pointer;background:#fff}
+.ideas span.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+.faces{display:flex;gap:8px;flex-wrap:wrap}
+.faces label{flex:1;min-width:120px;text-align:center;background:#fff;border:1.5px solid var(--sky-dark);border-radius:10px;padding:8px 6px;cursor:pointer;font-size:14px;font-weight:600}
+.faces input{display:none}
+.faces label:has(input:checked){border-color:var(--navy);background:var(--sky-med)}
+#answers{display:none}
+body.show-answers #answers{display:block}
+#answers p,#answers li{margin-bottom:5px;font-size:15px}
+#answers ul{padding-left:20px}
+.credit{text-align:center;font-size:12px;color:var(--muted);margin-top:8px}
+.toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:var(--deep);color:#fff;padding:9px 18px;border-radius:20px;font-weight:600;opacity:0;transition:.25s;pointer-events:none;z-index:30}
+.toast.show{opacity:1}
+@media (max-width:660px){
+  .vgrid{grid-template-columns:repeat(2,1fr)}
+  .prep,.receipt{grid-template-columns:1fr}
+  .factfile .ffb{grid-template-columns:1fr}
+  .receipt label{grid-template-columns:1fr}
+  table.fsw{font-size:14px}
+  .hero h1{font-size:25px;padding-right:80px}
+  .hero svg.pk{width:80px;right:2%}
+  section.card{padding:14px}
+}
+@media print{
+  @page{margin:12mm 13mm}
+  body{background:#fff;font-size:11pt;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .toolbar,nav.jump,.check,.score,.toast,.link,.saved{display:none!important}
+  .hero{background:none;color:var(--ink);border-bottom:3px solid var(--gold-bright)}
+  .hero h1{color:var(--navy)} .hero .in{padding:0 0 8px} .hero svg.pk{display:none}
+  .meta input{border-bottom:1px solid #555;border-radius:0;background:none}
+  main{padding:8px 0 0}
+  section.card{padding:8px 0 10px;break-inside:avoid;margin-bottom:6px;border:0;border-bottom:1px solid var(--sky-med);border-radius:0}
+  #s1,#s10{break-inside:auto}
+  input[type=text],select,textarea{background:transparent!important;border-color:#999}
+  select{appearance:none;-webkit-appearance:none}
+  .good,.bad{background:transparent!important;border-color:#999!important}
+  textarea{min-height:110px;resize:none}
+  body.print-blank input[type=text],body.print-blank textarea,body.print-blank select{color:transparent!important}
+  body.print-blank input[type=radio],body.print-blank input[type=checkbox]{appearance:none;-webkit-appearance:none;width:12px;height:12px;border:1.5px solid #555;border-radius:50%}
+  body.print-blank input[type=checkbox]{border-radius:2px}
+  body.print-blank .ideas span{background:#fff!important;color:var(--ink)!important}
+  body.print-blank .counter{visibility:hidden}
+  #answers{break-before:page}
+}
+
+.lvl{display:flex;gap:8px;margin:4px 0 10px;flex-wrap:wrap}
+.lvl button{font:inherit;font-weight:700;border:2px solid var(--navy);background:#fff;color:var(--navy);border-radius:22px;padding:6px 16px;cursor:pointer}
+.lvl button.on{background:var(--navy);color:#fff}
+.article{background:#fbfcfe;border:1px solid var(--sky-dark);border-radius:12px;padding:14px 18px}
+.article h3{font-size:22px;margin-bottom:6px}
+.article p{margin:8px 0;font-size:17.5px;line-height:1.65}
+.gloss{margin-top:10px;background:var(--warm);border-radius:10px;padding:8px 12px;font-size:14.5px}
+.clues-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.nclue{border:2px solid var(--sky-dark);border-radius:12px;padding:10px;display:grid;gap:6px;background:#fff}
+.nclue .big{font-family:"Source Serif 4",Georgia,serif;font-size:34px;font-weight:700;color:var(--navy);text-align:center}
+.nclue input,.nclue select{width:100%;font-size:14px}
+table.ws5{width:100%;border-collapse:separate;border-spacing:0 6px}
+table.ws5 th{width:96px;text-align:left;color:#fff;background:var(--navy);border-radius:8px 0 0 8px;padding:7px 12px;font-family:"Source Serif 4",Georgia,serif}
+table.ws5 td input{width:100%;border-radius:0 8px 8px 0}
+table.tn{width:100%;border-collapse:collapse;font-size:16px}
+table.tn th{background:var(--navy);color:#fff;padding:7px 10px;text-align:left}
+table.tn td{border:1px solid var(--sky-dark);padding:6px 8px}
+table.tn td input{width:100%}
+table.tn td.given{color:var(--muted);font-style:italic}
+.rules{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:8px}
+.rules div{background:var(--sky-light);border-radius:10px;padding:8px 12px;font-size:15px;line-height:1.5}
+.rules .t{display:block;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}
+.rules b{display:block;font-family:"Source Serif 4",Georgia,serif;font-size:20px;color:var(--navy)}
+.rules br+b,.rules div b:not(:first-of-type){display:inline;font-family:inherit;font-size:inherit}
+.cgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.cf{display:grid;gap:4px;font-size:15px;font-weight:600}
+.cf input{width:100%}
+.bvbrow{display:grid;grid-template-columns:80px 1fr 1.6fr;gap:8px;align-items:center;padding:5px 0}
+.bvbrow .n{font-weight:700;color:var(--muted);font-size:14px}
+@media (max-width:660px){.clues-grid{grid-template-columns:1fr 1fr}.rules{grid-template-columns:1fr 1fr}.cgrid{grid-template-columns:1fr 1fr}.bvbrow{grid-template-columns:1fr}}
+@media print{.lvl{display:none}#storyB[hidden]{display:block!important}#s4,#s8{break-inside:auto}}
+</style>
+</head>
+<body>
+<div class="toolbar"><div class="in">
+  <img src="data:image/png;base64,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" alt="Approach logo"><span class="bt">APPROACH</span>
+  <button type="button" id="ansBtn">Show answers</button>
+  <button type="button" id="blankBtn">Print blank</button>
+  <button type="button" class="gold" id="printBtn">Print my answers</button>
+  <button type="button" id="copyBtn">Copy answers</button>
+  <button type="button" id="clearBtn">Clear</button>
+</div></div>
+
+<div class="hero"><div class="in">
+  <h1>The Little Black Bird That Won</h1>
+  <p>Current Issues · Basic Level · Week 7 · Class 1 · Comparing: then and now</p>
+  <div class="meta"><label for="name">Name:</label><input type="text" id="name" data-label="Name" placeholder="Write your name"><label for="date">Date:</label><input type="text" id="date" data-label="Date" style="max-width:150px"></div>
+  <div class="saved">Your answers save automatically on this device.</div>
+</div>
+<svg class="pk" viewBox="0 0 120 100" aria-hidden="true"><path d="M20 70 Q40 30 75 38 Q98 42 104 58 Q92 76 60 78 Q38 80 20 70z" fill="#1b2433"/><circle cx="88" cy="48" r="13" fill="#1b2433"/><circle cx="92" cy="45" r="2.5" fill="#fff"/><path d="M100 48 L114 51 L100 54z" fill="#1b2433"/><path d="M22 70 L4 62 L8 74z" fill="#1b2433"/><path d="M50 78 L46 92 M62 78 L60 92" stroke="#d39f10" stroke-width="3"/><path d="M10 94 H110" stroke="#5b3a24" stroke-width="5" stroke-linecap="round"/></svg>
+</div>
+
+<nav class="jump"><div class="in">
+  <a href="#s1" class="mv">1 Line-up</a><a href="#s2">2 Words</a><a href="#s3">3 Number clues</a><a href="#s4">4 Read</a><a href="#s5">5 The 5 Ws</a><a href="#s6">6 Then and now</a><a href="#s7" class="mv">7 True/False</a><a href="#s8">8 Comparatives</a><a href="#s9" class="mv">9 Bird vs. bird</a><a href="#s10">10 Exit</a>
+</div></nav>
+
+<main>
+
+<section class="card move" id="s1">
+  <div class="sh"><div class="num">1</div><h2>Comparison Line-Up</h2><span class="tag mv">Move</span></div>
+  <div class="movebox"><b>Stand up!</b> Your teacher gives a topic. Talk to your classmates and make <b>one line</b> in the correct order. Then compare yourself with the people next to you.</div>
+  <div class="frame">Round 1: <b>How long have you lived in this city?</b> &nbsp;·&nbsp; Round 2: <b>How far is your home country?</b> &nbsp;·&nbsp; Round 3: <b>How many languages do you speak?</b><br>
+  “I have lived here <b>longer than</b> Ana.” · “My country is <b>farther than</b> Peru.” · “I speak <b>more</b> languages <b>than</b> Omar.”</div>
+  <p class="inst">Write 3 true sentences about you and a classmate.</p>
+  <div id="lineup"></div>
+</section>
+
+<section class="card" id="s2">
+  <div class="sh"><div class="num">2</div><h2>Words for the Story</h2><span class="tag">Vocabulary</span></div>
+  <div class="vgrid" id="vgrid"></div>
+  <p class="inst">Choose the correct word for each sentence.</p>
+  <div id="kw"></div>
+  <button type="button" class="check" data-check="kw">Check</button><span class="score" id="sc-kw"></span>
+</section>
+
+<section class="card" id="s3">
+  <div class="sh"><div class="num">3</div><h2>Number Clues</h2><span class="tag">Predict</span></div>
+  <p class="inst"><b>Before you read:</b> These numbers are in the story. What do you think they mean? Guess with a partner. After reading, choose the correct meaning.</p>
+  <div class="clues-grid" id="numclues"></div>
+  <button type="button" class="check" data-check="nums">Check</button><span class="score" id="sc-nums"></span>
+</section>
+
+<section class="card" id="s4">
+  <div class="sh"><div class="num">4</div><h2>Read the Story</h2><span class="tag">Reading</span></div>
+  <p class="inst">Choose your story. Read it two times.</p>
+  <div class="lvl"><button type="button" data-lvl="a" class="on">Story A (easier)</button><button type="button" data-lvl="b">Story B (challenge)</button></div>
+  <div class="article" id="storyA">
+    <h3>The Little Black Bird That Won</h3>
+    <p>Every year, New Zealand has a competition: Bird of the Year. People vote for their favorite bird. In 2026, the winner was the black robin.</p>
+    <p>The black robin is a small black bird. It lives only on the Chatham Islands. These islands are far from the rest of New Zealand — about 800 kilometers (500 miles).</p>
+    <p>Many years ago, the bird had big problems. Its homes disappeared, and people brought new animals to the islands. These pests hurt the birds. In 1980, there were only <b>five</b> black robins in the world!</p>
+    <p>Then people helped. They put black robin eggs in the nests of other birds. The other birds took care of the baby robins. Now there are about <b>350</b> black robins. That is many more than in 1980. But the bird is still in danger. It needs a new, safe island.</p>
+  </div>
+  <div class="article" id="storyB" hidden>
+    <h3>A Small Bird with a Big Comeback</h3>
+    <p>The black robin, once called the rarest bird in the world, won New Zealand's 2026 Bird of the Year competition. The prize celebrates its amazing recovery: from just five birds to about 350 adults.</p>
+    <p>This small black bird lives only on the Chatham Islands, about 800 kilometers (500 miles) east of mainland New Zealand. Habitat loss and pests that people brought to the islands almost destroyed the population. By 1980, only five birds were left, and only one pair could have babies: a female called Old Blue and a male called Old Yellow.</p>
+    <p>Conservationists tried something unusual. They put black robin eggs into the nests of other kinds of birds, and those birds raised the robin chicks as their own. The plan worked, and slowly the population grew.</p>
+    <p>With its black feathers, black eyes, and small black beak, the robin is sometimes called the “goth” of New Zealand birds. The competition received a record 105,000 votes. But the black robin is still threatened. It lives on only two protected islands with no pests, and there is almost no space left there. To keep growing, it needs a third pest-free island.</p>
+    <div class="gloss"><b>Help words:</b> <b>rarest</b> = there are fewer than any other · <b>habitat loss</b> = animals lose the places where they live · <b>conservationist</b> = a person who protects nature · <b>raise</b> = take care of a baby until it grows · <b>goth</b> = a style with black clothes and dark makeup · <b>protected</b> = kept safe by law</div>
+  </div>
+  <a class="link" style="margin-top:10px" href="https://eslnewsstories.com/articles/2026-11-15-black-robin-wins-new-zealands-bird-of-the-year/" target="_blank" rel="noopener">Original article and audio (Level 3)</a>
+  <p class="inst" style="margin-top:8px"><b>First reading.</b> What is the story mainly about?</p>
+  <div class="opts" id="main">
+    <label><input type="radio" name="main" value="a" data-label="Main idea"> a) The black robin won Bird of the Year, but it still needs help.</label>
+    <label><input type="radio" name="main" value="b" data-label="Main idea"> b) There are now thousands of black robins all over New Zealand.</label>
+    <label><input type="radio" name="main" value="c" data-label="Main idea"> c) People in New Zealand voted to close two islands.</label>
+  </div>
+  <button type="button" class="check" data-check="main">Check</button><span class="score" id="sc-main"></span>
+</section>
+
+<section class="card" id="s5">
+  <div class="sh"><div class="num">5</div><h2>Second Reading: The 5 Ws</h2><span class="tag">Reading</span></div>
+  <table class="ws5">
+    <tr><th>Who?</th><td><input type="text" data-label="5Ws Who" placeholder="Who is the story about?"></td></tr>
+    <tr><th>What?</th><td><input type="text" data-label="5Ws What" placeholder="What happened?"></td></tr>
+    <tr><th>Where?</th><td><input type="text" data-label="5Ws Where" placeholder="Where does the bird live?"></td></tr>
+    <tr><th>When?</th><td><input type="text" data-label="5Ws When" placeholder="When did it win? When was it almost gone?"></td></tr>
+    <tr><th>Why?</th><td><input type="text" data-label="5Ws Why" placeholder="Why did it win?"></td></tr>
+  </table>
+</section>
+
+<section class="card" id="s6">
+  <div class="sh"><div class="num">6</div><h2>Then and Now</h2><span class="tag">Compare</span></div>
+  <p class="inst">Complete the chart. Then choose the correct words.</p>
+  <table class="tn">
+    <tr><th></th><th>1980 (then)</th><th>2026 (now)</th></tr>
+    <tr><td>How many black robins?</td><td><input type="text" id="tn1" data-label="Then: how many" data-ans="5|five|only 5|only five"></td><td><input type="text" id="tn2" data-label="Now: how many" data-ans="350|about 350|around 350"></td></tr>
+    <tr><td>How many pairs could have babies?</td><td><input type="text" id="tn3" data-label="Then: pairs" data-ans="1|one|one pair|1 pair"></td><td class="given">many</td></tr>
+    <tr><td>Famous?</td><td class="given">not famous</td><td><input type="text" id="tn4" data-label="Now: famous" data-ans="bird of the year|yes|famous|very famous|it won|winner|it won bird of the year"></td></tr>
+  </table>
+  <button type="button" class="check" data-check="tn">Check</button><span class="score" id="sc-tn"></span>
+  <div id="tnsent" style="margin-top:10px"></div>
+  <button type="button" class="check" data-check="tns">Check</button><span class="score" id="sc-tns"></span>
+</section>
+
+<section class="card move" id="s7">
+  <div class="sh"><div class="num">7</div><h2>True or False? Walk to the Wall!</h2><span class="tag mv">Move</span></div>
+  <div class="movebox"><b>Your teacher reads a sentence.</b> Walk to the <b>TRUE</b> wall or the <b>FALSE</b> wall. The FALSE group says the correct sentence. Then write your answers.</div>
+  <div id="tf"></div>
+  <button type="button" class="check" data-check="tf">Check</button><span class="score" id="sc-tf"></span>
+</section>
+
+<section class="card" id="s8">
+  <div class="sh"><div class="num">8</div><h2>Comparatives</h2><span class="tag">Language</span></div>
+  <div class="rules">
+    <div><span class="t">Short words</span><b>+ er</b>small → small<b>er</b><br>rare → rar<b>er</b><br>big → big<b>ger</b></div>
+    <div><span class="t">Ends in -y</span><b>y → ier</b>happy → happ<b>ier</b><br>easy → eas<b>ier</b><br>busy → bus<b>ier</b></div>
+    <div><span class="t">Long words</span><b>more + word</b>famous → <b>more</b> famous<br>beautiful → <b>more</b> beautiful<br>dangerous → <b>more</b> dangerous</div>
+    <div><span class="t">Irregular</span><b>special</b>good → <b>better</b><br>bad → <b>worse</b><br>far → <b>farther</b></div>
+  </div>
+  <div class="frame">The black robin is small<b>er than</b> an eagle. · It is <b>more famous than</b> before. · Its future is <b>better than</b> in 1980, <b>but</b> it is still in danger.</div>
+  <h3 style="margin:12px 0 4px;font-size:18px">A. Write the comparative</h3>
+  <div class="cgrid" id="cforms"></div>
+  <button type="button" class="check" data-check="cf">Check</button><span class="score" id="sc-cf"></span>
+  <h3 style="margin:14px 0 4px;font-size:18px">B. Complete the sentences</h3>
+  <div id="csent"></div>
+  <button type="button" class="check" data-check="cs">Check</button><span class="score" id="sc-cs"></span>
+</section>
+
+<section class="card move" id="s9">
+  <div class="sh"><div class="num">9</div><h2>Bird vs. Bird</h2><span class="tag mv">Move</span></div>
+  <div class="movebox"><b>Take a bird card.</b> Walk around. Find a partner and compare your birds. Use the bars on the cards. Change partners 3 times. Write your best comparisons.</div>
+  <div class="frame">My bird is <b>bigger than</b> your bird. · Your bird is <b>more colorful than</b> my bird. · My bird is <b>rarer</b>, <b>but</b> your bird is <b>more famous</b>.</div>
+  <div id="bvb"></div>
+  <p class="inst" style="margin-top:10px"><b>Your opinion:</b> Which bird is the best “Bird of the Year”? Why?</p>
+  <input type="text" style="width:100%" data-label="Bird of the Year opinion" placeholder="I think the ___ is the best because it is ___er than…">
+</section>
+
+<section class="card" id="s10">
+  <div class="sh"><div class="num">10</div><h2>Exit Ticket</h2><span class="tag a">Reflect</span></div>
+  <div class="row"><span class="n">1.</span><div class="ln" style="width:100%"><span>Compare the black robin <b>then</b> and <b>now</b>:</span><input type="text" style="flex:1;min-width:220px" data-label="Exit: then and now" placeholder="Now there are more…"></div></div>
+  <div class="row"><span class="n">2.</span><div class="ln" style="width:100%"><span>One sentence with <b>but</b>:</span><input type="text" style="flex:1;min-width:220px" data-label="Exit: but sentence" placeholder="The bird won, but…"></div></div>
+  <p class="inst" style="margin-top:10px">How do you feel about today?</p>
+  <div class="faces">
+    <label><input type="radio" name="feel" value="I need help" data-label="Exit: feeling">I need help</label>
+    <label><input type="radio" name="feel" value="OK" data-label="Exit: feeling">OK</label>
+    <label><input type="radio" name="feel" value="Good" data-label="Exit: feeling">Good</label>
+    <label><input type="radio" name="feel" value="Great" data-label="Exit: feeling">Great!</label>
+  </div>
+</section>
+
+<section class="card" id="answers">
+  <div class="sh"><div class="num">&#10003;</div><h2>Answer Key</h2><span class="tag">Teacher</span></div>
+  <p><b>2. Words:</b> 1 rare · 2 island · 3 nest · 4 chick · 5 pests · 6 threatened · 7 recovery · 8 competition</p>
+  <p><b>3. Number clues:</b> 5 = black robins in 1980 · 1980 = the year the bird was almost gone · 800 = kilometers from mainland New Zealand · 350 = black robins today · 105,000 = votes in the competition · 2 = islands where it lives now</p>
+  <p><b>4. Main idea:</b> a</p>
+  <p><b>5. The 5 Ws (sample):</b> Who: the black robin (and conservationists) · What: it won Bird of the Year · Where: the Chatham Islands, New Zealand · When: 2026 (almost gone in 1980) · Why: because of its amazing recovery</p>
+  <p><b>6. Then and now:</b> 5 · about 350 · 1 pair · Bird of the Year (famous) — Sentences: 1 more · 2 bigger · 3 more famous · 4 safer · 5 but</p>
+  <p><b>7. True / False:</b> 1 F (only on the Chatham Islands) · 2 T · 3 T · 4 F (about 350) · 5 F (it is still threatened) · 6 T</p>
+  <p><b>8A:</b> smaller · bigger · rarer · safer · happier · easier · more famous · more dangerous · better · worse</p>
+  <p><b>8B:</b> 1 smaller · 2 rarer · 3 more famous · 4 better · 5 bigger · 6 more dangerous</p>
+  <p class="credit">Story retold for Approach Current Issues from “Black Robin Wins New Zealand's Bird of the Year,” ESL News Stories (eslnewsstories.com).</p>
+</section>
+
+<p class="credit">Activities and story versions written for Approach Current Issues · Basic Level. Original article: ESL News Stories (eslnewsstories.com).</p>
+</main>
+<div class="toast" id="toast"></div>
+<script>
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const el=(t,a={},h="")=>{const e=document.createElement(t);for(const k in a)e.setAttribute(k,a[k]);if(h)e.innerHTML=h;return e;};
+const norm=v=>v.trim().toLowerCase().replace(/[.!?,]/g,"").replace(/\s+/g," ");
+function toast(m){const t=$("#toast");t.textContent=m;t.classList.add("show");setTimeout(()=>t.classList.remove("show"),2000);}
+function selRow(box,i,pre,post,opts,ans,label){
+  const r=el("div",{class:"row"}); r.append(el("span",{class:"n"},(i+1)+"."));
+  const ln=el("div",{class:"ln"}); if(pre) ln.append(el("span",{},pre));
+  const s=el("select",{"data-label":label,"data-ans":ans}); s.append(el("option",{value:""},"— choose —")); opts.forEach(o=>s.append(el("option",{value:o},o)));
+  ln.append(s); if(post) ln.append(el("span",{},post)); r.append(ln); box.append(r); return s;
+}
+function inRow(box,i,label,ph){ const r=el("div",{class:"row"}); r.append(el("span",{class:"n"},(i+1)+".")); r.append(el("input",{type:"text",style:"width:100%","data-label":label,placeholder:ph||""})); box.append(r); }
+
+/* 1 line-up sentences */
+["I have lived here longer than…","My home country is farther than…","I speak more languages than…"].forEach((p,i)=>inRow($("#lineup"),i,"Line-up sentence "+(i+1),p));
+
+/* 2 words */
+const IC={
+ rare:'<svg viewBox="0 0 64 64"><circle cx="16" cy="40" r="5" fill="#c1cddd"/><circle cx="30" cy="40" r="5" fill="#c1cddd"/><circle cx="44" cy="40" r="5" fill="#c1cddd"/><path d="M50 14l4 8 9 1-7 6 2 9-8-5-8 5 2-9-7-6 9-1z" fill="#d39f10"/></svg>',
+ island:'<svg viewBox="0 0 64 64"><rect y="40" width="64" height="24" fill="#9cc7ef"/><ellipse cx="32" cy="42" rx="20" ry="7" fill="#e3c98f"/><path d="M32 40V22" stroke="#5b3a24" stroke-width="3"/><path d="M32 22c-8-4-14 0-16 4M32 22c8-4 14 0 16 4M32 22c-2-6 2-10 6-10" stroke="#1e7a46" stroke-width="4" fill="none" stroke-linecap="round"/></svg>',
+ nest:'<svg viewBox="0 0 64 64"><ellipse cx="32" cy="40" rx="24" ry="10" fill="#8c7535"/><path d="M10 38q22 10 44 0" stroke="#5b3a24" stroke-width="2" fill="none"/><ellipse cx="26" cy="33" rx="6" ry="7" fill="#e1e8f2"/><ellipse cx="38" cy="33" rx="6" ry="7" fill="#e1e8f2"/></svg>',
+ chick:'<svg viewBox="0 0 64 64"><circle cx="32" cy="38" r="14" fill="#f5c94a"/><circle cx="36" cy="34" r="2" fill="#1b2433"/><path d="M44 36l8 3-8 3z" fill="#e07a1f"/><path d="M14 48 Q32 60 50 48" stroke="#8c7535" stroke-width="4" fill="none"/></svg>',
+ pest:'<svg viewBox="0 0 64 64"><ellipse cx="30" cy="38" rx="16" ry="10" fill="#7c8696"/><circle cx="46" cy="32" r="7" fill="#7c8696"/><circle cx="49" cy="30" r="1.5" fill="#1b2433"/><path d="M14 40 Q4 44 6 54" stroke="#7c8696" stroke-width="3" fill="none"/><circle cx="44" cy="25" r="3" fill="#9aa6b8"/></svg>',
+ threatened:'<svg viewBox="0 0 64 64"><path d="M32 8 L58 54 H6 Z" fill="#fbe7e5" stroke="#b3261e" stroke-width="3"/><path d="M32 24v16" stroke="#b3261e" stroke-width="5" stroke-linecap="round"/><circle cx="32" cy="47" r="3" fill="#b3261e"/></svg>',
+ recovery:'<svg viewBox="0 0 64 64"><path d="M6 54 H58" stroke="#5a6578" stroke-width="2"/><path d="M8 50 L22 46 L34 36 L46 24 L58 10" stroke="#1e7a46" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M50 10h8v8" stroke="#1e7a46" stroke-width="4" fill="none"/></svg>',
+ competition:'<svg viewBox="0 0 64 64"><path d="M20 10h24v10a12 12 0 0 1-24 0z" fill="#d39f10"/><path d="M20 14h-8a8 8 0 0 0 8 10M44 14h8a8 8 0 0 1-8 10" stroke="#d39f10" stroke-width="3" fill="none"/><rect x="28" y="32" width="8" height="12" fill="#d39f10"/><rect x="20" y="44" width="24" height="8" rx="2" fill="#8c7535"/></svg>'
+};
+const DEF={rare:"there are not many; hard to find",island:"land with water all around it",nest:"a bird's home for its eggs",chick:"a baby bird",pest:"an animal that hurts plants or other animals",threatened:"in danger; it may disappear",recovery:"getting better again",competition:"a contest; people try to win"};
+Object.keys(IC).forEach(w=>$("#vgrid").append(el("div",{class:"vcard"},`${IC[w]}<b>${w}</b><span>${DEF[w]}</span>`)));
+const KW=[
+ ["This coin is very ",". There are only ten in the world.","rare"],
+ ["Cuba is an "," in the Caribbean Sea.","island"],
+ ["The bird made a "," in the tree.","nest"],
+ ["The mother bird feeds her "," every hour.","chick"],
+ ["Rats are "," in the city. They eat our food.","pests"],
+ ["Many animals are "," because their homes are disappearing.","threatened"],
+ ["After his surgery, his "," took six weeks.","recovery"],
+ ["She won a singing ",".","competition"]
+];
+const kwOpts=["chick","competition","island","nest","pests","rare","recovery","threatened"];
+KW.forEach((k,i)=>selRow($("#kw"),i,k[0],k[1],kwOpts,k[2],"Words "+(i+1)));
+
+/* 3 number clues */
+const NUMS=[["5","black robins in 1980"],["1980","the year the bird was almost gone"],["800","kilometers from mainland New Zealand"],["350","black robins today"],["105,000","votes in the competition"],["2","islands where the bird lives now"]];
+const nOpts=NUMS.map(n=>n[1]).slice().sort();
+NUMS.forEach((n,i)=>{ const d=el("div",{class:"nclue"}); d.append(el("div",{class:"big"},n[0]));
+  const g=el("input",{type:"text","data-label":`Number ${n[0]}: my guess`,placeholder:"My guess…"}); d.append(g);
+  const s=el("select",{"data-label":`Number ${n[0]}: meaning`,"data-ans":n[1]}); s.append(el("option",{value:""},"After reading: choose")); nOpts.forEach(o=>s.append(el("option",{value:o},o))); d.append(s);
+  $("#numclues").append(d); });
+
+/* 6 then/now sentences */
+const TNS=[["In 2026, there are "," black robins than in 1980.",["more","fewer"],"more"],["The population is "," now.",["bigger","smaller"],"bigger"],["The black robin is "," now than in 1980.",["more famous","less famous"],"more famous"],["The bird is "," now than in 1980.",["safer","more dangerous"],"safer"],["It won the competition, "," it still needs a new island.",["but","because"],"but"]];
+TNS.forEach((t,i)=>selRow($("#tnsent"),i,t[0],t[1],t[2],t[3],"Then/now sentence "+(i+1)));
+
+/* 7 tf */
+const TF=[["The black robin lives everywhere in New Zealand.",false],["In 1980, there were only five black robins.",true],["Other birds took care of the robin chicks.",true],["Now there are about 3,500 black robins.",false],["The black robin is completely safe now.",false],["The competition got a record number of votes.",true]];
+TF.forEach((t,i)=>{ const d=el("div",{class:"tf"}); d.append(el("div",{},`${i+1}. ${t[0]}`)); const b=el("div",{class:"tfb","data-ans":t[1]?"T":"F"});
+  ["T","F"].forEach(v=>{ const l=el("label"); l.append(el("input",{type:"radio",name:"tf"+i,value:v,"data-label":"True/False "+(i+1)}),document.createTextNode(v==="T"?"True":"False")); b.append(l); });
+  b.append(el("input",{type:"text",placeholder:"If false, write the correct sentence…","data-label":"True/False "+(i+1)+" correction"})); d.append(b); $("#tf").append(d); });
+
+/* 8 comparatives */
+const CF=[["small","smaller"],["big","bigger"],["rare","rarer"],["safe","safer"],["happy","happier"],["easy","easier"],["famous","more famous"],["dangerous","more dangerous"],["good","better"],["bad","worse"]];
+CF.forEach((c,i)=>{ const d=el("div",{class:"cf"}); d.append(el("span",{},c[0]+" &rarr;")); d.append(el("input",{type:"text","data-ans":c[1],"data-label":"Comparative: "+c[0],"aria-label":"comparative of "+c[0]})); $("#cforms").append(d); });
+const CS=[["A hummingbird is "," than an eagle.",["smaller","more small","smallest"],"smaller"],["The black robin is "," than a pigeon.",["rarer","more rare","rareer"],"rarer"],["Today, the black robin is "," than in 1980.",["famouser","more famous","most famous"],"more famous"],["The bird's future is "," now than in 1980.",["gooder","better","more good"],"better"],["An ostrich is "," than a parrot.",["biger","bigger","more big"],"bigger"],["Pests make the islands "," for birds.",["dangerouser","more dangerous","most dangerous"],"more dangerous"]];
+CS.forEach((c,i)=>selRow($("#csent"),i,c[0],c[1],c[2],c[3],"Comparative sentence "+(i+1)));
+
+/* 9 bird vs bird */
+for(let i=0;i<3;i++){ const r=el("div",{class:"bvbrow"}); r.append(el("span",{class:"n"},"Partner "+(i+1)));
+  r.append(el("input",{type:"text","data-label":`Bird vs bird ${i+1}: birds`,placeholder:"black robin vs. bald eagle"}));
+  r.append(el("input",{type:"text","data-label":`Bird vs bird ${i+1}: comparison`,placeholder:"The eagle is bigger, but the robin is rarer."})); $("#bvb").append(r); }
+
+/* level toggle */
+$$(".lvl button").forEach(b=>b.onclick=()=>setLvl(b.dataset.lvl));
+function setLvl(l){ $$(".lvl button").forEach(x=>x.classList.toggle("on",x.dataset.lvl===l)); $("#storyA").hidden=l!=="a"; $("#storyB").hidden=l!=="b"; try{localStorage.setItem(KEY+"-lvl",l);}catch(e){} }
+
+/* checking */
+function checkSelects(sel){ let n=0; const all=$$(sel); all.forEach(s=>{ s.classList.remove("good","bad"); if(!s.value) return; const ok=s.value===s.dataset.ans; if(ok)n++; s.classList.add(ok?"good":"bad"); }); return [n,all.length]; }
+function checkInputs(sel){ let n=0; const all=$$(sel); all.forEach(i=>{ i.classList.remove("good","bad"); if(!i.value.trim()) return; const ok=i.dataset.ans.split("|").includes(norm(i.value)); if(ok)n++; i.classList.add(ok?"good":"bad"); }); return [n,all.length]; }
+const checkers={
+ kw:()=>checkSelects("#kw select"), nums:()=>checkSelects("#numclues select"), tns:()=>checkSelects("#tnsent select"), cs:()=>checkSelects("#csent select"),
+ tn:()=>checkInputs(".tn input"), cf:()=>checkInputs("#cforms input"),
+ main:()=>{ const box=$("#main"); box.querySelectorAll("label").forEach(l=>l.classList.remove("good","bad")); const c=box.querySelector("input:checked"); if(!c) return [0,1]; const ok=c.value==="a"; c.parentElement.classList.add(ok?"good":"bad"); return [ok?1:0,1]; },
+ tf:()=>{ let n=0; $$("#tf .tfb").forEach(b=>{ b.querySelectorAll("label").forEach(l=>l.classList.remove("good","bad")); const c=b.querySelector("input:checked"); if(!c) return; const ok=c.value===b.dataset.ans; if(ok)n++; c.parentElement.classList.add(ok?"good":"bad"); }); return [n,TF.length]; }
+};
+$$("[data-check]").forEach(b=>b.onclick=()=>{ const k=b.dataset.check,[n,t]=checkers[k](); $("#sc-"+k).textContent=`${n} / ${t} correct${n===t?" — great!":""}`; });
+document.addEventListener("input",e=>e.target.classList&&e.target.classList.remove("good","bad"));
+document.addEventListener("change",e=>{ if(e.target.tagName==="SELECT") e.target.classList.remove("good","bad"); });
+
+/* save / load */
+const KEY="approach-ci-w7-robin-ws";
+const fields=()=>$$("input[data-label],textarea[data-label],select[data-label]");
+const fk=(f,i)=>f.type==="radio"?`r:${f.name}:${f.value}`:(f.id?"id:"+f.id:"k"+i);
+function save(){ const d={}; fields().forEach((f,i)=>{ d[fk(f,i)]=(f.type==="radio"||f.type==="checkbox")?f.checked:f.value; }); try{localStorage.setItem(KEY,JSON.stringify(d));}catch(e){} }
+function load(){ let d={}; try{d=JSON.parse(localStorage.getItem(KEY))||{};}catch(e){} fields().forEach((f,i)=>{ const k=fk(f,i); if(!(k in d))return; if(f.type==="radio"||f.type==="checkbox") f.checked=d[k]; else f.value=d[k]; }); let l="a"; try{l=localStorage.getItem(KEY+"-lvl")||"a";}catch(e){} setLvl(l); }
+document.addEventListener("input",save); document.addEventListener("change",save);
+load();
+
+/* export + toolbar */
+function exportText(){
+  const out=["CURRENT ISSUES · BASIC LEVEL · WEEK 7 · CLASS 1","The Little Black Bird That Won",""]; const seen=new Set();
+  fields().forEach(f=>{ const L=f.dataset.label;
+    if(f.type==="radio"){ if(seen.has(f.name))return; seen.add(f.name); const c=document.querySelector(`input[name="${f.name}"]:checked`); out.push(`${L}: ${c?c.value:"—"}`); return; }
+    out.push(`${L}: ${(f.value||"").trim()||"—"}`); });
+  return out.join("\n");
+}
+$("#ansBtn").onclick=()=>{ const on=document.body.classList.toggle("show-answers"); $("#ansBtn").textContent=on?"Hide answers":"Show answers"; if(on) $("#answers").scrollIntoView({behavior:"smooth"}); };
+$("#printBtn").onclick=()=>{ document.body.classList.remove("print-blank"); window.print(); };
+$("#blankBtn").onclick=()=>{ document.body.classList.add("print-blank"); window.print(); };
+addEventListener("afterprint",()=>document.body.classList.remove("print-blank"));
+$("#copyBtn").onclick=async()=>{ const t=exportText(); try{ await navigator.clipboard.writeText(t); toast("Copied! Paste it on Community."); }catch(e){ const ta=el("textarea"); ta.value=t; document.body.append(ta); ta.select(); try{document.execCommand("copy"); toast("Copied!");}catch(_){ toast("Copy did not work."); } ta.remove(); } };
+$("#clearBtn").onclick=()=>{ if(!confirm("Clear all your answers?")) return; try{localStorage.removeItem(KEY);}catch(e){} location.reload(); };
+</script>
+
+</body>
+
+</html>

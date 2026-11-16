@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Teacher Guide · Week 7 · Two Stories</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#143865;--deep:#0c2340;--blue:#1c4f8f;--gold:#8c7535;--gold-bright:#d39f10;--sky-dark:#c1cddd;--sky-med:#e1e8f2;--sky-light:#edf2f9;--warm:#efe9d9;--ink:#1b2433;--muted:#5a6578;--ok:#1e7a46;--bg:#f2f4f8}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);font-family:"Source Sans 3",Arial,sans-serif;color:var(--ink);font-size:16.5px;line-height:1.5}
+h1,h2,h3{font-family:"Source Serif 4",Georgia,serif;color:var(--navy);line-height:1.2}
+.toolbar{position:sticky;top:0;z-index:20;background:var(--deep)}
+.toolbar .in{max-width:940px;margin:0 auto;padding:8px 16px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.toolbar img{height:34px}
+.toolbar .bt{font-family:"Source Serif 4",Georgia,serif;color:var(--gold-bright);font-weight:700;letter-spacing:.05em;margin-right:auto}
+.toolbar a{color:#fff;text-decoration:none;font-size:14px;font-weight:600;opacity:.85;padding:4px 8px;border-radius:6px}
+.toolbar a:hover{background:rgba(255,255,255,.12)}
+.toolbar button{font:inherit;font-size:14px;font-weight:700;border:0;border-radius:7px;padding:7px 12px;cursor:pointer;background:#fff;color:var(--navy)}
+.toolbar button.gold{background:var(--gold-bright);color:var(--deep)}
+.hero{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff}
+.hero .in{max-width:940px;margin:0 auto;padding:22px 16px}
+.hero h1{color:#fff;font-size:32px}
+.hero p{opacity:.92}
+main{max-width:940px;margin:0 auto;padding:16px 16px 60px}
+section.card{background:#fff;border:1px solid var(--sky-dark);border-radius:14px;padding:18px 22px;margin-bottom:16px}
+section.card > h2{font-size:24px;margin-bottom:10px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.kv{background:var(--sky-light);border-radius:10px;padding:10px 14px}
+.kv b{display:block;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold)}
+ul.check{list-style:none;display:grid;gap:5px}
+ul.check li{display:flex;gap:8px;align-items:flex-start}
+ul.check input{margin-top:5px;accent-color:var(--ok)}
+table{width:100%;border-collapse:collapse;font-size:15px}
+th{background:var(--navy);color:#fff;text-align:left;padding:7px 9px;font-weight:600}
+td{border-bottom:1px solid var(--sky-dark);padding:6px 9px;vertical-align:top}
+tr:nth-child(even) td{background:var(--sky-light)}
+td.t{white-space:nowrap;font-weight:700;color:var(--navy);text-align:right}
+tr.tot td{background:var(--warm)!important;font-weight:700}
+tr.brk td{background:#fffaf0!important;color:var(--gold);font-weight:700;text-align:center}
+.esa{display:inline-block;font-size:11px;font-weight:700;border-radius:6px;padding:1px 6px;margin-right:4px}
+.E{background:#fdf1d0;color:#7a5a00}.S{background:var(--sky-med);color:var(--navy)}.A{background:#e3f4ea;color:var(--ok)}.R{background:#efe3f4;color:#6b2c86}
+.classhead{display:flex;align-items:center;gap:12px;margin:26px 0 12px;font-family:"Source Serif 4",Georgia,serif;font-weight:700;font-size:22px;color:var(--gold)}
+.classhead::after{content:"";flex:1;height:2px;background:var(--gold-bright);opacity:.6}
+details.act{background:#fff;border:1px solid var(--sky-dark);border-radius:14px;margin-bottom:10px;overflow:hidden}
+details.act summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:34px 1fr auto;gap:10px;align-items:center;padding:12px 16px}
+details.act summary::-webkit-details-marker{display:none}
+details.act summary .n{width:30px;height:30px;border-radius:50%;background:var(--navy);color:#fff;display:grid;place-items:center;font-weight:700;font-size:14px}
+details.act summary .ti{font-family:"Source Serif 4",Georgia,serif;font-weight:700;font-size:19px;color:var(--navy)}
+details.act summary .ti small{display:block;font-family:"Source Sans 3",Arial,sans-serif;font-weight:400;font-size:14px;color:var(--muted)}
+details.act summary .mn{font-weight:700;color:var(--gold);white-space:nowrap}
+details.act[open] summary{background:var(--sky-light);border-bottom:1px solid var(--sky-dark)}
+.actbody{padding:14px 18px 16px;display:grid;gap:10px}
+.meta{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.meta div{background:var(--sky-light);border-radius:8px;padding:6px 10px;font-size:14.5px}
+.meta b{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold)}
+.field b.lab{display:block;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:2px}
+.field ol,.field ul{padding-left:20px}
+.field li{margin-bottom:3px}
+.say{background:var(--deep);color:#fff;border-radius:8px;padding:8px 12px;font-family:"Source Serif 4",Georgia,serif}
+.say b{color:var(--gold-bright)}
+.diff{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.diff div{border-radius:8px;padding:6px 10px;font-size:14.5px;border:1px solid var(--sky-dark)}
+.diff b{display:block;font-size:12px;letter-spacing:.06em;color:var(--navy)}
+.ans{background:#e9f6ee;border:1px solid #bfe2cc;border-radius:8px;padding:8px 12px;font-size:15px}
+.ans b.lab{color:var(--ok)}
+.warn{background:#fff6e5;border:1px solid #f1d28e;border-radius:8px;padding:8px 12px;font-size:15px}
+.qc{columns:2;column-gap:24px}
+.qc li{break-inside:avoid;margin-bottom:4px}
+.foot{text-align:center;font-size:12.5px;color:var(--muted);margin-top:10px}
+@media (max-width:700px){.grid2,.meta,.diff{grid-template-columns:1fr}.qc{columns:1}.hero h1{font-size:26px}section.card{padding:14px}.toolbar a{display:none}}
+@media print{
+  @page{margin:12mm}
+  body{background:#fff;font-size:10.5pt;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .toolbar{display:none}
+  .hero{background:none;color:var(--ink);border-bottom:3px solid var(--gold-bright)}
+  .hero h1{color:var(--navy)} .hero .in{padding:0 0 8px}
+  main{padding:6px 0 0}
+  section.card,details.act{border:1px solid var(--sky-dark);break-inside:avoid}
+  details.act{break-inside:auto}
+  details.act summary{background:var(--sky-light)!important}
+  .actbody{display:grid!important}
+}
+.mvtag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.08em;background:#e07a1f;color:#fff;border-radius:6px;padding:1px 6px;margin-left:6px;vertical-align:middle}
+.draft{background:#fff6e5;border:1.5px dashed #e8a866;border-radius:12px;padding:12px 16px;margin-bottom:12px}
+</style>
+</head>
+<body>
+<div class="toolbar"><div class="in">
+  <img src="data:image/png;base64,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" alt="Approach logo"><span class="bt">TEACHER GUIDE</span>
+  <a href="#overview">Overview</a><a href="#prep">Prep</a><a href="#timing">Timing</a><a href="#c1">Class 1</a><a href="#c2">Class 2</a><a href="#keys">Answer keys</a>
+  <button type="button" id="openAll">Open all</button>
+  <button type="button" class="gold" id="printBtn">Print</button>
+</div></div>
+
+<div class="hero"><div class="in">
+  <h1>Week 7 Teacher Guide · Two Stories, Two Views</h1>
+  <p>Current Issues · Basic Level (A1–A2+) · Two 100-minute classes + 30-minute break · ESA</p>
+</div></div>
+
+<main>
+
+<section class="card" id="overview">
+  <h2>Overview</h2>
+  <div class="grid2">
+    <div class="kv"><b>Syllabus focus</b>Two stories, two views — comparing. Theme: work and jobs.</div>
+    <div class="kv"><b>Language focus</b>Comparatives (<i>smaller, rarer, more famous, better</i>) · <i>but</i> · <i>both… and…</i></div>
+    <div class="kv"><b>SLO (Week 7)</b>Students compare two short stories or two opinions using simple comparison language.</div>
+    <div class="kv"><b>Texts</b><b style="display:inline;letter-spacing:0;text-transform:none;color:var(--ink)">Class 1:</b> “Black Robin Wins New Zealand's Bird of the Year” (Level 3, Nov 15, 2026) · <b style="display:inline;letter-spacing:0;text-transform:none;color:var(--ink)">Class 2:</b> “Two Big Movies, One Weekend” (Level 3)</div>
+  </div>
+  <h3 style="margin:14px 0 6px;font-size:18px">Class 1 story in short</h3>
+  <p>The black robin won New Zealand's 2026 Bird of the Year with a record 105,000 votes. It lives only on the Chatham Islands, about 800 km (500 miles) from mainland New Zealand. Habitat loss and pests left only five birds in 1980. Conservationists put robin eggs in other birds' nests, and those birds raised the chicks. Today there are about 350 adults — but the bird is still threatened and needs a third pest-free island.</p>
+  <h3 style="margin:14px 0 6px;font-size:18px">How the week works (Option B: two stories)</h3>
+  <ul style="padding-left:20px">
+    <li><b>Class 1</b> compares <b>inside one story</b>: then vs. now (1980 vs. 2026) and bird vs. bird. Students learn comparatives and <i>but</i>.</li>
+    <li><b>Class 2</b> compares <b>two stories</b>: the bird competition and the movie competition. Students add <i>both… and…</i> and give an opinion about the two stories.</li>
+    <li>Both articles are Level 3 (B1), so each worksheet has an easier retelling (Story A) and a challenge version (Story B), with a link to the original.</li>
+  </ul>
+</section>
+
+<section class="card" id="prep">
+  <h2>Before Class: Checklist</h2>
+  <div class="grid2">
+    <div>
+      <h3 style="font-size:17px;margin-bottom:6px">Files (same GitHub folder)</h3>
+      <ul class="check">
+        <li><input type="checkbox" id="p1"><label for="p1"><b>worksheet-robin.html</b> — Class 1 student link</label></li>
+        <li><input type="checkbox" id="p2"><label for="p2">Original article open (eslnewsstories.com) for A2+ students and audio</label></li>
+        <li><input type="checkbox" id="p3"><label for="p3">Test the article audio and the speakers</label></li>
+      </ul>
+      <h3 style="font-size:17px;margin:12px 0 6px">Print and cut</h3>
+      <ul class="check">
+        <li><input type="checkbox" id="p4"><label for="p4"><b>bird-cards.html</b>: 14 bird cards (2 pages)</label></li>
+        <li><input type="checkbox" id="p5"><label for="p5">TRUE and FALSE signs (reuse from Week 4, <b>pumpkin-cards.html</b>)</label></li>
+      </ul>
+    </div>
+    <div>
+      <h3 style="font-size:17px;margin-bottom:6px">Classroom</h3>
+      <ul class="check">
+        <li><input type="checkbox" id="p6"><label for="p6">Space for one long line of 14 students (Line-Up)</label></li>
+        <li><input type="checkbox" id="p7"><label for="p7">Tape the TRUE / FALSE signs on opposite walls</label></li>
+        <li><input type="checkbox" id="p8"><label for="p8">A map of the world or New Zealand to show the Chatham Islands</label></li>
+        <li><input type="checkbox" id="p9"><label for="p9">Optional: a photo of a black robin (search “black robin Chatham Islands”)</label></li>
+      </ul>
+    </div>
+  </div>
+  <div class="warn" style="margin-top:12px"><b>Safety for movement activities:</b> walking only. Offer a seated role (checker, timekeeper) for anyone who prefers not to move.</div>
+</section>
+
+<section class="card" id="timing">
+  <h2>Timing at a Glance</h2>
+  <table id="timeTable"></table>
+</section>
+
+<div class="classhead" id="c1">Class 1 · The Little Black Bird That Won · 100 minutes</div>
+<div id="acts1"></div>
+
+<div class="classhead">30-Minute Break</div>
+<p style="margin:-4px 0 10px;color:var(--muted)">Collect the bird cards — you'll use them again for the Class 2 warm-up vote.</p>
+
+<div class="classhead" id="c2">Class 2 · Two Stories, Two Competitions · 100 minutes</div>
+<div class="draft"><b>Planned flow — to be finalized.</b> The Class 2 worksheet, cards, vocabulary, and answers will be added after I read the movies article (“Two Big Movies, One Weekend”). The timing and activity types below are the plan; details may change to match the article.</div>
+<div id="acts2"></div>
+
+<section class="card" id="keys">
+  <h2>Answer Keys · Class 1</h2>
+  <div class="grid2">
+    <div class="ans"><b class="lab">2 · Words</b><br>1 rare · 2 island · 3 nest · 4 chick · 5 pests · 6 threatened · 7 recovery · 8 competition</div>
+    <div class="ans"><b class="lab">3 · Number clues</b><br>5 = robins in 1980 · 1980 = almost gone · 800 = km from mainland NZ · 350 = robins today · 105,000 = votes · 2 = islands where it lives now</div>
+    <div class="ans"><b class="lab">4 · Main idea</b><br>a — The black robin won Bird of the Year, but it still needs help.</div>
+    <div class="ans"><b class="lab">5 · 5 Ws (sample)</b><br>Who: the black robin (and conservationists) · What: won Bird of the Year · Where: Chatham Islands, New Zealand · When: 2026 (almost gone in 1980) · Why: its amazing recovery</div>
+    <div class="ans"><b class="lab">6 · Then and now</b><br>Chart: 5 · about 350 · 1 pair · Bird of the Year<br>Sentences: more · bigger · more famous · safer · but</div>
+    <div class="ans"><b class="lab">7 · True / False</b><br>1 F (only the Chatham Islands) · 2 T · 3 T · 4 F (about 350) · 5 F (still threatened) · 6 T</div>
+    <div class="ans"><b class="lab">8A · Comparatives</b><br>smaller · bigger · rarer · safer · happier · easier · more famous · more dangerous · better · worse</div>
+    <div class="ans"><b class="lab">8B · Sentences</b><br>1 smaller · 2 rarer · 3 more famous · 4 better · 5 bigger · 6 more dangerous</div>
+  </div>
+</section>
+
+<section class="card">
+  <h2>Quality Check · Class 1</h2>
+  <ul class="qc">
+    <li>Follows the syllabus: Week 7 comparing; comparatives and <i>but</i></li>
+    <li>SLO practiced: then vs. now, bird vs. bird, opinion with a comparison</li>
+    <li>ESA: Engage (line-up, number clues) → Study (words, reading, comparatives) → Activate (bird vs. bird, opinion)</li>
+    <li>Exactly 100 minutes; 30-minute break included</li>
+    <li>3 movement activities with seated roles available</li>
+    <li>Interaction: individual, pairs, whole class, mingle</li>
+    <li>Level 3 article made accessible: Story A (easier) and Story B (challenge)</li>
+    <li>A1 support (pictures, dropdowns, card bars) and A2+ challenge (Story B, corrections, opinions)</li>
+    <li>Adult-appropriate: real news, real conservation decisions</li>
+    <li>Class 2 builds on Class 1: from comparing inside one story to comparing two stories</li>
+  </ul>
+</section>
+
+<p class="foot">Week 7 Teacher Guide · Current Issues · Basic Level · Text: ESL News Stories (eslnewsstories.com), retold in two levels for this class.</p>
+</main>
+<script>
+const A1=[
+ {t:"Comparison Line-Up",s:"E",m:10,move:1,slide:"Worksheet 1",inter:"Whole class, mingle",mat:"Worksheet Section 1; open space",
+  goal:"Warm up with movement and meet comparatives in a real, personal context.",
+  teach:["Model with 2 students: “How long have you lived here?” → “I have lived here longer than Omar.”","Round 1: line up by how long you have lived in this city (3 min). Check from left to right.","Round 2: how far is your home country? Round 3: how many languages do you speak? (2 min each)","Students write 3 sentences comparing themselves with a classmate (2 min)."],
+  stud:"Talk, make a line, then compare yourself with the people next to you.",say:"I have lived here <b>longer than</b> ___. · My country is <b>farther than</b> ___. · I speak <b>more</b> languages <b>than</b> ___.",
+  out:"3 lines; 3 written comparison sentences.",
+  diff:["Say one sentence with the frame.","Write 3 sentences.","Add but: “I've lived here longer than Ana, but she speaks more languages.”"]},
+ {t:"Words for the Story",s:"S",m:12,slide:"Worksheet 2",inter:"Whole class → individual → pairs",mat:"Worksheet Section 2 (picture cards)",
+  goal:"Pre-teach 8 words students need to understand and discuss the story.",
+  teach:["Show the picture cards; elicit each word before saying it (4 min).","Drill: class → rows → individuals; mark the stress: <i>ISland, COMpeTItion, reCOVery, THREATened</i>. Point out the silent <b>s</b> in island.","Ask the check questions in the table below (2 min).","Students complete the 8 sentences and press Check; pairs fix mistakes (6 min)."],
+  stud:"Look, listen, repeat. Then complete the sentences.",out:"8 correct sentences.",vocab:"V1",
+  diff:["Match the pictures and words first.","Complete all 8.","Make a new sentence with 3 words."]},
+ {t:"Number Clues",s:"E",m:8,slide:"Worksheet 3",inter:"Pairs",mat:"Worksheet Section 3",
+  goal:"Predict the story from its numbers (also reviews Week 4).",
+  teach:["Pairs guess what each number means and write a guess (4 min).","Take 3–4 guesses for the most interesting numbers (5 and 105,000) (3 min).","Tell students: “Read and check your guesses.” Show the Chatham Islands on a map (1 min)."],
+  stud:"Guess what the numbers mean. After reading, choose the correct meaning.",say:"I think <b>5</b> is ___. · Maybe <b>105,000</b> is ___.",
+  out:"6 written guesses; correct meanings after reading.",
+  diff:["Guess 3 numbers.","Guess all 6.","Guess and explain why."]},
+ {t:"Read the Story: Main Idea",s:"S",m:10,slide:"Worksheet 4",inter:"Individual → pairs",mat:"Worksheet Section 4 (Story A / Story B); original article",
+  goal:"Read for the main idea at the right level.",
+  teach:["Students choose Story A (easier) or Story B (challenge). Suggest A for A1, B for A2+ (1 min).","Silent reading, 4 minutes. A2+ students can listen to the original audio.","Choose the main idea; compare with a partner (2 min).","Check; ask how the main idea uses <b>but</b>: “It won, <b>but</b> it still needs help.” Then students check their Number Clues (3 min)."],
+  stud:"Choose your story. Read. Choose the main idea.",out:"The correct main idea + checked number clues.",
+  diff:["Story A.","Story A or B.","Story B + the original audio."],ans:"a"},
+ {t:"Second Reading: The 5 Ws",s:"S",m:10,slide:"Worksheet 5",inter:"Individual → pairs",mat:"Worksheet Section 5",
+  goal:"Find key facts (recycles Week 2).",
+  teach:["Individual work, 5 minutes.","Pairs compare, 2 minutes.","Check together, 3 minutes. A2+ students can add Old Blue and Old Yellow."],
+  stud:"Read again. Write short answers.",out:"A completed 5 Ws chart.",
+  diff:["Who and What; copy words from the story.","All 5 Ws.","Add an extra fact for each W."]},
+ {t:"Then and Now",s:"S",m:10,slide:"Worksheet 6",inter:"Individual → pairs",mat:"Worksheet Section 6",
+  goal:"Compare 1980 and 2026 with comparatives and <i>but</i>.",
+  teach:["Students complete the chart (4 min) and press Check.","Students choose the words in 5 sentences (3 min).","Pairs say 2 then-and-now sentences aloud (3 min)."],
+  stud:"Complete the chart. Choose the correct words.",say:"In 1980 there were ___, but now there are ___. · The bird is <b>safer</b> now, <b>but</b> it still needs ___.",
+  out:"A completed chart + 5 sentences.",
+  diff:["Complete the chart.","Chart + sentences.","Say a sentence with two comparatives."]},
+ {t:"True or False? Walk to the Wall",s:"A",m:6,move:1,slide:"Worksheet 7",inter:"Whole class",mat:"TRUE / FALSE signs",
+  goal:"Check details with movement.",
+  teach:["Read each statement. Students walk to the TRUE or FALSE wall.","For false items, the FALSE group says the correct sentence together.","Students mark their answers and press Check."],
+  stud:"Listen. Walk to TRUE or FALSE. Correct the false sentences.",out:"6 decisions + 3 corrections.",
+  diff:["Follow the group, then check.","Say the correction.","Correct with a fact from the story."]},
+ {t:"Comparatives",s:"S",m:15,slide:"Worksheet 8",inter:"Whole class → individual → pairs",mat:"Worksheet Section 8",
+  goal:"Learn the form of comparatives and use <i>than</i> (syllabus language focus).",
+  teach:["Elicit from the story: “Was the bird safe in 1980? Is it safer now?” Write <b>safe → safer</b> (2 min).","Go through the 4 rule boxes: -er, y → ier, more + long word, irregular (better, worse, farther) (4 min).","CCQ: “Do we say ‘more big’? (no) ‘bigger’? (yes)”.","Students do Part A (10 forms) and Part B (6 sentences) and press Check (6 min).","Pairs make 2 comparisons about their own countries (3 min)."],
+  stud:"Read the rules. Write the comparatives. Complete the sentences.",say:"___ is <b>___er than</b> ___. · ___ is <b>more ___ than</b> ___.",
+  out:"10 forms + 6 sentences + 2 personal comparisons.",
+  diff:["Part A with the rule boxes.","Parts A and B.","Personal comparisons with but."]},
+ {t:"Bird vs. Bird",s:"A",m:14,move:1,slide:"Worksheet 9",inter:"Mingle (pairs)",mat:"bird-cards.html (14 cards)",
+  goal:"Use comparatives and <i>but</i> to compare and give an opinion.",
+  teach:["Give each student a bird card. Show how to read the Size, Colorful, and Rare bars (1 min).","Students find a partner and compare their birds; change partners every 3 minutes (9 min).","Students write their best comparisons and an opinion: which bird should be Bird of the Year? (4 min)"],
+  stud:"Compare your bird with 3 partners. Write your best comparisons and your opinion.",say:"My bird is <b>bigger than</b> your bird. · Your bird is <b>more colorful</b>. · My bird is <b>rarer</b>, <b>but</b> your bird is <b>more famous</b>.",
+  out:"3 written comparisons + 1 opinion with a reason.",
+  diff:["Use the bars: bigger / smaller.","Use 2 bars and but.","Use the facts on the card and give an opinion with because."]},
+ {t:"Exit Ticket",s:"R",m:5,slide:"Worksheet 10",inter:"Individual",mat:"Worksheet Section 10",
+  goal:"Check learning before the break.",
+  teach:["Students write one then-and-now comparison and one but sentence (3 min).","2–3 students read their sentences aloud (2 min). Students press Copy answers and post on Community."],
+  stud:"Write 2 sentences.",out:"2 sentences per student.",
+  diff:["Use the frames.","Write your own sentences.","Use a comparative and but in one sentence."]}
+];
+const A2=[
+ {t:"Bird of the Year Vote",s:"E",m:8,move:1,slide:"Planned",inter:"Whole class",mat:"Bird cards from Class 1",
+  goal:"Review comparatives from Class 1 with a real vote.",
+  teach:["Put 4 bird cards in 4 corners. Students walk to their favorite.","Each corner gives 2 reasons with comparatives. Count the votes.","Bridge: “The robin won a competition. Today: another competition!”"],
+  stud:"Go to your favorite bird. Give a reason.",say:"I voted for the ___ because it is <b>___er than</b> ___.",
+  out:"A class vote with reasons.",diff:["Say the bird name and one adjective.","One full reason.","Compare two birds in one sentence."]},
+ {t:"Movie Warm-up",s:"E",m:7,move:1,slide:"Planned",inter:"Four Corners",mat:"Slides (to be added)",
+  goal:"Activate interest in the second story.",
+  teach:["Four Corners: favorite kind of movie (action, comedy, science fiction, family).","Students explain their choice with a comparison: “Comedies are funnier than action movies.”"],
+  stud:"Go to your corner. Explain your choice.",out:"Short spoken comparisons.",diff:["Say the type of movie.","One comparison.","Compare and give an example."]},
+ {t:"Words for Story 2",s:"S",m:12,slide:"Planned",inter:"Whole class → pairs",mat:"Class 2 worksheet (to be added)",
+  goal:"Pre-teach 6–8 words from the movies article.",
+  teach:["Words will be chosen from the article. Same routine as Class 1: elicit, drill, check questions, practice."],
+  stud:"Learn and practice the words.",out:"Completed vocabulary task.",diff:["Pictures and matching.","Sentences.","Own sentences."]},
+ {t:"Read Story 2: Main Idea + 5 Ws",s:"S",m:18,slide:"Planned",inter:"Individual → pairs",mat:"Class 2 worksheet: Story A / B",
+  goal:"Understand the second story at the right level.",
+  teach:["Students choose Story A or B; read for the main idea, then the 5 Ws (same routine as Class 1)."],
+  stud:"Read and find the main idea and the 5 Ws.",out:"Main idea + 5 Ws chart.",diff:["Story A.","Story A or B.","Story B + original."]},
+ {t:"Story Sort: Robin, Movies, or Both?",s:"A",m:12,move:1,slide:"Planned",inter:"Whole class, movement",mat:"Sort cards + 3 signs (to be added)",
+  goal:"Compare the two stories: what is the same and what is different.",
+  teach:["Each student gets a fact card. They walk to ROBIN, MOVIES, or BOTH.","Each group reads its cards; the class checks.","Groups make sentences: “Both stories are about a competition.”"],
+  stud:"Read your card. Walk to the right sign.",say:"<b>Both</b> stories are about ___. · The robin story is about ___, <b>but</b> the movie story is about ___.",
+  out:"Sorted facts + both/but sentences.",diff:["Read your card and walk.","Make one both sentence.","Make both and but sentences."]},
+ {t:"both… and… / but",s:"S",m:12,slide:"Planned",inter:"Whole class → individual",mat:"Class 2 worksheet",
+  goal:"Use both… and… and but to compare two stories.",
+  teach:["Show the form: <b>Both</b> the robin <b>and</b> the movies ___. · The robin ___, <b>but</b> the movies ___.","Controlled practice, then students write 3 sentences comparing the stories."],
+  stud:"Learn the pattern. Write 3 sentences.",out:"3 comparison sentences.",diff:["Complete frames.","Write 3 sentences.","Combine comparative + but."]},
+ {t:"Which Story Is More Important?",s:"A",m:13,slide:"Planned",inter:"Groups → whole class",mat:"Slides",
+  goal:"Give and support an opinion comparing the two stories.",
+  teach:["Groups decide: Which story is more important? More interesting? Better news?","Each group gives 2 reasons with comparatives; other groups agree or disagree."],
+  stud:"Decide with your group. Give 2 reasons.",say:"We think the ___ story is <b>more important</b> because ___. · I agree / disagree because ___.",
+  out:"A group opinion with 2 reasons.",diff:["Give one reason with because.","Two reasons.","Respond to another group."]},
+ {t:"Writing: Two Stories",s:"A",m:15,slide:"Planned",inter:"Individual → pairs",mat:"Class 2 worksheet",
+  goal:"Write 5–7 sentences comparing the two stories.",
+  teach:["Model paragraph, sentence starters, and checklist will be in the Class 2 worksheet.","Write 12 min; partner check 3 min. Post on Community."],
+  stud:"Write 5–7 sentences comparing the two stories.",out:"A comparison paragraph.",diff:["5 sentences with frames.","6–7 sentences.","Add an opinion and two reasons."]},
+ {t:"Exit Ticket",s:"R",m:3,slide:"Planned",inter:"Individual",mat:"Class 2 worksheet",
+  goal:"Check learning.",teach:["One both sentence, one but sentence, one comparative."],
+  stud:"Write 3 sentences.",out:"3 sentences.",diff:["Frames.","Own sentences.","One sentence with all three."]}
+];
+const V1=[
+ ["rare","adjective","RARE","there are not many; hard to find","If something is rare, are there many of it?"],
+ ["island","noun","IS·land (the s is silent)","land with water all around it","Can you walk to an island from the mainland?"],
+ ["nest","noun","NEST","a bird's home for its eggs","Who lives in a nest?"],
+ ["chick","noun","CHICK","a baby bird","Is a chick old or young?"],
+ ["pest","noun","PEST","an animal that hurts plants or other animals","Is a rat a pest? Is a pet dog a pest?"],
+ ["threatened","adjective","THREAT·ened","in danger; it may disappear","If an animal is threatened, is it safe?"],
+ ["recovery","noun","re·COV·er·y","getting better again","After an illness, do you need a recovery?"],
+ ["competition","noun","com·pe·TI·tion","a contest; people try to win","Is there a winner in a competition?"]
+];
+const V2=[];
+
+function vocabTable(V){
+  return `<table><tr><th>Word</th><th>Stress</th><th>Meaning</th><th>Check question</th></tr>${V.map(v=>`<tr><td><b>${v[0]}</b> <span style="color:var(--muted);font-size:13px">${v[1]}</span></td><td>${v[2]}</td><td>${v[3]}</td><td>${v[4]}</td></tr>`).join("")}</table>`;
+}
+function act(a,i){
+  return `<details class="act"><summary><span class="n">${i}</span><span class="ti"><span class="esa ${a.s}">${a.s}</span>${a.t}<small>${a.slide} · ${a.inter}</small></span><span class="mn">${a.m} min</span></summary>
+  <div class="actbody">
+    <div class="meta"><div><b>Goal</b>${a.goal}</div><div><b>Interaction</b>${a.inter}</div><div><b>Materials</b>${a.mat}</div></div>
+    <div class="field"><b class="lab">Teacher instructions</b><ol>${a.teach.map(x=>`<li>${x}</li>`).join("")}</ol></div>
+    <div class="field"><b class="lab">Student instructions</b>${a.stud}</div>
+    ${a.say?`<div class="say">${a.say}</div>`:""}
+    ${a.vocab?vocabTable(a.vocab==="V1"?V1:V2):""}
+    <div class="field"><b class="lab">Expected output</b>${a.out}</div>
+    <div class="diff"><div><b>A1</b>${a.diff[0]}</div><div><b>A2</b>${a.diff[1]}</div><div><b>A2+</b>${a.diff[2]}</div></div>
+    ${a.ans?`<div class="ans"><b class="lab">Answers:</b> ${a.ans}</div>`:""}
+  </div></details>`;
+}
+document.getElementById("acts1").innerHTML=A1.map((a,i)=>act(a,i+1)).join("");
+document.getElementById("acts2").innerHTML=A2.map((a,i)=>act(a,A1.length+i+1)).join("");
+const sum=l=>l.reduce((s,a)=>s+a.m,0);
+let t=`<tr><th>#</th><th>Stage</th><th>Activity</th><th>Interaction</th><th style="text-align:right">Min</th></tr>`;
+let k=1;
+const isMove=a=>!!a.move;
+A1.forEach(a=>t+=`<tr><td>${k++}</td><td><span class="esa ${a.s}">${a.s}</span></td><td>${a.t}${isMove(a)?' <span class="mvtag">MOVE</span>':""}</td><td>${a.inter}</td><td class="t">${a.m}</td></tr>`);
+t+=`<tr class="tot"><td></td><td></td><td>Class 1 total</td><td></td><td class="t">${sum(A1)}</td></tr>`;
+t+=`<tr class="brk"><td colspan="5">30-minute break</td></tr>`;
+A2.forEach(a=>t+=`<tr><td>${k++}</td><td><span class="esa ${a.s}">${a.s}</span></td><td>${a.t}${isMove(a)?' <span class="mvtag">MOVE</span>':""}</td><td>${a.inter}</td><td class="t">${a.m}</td></tr>`);
+t+=`<tr class="tot"><td></td><td></td><td>Class 2 total</td><td></td><td class="t">${sum(A2)}</td></tr>`;
+document.getElementById("timeTable").innerHTML=t;
+document.getElementById("openAll").onclick=e=>{ const ds=[...document.querySelectorAll("details.act")]; const open=!ds.every(d=>d.open); ds.forEach(d=>d.open=open); e.target.textContent=open?"Close all":"Open all"; };
+document.getElementById("printBtn").onclick=()=>{ document.querySelectorAll("details.act").forEach(d=>d.open=true); setTimeout(()=>window.print(),100); };
+addEventListener("beforeprint",()=>document.querySelectorAll("details.act").forEach(d=>d.open=true));
+const KEY="approach-w7-teacher-guide";
+let st={}; try{st=JSON.parse(localStorage.getItem(KEY))||{};}catch(e){}
+document.querySelectorAll("ul.check input").forEach(c=>{ c.checked=!!st[c.id]; c.onchange=()=>{ st[c.id]=c.checked; try{localStorage.setItem(KEY,JSON.stringify(st));}catch(e){} }; });
+
+</script>
+</body>
+
+</html>
