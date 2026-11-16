@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Two Big Movies, One Weekend · Worksheet</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#143865; --deep:#0c2340; --blue:#1c4f8f; --gold:#8c7535; --gold-bright:#d39f10;
+  --sky-dark:#c1cddd; --sky-med:#e1e8f2; --sky-light:#edf2f9; --warm:#efe9d9;
+  --ink:#1b2433; --muted:#5a6578; --ok:#1e7a46; --okbg:#e3f4ea; --no:#b3261e; --nobg:#fbe7e5; --bg:#f2f4f8;
+  --pumpkin:#e07a1f; --pumpkin-l:#fdf0e3;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);font-family:"Source Sans 3",Arial,sans-serif;color:var(--ink);font-size:17px;line-height:1.5}
+h1,h2,h3{font-family:"Source Serif 4",Georgia,serif;color:var(--navy);line-height:1.2}
+.toolbar{position:sticky;top:0;z-index:20;background:var(--deep);color:#fff}
+.toolbar .in{max-width:880px;margin:0 auto;padding:9px 16px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.toolbar img{height:36px}
+.toolbar .bt{font-family:"Source Serif 4",Georgia,serif;color:var(--gold-bright);font-weight:700;letter-spacing:.05em;margin-right:auto}
+.toolbar button{font:inherit;font-size:14px;font-weight:700;border:0;border-radius:7px;padding:7px 12px;cursor:pointer;background:#fff;color:var(--navy)}
+.toolbar button.gold{background:var(--gold-bright);color:var(--deep)}
+.hero{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;position:relative;overflow:hidden}
+.hero .in{max-width:880px;margin:0 auto;padding:20px 16px 22px;position:relative;z-index:1}
+.hero h1{color:#fff;font-size:31px}
+.hero p{opacity:.92}
+.hero svg.pk{position:absolute;right:4%;top:50%;transform:translateY(-50%);width:130px;opacity:.9}
+.meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px;align-items:center}
+.meta label{font-weight:700}
+.meta input{border:0;border-radius:8px;padding:8px 10px;font:inherit;min-width:180px;flex:1;max-width:300px}
+.saved{font-size:13px;color:#e9d9a8;margin-top:6px}
+nav.jump{background:#fff;border-bottom:1px solid var(--sky-dark);position:sticky;top:54px;z-index:15}
+nav.jump .in{max-width:880px;margin:0 auto;display:flex;gap:6px;overflow-x:auto;padding:7px 16px;scrollbar-width:none}
+nav.jump a{flex:none;text-decoration:none;color:var(--navy);font-weight:600;font-size:13px;padding:4px 10px;border-radius:16px;background:var(--sky-light);border:1px solid var(--sky-dark)}
+nav.jump a.mv{background:var(--pumpkin-l);border-color:#f2c79c;color:#9a4a07}
+main{max-width:880px;margin:0 auto;padding:16px 16px 60px}
+section.card{background:#fff;border:1px solid var(--sky-dark);border-radius:14px;padding:18px 20px 20px;margin-bottom:16px;scroll-margin-top:110px}
+section.card.move{border:2px solid #f2c79c}
+.sh{display:flex;align-items:center;gap:10px;margin-bottom:4px;flex-wrap:wrap}
+.num{background:var(--navy);color:#fff;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-weight:700;flex:none}
+.move .num{background:var(--pumpkin)}
+.sh h2{font-size:22px}
+.tag{margin-left:auto;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:12px;background:var(--sky-med);color:var(--navy)}
+.tag.mv{background:var(--pumpkin);color:#fff}
+.tag.a{background:var(--okbg);color:var(--ok)}
+.inst{color:var(--muted);margin-bottom:10px}
+.movebox{background:var(--pumpkin-l);border:1.5px dashed #e8a866;border-radius:10px;padding:10px 14px;margin:6px 0 12px;font-size:16px}
+.movebox b{color:#9a4a07}
+.frame{background:var(--deep);color:#fff;border-radius:10px;padding:10px 14px;font-family:"Source Serif 4",Georgia,serif;font-size:17px;line-height:1.55;margin:8px 0}
+.frame b{color:var(--gold-bright)}
+.link{display:inline-flex;gap:8px;align-items:center;background:var(--gold-bright);color:var(--deep);font-weight:700;text-decoration:none;border-radius:24px;padding:9px 18px;margin:2px 0 10px}
+input[type=text],textarea,select{font:inherit;color:#1a3d6b;background:#f7f9fc;border:1.5px solid var(--sky-dark);border-radius:8px;padding:6px 9px}
+input[type=text]:focus,textarea:focus,select:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(28,79,143,.15);background:#fff}
+textarea{width:100%;min-height:80px;resize:vertical}
+.good{background:var(--okbg)!important;border-color:var(--ok)!important}
+.bad{background:var(--nobg)!important;border-color:var(--no)!important}
+.opts{display:grid;gap:7px}
+.opts label{display:flex;gap:10px;align-items:flex-start;border:1.5px solid var(--sky-dark);border-radius:10px;padding:8px 12px;cursor:pointer;background:#fff}
+.opts input{margin-top:5px;accent-color:var(--navy)}
+.row{display:grid;grid-template-columns:28px 1fr;gap:8px;align-items:center;padding:7px 0;border-bottom:1px dashed var(--sky-dark);min-width:0}
+.row:last-of-type{border-bottom:0}
+.row .n{font-weight:700;color:var(--muted)}
+.row .ln{display:flex;flex-wrap:wrap;gap:6px;align-items:center;min-width:0}
+.row .ln select{max-width:100%;min-width:0}
+.check{font:inherit;font-weight:700;font-size:14px;background:var(--navy);color:#fff;border:0;border-radius:8px;padding:7px 16px;cursor:pointer;margin-top:10px}
+.score{font-weight:700;color:var(--ok);margin-left:10px}
+
+/* find someone who */
+table.fsw{width:100%;border-collapse:collapse;font-size:16px}
+table.fsw th{background:var(--navy);color:#fff;text-align:left;padding:7px 10px;font-weight:600}
+table.fsw td{border:1px solid var(--sky-dark);padding:6px 8px;vertical-align:middle}
+table.fsw td input{width:100%}
+table.fsw td.q{width:45%}
+table.fsw td.q small{display:block;color:var(--muted);font-size:13px}
+
+/* vocab */
+.vgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:12px}
+.vcard{border:1.5px solid var(--sky-dark);border-radius:12px;padding:8px 10px;background:#fff;text-align:center}
+.vcard svg{width:62px;height:62px;display:block;margin:0 auto 4px}
+.vcard b{font-family:"Source Serif 4",Georgia,serif;color:var(--navy);font-size:18px}
+.vcard span{display:block;font-size:13px;color:var(--muted)}
+
+/* map */
+.map{background:#f4f8ee;border:1.5px solid var(--sky-dark);border-radius:12px;padding:6px;margin:8px 0}
+.map svg{width:100%;height:auto;display:block}
+.route{display:grid;gap:8px}
+
+/* order */
+.order .row{grid-template-columns:auto 1fr}
+.order select{width:64px}
+
+/* tf */
+.tf{padding:8px 0;border-bottom:1px dashed var(--sky-dark)}
+.tf:last-child{border-bottom:0}
+.tfb{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:4px}
+.tfb label{border:1.5px solid var(--sky-dark);border-radius:8px;padding:3px 12px;cursor:pointer;font-weight:700;font-size:14px;display:flex;gap:5px;align-items:center}
+.tfb input[type=text]{flex:1;min-width:200px}
+
+/* fact file */
+.factfile{border:3px solid var(--pumpkin);border-radius:14px;overflow:hidden}
+.factfile .ffh{background:var(--pumpkin);color:#fff;font-family:"Source Serif 4",Georgia,serif;font-weight:700;font-size:22px;padding:8px 14px;letter-spacing:.04em}
+.factfile .ffb{display:grid;grid-template-columns:150px 1fr;gap:8px 12px;padding:12px 14px;align-items:center}
+.factfile .ffb label{font-weight:700;color:#9a4a07}
+.factfile .ffb input{width:100%}
+
+/* prices */
+.stand{border:2px solid var(--gold);border-radius:14px;overflow:hidden}
+.stand .sth{background:#5b3a24;color:#fff;padding:8px 14px;font-family:"Source Serif 4",Georgia,serif;font-size:21px;font-weight:700;display:flex;justify-content:space-between;align-items:center}
+.stand .sth span{font-family:"Source Sans 3",Arial,sans-serif;font-size:13px;font-weight:400;opacity:.85}
+.stand table{width:100%;border-collapse:collapse;font-size:17px}
+.stand td{padding:7px 14px;border-bottom:1px dashed #d9c9a3}
+.stand td.p{text-align:right;font-weight:700;font-variant-numeric:tabular-nums;color:#5b3a24}
+.stand tr:nth-child(even) td{background:#fbf7ec}
+.say-it{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.say-it span{background:var(--sky-light);border-radius:8px;padding:4px 10px;font-size:15px}
+.receipt{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.receipt .r{border:1.5px solid var(--sky-dark);border-radius:10px;padding:10px 12px}
+.receipt .r h3{font-size:17px;margin-bottom:6px}
+.receipt label{display:grid;grid-template-columns:110px 1fr;gap:6px;align-items:center;margin:4px 0;font-size:15px}
+
+/* prepositions */
+.prep{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:10px}
+.prep div{border-radius:10px;padding:8px 12px;background:var(--sky-light);font-size:15px}
+.prep b.p{display:block;font-family:"Source Serif 4",Georgia,serif;font-size:24px;color:var(--navy)}
+.prep .t{font-size:12px;font-weight:700;letter-spacing:.08em;color:var(--gold);text-transform:uppercase}
+
+.counter{font-size:14px;color:var(--muted)}
+.model{background:var(--deep);color:#fff;border-radius:10px;padding:12px 16px;font-family:"Source Serif 4",Georgia,serif;font-size:17px;line-height:1.6;margin-bottom:10px}
+.model b{color:var(--gold-bright)}
+.model .hl{display:inline-block;background:var(--pumpkin);color:#fff;font-family:"Source Sans 3",Arial,sans-serif;font-size:12px;font-weight:700;border-radius:6px;padding:0 6px;margin-right:6px;letter-spacing:.06em}
+.checks label{display:flex;gap:8px;align-items:flex-start;padding:3px 0;cursor:pointer}
+.checks input{margin-top:5px;accent-color:var(--ok)}
+.ideas{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0 10px}
+.ideas span{border:1.5px solid var(--sky-dark);border-radius:20px;padding:3px 12px;font-size:14px;cursor:pointer;background:#fff}
+.ideas span.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+.faces{display:flex;gap:8px;flex-wrap:wrap}
+.faces label{flex:1;min-width:120px;text-align:center;background:#fff;border:1.5px solid var(--sky-dark);border-radius:10px;padding:8px 6px;cursor:pointer;font-size:14px;font-weight:600}
+.faces input{display:none}
+.faces label:has(input:checked){border-color:var(--navy);background:var(--sky-med)}
+#answers{display:none}
+body.show-answers #answers{display:block}
+#answers p,#answers li{margin-bottom:5px;font-size:15px}
+#answers ul{padding-left:20px}
+.credit{text-align:center;font-size:12px;color:var(--muted);margin-top:8px}
+.toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:var(--deep);color:#fff;padding:9px 18px;border-radius:20px;font-weight:600;opacity:0;transition:.25s;pointer-events:none;z-index:30}
+.toast.show{opacity:1}
+@media (max-width:660px){
+  .vgrid{grid-template-columns:repeat(2,1fr)}
+  .prep,.receipt{grid-template-columns:1fr}
+  .factfile .ffb{grid-template-columns:1fr}
+  .receipt label{grid-template-columns:1fr}
+  table.fsw{font-size:14px}
+  .hero h1{font-size:25px;padding-right:80px}
+  .hero svg.pk{width:80px;right:2%}
+  section.card{padding:14px}
+}
+@media print{
+  @page{margin:12mm 13mm}
+  body{background:#fff;font-size:11pt;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .toolbar,nav.jump,.check,.score,.toast,.link,.saved{display:none!important}
+  .hero{background:none;color:var(--ink);border-bottom:3px solid var(--gold-bright)}
+  .hero h1{color:var(--navy)} .hero .in{padding:0 0 8px} .hero svg.pk{display:none}
+  .meta input{border-bottom:1px solid #555;border-radius:0;background:none}
+  main{padding:8px 0 0}
+  section.card{padding:8px 0 10px;break-inside:avoid;margin-bottom:6px;border:0;border-bottom:1px solid var(--sky-med);border-radius:0}
+  #s1,#s10{break-inside:auto}
+  input[type=text],select,textarea{background:transparent!important;border-color:#999}
+  select{appearance:none;-webkit-appearance:none}
+  .good,.bad{background:transparent!important;border-color:#999!important}
+  textarea{min-height:110px;resize:none}
+  body.print-blank input[type=text],body.print-blank textarea,body.print-blank select{color:transparent!important}
+  body.print-blank input[type=radio],body.print-blank input[type=checkbox]{appearance:none;-webkit-appearance:none;width:12px;height:12px;border:1.5px solid #555;border-radius:50%}
+  body.print-blank input[type=checkbox]{border-radius:2px}
+  body.print-blank .ideas span{background:#fff!important;color:var(--ink)!important}
+  body.print-blank .counter{visibility:hidden}
+  #answers{break-before:page}
+}
+
+.lvl{display:flex;gap:8px;margin:4px 0 10px;flex-wrap:wrap}
+.lvl button{font:inherit;font-weight:700;border:2px solid var(--navy);background:#fff;color:var(--navy);border-radius:22px;padding:6px 16px;cursor:pointer}
+.lvl button.on{background:var(--navy);color:#fff}
+.article{background:#fbfcfe;border:1px solid var(--sky-dark);border-radius:12px;padding:14px 18px}
+.article h3{font-size:22px;margin-bottom:6px}
+.article p{margin:8px 0;font-size:17.5px;line-height:1.65}
+.gloss{margin-top:10px;background:var(--warm);border-radius:10px;padding:8px 12px;font-size:14.5px}
+.clues-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.nclue{border:2px solid var(--sky-dark);border-radius:12px;padding:10px;display:grid;gap:6px;background:#fff}
+.nclue .big{font-family:"Source Serif 4",Georgia,serif;font-size:34px;font-weight:700;color:var(--navy);text-align:center}
+.nclue input,.nclue select{width:100%;font-size:14px}
+table.ws5{width:100%;border-collapse:separate;border-spacing:0 6px}
+table.ws5 th{width:96px;text-align:left;color:#fff;background:var(--navy);border-radius:8px 0 0 8px;padding:7px 12px;font-family:"Source Serif 4",Georgia,serif}
+table.ws5 td input{width:100%;border-radius:0 8px 8px 0}
+table.tn{width:100%;border-collapse:collapse;font-size:16px}
+table.tn th{background:var(--navy);color:#fff;padding:7px 10px;text-align:left}
+table.tn td{border:1px solid var(--sky-dark);padding:6px 8px}
+table.tn td input{width:100%}
+table.tn td.given{color:var(--muted);font-style:italic}
+.rules{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:8px}
+.rules div{background:var(--sky-light);border-radius:10px;padding:8px 12px;font-size:15px;line-height:1.5}
+.rules .t{display:block;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}
+.rules b{display:block;font-family:"Source Serif 4",Georgia,serif;font-size:20px;color:var(--navy)}
+.rules br+b,.rules div b:not(:first-of-type){display:inline;font-family:inherit;font-size:inherit}
+.cgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.cf{display:grid;gap:4px;font-size:15px;font-weight:600}
+.cf input{width:100%}
+.bvbrow{display:grid;grid-template-columns:80px 1fr 1.6fr;gap:8px;align-items:center;padding:5px 0}
+.bvbrow .n{font-weight:700;color:var(--muted);font-size:14px}
+
+.rules2{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:8px}
+.rules2 div{background:var(--sky-light);border-radius:10px;padding:8px 12px;font-size:15px;line-height:1.55}
+.rules2 .t{display:block;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}
+.rules2 div>b:not(.ex){display:block;font-family:"Source Serif 4",Georgia,serif;font-size:19px;color:var(--navy);margin-bottom:2px}
+.rules2 b.ex{color:#b3261e}
+.qgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:8px}
+.qgrid label{display:grid;gap:4px;font-size:15px}
+.frames{background:var(--sky-light);border-radius:10px;padding:10px 14px;font-size:15px;margin-bottom:10px}
+@media (max-width:660px){.rules2,.qgrid{grid-template-columns:1fr}.clues-grid{grid-template-columns:1fr 1fr}.rules{grid-template-columns:1fr 1fr}.cgrid{grid-template-columns:1fr 1fr}.bvbrow{grid-template-columns:1fr}}
+@media print{.lvl{display:none}#storyB[hidden]{display:block!important}#s4,#s8{break-inside:auto}}
+</style>
+</head>
+<body>
+<div class="toolbar"><div class="in">
+  <img src="data:image/png;base64,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" alt="Approach logo"><span class="bt">APPROACH</span>
+  <button type="button" id="ansBtn">Show answers</button>
+  <button type="button" id="blankBtn">Print blank</button>
+  <button type="button" class="gold" id="printBtn">Print my answers</button>
+  <button type="button" id="copyBtn">Copy answers</button>
+  <button type="button" id="clearBtn">Clear</button>
+</div></div>
+
+<div class="hero"><div class="in">
+  <h1>Two Big Movies, One Weekend</h1>
+  <p>Current Issues · Basic Level · Week 7 · Class 2 · Comparing two stories: both · and · but</p>
+  <div class="meta"><label for="name">Name:</label><input type="text" id="name" data-label="Name" placeholder="Write your name"><label for="date">Date:</label><input type="text" id="date" data-label="Date" style="max-width:150px"></div>
+  <div class="saved">Your answers save automatically on this device.</div>
+</div>
+<svg class="pk" viewBox="0 0 120 100" aria-hidden="true"><rect x="14" y="30" width="92" height="60" rx="6" fill="#1b2433"/><path d="M14 30 L22 12 L106 12 L98 30z" fill="#d39f10"/><path d="M30 12 L22 30 M50 12 L42 30 M70 12 L62 30 M90 12 L82 30" stroke="#1b2433" stroke-width="5"/><path d="M50 48 L72 60 L50 72z" fill="#fff"/></svg>
+</div>
+
+<nav class="jump"><div class="in">
+  <a href="#s1" class="mv">1 Bird vote</a><a href="#s2" class="mv">2 Movie corners</a><a href="#s3">3 Words</a><a href="#s4">4 Read</a><a href="#s5" class="mv">5 Story sort</a><a href="#s6">6 both · and · but</a><a href="#s7">7 Which story?</a><a href="#s8">8 Write</a><a href="#s9">9 Exit</a>
+</div></nav>
+
+<main>
+
+<section class="card move" id="s1">
+  <div class="sh"><div class="num">1</div><h2>Bird of the Year Vote</h2><span class="tag mv">Move</span></div>
+  <div class="movebox">Four bird cards are in the four corners of the room. <b>Walk to your favorite bird.</b> In your corner, give a reason with a comparative. Then the class counts the votes.</div>
+  <div class="frame">I voted for the <b>___</b> because it is <b>___er than</b> the ___. · It is <b>more ___ than</b> the ___.</div>
+  <div class="row"><span class="n">&#10003;</span><div class="ln" style="width:100%"><span>My vote:</span><input type="text" style="flex:1;min-width:220px" data-label="My bird vote" placeholder="I voted for the… because…"></div></div>
+  <div class="row"><span class="n">&#10003;</span><div class="ln" style="width:100%"><span>The winner:</span><input type="text" style="flex:1;min-width:220px" data-label="Class winner" placeholder="The winner was the… with ___ votes."></div></div>
+</section>
+
+<section class="card move" id="s2">
+  <div class="sh"><div class="num">2</div><h2>Movie Corners</h2><span class="tag mv">Move</span></div>
+  <div class="movebox">What kind of movie do you like best? <b>Walk to a corner</b>: action · comedy · science fiction · family. Tell the people in your corner why.</div>
+  <div class="frame">I like <b>___</b> movies because they are <b>___er than</b> ___ movies. · <b>Both</b> my partner <b>and</b> I like ___.</div>
+  <input type="text" style="width:100%" data-label="Movie corners sentence" placeholder="I like comedies because they are funnier than action movies.">
+  <p class="inst" style="margin-top:10px">Do you watch movies at a movie theater or at home? Which is better? Why?</p>
+  <input type="text" style="width:100%" data-label="Theater or home" placeholder="I think watching at home is cheaper, but the theater is more exciting.">
+</section>
+
+<section class="card" id="s3">
+  <div class="sh"><div class="num">3</div><h2>Words for the Story</h2><span class="tag">Vocabulary</span></div>
+  <div class="vgrid" id="vgrid"></div>
+  <p class="inst">Choose the correct word for each sentence.</p>
+  <div id="kw"></div>
+  <button type="button" class="check" data-check="kw">Check</button><span class="score" id="sc-kw"></span>
+</section>
+
+<section class="card" id="s4">
+  <div class="sh"><div class="num">4</div><h2>Read the Story</h2><span class="tag">Reading</span></div>
+  <p class="inst">Choose your story. Read it two times.</p>
+  <div class="lvl"><button type="button" data-lvl="a" class="on">Story A (easier)</button><button type="button" data-lvl="b">Story B (challenge)</button></div>
+  <div class="article" id="storyA">
+    <h3>Two Big Movies on the Same Day</h3>
+    <p>Two very big movies come out on the same day: <b>December 18, 2026</b>. One is <i>Avengers: Doomsday</i>, a superhero movie from Marvel. The other is <i>Dune: Part Three</i>, a science fiction movie. Fans call the weekend “Dunesday.”</p>
+    <p>Movie theaters are happy, but they are also worried. Many of the same people want to see both movies. Theaters have only a few very big screens, like IMAX screens. The two movies must share them.</p>
+    <p>In 2023, two very different movies, <i>Barbie</i> and <i>Oppenheimer</i>, came out on the same day. People called it “Barbenheimer,” and both movies did very well.</p>
+    <p>What will happen this time? Experts think <i>Avengers</i> will sell more tickets than <i>Dune</i>. But together, the two movies may make the biggest movie weekend ever!</p>
+  </div>
+  <div class="article" id="storyB" hidden>
+    <h3>Dunesday: Two Giants, One Weekend</h3>
+    <p>Two of the most popular movies of the year, Marvel's <i>Avengers: Doomsday</i> and Warner Bros.' <i>Dune: Part Three</i>, will open on the same day: December 18, 2026. Fans have a name for the big weekend: “Dunesday.”</p>
+    <p>Earlier this year, many theater owners were nervous. The two movies have a similar audience, so they may compete for the same people. They also need the same special screens, like IMAX, and there are not many of them. One theater worker said that one of the movies had to move. But neither studio changed its date.</p>
+    <p>It is different from “Barbenheimer” in 2023. <i>Barbie</i> and <i>Oppenheimer</i> were very different movies, so they attracted different people, and both were big hits.</p>
+    <p>Now, in November, the numbers look exciting. One expert, Shawn Robbins of Box Office Theory, thinks <i>Avengers: Doomsday</i> could make $340 million or more in its first weekend, and <i>Dune: Part Three</i> about $100 million. Together with other movies, theaters could earn more than $440 million — the biggest weekend in movie history.</p>
+    <div class="gloss"><b>Help words:</b> <b>studio</b> = a company that makes movies · <b>similar</b> = almost the same · <b>attract</b> = make people want to come · <b>a hit</b> = a very popular movie or song · <b>expert</b> = a person who knows a lot about something · <b>earn</b> = get money for work or sales</div>
+  </div>
+  <a class="link" style="margin-top:10px" href="https://eslnewsstories.com/articles/2026-09-12-two-big-movies-one-weekend/" target="_blank" rel="noopener">Original article and audio (Level 3, September 2026)</a>
+  <p class="inst" style="margin-top:8px"><b>First reading.</b> What is the story mainly about?</p>
+  <div class="opts" id="main">
+    <label><input type="radio" name="main" value="a" data-label="Main idea"> a) Two big movies open on the same day, and theaters wonder what will happen.</label>
+    <label><input type="radio" name="main" value="b" data-label="Main idea"> b) <i>Dune: Part Three</i> moved to next year.</label>
+    <label><input type="radio" name="main" value="c" data-label="Main idea"> c) Movie theaters are closing because people watch movies at home.</label>
+  </div>
+  <button type="button" class="check" data-check="main">Check</button><span class="score" id="sc-main"></span>
+  <h3 style="margin:14px 0 6px;font-size:18px">Second reading: the 5 Ws</h3>
+  <table class="ws5">
+    <tr><th>Who?</th><td><input type="text" data-label="5Ws Who" placeholder="Who is in the story? (movies, theaters, fans…)"></td></tr>
+    <tr><th>What?</th><td><input type="text" data-label="5Ws What" placeholder="What is happening?"></td></tr>
+    <tr><th>Where?</th><td><input type="text" data-label="5Ws Where" placeholder="Where will people see the movies?"></td></tr>
+    <tr><th>When?</th><td><input type="text" data-label="5Ws When" placeholder="When do the movies open?"></td></tr>
+    <tr><th>Why?</th><td><input type="text" data-label="5Ws Why" placeholder="Why are theaters worried?"></td></tr>
+  </table>
+</section>
+
+<section class="card move" id="s5">
+  <div class="sh"><div class="num">5</div><h2>Story Sort: Robin, Movies, or Both?</h2><span class="tag mv">Move</span></div>
+  <div class="movebox">Your teacher gives you a <b>fact card</b>. Read it. Walk to the correct sign: <b>ROBIN</b> (Class 1 story), <b>MOVIES</b> (today's story), or <b>BOTH</b>. Check with your group. Then mark your answers here.</div>
+  <div id="sort"></div>
+  <button type="button" class="check" data-check="sort">Check</button><span class="score" id="sc-sort"></span>
+</section>
+
+<section class="card" id="s6">
+  <div class="sh"><div class="num">6</div><h2>both… and… · but</h2><span class="tag">Language</span></div>
+  <div class="rules2">
+    <div><span class="t">The same</span><b>both / both… and…</b><b class="ex">Both</b> stories are about a competition.<br><b class="ex">Both</b> the robin <b class="ex">and</b> the movies are popular.</div>
+    <div><span class="t">Different</span><b>but</b>The robin story is about nature, <b class="ex">but</b> the movie story is about money.<br>The robin won, <b class="ex">but</b> it is still in danger.</div>
+    <div><span class="t">Compare</span><b>-er / more… than</b><i>Avengers</i> may sell <b class="ex">more</b> tickets <b class="ex">than</b> <i>Dune</i>.<br>The robin story is <b class="ex">older than</b> the movie story.</div>
+  </div>
+  <div class="frame" style="font-size:15px"><b>Tip:</b> <b>both</b> + plural noun + plural verb: Both movies <b>are</b>… (not <s>is</s>) · Use a comma before <b>but</b>.</div>
+  <h3 style="margin:12px 0 4px;font-size:18px">A. Choose the correct word</h3>
+  <div id="bab"></div>
+  <button type="button" class="check" data-check="bab">Check</button><span class="score" id="sc-bab"></span>
+  <h3 style="margin:14px 0 4px;font-size:18px">B. Your sentences about the two stories</h3>
+  <div id="own"></div>
+</section>
+
+<section class="card" id="s7">
+  <div class="sh"><div class="num">7</div><h2>Which Story Is More Important?</h2><span class="tag a">Opinion</span></div>
+  <p class="inst"><b>Groups of 3–4.</b> Talk and decide. Then tell the class. Other groups say if they agree or disagree.</p>
+  <div class="qgrid">
+    <label><span>Which story is <b>more important</b>?</span><select data-label="Group: more important"><option value="">—</option><option>the robin story</option><option>the movie story</option></select></label>
+    <label><span>Which story is <b>more interesting</b>?</span><select data-label="Group: more interesting"><option value="">—</option><option>the robin story</option><option>the movie story</option></select></label>
+    <label><span>Which story is <b>better news</b>?</span><select data-label="Group: better news"><option value="">—</option><option>the robin story</option><option>the movie story</option></select></label>
+  </div>
+  <div class="frame">We think the <b>___</b> story is <b>more important</b> because ___. · I agree / I disagree because ___.</div>
+  <div class="row"><span class="n">1.</span><input type="text" style="width:100%" data-label="Group reason 1" placeholder="Reason 1: …"></div>
+  <div class="row"><span class="n">2.</span><input type="text" style="width:100%" data-label="Group reason 2" placeholder="Reason 2: …"></div>
+  <div class="row"><span class="n">&#9733;</span><input type="text" style="width:100%" data-label="Response to another group" placeholder="Another group said ___. I agree / disagree because…"></div>
+</section>
+
+<section class="card" id="s8">
+  <div class="sh"><div class="num">8</div><h2>Write: Two Stories</h2><span class="tag a">Writing</span></div>
+  <p class="inst">Compare the two stories. Write <b>5–7 sentences</b>. Use <b>both</b>, <b>but</b>, and a <b>comparative</b>. End with your opinion.</p>
+  <div class="model">This week, I read two stories. <b>Both</b> stories are about a competition. In the first story, people voted, and a small black bird won. In the second story, two big movies open on the same day. The robin story is about nature, <b>but</b> the movie story is about money. The movie story has <b>bigger</b> numbers, <b>but</b> I think the robin story is <b>more important</b> because the bird is still in danger.</div>
+  <div class="frames">This week, I read two stories. · <b>Both</b> stories are about ___. · In the first story, ___. · In the second story, ___. · The robin story is ___, <b>but</b> the movie story is ___. · I think the ___ story is <b>more ___</b> because ___.</div>
+  <textarea id="para" data-label="My paragraph" placeholder="Write here…" style="min-height:150px"></textarea>
+  <div class="counter" id="paraCount">0 words · 0 sentences</div>
+  <div class="checks" style="margin-top:8px">
+    <label><input type="checkbox" data-label="Checklist: 5–7 sentences"> I wrote 5–7 sentences.</label>
+    <label><input type="checkbox" data-label="Checklist: both"> I used <b>both</b> (or both… and…).</label>
+    <label><input type="checkbox" data-label="Checklist: but"> I used <b>but</b>.</label>
+    <label><input type="checkbox" data-label="Checklist: comparative"> I used a <b>comparative</b> (-er / more… than).</label>
+    <label><input type="checkbox" data-label="Checklist: opinion"> I gave my <b>opinion</b> with because.</label>
+  </div>
+  <h3 style="margin:14px 0 4px;font-size:18px">Partner check</h3>
+  <div class="row"><span class="n">&#10003;</span><div class="ln" style="width:100%"><span>Partner's name:</span><input type="text" style="flex:1;min-width:160px" data-label="Peer reviewer"></div></div>
+  <div class="row"><span class="n">&#10003;</span><div class="ln" style="width:100%"><span>My favorite sentence is:</span><input type="text" style="flex:1;min-width:200px" data-label="Peer: favorite sentence"></div></div>
+</section>
+
+<section class="card" id="s9">
+  <div class="sh"><div class="num">9</div><h2>Exit Ticket</h2><span class="tag a">Reflect</span></div>
+  <div class="row"><span class="n">1.</span><div class="ln" style="width:100%"><span>One sentence with <b>both</b>:</span><input type="text" style="flex:1;min-width:220px" data-label="Exit: both"></div></div>
+  <div class="row"><span class="n">2.</span><div class="ln" style="width:100%"><span>One sentence with <b>but</b>:</span><input type="text" style="flex:1;min-width:220px" data-label="Exit: but"></div></div>
+  <div class="row"><span class="n">3.</span><div class="ln" style="width:100%"><span>One <b>comparative</b>:</span><input type="text" style="flex:1;min-width:220px" data-label="Exit: comparative"></div></div>
+  <p class="inst" style="margin-top:10px">How do you feel about today?</p>
+  <div class="faces">
+    <label><input type="radio" name="feel" value="I need help" data-label="Exit: feeling">I need help</label>
+    <label><input type="radio" name="feel" value="OK" data-label="Exit: feeling">OK</label>
+    <label><input type="radio" name="feel" value="Good" data-label="Exit: feeling">Good</label>
+    <label><input type="radio" name="feel" value="Great" data-label="Exit: feeling">Great!</label>
+  </div>
+</section>
+
+<section class="card" id="answers">
+  <div class="sh"><div class="num">&#10003;</div><h2>Answer Key</h2><span class="tag">Teacher</span></div>
+  <p><b>3. Words:</b> 1 movie theater · 2 ticket · 3 audience · 4 release · 5 compete · 6 director · 7 actor · 8 record</p>
+  <p><b>4. Main idea:</b> a</p>
+  <p><b>4. The 5 Ws (sample):</b> Who: <i>Avengers: Doomsday</i> and <i>Dune: Part Three</i>, movie theaters, fans · What: two big movies open on the same day · Where: in movie theaters (IMAX screens) · When: December 18, 2026 · Why: the movies may compete for the same people and the same big screens</p>
+  <p><b>5. Story sort:</b> ROBIN: people voted · a small black bird · New Zealand · it needs a new island — MOVIES: December 18 · big companies want to make money · famous actors · entertainment · fans call it “Dunesday” — BOTH: a competition · something is a record · some people are worried · numbers are important · good news, but there is a problem</p>
+  <p><b>6A:</b> 1 Both · 2 and · 3 but · 4 Both · 5 but · 6 more · 7 bigger · 8 are</p>
+  <p class="credit">Story versions written for Approach Current Issues from news reports about the December 18, 2026 release date (ESL News Stories, The Hollywood Reporter, Cosmic Book News, November 2026). Numbers in Story B are forecasts and may change.</p>
+</section>
+
+<p class="credit">Activities and story versions written for Approach Current Issues · Basic Level.</p>
+</main>
+<div class="toast" id="toast"></div>
+<script>
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const el=(t,a={},h="")=>{const e=document.createElement(t);for(const k in a)e.setAttribute(k,a[k]);if(h)e.innerHTML=h;return e;};
+function toast(m){const t=$("#toast");t.textContent=m;t.classList.add("show");setTimeout(()=>t.classList.remove("show"),2000);}
+function selRow(box,i,pre,post,opts,ans,label){
+  const r=el("div",{class:"row"}); r.append(el("span",{class:"n"},(i+1)+"."));
+  const ln=el("div",{class:"ln"}); if(pre) ln.append(el("span",{},pre));
+  const s=el("select",{"data-label":label,"data-ans":ans}); s.append(el("option",{value:""},"— choose —")); opts.forEach(o=>s.append(el("option",{value:o},o)));
+  ln.append(s); if(post) ln.append(el("span",{},post)); r.append(ln); box.append(r); return s;
+}
+
+/* words */
+const IC={
+ "movie theater":'<svg viewBox="0 0 64 64"><rect x="6" y="10" width="52" height="30" rx="3" fill="#143865"/><path d="M28 18l10 7-10 7z" fill="#fff"/><g fill="#b3261e"><rect x="8" y="46" width="10" height="10" rx="2"/><rect x="22" y="46" width="10" height="10" rx="2"/><rect x="36" y="46" width="10" height="10" rx="2"/><rect x="50" y="46" width="8" height="10" rx="2"/></g></svg>',
+ ticket:'<svg viewBox="0 0 64 64"><path d="M6 20h52v8a5 5 0 0 0 0 10v8H6v-8a5 5 0 0 0 0-10z" fill="#d39f10"/><path d="M40 20v26" stroke="#fff" stroke-width="2" stroke-dasharray="3 3"/><text x="22" y="37" text-anchor="middle" font-family="Arial" font-size="10" font-weight="700" fill="#0c2340">ADMIT</text></svg>',
+ audience:'<svg viewBox="0 0 64 64"><g fill="#143865"><circle cx="14" cy="26" r="6"/><circle cx="32" cy="24" r="6"/><circle cx="50" cy="26" r="6"/><path d="M4 50q10-16 20 0zM22 48q10-16 20 0zM40 50q10-16 20 0z"/></g></svg>',
+ release:'<svg viewBox="0 0 64 64"><rect x="10" y="12" width="44" height="40" rx="4" fill="#fff" stroke="#143865" stroke-width="3"/><rect x="10" y="12" width="44" height="10" fill="#143865"/><text x="32" y="44" text-anchor="middle" font-family="Arial" font-size="18" font-weight="700" fill="#b3261e">18</text></svg>',
+ compete:'<svg viewBox="0 0 64 64"><path d="M6 50h52" stroke="#5a6578" stroke-width="2"/><circle cx="20" cy="20" r="6" fill="#1c4f8f"/><path d="M20 26l-4 12 8 4M20 30l8 2M16 38l-6 8" stroke="#1c4f8f" stroke-width="3" fill="none"/><circle cx="44" cy="20" r="6" fill="#b3261e"/><path d="M44 26l-4 12 8 4M44 30l8 2M40 38l-6 8" stroke="#b3261e" stroke-width="3" fill="none"/></svg>',
+ director:'<svg viewBox="0 0 64 64"><path d="M10 28h44v24H10z" fill="#1b2433"/><path d="M10 20 L52 12 L54 20 L12 28z" fill="#1b2433"/><path d="M18 18l6 8M30 16l6 8M42 14l6 8" stroke="#fff" stroke-width="3"/><text x="32" y="45" text-anchor="middle" font-family="Arial" font-size="9" font-weight="700" fill="#fff">SCENE 1</text></svg>',
+ actor:'<svg viewBox="0 0 64 64"><path d="M14 12h22v16a11 11 0 0 1-22 0z" fill="#f5c94a"/><path d="M20 22h3M28 22h3M20 32q5 4 11 0" stroke="#1b2433" stroke-width="2" fill="none"/><path d="M30 26h22v16a11 11 0 0 1-22 0z" fill="#8e5bd1"/><path d="M36 34h3M44 34h3M36 46q5-4 11 0" stroke="#fff" stroke-width="2" fill="none"/></svg>',
+ record:'<svg viewBox="0 0 64 64"><path d="M8 52h48" stroke="#5a6578" stroke-width="2"/><rect x="12" y="38" width="8" height="14" fill="#c1cddd"/><rect x="26" y="30" width="8" height="22" fill="#c1cddd"/><rect x="40" y="14" width="8" height="38" fill="#d39f10"/><path d="M44 4l2 4 4 .5-3 3 1 4-4-2-4 2 1-4-3-3 4-.5z" fill="#b3261e"/></svg>'
+};
+const DEF={"movie theater":"a building where people watch movies",ticket:"a paper or app code you buy to enter",audience:"the people who watch a movie or show",release:"to make a movie available to the public",compete:"to try to win against others",director:"the person who leads the making of a movie",actor:"a person who plays a role in a movie",record:"the best or biggest number ever"};
+Object.keys(IC).forEach(w=>$("#vgrid").append(el("div",{class:"vcard"},`${IC[w]}<b>${w}</b><span>${DEF[w]}</span>`)));
+const KW=[
+ ["Let's watch the new movie at the "," tonight.","movie theater"],
+ ["I bought a "," for the 7:00 show.","ticket"],
+ ["The "," clapped at the end of the movie.","audience"],
+ ["The studio will "," the movie in December.","release"],
+ ["The two teams "," for the cup every year.","compete"],
+ ["The "," tells the actors what to do.","director"],
+ ["Timothée Chalamet is a famous ",".","actor"],
+ ["The movie broke a box office ",".","record"]
+];
+const kwOpts=Object.keys(IC).slice().sort();
+KW.forEach((k,i)=>selRow($("#kw"),i,k[0],k[1],kwOpts,k[2],"Words "+(i+1)));
+
+/* story sort */
+const SORT=[
+ ["It is about a competition.","Both"],["People voted.","Robin"],["It happens on December 18.","Movies"],["Something is (or may be) a record.","Both"],
+ ["It is about a small black bird.","Robin"],["Big companies want to make a lot of money.","Movies"],["Some people are worried.","Both"],["It happens in New Zealand.","Robin"],
+ ["Famous actors are in it.","Movies"],["Numbers are important in the story.","Both"],["It needs more space: a new island.","Robin"],["It is about entertainment.","Movies"],
+ ["It is good news, but there is a problem.","Both"],["Fans call it “Dunesday.”","Movies"]
+];
+SORT.forEach((s,i)=>selRow($("#sort"),i,s[0]+" ","",["Robin","Movies","Both"],s[1],"Sort: "+s[0]));
+
+/* both and but */
+const BAB=[["","stories are about a competition.",["Both","But"],"Both"],["Both the robin "," the movies got a lot of attention.",["and","but"],"and"],["The robin story is about nature, "," the movie story is about money.",["but","and"],"but"],["","Avengers and Dune open on December 18.",["Both","But"],"Both"],["Avengers is a superhero movie, "," Dune is science fiction.",["but","both"],"but"],["Avengers may sell "," tickets than Dune.",["more","most"],"more"],["The movie numbers are "," than the robin numbers.",["bigger","more big"],"bigger"],["Both movies "," very popular.",["is","are"],"are"]];
+BAB.forEach((b,i)=>selRow($("#bab"),i,b[0],b[1],b[2],b[3],"both/and/but "+(i+1)));
+["Both stories…","The robin story…, but the movie story…","The ___ story is more ___ than…"].forEach((p,i)=>{ const r=el("div",{class:"row"}); r.append(el("span",{class:"n"},(i+1)+".")); r.append(el("input",{type:"text",style:"width:100%","data-label":"My sentence "+(i+1),placeholder:p})); $("#own").append(r); });
+
+/* counter */
+function countPara(){ const t=$("#para").value.trim(); const w=t?t.split(/\s+/).length:0; const s=(t.match(/[.!?](\s|$)/g)||[]).length; $("#paraCount").textContent=`${w} words · ${s} sentence${s===1?"":"s"}${s>=5&&s<=7?" ✓":""}`; }
+$("#para").addEventListener("input",countPara);
+
+/* level */
+$$(".lvl button").forEach(b=>b.onclick=()=>setLvl(b.dataset.lvl));
+function setLvl(l){ $$(".lvl button").forEach(x=>x.classList.toggle("on",x.dataset.lvl===l)); $("#storyA").hidden=l!=="a"; $("#storyB").hidden=l!=="b"; try{localStorage.setItem(KEY+"-lvl",l);}catch(e){} }
+
+/* checking */
+function checkSelects(sel){ let n=0; const all=$$(sel); all.forEach(s=>{ s.classList.remove("good","bad"); if(!s.value) return; const ok=s.value===s.dataset.ans; if(ok)n++; s.classList.add(ok?"good":"bad"); }); return [n,all.length]; }
+const checkers={
+ kw:()=>checkSelects("#kw select"), sort:()=>checkSelects("#sort select"), bab:()=>checkSelects("#bab select"),
+ main:()=>{ const box=$("#main"); box.querySelectorAll("label").forEach(l=>l.classList.remove("good","bad")); const c=box.querySelector("input:checked"); if(!c) return [0,1]; const ok=c.value==="a"; c.parentElement.classList.add(ok?"good":"bad"); return [ok?1:0,1]; }
+};
+$$("[data-check]").forEach(b=>b.onclick=()=>{ const k=b.dataset.check,[n,t]=checkers[k](); $("#sc-"+k).textContent=`${n} / ${t} correct${n===t?" — great!":""}`; });
+document.addEventListener("input",e=>e.target.classList&&e.target.classList.remove("good","bad"));
+document.addEventListener("change",e=>{ if(e.target.tagName==="SELECT") e.target.classList.remove("good","bad"); });
+
+/* save / load */
+const KEY="approach-ci-w7-movies-ws";
+const fields=()=>$$("input[data-label],textarea[data-label],select[data-label]");
+const fk=(f,i)=>f.type==="radio"?`r:${f.name}:${f.value}`:(f.id?"id:"+f.id:"k"+i);
+function save(){ const d={}; fields().forEach((f,i)=>{ d[fk(f,i)]=(f.type==="radio"||f.type==="checkbox")?f.checked:f.value; }); try{localStorage.setItem(KEY,JSON.stringify(d));}catch(e){} }
+function load(){ let d={}; try{d=JSON.parse(localStorage.getItem(KEY))||{};}catch(e){} fields().forEach((f,i)=>{ const k=fk(f,i); if(!(k in d))return; if(f.type==="radio"||f.type==="checkbox") f.checked=d[k]; else f.value=d[k]; }); countPara(); let l="a"; try{l=localStorage.getItem(KEY+"-lvl")||"a";}catch(e){} setLvl(l); }
+document.addEventListener("input",save); document.addEventListener("change",save);
+load();
+
+/* export + toolbar */
+function exportText(){
+  const out=["CURRENT ISSUES · BASIC LEVEL · WEEK 7 · CLASS 2","Two Big Movies, One Weekend",""]; const seen=new Set();
+  fields().forEach(f=>{ const L=f.dataset.label;
+    if(f.type==="radio"){ if(seen.has(f.name))return; seen.add(f.name); const c=document.querySelector(`input[name="${f.name}"]:checked`); out.push(`${L}: ${c?c.value:"—"}`); return; }
+    if(f.type==="checkbox"){ out.push(`${f.checked?"[x]":"[ ]"} ${L.replace("Checklist: ","")}`); return; }
+    out.push(`${L}: ${(f.value||"").trim()||"—"}`); });
+  return out.join("\n");
+}
+$("#ansBtn").onclick=()=>{ const on=document.body.classList.toggle("show-answers"); $("#ansBtn").textContent=on?"Hide answers":"Show answers"; if(on) $("#answers").scrollIntoView({behavior:"smooth"}); };
+$("#printBtn").onclick=()=>{ document.body.classList.remove("print-blank"); window.print(); };
+$("#blankBtn").onclick=()=>{ document.body.classList.add("print-blank"); window.print(); };
+addEventListener("afterprint",()=>document.body.classList.remove("print-blank"));
+$("#copyBtn").onclick=async()=>{ const t=exportText(); try{ await navigator.clipboard.writeText(t); toast("Copied! Paste it on Community."); }catch(e){ const ta=el("textarea"); ta.value=t; document.body.append(ta); ta.select(); try{document.execCommand("copy"); toast("Copied!");}catch(_){ toast("Copy did not work."); } ta.remove(); } };
+$("#clearBtn").onclick=()=>{ if(!confirm("Clear all your answers?")) return; try{localStorage.removeItem(KEY);}catch(e){} location.reload(); };
+</script>
+
+</body>
+
+</html>
