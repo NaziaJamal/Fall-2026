@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Week 7 — Civic Participation (Students)</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=Noto+Sans:wght@400&display=swap" rel="stylesheet"><style>:root{--navy:#1F2A44;--navy-d:#141C30;--red:#B22234;--blue:#3C5A99;--sky:#E8EEF8;--gold:#D9A441;--cream:#FAF7F2;--ink:#232A3A;--gray:#5A6275;--line:#D7DCE6;--field:#FCFCFD;
+  --ok:#1d7a46;--okbg:#e7f5ec;--bad:#b3261e;--badbg:#fbeaea;--warnbg:#fff4dc}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font:18px/1.55 "Source Sans 3",Calibri,Arial,sans-serif}
+h1,h2,h3,h4{font-family:"Source Serif 4",Cambria,Georgia,serif;color:var(--navy);line-height:1.2}
+a{color:var(--blue)}
+/* header + tabs */
+.top{background:var(--navy);color:#fff}
+.top .in{max-width:1080px;margin:0 auto;padding:22px 24px 0}
+.top .kicker{font-weight:700;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:#F2B8BF}
+.top h1{color:#fff;font-size:34px;margin:6px 0 4px}
+.top p.sub{margin:0 0 14px;color:rgba(255,255,255,.82);font-size:17px}
+.stripe{height:6px;background:linear-gradient(90deg,var(--red) 0 33%,#fff 33% 66%,var(--blue) 66%)}
+nav.tabs{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 2px 8px rgba(20,28,48,.06)}
+nav.tabs .in{max-width:1080px;margin:0 auto;display:flex;gap:4px;overflow-x:auto;padding:8px 16px;-webkit-overflow-scrolling:touch}
+nav.tabs button{flex:none;font:700 15px "Source Sans 3",sans-serif;color:var(--navy);background:transparent;border:2px solid transparent;border-radius:8px;padding:9px 14px;cursor:pointer;white-space:nowrap;min-height:42px}
+nav.tabs button:hover{background:var(--sky)}
+nav.tabs button[aria-selected=true]{background:var(--navy);color:#fff}
+nav.tabs button:focus-visible{outline:3px solid var(--gold);outline-offset:1px}
+main{max-width:1080px;margin:0 auto;padding:18px 24px 60px}
+.panel{display:none}
+.panel.on{display:block}
+.card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:24px 28px;margin:18px 0}
+.card h2{font-size:26px;margin:0 0 10px}
+.card h3{font-size:20px;margin:20px 0 6px;color:var(--red)}
+.lab{display:block;font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--red);margin:12px 0 4px}
+.hint{color:var(--gray);font-size:16px;margin:4px 0 10px}
+.meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin:12px 0}
+.meta div{background:var(--navy);color:#fff;border-radius:8px;padding:10px 14px;font-weight:600}
+.meta span{display:block;font-size:11px;letter-spacing:.12em;color:#F2B8BF;text-transform:uppercase}
+table{width:100%;border-collapse:collapse;font-size:16px;margin:10px 0}
+th{background:var(--navy);color:#fff;text-align:left;padding:8px 10px;font-size:14px}
+td{border-bottom:1px solid var(--line);padding:8px 10px;vertical-align:top}
+tr.sess td{background:var(--sky);font-weight:700;color:var(--navy);font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+tr.brk td{background:#fdf3df;font-weight:700;color:#7a5a12}
+tr.mv td:nth-child(3)::after{content:"MOVE";font-size:10.5px;font-weight:700;color:#fff;background:var(--red);padding:1px 7px;border-radius:10px;margin-left:6px;vertical-align:middle;letter-spacing:.06em}
+.tw{overflow-x:auto}
+.note{background:#fff8e6;border-left:5px solid var(--gold);border-radius:0 8px 8px 0;padding:10px 16px;margin:12px 0;font-size:16px}
+.tip{background:var(--sky);border-left:5px solid var(--blue);border-radius:0 8px 8px 0;padding:10px 16px;margin:12px 0;font-size:16px}
+.warn{background:var(--badbg);border-left:5px solid var(--red);border-radius:0 8px 8px 0;padding:10px 16px;margin:12px 0;font-size:16px}
+ul,ol{padding-left:22px;margin:6px 0}
+li{margin-bottom:4px}
+.btn{font:700 16px "Source Sans 3",sans-serif;border-radius:8px;padding:10px 18px;cursor:pointer;border:2px solid var(--navy);background:var(--navy);color:#fff;min-height:44px}
+.btn.ghost{background:#fff;color:var(--navy)}
+.btn.red{background:var(--red);border-color:var(--red)}
+.btn:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.btnrow{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:14px 0 4px}
+/* form fields */
+input[type=text],textarea,select{font:inherit;color:var(--navy);width:100%;border:1.5px solid var(--line);border-radius:6px;padding:8px 11px;background:var(--field);min-height:42px}
+textarea{min-height:80px;resize:vertical;line-height:1.5}
+input:focus,textarea:focus,select:focus{outline:2px solid var(--navy);outline-offset:1px;background:#fff}
+label{font-weight:600;color:var(--navy)}
+input.ok,select.ok{border-color:var(--ok);background:var(--okbg)}
+input.bad,select.bad{border-color:var(--bad);background:var(--badbg)}
+.mark{display:inline-block;width:24px;text-align:center;font-weight:700}
+.mark:empty{width:0}
+.mark.ok{color:var(--ok)}.mark.bad{color:var(--bad)}
+.fb{border-radius:8px;padding:12px 16px;margin-top:10px;font-size:16.5px;display:none}
+.fb.show{display:block}
+.fb.ok{background:var(--okbg);border:1px solid #a9d8b9}
+.fb.bad{background:var(--badbg);border:1px solid #efbcbc}
+.fb.warn{background:var(--warnbg);border:1px solid #f0d394}
+.fb h4{margin:0 0 6px;font:700 17px "Source Sans 3",sans-serif;color:var(--ink)}
+.model{background:#fff;border:1px solid var(--line);border-radius:6px;padding:10px 14px;margin-top:8px}
+.ex-h{display:flex;gap:12px;align-items:baseline;flex-wrap:wrap;border-bottom:3px solid var(--red);padding-bottom:8px;margin:0 0 10px}
+.ex-h h2{margin:0;font-size:24px}
+.ex-h small{font:700 12px "Source Sans 3",sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#fff;background:var(--red);padding:3px 10px;border-radius:20px}
+.ex-h small.mv{background:var(--blue)}
+.wordbank{display:flex;flex-wrap:wrap;gap:8px;background:var(--sky);border:1px dashed var(--blue);border-radius:8px;padding:10px 14px;margin:10px 0 14px}
+.wordbank span{background:#fff;border:1px solid #c5d2ea;border-radius:20px;padding:2px 12px;font-weight:600;color:var(--navy)}
+.wordbank span.used{opacity:.4;text-decoration:line-through}
+.fill p{margin:12px 0;line-height:2.1}
+input[type=text].blank{display:inline-block;width:200px;max-width:100%;vertical-align:middle;min-height:38px;padding:4px 9px}
+.seg{display:inline-flex;border:1.5px solid var(--navy);border-radius:30px;overflow:hidden;flex-wrap:wrap}
+.seg label{font-weight:700;font-size:14.5px;padding:7px 13px;cursor:pointer;color:var(--navy);text-align:center;min-width:64px}
+.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg label:has(input:checked){background:var(--navy);color:#fff}
+.seg label:has(input:focus-visible){outline:2px solid var(--gold);outline-offset:-2px}
+.seg.ok{border-color:var(--ok)}.seg.ok label:has(input:checked){background:var(--ok)}
+.seg.bad{border-color:var(--bad)}.seg.bad label:has(input:checked){background:var(--bad)}
+.qrow{display:grid;grid-template-columns:1fr auto 26px;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
+.qrow .why{grid-column:1/-1}
+.q{margin:14px 0}
+.q > label{display:block;margin-bottom:6px}
+.counter{font-size:14px;color:var(--gray);text-align:right;margin-top:3px}
+.persona{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.persona .pc{border:1.5px solid var(--line);border-radius:10px;padding:12px 14px;background:#fff}
+.persona .pc b{font-family:"Source Serif 4",serif;color:var(--navy);font-size:19px}
+.persona .pc p{margin:4px 0 8px;font-size:15.5px}
+.persona .pc .why{margin-top:8px}
+.order td:first-child{width:96px}
+.reading{background:var(--sky);border-left:5px solid var(--navy);border-radius:0 8px 8px 0;padding:14px 20px;font-size:17.5px;line-height:1.7}
+.reading p{margin:0 0 10px}
+.toolbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:6px 0 10px}
+.saved{font-size:14px;color:var(--gray);margin-left:auto}
+.idrow{display:grid;grid-template-columns:2fr 1fr;gap:12px}
+.idrow label{font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+/* vocab cards */
+.vc-top{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:10px}
+.vc-top .sp{flex:1}
+.vcard{display:grid;grid-template-columns:minmax(260px,38%) 1fr;background:#fff;border-radius:14px;overflow:hidden;border:1px solid var(--line);min-height:360px}
+.vcard .l{background:var(--navy);color:#fff;padding:26px 26px 22px;display:flex;flex-direction:column}
+.vcard .num{font-weight:700;font-size:13px;letter-spacing:.14em;color:#F2B8BF}
+.vcard .w{font:700 46px/1.05 "Source Serif 4",serif;margin:12px 0 10px;word-break:break-word}
+.vcard .pos{align-self:flex-start;font-weight:700;font-style:italic;font-size:16px;color:var(--navy);background:var(--gold);border-radius:20px;padding:2px 12px}
+.vcard .ipa{font-size:24px;margin-top:16px;font-family:"Noto Sans","Source Sans 3",sans-serif}
+.vcard .stress{font-size:24px;margin-top:6px;color:#F6D7DB}
+.vcard .stress b{color:#fff}
+.vcard .small{display:block;font-size:11.5px;letter-spacing:.12em;color:rgba(255,255,255,.6);font-weight:700;margin-top:12px}
+.vcard .listen{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto;padding-top:16px}
+.sbtn{display:inline-flex;align-items:center;gap:8px;font:700 16px "Source Sans 3",sans-serif;border:0;border-radius:40px;padding:10px 18px;cursor:pointer;background:var(--gold);color:var(--navy);min-height:44px}
+.sbtn.ghost{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.55)}
+.sbtn svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.vcard .r{padding:26px 30px;display:flex;flex-direction:column;gap:16px}
+.vcard .def{font-size:24px;font-weight:600;color:var(--navy);line-height:1.35}
+.vcard .ex{background:var(--cream);border-left:6px solid var(--red);border-radius:0 10px 10px 0;padding:12px 16px;font-size:21px;font-style:italic;display:flex;gap:12px;align-items:flex-start}
+.vcard .ex .t{flex:1}
+.vcard .ex b{color:var(--red);font-style:normal}
+.mini{flex:none;width:42px;height:42px;border-radius:50%;border:0;background:var(--navy);cursor:pointer;display:flex;align-items:center;justify-content:center}
+.mini svg{width:20px;height:20px;fill:none;stroke:#fff;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.quiz .hide{filter:blur(10px);cursor:pointer;user-select:none}
+.quiz .hide.shown{filter:none}
+.vgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px;margin-top:12px}
+.vgrid button{font:600 17px "Source Serif 4",serif;color:var(--navy);background:#fff;border:1.5px solid var(--line);border-left:6px solid var(--red);border-radius:8px;padding:10px 12px;text-align:left;cursor:pointer;display:flex;justify-content:space-between;gap:8px}
+.vgrid button:nth-child(even){border-left-color:var(--blue)}
+.vgrid button small{font:600 13px "Source Sans 3",sans-serif;color:var(--gray)}
+.vgrid button.cur{background:var(--sky)}
+/* study notes */
+.notes h3{margin-top:24px}
+.fact{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:10px 0}
+.fact div{background:var(--sky);border-radius:10px;padding:12px 14px}
+.fact b{display:block;font-family:"Source Serif 4",serif;font-size:22px;color:var(--navy)}
+.frames{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.frames div{background:var(--cream);border-radius:8px;padding:10px 14px;font-size:16px}
+.frames b{display:block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
+.selfq details{border:1px solid var(--line);border-radius:8px;padding:10px 14px;margin:8px 0;background:#fff}
+.selfq summary{cursor:pointer;font-weight:700;color:var(--navy)}
+footer{text-align:center;font-size:13px;color:var(--gray);padding:10px 0 30px}
+@media (max-width:700px){
+  body{font-size:17px}
+  .top h1{font-size:26px}
+  main{padding:10px 12px 40px}
+  .card{padding:18px 16px}
+  .persona,.frames,.idrow{grid-template-columns:1fr}
+  .qrow{grid-template-columns:1fr;gap:6px}
+  .vcard{grid-template-columns:1fr}
+  .vcard .w{font-size:38px}
+  input[type=text].blank{width:100%;display:block;margin:4px 0}
+  .fill p{line-height:1.6}
+}
+@media print{
+  body{background:#fff;font-size:13px}
+  nav.tabs,.toolbar,.btnrow,.fb,.counter,.vc-top,.listen,.mini{display:none!important}
+  .top{background:#fff;color:var(--ink)}.top h1{color:var(--navy)}.top p.sub{color:var(--gray)}
+  main{padding:0}
+  .card{border:0;padding:6px 0;margin:6px 0}
+  input[type=text],textarea,select{border:0;border-bottom:1px solid #999;border-radius:0;background:transparent!important;min-height:0;padding:2px 4px}
+  textarea{resize:none;overflow:hidden}
+  .q,.qrow,.pc,tr,.fill p{break-inside:avoid}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style></head>
+<body>
+<header class="top"><div class="in"><div class="kicker">American Culture · Week 7 · Student Page</div><h1>Civic Participation</h1><p class="sub">Your voice. Your community. Your role.</p></div><div class="stripe"></div></header>
+<nav class="tabs" aria-label="Sections"><div class="in" role="tablist"><button role="tab" data-tab="overview" aria-selected="false">Overview</button><button role="tab" data-tab="ws1" aria-selected="false">Worksheet — Class 1</button><button role="tab" data-tab="ws2" aria-selected="false">Worksheet — Class 2</button><button role="tab" data-tab="vocab" aria-selected="false">Vocabulary Cards</button><button role="tab" data-tab="notes" aria-selected="false">Study Notes</button></div></nav>
+<main><section class="panel" id="overview" role="tabpanel"><div class="card">
+  <h2>Welcome to Week 7: Civic Participation</h2>
+  <p>This week we learn how people take part in their community in the U.S. — by voting, speaking up, volunteering, and joining in. We focus on <b>Boston</b> and <b>Massachusetts</b>. You don't need to be a citizen to participate: there is a place for everyone!</p>
+  <div class="meta"><div><span>Class 1</span>2:00 – 3:40</div><div><span>Break</span>3:40 – 4:10</div><div><span>Class 2</span>4:10 – 5:50</div><div><span>Get ready to</span>Move, talk, vote!</div></div>
+
+  <h3>By the end of this week, you will be able to…</h3>
+  <ul>
+    <li>Explain what civic participation is and name 4 ways to take part.</li>
+    <li>Explain who can vote in Massachusetts and how to register.</li>
+    <li>Describe the three levels of government and what local government does.</li>
+    <li>Explain what the Boston City Council and School Committee do — and how anyone can speak at a hearing.</li>
+    <li>Compare civic life in your home country with life here, in speaking and writing.</li>
+  </ul>
+
+  <h3>Class 1: Your Voice &amp; Your Vote</h3>
+  <div class="tw"><table><thead><tr><th>Time</th><th>Activity</th></tr></thead><tbody>
+    <tr><td>2:00</td><td><b>Four Corners</b> — move to the corner that matches you</td></tr>
+    <tr><td>2:15</td><td>What is civic participation? + Word Charades</td></tr>
+    <tr><td>2:30</td><td>Exercise 1: Vocabulary</td></tr>
+    <tr><td>2:40</td><td>Who can vote? + <b>Can They Vote?</b> (pairs)</td></tr>
+    <tr><td>2:55</td><td>How to register + <b>Registration Relay</b> (team race)</td></tr>
+    <tr><td>3:10</td><td>Exercise 2: Reading — Maria's story</td></tr>
+    <tr><td>3:30</td><td><b>Class Election</b> — vote with a secret ballot!</td></tr>
+  </tbody></table></div>
+
+  <h3>Class 2: Local Government &amp; Having a Voice</h3>
+  <div class="tw"><table><thead><tr><th>Time</th><th>Activity</th></tr></thead><tbody>
+    <tr><td>4:10</td><td><b>True or False Line</b> — move left or right</td></tr>
+    <tr><td>4:20</td><td>Three levels of government + <b>Who Do You Call?</b> (groups)</td></tr>
+    <tr><td>4:40</td><td>School Committee &amp; City Council + Exercise 5B</td></tr>
+    <tr><td>4:55</td><td><b>Mock City Council Hearing</b> — give your public comment!</td></tr>
+    <tr><td>5:25</td><td>Compare &amp; Discuss + Exercise 3: Writing</td></tr>
+    <tr><td>5:40</td><td>Action step + <b>"I Will Remember" wall</b></td></tr>
+  </tbody></table></div>
+
+  <div class="tip"><b>How to use this page:</b> Open the <b>Worksheet</b> tabs during class. Your answers save automatically on this device. Click <b>Check</b> after each exercise to see how you did. Use <b>Vocabulary Cards</b> to hear the words in American English, and read the <b>Study Notes</b> to review at home.</div>
+</div>
+</section><section class="panel" id="ws1" role="tabpanel"><div class="wsroot"><div class="card">
+  <div class="kicker" style="font-weight:700;font-size:13px;letter-spacing:.14em;color:var(--red);text-transform:uppercase">Class 1 · 2:00–3:40</div>
+  <h2 style="margin-top:4px">Worksheet — Class 1: Your Voice &amp; Your Vote</h2>
+  <div class="idrow"><div><label for="c1name">Name</label><input type="text" id="c1name" autocomplete="name"></div><div><label for="c1date">Date</label><input type="text" id="c1date"></div></div>
+  <div class="toolbar" style="margin-top:12px"><button class="btn" onclick="print()">Print / Save as PDF</button><button class="btn ghost" data-clear>Clear my answers</button><span class="saved">Your answers save automatically on this device.</span></div>
+</div>
+
+<section class="card" id="c1warm">
+  <div class="ex-h"><small class="mv">Warm-Up · Move</small><h2>Four Corners: How Do You Participate?</h2></div>
+  <p class="hint">Walk to the corner that matches something you have done — in any country. Talk with the people in your corner. Then write.</p>
+  <div class="wordbank"><span>Voting</span><span>Speaking Up</span><span>Volunteering</span><span>Joining In</span></div>
+  <div class="q"><label for="c1w1">My corner was ______ because …</label><textarea id="c1w1"></textarea></div>
+</section>
+
+<section class="card fill" id="c1ex1">
+  <div class="ex-h"><small>Exercise 1</small><h2>Vocabulary — Fill in the Blank</h2></div>
+  <p class="hint">Complete each sentence with a word from the box. Use each word only once.</p>
+  <div class="wordbank" data-for="c1ex1"><span>eligible</span><span>register</span><span>committee</span><span>council</span><span>ballot</span><span>local government</span><span>volunteer</span><span>civic participation</span></div>
+  <p>1. You must be a U.S. citizen to be <input type="text" class="blank" data-ans="eligible" aria-label="Blank 1"><span class="mark"></span> to vote.</p>
+  <p>2. Before you can vote, you need to <input type="text" class="blank" data-ans="register" aria-label="Blank 2"><span class="mark"></span> in your state.</p>
+  <p>3. A school <input type="text" class="blank" data-ans="committee" aria-label="Blank 3"><span class="mark"></span> makes decisions about local public schools.</p>
+  <p>4. The city <input type="text" class="blank" data-ans="council" aria-label="Blank 4"><span class="mark"></span> makes decisions about laws and budgets for your city.</p>
+  <p>5. When you vote, you mark your choice on a <input type="text" class="blank" data-ans="ballot" aria-label="Blank 5"><span class="mark"></span>.</p>
+  <p>6. Your city's leaders and offices are called your <input type="text" class="blank" data-ans="local government" aria-label="Blank 6"><span class="mark"></span>.</p>
+  <p>7. You don't need to be a citizen to <input type="text" class="blank" data-ans="volunteer" aria-label="Blank 7"><span class="mark"></span> in your community.</p>
+  <p>8. Voting, volunteering, and speaking at meetings are all examples of <input type="text" class="blank" data-ans="civic participation" aria-label="Blank 8"><span class="mark"></span>.</p>
+  <div class="btnrow"><button class="btn" data-check="c1ex1">Check Exercise 1</button><button class="btn ghost" data-reset="c1ex1">Try again</button></div>
+  <div class="fb" id="fb-c1ex1"></div>
+  <div id="key-c1ex1" hidden><b>Answers:</b> 1. eligible · 2. register · 3. committee · 4. council · 5. ballot · 6. local government · 7. volunteer · 8. civic participation</div>
+</section>
+
+<section class="card" id="c1vote">
+  <div class="ex-h"><small>Pair Activity</small><h2>Can They Vote? (Massachusetts)</h2></div>
+  <p class="hint">Read about each person with a partner. Can they vote in the next Massachusetts election? Choose <b>Yes</b>, <b>No</b>, or <b>Not yet</b> (they can, after they do something first). Write why.</p>
+  <div class="tip"><b>Remember the rules:</b> U.S. citizen · 18 or older on Election Day · Massachusetts resident · registered at least 10 days before the election.</div>
+  <div class="persona">
+    <div class="pc" data-ans="yes"><b>1. Ana, 19</b><p>U.S. citizen, born in Puerto Rico. Lives in Dorchester. Registered online last year.</p>
+      <span class="seg"><label><input type="radio" name="p1" value="yes">Yes</label><label><input type="radio" name="p1" value="no">No</label><label><input type="radio" name="p1" value="notyet">Not yet</label></span><span class="mark"></span>
+      <div class="why"><input type="text" aria-label="Why, Ana" placeholder="Why?"></div></div>
+    <div class="pc" data-ans="no"><b>2. Kenji, 25</b><p>International student from Japan with a student visa. Lives in Allston and loves volunteering.</p>
+      <span class="seg"><label><input type="radio" name="p2" value="yes">Yes</label><label><input type="radio" name="p2" value="no">No</label><label><input type="radio" name="p2" value="notyet">Not yet</label></span><span class="mark"></span>
+      <div class="why"><input type="text" aria-label="Why, Kenji" placeholder="Why?"></div></div>
+    <div class="pc" data-ans="yes"><b>3. Fatima, 17</b><p>U.S. citizen in East Boston. She turns 18 two weeks <i>before</i> Election Day. She pre-registered at 16.</p>
+      <span class="seg"><label><input type="radio" name="p3" value="yes">Yes</label><label><input type="radio" name="p3" value="no">No</label><label><input type="radio" name="p3" value="notyet">Not yet</label></span><span class="mark"></span>
+      <div class="why"><input type="text" aria-label="Why, Fatima" placeholder="Why?"></div></div>
+    <div class="pc" data-ans="no"><b>4. Carlos, 40</b><p>Green card holder (permanent resident) for 10 years. Pays taxes and lives in Jamaica Plain.</p>
+      <span class="seg"><label><input type="radio" name="p4" value="yes">Yes</label><label><input type="radio" name="p4" value="no">No</label><label><input type="radio" name="p4" value="notyet">Not yet</label></span><span class="mark"></span>
+      <div class="why"><input type="text" aria-label="Why, Carlos" placeholder="Why?"></div></div>
+    <div class="pc" data-ans="notyet"><b>5. Linh, 30</b><p>Became a U.S. citizen at a ceremony <i>after</i> the registration deadline. The election is in 3 days. She is not registered.</p>
+      <span class="seg"><label><input type="radio" name="p5" value="yes">Yes</label><label><input type="radio" name="p5" value="no">No</label><label><input type="radio" name="p5" value="notyet">Not yet</label></span><span class="mark"></span>
+      <div class="why"><input type="text" aria-label="Why, Linh" placeholder="Why?"></div></div>
+    <div class="pc" data-ans="notyet"><b>6. David, 45</b><p>U.S. citizen. Just moved to Boston from New Hampshire. Registered to vote in New Hampshire only. The deadline has not passed.</p>
+      <span class="seg"><label><input type="radio" name="p6" value="yes">Yes</label><label><input type="radio" name="p6" value="no">No</label><label><input type="radio" name="p6" value="notyet">Not yet</label></span><span class="mark"></span>
+      <div class="why"><input type="text" aria-label="Why, David" placeholder="Why?"></div></div>
+  </div>
+  <div class="btnrow"><button class="btn" data-check="c1vote">Check</button><button class="btn ghost" data-reset="c1vote">Try again</button></div>
+  <div class="fb" id="fb-c1vote"></div>
+  <div id="key-c1vote" hidden><ol>
+    <li><b>Ana — Yes.</b> She is a citizen, over 18, a Massachusetts resident, and registered. (People born in Puerto Rico are U.S. citizens.)</li>
+    <li><b>Kenji — No.</b> He is not a U.S. citizen. He can still volunteer, attend meetings, and speak at public comment!</li>
+    <li><b>Fatima — Yes.</b> She will be 18 on Election Day, and she pre-registered (Massachusetts allows pre-registration at 16).</li>
+    <li><b>Carlos — No.</b> Green card holders are not citizens yet. He could apply for citizenship (naturalization).</li>
+    <li><b>Linh — Not yet.</b> New citizens can register in person at the local election office until 4 p.m. the day before the election, with proof of the ceremony date.</li>
+    <li><b>David — Not yet.</b> He must register in Massachusetts (his new home) at least 10 days before the election.</li></ol></div>
+</section>
+
+<section class="card" id="c1order">
+  <div class="ex-h"><small class="mv">Registration Relay · Move</small><h2>Exercise 5A — Put It in Order</h2></div>
+  <p class="hint">After the relay, number the steps to register to vote in the correct order (1–4).</p>
+  <table class="order"><tbody>
+    <tr><td><select data-ans="4" aria-label="Order: confirmation"><option value="">—</option><option>1</option><option>2</option><option>3</option><option>4</option></select><span class="mark"></span></td><td>Wait for your voter confirmation notice in the mail.</td></tr>
+    <tr><td><select data-ans="1" aria-label="Order: eligibility"><option value="">—</option><option>1</option><option>2</option><option>3</option><option>4</option></select><span class="mark"></span></td><td>Check that you are eligible (a citizen, 18+ on Election Day, a Massachusetts resident).</td></tr>
+    <tr><td><select data-ans="3" aria-label="Order: submit"><option value="">—</option><option>1</option><option>2</option><option>3</option><option>4</option></select><span class="mark"></span></td><td>Submit your registration at least 10 days before the election.</td></tr>
+    <tr><td><select data-ans="2" aria-label="Order: fill out"><option value="">—</option><option>1</option><option>2</option><option>3</option><option>4</option></select><span class="mark"></span></td><td>Fill out the registration form online, by mail, or in person.</td></tr>
+  </tbody></table>
+  <div class="btnrow"><button class="btn" data-check="c1order">Check</button><button class="btn ghost" data-reset="c1order">Try again</button></div>
+  <div class="fb" id="fb-c1order"></div>
+  <div id="key-c1order" hidden><b>Correct order:</b> 1. Check that you are eligible → 2. Fill out the form → 3. Submit at least 10 days before the election → 4. Wait for your confirmation notice.</div>
+</section>
+
+<section class="card" id="c1read">
+  <div class="ex-h"><small>Exercise 2</small><h2>Reading — Getting Involved, One Step at a Time</h2></div>
+  <div class="reading">
+    <p>Maria moved to Boston two years ago. At first, she thought "civic participation" only meant voting — and since she isn't a citizen yet, she believed there was nothing she could do. Then her son's school invited families to a meeting about the school lunch program.</p>
+    <p>Maria went, listened, and even asked a question about the lunch menu. A few months later, she went to a City Council hearing about a new park near her house. During the public comment time, she shared her opinion, and the councilors thanked her for coming.</p>
+    <p style="margin:0">Maria still isn't eligible to vote, but she has learned that civic participation has many doors — and she is walking through several of them.</p>
+  </div>
+  <div class="q"><label for="c1r1">1. Why did Maria first think she couldn't participate in civic life?</label>
+    <textarea id="c1r1" data-open data-pts="only voting::only.*vot|vot.*only|just.*vot;;not a citizen::citizen"></textarea><div class="pts"></div></div>
+  <div class="q"><label for="c1r2">2. What are two things Maria did to get involved?</label>
+    <textarea id="c1r2" data-open data-pts="school meeting / lunch::school|lunch;;City Council / public comment / park::council|public comment|park|hearing"></textarea><div class="pts"></div></div>
+  <div class="q"><label for="c1r3">3. What happened at the City Council hearing?</label>
+    <textarea id="c1r3" data-open data-pts="she shared her opinion::opinion|spoke|talk|said|share;;the councilors thanked her::thank"></textarea><div class="pts"></div></div>
+  <div class="q"><label for="c1r4">4. In your own words, what is the main idea of this passage?</label>
+    <textarea id="c1r4" data-open data-pts="many ways / many doors::many|different|lot of|several;;not only voting / non-citizens can participate::not only|non.?citizen|everyone|even|without vot|anyone"></textarea><div class="pts"></div></div>
+  <div class="btnrow"><button class="btn" data-check="c1read" data-kind="open">Check Exercise 2</button></div>
+  <div class="fb" id="fb-c1read"></div>
+  <div id="key-c1read" hidden><ol>
+    <li>She thought civic participation only meant voting, and she isn't a citizen yet.</li>
+    <li>She went to a school meeting and asked about the lunch menu. She also spoke during public comment at a City Council hearing.</li>
+    <li>She shared her opinion about a new park during public comment, and the councilors thanked her.</li>
+    <li>Civic participation has many forms, and everyone — even people who can't vote — can take part.</li></ol></div>
+</section>
+
+<section class="card" id="c1exit">
+  <div class="ex-h"><small class="mv">Class Election · Move</small><h2>Exit Ticket</h2></div>
+  <p class="hint">Vote in our Class Election with a paper ballot. Then answer here.</p>
+  <div class="q"><label for="c1x1">One new word I learned today (and what it means):</label><input type="text" id="c1x1"></div>
+  <div class="q"><label for="c1x2">How did it feel to vote with a secret ballot? Why do you think voting is secret?</label><textarea id="c1x2"></textarea></div>
+  <div class="q"><label for="c1x3">One question I still have:</label><input type="text" id="c1x3"></div>
+</section>
+</div></section><section class="panel" id="ws2" role="tabpanel"><div class="wsroot"><div class="card">
+  <div class="kicker" style="font-weight:700;font-size:13px;letter-spacing:.14em;color:var(--red);text-transform:uppercase">Class 2 · 4:10–5:50</div>
+  <h2 style="margin-top:4px">Worksheet — Class 2: Local Government &amp; Having a Voice</h2>
+  <div class="idrow"><div><label for="c2name">Name</label><input type="text" id="c2name" autocomplete="name"></div><div><label for="c2date">Date</label><input type="text" id="c2date"></div></div>
+  <div class="toolbar" style="margin-top:12px"><button class="btn" onclick="print()">Print / Save as PDF</button><button class="btn ghost" data-clear>Clear my answers</button><span class="saved">Your answers save automatically on this device.</span></div>
+</div>
+
+<section class="card" id="c2tf">
+  <div class="ex-h"><small class="mv">True or False Line · Move</small><h2>Exercise 4 — Do You Know the Facts?</h2></div>
+  <p class="hint">After the game, choose True or False. Fix each false statement on the line below it.</p>
+  <div class="qrow" data-ans="T"><span>1. You must be 18 years old on Election Day to vote.</span><span class="seg"><label><input type="radio" name="tf1" value="T">True</label><label><input type="radio" name="tf1" value="F">False</label></span><span class="mark"></span><div class="why"><input type="text" aria-label="Fix 1" placeholder="If false, fix it:"></div></div>
+  <div class="qrow" data-ans="F"><span>2. Only U.S. citizens can go to a City Council hearing.</span><span class="seg"><label><input type="radio" name="tf2" value="T">True</label><label><input type="radio" name="tf2" value="F">False</label></span><span class="mark"></span><div class="why"><input type="text" aria-label="Fix 2" placeholder="If false, fix it:"></div></div>
+  <div class="qrow" data-ans="F"><span>3. Voter registration deadlines are the same in every state.</span><span class="seg"><label><input type="radio" name="tf3" value="T">True</label><label><input type="radio" name="tf3" value="F">False</label></span><span class="mark"></span><div class="why"><input type="text" aria-label="Fix 3" placeholder="If false, fix it:"></div></div>
+  <div class="qrow" data-ans="T"><span>4. People who are not citizens can volunteer or speak at a public meeting.</span><span class="seg"><label><input type="radio" name="tf4" value="T">True</label><label><input type="radio" name="tf4" value="F">False</label></span><span class="mark"></span><div class="why"><input type="text" aria-label="Fix 4" placeholder="If false, fix it:"></div></div>
+  <div class="qrow" data-ans="F"><span>5. Local government only deals with national issues like the military.</span><span class="seg"><label><input type="radio" name="tf5" value="T">True</label><label><input type="radio" name="tf5" value="F">False</label></span><span class="mark"></span><div class="why"><input type="text" aria-label="Fix 5" placeholder="If false, fix it:"></div></div>
+  <div class="qrow" data-ans="T"><span>6. Most City Council hearings are open to the public.</span><span class="seg"><label><input type="radio" name="tf6" value="T">True</label><label><input type="radio" name="tf6" value="F">False</label></span><span class="mark"></span><div class="why"><input type="text" aria-label="Fix 6" placeholder="If false, fix it:"></div></div>
+  <div class="btnrow"><button class="btn" data-check="c2tf">Check Exercise 4</button><button class="btn ghost" data-reset="c2tf">Try again</button></div>
+  <div class="fb" id="fb-c2tf"></div>
+  <div id="key-c2tf" hidden><ol>
+    <li><b>True.</b></li>
+    <li><b>False.</b> Anyone can attend and testify, citizen or not.</li>
+    <li><b>False.</b> Every state is different. In Massachusetts, it is 10 days before the election.</li>
+    <li><b>True.</b></li>
+    <li><b>False.</b> Local government deals with local issues like schools, roads, parks, and trash.</li>
+    <li><b>True.</b></li></ol></div>
+</section>
+
+<section class="card" id="c2call">
+  <div class="ex-h"><small>Group Activity</small><h2>Who Do You Call? National, State, or Local?</h2></div>
+  <p class="hint">Which level of government takes care of each problem? <b>National</b> = the U.S. government · <b>State</b> = Massachusetts · <b>Local</b> = the City of Boston</p>
+  <div class="qrow" data-ans="local"><span>1. There is a big pothole on your street.</span><span class="seg"><label><input type="radio" name="w1" value="national">National</label><label><input type="radio" name="w1" value="state">State</label><label><input type="radio" name="w1" value="local">Local</label></span><span class="mark"></span></div>
+  <div class="qrow" data-ans="national"><span>2. You need to renew your U.S. passport.</span><span class="seg"><label><input type="radio" name="w2" value="national">National</label><label><input type="radio" name="w2" value="state">State</label><label><input type="radio" name="w2" value="local">Local</label></span><span class="mark"></span></div>
+  <div class="qrow" data-ans="state"><span>3. You want a Massachusetts driver's license.</span><span class="seg"><label><input type="radio" name="w3" value="national">National</label><label><input type="radio" name="w3" value="state">State</label><label><input type="radio" name="w3" value="local">Local</label></span><span class="mark"></span></div>
+  <div class="qrow" data-ans="local"><span>4. Your trash was not picked up this week.</span><span class="seg"><label><input type="radio" name="w4" value="national">National</label><label><input type="radio" name="w4" value="state">State</label><label><input type="radio" name="w4" value="local">Local</label></span><span class="mark"></span></div>
+  <div class="qrow" data-ans="national"><span>5. Your cousin wants to apply for a green card.</span><span class="seg"><label><input type="radio" name="w5" value="national">National</label><label><input type="radio" name="w5" value="state">State</label><label><input type="radio" name="w5" value="local">Local</label></span><span class="mark"></span></div>
+  <div class="qrow" data-ans="local"><span>6. The streetlight in front of your building is broken.</span><span class="seg"><label><input type="radio" name="w6" value="national">National</label><label><input type="radio" name="w6" value="state">State</label><label><input type="radio" name="w6" value="local">Local</label></span><span class="mark"></span></div>
+  <div class="qrow" data-ans="local"><span>7. You want to change the lunch menu at a Boston public school.</span><span class="seg"><label><input type="radio" name="w7" value="national">National</label><label><input type="radio" name="w7" value="state">State</label><label><input type="radio" name="w7" value="local">Local</label></span><span class="mark"></span></div>
+  <div class="qrow" data-ans="state"><span>8. You have a question about Massachusetts state income tax.</span><span class="seg"><label><input type="radio" name="w8" value="national">National</label><label><input type="radio" name="w8" value="state">State</label><label><input type="radio" name="w8" value="local">Local</label></span><span class="mark"></span></div>
+  <div class="qrow" data-ans="national"><span>9. You lost your Social Security card.</span><span class="seg"><label><input type="radio" name="w9" value="national">National</label><label><input type="radio" name="w9" value="state">State</label><label><input type="radio" name="w9" value="local">Local</label></span><span class="mark"></span></div>
+  <div class="qrow" data-ans="local"><span>10. Your neighborhood wants a new playground in the park.</span><span class="seg"><label><input type="radio" name="w10" value="national">National</label><label><input type="radio" name="w10" value="state">State</label><label><input type="radio" name="w10" value="local">Local</label></span><span class="mark"></span></div>
+  <div class="btnrow"><button class="btn" data-check="c2call">Check</button><button class="btn ghost" data-reset="c2call">Try again</button></div>
+  <div class="fb" id="fb-c2call"></div>
+  <div id="key-c2call" hidden><b>Local (City of Boston):</b> 1 pothole, 4 trash, 6 streetlight (report these to <b>Boston 311</b>), 7 school lunch (Boston Public Schools / School Committee), 10 playground (Parks Department / City Council)<br><b>State (Massachusetts):</b> 3 driver's license (RMV), 8 state income tax<br><b>National (U.S.):</b> 2 passport, 5 green card (USCIS), 9 Social Security card (SSA)</div>
+</section>
+
+<section class="card" id="c2sort">
+  <div class="ex-h"><small>Exercise 5B</small><h2>School Committee, City Council, or Both?</h2></div>
+  <p class="hint">Which group would talk about each topic?</p>
+  <div class="qrow" data-ans="school"><span>1. Talking about the school lunch program</span><span class="seg"><label><input type="radio" name="s1" value="school">School Committee</label><label><input type="radio" name="s1" value="council">City Council</label><label><input type="radio" name="s1" value="both">Both</label></span><span class="mark"></span></div>
+  <div class="qrow" data-ans="council"><span>2. Voting on the city's new park budget</span><span class="seg"><label><input type="radio" name="s2" value="school">School Committee</label><label><input type="radio" name="s2" value="council">City Council</label><label><input type="radio" name="s2" value="both">Both</label></span><span class="mark"></span></div>
+  <div class="qrow" data-ans="both"><span>3. Listening to residents during public comment</span><span class="seg"><label><input type="radio" name="s3" value="school">School Committee</label><label><input type="radio" name="s3" value="council">City Council</label><label><input type="radio" name="s3" value="both">Both</label></span><span class="mark"></span></div>
+  <div class="qrow" data-ans="school"><span>4. Deciding on money for classroom supplies</span><span class="seg"><label><input type="radio" name="s4" value="school">School Committee</label><label><input type="radio" name="s4" value="council">City Council</label><label><input type="radio" name="s4" value="both">Both</label></span><span class="mark"></span></div>
+  <div class="btnrow"><button class="btn" data-check="c2sort">Check</button><button class="btn ghost" data-reset="c2sort">Try again</button></div>
+  <div class="fb" id="fb-c2sort"></div>
+  <div id="key-c2sort" hidden>1. School Committee · 2. City Council · 3. Both · 4. School Committee</div>
+</section>
+
+<section class="card" id="c2council">
+  <div class="ex-h"><small class="mv">Role-Play · Move</small><h2>Mock City Council Hearing: The Maple Square Lot</h2></div>
+  <div class="reading"><p><b>The issue:</b> The City of Boston owns an empty lot in the (imaginary) neighborhood of <b>Maple Square</b>. The City Council must decide what to build:</p>
+    <p style="margin:0"><b>Option A:</b> a park with a playground and trees &nbsp;·&nbsp; <b>Option B:</b> a 150-space parking garage &nbsp;·&nbsp; <b>Option C:</b> a compromise — a small park and 50 parking spaces</p></div>
+  <div class="idrow" style="margin-top:12px"><div><label for="c2role">My role (from my role card)</label><input type="text" id="c2role"></div>
+    <div><label for="c2opt">I support</label><select id="c2opt"><option value="">Choose…</option><option>Option A — Park</option><option>Option B — Parking</option><option>Option C — Compromise</option><option>I am a councilor — I will decide after listening</option></select></div></div>
+  <div class="q"><label for="c2speech">My 1-minute public comment (residents) or my 2 questions (councilors)</label>
+    <textarea id="c2speech" style="min-height:140px" placeholder="Good afternoon, councilors. My name is … and I live in Maple Square. I am here to support Option … because … Also, … Thank you for listening."></textarea></div>
+  <div class="frames">
+    <div><b>Starting</b>"Good afternoon, councilors. My name is ___, and I live in ___."</div>
+    <div><b>Your position</b>"I am here to support / oppose ___ because ___."</div>
+    <div><b>Reasons</b>"First, ___. Also, ___. Most importantly, ___."</div>
+    <div><b>Closing</b>"I hope you will vote for ___. Thank you for listening."</div>
+  </div>
+  <div class="q"><label for="c2result">The council's decision and the vote (for example, 3–2 for Option C):</label><input type="text" id="c2result"></div>
+</section>
+
+<section class="card" id="c2disc">
+  <div class="ex-h"><small>Group Discussion</small><h2>Around the World: Compare &amp; Discuss</h2></div>
+  <div class="q"><label for="c2d1">1. What does civic participation look like in your home country? (voting age, meetings, volunteering…)</label><textarea id="c2d1"></textarea></div>
+  <div class="q"><label for="c2d2">2. What is possible for you here in Boston? What would you like to try?</label><textarea id="c2d2"></textarea></div>
+</section>
+
+<section class="card" id="c2write">
+  <div class="ex-h"><small>Exercise 3</small><h2>Writing — Comparing Cultures</h2></div>
+  <p class="hint">Write a paragraph (5–8 sentences) comparing civic participation in your home country with what is possible here. Use at least <b>three</b> vocabulary words.</p>
+  <div class="wordbank"><span>eligible</span><span>register</span><span>ballot</span><span>election</span><span>citizen</span><span>committee</span><span>council</span><span>mayor</span><span>local government</span><span>volunteer</span><span>public comment</span><span>civic participation</span></div>
+  <p class="hint">Starters: "In my home country, people can/cannot …" · "Here in Boston, I have learned that …" · "One thing I would like to try is …"</p>
+  <div class="q"><textarea id="c2w" data-open data-count data-min="5" data-vmin="3" data-vwords="eligible|register|ballot|election|citizen|committee|council|mayor|local government|volunteer|public comment|civic participation" style="min-height:200px" aria-label="Exercise 3 paragraph"></textarea><div class="counter"></div><div class="pts"></div></div>
+  <div class="btnrow"><button class="btn" data-check="c2write" data-kind="open">Check Exercise 3</button></div>
+  <div class="fb" id="fb-c2write"></div>
+  <div id="key-c2write" hidden><b>Sample paragraph:</b><p style="margin:6px 0 0;font-style:italic">In my home country, people vote in a national election every five years, and you are eligible to vote at 18. Most people do not go to city meetings, and it is not common to volunteer. Here in Boston, I have learned that there are many kinds of civic participation. Even people who are not citizens can go to a City Council hearing and give public comment. Parents can also speak at School Committee meetings. One thing I would like to try is volunteering at a community garden in my neighborhood. I think small actions like this can make my community better.</p></div>
+</section>
+
+<section class="card" id="c2act">
+  <div class="ex-h"><small>This Week</small><h2>Action Step &amp; Reflection</h2></div>
+  <p class="hint">Choose at least one action to try this week:</p>
+  <div style="display:flex;flex-direction:column;gap:6px">
+    <label style="font-weight:400"><input type="checkbox"> If I am a U.S. citizen: check my voter registration at sec.state.ma.us</label>
+    <label style="font-weight:400"><input type="checkbox"> Find my Boston City Council district and the name of my district councilor</label>
+    <label style="font-weight:400"><input type="checkbox"> Look at the schedule of upcoming City Council hearings (boston.gov/city-council)</label>
+    <label style="font-weight:400"><input type="checkbox"> Find one volunteer opportunity in my neighborhood</label>
+  </div>
+  <div class="q"><label for="c2rem">One thing I will remember from today is …</label><input type="text" id="c2rem"></div>
+</section>
+</div></section><section class="panel" id="vocab" role="tabpanel"><div class="card"><h2>Vocabulary Cards</h2><p class="hint">Click <b>Listen</b> to hear each word in American English (your browser's built-in U.S. voice). <b>Slow</b> plays it slowly. The <b>BIG</b> letters show the stressed syllable.</p><div data-vocab></div></div></section><section class="panel" id="notes" role="tabpanel"><div class="card notes">
+  <h2>Study Notes: Civic Participation in Boston</h2>
+  <p class="hint">Read these notes after class to review. Click a question at the bottom to test yourself.</p>
+
+  <h3>1. What is civic participation?</h3>
+  <p><b>Civic participation</b> means all the ways people take part in their community and government. There are many "doors":</p>
+  <div class="fact"><div><b>Voting</b>choosing leaders and deciding questions</div><div><b>Speaking up</b>sharing your opinion at meetings or by email</div><div><b>Volunteering</b>helping your community without pay</div><div><b>Joining in</b>going to meetings, events, and groups</div></div>
+
+  <h3>2. Who can vote in Massachusetts?</h3>
+  <ul>
+    <li>You must be a <b>U.S. citizen</b>.</li>
+    <li>You must be <b>18 or older on Election Day</b>. (You can <b>pre-register at 16</b>.)</li>
+    <li>You must <b>live in Massachusetts</b>.</li>
+    <li>You must <b>register at least 10 days before</b> the election. You <b>cannot</b> register on Election Day.</li>
+  </ul>
+  <div class="warn"><b>Important:</b> Only U.S. citizens can register and vote. Green card holders and international students cannot vote. <b>Never register to vote if you are not a citizen</b> — it can cause serious immigration problems. If you are not sure, ask an immigration lawyer or legal aid office.</div>
+  <div class="tip"><b>New citizens:</b> If you became a citizen <i>after</i> the deadline, you can still register in person at your local election office until 4 p.m. the day before the election. Bring proof of your ceremony date.</div>
+
+  <h3>3. How to register (if you are eligible)</h3>
+  <ol>
+    <li><b>Check</b> that you are eligible.</li>
+    <li><b>Fill out</b> the form: <b>online</b> (you need a Massachusetts driver's license or state ID), <b>by mail</b>, or <b>in person</b> (at the Boston Election Department in City Hall, or at the RMV).</li>
+    <li><b>Submit</b> it at least 10 days before the election.</li>
+    <li><b>Wait</b> for your confirmation notice in the mail.</li>
+  </ol>
+  <p>Check your registration status: <b>sec.state.ma.us</b></p>
+
+  <h3>4. Three levels of government</h3>
+  <div class="tw"><table><thead><tr><th>Level</th><th>Leader</th><th>Examples</th></tr></thead><tbody>
+    <tr><td><b>National</b> (U.S.)</td><td>President, Congress</td><td>passports, green cards, Social Security, the military</td></tr>
+    <tr><td><b>State</b> (Massachusetts)</td><td>Governor, the State House</td><td>driver's licenses (RMV), state taxes, state laws</td></tr>
+    <tr><td><b>Local</b> (City of Boston)</td><td>Mayor, City Council</td><td>streets, trash, parks, police, fire, public schools</td></tr>
+  </tbody></table></div>
+  <p>Local problems like potholes, broken streetlights, or missed trash: call or use the <b>Boston 311</b> app.</p>
+
+  <h3>5. Boston City Council</h3>
+  <ul>
+    <li><b>13 councilors</b>: 9 represent districts (parts of the city) and 4 represent the whole city ("at-large").</li>
+    <li>They are elected every <b>two years</b>. They make local laws and approve the city <b>budget</b>.</li>
+    <li><b>Anyone</b> can testify at a hearing: in person, on Zoom, by email, or with a video — in <b>any language</b>. Keep it to about 2 minutes.</li>
+  </ul>
+
+  <h3>6. Boston School Committee</h3>
+  <ul>
+    <li>Makes decisions about Boston Public Schools.</li>
+    <li>In Boston, the <b>Mayor appoints</b> the 7 voting members (plus 1 student member). In most other Massachusetts towns, people <b>elect</b> their school committee.</li>
+    <li>Parents and community members can speak at meetings during public comment.</li>
+  </ul>
+
+  <h3>7. Useful language</h3>
+  <div class="frames">
+    <div><b>Public comment</b>"Good afternoon. My name is ___, and I live in ___. I am here to support ___ because ___."</div>
+    <div><b>Agreeing</b>"I agree with ___ because…" · "That's a good point."</div>
+    <div><b>Disagreeing politely</b>"I see your point, but…" · "I understand, however…"</div>
+    <div><b>Comparing</b>"In my home country, ___, but here ___." · "Both countries…"</div>
+  </div>
+
+  <h3>8. Test yourself</h3>
+  <div class="selfq">
+    <details><summary>1. What are four ways to take part in civic life?</summary><p>Voting, speaking up, volunteering, and joining in (going to meetings and events).</p></details>
+    <details><summary>2. What is the voter registration deadline in Massachusetts?</summary><p>10 days before the election. You cannot register on Election Day.</p></details>
+    <details><summary>3. Can a green card holder vote?</summary><p>No. Only U.S. citizens can vote. But green card holders can volunteer, attend meetings, and give public comment.</p></details>
+    <details><summary>4. How many members does the Boston City Council have?</summary><p>13 — 9 district councilors and 4 at-large councilors.</p></details>
+    <details><summary>5. Who chooses the Boston School Committee?</summary><p>The Mayor appoints the 7 voting members.</p></details>
+    <details><summary>6. Your street has a big pothole. Who do you contact?</summary><p>Local government — the City of Boston (Boston 311).</p></details>
+  </div>
+
+  <h3>Helpful websites</h3>
+  <ul>
+    <li><a href="https://www.sec.state.ma.us/divisions/elections/voter-resources/registering-to-vote.htm" target="_blank" rel="noopener">Massachusetts — Registering to Vote</a></li>
+    <li><a href="https://www.boston.gov/departments/city-council" target="_blank" rel="noopener">Boston City Council</a></li>
+    <li><a href="https://www.boston.gov/departments/city-council/how-testify-city-council-hearing" target="_blank" rel="noopener">How to Testify at a City Council Hearing</a></li>
+    <li><a href="https://www.boston.gov/departments/boston-311" target="_blank" rel="noopener">Boston 311</a></li>
+  </ul>
+</div>
+</section><footer>American Culture · Week 7: Civic Participation · Approach International Student Center</footer></main>
+<script>/* ===== Tabs ===== */
+(function(){
+  const tabs=[...document.querySelectorAll('nav.tabs button')];
+  function open(id,push){
+    tabs.forEach(t=>t.setAttribute('aria-selected',t.dataset.tab===id));
+    document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('on',p.id===id));
+    if(push){try{history.replaceState(null,'','#'+id);}catch(e){}}
+    document.dispatchEvent(new CustomEvent('tabchange',{detail:id}));
+    window.scrollTo({top:0});
+  }
+  tabs.forEach(t=>t.addEventListener('click',()=>open(t.dataset.tab,true)));
+  window.openTab=open;
+  const h=location.hash.slice(1);
+  open(tabs.some(t=>t.dataset.tab===h)?h:tabs[0].dataset.tab,false);
+})();
+
+/* ===== Speech: browser's American English voice ===== */
+const synth=window.speechSynthesis; let usVoice=null;
+function pickVoice(){ if(!synth) return; const vs=synth.getVoices().filter(v=>/^en[-_]US/i.test(v.lang));
+  const pref=["Samantha","Google US English","Microsoft Aria","Microsoft Jenny","Microsoft Guy","Alex","Ava","Allison","Microsoft Zira"];
+  usVoice=pref.map(p=>vs.find(v=>v.name.includes(p))).find(Boolean)||vs[0]||null; }
+if(synth){pickVoice(); synth.onvoiceschanged=pickVoice;}
+function speak(text,rate){ if(!synth){alert('Audio is not supported in this browser. Try Chrome, Edge, or Safari.');return;}
+  synth.cancel(); const u=new SpeechSynthesisUtterance(String(text).replace(/<[^>]+>/g,'')); u.lang='en-US'; u.rate=rate||0.9; if(usVoice) u.voice=usVoice; synth.speak(u); }
+
+/* ===== Vocabulary cards ===== */
+const VOCAB=[
+ {w:"civic participation",pos:"noun phrase",ipa:"/ˈsɪvɪk pɑrˌtɪsəˈpeɪʃən/",st:"<b>SIV</b>-ik par-tis-uh-<b>PAY</b>-shuhn",
+  def:"all the ways people take part in their community and government",ex:"Voting, volunteering, and speaking at meetings are all forms of <b>civic participation</b>."},
+ {w:"citizen",pos:"noun",ipa:"/ˈsɪtəzən/",st:"<b>SIT</b>-uh-zuhn",
+  def:"a person who legally belongs to a country and has its rights, like voting",ex:"You can register to vote as soon as you become a U.S. <b>citizen</b>."},
+ {w:"eligible",pos:"adjective",ipa:"/ˈɛlədʒəbəl/",st:"<b>EL</b>-uh-juh-buhl",
+  def:"allowed or qualified to do something",ex:"In Massachusetts, you are <b>eligible</b> to vote if you are a citizen, 18 or older, and a resident."},
+ {w:"register",pos:"verb",ipa:"/ˈrɛdʒəstər/",st:"<b>REJ</b>-uh-ster",
+  def:"to officially put your name on a list",ex:"Ana <b>registered</b> to vote online on the state's website."},
+ {w:"deadline",pos:"noun",ipa:"/ˈdɛdˌlaɪn/",st:"<b>DED</b>-line",
+  def:"the last day or time to do something",ex:"The <b>deadline</b> to register in Massachusetts is 10 days before an election."},
+ {w:"ballot",pos:"noun",ipa:"/ˈbælət/",st:"<b>BAL</b>-uht",
+  def:"the paper or screen you use to vote",ex:"Voters fill in the circle next to their choice on the <b>ballot</b>."},
+ {w:"election",pos:"noun",ipa:"/ɪˈlɛkʃən/",st:"ih-<b>LEK</b>-shuhn",
+  def:"a time when people vote to choose leaders or decide questions",ex:"Boston has a city <b>election</b> every two years to choose its city councilors."},
+ {w:"local government",pos:"noun phrase",ipa:"/ˈloʊkəl ˈɡʌvərnmənt/",st:"<b>LOH</b>-kuhl <b>GUV</b>-ern-muhnt",
+  def:"the leaders and offices that run a city or town",ex:"<b>Local government</b> fixes potholes, runs public schools, and picks up trash."},
+ {w:"mayor",pos:"noun",ipa:"/ˈmeɪər/",st:"<b>MAY</b>-er",
+  def:"the elected leader of a city or town",ex:"The <b>mayor</b> of Boston works with the City Council on the city budget."},
+ {w:"city council",pos:"noun",ipa:"/ˈsɪti ˈkaʊnsəl/",st:"<b>SIT</b>-ee <b>KOWN</b>-suhl",
+  def:"a group of elected leaders who make laws and approve the budget for a city",ex:"Boston's <b>City Council</b> has 13 members."},
+ {w:"committee",pos:"noun",ipa:"/kəˈmɪti/",st:"kuh-<b>MIT</b>-ee",
+  def:"a small group of people chosen to make decisions about something",ex:"The Boston School <b>Committee</b> makes decisions about public schools."},
+ {w:"budget",pos:"noun",ipa:"/ˈbʌdʒət/",st:"<b>BUJ</b>-it",
+  def:"a plan for how money will be spent",ex:"The City Council votes on the city <b>budget</b> every year."},
+ {w:"public comment",pos:"noun phrase",ipa:"/ˈpʌblɪk ˈkɑmɛnt/",st:"<b>PUB</b>-lik <b>KAH</b>-ment",
+  def:"time at a meeting when anyone can share their opinion",ex:"During <b>public comment</b>, Maria spoke about the new park."},
+ {w:"volunteer",pos:"verb / noun",ipa:"/ˌvɑlənˈtɪr/",st:"vah-luhn-<b>TEER</b>",
+  def:"to work to help others without being paid; a person who does this",ex:"Kenji <b>volunteers</b> at a food pantry in East Boston every Saturday."}
+];
+function mountVocab(root){
+  if(!root) return;
+  let order=VOCAB.map((_,i)=>i), cur=0, quiz=false;
+  const spk='<svg viewBox="0 0 24 24"><path d="M11 5L6 9H2v6h4l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14"/></svg>';
+  root.innerHTML=`<div class="vc-top"><button class="btn ghost" data-a="prev" aria-label="Previous card">&#9664; Prev</button><span class="sp" data-a="count" style="text-align:center;font-weight:700;color:var(--navy)"></span><button class="btn ghost" data-a="next" aria-label="Next card">Next &#9654;</button></div>
+  <div class="vcard" data-a="card"><div class="l"><span class="num" data-a="num"></span><div class="w" data-a="w"></div><span class="pos" data-a="pos"></span>
+   <span class="small">AMERICAN IPA</span><div class="ipa" data-a="ipa"></div><span class="small">WORD STRESS (BIG = STRESSED)</span><div class="stress" data-a="st"></div>
+   <div class="listen"><button class="sbtn" data-a="say">${spk}Listen</button><button class="sbtn ghost" data-a="slow">${spk}Slow</button></div></div>
+   <div class="r"><div><span class="lab">Definition</span><div class="def hide" data-a="def"></div></div>
+   <div><span class="lab">Example</span><div class="ex"><span class="t hide" data-a="ex"></span><button class="mini" data-a="sayex" aria-label="Listen to the example">${spk}</button></div></div></div></div>
+  <div class="btnrow"><button class="btn ghost" data-a="quiz">Quiz mode: off</button><button class="btn ghost" data-a="shuf">Shuffle</button><span class="hint" style="margin:0">Quiz mode hides the definition and example. Guess, then click to reveal.</span></div>
+  <div class="vgrid" data-a="grid"></div>`;
+  const $=a=>root.querySelector(`[data-a="${a}"]`);
+  function render(){
+    const d=VOCAB[order[cur]];
+    $('num').textContent=`WORD ${cur+1} OF ${order.length}`; $('count').textContent=`${cur+1} / ${order.length}`;
+    $('w').textContent=d.w; $('w').style.fontSize=d.w.length>14?'36px':'';
+    $('pos').textContent=d.pos; $('ipa').textContent=d.ipa; $('st').innerHTML=d.st;
+    $('def').textContent=d.def; $('ex').innerHTML=d.ex;
+    root.querySelectorAll('.hide').forEach(h=>h.classList.remove('shown'));
+    $('grid').innerHTML=order.map((wi,i)=>`<button data-go="${i}" class="${i===cur?'cur':''}">${VOCAB[wi].w}<small>${VOCAB[wi].pos.split(' ')[0]}</small></button>`).join('');
+  }
+  root.addEventListener('click',e=>{
+    const a=e.target.closest('[data-a]')?.dataset.a, g=e.target.closest('[data-go]'), h=e.target.closest('.hide');
+    if(g){cur=+g.dataset.go;render();return;}
+    if(h&&quiz){h.classList.add('shown');return;}
+    const d=VOCAB[order[cur]];
+    if(a==='prev'){cur=(cur-1+order.length)%order.length;render();}
+    if(a==='next'){cur=(cur+1)%order.length;render();}
+    if(a==='say') speak(d.w,0.9);
+    if(a==='slow') speak(d.w,0.5);
+    if(a==='sayex') speak(d.ex,0.9);
+    if(a==='quiz'){quiz=!quiz;$('card').classList.toggle('quiz',quiz);$('quiz').textContent='Quiz mode: '+(quiz?'on':'off');render();}
+    if(a==='shuf'){order=order.map(v=>[Math.random(),v]).sort((x,y)=>x[0]-y[0]).map(v=>v[1]);cur=0;render();}
+  });
+  render();
+}
+document.querySelectorAll('[data-vocab]').forEach(mountVocab);
+
+/* ===== Worksheets ===== */
+const WS=(function(){
+  const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+  const norm=s=>String(s).toLowerCase().replace(/[^a-z ]/g,' ').replace(/\s+/g,' ').trim();
+  const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');
+  const sentences=t=>t.split(/[.!?]+(?:\s|$)/).map(s=>s.trim()).filter(s=>s.split(/\s+/).filter(Boolean).length>=3);
+  function show(id,cls,html){const f=$('#fb-'+id);if(!f)return;f.className='fb show '+cls;f.innerHTML=html;f.scrollIntoView({behavior:'smooth',block:'nearest'});}
+
+  /* scored blanks/selects/segmented */
+  function scored(id){
+    const sec=$('#'+id); const items=$$('[data-ans]',sec); let right=0, empty=0;
+    items.forEach(el=>{
+      const isSeg=el.classList.contains('qrow')||el.classList.contains('pc');
+      const mark=isSeg?el.querySelector('.mark'):el.nextElementSibling;
+      let v; if(isSeg){const c=el.querySelector('input[type=radio]:checked');v=c?c.value:'';}
+      else v=el.tagName==='SELECT'?el.value:norm(el.value);
+      const answers=el.dataset.ans.split('|');
+      const ok=v!=='' && answers.some(a=>v===a||v==='a '+a||v==='the '+a);
+      const tgt=isSeg?el.querySelector('.seg'):el;
+      tgt.classList.remove('ok','bad'); if(mark){mark.className='mark';mark.textContent='';}
+      if(!v){empty++;return;}
+      if(ok){right++;tgt.classList.add('ok');if(mark){mark.classList.add('ok');mark.textContent='✓';}}
+      else{tgt.classList.add('bad');if(mark){mark.classList.add('bad');mark.textContent='✗';}}
+    });
+    const n=items.length;
+    if(empty===n){show(id,'warn','<h4>Please answer the questions first.</h4>');return;}
+    let msg=`<h4>You got ${right} out of ${n} correct.</h4>`;
+    if(right===n){msg+='<p>Excellent work! Everything is correct.</p>'; const k=$('#key-'+id); if(k) msg+=`<div class="model">${k.innerHTML}</div>`;}
+    else msg+=`<p>${empty?`You left ${empty} blank. `:''}Look at the answers marked ✗, change them, and click Check again.</p><button class="btn ghost" data-reveal="${id}">Show the correct answers</button>`;
+    show(id,right===n?'ok':'bad',msg);
+  }
+  function reveal(id){const k=$('#key-'+id);const f=$('#fb-'+id);f.querySelector('[data-reveal]')?.remove();if(k)f.innerHTML+=`<div class="model">${k.innerHTML}</div>`;}
+  function reset(id){
+    const sec=$('#'+id);
+    $$('[data-ans]',sec).forEach(el=>{ if(el.classList.contains('qrow')||el.classList.contains('pc')){el.querySelectorAll('input[type=radio]').forEach(r=>r.checked=false);el.querySelector('.seg').classList.remove('ok','bad');} else {el.value='';el.classList.remove('ok','bad');} });
+    $$('.mark',sec).forEach(m=>{m.textContent='';m.className='mark';});
+    $('#fb-'+id).className='fb'; save(); words();
+  }
+  /* open answers: key points + model */
+  function openCheck(id){
+    const sec=$('#'+id); const qs=$$('[data-open]',sec); let done=0, probs=[];
+    qs.forEach((t,i)=>{
+      const v=t.value.trim(), min=+(t.dataset.min||1), box=t.parentElement.querySelector('.pts');
+      if(!v){probs.push(`Question ${i+1} is not answered yet.`); if(box) box.innerHTML=''; return;}
+      done++;
+      const n=sentences(v).length; if(n<min) probs.push(`Question ${i+1}: write at least ${min} complete sentence${min>1?'s':''} (you have ${n}).`);
+      if(box && t.dataset.pts){ const low=v.toLowerCase();
+        box.innerHTML=t.dataset.pts.split(';;').map(p=>{const [lab,re]=p.split('::');const ok=new RegExp(re,'i').test(low);return `<span style="display:inline-block;margin:4px 6px 0 0;padding:2px 10px;border-radius:20px;font-size:14.5px;background:${ok?'var(--okbg)':'var(--badbg)'};color:${ok?'var(--ok)':'var(--bad)'}">${ok?'✓':'○'} ${esc(lab)}</span>`;}).join(''); }
+      if(t.dataset.vwords){ const words=t.dataset.vwords.split('|'); const used=words.filter(w=>v.toLowerCase().includes(w)); if(used.length<+(t.dataset.vmin||3)) probs.push(`Use at least ${t.dataset.vmin||3} vocabulary words (you used ${used.length}${used.length?': '+used.join(', '):''}).`); }
+    });
+    const k=$('#key-'+id);
+    let html=probs.length?`<h4>Almost there!</h4><ul>${probs.map(p=>`<li>${esc(p)}</li>`).join('')}</ul>`:'<h4>Great job! You answered everything.</h4>';
+    html+='<p>Green ✓ shows key points you included. ○ means you may be missing something. Compare with the sample answers:</p>';
+    if(k) html+=`<div class="model">${k.innerHTML}</div>`;
+    show(id,probs.length?'warn':'ok',html);
+  }
+  /* word bank strike-through */
+  function words(){ $$('.wordbank[data-for]').forEach(b=>{ const vals=$$(`#${b.dataset.for} [data-ans]`).map(i=>norm(i.value||''));
+    $$('span',b).forEach(s=>s.classList.toggle('used',vals.includes(norm(s.textContent)))); }); }
+  function counters(){ $$('textarea[data-count]').forEach(t=>{const c=t.parentElement.querySelector('.counter');if(c)c.textContent=`${sentences(t.value).length} sentence(s) · ${t.value.trim()?t.value.trim().split(/\s+/).length:0} words`;}); }
+  /* autosave */
+  let KEY='', fields=[];
+  function save(){ if(!KEY) return; const o={}; fields.forEach((f,i)=>o['f'+i]=(f.type==='radio'||f.type==='checkbox')?f.checked:f.value);
+    try{localStorage.setItem(KEY,JSON.stringify(o)); $$('.saved').forEach(s=>{s.textContent='✓ Saved on this device'; clearTimeout(s._t); s._t=setTimeout(()=>s.textContent='Your answers save automatically on this device.',1800);});}catch(e){} }
+  function init(key){
+    KEY=key; fields=$$('.wsroot input[type=text], .wsroot textarea, .wsroot select, .wsroot input[type=radio], .wsroot input[type=checkbox]');
+    let d={}; try{d=JSON.parse(localStorage.getItem(KEY)||'{}');}catch(e){}
+    fields.forEach((f,i)=>{const v=d['f'+i]; if(v!==undefined){ if(f.type==='radio'||f.type==='checkbox') f.checked=!!v; else f.value=v; }
+      ['input','change'].forEach(ev=>f.addEventListener(ev,()=>{save();words();counters(); if(f.type==='radio') f.closest('.seg')?.classList.remove('ok','bad'); else f.classList.remove('ok','bad');}));});
+    document.addEventListener('click',e=>{
+      const c=e.target.closest('[data-check]'); if(c){ c.dataset.kind==='open'?openCheck(c.dataset.check):scored(c.dataset.check); }
+      const r=e.target.closest('[data-reset]'); if(r) reset(r.dataset.reset);
+      const v=e.target.closest('[data-reveal]'); if(v) reveal(v.dataset.reveal);
+      const cl=e.target.closest('[data-clear]'); if(cl){ if(!confirm('Clear ALL your answers on this page? This cannot be undone.')) return;
+        try{localStorage.removeItem(KEY);}catch(err){} fields.forEach(f=>{if(f.type==='radio'||f.type==='checkbox')f.checked=false;else f.value='';f.classList.remove('ok','bad');});
+        $$('.seg').forEach(s=>s.classList.remove('ok','bad')); $$('.mark').forEach(m=>{m.textContent='';m.className='mark';}); $$('.fb').forEach(f=>f.className='fb'); $$('.pts').forEach(p=>p.innerHTML=''); words(); counters(); }
+    });
+    words(); counters();
+    addEventListener('beforeprint',()=>$$('textarea').forEach(a=>{a.style.height='auto';a.style.height=(a.scrollHeight+4)+'px';}));
+  }
+  return {init};
+})();
+
+WS.init('ac-w7-student-v1');
+</script>
+</body></html>
