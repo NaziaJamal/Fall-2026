@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Week 7 Worksheet · Who's Really Listening?</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Public+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0c2340;--blue:#1c4f8f;--gold:#d39f10;--gold-dark:#8c7535;--sky:#edf2f9;--sky-2:#e1e8f2;--warm:#efe9d9;--ink:#1d2b44;--muted:#4f5f78;--line:#cfd9e6;
+  --engage:#b0451a;--study:#1c4f8f;--activate:#2f7a45;--serif:'Libre Baskerville',Georgia,serif;--sans:'Public Sans',Arial,sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:var(--sky);color:var(--ink);font-family:var(--sans);font-size:16.5px;line-height:1.55}
+.wrap{max-width:900px;margin:0 auto;padding:0 18px}
+header.mast{background:var(--navy);color:var(--sky);border-bottom:6px solid var(--gold)}
+header.mast .wrap{display:flex;gap:20px;align-items:center;padding:22px 18px}
+header.mast img{width:76px;height:76px;border-radius:6px;flex:none}
+.eyebrow{margin:0 0 4px;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+h1{margin:0;font:700 29px/1.2 var(--serif);color:#f6f2e7}
+header.mast p.sub{margin:6px 0 0;color:#c1cddd}
+.bar{background:#143865;padding:8px 0;position:sticky;top:0;z-index:5}
+.bar .wrap{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.bar .who{display:flex;gap:8px;align-items:center;color:#fff;font-size:14px;flex:1;min-width:240px}
+.bar .who input{flex:1;padding:6px 8px;border-radius:6px;border:none;font:14px var(--sans)}
+.bar button{font:600 14px var(--sans);background:var(--gold);color:var(--navy);border:none;border-radius:8px;padding:7px 14px;cursor:pointer}
+.bar button.ghost{background:transparent;color:#fff;border:1px solid #6d86a8}
+#saved{color:#9fd3a9;font-size:13px;min-width:60px}
+main{padding:20px 0 60px}
+.intro{background:#fff;border:1px solid var(--line);border-left:6px solid var(--gold);border-radius:12px;padding:16px 20px;margin-bottom:16px}
+.flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin-top:10px}
+.flow a{display:block;text-decoration:none;color:var(--ink);background:var(--sky);border-radius:8px;padding:8px 10px;font-size:13.5px;border-left:5px solid var(--study)}
+.flow a b{display:block;font-size:12px;color:var(--muted)}
+.flow a.e{border-color:var(--engage)}.flow a.a{border-color:var(--activate)}.flow a.br{border-color:var(--gold);background:var(--warm)}
+section.box{background:#fff;border:1px solid var(--line);border-radius:12px;margin-bottom:18px;overflow:hidden}
+section.box>header{display:flex;gap:14px;align-items:center;padding:14px 20px;background:var(--sky-2);border-bottom:1px solid var(--line)}
+.bn{width:40px;height:40px;border-radius:50%;background:var(--navy);color:var(--gold);display:flex;align-items:center;justify-content:center;font:700 18px var(--serif);flex:none}
+h2{margin:0;font:700 20px/1.25 var(--serif);color:var(--navy)}
+.meta{font-size:13px;color:var(--muted);margin-top:2px}
+.tag{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#fff;padding:2px 8px;border-radius:20px}
+.tag.engage{background:var(--engage)}.tag.study{background:var(--study)}.tag.activate{background:var(--activate)}
+.inner{padding:16px 20px}
+.todo{background:var(--warm);border-radius:10px;padding:12px 16px;margin-bottom:14px}
+.todo ol,.todo ul{margin:6px 0 0;padding-left:22px}
+.sub{font:700 15px var(--sans);color:var(--blue);margin:16px 0 6px;text-transform:uppercase;letter-spacing:.05em;font-size:13px}
+textarea,input[type=text]{width:100%;font:15px/1.45 var(--sans);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:8px 10px;background:#fbfcfe}
+textarea{min-height:64px;resize:vertical}
+textarea:focus,input:focus{outline:2px solid var(--gold);border-color:var(--gold)}
+.scroll{overflow-x:auto}
+table.tbl{width:100%;border-collapse:collapse;margin:6px 0}
+.tbl th{background:var(--navy);color:#fff;text-align:left;font-size:13.5px;padding:8px}
+.tbl td{border:1px solid var(--line);padding:6px;vertical-align:top}
+.tbl td.q{background:var(--sky);font-weight:600;font-size:14.5px;width:30%}
+.tbl textarea{min-height:52px;border:none;background:transparent;padding:4px}
+.choice{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0}
+.choice label{display:flex;gap:6px;align-items:center;background:var(--sky);border:1px solid var(--line);border-radius:8px;padding:6px 10px;cursor:pointer;font-size:14.5px}
+.card{border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin:10px 0;background:#fbfcfe}
+.card h3{margin:0 0 6px;font:700 16px var(--serif);color:var(--navy)}
+.card .lab{font:700 12px var(--sans);letter-spacing:.1em;color:var(--gold-dark);text-transform:uppercase}
+.card p{margin:6px 0}
+.fict{font-size:12.5px;color:var(--muted);font-style:italic}
+.terms{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:8px;margin:8px 0}
+.terms div{background:var(--sky);border-radius:8px;padding:8px 12px;font-size:14.5px}
+.terms b{color:var(--navy)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.grid2 .cell{border:1px solid var(--line);border-radius:10px;padding:8px}
+.grid2 .cell b{display:block;font-size:13px;color:var(--blue);margin-bottom:4px}
+@media(max-width:640px){.grid2{grid-template-columns:1fr}}
+.note{font-size:13.5px;color:var(--muted)}
+.check label{display:flex;gap:8px;align-items:flex-start;margin:4px 0}
+/* language drawer */
+#langBtn{position:fixed;right:18px;bottom:18px;z-index:20;background:var(--navy);color:var(--gold);border:2px solid var(--gold);border-radius:30px;padding:10px 18px;font:700 15px var(--sans);cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+#drawer{position:fixed;top:0;right:0;height:100%;width:min(430px,92vw);background:#fff;box-shadow:-6px 0 22px rgba(0,0,0,.2);transform:translateX(105%);transition:transform .25s;z-index:30;overflow-y:auto;padding:18px 20px 40px}
+#drawer.on{transform:none}
+#drawer h2{display:flex;justify-content:space-between;align-items:center}
+#drawer h3{font:700 14px var(--sans);text-transform:uppercase;letter-spacing:.06em;color:var(--blue);margin:16px 0 4px}
+#drawer ul{margin:4px 0;padding-left:18px}
+#drawer li{margin:3px 0;font-size:15px}
+#drawer button.x{background:none;border:none;font-size:26px;cursor:pointer;color:var(--navy)}
+footer{font-size:13px;color:var(--muted);text-align:center;padding:20px}
+@media print{
+  .bar,#langBtn,#drawer,.flow{display:none!important}
+  body{background:#fff;font-size:12.5px}
+  header.mast{background:#fff;color:#000;border-bottom:3px solid #000}
+  header.mast img{display:none}
+  h1{color:#000}.eyebrow{color:#000}header.mast p.sub{color:#333}
+  section.box{break-inside:avoid-page;border:1px solid #999}
+  section.box>header{background:#eee}
+  .bn{background:#000;color:#fff}
+  .tag{color:#000;border:1px solid #000;background:none!important}
+  .tbl th{background:#ddd;color:#000}
+  textarea,input[type=text]{border:1px solid #aaa;background:#fff;min-height:48px}
+  .todo,.terms div,.card,.tbl td.q{background:#fff}
+}
+</style>
+</head>
+<body>
+<header class="mast"><div class="wrap">
+  <img src="data:image/jpeg;base64,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" alt="Approach International Student Center logo">
+  <div><p class="eyebrow">Strategic Communication · Week 7</p>
+  <h1>Who's Really Listening?</h1>
+  <p class="sub">Audience intelligence: the stated audience vs. the real audience</p></div>
+</div></header>
+
+<div class="bar"><div class="wrap">
+  <div class="who">Name <input type="text" data-f="name" aria-label="Your name"> Team <input type="text" data-f="team" aria-label="Your team" style="max-width:110px"></div>
+  <span id="saved"></span>
+  <button type="button" id="printBtn">Print / PDF</button>
+  <button type="button" class="ghost" id="clearBtn">Clear all</button>
+</div></div>
+
+<main><div class="wrap">
+
+<div class="intro">
+  <b>Today you are an audience strategist.</b> Before you write a message, you need to know who will really receive it, who decides, and who could turn against you. Your answers save automatically in this browser. Keep notes short: key words, not full sentences.
+  <div class="flow">
+    <a class="e" href="#s1"><b>9:00 · Engage</b>1 · The Brief</a>
+    <a href="#s2"><b>9:20 · Study</b>2 · Layers of an Audience</a>
+    <a class="a" href="#s3"><b>9:50 · Study → Activate</b>3 · Gillette: Evidence Walk + Face-off</a>
+    <a class="br" href="#"><b>10:40</b>Break</a>
+    <a href="#s4"><b>11:10 · Study</b>4 · Same News, Four Rooms</a>
+    <a class="a" href="#s5"><b>11:35 · Activate</b>5 · Audience Map Lab</a>
+    <a class="a" href="#s6"><b>12:05 · Activate</b>6 · Change the Audience</a>
+    <a href="#s7"><b>12:35 · Reflect</b>7 · Exit Ticket</a>
+  </div>
+</div>
+
+<!-- STAGE 1 -->
+<section class="box" id="s1">
+  <header><div class="bn">1</div><div><h2>The Brief</h2><div class="meta"><span class="tag engage">Engage · Discover → React</span> · 9:00–9:20 · pairs</div></div></header>
+  <div class="inner">
+    <div class="todo"><b>The situation.</b> You work at an advertising agency. Your client sells a <b>men's body wash</b>. Sales are slipping because many new brands have entered the market. You have one 30-second ad. <b>Who should the ad talk to?</b></div>
+    <p class="sub">Step 1 · Decide before you watch (3 min)</p>
+    <div class="choice">
+      <label><input type="radio" name="brief" data-f="brief" value="Young men"> Young men</label>
+      <label><input type="radio" name="brief" data-f="brief" value="Older, loyal male customers"> Older, loyal male customers</label>
+      <label><input type="radio" name="brief" data-f="brief" value="Women"> Women</label>
+      <label><input type="radio" name="brief" data-f="brief" value="Athletes and gym-goers"> Athletes and gym-goers</label>
+    </div>
+    <textarea data-f="brief_why" aria-label="Why did you choose this audience?" placeholder="We chose this audience because…"></textarea>
+    <p class="sub">Step 2 · Watch the ad and react (pairs, 5 min)</p>
+    <table class="tbl">
+      <tr><td class="q">Who is the speaker talking to? Which words tell you?</td><td><textarea data-f="s1_talk" aria-label="Who is the speaker talking to"></textarea></td></tr>
+      <tr><td class="q">Who will actually use the product?</td><td><textarea data-f="s1_use" aria-label="Who uses the product"></textarea></td></tr>
+      <tr><td class="q">Why would a body-wash brand for men talk to someone else?</td><td><textarea data-f="s1_why" aria-label="Why talk to someone else"></textarea></td></tr>
+      <tr><td class="q">Was your Step 1 choice right? What would you change now?</td><td><textarea data-f="s1_change" aria-label="What would you change"></textarea></td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- STAGE 2 -->
+<section class="box" id="s2">
+  <header><div class="bn">2</div><div><h2>Layers of an Audience</h2><div class="meta"><span class="tag study">Study · Question → Name</span> · 9:20–9:50 · pairs</div></div></header>
+  <div class="inner">
+    <div class="todo"><b>What to do</b><ol>
+      <li><b>Notice (8 min):</b> answer the seven questions about the Old Spice ad.</li>
+      <li><b>Name (7 min):</b> match each answer to a term in the box. Write the term in the last column.</li>
+      <li><b>Apply (5 min):</b> do the same for the United Airlines email from Week 2.</li>
+    </ol></div>
+    <p class="sub">Seven questions about one ad</p>
+    <div class="scroll"><table class="tbl">
+      <tr><th style="width:28%">Question</th><th>Old Spice answer</th><th style="width:24%">Term</th></tr>
+      <tr><td class="q">1 · Who is the message spoken to?</td><td><textarea data-f="l1" aria-label="Spoken to"></textarea></td><td><input type="text" data-f="l1t" aria-label="Term 1"></td></tr>
+      <tr><td class="q">2 · Who pays for the product?</td><td><textarea data-f="l2" aria-label="Pays"></textarea></td><td><input type="text" data-f="l2t" aria-label="Term 2"></td></tr>
+      <tr><td class="q">3 · Who uses the product?</td><td><textarea data-f="l3" aria-label="Uses"></textarea></td><td><input type="text" data-f="l3t" aria-label="Term 3"></td></tr>
+      <tr><td class="q">4 · Who could persuade the buyer?</td><td><textarea data-f="l4" aria-label="Persuade"></textarea></td><td><input type="text" data-f="l4t" aria-label="Term 4"></td></tr>
+      <tr><td class="q">5 · Who saw it but was never the plan?</td><td><textarea data-f="l5" aria-label="Never the plan"></textarea></td><td><input type="text" data-f="l5t" aria-label="Term 5"></td></tr>
+      <tr><td class="q">6 · Who might be annoyed or turn against it?</td><td><textarea data-f="l6" aria-label="Turn against"></textarea></td><td><input type="text" data-f="l6t" aria-label="Term 6"></td></tr>
+      <tr><td class="q">7 · So who did the campaign really want to move?</td><td><textarea data-f="l7" aria-label="Really move"></textarea></td><td><input type="text" data-f="l7t" aria-label="Term 7"></td></tr>
+    </table></div>
+    <p class="sub">Term box</p>
+    <div class="terms">
+      <div><b>addressed (stated) audience</b> · the people a message openly speaks to</div>
+      <div><b>decision-maker</b> · the person who says yes, pays, or votes</div>
+      <div><b>end user</b> · the person who uses the product or service</div>
+      <div><b>influencer</b> · someone whose opinion shapes the decision-maker</div>
+      <div><b>unintended audience</b> · people who receive a message it was not designed for</div>
+      <div><b>hostile audience</b> · people likely to reject or attack the message</div>
+      <div><b>target (real) audience</b> · the people whose belief or behavior the communicator most wants to change</div>
+    </div>
+    <p class="sub">Apply · The United Airlines email (Week 2)</p>
+    <p class="note">Remember: the CEO's email to employees said the passenger was "disruptive and belligerent." Then it was published.</p>
+    <div class="grid2">
+      <div class="cell"><b>Addressed audience</b><textarea data-f="u_add" aria-label="United addressed audience"></textarea></div>
+      <div class="cell"><b>Unintended audience</b><textarea data-f="u_unint" aria-label="United unintended audience"></textarea></div>
+      <div class="cell"><b>Hostile audience</b><textarea data-f="u_host" aria-label="United hostile audience"></textarea></div>
+      <div class="cell"><b>Lesson in one sentence</b><textarea data-f="u_lesson" aria-label="United lesson"></textarea></div>
+    </div>
+  </div>
+</section>
+
+<!-- STAGE 3 -->
+<section class="box" id="s3">
+  <header><div class="bn">3</div><div><h2>Gillette Revisited: Evidence Walk + Face-off</h2><div class="meta"><span class="tag study">Study · Question</span> <span class="tag activate">Activate · Practice</span> · 9:50–10:40 · your team of 3</div></div></header>
+  <div class="inner">
+    <div class="todo"><b>Same company, two strategies.</b> Old Spice and Gillette are both owned by Procter &amp; Gamble (P&amp;G). Both sell to men. In Week 2 you judged whether Gillette's 2019 film worked. Today's question is different: <b>who was it really for?</b></div>
+    <p class="sub">Part A · Evidence Walk (4 stations, 4 minutes each)</p>
+    <p class="note">Visit each wall card with your team. Take one piece of evidence from each card. Fill in the audience map as you go.</p>
+    <div class="scroll"><table class="tbl">
+      <tr><th style="width:24%">Station</th><th>The most useful fact or quote for us</th></tr>
+      <tr><td class="q">A · The launch</td><td><textarea data-f="ev_a" aria-label="Station A"></textarea></td></tr>
+      <tr><td class="q">B · The reaction</td><td><textarea data-f="ev_b" aria-label="Station B"></textarea></td></tr>
+      <tr><td class="q">C · P&amp;G speaks (Jan. 2019)</td><td><textarea data-f="ev_c" aria-label="Station C"></textarea></td></tr>
+      <tr><td class="q">D · Six months later</td><td><textarea data-f="ev_d" aria-label="Station D"></textarea></td></tr>
+    </table></div>
+    <p class="sub">Gillette audience map</p>
+    <div class="grid2">
+      <div class="cell"><b>Addressed audience (who it speaks to)</b><textarea data-f="g_add" aria-label="Gillette addressed"></textarea></div>
+      <div class="cell"><b>Target audience (who P&amp;G wanted to win)</b><textarea data-f="g_tar" aria-label="Gillette target"></textarea></div>
+      <div class="cell"><b>Hostile audience</b><textarea data-f="g_host" aria-label="Gillette hostile"></textarea></div>
+      <div class="cell"><b>The audience P&amp;G accepted losing</b><textarea data-f="g_lose" aria-label="Gillette accepted losing"></textarea></div>
+    </div>
+    <p class="sub">Careful thinking</p>
+    <table class="tbl"><tr><td class="q">P&amp;G wrote down Gillette's value by $8 billion six months later. Does that prove the ad failed? Why or why not?</td><td><textarea data-f="g_8b" aria-label="Does the write-down prove failure"></textarea></td></tr></table>
+
+    <p class="sub">Part B · The Face-off (prep 6 min, face-off 8 min)</p>
+    <div class="card">
+      <span class="lab">Your brief</span>
+      <h3>You are P&amp;G's brand team.</h3>
+      <p>Next year you can fund only one approach for a men's brand that is losing young customers:</p>
+      <p><b>The Old Spice approach:</b> talk to the buyer, use humor, avoid controversy.<br><b>The Gillette approach:</b> talk to the next generation, take a public stance, accept some backlash.</p>
+      <p>Your teacher will tell you which approach your team defends.</p>
+    </div>
+    <div class="grid2">
+      <div class="cell"><b>Our claim (one sentence)</b><textarea data-f="fo_claim" aria-label="Claim"></textarea></div>
+      <div class="cell"><b>Reason 1 + evidence</b><textarea data-f="fo_r1" aria-label="Reason 1"></textarea></div>
+      <div class="cell"><b>Reason 2 + evidence</b><textarea data-f="fo_r2" aria-label="Reason 2"></textarea></div>
+      <div class="cell"><b>The risk we admit, and why it is worth it</b><textarea data-f="fo_risk" aria-label="Risk admitted"></textarea></div>
+      <div class="cell"><b>Our challenge question for the other team</b><textarea data-f="fo_q" aria-label="Challenge question"></textarea></div>
+      <div class="cell"><b>Who speaks? (everyone says one part)</b><textarea data-f="fo_who" aria-label="Who speaks"></textarea></div>
+    </div>
+    <p class="note">Format: Team 1 speaks (60 sec) → Team 2 asks one challenge question → Team 1 answers (30 sec). Then switch.</p>
+  </div>
+</section>
+
+<!-- STAGE 4 -->
+<section class="box" id="s4">
+  <header><div class="bn">4</div><div><h2>Same News, Four Rooms</h2><div class="meta"><span class="tag study">Study · Notice → Name</span> · 11:10–11:35 · pairs</div></div></header>
+  <div class="inner">
+    <div class="todo"><b>The news:</b> Brightline Transit will end late-night bus service on Route 9. Below are four messages about the same news. Each one was written for a different audience.<ol>
+      <li><b>Match (5 min):</b> who is each message for? Choose: drivers (employees) · riders · the city council · journalists.</li>
+      <li><b>Analyze (12 min):</b> complete the table.</li>
+      <li><b>Rules (5 min):</b> write two rules for changing register.</li>
+    </ol></div>
+    <p class="fict">Brightline Transit and Easton are fictional. They were created for practice.</p>
+
+    <div class="card"><span class="lab">Message W</span>
+      <p><b>FOR IMMEDIATE RELEASE · Brightline Transit to replace late-night Route 9 service with on-demand shuttle</b></p>
+      <p>EASTON, Feb. 3 — Beginning March 1, Brightline Transit will replace late-night bus service on Route 9 with Night Hop, an on-demand shuttle available after 11 p.m. The change follows a year-long ridership review. "Our goal is simple: to put our drivers where riders need them most," said General Manager Marcus Lee. No drivers will lose hours. Media contact: press office, Brightline Transit.</p>
+      <input type="text" data-f="m_w" aria-label="Message W is for" placeholder="This message is for…">
+    </div>
+    <div class="card"><span class="lab">Message X</span>
+      <p>Heads up, night riders! From March 1, Route 9 buses will end at 11 p.m. Need a ride later? Book Night Hop in the Brightline app: door to door, seven days a week, just $3 a trip. We know change is a pain. Tell us how it goes. We're listening. #BrightlineEaston</p>
+      <input type="text" data-f="m_x" aria-label="Message X is for" placeholder="This message is for…">
+    </div>
+    <div class="card"><span class="lab">Message Y</span>
+      <p>Team, a quick heads-up before you hear it anywhere else. From March 1, Route 9 will stop running after 11 p.m. Nobody on the late shift is losing hours: we're moving those shifts to Routes 4 and 12, where we've been short for months. Your supervisor will go through the new schedules with you this week. Questions? Grab me at the depot or reply to this email. Thanks for everything you do. — Dana, Operations</p>
+      <input type="text" data-f="m_y" aria-label="Message Y is for" placeholder="This message is for…">
+    </div>
+    <div class="card"><span class="lab">Message Z</span>
+      <p>Dear Members of the Transportation Committee: I am writing to inform you of a service adjustment on Route 9, effective March 1. Following a twelve-month review, ridership after 11 p.m. averaged fewer than four passengers per trip. Reallocating these hours to Routes 4 and 12 will allow us to address persistent staffing shortages at no additional cost to the city. A replacement on-demand service will be available to affected riders. I would welcome the opportunity to present the full review at your next meeting. Respectfully, Marcus Lee, General Manager</p>
+      <input type="text" data-f="m_z" aria-label="Message Z is for" placeholder="This message is for…">
+    </div>
+
+    <p class="sub">Analyze the register</p>
+    <div class="scroll"><table class="tbl">
+      <tr><th style="width:22%"></th><th>W</th><th>X</th><th>Y</th><th>Z</th></tr>
+      <tr><td class="q">Formality (1 = very informal, 5 = very formal)</td><td><input type="text" data-f="f_w" aria-label="Formality W"></td><td><input type="text" data-f="f_x" aria-label="Formality X"></td><td><input type="text" data-f="f_y" aria-label="Formality Y"></td><td><input type="text" data-f="f_z" aria-label="Formality Z"></td></tr>
+      <tr><td class="q">What comes first? (What does this audience care about most?)</td><td><textarea data-f="first_w" aria-label="First W"></textarea></td><td><textarea data-f="first_x" aria-label="First X"></textarea></td><td><textarea data-f="first_y" aria-label="First Y"></textarea></td><td><textarea data-f="first_z" aria-label="First Z"></textarea></td></tr>
+      <tr><td class="q">Words that show the audience</td><td><textarea data-f="w_w" aria-label="Words W"></textarea></td><td><textarea data-f="w_x" aria-label="Words X"></textarea></td><td><textarea data-f="w_y" aria-label="Words Y"></textarea></td><td><textarea data-f="w_z" aria-label="Words Z"></textarea></td></tr>
+      <tr><td class="q">Information only in this message</td><td><textarea data-f="o_w" aria-label="Only W"></textarea></td><td><textarea data-f="o_x" aria-label="Only X"></textarea></td><td><textarea data-f="o_y" aria-label="Only Y"></textarea></td><td><textarea data-f="o_z" aria-label="Only Z"></textarea></td></tr>
+      <tr><td class="q">What it asks the reader to do</td><td><textarea data-f="c_w" aria-label="Ask W"></textarea></td><td><textarea data-f="c_x" aria-label="Ask X"></textarea></td><td><textarea data-f="c_y" aria-label="Ask Y"></textarea></td><td><textarea data-f="c_z" aria-label="Ask Z"></textarea></td></tr>
+    </table></div>
+    <p class="sub">Spot the spin</p>
+    <table class="tbl">
+      <tr><td class="q">Two messages never say "cut" or "end." Which words do they use instead? Why?</td><td><textarea data-f="spin" aria-label="Spot the spin"></textarea></td></tr>
+    </table>
+    <p class="sub">Our two rules</p>
+    <table class="tbl">
+      <tr><td class="q">Rule 1 · When the audience is…, we…</td><td><textarea data-f="rule1" aria-label="Rule 1"></textarea></td></tr>
+      <tr><td class="q">Rule 2 · When the audience is…, we…</td><td><textarea data-f="rule2" aria-label="Rule 2"></textarea></td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- STAGE 5 -->
+<section class="box" id="s5">
+  <header><div class="bn">5</div><div><h2>Audience Map Lab</h2><div class="meta"><span class="tag activate">Activate · Apply</span> · 11:35–12:05 · your team of 3</div></div></header>
+  <div class="inner">
+    <div class="todo"><b>You are the communications team.</b> Your teacher will give your team a scenario card.<ol>
+      <li><b>0–8 min:</b> list at least five audiences. Place each one on the grid.</li>
+      <li><b>8–15 min:</b> choose your priority audience and explain why.</li>
+      <li><b>15–25 min:</b> write one core message, then an opening line for two very different audiences.</li>
+      <li><b>25–30 min:</b> practice saying both opening lines out loud.</li>
+    </ol></div>
+    <p class="sub">Our scenario</p>
+    <input type="text" data-f="sc_name" aria-label="Scenario" placeholder="Scenario card number and title">
+    <p class="sub">The audience grid</p>
+    <p class="note">Influence = how much power this group has over the outcome. Attitude = how they are likely to feel about the news.</p>
+    <div class="grid2">
+      <div class="cell"><b>High influence · Likely to support</b><textarea data-f="g_hs" aria-label="High influence support"></textarea></div>
+      <div class="cell"><b>High influence · Likely to oppose</b><textarea data-f="g_ho" aria-label="High influence oppose"></textarea></div>
+      <div class="cell"><b>Low influence · Likely to support</b><textarea data-f="g_ls" aria-label="Low influence support"></textarea></div>
+      <div class="cell"><b>Low influence · Likely to oppose</b><textarea data-f="g_lo" aria-label="Low influence oppose"></textarea></div>
+    </div>
+    <table class="tbl">
+      <tr><td class="q">Our priority audience is… because…</td><td><textarea data-f="prio" aria-label="Priority audience"></textarea></td></tr>
+      <tr><td class="q">The unintended audience we must remember</td><td><textarea data-f="unint" aria-label="Unintended audience"></textarea></td></tr>
+      <tr><td class="q">Core message (one sentence, the same for everyone)</td><td><textarea data-f="core" aria-label="Core message"></textarea></td></tr>
+      <tr><td class="q">Opening line for audience 1: <input type="text" data-f="aud1" aria-label="Audience 1" placeholder="audience"></td><td><textarea data-f="open1" aria-label="Opening line 1"></textarea></td></tr>
+      <tr><td class="q">Opening line for audience 2: <input type="text" data-f="aud2" aria-label="Audience 2" placeholder="audience"></td><td><textarea data-f="open2" aria-label="Opening line 2"></textarea></td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- STAGE 6 -->
+<section class="box" id="s6">
+  <header><div class="bn">6</div><div><h2>Change the Audience</h2><div class="meta"><span class="tag activate">Activate · Perform → Feedback → Perform again</span> · 12:05–12:35 · two teams together</div></div></header>
+  <div class="inner">
+    <div class="todo"><b>How a round works (8 min)</b><ol>
+      <li>The other team draws an <b>audience card</b> for you and becomes that audience.</li>
+      <li>Your spokesperson has <b>1 minute to prepare</b>, then delivers your message in <b>30–45 seconds</b>.</li>
+      <li>The audience asks <b>one tough question</b>. The spokesperson answers.</li>
+      <li>The audience gives feedback with the checklist. Then switch roles.</li>
+    </ol>A different person is spokesperson each round. Round 3 is a hostile audience.</div>
+    <div class="scroll"><table class="tbl">
+      <tr><th style="width:16%">Round</th><th>Audience we got</th><th>Feedback we received</th><th>What we will change next time</th></tr>
+      <tr><td class="q">1</td><td><textarea data-f="r1a" aria-label="Round 1 audience"></textarea></td><td><textarea data-f="r1f" aria-label="Round 1 feedback"></textarea></td><td><textarea data-f="r1c" aria-label="Round 1 change"></textarea></td></tr>
+      <tr><td class="q">2</td><td><textarea data-f="r2a" aria-label="Round 2 audience"></textarea></td><td><textarea data-f="r2f" aria-label="Round 2 feedback"></textarea></td><td><textarea data-f="r2c" aria-label="Round 2 change"></textarea></td></tr>
+      <tr><td class="q">3 · Hostile</td><td><textarea data-f="r3a" aria-label="Round 3 audience"></textarea></td><td><textarea data-f="r3f" aria-label="Round 3 feedback"></textarea></td><td><textarea data-f="r3c" aria-label="Round 3 change"></textarea></td></tr>
+    </table></div>
+    <p class="sub">Feedback checklist (when you are the audience)</p>
+    <ul>
+      <li><b>Register:</b> Did the tone and formality fit us?</li>
+      <li><b>Our concern:</b> Did they speak to what we really care about, early?</li>
+      <li><b>One message:</b> Could we repeat the main point in one sentence?</li>
+      <li><b>The question:</b> Did they answer it directly, or avoid it?</li>
+    </ul>
+    <p class="note">Give feedback like a consultant: "One thing that worked was… One thing to change is…"</p>
+  </div>
+</section>
+
+<!-- STAGE 7 -->
+<section class="box" id="s7">
+  <header><div class="bn">7</div><div><h2>Exit Ticket</h2><div class="meta"><span class="tag study">Reflect</span> · 12:35–12:50 · on your own</div></div></header>
+  <div class="inner">
+    <table class="tbl">
+      <tr><td class="q">1 · Explain the difference between a stated audience and a real audience. Use one example from today.</td><td><textarea data-f="x1" aria-label="Exit 1"></textarea></td></tr>
+      <tr><td class="q">2 · Think of a message from your work, studies, or life that reached an audience it was not designed for. What happened?</td><td><textarea data-f="x2" aria-label="Exit 2"></textarea></td></tr>
+      <tr><td class="q">3 · Write one phrase you used today that you want to keep using.</td><td><textarea data-f="x3" aria-label="Exit 3"></textarea></td></tr>
+      <tr><td class="q">4 · Looking ahead to Week 8: Gillette got huge attention. How would you measure whether it really worked?</td><td><textarea data-f="x4" aria-label="Exit 4"></textarea></td></tr>
+    </table>
+    <p class="note">This week, notice one ad or message around you and ask: who is it <i>really</i> for? No writing needed. Just be ready to talk about it next week.</p>
+  </div>
+</section>
+
+</div></main>
+<footer>Approach International Student Center · Strategic Communication · Week 7</footer>
+
+<button type="button" id="langBtn" aria-controls="drawer">Language help</button>
+<aside id="drawer" aria-label="Language help">
+  <h2>Language help <button class="x" type="button" id="closeDrawer" aria-label="Close">×</button></h2>
+  <h3>Identifying the audience</h3>
+  <ul>
+    <li>On the surface, the message speaks to…</li>
+    <li>The people who actually decide are…</li>
+    <li>The real target seems to be…</li>
+    <li>This message was never meant for…, but they saw it anyway.</li>
+  </ul>
+  <h3>Making a careful inference</h3>
+  <ul>
+    <li>The evidence suggests that…</li>
+    <li>It seems likely that the real goal was…</li>
+    <li>I'd argue that… although we can't be certain.</li>
+    <li>That doesn't necessarily prove that…</li>
+    <li>Correlation isn't causation: … happened after…, but not necessarily because of it.</li>
+  </ul>
+  <h3>Defending a choice</h3>
+  <ul>
+    <li>We chose this approach because…</li>
+    <li>The main advantage is…</li>
+    <li>We accept the risk that…, because…</li>
+    <li>The evidence on our side is…</li>
+  </ul>
+  <h3>Challenging diplomatically</h3>
+  <ul>
+    <li>I'm not entirely convinced that…</li>
+    <li>What evidence supports that assumption?</li>
+    <li>But wouldn't that risk alienating…?</li>
+    <li>How would you respond to customers who…?</li>
+  </ul>
+  <h3>Changing register</h3>
+  <ul>
+    <li>Heads-up → I am writing to inform you…</li>
+    <li>We're cutting… → We will discontinue… / We are adjusting…</li>
+    <li>We know it's a pain → We recognize this may cause inconvenience.</li>
+    <li>Grab me / Ask me → Please contact… / I would welcome the opportunity to…</li>
+  </ul>
+  <h3>Giving feedback</h3>
+  <ul>
+    <li>One thing that really worked was…</li>
+    <li>As your audience, I felt…</li>
+    <li>Next time, you might want to start with…</li>
+    <li>I wasn't sure what you wanted us to do.</li>
+  </ul>
+  <h3>Key words</h3>
+  <ul>
+    <li><b>alienate</b> (/ˈeɪliəneɪt/) · to make people feel you are not on their side</li>
+    <li><b>resonate with</b> · to connect emotionally with a group</li>
+    <li><b>backlash</b> · a strong negative public reaction</li>
+    <li><b>core customers</b> · the loyal people who buy most of your product</li>
+    <li><b>demographic</b> (/ˌdeməˈɡræfɪk/) · a group defined by age, gender, income, etc.</li>
+    <li><b>stakeholder</b> · anyone affected by a decision or able to affect it</li>
+    <li><b>register</b> · the level of formality you choose for an audience</li>
+  </ul>
+</aside>
+
+<script>
+(function(){
+  var KEY='sc-week7-worksheet', data={};
+  try{ data=JSON.parse(localStorage.getItem(KEY)||'{}'); }catch(e){ data={}; }
+  var saved=document.getElementById('saved'), t;
+  function save(){ try{ localStorage.setItem(KEY,JSON.stringify(data)); saved.textContent='Saved'; clearTimeout(t); t=setTimeout(function(){saved.textContent='';},1200);}catch(e){ saved.textContent='Not saved'; } }
+  document.querySelectorAll('[data-f]').forEach(function(el){
+    var k=el.getAttribute('data-f');
+    if(el.type==='radio'){ if(data[k]===el.value) el.checked=true; el.addEventListener('change',function(){ if(el.checked){ data[k]=el.value; save(); } }); }
+    else { if(data[k]!=null) el.value=data[k]; el.addEventListener('input',function(){ data[k]=el.value; save(); }); }
+  });
+  document.getElementById('printBtn').onclick=function(){ window.print(); };
+  document.getElementById('clearBtn').onclick=function(){
+    if(!confirm('Clear all your answers on this worksheet?')) return;
+    data={}; try{ localStorage.removeItem(KEY); }catch(e){}
+    document.querySelectorAll('[data-f]').forEach(function(el){ if(el.type==='radio') el.checked=false; else el.value=''; });
+  };
+  var d=document.getElementById('drawer');
+  document.getElementById('langBtn').onclick=function(){ d.classList.toggle('on'); };
+  document.getElementById('closeDrawer').onclick=function(){ d.classList.remove('on'); };
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') d.classList.remove('on'); });
+})();
+</script>
+</body>
+</html>
