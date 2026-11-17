@@ -1,0 +1,482 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Teacher Guide · Week 7 · Who's Really Listening?</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Public+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0c2340;--blue:#1c4f8f;--gold:#d39f10;--gold-dark:#8c7535;--sky:#edf2f9;--sky-2:#e1e8f2;--warm:#efe9d9;--ink:#1d2b44;--muted:#4f5f78;--line:#cfd9e6;
+  --engage:#b0451a;--study:#1c4f8f;--activate:#2f7a45;--key:#fff6dc;--serif:'Libre Baskerville',Georgia,serif;--sans:'Public Sans',Arial,sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:var(--sky);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.55}
+.wrap{max-width:960px;margin:0 auto;padding:0 18px}
+header.mast{background:var(--navy);color:var(--sky);border-bottom:6px solid var(--gold)}
+header.mast .wrap{display:flex;gap:20px;align-items:center;padding:22px 18px}
+header.mast img{width:76px;height:76px;border-radius:6px}
+.eyebrow{margin:0 0 4px;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+h1{margin:0;font:700 28px/1.2 var(--serif);color:#f6f2e7}
+header.mast p{margin:6px 0 0;color:#c1cddd}
+nav.toc{background:#143865;position:sticky;top:0;z-index:5}
+nav.toc .wrap{display:flex;gap:4px;flex-wrap:wrap;padding:6px 18px;align-items:center}
+nav.toc a{color:#fff;text-decoration:none;font-size:13px;padding:5px 9px;border-radius:6px}
+nav.toc a:hover{background:#1f4a80}
+nav.toc button{margin-left:auto;font:600 13px var(--sans);background:var(--gold);color:var(--navy);border:none;border-radius:7px;padding:6px 12px;cursor:pointer}
+main{padding:20px 0 60px}
+section{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px 22px;margin-bottom:18px}
+h2{margin:0 0 10px;font:700 22px var(--serif);color:var(--navy)}
+h3{margin:18px 0 6px;font:700 16.5px var(--serif);color:var(--navy)}
+h4{margin:14px 0 4px;font:700 13px var(--sans);text-transform:uppercase;letter-spacing:.06em;color:var(--blue)}
+.tag{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#fff;padding:2px 8px;border-radius:20px;vertical-align:middle}
+.tag.engage{background:var(--engage)}.tag.study{background:var(--study)}.tag.activate{background:var(--activate)}.tag.brk{background:var(--gold);color:var(--navy)}
+table{width:100%;border-collapse:collapse;margin:8px 0;font-size:14.5px}
+th{background:var(--navy);color:#fff;text-align:left;padding:7px 9px}
+td{border:1px solid var(--line);padding:7px 9px;vertical-align:top}
+td.k{background:var(--sky);font-weight:600;width:24%}
+.say{background:var(--warm);border-left:5px solid var(--gold);border-radius:8px;padding:10px 14px;margin:8px 0;font-style:italic}
+.say b{font-style:normal}
+.key{background:var(--key);border:1px solid #ecd9a0;border-radius:10px;padding:10px 14px;margin:10px 0}
+.key>b:first-child{display:block;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:4px}
+.diff{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:8px 0}
+.diff div{background:var(--sky);border-radius:8px;padding:8px 12px;font-size:14.5px}
+.diff b{display:block;color:var(--blue);font-size:12.5px;text-transform:uppercase;letter-spacing:.05em}
+@media(max-width:700px){.diff{grid-template-columns:1fr}}
+.check{background:#e8f3eb;border-left:5px solid var(--activate);border-radius:8px;padding:8px 14px;margin:10px 0;font-size:14.5px}
+ul,ol{margin:6px 0;padding-left:22px}
+li{margin:3px 0}
+.small{font-size:13.5px;color:var(--muted)}
+.timer{display:inline-flex;gap:8px;align-items:center;background:var(--navy);color:#fff;border-radius:8px;padding:4px 10px;margin:4px 0;font:600 14px var(--sans)}
+.timer .clock{font:700 18px var(--sans);min-width:52px;color:var(--gold)}
+.timer .clock.done{color:#ff8a6b}
+.timer button{font:600 12.5px var(--sans);border:none;border-radius:6px;padding:4px 8px;cursor:pointer;background:var(--gold);color:var(--navy)}
+/* printables */
+.printables{background:transparent;border:none;padding:0}
+.page{background:#fff;border:1px solid var(--line);border-radius:6px;padding:.35in;margin:14px auto;width:100%;max-width:8.5in}
+.page h3{margin-top:0}
+.evid{border:3px solid var(--navy);border-radius:10px;padding:18px 22px;min-height:8.6in;display:flex;flex-direction:column}
+.evid .st{font:700 64px var(--serif);color:var(--gold)}
+.evid h3{font-size:28px}
+.evid p,.evid li{font-size:19px;line-height:1.5}
+.evid .src{margin-top:auto;font-size:13px;color:var(--muted)}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.cd{border:2px dashed #9aa6b8;border-radius:10px;padding:12px 14px;font-size:13.5px;break-inside:avoid}
+.cd .n{font:700 12px var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--gold-dark)}
+.cd h4{margin:2px 0 6px;font:700 16px var(--serif);color:var(--navy);text-transform:none;letter-spacing:0}
+.cd ul{padding-left:18px}
+.cd.host{border-color:#b0451a}
+.cd .fict{font-size:11px;color:var(--muted);font-style:italic}
+@media print{
+  nav.toc,.timer{display:none!important}
+  body{background:#fff;font-size:12px}
+  header.mast{background:#fff;color:#000;border-bottom:3px solid #000}
+  header.mast img{display:none} h1{color:#000} .eyebrow{color:#000} header.mast p{color:#333}
+  section{break-inside:auto;border:1px solid #bbb}
+  th{background:#ddd;color:#000}
+  .page{border:none;margin:0;padding:0;max-width:none;break-before:page}
+  .evid{min-height:9.6in}
+  .tag{color:#000;background:none!important;border:1px solid #000}
+}
+</style>
+</head>
+<body>
+<header class="mast"><div class="wrap">
+  <img src="data:image/jpeg;base64,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" alt="Approach logo">
+  <div><p class="eyebrow">Teacher guide · private · Week 7 (Class 7 of the syllabus)</p>
+  <h1>Who's Really Listening? Audience Intelligence</h1>
+  <p>9:00–12:50 · break 10:40–11:10 · 26 students in teams of 3 (8 teams of 3 + 1 pair)</p></div>
+</div></header>
+<nav class="toc"><div class="wrap">
+  <a href="#overview">Overview</a><a href="#run">Run sheet</a><a href="#st1">1</a><a href="#st2">2</a><a href="#st3">3</a><a href="#st4">4</a><a href="#st5">5</a><a href="#st6">6</a><a href="#st7">7</a><a href="#diff">Differentiation</a><a href="#print">Printables</a><a href="#sources">Sources</a>
+  <button type="button" onclick="window.print()">Print</button>
+</div></nav>
+
+<main><div class="wrap">
+
+<section id="overview">
+  <h2>A. Class overview</h2>
+  <table>
+    <tr><td class="k">Syllabus block</td><td>Classes 7–8 · "Audience — who's really listening." Week 7 covers the stated audience vs. the real audience and register. Week 8 covers measuring success (metrics, the Obama 2012 emails, Got Milk?).</td></tr>
+    <tr><td class="k">Main objective</td><td>Students identify the different layers of an audience (addressed audience, decision-maker, end user, influencer, unintended audience, hostile audience, target audience) and explain how they shape strategic choices.</td></tr>
+    <tr><td class="k">Communication objective</td><td>Students deliver the same core message to different audiences, changing register and emphasis, and answer a tough question from that audience.</td></tr>
+    <tr><td class="k">Language objectives</td><td>(1) Hedged inferences about audience and intent ("The evidence suggests…", "That doesn't necessarily prove…"). (2) Register shifts: informal ↔ formal equivalents and how word choice signals the audience. (3) Defending and challenging a strategic choice.</td></tr>
+    <tr><td class="k">Strategic-thinking objective</td><td>Separate the people a message speaks to from the people it is designed to move; recognize that attention is not the same as success; avoid treating correlation as causation (Gillette's write-down).</td></tr>
+    <tr><td class="k">Key vocabulary</td><td>addressed/stated audience · target audience · decision-maker · end user · influencer · unintended audience · hostile audience · core customers · stakeholder · demographic · register · alienate · resonate with · backlash</td></tr>
+    <tr><td class="k">Frameworks</td><td>GAME, with the A expanded into layers. Audience grid (influence × attitude). Callbacks: United "there is no internal message" (Week 2); euphemism and spin (Weeks 5 and 9).</td></tr>
+    <tr><td class="k">SLOs</td><td>SLO 2 (real vs. stated audience), SLO 11 (register and tone), SLO 8 (multi-audience response, early practice), SLO 3 (metrics, preview for Week 8).</td></tr>
+    <tr><td class="k">Assessment link</td><td>Ungraded audience practice, as the syllabus says. It builds directly toward A4 (questioning) and A5, the War Room, where teams must answer several audiences at once.</td></tr>
+    <tr><td class="k">Materials</td><td>Slide deck · student worksheet link (GitHub) or printed copies · projector with sound · Evidence cards A–D printed and taped on four walls · 9 scenario cards (one per team) · 2 sets of audience cards · this guide.</td></tr>
+  </table>
+  <h3>How the method maps onto today</h3>
+  <table>
+    <tr><th>Stage</th><th>ESA</th><th>Discover → React → Question → Name → Practice → Apply</th></tr>
+    <tr><td>1 · The Brief</td><td><span class="tag engage">Engage</span></td><td>Discover (make a decision before seeing the case) → React (watch the ad)</td></tr>
+    <tr><td>2 · Layers of an Audience</td><td><span class="tag study">Study</span></td><td>Question (seven audience questions) → Name (terms only after answers)</td></tr>
+    <tr><td>3 · Evidence Walk + Face-off</td><td><span class="tag study">Study</span> → <span class="tag activate">Activate</span></td><td>Question (evidence) → Practice (defend a strategic choice under challenge)</td></tr>
+    <tr><td>4 · Same News, Four Rooms</td><td><span class="tag study">Study</span></td><td>Discover → Name (register features)</td></tr>
+    <tr><td>5 · Audience Map Lab</td><td><span class="tag activate">Activate</span></td><td>Apply (map a new case and draft messages)</td></tr>
+    <tr><td>6 · Change the Audience</td><td><span class="tag activate">Activate</span></td><td>Practice → feedback → perform again (three rounds)</td></tr>
+    <tr><td>7 · Exit Ticket</td><td>Reflect</td><td>Name and transfer to students' own lives</td></tr>
+  </table>
+  <p class="small">Teacher talk is kept to short bursts: about 35–40 minutes of the 200 working minutes (about 20%). Every student speaks individually at least three times: the Face-off, the Stage 5 rehearsal, and once as spokesperson in Stage 6.</p>
+</section>
+
+<section id="run">
+  <h2>B. Run sheet</h2>
+  <table>
+    <tr><th style="width:15%">Time</th><th style="width:28%">Stage</th><th>Students produce</th><th style="width:12%">Slides</th></tr>
+    <tr><td>9:00–9:20</td><td><span class="tag engage">Engage</span> 1 · The Brief</td><td>An audience choice with a reason, then a revised choice after the ad</td><td>1–6</td></tr>
+    <tr><td>9:20–9:50</td><td><span class="tag study">Study</span> 2 · Layers of an Audience</td><td>A seven-layer audience analysis of Old Spice; a United lesson in one sentence</td><td>7–10</td></tr>
+    <tr><td>9:50–10:40</td><td><span class="tag study">Study</span>→<span class="tag activate">Activate</span> 3 · Gillette Evidence Walk + Face-off</td><td>A Gillette audience map from evidence; a 60-second defense of a strategy and a challenge question</td><td>11–17</td></tr>
+    <tr><td>10:40–11:10</td><td><span class="tag brk">Break</span></td><td></td><td>18</td></tr>
+    <tr><td>11:10–11:35</td><td><span class="tag study">Study</span> 4 · Same News, Four Rooms</td><td>A register analysis table; two rules for changing register</td><td>19–21</td></tr>
+    <tr><td>11:35–12:05</td><td><span class="tag activate">Activate</span> 5 · Audience Map Lab</td><td>An audience grid, a priority audience, a core message, and two opening lines</td><td>22–23</td></tr>
+    <tr><td>12:05–12:35</td><td><span class="tag activate">Activate</span> 6 · Change the Audience</td><td>Three live deliveries with feedback and improvement</td><td>24–26</td></tr>
+    <tr><td>12:35–12:50</td><td>Reflect · 7 · Exit Ticket</td><td>Four short answers; preview of Week 8</td><td>27–28</td></tr>
+  </table>
+  <h3>Before class (15 minutes)</h3>
+  <ul>
+    <li>Tape Evidence cards A–D on four different walls, far apart (printables below).</li>
+    <li>Put students into 9 teams before class: Teams 1–8 have three students and Team 9 is a pair. Mix strong and less confident speakers, and avoid big groups.</li>
+    <li>Open the two videos and check the sound: the Old Spice ad (33 seconds) and the Gillette film (1:48). Links are on slides 4 and 12.</li>
+    <li>Cut the scenario cards (9) and two sets of audience cards (12 each).</li>
+    <li>Content note: the Gillette film shows short scenes of bullying and sexual harassment. Mention this before playing it.</li>
+  </ul>
+</section>
+
+<section id="st1">
+  <h2>Stage 1 · The Brief <span class="tag engage">Engage</span></h2>
+  <p class="small">9:00–9:20 · pairs · slides 1–6 · Discover → React</p>
+  <h4>Steps</h4>
+  <ol>
+    <li><b>9:00 (2 min).</b> Slide 2 (Today's flow). Say only: "Today you're audience strategists." No framework yet.</li>
+    <li><b>9:02 (4 min).</b> Slide 3: the brief. Pairs choose one audience and write a reason (worksheet Step 1). <span class="timer" data-sec="180"><span class="clock">3:00</span><button type="button">Start</button></span></li>
+    <li><b>9:06 (2 min).</b> Quick vote by hands: who chose young men, older men, women, athletes? Write the numbers on the board. Do not comment yet.</li>
+    <li><b>9:08 (3 min).</b> Slide 4: play the Old Spice ad twice. The first time, just watch. The second time, students listen for the words that show who he is talking to.</li>
+    <li><b>9:11 (5 min).</b> Slide 5: pairs answer the four React questions on the worksheet. <span class="timer" data-sec="300"><span class="clock">5:00</span><button type="button">Start</button></span></li>
+    <li><b>9:16 (4 min).</b> Slide 6: the reveal. Ask two pairs who changed their mind to explain why. Then reveal the insight and the results.</li>
+  </ol>
+  <div class="say"><b>Say:</b> "The man in the towel is talking to women. But the product is for men. So who is this ad for? Hold that question. It's the question of the day."</div>
+  <div class="key"><b>Answer key · React questions</b>
+    <ul>
+      <li><b>Who is he talking to?</b> Women ("Hello, ladies."; "Look at your man"). Specifically, women in relationships.</li>
+      <li><b>Who uses the product?</b> Men.</li>
+      <li><b>Why talk to someone else?</b> Research by the agency (Wieden+Kennedy) found that about 60% of body-wash purchases were made by women. Talking to the buyer, not just the user, reached the person who decides at the store. The media was placed where couples would watch together, so it started a conversation between partners.</li>
+      <li><b>Results to share:</b> launched online on Super Bowl weekend in February 2010. The goal was a 15% sales increase. By May 2010, sales of the advertised body wash were up 60% from the year before, and by July they had doubled (Wieden+Kennedy case study; Muse by Clios).</li>
+    </ul>
+  </div>
+  <div class="check"><b>Checkpoint:</b> most pairs can say why talking to the buyer can be smarter than talking to the user. If not, ask: "Who buys the dish soap in your home? Who uses it?"</div>
+</section>
+
+<section id="st2">
+  <h2>Stage 2 · Layers of an Audience <span class="tag study">Study</span></h2>
+  <p class="small">9:20–9:50 · pairs · slides 7–10 · Question → Name</p>
+  <h4>Steps</h4>
+  <ol>
+    <li><b>9:20 (8 min) · Notice.</b> Slide 7. Pairs answer questions 1–7 in the worksheet table about Old Spice, in plain words. They leave the Term column empty for now. <span class="timer" data-sec="480"><span class="clock">8:00</span><button type="button">Start</button></span></li>
+    <li><b>9:28 (7 min) · Name.</b> Slide 8. Pairs match each answer to a term from the term box. Then click through the slide to check together. Model pronunciation: <i>al</i>-ienate, demo-<i>graph</i>-ic, <i>stake</i>-holder.</li>
+    <li><b>9:35 (3 min) · Teacher input.</b> Slide 9, the United callback. This is the one key teaching point of the morning.</li>
+    <li><b>9:38 (5 min) · Apply.</b> Pairs complete the United grid on the worksheet.</li>
+    <li><b>9:43 (7 min) · Language.</b> Slide 10: hedged inferences. Pairs take turns saying three sentences about Old Spice, each with a different hedging frame. Then two volunteers say one each to the class.</li>
+  </ol>
+  <div class="say"><b>Say (slide 9):</b> "Remember the United email in Week 2? It was written for employees. Then CNBC published it. The stated audience was employees. The real audience was everyone. A strategist always asks two questions: who am I talking to, and who else will hear this?"</div>
+  <div class="key"><b>Answer key · Old Spice layers</b>
+    <table>
+      <tr><th>Question</th><th>Strong answer</th><th>Term</th></tr>
+      <tr><td>1 Spoken to</td><td>Women ("Hello, ladies.")</td><td>addressed (stated) audience</td></tr>
+      <tr><td>2 Pays</td><td>Mostly women: about 60% of body-wash purchases</td><td>decision-maker</td></tr>
+      <tr><td>3 Uses</td><td>Men</td><td>end user</td></tr>
+      <tr><td>4 Could persuade the buyer</td><td>The men themselves ("buy me this one"), friends, and people sharing the ad online</td><td>influencer</td></tr>
+      <tr><td>5 Never the plan</td><td>Millions of online viewers worldwide who would never buy it. The ad became a viral hit, and that was free media.</td><td>unintended audience</td></tr>
+      <tr><td>6 Turn against it</td><td>Open question. Accept reasoned answers: men who feel compared, fans of rival brands, viewers who find the humor sexist. There is no verified evidence of a major backlash, which is itself worth noting.</td><td>hostile audience</td></tr>
+      <tr><td>7 Really move</td><td>Couples: women who buy, and men who agree to switch. Both are moved by one shared joke.</td><td>target (real) audience</td></tr>
+    </table>
+    <b>United grid</b>
+    <ul>
+      <li><b>Addressed:</b> United employees.</li>
+      <li><b>Unintended:</b> the public, the media, and customers worldwide, after it was published.</li>
+      <li><b>Hostile:</b> customers who were already angry about the video, and the media.</li>
+      <li><b>Lesson:</b> there is no such thing as an internal message, so write every message as if the public will read it.</li>
+    </ul>
+  </div>
+  <div class="check"><b>Checkpoint:</b> cold-call three students (not volunteers): "Give me one audience layer and an example from Old Spice." Accept any correct term and example.</div>
+</section>
+
+<section id="st3">
+  <h2>Stage 3 · Gillette: Evidence Walk + Face-off <span class="tag study">Study</span> → <span class="tag activate">Activate</span></h2>
+  <p class="small">9:50–10:40 · teams of 3 · slides 11–17 · Question → Practice</p>
+  <h4>Steps</h4>
+  <ol>
+    <li><b>9:50 (4 min) · Recall.</b> Slide 11: "Same company." Say that Old Spice and Gillette are both P&amp;G brands. Ask: "What do you remember about the Gillette case from Week 2?" Take three answers.</li>
+    <li><b>9:54 (4 min) · Watch.</b> Slide 12. Give the content note first, then play the film. Students watch for one thing: who is the narrator speaking to?</li>
+    <li><b>9:58 (16 min) · Evidence Walk.</b> Slide 13. Teams start at different walls (Teams 1–2 at A, 3–4 at B, 5–6 at C, 7–9 at D) and rotate clockwise every 4 minutes. At each card they take one piece of evidence and add to their audience map. Use the slide timer and say "Rotate" loudly. Move around and ask: "Who is that evidence about?"</li>
+    <li><b>10:14 (5 min) · Debrief the map.</b> Slide 14. Click to reveal one layer at a time after a team suggests it. Spend most of the time on the write-down question (correlation vs. causation).</li>
+    <li><b>10:19 (6 min) · Face-off prep.</b> Slide 15. Teams 1–4 defend the Old Spice approach and Teams 5–8 defend the Gillette approach. Team 9 (the pair) are the judges: they prepare two challenge questions for each side and decide what makes an argument "strong." <span class="timer" data-sec="360"><span class="clock">6:00</span><button type="button">Start</button></span></li>
+    <li><b>10:25 (8 min) · Face-off.</b> Slide 16. Pairings: 1 vs. 5, 2 vs. 6, 3 vs. 7, 4 vs. 8, all running at the same time. Format: Old Spice team speaks for 60 seconds, the Gillette team asks one challenge, Old Spice answers in 30 seconds, then the teams switch. Each member must speak in at least one part. The judges move between tables and listen.</li>
+    <li><b>10:33 (7 min) · Verdict.</b> Slide 17. Judges name the two strongest arguments they heard and say why. Then ask the whole class: "Which approach would P&amp;G actually choose? Does it depend on the audience?" Finish with the key insight.</li>
+  </ol>
+  <div class="say"><b>Say (closing, slide 17):</b> "Neither approach is right for every audience. Old Spice chose the buyer. Gillette chose the next generation and accepted losing some current customers. The strategic question is never 'Was it good?' It's 'Good for whom, and at what cost?' Next week we ask how you would even measure that."</div>
+  <div class="key"><b>Answer key · Gillette audience map</b>
+    <ul>
+      <li><b>Addressed audience:</b> men, and especially fathers ("the boys watching today will be the men of tomorrow"). The film opens with the old slogan as a question: "Is this the best a man can get?"</li>
+      <li><b>Target audience:</b> millennial and younger consumers. P&amp;G's grooming president said the brand had become the brand of "the millennial generation's dads" (Marketing Week, 2019). Commentators also noted the film's appeal to women and mothers.</li>
+      <li><b>Hostile audience:</b> many existing male customers who felt lectured or insulted. There were calls for a boycott, and the film became one of the most disliked videos on YouTube.</li>
+      <li><b>Accepted losing:</b> some of those existing customers. The grooming president called losing some consumers a "price worth paying."</li>
+    </ul>
+    <b>The $8 billion question (listen for this reasoning)</b>
+    <p>On July 30, 2019, P&amp;G took an $8 billion non-cash write-down on Gillette. P&amp;G gave these reasons: currency changes, a shrinking razor market (men shaving less often), and low-price competitors such as Dollar Shave Club and Harry's. P&amp;G did not name the ad. A strong answer says: "The timing doesn't prove the ad caused it. Correlation isn't causation. We would need sales data by audience." In January 2019, P&amp;G also said Gillette's sales had been stable since the release.</p>
+    <b>Face-off · points to listen for</b>
+    <table>
+      <tr><th>Old Spice approach</th><th>Gillette approach</th></tr>
+      <tr><td>Targets the actual buyer (about 60% of purchases). Measurable sales results (+60% by May, doubled by July). Humor is shareable and low-risk. It doesn't divide your customers.</td><td>The brand was losing younger buyers and needed a long-term fix. It created "unprecedented" media coverage and engagement (P&amp;G). The donation pledge ($1 million a year for three years) backed the words with action. It accepts short-term loss for future relevance.</td></tr>
+      <tr><td><b>Admitted risk:</b> humor can feel dated, and it doesn't build values-based loyalty.</td><td><b>Admitted risk:</b> it alienated core customers. Attention isn't sales.</td></tr>
+    </table>
+    <p><b>A strong performance:</b> names a specific audience, uses evidence with a date or source, admits one risk, answers the challenge directly, and separates attention from success.</p>
+  </div>
+  <div class="check"><b>Checkpoint:</b> while teams prepare, check each worksheet. The claim should name an audience, not only a brand. Ask: "For whom is this approach better?"</div>
+</section>
+
+<section>
+  <h2>Break · 10:40–11:10 <span class="tag brk">Break</span></h2>
+  <p>Slide 18 has a 30-minute timer and a teaser: "Same news. Four rooms. Four different messages."</p>
+</section>
+
+<section id="st4">
+  <h2>Stage 4 · Same News, Four Rooms <span class="tag study">Study</span></h2>
+  <p class="small">11:10–11:35 · pairs · slides 19–21 · Discover → Name</p>
+  <h4>Steps</h4>
+  <ol>
+    <li><b>11:10 (3 min).</b> Slide 19. Read the news aloud: Brightline Transit (fictional) is ending late-night Route 9 service. Say that four messages follow and that each one is for a different room.</li>
+    <li><b>11:13 (5 min) · Match.</b> Pairs read W–Z and decide who each one is for.</li>
+    <li><b>11:18 (10 min) · Analyze.</b> Pairs complete the register table. Monitor and push: "What comes first in each message, and why?"</li>
+    <li><b>11:28 (4 min) · Name.</b> Slide 20. Click the dials to reveal the answers, row by row, asking pairs first. Then slide 21: informal ↔ formal swaps. Pairs read one swap aloud in each direction.</li>
+    <li><b>11:32 (3 min) · Rules.</b> Pairs write two rules. Collect two or three rules aloud and write the best one on the board.</li>
+  </ol>
+  <div class="key"><b>Answer key · Same News, Four Rooms</b>
+    <table>
+      <tr><th></th><th>W · Journalists</th><th>X · Riders</th><th>Y · Drivers</th><th>Z · City council</th></tr>
+      <tr><td class="k">Formality</td><td>4</td><td>1–2</td><td>2</td><td>5</td></tr>
+      <tr><td class="k">What comes first</td><td>The news angle in a headline: "replace… with on-demand shuttle"</td><td>What changes for me, and the alternative</td><td>"Before you hear it anywhere else," then job security ("Nobody… is losing hours")</td><td>A formal notice ("service adjustment"), then the evidence (data) and the cost</td></tr>
+      <tr><td class="k">Audience words</td><td>FOR IMMEDIATE RELEASE · dateline · third person · attributed quote</td><td>"Heads up, night riders!" · you · $3 · "a pain" · hashtag</td><td>"Team" · shifts · depot · supervisor · "Grab me" · first-name sign-off</td><td>"Dear Members" · "reallocating" · "persistent staffing shortages" · "Respectfully"</td></tr>
+      <tr><td class="k">Only here</td><td>A quote from the GM; "year-long ridership review"</td><td>Price, door-to-door, seven days a week, in the app</td><td>Shifts move to Routes 4 and 12; supervisor meetings</td><td>"Fewer than four passengers per trip"; no cost to the city; offer to present</td></tr>
+      <tr><td class="k">Asks reader to</td><td>Contact the press office</td><td>Book Night Hop; give feedback</td><td>Talk to your supervisor; ask Dana</td><td>Invite the GM to present at the next meeting</td></tr>
+    </table>
+    <p><b>Spot the spin:</b> W says "replace… with" (it sounds like an upgrade, not a cut). Z says "service adjustment" and "reallocating" (euphemisms; link to Week 5). X and Y use plain words ("end," "stop running") because riders and drivers would see through spin immediately.</p>
+    <p><b>Model rules:</b> "When the audience is employees, we tell them first and answer their biggest fear (their jobs) before anything else." "When the audience is decision-makers, we lead with evidence and cost, in formal language." "Same facts, different order and emphasis."</p>
+  </div>
+  <div class="check"><b>Checkpoint:</b> every pair can name at least two language features that signal the audience, such as pronouns, a greeting, or vocabulary.</div>
+</section>
+
+<section id="st5">
+  <h2>Stage 5 · Audience Map Lab <span class="tag activate">Activate</span></h2>
+  <p class="small">11:35–12:05 · teams of 3 · slides 22–23 · Apply</p>
+  <h4>Steps</h4>
+  <ol>
+    <li><b>11:35 (4 min) · Model.</b> Slide 22. Model the grid with Brightline, thinking aloud (key below). Show that late-night riders seem low-influence but can quickly become high-influence when the media tells their story.</li>
+    <li><b>11:39 (1 min).</b> Hand out the scenario cards, one per team (Team 9 gets card 9).</li>
+    <li><b>11:40 (25 min) · Build.</b> Slide 23 has the timeline and a timer. Teams follow the four steps on the worksheet. At minute 20, each team says both opening lines aloud to itself, with a different member saying each line.</li>
+  </ol>
+  <div class="say"><b>Say:</b> "Your core message stays the same for everyone. What changes is what you say first, the words you choose, and the formality. If your message changes for each audience, that's not strategy. That's inconsistency, and someone will notice."</div>
+  <div class="key"><b>Model · Brightline audience grid</b>
+    <ul>
+      <li><b>High influence, likely to support:</b> the city council budget committee (it saves money with no extra cost).</li>
+      <li><b>High influence, likely to oppose:</b> local media looking for a human story; the drivers' union, if it worries about hours.</li>
+      <li><b>Low influence, likely to support:</b> riders on Routes 4 and 12 (more buses).</li>
+      <li><b>Low influence, likely to oppose:</b> late-night riders, often shift workers without cars. They are the most affected, and one TV story can move them to high influence.</li>
+      <li><b>Priority:</b> late-night riders first (most affected), with drivers told before the public.</li>
+      <li><b>Core message:</b> "Late-night riders will still get home: Night Hop replaces Route 9 after 11 p.m., and no driver loses hours."</li>
+    </ul>
+    <b>What strong team work looks like</b>
+    <ul><li>Five or more specific audiences, not "the public."</li><li>The priority is justified by impact or power.</li><li>The two opening lines sound clearly different in register but carry the same core message.</li><li>An unintended audience is named, such as media or social-media screenshots.</li></ul>
+  </div>
+  <div class="check"><b>Checkpoint:</b> at minute 15, check each team's core message. If it changes between the two audiences, send them back to fix it.</div>
+</section>
+
+<section id="st6">
+  <h2>Stage 6 · Change the Audience <span class="tag activate">Activate</span></h2>
+  <p class="small">12:05–12:35 · two teams together · slides 24–26 · Practice → feedback → perform again</p>
+  <h4>Steps</h4>
+  <ol>
+    <li><b>12:05 (3 min) · Set up.</b> Slide 24. Join teams: 1+2, 3+4, 5+6, and 7+8+9 (a three-way rotation: 7 performs for 8, 8 for 9, 9 for 7). Each table gets an audience-card deck, with the hostile cards kept separate for Round 3.</li>
+    <li><b>12:08 (24 min) · Three rounds of 8 minutes.</b> Slide 25 has the round timer. In each round, each team performs once, about 4 minutes per team:
+      <ul>
+        <li>The audience team draws a card and reads it aloud.</li>
+        <li>The spokesperson prepares for 1 minute, then delivers in 30–45 seconds.</li>
+        <li>The audience asks one tough question, using the hint on the card. The spokesperson answers.</li>
+        <li>The audience gives 1 minute of feedback using the checklist (slide 26).</li>
+      </ul>
+      Round 1 uses a regular card. Round 2 uses a new card, a new spokesperson, and the feedback from Round 1. Round 3 uses a hostile card and the third spokesperson.</li>
+    <li><b>12:32 (3 min) · Debrief.</b> Ask: "What did you change between Round 1 and Round 3?" Take two answers. Praise specific language you heard.</li>
+  </ol>
+  <div class="say"><b>Say (before Round 3):</b> "Hostile audiences don't want a speech. They want you to acknowledge their concern in your first sentence. Use 'That's a fair question' and 'Let me address that directly.'"</div>
+  <div class="key"><b>Listen for</b>
+    <ul>
+      <li>Register clearly changes with the card, for example "Hi everyone" for teenagers and "Thank you for the opportunity" for investors.</li>
+      <li>The audience's concern comes first: jobs for employees, cost for retirees, safety for parents.</li>
+      <li>The core message is repeated and stays the same.</li>
+      <li>The tough question gets a direct answer that starts with the answer, not with background.</li>
+    </ul>
+    <b>Language to put on the board for Round 3:</b> "I understand why you're concerned." · "That's a fair question. The short answer is…" · "Let me address that directly." · "What we can promise is…" · "I don't have that number with me, but I'll get it to you today."
+  </div>
+  <div class="check"><b>Checkpoint:</b> on your own clipboard, record one improvement per team from Round 1 to Round 3. This is your participation evidence.</div>
+</section>
+
+<section id="st7">
+  <h2>Stage 7 · Exit Ticket</h2>
+  <p class="small">12:35–12:50 · individual · slides 27–28</p>
+  <ol>
+    <li><b>12:35 (8 min).</b> Students answer the four questions on the worksheet.</li>
+    <li><b>12:43 (5 min).</b> Three students read answer 2 aloud (a message that reached an unintended audience). These are usually memorable stories.</li>
+    <li><b>12:48 (2 min).</b> Slide 28: preview of Week 8. "Gillette got enormous attention. Was that success? Next week: which metric matters?"</li>
+  </ol>
+  <div class="key"><b>Strong exit answers</b>
+    <ul><li><b>Q1:</b> "The stated audience is who the message speaks to. The real audience is who it's designed to move or who actually receives it. For example, Old Spice spoke to women, but the goal was to get couples to choose the product."</li>
+    <li><b>Q4 (preview):</b> mentions sales by age group, brand perception among younger buyers, or market share, and not just views or likes.</li></ul>
+  </div>
+</section>
+
+<section id="diff">
+  <h2>I. Differentiation</h2>
+  <div class="diff">
+    <div><b>Students who need more language support</b>Give them the worksheet's Language help drawer. In Stage 2, let them do the matching first, then the questions. In Stage 6, let them be spokesperson in Round 1 (a regular card) and read the opening line from the worksheet.</div>
+    <div><b>Stronger students</b>Stage 3: ask them to argue the side they disagree with. Stage 5: add a third audience. Stage 6: the audience may ask a follow-up question. In the exit ticket, ask them to name a metric that would separate attention from success.</div>
+    <div><b>Quieter students</b>In the Face-off, give each team member a fixed part (claim, evidence, risk). They prepare that part, so they can speak with confidence. Use pair rehearsal before any whole-class sharing.</div>
+    <div><b>Students who dominate</b>Make them the team "timekeeper and coach" in Stage 6: they may not be spokesperson until Round 3, and they must give the feedback. In the Face-off, the rule is that each person speaks only once.</div>
+  </div>
+  <h3>J. Assessment and checkpoints at a glance</h3>
+  <ul>
+    <li>9:20 · Pairs can explain talking to the buyer vs. the user (Stage 1).</li>
+    <li>9:50 · Cold-call: three students each name a layer with an example (Stage 2).</li>
+    <li>10:25 · Face-off claims name an audience and include evidence (Stage 3).</li>
+    <li>11:35 · Pairs name two register features (Stage 4).</li>
+    <li>12:05 · The core message stays the same across both audiences (Stage 5).</li>
+    <li>12:35 · One recorded improvement per team, Round 1 to Round 3 (Stage 6).</li>
+    <li>Exit ticket Q1 · stated vs. real audience with an example.</li>
+  </ul>
+</section>
+
+<section id="print" class="printables">
+  <h2 style="background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 22px">Printables · Evidence cards (tape on four walls)</h2>
+
+  <div class="page"><div class="evid">
+    <div class="st">A</div><h3>The launch · January 14, 2019</h3>
+    <ul>
+      <li>Gillette (owned by P&amp;G) released a short film online: <b>"We Believe: The Best Men Can Be"</b> (about 1 minute 48 seconds).</li>
+      <li>It was released 30 years after Gillette first used its slogan <b>"The Best a Man Can Get"</b> (1989).</li>
+      <li>The film shows bullying and harassment, then men stopping it. It ends: the boys watching today will be the men of tomorrow.</li>
+      <li>Gillette promised <b>$1 million a year for three years</b> to U.S. nonprofits helping men and boys, starting with Boys &amp; Girls Clubs of America.</li>
+      <li>It was planned as a digital campaign. No TV schedule was announced.</li>
+    </ul>
+    <p><b>Ask yourselves:</b> Who is the film speaking to? Who might feel included? Who might feel accused?</p>
+    <p class="src">Sources: LBB Online, Jan. 14, 2019; MediaPost, Jan. 2019; ABC News, Jan. 15, 2019.</p>
+  </div></div>
+
+  <div class="page"><div class="evid">
+    <div class="st">B</div><h3>The reaction · the first week</h3>
+    <ul>
+      <li>Within days, the film became <b>one of the most disliked videos on YouTube</b>.</li>
+      <li>Some customers posted that they would <b>stop buying Gillette and all P&amp;G products</b>, and called for a <b>boycott</b>.</li>
+      <li>Other viewers, commentators, and marketing experts <b>praised it</b>. Some said it would appeal to purpose-driven millennials.</li>
+      <li>According to the analytics company Talkwalker, Gillette had <b>about 1.5 million social media mentions</b> in two days, compared with fewer than 10,000 in the same period the week before.</li>
+    </ul>
+    <p><b>Ask yourselves:</b> Which groups reacted most strongly, for and against? Is a lot of attention the same as success?</p>
+    <p class="src">Sources: Wikipedia, "The Best Men Can Be"; Business Insider, Jan. 2019; A-List Daily, Jan. 16, 2019 (citing Talkwalker).</p>
+  </div></div>
+
+  <div class="page"><div class="evid">
+    <div class="st">C</div><h3>P&amp;G speaks · January 23, 2019</h3>
+    <ul>
+      <li>P&amp;G's chief financial officer, Jon Moeller, said the campaign had received <b>"unprecedented levels of both media coverage and consumer engagement."</b></li>
+      <li>He said Gillette's retail sales had been <b>stable</b> since the film was released.</li>
+      <li>P&amp;G said the ad was <b>resonating with younger consumers</b>, despite criticism and boycott calls.</li>
+      <li>At the same time, P&amp;G's grooming business (which includes Gillette) was its <b>weakest division</b>: it was losing ground to cheaper competitors.</li>
+    </ul>
+    <p><b>Ask yourselves:</b> Which audience was P&amp;G talking to in this statement? (Hint: this was an earnings report.)</p>
+    <p class="src">Sources: AFP via ABS-CBN News, Jan. 24, 2019; The Drum, Jan. 23, 2019.</p>
+  </div></div>
+
+  <div class="page"><div class="evid">
+    <div class="st">D</div><h3>Six months later · July 2019</h3>
+    <ul>
+      <li>Gary Coombe, president of P&amp;G Global Grooming, told <i>Marketing Week</i> that the brand had become the brand of <b>"the millennial generation's dads."</b></li>
+      <li>He said losing some consumers was a <b>"price worth paying"</b> to become relevant to younger buyers again.</li>
+      <li>On July 30, 2019, P&amp;G reduced the value of Gillette by <b>$8 billion</b> (a non-cash write-down).</li>
+      <li>P&amp;G's stated reasons: <b>currency changes, a shrinking razor market</b> (men shaving less often), and <b>low-price competitors</b> such as Dollar Shave Club and Harry's. P&amp;G did not mention the ad.</li>
+    </ul>
+    <p><b>Ask yourselves:</b> Who was the real target? Does the $8 billion prove the ad failed?</p>
+    <p class="src">Sources: Marketing Week, 2019; CNBC, July 30, 2019; Reuters via Yahoo Finance, July 30, 2019.</p>
+  </div></div>
+
+  <div class="page">
+    <h3>Scenario cards · Stage 5 (cut out · one per team)</h3>
+    <div class="cards">
+      <div class="cd"><span class="n">Scenario 1</span><h4>Northfield Community College</h4><ul><li>Tuition will rise 6% next fall.</li><li>Two evening programs (Photography, Bookkeeping) will close.</li><li>Reason: state funding was cut by 9%.</li><li>Many evening students work full time.</li></ul><span class="fict">Fictional practice scenario</span></div>
+      <div class="cd"><span class="n">Scenario 2</span><h4>FrescaBox (meal-kit app)</h4><ul><li>From next month, every order has a new $2.99 service fee.</li><li>Members on the annual plan do not pay the fee.</li><li>Reason: delivery costs rose sharply this year.</li><li>Competitors have no fee yet.</li></ul><span class="fict">Fictional practice scenario</span></div>
+      <div class="cd"><span class="n">Scenario 3</span><h4>Riverside General Hospital</h4><ul><li>Visitors are limited to two per patient.</li><li>Evening visiting ends at 7 p.m. (it was 9 p.m.).</li><li>Reasons: staff shortages; patients need rest.</li><li>Exceptions: children's ward and end-of-life care.</li></ul><span class="fict">Fictional practice scenario</span></div>
+      <div class="cd"><span class="n">Scenario 4</span><h4>Halvorsen Tech (2,000 employees)</h4><ul><li>From January, staff must work in the office four days a week (now two).</li><li>The CEO says new employees learn faster in person.</li><li>Some staff moved far from the office during remote work.</li><li>Hiring competitors offer full remote work.</li></ul><span class="fict">Fictional practice scenario</span></div>
+      <div class="cd"><span class="n">Scenario 5</span><h4>City of Maple Grove</h4><ul><li>Main Street becomes car-free on weekends from May (12-month trial).</li><li>Parking moves to a garage with a free shuttle.</li><li>Restaurants want outdoor seating; some shop owners fear lost customers.</li><li>Residents with disabilities have raised access concerns.</li></ul><span class="fict">Fictional practice scenario</span></div>
+      <div class="cd"><span class="n">Scenario 6</span><h4>Peakline Outdoor (clothing brand)</h4><ul><li>Jacket production will move overseas; the hometown factory in Alder Falls closes in 18 months.</li><li>300 local jobs are affected.</li><li>Without the move, prices would rise about 25%.</li><li>The brand's slogan is "Made in Alder Falls."</li></ul><span class="fict">Fictional practice scenario</span></div>
+      <div class="cd"><span class="n">Scenario 7</span><h4>Lumen Community Bank</h4><ul><li>12 rural branches will close next year.</li><li>Services move to the app and four regional centers.</li><li>Many rural customers are older; internet is weak in some towns.</li><li>The bank says this saves money to keep fees low.</li></ul><span class="fict">Fictional practice scenario</span></div>
+      <div class="cd"><span class="n">Scenario 8</span><h4>Sunvale Water</h4><ul><li>Water rates will rise 12% over two years.</li><li>The money will replace 60-year-old pipes.</li><li>There were three boil-water notices last year.</li><li>Many residents already struggle with bills.</li></ul><span class="fict">Fictional practice scenario</span></div>
+      <div class="cd"><span class="n">Scenario 9</span><h4>Harbor City Zoo</h4><ul><li>The zoo will end its elephant program.</li><li>Its two elephants will move to a large sanctuary in another state.</li><li>Reasons: not enough space; animal welfare experts recommend it.</li><li>Elephants are the zoo's most popular attraction and are on its logo.</li></ul><span class="fict">Fictional practice scenario</span></div>
+      <div class="cd"><span class="n">Model (teacher only)</span><h4>Brightline Transit</h4><ul><li>Late-night service on Route 9 (after 11 p.m.) ends March 1.</li><li>Fewer than four passengers per trip after 11 p.m.</li><li>Shifts move to busier routes; no driver loses hours.</li><li>Night Hop on-demand shuttle: $3 a trip.</li></ul><span class="fict">Fictional practice scenario</span></div>
+    </div>
+  </div>
+
+  <div class="page">
+    <h3>Audience cards · Stage 6 (print two sets · hostile cards are for Round 3)</h3>
+    <div class="cards">
+      <div class="cd"><span class="n">Audience</span><h4>Your own employees</h4>They worry about: their jobs, workload, and hearing news from the media first.<br><i>Tough question idea:</i> "Why are we hearing this now?"</div>
+      <div class="cd"><span class="n">Audience</span><h4>Long-time loyal customers</h4>They worry about: being taken for granted.<br><i>Tough question idea:</i> "After 10 years, this is how you treat us?"</div>
+      <div class="cd"><span class="n">Audience</span><h4>Teenagers on social media</h4>They worry about: honesty, and whether you sound fake.<br><i>Tough question idea:</i> "Is this just about money?"</div>
+      <div class="cd"><span class="n">Audience</span><h4>Investors on an earnings call</h4>They worry about: costs, risk, and long-term growth.<br><i>Tough question idea:</i> "What will this cost, and when do we see a return?"</div>
+      <div class="cd"><span class="n">Audience</span><h4>City council members</h4>They worry about: voters' complaints and the city budget.<br><i>Tough question idea:</i> "What do I tell residents who call my office?"</div>
+      <div class="cd"><span class="n">Audience</span><h4>Parents</h4>They worry about: safety, cost, and their children's routine.<br><i>Tough question idea:</i> "How does this affect my kids?"</div>
+      <div class="cd"><span class="n">Audience</span><h4>Retirees on fixed incomes</h4>They worry about: price, and not being comfortable with apps.<br><i>Tough question idea:</i> "What if I can't use the app?"</div>
+      <div class="cd"><span class="n">Audience</span><h4>Potential new customers</h4>They worry about: why they should choose you at all.<br><i>Tough question idea:</i> "Why should I trust you?"</div>
+      <div class="cd host"><span class="n">Round 3 · Hostile</span><h4>Angry customers in a comments section</h4>They feel: ignored and lied to.<br><i>Tough question idea:</i> "Why should we believe anything you say?"</div>
+      <div class="cd host"><span class="n">Round 3 · Hostile</span><h4>An investigative reporter</h4>They want: the story you don't want told.<br><i>Tough question idea:</i> "When did you first know about this, and why wait?"</div>
+      <div class="cd host"><span class="n">Round 3 · Hostile</span><h4>A union representative</h4>They want: protection for workers.<br><i>Tough question idea:</i> "Will you put that promise in writing?"</div>
+      <div class="cd host"><span class="n">Round 3 · Hostile</span><h4>A local protest group</h4>They believe: the decision is already made and unfair.<br><i>Tough question idea:</i> "Why weren't we consulted?"</div>
+    </div>
+  </div>
+</section>
+
+<section id="sources">
+  <h2>Sources (checked November 2026)</h2>
+  <h3>Old Spice</h3>
+  <ul>
+    <li>Wieden+Kennedy, case study: "Old Spice: Smell Like a Man, Man" · <a href="https://wk.com/work/old-spice-smell-like-a-man-man">wk.com/work/old-spice-smell-like-a-man-man</a> (60% of purchases by women; couples media buy; +60% by May 2010; doubled by July; 186 response videos)</li>
+    <li>Muse by Clios, "Behind the Towel: An Oral History of the Legendary Old Spice Ad" · <a href="https://musebyclios.com/advertising/behind-the-towel-an-oral-history-of-the-legendary-old-spice-ad/">musebyclios.com</a></li>
+    <li>Video: "Old Spice | The Man Your Man Could Smell Like" (Old Spice YouTube channel) · <a href="https://www.youtube.com/watch?v=owGykVbfgUE">youtube.com/watch?v=owGykVbfgUE</a></li>
+  </ul>
+  <h3>Gillette</h3>
+  <ul>
+    <li>LBB Online, Jan. 14, 2019 (launch, Grey New York, Kim Gehrig, 30th anniversary, donation pledge) · <a href="https://lbbonline.com/news/gillette-takes-aim-at-toxic-masculinity-in-bold-ad-by-kim-gehrig">lbbonline.com</a></li>
+    <li>MediaPost, Jan. 2019 (digital campaign, no announced TV plans) · <a href="https://www.mediapost.com/publications/article/330515/gillettes-30-year-old-best-a-man-can-get-tag-ge.html">mediapost.com</a></li>
+    <li>A-List Daily, Jan. 2019 (Talkwalker mention figures) · <a href="https://alistdaily.com/lifestyle/gillettes-new-campaign">alistdaily.com</a></li>
+    <li>AFP via ABS-CBN News, Jan. 24, 2019 (Moeller quote, stable sales) · <a href="https://www.abs-cbn.com/business/01/24/19/pg-confident-of-payoff-from-gillettes-me-too-ad">abs-cbn.com</a></li>
+    <li>The Drum, Jan. 23, 2019 · <a href="https://www.thedrum.com/news/2019/01/23/pg-says-unprecedented-attention-gillette-ad-hasn-t-impacted-sales-yet">thedrum.com</a></li>
+    <li>Marketing Week, 2019, "Gillette boss: Alienating some consumers with #metoo campaign was a price worth paying" · <a href="https://www.marketingweek.com/gillette-metoo-campaign-fallout/">marketingweek.com</a></li>
+    <li>CNBC, July 30, 2019 (the $8 billion write-down and P&amp;G's reasons) · <a href="https://www.cnbc.com/2019/07/30/procter-gamble-writes-down-gillette-business-but-remains-confident-in-its-future.html">cnbc.com</a></li>
+    <li>Wikipedia, "The Best Men Can Be" (most-disliked status, boycott calls) · <a href="https://en.wikipedia.org/wiki/The_Best_Men_Can_Be">en.wikipedia.org</a></li>
+    <li>Video: search YouTube for "We Believe: The Best Men Can Be | Gillette (Short Film)" on the official Gillette channel. Check the link before class.</li>
+  </ul>
+  <p class="small">Note: sources differ on the release date (January 13 or 14, 2019) and on the exact like/dislike numbers. These materials use January 14 (the date of the press release) and avoid exact like/dislike ratios. Brightline Transit and all scenario cards are fictional and are labeled as fictional for students.</p>
+</section>
+
+</div></main>
+<script>
+document.querySelectorAll('.timer').forEach(function(t){
+  var total=+t.getAttribute('data-sec'), left=total, iv=null, clk=t.querySelector('.clock'), b=t.querySelector('button');
+  function draw(){ var s=Math.max(0,Math.ceil(left)); clk.textContent=Math.floor(s/60)+':'+String(s%60).padStart(2,'0'); clk.classList.toggle('done',s===0); }
+  b.onclick=function(){
+    if(iv){ clearInterval(iv); iv=null; b.textContent='Resume'; return; }
+    if(left<=0){ left=total; }
+    var end=Date.now()+left*1000; b.textContent='Pause';
+    iv=setInterval(function(){ left=(end-Date.now())/1000; draw(); if(left<=0){ clearInterval(iv); iv=null; b.textContent='Restart'; } },250);
+  };
+  draw();
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,593 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Week 7 · Who's Really Listening? · Slides</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Public+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0c2340;--blue:#1c4f8f;--gold:#d39f10;--gold-dark:#8c7535;--sky:#edf2f9;--sky-2:#e1e8f2;--sky-3:#b9c8dc;--warm:#efe9d9;--ink:#1d2b44;--muted:#4f5f78;
+  --engage:#b0451a;--study:#1c4f8f;--activate:#2f7a45;--serif:'Libre Baskerville',Georgia,serif;--sans:'Public Sans',Arial,sans-serif}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:#050d18;overflow:hidden;font-family:var(--sans)}
+#viewport{position:fixed;inset:0;display:flex;align-items:center;justify-content:center}
+#stage{width:1920px;height:1080px;position:relative;transform-origin:center center;flex:none}
+.slide{position:absolute;inset:0;background:var(--sky);color:var(--ink);padding:80px 110px 90px;display:none;flex-direction:column}
+.slide.on{display:flex}
+.slide.dark{background:var(--navy);color:#f6f2e7}
+.eyebrow{font:700 24px var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--gold-dark);margin:0 0 10px}
+.dark .eyebrow{color:var(--gold)}
+h1{font:700 96px/1.1 var(--serif);margin:0;color:#f6f2e7}
+h2{font:700 62px/1.15 var(--serif);margin:0 0 30px;color:var(--navy)}
+.dark h2{color:#f6f2e7}
+p,li{font-size:34px;line-height:1.45}
+ul,ol{margin:0;padding-left:44px}
+li{margin:10px 0}
+.lead{font-size:40px;line-height:1.4}
+.foot{position:absolute;left:110px;right:110px;bottom:34px;display:flex;justify-content:space-between;align-items:center;font-size:22px;color:var(--muted)}
+.dark .foot{color:#9fb0c8}
+.pull{font:700 54px/1.3 var(--serif);color:var(--navy);border-left:12px solid var(--gold);padding:10px 0 10px 34px;margin:10px 0 30px}
+.dark .pull{color:#f6f2e7}
+.twocol{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+.four{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.box{background:#fff;border-radius:18px;padding:28px 34px;border-top:10px solid var(--gold)}
+.box h3{font:700 36px var(--serif);color:var(--navy);margin:0 0 12px}
+.box p,.box li{font-size:29px}
+.dark .box{color:var(--ink)}
+.tag{display:inline-block;font:700 20px var(--sans);letter-spacing:.08em;text-transform:uppercase;color:#fff;padding:5px 16px;border-radius:30px;margin-right:10px}
+.tag.e{background:var(--engage)}.tag.s{background:var(--study)}.tag.a{background:var(--activate)}
+.btn{display:inline-block;font:700 30px var(--sans);background:var(--gold);color:var(--navy);text-decoration:none;padding:18px 34px;border-radius:14px;border:none;cursor:pointer}
+.small{font-size:24px;color:var(--muted)}
+.dark .small{color:#b9c6d8}
+.stimer{display:inline-flex;align-items:center;gap:20px;background:var(--navy);color:#fff;border-radius:16px;padding:12px 24px}
+.dark .stimer{background:#143865}
+.stimer .clock{font:700 64px var(--sans);color:var(--gold);min-width:190px;text-align:center}
+.stimer .clock.done{color:#ff8a6b}
+.stimer button{font:700 24px var(--sans);background:var(--gold);color:var(--navy);border:none;border-radius:10px;padding:10px 18px;cursor:pointer}
+.stimer span.l{font-size:22px;color:#c1cddd}
+.rev{cursor:pointer;position:relative}
+.rev .ans{visibility:hidden}
+.rev.shown .ans{visibility:visible}
+.rev::after{content:'click to reveal';position:absolute;right:16px;top:12px;font:600 17px var(--sans);color:var(--muted)}
+.rev.shown::after{content:''}
+.choices{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:20px}
+.choices div{background:#fff;border-radius:18px;padding:34px;font:700 42px var(--serif);color:var(--navy);border-left:12px solid var(--blue)}
+.choices div span{display:block;font:600 24px var(--sans);color:var(--muted);margin-top:6px}
+.flowgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.flowgrid a{display:block;background:#fff;border-radius:16px;padding:24px 26px;text-decoration:none;color:var(--ink);border-top:10px solid var(--study)}
+.flowgrid a.e{border-color:var(--engage)}.flowgrid a.a{border-color:var(--activate)}.flowgrid a.b{border-color:var(--gold);background:var(--warm)}
+.flowgrid b{display:block;font:700 22px var(--sans);color:var(--muted);letter-spacing:.06em}
+.flowgrid span{display:block;font:700 32px/1.25 var(--serif);color:var(--navy);margin-top:6px}
+.flowgrid small{display:block;font-size:21px;color:var(--muted);margin-top:8px}
+.layers{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.layers .rev{background:#fff;border-radius:14px;padding:18px 26px;min-height:120px}
+.layers b{font:700 30px var(--serif);color:var(--navy);display:block}
+.layers .ans{font-size:27px;line-height:1.35;display:block;margin-top:6px}
+.walls{display:grid;grid-template-columns:1fr 1.3fr 1fr;grid-template-rows:1fr 1fr;gap:22px;height:520px}
+.walls div{border-radius:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:18px}
+.walls b{font:700 70px var(--serif)}
+.walls span{font-size:27px}
+.walls .w{background:var(--navy);color:#fff}
+.walls .mid{grid-row:1 / span 2;grid-column:2;background:#fff;color:var(--navy);border:4px dashed var(--sky-3);font-size:30px}
+.dial{width:100%;border-collapse:collapse;font-size:25px;background:#fff}
+.dial th{background:var(--navy);color:#fff;padding:12px;text-align:left;font-size:26px}
+.dial td{border:2px solid var(--sky-2);padding:12px;vertical-align:top}
+.dial td.k{background:var(--sky-2);font-weight:700;width:18%}
+.dial tr.rev td .ans{visibility:hidden}
+.dial tr.rev.shown td .ans{visibility:visible}
+.dial tr.rev::after{content:''}
+.swap{display:grid;grid-template-columns:1fr 70px 1fr;gap:14px 10px;align-items:center}
+.swap div{background:#fff;border-radius:12px;padding:16px 22px;font-size:30px}
+.swap .ar{background:none;text-align:center;font-size:40px;color:var(--gold-dark);padding:0}
+.swap .f{border-left:8px solid var(--navy)}
+.swap .i{border-left:8px solid var(--engage)}
+.matrix{display:grid;grid-template-columns:90px 1fr 1fr;grid-template-rows:1fr 1fr 70px;gap:16px;height:600px}
+.matrix .ax{display:flex;align-items:center;justify-content:center;font:700 24px var(--sans);color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+.matrix .ax.v{writing-mode:vertical-rl;transform:rotate(180deg)}
+.matrix .q{background:#fff;border-radius:16px;padding:20px 26px}
+.matrix .q b{font:700 26px var(--sans);color:var(--blue);display:block;margin-bottom:6px;text-transform:uppercase;letter-spacing:.04em}
+.matrix .q .ans{font-size:28px;line-height:1.35}
+.matrix .ax.h{grid-column:2 / span 2;justify-content:space-around}
+.evrow{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.evrow .rev{background:#fff;border-radius:16px;padding:22px 24px;min-height:330px;border-top:10px solid var(--blue)}
+.evrow b{font:700 30px var(--serif);color:var(--navy);display:block;margin-bottom:8px}
+.evrow .ans{font-size:26px;line-height:1.35}
+.cardgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.cardgrid div{background:#fff;border-radius:14px;padding:20px;font:700 28px var(--serif);color:var(--navy);border-left:8px solid var(--blue)}
+.cardgrid div.h{border-color:var(--engage)}
+.slide aside.n{display:none}
+.walls .mid b{font-size:34px;display:inline}
+.logo{width:150px;height:150px;border-radius:12px}
+/* chrome */
+#notes{position:fixed;left:0;right:0;bottom:56px;background:rgba(12,35,64,.96);color:#e8eef7;font:16px/1.5 var(--sans);padding:14px 24px;max-height:34vh;overflow:auto;display:none;z-index:10;border-top:3px solid var(--gold)}
+#notes.on{display:block}
+#notes b{color:var(--gold)}
+#bar{position:fixed;left:0;right:0;bottom:0;height:56px;background:rgba(5,13,24,.92);display:flex;gap:10px;align-items:center;justify-content:center;z-index:11;opacity:.25;transition:opacity .2s}
+#bar:hover{opacity:1}
+#bar button{font:600 15px var(--sans);background:#1c3a63;color:#fff;border:none;border-radius:8px;padding:8px 14px;cursor:pointer}
+#count{color:#c1cddd;font:600 15px var(--sans);min-width:70px;text-align:center}
+</style>
+</head>
+<body>
+<div id="viewport"><div id="stage">
+
+<!-- 1 TITLE -->
+<section class="slide dark">
+  <div style="display:flex;gap:50px;align-items:center;margin-top:120px">
+    <img class="logo" src="data:image/jpeg;base64,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" alt="Approach logo">
+    <div>
+      <p class="eyebrow">Strategic Communication · Week 7</p>
+      <h1>Who's Really Listening?</h1>
+      <p class="lead" style="color:#c1cddd;margin-top:24px">Audience intelligence: the stated audience vs. the real audience</p>
+    </div>
+  </div>
+  <div class="foot"><span>Approach International Student Center</span><span class="pg"></span></div>
+  <aside class="n">Welcome. Students sit with their teams of 3 (Team 9 is a pair). Open the worksheet link. Don't explain the topic in detail; let the first activity do it.</aside>
+</section>
+
+<!-- 2 FLOW -->
+<section class="slide">
+  <p class="eyebrow">Today's flow</p>
+  <h2>Today you are audience strategists</h2>
+  <div class="flowgrid">
+    <a class="e" href="#3"><b>9:00 · ENGAGE</b><span>1 · The Brief</span><small>Who should the ad talk to?</small></a>
+    <a href="#7"><b>9:20 · STUDY</b><span>2 · Layers of an Audience</span><small>Seven kinds of listener</small></a>
+    <a class="a" href="#11"><b>9:50 · STUDY → ACTIVATE</b><span>3 · Gillette: Evidence Walk + Face-off</span><small>Who was it really for?</small></a>
+    <a class="b" href="#18"><b>10:40</b><span>Break</span><small>30 minutes</small></a>
+    <a href="#19"><b>11:10 · STUDY</b><span>4 · Same News, Four Rooms</span><small>Register and emphasis</small></a>
+    <a class="a" href="#22"><b>11:35 · ACTIVATE</b><span>5 · Audience Map Lab</span><small>Your own scenario</small></a>
+    <a class="a" href="#24"><b>12:05 · ACTIVATE</b><span>6 · Change the Audience</span><small>Three live rounds</small></a>
+    <a href="#27"><b>12:35 · REFLECT</b><span>7 · Exit Ticket</span><small>And a look at Week 8</small></a>
+  </div>
+  <div class="foot"><span>Click any stage to jump to it</span><span class="pg"></span></div>
+  <aside class="n">30 seconds. "Today we answer one question: when you send a message, who is really listening?" Each box links to its first slide.</aside>
+</section>
+
+<!-- 3 BRIEF -->
+<section class="slide">
+  <p class="eyebrow"><span class="tag e">Engage</span> Stage 1 · The Brief</p>
+  <h2>Your client sells men's body wash. Sales are slipping. You have one 30-second ad. Who should it talk to?</h2>
+  <div class="choices">
+    <div>Young men<span>The future customers</span></div>
+    <div>Older, loyal male customers<span>The people who already buy</span></div>
+    <div>Women<span>?</span></div>
+    <div>Athletes and gym-goers<span>People who shower a lot</span></div>
+  </div>
+  <div class="foot"><span class="stimer" data-sec="180"><span class="l">Pairs decide</span><span class="clock">3:00</span><button type="button">Start</button></span><span class="pg"></span></div>
+  <aside class="n">3 minutes. Pairs choose one and write a reason on the worksheet (Stage 1, Step 1). Then take a quick hand vote and write the numbers on the board. Don't comment on the answers yet.</aside>
+</section>
+
+<!-- 4 WATCH OLD SPICE -->
+<section class="slide dark">
+  <p class="eyebrow">Stage 1 · Watch</p>
+  <h2>Old Spice · "The Man Your Man Could Smell Like" (2010)</h2>
+  <p class="lead">Watch twice.<br>1st time: just enjoy it.<br>2nd time: listen for the words that show who he is talking to.</p>
+  <p style="margin-top:40px"><a class="btn" href="https://www.youtube.com/watch?v=owGykVbfgUE" target="_blank" rel="noopener">Play the ad on YouTube (0:33)</a></p>
+  <p class="small" style="margin-top:20px">Official Old Spice channel · youtube.com/watch?v=owGykVbfgUE</p>
+  <div class="foot"><span>Procter &amp; Gamble · agency: Wieden+Kennedy</span><span class="pg"></span></div>
+  <aside class="n">Play it twice. It's 33 seconds. Students will laugh; that's fine. On the second viewing, they should notice "Hello, ladies" and "Look at your man."</aside>
+</section>
+
+<!-- 5 REACT -->
+<section class="slide">
+  <p class="eyebrow"><span class="tag e">Engage</span> Stage 1 · React</p>
+  <h2>React with your partner</h2>
+  <ol>
+    <li>Who is the speaker talking to? Which words tell you?</li>
+    <li>Who will actually use the product?</li>
+    <li>Why would a body-wash brand for men talk to someone else?</li>
+    <li>Was your choice right? What would you change now?</li>
+  </ol>
+  <div class="foot"><span class="stimer" data-sec="300"><span class="l">Pairs</span><span class="clock">5:00</span><button type="button">Start</button></span><span class="pg"></span></div>
+  <aside class="n">5 minutes. Walk around. If pairs are stuck on question 3, ask: "Who buys the shampoo in your home? Who uses it?"</aside>
+</section>
+
+<!-- 6 REVEAL -->
+<section class="slide">
+  <p class="eyebrow"><span class="tag e">Engage</span> Stage 1 · The reveal</p>
+  <h2>The insight behind the ad</h2>
+  <div class="three">
+    <div class="box rev" onclick="this.classList.add('shown')"><h3>The insight</h3><p class="ans">The agency's research found that about <b>60%</b> of body-wash purchases were made by <b>women</b>.</p></div>
+    <div class="box rev" onclick="this.classList.add('shown')"><h3>The media plan</h3><p class="ans">Launched online on Super Bowl weekend (Feb. 2010), then on TV, placed where <b>couples watch together</b>.</p></div>
+    <div class="box rev" onclick="this.classList.add('shown')"><h3>The result</h3><p class="ans">Goal: +15% sales. By May 2010: sales up <b>60%</b> on the year before. By July: <b>doubled</b>.</p></div>
+  </div>
+  <div class="pull" style="margin-top:40px;font-size:44px">Talk to the person who decides, not only the person who uses.</div>
+  <div class="foot"><span>Source: Wieden+Kennedy case study; Muse by Clios</span><span class="pg"></span></div>
+  <aside class="n">Ask two pairs who changed their minds to explain why, then click each box. Stress the words "decides" and "uses." Results refer to the advertised body wash (Red Zone), per Wieden+Kennedy.</aside>
+</section>
+
+<!-- 7 NOTICE -->
+<section class="slide">
+  <p class="eyebrow"><span class="tag s">Study</span> Stage 2 · Notice</p>
+  <h2>Seven questions about one ad</h2>
+  <div class="twocol">
+    <ol>
+      <li>Who is the message spoken to?</li>
+      <li>Who pays for the product?</li>
+      <li>Who uses the product?</li>
+      <li>Who could persuade the buyer?</li>
+    </ol>
+    <ol start="5">
+      <li>Who saw it but was never the plan?</li>
+      <li>Who might be annoyed or turn against it?</li>
+      <li>So who did the campaign really want to move?</li>
+    </ol>
+  </div>
+  <p class="small" style="margin-top:30px">Answer in plain words. Leave the "Term" column empty for now.</p>
+  <div class="foot"><span class="stimer" data-sec="480"><span class="l">Pairs</span><span class="clock">8:00</span><button type="button">Start</button></span><span class="pg"></span></div>
+  <aside class="n">8 minutes. Students answer before they get any terms. Question 6 is open: accept reasoned answers.</aside>
+</section>
+
+<!-- 8 NAME -->
+<section class="slide">
+  <p class="eyebrow"><span class="tag s">Study</span> Stage 2 · Name it</p>
+  <h2 style="margin-bottom:20px">The layers of an audience</h2>
+  <div class="layers">
+    <div class="rev" onclick="this.classList.add('shown')"><b>1 · Addressed (stated) audience</b><span class="ans">Who it openly speaks to → women ("Hello, ladies.")</span></div>
+    <div class="rev" onclick="this.classList.add('shown')"><b>2 · Decision-maker</b><span class="ans">Who says yes or pays → mostly women (about 60% of purchases)</span></div>
+    <div class="rev" onclick="this.classList.add('shown')"><b>3 · End user</b><span class="ans">Who uses it → men</span></div>
+    <div class="rev" onclick="this.classList.add('shown')"><b>4 · Influencer</b><span class="ans">Who shapes the decision → the men themselves; people sharing it online</span></div>
+    <div class="rev" onclick="this.classList.add('shown')"><b>5 · Unintended audience</b><span class="ans">Who saw it but wasn't the plan → millions of online viewers worldwide</span></div>
+    <div class="rev" onclick="this.classList.add('shown')"><b>6 · Hostile audience</b><span class="ans">Who may reject it → open: men who feel compared? rival brands' fans?</span></div>
+    <div class="rev" onclick="this.classList.add('shown')" style="grid-column:1 / span 2;border:4px solid var(--gold)"><b>7 · Target (real) audience</b><span class="ans">Who the campaign most wants to move → couples: women who buy and men who agree to switch</span></div>
+  </div>
+  <div class="foot"><span>Match your answers to the term box on the worksheet first</span><span class="pg"></span></div>
+  <aside class="n">7 minutes. Pairs match first. Then ask a pair for each layer before clicking. Model the stress: AL-ien-ate, de-mo-GRAPH-ic, STAKE-hold-er.</aside>
+</section>
+
+<!-- 9 UNITED -->
+<section class="slide dark">
+  <p class="eyebrow">Stage 2 · Remember Week 2?</p>
+  <h2>Stated audience ≠ real audience</h2>
+  <div class="twocol">
+    <div class="box"><h3>Stated audience</h3><p>United's CEO wrote an email to <b>employees</b>, calling the passenger "disruptive and belligerent."</p></div>
+    <div class="box"><h3>Real audience</h3><p>The email was published by CNBC. <b>Everyone</b> read it, including millions of angry customers.</p></div>
+  </div>
+  <div class="pull" style="margin-top:46px">There is no such thing as an internal message.</div>
+  <div class="foot"><span>Ask two questions: Who am I talking to? Who else will hear this?</span><span class="pg"></span></div>
+  <aside class="n">3 minutes, the main teacher input of the morning. Then pairs complete the United grid on the worksheet (5 minutes).</aside>
+</section>
+
+<!-- 10 HEDGING -->
+<section class="slide">
+  <p class="eyebrow"><span class="tag s">Study</span> Stage 2 · Language</p>
+  <h2>We can't read minds: make careful inferences</h2>
+  <div class="twocol">
+    <div class="box"><h3>Inferring</h3><ul><li>The evidence suggests that…</li><li>It seems likely that the real target was…</li><li>On the surface, it speaks to…, but…</li></ul></div>
+    <div class="box"><h3>Limiting a claim</h3><ul><li>I'd argue that…, although we can't be certain.</li><li>That doesn't necessarily prove that…</li><li>X happened after Y, but not necessarily because of it.</li></ul></div>
+  </div>
+  <p style="margin-top:30px"><b>Your turn:</b> say three sentences about Old Spice to your partner. Use a different frame each time.</p>
+  <div class="foot"><span class="stimer" data-sec="300"><span class="l">Pairs</span><span class="clock">5:00</span><button type="button">Start</button></span><span class="pg"></span></div>
+  <aside class="n">7 minutes in total. 5 in pairs, then two volunteers say one sentence each to the class. Correct form gently: "It seems likely that" + a full clause.</aside>
+</section>
+
+<!-- 11 SAME COMPANY -->
+<section class="slide">
+  <p class="eyebrow"><span class="tag s">Study</span> Stage 3 · Same company</p>
+  <h2>Old Spice and Gillette: both owned by Procter &amp; Gamble. Both sell to men.</h2>
+  <div class="twocol">
+    <div class="box"><h3>Old Spice · 2010</h3><p>Spoke to women. Used humor. Became a classic.</p></div>
+    <div class="box" style="border-top-color:var(--engage)"><h3>Gillette · 2019</h3><p>Spoke to men about men's behavior. Took a stance. Became one of the most disliked videos on YouTube.</p></div>
+  </div>
+  <div class="pull" style="margin-top:40px">In Week 2 you asked: did it work?<br>Today's question: who was it really for?</div>
+  <div class="foot"><span>What do you remember about the Gillette case?</span><span class="pg"></span></div>
+  <aside class="n">4 minutes. Ask: "What do you remember about Gillette from Week 2?" Take three answers. Don't settle the debate yet.</aside>
+</section>
+
+<!-- 12 WATCH GILLETTE -->
+<section class="slide dark">
+  <p class="eyebrow">Stage 3 · Watch</p>
+  <h2>Gillette · "We Believe: The Best Men Can Be" (January 2019)</h2>
+  <p class="lead">Watch for one thing: <b>who is the narrator speaking to?</b></p>
+  <p class="small" style="margin-top:20px">Content note: the film includes short scenes of bullying and sexual harassment.</p>
+  <p style="margin-top:36px"><a class="btn" href="https://www.youtube.com/results?search_query=We+Believe+The+Best+Men+Can+Be+Gillette+Short+Film" target="_blank" rel="noopener">Find the film on YouTube (1:48)</a></p>
+  <p class="small" style="margin-top:16px">Search: "We Believe: The Best Men Can Be | Gillette (Short Film)" · official Gillette channel</p>
+  <div class="foot"><span>Agency: Grey New York · director: Kim Gehrig</span><span class="pg"></span></div>
+  <aside class="n">4 minutes. Give the content note first. The button opens a YouTube search; before class, open the official Gillette upload in a tab. The film begins with the old slogan as a question: "Is this the best a man can get?"</aside>
+</section>
+
+<!-- 13 EVIDENCE WALK -->
+<section class="slide">
+  <p class="eyebrow"><span class="tag s">Study</span> Stage 3 · Evidence Walk</p>
+  <h2 style="margin-bottom:20px">Four walls. Four minutes each. Rotate clockwise.</h2>
+  <div class="walls">
+    <div class="w"><b>A</b><span>The launch<br>Teams 1–2 start</span></div>
+    <div class="mid">At each wall, take <b>one piece of evidence</b><br><br>Build your audience map:<br>addressed · target · hostile · accepted losing</div>
+    <div class="w"><b>B</b><span>The reaction<br>Teams 3–4 start</span></div>
+    <div class="w"><b>D</b><span>Six months later<br>Teams 7–9 start</span></div>
+    <div class="w"><b>C</b><span>P&amp;G speaks<br>Teams 5–6 start</span></div>
+  </div>
+  <div class="foot"><span class="stimer" data-sec="240"><span class="l">Each station · press again at "Rotate"</span><span class="clock">4:00</span><button type="button">Start</button></span><span class="pg"></span></div>
+  <aside class="n">16 minutes in total. Restart the timer at each rotation (A→B→C→D→A). Move between walls and ask: "Who is that evidence about?"</aside>
+</section>
+
+<!-- 14 MAP DEBRIEF -->
+<section class="slide">
+  <p class="eyebrow"><span class="tag s">Study</span> Stage 3 · Gillette's audience map</p>
+  <h2 style="margin-bottom:22px">What did the evidence show?</h2>
+  <div class="evrow">
+    <div class="rev" onclick="this.classList.add('shown')"><b>Addressed</b><span class="ans">Men, and especially fathers: "the boys watching today will be the men of tomorrow."</span></div>
+    <div class="rev" onclick="this.classList.add('shown')"><b>Target</b><span class="ans">Millennials and younger buyers. The brand had become the brand of "the millennial generation's dads."</span></div>
+    <div class="rev" onclick="this.classList.add('shown')"><b>Hostile</b><span class="ans">Many existing male customers who felt accused. Boycott calls; one of YouTube's most disliked videos.</span></div>
+    <div class="rev" onclick="this.classList.add('shown')"><b>Accepted losing</b><span class="ans">Some current customers: a "price worth paying" (P&amp;G grooming president, 2019).</span></div>
+  </div>
+  <div class="box rev" onclick="this.classList.add('shown')" style="margin-top:26px;border-top-color:var(--engage)"><h3>Did the ad cause the $8 billion write-down?</h3><p class="ans">P&amp;G cited currency, men shaving less, and cheaper rivals, and didn't mention the ad. The timing alone doesn't prove the ad caused it. <b>Correlation isn't causation.</b></p></div>
+  <div class="foot"><span>Sources: Marketing Week 2019; CNBC, July 30, 2019; AFP, Jan. 2019</span><span class="pg"></span></div>
+  <aside class="n">5 minutes. Ask a team for each box before you click. Spend the most time on the write-down: "What data would we need to prove it?" (sales by age group, before and after). This sets up Week 8.</aside>
+</section>
+
+<!-- 15 FACE-OFF BRIEF -->
+<section class="slide">
+  <p class="eyebrow"><span class="tag a">Activate</span> Stage 3 · The Face-off</p>
+  <h2>You are P&amp;G's brand team. Your men's brand is losing young customers. You can fund only one approach.</h2>
+  <div class="twocol">
+    <div class="box"><h3>Teams 1–4 · The Old Spice approach</h3><p>Talk to the buyer. Use humor. Avoid controversy.</p></div>
+    <div class="box" style="border-top-color:var(--engage)"><h3>Teams 5–8 · The Gillette approach</h3><p>Talk to the next generation. Take a stance. Accept some backlash.</p></div>
+  </div>
+  <p style="margin-top:24px"><b>Prepare:</b> a claim · two reasons with evidence · one risk you admit · one challenge question. <b>Team 9 = judges.</b></p>
+  <div class="foot"><span class="stimer" data-sec="360"><span class="l">Prep</span><span class="clock">6:00</span><button type="button">Start</button></span><span class="pg"></span></div>
+  <aside class="n">6 minutes. Every member prepares one part to say. Team 9 (the pair) prepares two challenge questions for each side and decides what makes an argument "strong." Check the claims: they should name an audience, not only a brand.</aside>
+</section>
+
+<!-- 16 FACE-OFF FORMAT -->
+<section class="slide">
+  <p class="eyebrow"><span class="tag a">Activate</span> Stage 3 · The Face-off</p>
+  <h2 style="margin-bottom:18px">1 vs. 5 · 2 vs. 6 · 3 vs. 7 · 4 vs. 8 · judges move between tables</h2>
+  <div class="twocol">
+    <div class="box"><h3>Format</h3><ol><li>Old Spice team: 60 seconds</li><li>Gillette team: one challenge question</li><li>Old Spice team answers: 30 seconds</li><li>Switch roles</li></ol><p class="small">Everyone speaks at least once.</p></div>
+    <div class="box"><h3>Language</h3><ul><li>We chose this approach because…</li><li>We accept the risk that…, because…</li><li>I'm not entirely convinced that…</li><li>But wouldn't that risk alienating…?</li><li>That's a fair point. However…</li></ul></div>
+  </div>
+  <div class="foot"><span class="stimer" data-sec="480"><span class="l">Face-off</span><span class="clock">8:00</span><button type="button">Start</button></span><span class="pg"></span></div>
+  <aside class="n">8 minutes, with all four face-offs running at the same time. Call out "Switch!" at about 4 minutes. Listen for evidence with dates and for teams that admit a risk.</aside>
+</section>
+
+<!-- 17 VERDICT -->
+<section class="slide dark">
+  <p class="eyebrow">Stage 3 · The verdict</p>
+  <h2>Judges: what were the two strongest arguments, and why?</h2>
+  <div class="pull" style="margin-top:50px">The question is never "Was it good?"<br>It's "Good for whom, and at what cost?"</div>
+  <p class="lead" style="margin-top:30px;color:#c1cddd">Next week: how would we measure that?</p>
+  <div class="foot"><span>Old Spice chose the buyer. Gillette chose the next generation.</span><span class="pg"></span></div>
+  <aside class="n">7 minutes. Judges report first. Then ask the class: "Which would P&amp;G actually choose? Does it depend on the audience?" End with the line on the slide.</aside>
+</section>
+
+<!-- 18 BREAK -->
+<section class="slide dark">
+  <p class="eyebrow">Break · 10:40–11:10</p>
+  <h2>30-minute break</h2>
+  <div style="margin:30px 0"><span class="stimer" data-sec="1800"><span class="l">Back at 11:10</span><span class="clock">30:00</span><button type="button">Start</button></span></div>
+  <p class="lead" style="color:#c1cddd">After the break: one piece of news. Four rooms. Four very different messages.</p>
+  <div class="foot"><span></span><span class="pg"></span></div>
+  <aside class="n">Start the timer as students leave.</aside>
+</section>
+
+<!-- 19 FOUR ROOMS -->
+<section class="slide">
+  <p class="eyebrow"><span class="tag s">Study</span> Stage 4 · Same News, Four Rooms</p>
+  <h2>The news: Brightline Transit will end late-night bus service on Route 9.</h2>
+  <div class="four">
+    <div class="box"><h3>Drivers</h3><p>employees</p></div>
+    <div class="box"><h3>Riders</h3><p>app users</p></div>
+    <div class="box"><h3>City council</h3><p>funders, decision-makers</p></div>
+    <div class="box"><h3>Journalists</h3><p>the media</p></div>
+  </div>
+  <ol style="margin-top:30px"><li>Match messages W, X, Y, Z to the four rooms (5 min).</li><li>Complete the register table (10 min).</li><li>Write two rules (3 min).</li></ol>
+  <div class="foot"><span>Brightline Transit is fictional. It was created for practice.</span><span class="stimer" data-sec="900"><span class="l">Match + analyze</span><span class="clock">15:00</span><button type="button">Start</button></span></div>
+  <aside class="n">Read the news aloud. Pairs work on the worksheet. Push: "What comes first in each message, and why?"</aside>
+</section>
+
+<!-- 20 DIALS -->
+<section class="slide">
+  <p class="eyebrow"><span class="tag s">Study</span> Stage 4 · The register dials</p>
+  <h2 style="margin-bottom:16px">Same facts. Different order, words, and formality.</h2>
+  <table class="dial">
+    <tr><th></th><th>W · Journalists</th><th>X · Riders</th><th>Y · Drivers</th><th>Z · City council</th></tr>
+    <tr class="rev" onclick="this.classList.add('shown')"><td class="k">Formality (1–5)</td><td><span class="ans">4</span></td><td><span class="ans">1–2</span></td><td><span class="ans">2</span></td><td><span class="ans">5</span></td></tr>
+    <tr class="rev" onclick="this.classList.add('shown')"><td class="k">What comes first</td><td><span class="ans">The news angle: "replace with shuttle"</span></td><td><span class="ans">What changes for me + the alternative</span></td><td><span class="ans">"Before you hear it anywhere else" + no lost hours</span></td><td><span class="ans">Formal notice + data + cost</span></td></tr>
+    <tr class="rev" onclick="this.classList.add('shown')"><td class="k">Audience words</td><td><span class="ans">FOR IMMEDIATE RELEASE · quote · third person</span></td><td><span class="ans">"Heads up, night riders!" · you · $3 · hashtag</span></td><td><span class="ans">"Team" · shifts · depot · "Grab me"</span></td><td><span class="ans">"Dear Members" · "reallocating" · "Respectfully"</span></td></tr>
+    <tr class="rev" onclick="this.classList.add('shown')"><td class="k">Asks the reader to</td><td><span class="ans">Contact the press office</span></td><td><span class="ans">Book Night Hop; give feedback</span></td><td><span class="ans">Talk to the supervisor</span></td><td><span class="ans">Invite the GM to present</span></td></tr>
+    <tr class="rev" onclick="this.classList.add('shown')"><td class="k">Spot the spin</td><td><span class="ans">"replace… with" (sounds like an upgrade)</span></td><td><span class="ans">plain: "will end"</span></td><td><span class="ans">plain: "stop running"</span></td><td><span class="ans">"service adjustment," "reallocating"</span></td></tr>
+  </table>
+  <div class="foot"><span>Click each row after pairs answer</span><span class="pg"></span></div>
+  <aside class="n">Ask pairs for each row before you click. Link the spin row to Week 5 (euphemism). Ask: "Why do riders and drivers get plain words?" (They would see through spin immediately.)</aside>
+</section>
+
+<!-- 21 SWAPS -->
+<section class="slide">
+  <p class="eyebrow"><span class="tag s">Study</span> Stage 4 · Changing register</p>
+  <h2 style="margin-bottom:24px">Informal ↔ formal</h2>
+  <div class="swap">
+    <div class="i">Heads up!</div><div class="ar">↔</div><div class="f">I am writing to inform you that…</div>
+    <div class="i">We're cutting…</div><div class="ar">↔</div><div class="f">We will discontinue… / We are adjusting…</div>
+    <div class="i">We know it's a pain.</div><div class="ar">↔</div><div class="f">We recognize this may cause inconvenience.</div>
+    <div class="i">Grab me if you have questions.</div><div class="ar">↔</div><div class="f">I would welcome the opportunity to discuss…</div>
+    <div class="i">Nobody's losing hours.</div><div class="ar">↔</div><div class="f">There will be no reduction in staff hours.</div>
+  </div>
+  <p style="margin-top:26px"><b>Rule of thumb:</b> lead with what this audience cares about most. Keep the facts the same.</p>
+  <div class="foot"><span>Pairs: read one swap in each direction. Then write your two rules.</span><span class="pg"></span></div>
+  <aside class="n">4 minutes, then 3 minutes for rules. Collect two or three rules aloud and write the best one on the board.</aside>
+</section>
+
+<!-- 22 GRID MODEL -->
+<section class="slide">
+  <p class="eyebrow"><span class="tag a">Activate</span> Stage 5 · Model: the audience grid</p>
+  <h2 style="margin-bottom:16px">Brightline Transit: who matters, and how will they feel?</h2>
+  <div class="matrix">
+    <div class="ax v">High influence</div>
+    <div class="q rev" onclick="this.classList.add('shown')"><b>Likely to support</b><span class="ans">City council budget committee (saves money)</span></div>
+    <div class="q rev" onclick="this.classList.add('shown')"><b>Likely to oppose</b><span class="ans">Local media looking for a human story; the drivers' union, if worried</span></div>
+    <div class="ax v">Low influence</div>
+    <div class="q rev" onclick="this.classList.add('shown')"><b>Likely to support</b><span class="ans">Riders on Routes 4 and 12 (more buses)</span></div>
+    <div class="q rev" onclick="this.classList.add('shown')" style="border:4px solid var(--engage)"><b>Likely to oppose</b><span class="ans">Late-night riders, often shift workers. One TV story can move them to "high influence."</span></div>
+    <div></div><div class="ax h"><span>← supports</span><span>opposes →</span></div>
+  </div>
+  <div class="foot"><span>Audiences move on the grid when the media gets involved.</span><span class="pg"></span></div>
+  <aside class="n">4 minutes. Think aloud as you click. Key point: late-night riders look powerless, but they have the most sympathetic story, so the media can make them very powerful. Core message: "Late-night riders will still get home: Night Hop replaces Route 9 after 11 p.m., and no driver loses hours."</aside>
+</section>
+
+<!-- 23 LAB -->
+<section class="slide">
+  <p class="eyebrow"><span class="tag a">Activate</span> Stage 5 · Audience Map Lab</p>
+  <h2>Your scenario. Your audiences. One core message.</h2>
+  <div class="four">
+    <div class="box"><h3>0–8 min</h3><p>List five or more audiences. Place each one on the grid.</p></div>
+    <div class="box"><h3>8–15 min</h3><p>Choose your priority audience and explain why.</p></div>
+    <div class="box"><h3>15–25 min</h3><p>Write one core message, then opening lines for two very different audiences.</p></div>
+    <div class="box"><h3>25–30 min</h3><p>Say both lines out loud. A different person says each one.</p></div>
+  </div>
+  <p style="margin-top:30px"><b>Rule:</b> the core message stays the same. The order, words, and formality change.</p>
+  <div class="foot"><span class="stimer" data-sec="1500"><span class="l">Lab</span><span class="clock">25:00</span><button type="button">Start</button></span><span class="pg"></span></div>
+  <aside class="n">Hand out scenario cards 1–9, one per team. At minute 15, check each core message: if it changes between audiences, send the team back to fix it.</aside>
+</section>
+
+<!-- 24 CHANGE THE AUDIENCE SETUP -->
+<section class="slide">
+  <p class="eyebrow"><span class="tag a">Activate</span> Stage 6 · Change the Audience</p>
+  <h2 style="margin-bottom:20px">Teams 1+2 · 3+4 · 5+6 · 7+8+9</h2>
+  <div class="twocol">
+    <div class="box"><h3>One round (about 4 minutes per team)</h3><ol><li>The other team draws your audience card and becomes that audience.</li><li>Prepare: 1 minute.</li><li>Spokesperson delivers: 30–45 seconds.</li><li>The audience asks one tough question.</li><li>The audience gives feedback.</li></ol></div>
+    <div class="box"><h3>Three rounds</h3><ul><li><b>Round 1:</b> a regular audience</li><li><b>Round 2:</b> a new audience; use your feedback</li><li><b>Round 3:</b> a hostile audience</li></ul><p class="small">A new spokesperson every round.</p></div>
+  </div>
+  <div class="cardgrid" style="margin-top:24px">
+    <div>Employees</div><div>Loyal customers</div><div>Investors</div><div class="h">Angry commenters</div>
+  </div>
+  <div class="foot"><span>Teams 7, 8 and 9 rotate: 7 → 8 → 9 → 7</span><span class="pg"></span></div>
+  <aside class="n">3 minutes to set up. Give each table an audience-card deck, with the hostile cards kept separate for Round 3.</aside>
+</section>
+
+<!-- 25 ROUND TIMER -->
+<section class="slide dark">
+  <p class="eyebrow">Stage 6 · Rounds</p>
+  <h2>Round <span id="roundNo">1</span> of 3</h2>
+  <div style="display:flex;gap:30px;align-items:center;margin:20px 0 34px">
+    <span class="stimer" data-sec="480"><span class="l">Round</span><span class="clock">8:00</span><button type="button">Start</button></span>
+    <button type="button" class="btn" id="nextRound">Next round</button>
+  </div>
+  <p class="lead" id="roundTip">Regular audience. Find out what they care about, and say it early.</p>
+  <div class="foot"><span>Switch teams at about 4 minutes</span><span class="pg"></span></div>
+  <aside class="n">24 minutes in total. Press "Next round" to change the round number and tip, then restart the timer. Before Round 3, read the hostile-audience tip aloud.</aside>
+</section>
+
+<!-- 26 FEEDBACK -->
+<section class="slide">
+  <p class="eyebrow"><span class="tag a">Activate</span> Stage 6 · Feedback</p>
+  <h2>When you are the audience</h2>
+  <div class="twocol">
+    <div class="box"><h3>Checklist</h3><ul><li><b>Register:</b> did the tone fit us?</li><li><b>Our concern:</b> did they speak to it early?</li><li><b>One message:</b> can we repeat it in one sentence?</li><li><b>The question:</b> was it answered directly?</li></ul></div>
+    <div class="box" style="border-top-color:var(--engage)"><h3>Round 3 · Under pressure</h3><ul><li>I understand why you're concerned.</li><li>That's a fair question. The short answer is…</li><li>Let me address that directly.</li><li>What we can promise is…</li></ul></div>
+  </div>
+  <p style="margin-top:26px"><b>Feedback like a consultant:</b> "One thing that worked was… One thing to change is…"</p>
+  <div class="foot"><span>Debrief: what did you change between Round 1 and Round 3?</span><span class="pg"></span></div>
+  <aside class="n">Keep this on screen during Rounds 2 and 3 if you prefer. Debrief for 3 minutes after Round 3, praising specific phrases you heard.</aside>
+</section>
+
+<!-- 27 EXIT -->
+<section class="slide">
+  <p class="eyebrow">Stage 7 · Exit ticket</p>
+  <h2>On your own · 8 minutes</h2>
+  <ol>
+    <li>Explain the difference between a <b>stated</b> audience and a <b>real</b> audience. Use one example from today.</li>
+    <li>A message from your life that reached an audience it wasn't designed for. What happened?</li>
+    <li>One phrase you used today that you want to keep using.</li>
+    <li>Gillette got huge attention. How would you measure whether it really worked?</li>
+  </ol>
+  <div class="foot"><span class="stimer" data-sec="480"><span class="l">Individual</span><span class="clock">8:00</span><button type="button">Start</button></span><span class="pg"></span></div>
+  <aside class="n">8 minutes of writing, then 5 minutes: three students read their answer to question 2 aloud.</aside>
+</section>
+
+<!-- 28 PREVIEW -->
+<section class="slide dark">
+  <p class="eyebrow">Next week · Week 8</p>
+  <h2>Attention isn't success. So what is?</h2>
+  <p class="lead" style="color:#c1cddd">Can you measure communication? Which metric actually matters?<br>Same message, different audience: the tournament.</p>
+  <div class="pull" style="margin-top:40px;font-size:44px">This week: notice one ad or message. Ask yourself, "Who is this really for?"</div>
+  <div class="foot"><span>No writing needed. Just be ready to talk about it.</span><span class="pg"></span></div>
+  <aside class="n">2 minutes. No homework, only noticing.</aside>
+</section>
+
+<!-- 29 SOURCES -->
+<section class="slide">
+  <p class="eyebrow">Sources</p>
+  <h2 style="font-size:46px">Where today's facts come from</h2>
+  <ul style="font-size:22px;line-height:1.45">
+    <li style="font-size:22px">Wieden+Kennedy, "Old Spice: Smell Like a Man, Man" · wk.com/work/old-spice-smell-like-a-man-man</li>
+    <li style="font-size:22px">Muse by Clios, "Behind the Towel: An Oral History of the Legendary Old Spice Ad"</li>
+    <li style="font-size:22px">Old Spice, "The Man Your Man Could Smell Like," YouTube · youtube.com/watch?v=owGykVbfgUE</li>
+    <li style="font-size:22px">LBB Online, "Gillette Takes Aim at Toxic Masculinity in Bold Ad by Kim Gehrig," Jan. 14, 2019</li>
+    <li style="font-size:22px">MediaPost, "Gillette's 30-Year-Old 'Best a Man Can Get' Tag Gets a Sensitivity Massage," Jan. 2019</li>
+    <li style="font-size:22px">AFP via ABS-CBN News, "P&amp;G confident of payoff from Gillette's 'Me Too' ad," Jan. 24, 2019</li>
+    <li style="font-size:22px">The Drum, "P&amp;G says 'unprecedented' attention on Gillette ad hasn't impacted sales (yet)," Jan. 23, 2019</li>
+    <li style="font-size:22px">Marketing Week, "Gillette boss: Alienating some consumers with #metoo campaign was a price worth paying," 2019</li>
+    <li style="font-size:22px">CNBC, "Procter &amp; Gamble writes down Gillette business but remains confident in its future," July 30, 2019</li>
+    <li style="font-size:22px">United Airlines CEO email: as covered in Week 2 (CNBC, April 2017)</li>
+    <li style="font-size:22px">Brightline Transit and all Stage 5 scenarios are fictional, created for practice.</li>
+  </ul>
+  <div class="foot"><span>Links were checked in November 2026</span><span class="pg"></span></div>
+  <aside class="n">Reference only.</aside>
+</section>
+
+</div></div>
+
+<div id="notes"><b>Speaker notes · </b><span id="notetext"></span></div>
+<div id="bar"><span id="count">1 / 29</span><button type="button" id="bPrev">◀ Prev</button><button type="button" id="bNext">Next ▶</button><button type="button" id="bNotes">Notes (N)</button><button type="button" id="bFull">Fullscreen (F)</button></div>
+
+<script>
+(function(){
+  var stage=document.getElementById('stage'), slides=[].slice.call(document.querySelectorAll('.slide')), cur=0;
+  function fit(){ var s=Math.min(window.innerWidth/1920, window.innerHeight/1080); stage.style.transform='scale('+s+')'; }
+  window.addEventListener('resize',fit); fit();
+  slides.forEach(function(sl,k){ var pg=sl.querySelector('.pg'); if(pg) pg.textContent=k+1; });
+  var notesOn=false;
+  function show(i){
+    cur=Math.max(0,Math.min(slides.length-1,i));
+    slides.forEach(function(s,k){ s.classList.toggle('on',k===cur); });
+    document.getElementById('count').textContent=(cur+1)+' / '+slides.length;
+    var n=slides[cur].querySelector('aside.n'); document.getElementById('notetext').textContent=n?n.textContent:'';
+    try{ history.replaceState(null,'','#'+(cur+1)); }catch(e){}
+  }
+  function fromHash(){ var h=parseInt((location.hash||'').slice(1),10); show(isNaN(h)?0:h-1); }
+  fromHash(); window.addEventListener('hashchange',fromHash);
+  document.querySelectorAll('.flowgrid a').forEach(function(a){ a.addEventListener('click',function(e){ e.preventDefault(); show(parseInt(a.getAttribute('href').slice(1),10)-1); }); });
+  function toggleNotes(){ notesOn=!notesOn; document.getElementById('notes').classList.toggle('on',notesOn); }
+  function full(){ if(!document.fullscreenElement){ document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen(); } else { document.exitFullscreen&&document.exitFullscreen(); } }
+  function typing(e){ var t=e.target; return t && (t.isContentEditable || /INPUT|TEXTAREA|SELECT/.test(t.tagName)); }
+  document.addEventListener('keydown',function(e){
+    if(typing(e)) return;
+    if(['ArrowRight','PageDown',' '].indexOf(e.key)>-1){ e.preventDefault(); show(cur+1); }
+    else if(['ArrowLeft','PageUp'].indexOf(e.key)>-1){ e.preventDefault(); show(cur-1); }
+    else if(e.key==='n'||e.key==='N') toggleNotes();
+    else if(e.key==='f'||e.key==='F') full();
+    else if(e.key==='Home') show(0); else if(e.key==='End') show(slides.length-1);
+  });
+  document.getElementById('bPrev').onclick=function(){ show(cur-1); };
+  document.getElementById('bNext').onclick=function(){ show(cur+1); };
+  document.getElementById('bNotes').onclick=toggleNotes;
+  document.getElementById('bFull').onclick=full;
+
+  document.querySelectorAll('.stimer').forEach(function(t){
+    var total=+t.getAttribute('data-sec'), left=total, iv=null, clk=t.querySelector('.clock'), btn=t.querySelector('button');
+    function draw(){ var s=Math.max(0,Math.ceil(left)); clk.textContent=Math.floor(s/60)+':'+String(s%60).padStart(2,'0'); clk.classList.toggle('done',s===0); }
+    btn.addEventListener('click',function(e){
+      e.stopPropagation();
+      if(iv){ clearInterval(iv); iv=null; btn.textContent='Resume'; return; }
+      if(left<=0) left=total;
+      var end=Date.now()+left*1000; btn.textContent='Pause';
+      iv=setInterval(function(){ left=(end-Date.now())/1000; draw(); if(left<=0){ clearInterval(iv); iv=null; btn.textContent='Restart'; } },250);
+    });
+    t.resetTimer=function(){ clearInterval(iv); iv=null; left=total; btn.textContent='Start'; draw(); };
+    draw();
+  });
+
+  var tips=['Regular audience. Find out what they care about, and say it early.',
+            'New audience, new spokesperson. Use the feedback from Round 1.',
+            'Hostile audience. Acknowledge their concern in your first sentence. Answer the question directly.'];
+  var r=0;
+  document.getElementById('nextRound').addEventListener('click',function(){
+    r=(r+1)%3; document.getElementById('roundNo').textContent=r+1; document.getElementById('roundTip').textContent=tips[r];
+    var t=this.parentNode.querySelector('.stimer'); if(t&&t.resetTimer) t.resetTimer();
+  });
+})();
+</script>
+</body>
+</html>
