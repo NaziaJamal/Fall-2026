@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Study Note · The Layers of an Audience</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Public+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0c2340;--blue:#1c4f8f;--gold:#d39f10;--gold-dark:#8c7535;--sky:#edf2f9;--sky-2:#e1e8f2;--warm:#efe9d9;--ink:#1d2b44;--muted:#4f5f78;--line:#cfd9e6;
+  --tnote:#fff6dc;--serif:'Libre Baskerville',Georgia,serif;--sans:'Public Sans',Arial,sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:var(--sky);color:var(--ink);font-family:var(--sans);font-size:16.5px;line-height:1.55}
+.wrap{max-width:880px;margin:0 auto;padding:0 20px}
+header.mast{background:var(--navy);color:var(--sky);border-bottom:6px solid var(--gold)}
+header.mast .wrap{display:flex;gap:20px;align-items:center;padding:24px 20px}
+header.mast img{width:72px;height:72px;border-radius:6px;flex:none}
+.eyebrow{margin:0 0 4px;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+h1{margin:0;font:700 30px/1.2 var(--serif);color:#f6f2e7}
+header.mast p.sub{margin:6px 0 0;color:#c1cddd}
+.bar{background:#143865;padding:8px 0}
+.bar .wrap{display:flex;gap:10px;justify-content:flex-end}
+.bar button{font:600 14px var(--sans);background:var(--gold);color:var(--navy);border:none;border-radius:8px;padding:7px 14px;cursor:pointer}
+main{padding:22px 0 50px}
+section{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px 24px;margin-bottom:16px}
+h2{margin:0 0 10px;font:700 21px var(--serif);color:var(--navy);display:flex;gap:12px;align-items:center}
+h2 .n{width:34px;height:34px;border-radius:50%;background:var(--navy);color:var(--gold);display:inline-flex;align-items:center;justify-content:center;font-size:16px;flex:none}
+h3{margin:16px 0 6px;font:700 13px var(--sans);text-transform:uppercase;letter-spacing:.06em;color:var(--blue)}
+p{margin:8px 0}
+.big{font:700 19px/1.4 var(--serif);color:var(--navy);border-left:6px solid var(--gold);padding:4px 0 4px 16px;margin:12px 0}
+table{width:100%;border-collapse:collapse;margin:8px 0;font-size:15px}
+th{background:var(--navy);color:#fff;text-align:left;padding:8px}
+td{border:1px solid var(--line);padding:8px;vertical-align:top}
+td.k{background:var(--sky);font-weight:600}
+.layer{border:1px solid var(--line);border-left:6px solid var(--blue);border-radius:10px;padding:12px 16px;margin:12px 0;background:#fbfcfe}
+.layer.t{border-left-color:var(--gold);background:#fffdf6}
+.layer h4{margin:0 0 4px;font:700 18px var(--serif);color:var(--navy)}
+.layer .q{font-weight:700;color:var(--blue)}
+.layer ul{margin:6px 0;padding-left:20px}
+.ex{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:8px}
+.ex div{background:var(--sky);border-radius:8px;padding:8px 10px;font-size:14.5px}
+.ex b{display:block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--gold-dark)}
+@media(max-width:700px){.ex{grid-template-columns:1fr}}
+.rings{display:flex;justify-content:center;margin:10px 0}
+.err td:first-child{color:#a03a17}
+.err td:nth-child(2){color:#2f7a45}
+.tnote{background:var(--tnote);border:1px solid #ecd9a0;border-radius:10px;padding:10px 14px;margin:12px 0;font-size:15px}
+.tnote>b:first-child{display:block;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:4px}
+.tnote ul{margin:4px 0;padding-left:20px}
+details{margin:6px 0}
+summary{cursor:pointer;color:var(--blue);font-weight:600}
+.small{font-size:13.5px;color:var(--muted)}
+footer{font-size:13px;color:var(--muted);text-align:center;padding:18px}
+@media print{
+  .bar{display:none}
+  body{background:#fff;font-size:12.5px}
+  header.mast{background:#fff;color:#000;border-bottom:3px solid #000}
+  header.mast img{display:none} h1{color:#000} .eyebrow{color:#000} header.mast p.sub{color:#333}
+  section{border:1px solid #bbb;break-inside:auto}
+  .layer,.tnote{break-inside:avoid}
+  th{background:#ddd;color:#000}
+  h2 .n{background:#000;color:#fff}
+  details{display:block} details>*{display:block}
+}
+</style>
+</head>
+<body>
+<header class="mast"><div class="wrap">
+  <img src="data:image/jpeg;base64,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" alt="Approach International Student Center logo">
+  <div><p class="eyebrow">Strategic Communication · Week 7 · Study note</p>
+  <h1>The Layers of an Audience</h1>
+  <p class="sub">Who is really listening, and how to tell the difference</p></div>
+</div></header>
+<div class="bar"><div class="wrap"><button type="button" onclick="window.print()">Print / PDF</button></div></div>
+
+<main><div class="wrap">
+
+
+
+<section>
+  <h2><span class="n">1</span>The big idea</h2>
+  <p>When we say "audience," we often imagine one group of people. In strategic communication, an audience usually has <b>layers</b>: the people a message speaks to are not always the people who decide, the people who use the product, or the people the communicator most wants to change.</p>
+  <p class="big">The stated audience is who a message speaks to. The real audience is who it is designed to move, plus everyone else who will hear it.</p>
+  <p>A strategist asks two questions before every message:</p>
+  <ol>
+    <li><b>Who am I talking to?</b></li>
+    <li><b>Who else will hear this, and how will they react?</b></li>
+  </ol>
+  <p>Remember Week 2: United's CEO wrote an email to employees. It was published by the media, and everyone read it. <b>There is no such thing as an internal message.</b></p>
+</section>
+
+<section>
+  <h2><span class="n">2</span>The seven layers</h2>
+  <p>Each layer comes with a question that helps you find it. The examples come from cases we studied: the Old Spice ad (2010), the United Airlines email (2017), and Apple's "Crush!" iPad ad (2024).</p>
+
+  <div class="layer">
+    <h4>1 · Addressed (stated) audience</h4>
+    <p><span class="q">Ask: Who does the message openly speak to?</span> Look at greetings ("Hello, ladies"), the word "you," the channel, and the topic.</p>
+    <div class="ex"><div><b>Old Spice</b>Women: "Hello, ladies."</div><div><b>United</b>United employees</div><div><b>Apple</b>Everyone watching the iPad Pro launch</div></div>
+  </div>
+
+  <div class="layer">
+    <h4>2 · Decision-maker</h4>
+    <p><span class="q">Ask: Who says yes, pays, signs, or votes?</span> This is the person whose decision creates the result.</p>
+    <div class="ex"><div><b>Old Spice</b>Mostly women: about 60% of body-wash purchases</div><div><b>Brightline (fictional)</b>The city council approves the budget</div><div><b>Everyday example</b>A parent who pays for a child's phone plan</div></div>
+  </div>
+
+  <div class="layer">
+    <h4>3 · End user</h4>
+    <p><span class="q">Ask: Who actually uses the product or service?</span> The end user and the decision-maker are often different people.</p>
+    <div class="ex"><div><b>Old Spice</b>Men</div><div><b>Brightline (fictional)</b>Late-night bus riders</div><div><b>Everyday example</b>The child who uses the phone</div></div>
+  </div>
+
+  <div class="layer">
+    <h4>4 · Influencer</h4>
+    <p><span class="q">Ask: Whose opinion shapes the decision-maker?</span> Influencers do not decide, but they push the decision. They can be family members, colleagues, experts, journalists, or people sharing posts online.</p>
+    <div class="ex"><div><b>Old Spice</b>The men themselves; people sharing the ad online</div><div><b>Brightline (fictional)</b>Local media telling riders' stories</div><div><b>Everyday example</b>A friend who recommends a phone brand</div></div>
+  </div>
+
+  <div class="layer">
+    <h4>5 · Unintended audience</h4>
+    <p><span class="q">Ask: Who will receive this message even though it was not designed for them?</span> Unintended audiences can be a disaster or a gift.</p>
+    <div class="ex"><div><b>United</b>The public, after the email was published (a disaster)</div><div><b>Old Spice</b>Millions of online viewers who never buy body wash (free publicity)</div><div><b>Everyday example</b>A screenshot of a private message</div></div>
+  </div>
+
+  <div class="layer">
+    <h4>6 · Hostile audience</h4>
+    <p><span class="q">Ask: Who is likely to reject or attack this message?</span> A hostile audience can be inside your stated audience. Planning for them early is part of strategy.</p>
+    <div class="ex"><div><b>Apple</b>Musicians, artists and filmmakers who saw their tools crushed</div><div><b>United</b>Customers who were already angry about the video</div><div><b>Everyday example</b>Employees reading an announcement about job cuts</div></div>
+  </div>
+
+  <div class="layer t">
+    <h4>7 · Target (real) audience</h4>
+    <p><span class="q">Ask: Whose belief or behavior does the communicator most want to change?</span> This is the layer that decides whether the message succeeded. It is usually found by looking at the evidence, not at the greeting.</p>
+    <div class="ex"><div><b>Old Spice</b>Couples: women who buy and men who agree to switch</div><div><b>Apple</b>Creative people: Apple says it wants to "empower creatives all over the world"</div><div><b>Brightline (fictional)</b>Late-night riders, who must still get home</div></div>
+  </div>
+
+
+</section>
+
+<section>
+  <h2><span class="n">3</span>Telling the layers apart</h2>
+  <p>Some layers are easy to mix up. These pairs cause the most confusion:</p>
+  <table>
+    <tr><th style="width:26%">Pair</th><th>The difference</th><th style="width:30%">Quick test</th></tr>
+    <tr><td class="k">Addressed vs. target</td><td>The addressed audience is who you <i>speak to</i>. The target is who you want to <i>move</i>. They can be the same group, but in clever campaigns they often are not.</td><td>"If only this group changed, would the campaign succeed?"</td></tr>
+    <tr><td class="k">Decision-maker vs. end user</td><td>One decides or pays; the other uses.</td><td>"Who takes out the wallet? Who opens the box?"</td></tr>
+    <tr><td class="k">Decision-maker vs. influencer</td><td>The decision-maker has the final say. The influencer only shapes it.</td><td>"Can this person say no and stop it?"</td></tr>
+    <tr><td class="k">Unintended vs. hostile</td><td>Unintended describes <i>who receives it</i>. Hostile describes <i>how they react</i>. An unintended audience can be friendly, and a hostile audience can be the people you addressed.</td><td>"Were they planned for? Separately: do they oppose us?"</td></tr>
+  </table>
+  <h3>Three things to remember</h3>
+  <ul>
+    <li><b>One person can be in several layers.</b> A woman who sees the Old Spice ad and buys it for her partner is the addressed audience, the decision-maker, and part of the target.</li>
+    <li><b>Layers can move.</b> Late-night riders have little power, until a TV report tells their story. Then they become very influential.</li>
+    <li><b>Not every message has every layer.</b> Use the layers as questions, not as boxes you must fill.</li>
+  </ul>
+
+</section>
+
+<section>
+  <h2><span class="n">4</span>How to find the real audience</h2>
+  <p>Companies rarely announce their real target. Look for evidence:</p>
+  <table>
+    <tr><th style="width:28%">Evidence</th><th>What it tells you</th><th style="width:32%">Example</th></tr>
+    <tr><td class="k">Where and when it appears</td><td>Media placement shows who the company is paying to reach.</td><td>Old Spice placed its ads where couples would watch together.</td></tr>
+    <tr><td class="k">What is measured</td><td>The success metric reveals the real goal.</td><td>Old Spice measured body-wash sales, not only views.</td></tr>
+    <tr><td class="k">What the company says later</td><td>Interviews, earnings calls, and case studies often reveal the strategy.</td><td>Apple's apology: it wants to "empower creatives"</td></tr>
+    <tr><td class="k">How the company reacts to criticism</td><td>A fast apology shows which group the company cannot afford to lose.</td><td>Apple apologized to creatives within two days.</td></tr>
+    <tr><td class="k">The words and register</td><td>Formality, pronouns, and vocabulary show who the writer imagines.</td><td>The four Brightline messages (Stage 4)</td></tr>
+  </table>
+</section>
+
+<section>
+  <h2><span class="n">5</span>Language for talking about audiences</h2>
+  <h3>Useful verbs and collocations</h3>
+  <table>
+    <tr><th style="width:34%">Expression</th><th>Example</th></tr>
+    <tr><td class="k">target (a group)</td><td>The campaign targeted younger buyers.</td></tr>
+    <tr><td class="k">address (a group)</td><td>The ad addresses women directly.</td></tr>
+    <tr><td class="k">speak to / appeal to</td><td>The humor appeals to both partners.</td></tr>
+    <tr><td class="k">reach</td><td>The email reached a much wider audience than planned.</td></tr>
+    <tr><td class="k">resonate with</td><td>The message resonated with younger viewers.</td></tr>
+    <tr><td class="k">alienate</td><td>The film alienated some loyal customers.</td></tr>
+    <tr><td class="k">core customers</td><td>A rebrand must be careful not to lose its core customers.</td></tr>
+  </table>
+  <h3>Making careful claims about audiences</h3>
+  <ul>
+    <li>On the surface, the message speaks to…, but the real target seems to be…</li>
+    <li>The evidence suggests that the company was trying to reach…</li>
+    <li>It's likely that the decision-maker here is…, although the end user is…</li>
+    <li>The message may have been designed for…, but it also reached…</li>
+    <li>That doesn't necessarily prove that… (correlation isn't causation)</li>
+  </ul>
+  <h3>Common mistakes</h3>
+  <table class="err">
+    <tr><th>Avoid</th><th>Say instead</th><th>Why</th></tr>
+    <tr><td>The ad addresses to women.</td><td>The ad addresses women.</td><td>"Address" (meaning "speak to") takes no preposition.</td></tr>
+    <tr><td>The campaign targets to young people.</td><td>The campaign targets young people. / is aimed at young people.</td><td>"Target" takes no preposition; "aim" takes "at."</td></tr>
+    <tr><td>The message resonated young people.</td><td>The message resonated with young people.</td><td>"Resonate" needs "with."</td></tr>
+    <tr><td>They lost the audience's trusts.</td><td>They lost the audience's trust.</td><td>"Trust" is uncountable.</td></tr>
+    <tr><td>The audiences was angry.</td><td>The audience was angry.</td><td>One audience = singular. Use "audiences" for different groups.</td></tr>
+  </table>
+  <h3>Pronunciation</h3>
+  <p><b>AU</b>-di-ence · de-mo-<b>GRAPH</b>-ic · <b>STAKE</b>-hold-er · <b>AY</b>-lee-en-ate (alienate) · <b>RES</b>-o-nate (resonate) · <b>IN</b>-flu-en-cer</p>
+
+</section>
+
+<section>
+  <h2><span class="n">6</span>Check yourself</h2>
+  <p>Which layer is the group in <b>bold</b>? All situations are invented for practice.</p>
+  <table>
+    <tr><th style="width:6%">#</th><th>Situation</th><th style="width:26%">Layer</th></tr>
+    <tr><td>1</td><td>A university writes a tuition letter to students, but <b>parents</b> pay most of the fees.</td><td><details><summary>Answer</summary>Decision-maker</details></td></tr>
+    <tr><td>2</td><td>A company emails a new policy to staff. A <b>journalist</b> posts a screenshot of it.</td><td><details><summary>Answer</summary>Unintended audience</details></td></tr>
+    <tr><td>3</td><td>A toy ad speaks to children, but the company mainly wants <b>parents</b> to buy the toy.</td><td><details><summary>Answer</summary>Target audience (and decision-maker)</details></td></tr>
+    <tr><td>4</td><td>A hospital announces shorter visiting hours. <b>Families of long-stay patients</b> start a petition.</td><td><details><summary>Answer</summary>Hostile audience</details></td></tr>
+    <tr><td>5</td><td>A software company sells to managers, but <b>the employees</b> use the software every day.</td><td><details><summary>Answer</summary>End user</details></td></tr>
+    <tr><td>6</td><td>A <b>food blogger</b> with many followers reviews a new restaurant.</td><td><details><summary>Answer</summary>Influencer</details></td></tr>
+    <tr><td>7</td><td>A city's press release begins, "<b>Dear residents</b>…"</td><td><details><summary>Answer</summary>Addressed (stated) audience</details></td></tr>
+  </table>
+  <h3>Think further</h3>
+  <ol>
+    <li>Think of a message from your work or life. Name at least four of its layers.</li>
+    <li>Choose an ad you saw this week. Who does it address? Who do you think is its real target? What is your evidence?</li>
+  </ol>
+
+</section>
+
+<section class="small">
+  <b>Sources for the real cases:</b> Wieden+Kennedy, "Old Spice: Smell Like a Man, Man" (case study); Muse by Clios, "Behind the Towel: An Oral History of the Legendary Old Spice Ad"; Ad Age, as reported by 9to5Mac and Macworld (May 2024), on Apple's "Crush!" apology; Week 2 materials on the United Airlines email (CNBC, April 2017). Brightline Transit and all "Check yourself" situations are invented for practice.
+</section>
+
+</div></main>
+<footer>Approach International Student Center · Strategic Communication · Week 7 study note</footer>
+</body>
+</html>
